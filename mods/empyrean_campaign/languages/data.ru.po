@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 10:41+\n"
+"POT-Creation-Date: 2018-02-10 15:22+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -34,6 +34,10 @@ msgstr "DEV Сапоги Невидемости"
 #: ../items/items.txt:69
 msgid "Use: Turn Invisible"
 msgstr "Использование: Включается Невидемость"
+
+#: ../items/types.txt:5
+msgid "Ancient Relic"
+msgstr ""
 
 #: ../items/sets.txt:3
 msgid "St. Maria Garb"
@@ -412,6 +416,22 @@ msgstr "Гоблин-Соник"
 #, fuzzy
 msgid "Shocker Skeleton"
 msgstr "Шокирующий Скелет"
+
+#: ../enemies/lvl15_arzoz.txt:3
+msgid "Arzoz"
+msgstr ""
+
+#: ../enemies/lvl15_kayl.txt:3
+msgid "Kayl"
+msgstr ""
+
+#: ../enemies/lvl15_lorund.txt:3
+msgid "Lorund"
+msgstr ""
+
+#: ../enemies/lvl15_nerin.txt:3
+msgid "Nerin"
+msgstr ""
 
 #: ../enemies/lvl15_vohn.txt:4
 msgid "Vohn"
@@ -939,6 +959,15 @@ msgstr ""
 msgid "Nazia Underground waypoint discovered."
 msgstr "Найден телепорт подземелья Назии."
 
+#: ../maps/oasis.txt:12
+msgid "Oasis"
+msgstr ""
+
+#: ../maps/oasis.txt:520
+#, fuzzy
+msgid "Underworld Mines"
+msgstr "Заброшенная Шахта"
+
 #: ../maps/perdition_harbor.txt:170
 msgid "Shared Stash"
 msgstr "Общие Запасы"
@@ -1029,24 +1058,24 @@ msgstr "Алтарь"
 msgid "Torture Chambers"
 msgstr "Пыточные камеры"
 
-#: ../maps/torture_chambers.txt:447
+#: ../maps/torture_chambers.txt:343
 msgid "Underworld"
 msgstr "Ад"
 
-#: ../maps/torture_chambers.txt:661
+#: ../maps/torture_chambers.txt:557
 msgid "Upon touching the book, you are teleported to a strange room."
 msgstr "Вы прикасаетесь к книге и тут же телепортируютесь в странную комнату"
 
-#: ../maps/torture_chambers.txt:665
+#: ../maps/torture_chambers.txt:561
 #, fuzzy
 msgid "Bookshelf"
 msgstr "Книжная полка"
 
-#: ../maps/torture_chambers.txt:674
+#: ../maps/torture_chambers.txt:570
 msgid "The warden's notes vanish!"
 msgstr "Записи надзирателя исчезли!"
 
-#: ../maps/torture_chambers.txt:750
+#: ../maps/torture_chambers.txt:646
 #, fuzzy
 msgid "Warden's Crate"
 msgstr "Ящик Надзирателя"
@@ -1055,11 +1084,6 @@ msgstr "Ящик Надзирателя"
 #, fuzzy
 msgid "Underworld Catacombs waypoint discovered."
 msgstr "Найден телепорт Каменного леса."
-
-#: ../maps/underworld_catacombs.txt:564
-#, fuzzy
-msgid "Underworld Mines"
-msgstr "Заброшенная Шахта"
 
 #: ../maps/wizards_tower_1.txt:341
 #, fuzzy
@@ -1311,6 +1335,26 @@ msgstr "Вы благопалучно прошли ловушки смотрит
 msgid "You disabled the barriers in the Torture Chambers."
 msgstr "Вы отключил барьеры в Пыточных Камерах"
 
+#: ../quests/011_martigan.txt:1
+msgid "Fallen Comrades"
+msgstr ""
+
+#: ../quests/011_martigan.txt:6
+msgid "Martigan has asked you to destroy the undead corpses of his former companions. He has also asked that you return with proof that you have done so."
+msgstr ""
+
+#: ../quests/011_martigan.txt:11
+msgid "You have slain Lorund and recovered his sword."
+msgstr ""
+
+#: ../quests/011_martigan.txt:16
+msgid "You have slain Nerin and recovered her bow."
+msgstr ""
+
+#: ../quests/011_martigan.txt:21
+msgid "You have slain Kayl and recovered her staff."
+msgstr ""
+
 #: ../npcs/abasi.txt:1
 msgid "Abasi, Traveling Merchant"
 msgstr "Абаси, Странствующий Торговец"
@@ -1551,6 +1595,39 @@ msgstr "(Вы касаетесь обелиска, но ничего не про
 #: ../npcs/loren.txt:1
 msgid "Loren, Undead Trader"
 msgstr "Лорен, торговец-нежить"
+
+#: ../npcs/martigan.txt:1
+msgid "Martigan"
+msgstr ""
+
+#: ../npcs/martigan.txt:19
+msgid "You there! I need your help. I'm the last of my group, and want nothing more than to leave this place."
+msgstr ""
+
+#: ../npcs/martigan.txt:20
+msgid "Yet I have one remaining task. I wish to visit the graves of my three fallen partners one last time."
+msgstr ""
+
+#: ../npcs/martigan.txt:21
+msgid "To my disadvantage, their bodies have been taken by the soil here. They tried to attack me when I got near."
+msgstr ""
+
+#: ../npcs/martigan.txt:22
+msgid "If you can prove to me that they are free them from their cursed form, I will be in your debt."
+msgstr ""
+
+#: ../npcs/martigan.txt:23
+msgid "I can't assist you myself, but I can offer some of my wares."
+msgstr ""
+
+#: ../npcs/martigan.txt:28
+#, fuzzy
+msgid "Zombies"
+msgstr "Зомби"
+
+#: ../npcs/martigan.txt:38
+msgid "Indeed, these items belonged to my companions. I want you to take this as a reward."
+msgstr ""
 
 #: ../npcs/ort.txt:1
 msgid "Ort, Goblin Packrat"
@@ -1832,295 +1909,6 @@ msgstr "-К"
 msgid "Read the book on the second shelf of the nearest bookshelf."
 msgstr ""
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Холщовая рубашка полководца"
-
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Холщовая рубашка стрелка"
-
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Холщовая рубашка архимага"
-
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Холщовые штаны полководца"
-
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Холщовые штаны стрелка"
-
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Холщовые штаны архимага"
-
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Холщовые сандалии полководца"
-
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Холщовые сандалии стрелка"
-
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Холщовые сандалии архимага"
-
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Холщовые перчатки полководца"
-
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Холщовые перчатки стрелка"
-
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Холщовые перчатки архимага"
-
-#: ../items/categories/level_4.txt:149
-#, fuzzy
-msgid "Master Leather Belt"
-msgstr "Кожаный ремень странника"
-
-#: ../items/categories/level_4.txt:160
-#, fuzzy
-msgid "Master Pendant"
-msgstr "Кожаные штаны"
-
-#: ../items/categories/level_4.txt:171
-#, fuzzy
-msgid "Master Spellbook"
-msgstr "Импульсное кольцо магистра"
-
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Кинжал полководца"
-
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Рогатка стрелка"
-
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Жезл архимага"
-
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Деревянный щит храмовника"
-
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Огненное кольцо магистра"
-
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Ледяное кольцо магистра"
-
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Громовое кольцо магистра"
-
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Тёмное кольцо магистра"
-
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Кольцо опыта магистра"
-
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Кольцо богатства магистра"
-
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "Кольцо сокровищ магистра"
-
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Латный шлем воина"
-
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Латный шлем странника"
-
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Вельветовый капюшон мага"
-
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Curiass"
-msgstr "Латная кираса воина"
-
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Curiass"
-msgstr "Латная кираса странника"
-
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Вельветовый жилет мага"
-
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Латные поножи воина"
-
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Латные поножи странника"
-
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Вельветовый подол мага"
-
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Латные сапоги воина"
-
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Латные сапоги странника"
-
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Вельветовые сапоги мага"
-
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Латные рукавицы воина"
-
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Латные рукавицы странника"
-
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Вельветовые наручи мага"
-
-#: ../items/categories/level_15.txt:185
-#, fuzzy
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Кожаный ремень полководца"
-
-#: ../items/categories/level_15.txt:196
-#, fuzzy
-msgid "Adventurer Sniper Pendant"
-msgstr "Адское кольцо авантюриста"
-
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr ""
-
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Великий меч воина"
-
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Великий лук странника"
-
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Великий посох мага"
-
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Осадный щит паладина"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Адское кольцо авантюриста"
-
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Леденящее кольцо авантюриста"
-
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "Разрядное кольцо авантюриста"
-
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Полое кольцо авантюриста"
-
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Академическое кольцо авантюриста"
-
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Кольцо изобилия авантюриста"
-
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Кольцо-реликвия авантюриста"
-
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Молот Кролана"
-
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Важнейший инструмент каждого кузнеца."
-
-#: ../items/categories/level_4_unique.txt:18
-msgid "Goblin Branch"
-msgstr "Ветка гоблина"
-
-#: ../items/categories/level_4_unique.txt:19
-msgid "Mana flows inside its primitive exterior."
-msgstr "Под невзрачной внешностью скрывается поток маны."
-
-#: ../items/categories/level_4_unique.txt:33
-msgid "Ardwen's Gloves"
-msgstr "Перчатки Ардвина"
-
-#: ../items/categories/level_4_unique.txt:34
-msgid "These hands built a village."
-msgstr "Этими руками была построена деревня."
-
-#: ../items/categories/level_4_unique.txt:49
-msgid "Blood Tunic"
-msgstr "Кровавая накидка"
-
-#: ../items/categories/level_4_unique.txt:50
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Эта рубашка разогревает кровь носящего её."
-
-#: ../items/categories/level_4_unique.txt:63
-msgid "Dark Steppers"
-msgstr "Тёмноступы"
-
-#: ../items/categories/level_4_unique.txt:64
-msgid "Dancing through the shadows."
-msgstr "Танцуй среди теней."
-
-#: ../items/categories/level_4_unique.txt:77
-msgid "Seagate's Tri-pants"
-msgstr "Штаны Сигейта"
-
-#: ../items/categories/level_4_unique.txt:78
-msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
-msgstr "Эти рваные штаны хоть и выглядят обгоревшими, но холодны на ощупь."
-
-#: ../items/categories/potions.txt:5
-msgid "Health Potion"
-msgstr "Зелье здоровья"
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Восстанавливает 25% жизни"
-
-#: ../items/categories/potions.txt:16
-msgid "Mana Potion"
-msgstr "Зелье маны"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "Восстанавливает 25% маны"
-
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
 msgstr "Боевой кожаный капюшон"
@@ -2239,245 +2027,569 @@ msgstr "Кольцо обогащения скитальца"
 msgid "Wandering Loot Ring"
 msgstr "Кольцо трофеев скитальца"
 
-#: ../items/categories/level_8_unique.txt:3
-msgid "Amir Blade"
-msgstr "Клинок Амира"
+#: ../items/categories/level_9.txt:5
+msgid "Chain Coif"
+msgstr "Кольчужный шлем"
 
-#: ../items/categories/level_8_unique.txt:4
-msgid "A remnant of those who guarded Fort Amir."
-msgstr "Напоминание о тех, кто защищал форт Амир."
+#: ../items/categories/level_9.txt:14
+msgid "Chain Curiass"
+msgstr "Кольчужная кираса"
 
-#: ../items/categories/level_8_unique.txt:18
-msgid "Huntsman Bow"
-msgstr "Охотничий лук"
+#: ../items/categories/level_9.txt:23
+msgid "Chain Greaves"
+msgstr "Кольчужные поножи"
 
-#: ../items/categories/level_8_unique.txt:19
-msgid "Compact enough to be deadly at all ranges of combat."
-msgstr "Достаточно компактный, чтобы оставаться смертельным на всех дистанциях."
+#: ../items/categories/level_9.txt:32
+msgid "Chain Boots"
+msgstr "Кольчужные сапоги"
 
-#: ../items/categories/level_8_unique.txt:33
-msgid "Greed Cowl"
-msgstr "Клобук жадности"
+#: ../items/categories/level_9.txt:41
+msgid "Chain Gloves"
+msgstr "Кольчужные перчатки"
 
-#: ../items/categories/level_8_unique.txt:34
-msgid "Riches fit for a queen."
-msgstr "Богатое королевское одеяние."
+#: ../items/categories/level_9.txt:50
+msgid "Silk Hood"
+msgstr "Шёлковый капюшон"
 
-#: ../items/categories/level_8_unique.txt:48
-msgid "Battle Leathers"
-msgstr "Боевые штаны из кожи"
+#: ../items/categories/level_9.txt:59
+msgid "Silk Vest"
+msgstr "Шёлковый жилет"
 
-#: ../items/categories/level_8_unique.txt:49
-msgid "Designed to keep its wearer moving forward."
-msgstr "Созданы для того, чтобы владелец двигался вперёд."
+#: ../items/categories/level_9.txt:68
+msgid "Silk Skirt"
+msgstr "Шёлковый подол"
 
-#: ../items/categories/level_8_unique.txt:63
-msgid "Escape Boots"
-msgstr "Сапоги-скороходы"
+#: ../items/categories/level_9.txt:77
+msgid "Silk Boots"
+msgstr "Шёлковые сапоги"
 
-#: ../items/categories/level_8_unique.txt:64
-msgid "Running away doesn't mean the battle is lost."
-msgstr "Убежать — не значит проиграть."
+#: ../items/categories/level_9.txt:86
+msgid "Silk Sleeves"
+msgstr "Шёлковые наручи"
 
-#: ../items/categories/level_8_unique.txt:78
-msgid "Mez's Wraps"
-msgstr "Накидка Мез"
+#: ../items/categories/level_9.txt:95
+msgid "Longsword"
+msgstr "Длинный меч"
 
-#: ../items/categories/level_8_unique.txt:79
-msgid "With its layers of reptilian skin, not much can penetrate this armor."
-msgstr "Не всякое оружие пробьёт эту слоёную броню из кожи дракона."
+#: ../items/categories/level_9.txt:104
+msgid "Longbow"
+msgstr "Длинный лук"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Кольчужный шлем полководца"
+#: ../items/categories/level_9.txt:113
+msgid "Staff"
+msgstr "Посох"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Кольчужный шлем стрелка"
+#: ../items/categories/level_9.txt:122
+msgid "Crest Shield"
+msgstr "Гербовый щит"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Шёлковый капюшон архимага"
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Кожаный капюшон полководца"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Curiass"
-msgstr "Кольчужная кираса полководца"
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Кожаный капюшон стрелка"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Curiass"
-msgstr "Кольчужная кираса стрелка"
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Шерстяной капюшон архимага"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Шёлковый жилет архимага"
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Кожаная накидка полководца"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Кольчужные поножи полководца"
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Кожаная накидка стрелка"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Кольчужные поножи стрелка"
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Шерстяной жилет архимага"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Шёлковый подол архимага"
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Кожаные штаны полководца"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Кольчужные сапоги полководца"
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Кожаные штаны стрелка"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Кольчужные сапоги стрелка"
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Шерстяной подол архимага"
 
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Шёлковые сапоги архимага"
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Кожаные сапоги полководца"
 
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Кольчужные перчатки полководца"
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Кожаные сапоги стрелка"
 
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Кольчужные перчатки стрелка"
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Шерстяные сапоги архимага"
 
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Шёлковые наручи архимага"
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Кожаные перчатки полководца"
 
-#: ../items/categories/level_12.txt:185
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Кожаные перчатки стрелка"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Шерстяные наручи архимага"
+
+#: ../items/categories/level_8.txt:185
 #, fuzzy
-msgid "Master Warrior Leather Belt"
-msgstr "Кожаный ремень воина"
+msgid "Master Fighting Leather Belt"
+msgstr "Боевой кожаный ремень"
 
-#: ../items/categories/level_12.txt:196
+#: ../items/categories/level_8.txt:196
 #, fuzzy
-msgid "Master Ranger Pendant"
-msgstr "Адское кольцо магистра"
+msgid "Master Recon Pendant"
+msgstr "Кольцо-реликвия магистра"
 
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr ""
+#: ../items/categories/level_8.txt:207
+#, fuzzy
+msgid "Master Sorcerer Spellbook"
+msgstr "Шёлковый капюшон колдуна"
 
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Длинный меч полководца"
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Короткий меч полководца"
 
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Длинный лук стрелка"
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Короткий лук стрелка"
 
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Посох архимага"
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Скипетр архимага"
 
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Гербовый щит храмовника"
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Железный щит храмовника"
 
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Воспламеняющее кольцо магистра"
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Обжигающее кольцо магистра"
 
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
 msgstr "Морозящее кольцо магистра"
 
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Импульсное кольцо магистра"
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Электрическое кольцо магистра"
 
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Сумрачное кольцо магистра"
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Теневое кольцо магистра"
 
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Интеллектуальное кольцо магистра"
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Кольцо знаний магистра"
 
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Доходное кольцо магистра"
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Кольцо обогащения магистра"
 
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Кольцо-артефакт магистра"
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Кольцо трофеев магистра"
 
-#: ../items/categories/scrolls.txt:5
-msgid "Summon Zombie Scroll"
-msgstr "Свиток призыва зомби"
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Холщовая рубашка воина"
 
-#: ../items/categories/scrolls.txt:8
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Холщовая рубашка странника"
+
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Холщовая рубашка мага"
+
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Холщовые штаны воина"
+
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Холщовые штаны странника"
+
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Холщовые штаны мага"
+
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Холщовые сандалии воина"
+
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Холщовые сандалии странника"
+
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Холщовые сандалии мага"
+
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Холщовые перчатки воина"
+
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Холщовые перчатки странника"
+
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Холщовые перчатки мага"
+
+#: ../items/categories/level_3.txt:123
 #, fuzzy
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Использование: призыв зомби"
+msgid "Adventurer Leather Belt"
+msgstr "Кожаный ремень колдуна"
 
-#: ../items/categories/scrolls.txt:16
+#: ../items/categories/level_3.txt:132
 #, fuzzy
-msgid "Perdition Scroll"
-msgstr "Пристанище обречённых"
+msgid "Adventurer Pendant"
+msgstr "авантюрист"
 
-#: ../items/categories/scrolls.txt:19
+#: ../items/categories/level_3.txt:141
 #, fuzzy
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Использование: телепортация в указанное местоположение."
+msgid "Adventurer Spellbook"
+msgstr "Импульсное кольцо авантюриста"
 
-#: ../items/categories/scrolls.txt:27
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Кинжал воина"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Рогатка странника"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Жезл мага"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Деревянный щит паладина"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Огненное кольцо авантюриста"
+
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Ледяное кольцо авантюриста"
+
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Громовое кольцо авантюриста"
+
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Тёмное кольцо авантюриста"
+
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Кольцо опыта авантюриста"
+
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Кольцо богатства авантюриста"
+
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Кольцо сокровищ авантюриста"
+
+#: ../items/categories/level_13.txt:5
+msgid "Plate Helmet"
+msgstr "Латный шлем"
+
+#: ../items/categories/level_13.txt:14
+msgid "Plate Curiass"
+msgstr "Латная кираса"
+
+#: ../items/categories/level_13.txt:23
+msgid "Plate Greaves"
+msgstr "Латные поножи"
+
+#: ../items/categories/level_13.txt:32
+msgid "Plate Boots"
+msgstr "Латные сапоги"
+
+#: ../items/categories/level_13.txt:41
+msgid "Plate Gauntlets"
+msgstr "Латные рукавицы"
+
+#: ../items/categories/level_13.txt:50
+msgid "Velvet Hood"
+msgstr "Вельветовый капюшон"
+
+#: ../items/categories/level_13.txt:59
+msgid "Velvet Vest"
+msgstr "Вельветовый жилет"
+
+#: ../items/categories/level_13.txt:68
+msgid "Velvet Skirt"
+msgstr "Вельветовый подол"
+
+#: ../items/categories/level_13.txt:77
+msgid "Velvet Boots"
+msgstr "Вельветовые сапоги"
+
+#: ../items/categories/level_13.txt:86
+msgid "Velvet Sleeves"
+msgstr "Вельветовые наручи"
+
+#: ../items/categories/level_13.txt:95
+msgid "Greatsword"
+msgstr "Великий меч"
+
+#: ../items/categories/level_13.txt:104
+msgid "Greatbow"
+msgstr "Великий лук"
+
+#: ../items/categories/level_13.txt:113
+msgid "Greatstaff"
+msgstr "Великий посох"
+
+#: ../items/categories/level_13.txt:122
+msgid "Tower Shield"
+msgstr "Осадный щит"
+
+#: ../items/categories/level_2.txt:5
+msgid "Fighting Cloth Shirt"
+msgstr "Боевая холщовая рубашка"
+
+#: ../items/categories/level_2.txt:15
+msgid "Recon Cloth Shirt"
+msgstr "Холщовая рубашка лазутчика"
+
+#: ../items/categories/level_2.txt:25
+msgid "Sorcerer Cloth Shirt"
+msgstr "Холщовая рубашка колдуна"
+
+#: ../items/categories/level_2.txt:35
+msgid "Fighting Cloth Pants"
+msgstr "Боевые холщовые штаны"
+
+#: ../items/categories/level_2.txt:45
+msgid "Recon Cloth Pants"
+msgstr "Холщовые штаны лазутчика"
+
+#: ../items/categories/level_2.txt:55
+msgid "Sorcerer Cloth Pants"
+msgstr "Холщовые штаны колдуна"
+
+#: ../items/categories/level_2.txt:64
+msgid "Fighting Cloth Sandals"
+msgstr "Боевые холщовые сандалии"
+
+#: ../items/categories/level_2.txt:74
+msgid "Recon Cloth Sandals"
+msgstr "Холщовые сандалии лазутчика"
+
+#: ../items/categories/level_2.txt:83
+msgid "Sorcerer Cloth Sandals"
+msgstr "Холщовые сандалии колдуна"
+
+#: ../items/categories/level_2.txt:92
+msgid "Fighting Cloth Gloves"
+msgstr "Боевые холщовые перчатки"
+
+#: ../items/categories/level_2.txt:102
+msgid "Recon Cloth Gloves"
+msgstr "Холщовые перчатки лазутчика"
+
+#: ../items/categories/level_2.txt:111
+msgid "Sorcerer Cloth Gloves"
+msgstr "Холщовые перчатки колдуна"
+
+#: ../items/categories/level_2.txt:120
 #, fuzzy
-msgid "Shield Scroll"
-msgstr "Щит"
+msgid "Wandering Leather Belt"
+msgstr "Кожаный ремень странника"
 
-#: ../items/categories/scrolls.txt:30
+#: ../items/categories/level_2.txt:129
 #, fuzzy
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Создаёт силовое поле, поглощающее урон."
+msgid "Wandering Pendant"
+msgstr "Ледяное кольцо скитальца"
 
-#: ../items/categories/scrolls.txt:38
+#: ../items/categories/level_2.txt:138
 #, fuzzy
-msgid "Fireball Scroll"
-msgstr "Огненный шар"
+msgid "Wandering Spellbook"
+msgstr "Импульсное кольцо скитальца"
 
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr ""
+#: ../items/categories/level_2.txt:147
+msgid "Fighting Dagger"
+msgstr "Боевой кинжал"
 
-#: ../items/categories/scrolls.txt:49
+#: ../items/categories/level_2.txt:159
+msgid "Recon Slingshot"
+msgstr "Рогатка разведчика"
+
+#: ../items/categories/level_2.txt:171
+msgid "Sorcerer Wand"
+msgstr "Жезл колдуна"
+
+#: ../items/categories/level_2.txt:183
+msgid "Keeper Wood Buckler"
+msgstr "Деревянный щит хранителя"
+
+#: ../items/categories/level_2.txt:193
+msgid "Wandering Fire Ring"
+msgstr "Огненное кольцо скитальца"
+
+#: ../items/categories/level_2.txt:202
+msgid "Wandering Ice Ring"
+msgstr "Ледяное кольцо скитальца"
+
+#: ../items/categories/level_2.txt:211
+msgid "Wandering Lightning Ring"
+msgstr "Громовое кольцо скитальца"
+
+#: ../items/categories/level_2.txt:220
+msgid "Wandering Dark Ring"
+msgstr "Тёмное кольцо скитальца"
+
+#: ../items/categories/level_2.txt:229
+msgid "Wandering Experience Ring"
+msgstr "Кольцо опыта скитальца"
+
+#: ../items/categories/level_2.txt:238
+msgid "Wandering Wealth Ring"
+msgstr "Кольцо богатства скитальца"
+
+#: ../items/categories/level_2.txt:247
+msgid "Wandering Treasure Ring"
+msgstr "Кольцо сокровищ скитальца"
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Латный шлем полководца"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Латный шлем стрелка"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Вельветовый капюшон архимага"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Curiass"
+msgstr "Латная кираса полководца"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Curiass"
+msgstr "Латная кираса стрелка"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Вельветовый жилет архимага"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Латные поножи полководца"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Латные поножи стрелка"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Вельветовый подол архимага"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Латные сапоги полководца"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Латные сапоги стрелка"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Вельветовые сапоги архимага"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Латные рукавицы полководца"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Латные рукавицы стрелка"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Вельветовые наручи архимага"
+
+#: ../items/categories/level_16.txt:185
 #, fuzzy
-msgid "Ice Bolt Scroll"
-msgstr "Ледяная стрела"
+msgid "Master Warlord Leather Belt"
+msgstr "Кожаный ремень полководца"
 
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr ""
-
-#: ../items/categories/scrolls.txt:60
-msgid "Haste Scroll"
-msgstr ""
-
-#: ../items/categories/scrolls.txt:63
+#: ../items/categories/level_16.txt:196
 #, fuzzy
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Ускоряет перемещение на некоторое время."
+msgid "Master Sniper Pendant"
+msgstr "Кольцо опыта магистра"
 
-#: ../items/categories/scrolls.txt:71
+#: ../items/categories/level_16.txt:207
 #, fuzzy
-msgid "Immunity Scroll"
-msgstr "Устойчивость"
+msgid "Master Archwizard Spellbook"
+msgstr "Шёлковый капюшон архимага"
 
-#: ../items/categories/scrolls.txt:74
-#, fuzzy
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr "Снять ослабление и защититься от последующих ослаблений в течение некоторого времени."
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Великий меч полководца"
 
-#: ../items/categories/scrolls.txt:82
-msgid "Reflection Scroll"
-msgstr ""
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Великий лук стрелка"
 
-#: ../items/categories/scrolls.txt:85
-msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
-msgstr ""
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Великий посох архимага"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Осадный щит храмовника"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Адское кольцо магистра"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Леденящее кольцо магистра"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Разрядное кольцо магистра"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Полое кольцо магистра"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Академическое кольцо магистра"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Кольцо изобилия магистра"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Кольцо-реликвия магистра"
 
 #: ../items/categories/level_7.txt:5
 msgid "Warrior Leather Hood"
@@ -2652,243 +2764,6 @@ msgstr ""
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Латный шлем полководца"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Латный шлем стрелка"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Вельветовый капюшон архимага"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Curiass"
-msgstr "Латная кираса полководца"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Curiass"
-msgstr "Латная кираса стрелка"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Вельветовый жилет архимага"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Латные поножи полководца"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Латные поножи стрелка"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Вельветовый подол архимага"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Латные сапоги полководца"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Латные сапоги стрелка"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Вельветовые сапоги архимага"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Латные рукавицы полководца"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Латные рукавицы стрелка"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Вельветовые наручи архимага"
-
-#: ../items/categories/level_16.txt:185
-#, fuzzy
-msgid "Master Warlord Leather Belt"
-msgstr "Кожаный ремень полководца"
-
-#: ../items/categories/level_16.txt:196
-#, fuzzy
-msgid "Master Sniper Pendant"
-msgstr "Кольцо опыта магистра"
-
-#: ../items/categories/level_16.txt:207
-#, fuzzy
-msgid "Master Archwizard Spellbook"
-msgstr "Шёлковый капюшон архимага"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Великий меч полководца"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Великий лук стрелка"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Великий посох архимага"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Осадный щит храмовника"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Адское кольцо магистра"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Леденящее кольцо магистра"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Разрядное кольцо магистра"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Полое кольцо магистра"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Академическое кольцо магистра"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Кольцо изобилия магистра"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Кольцо-реликвия магистра"
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Кольчужный шлем воина"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Кольчужный шлем странника"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "Шёлковый капюшон мага"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Curiass"
-msgstr "Кольчужная кираса воина"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Curiass"
-msgstr "Кольчужная кираса странника"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "Шёлковый жилет мага"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Кольчужные поножи воина"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Кольчужные поножи странника"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "Шёлковый подол мага"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Кольчужные сапоги воина"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Кольчужные сапоги странника"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "Шёлковые сапоги мага"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Кольчужные перчатки воина"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Кольчужные перчатки странника"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "Шёлковые наручи мага"
-
-#: ../items/categories/level_11.txt:185
-#, fuzzy
-msgid "Adventurer Warrior Leather Belt"
-msgstr "Кожаный ремень воина"
-
-#: ../items/categories/level_11.txt:196
-#, fuzzy
-msgid "Adventurer Ranger Pendant"
-msgstr "Адское кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr ""
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Длинный лук воина"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Длинный лук странника"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "Посох мага"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "Гербовый щит паладина"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "Воспламеняющее кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "Морозящее кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "Импульсное кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "Сумрачное кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "Интеллектуальное кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "Доходное  кольцо авантюриста"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "Кольцо-артефакт авантюриста"
-
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
 msgstr "Боевой кольчужный шлем"
@@ -3007,173 +2882,53 @@ msgstr "Доходное кольцо скитальца"
 msgid "Wandering Artifact Ring"
 msgstr "Кольцо-артефакт скитальца"
 
-#: ../items/categories/level_9.txt:5
-msgid "Chain Coif"
-msgstr "Кольчужный шлем"
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Молот Кролана"
 
-#: ../items/categories/level_9.txt:14
-msgid "Chain Curiass"
-msgstr "Кольчужная кираса"
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Важнейший инструмент каждого кузнеца."
 
-#: ../items/categories/level_9.txt:23
-msgid "Chain Greaves"
-msgstr "Кольчужные поножи"
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr "Ветка гоблина"
 
-#: ../items/categories/level_9.txt:32
-msgid "Chain Boots"
-msgstr "Кольчужные сапоги"
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr "Под невзрачной внешностью скрывается поток маны."
 
-#: ../items/categories/level_9.txt:41
-msgid "Chain Gloves"
-msgstr "Кольчужные перчатки"
+#: ../items/categories/level_4_unique.txt:33
+msgid "Ardwen's Gloves"
+msgstr "Перчатки Ардвина"
 
-#: ../items/categories/level_9.txt:50
-msgid "Silk Hood"
-msgstr "Шёлковый капюшон"
+#: ../items/categories/level_4_unique.txt:34
+msgid "These hands built a village."
+msgstr "Этими руками была построена деревня."
 
-#: ../items/categories/level_9.txt:59
-msgid "Silk Vest"
-msgstr "Шёлковый жилет"
+#: ../items/categories/level_4_unique.txt:49
+msgid "Blood Tunic"
+msgstr "Кровавая накидка"
 
-#: ../items/categories/level_9.txt:68
-msgid "Silk Skirt"
-msgstr "Шёлковый подол"
+#: ../items/categories/level_4_unique.txt:50
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Эта рубашка разогревает кровь носящего её."
 
-#: ../items/categories/level_9.txt:77
-msgid "Silk Boots"
-msgstr "Шёлковые сапоги"
+#: ../items/categories/level_4_unique.txt:63
+msgid "Dark Steppers"
+msgstr "Тёмноступы"
 
-#: ../items/categories/level_9.txt:86
-msgid "Silk Sleeves"
-msgstr "Шёлковые наручи"
+#: ../items/categories/level_4_unique.txt:64
+msgid "Dancing through the shadows."
+msgstr "Танцуй среди теней."
 
-#: ../items/categories/level_9.txt:95
-msgid "Longsword"
-msgstr "Длинный меч"
+#: ../items/categories/level_4_unique.txt:77
+msgid "Seagate's Tri-pants"
+msgstr "Штаны Сигейта"
 
-#: ../items/categories/level_9.txt:104
-msgid "Longbow"
-msgstr "Длинный лук"
-
-#: ../items/categories/level_9.txt:113
-msgid "Staff"
-msgstr "Посох"
-
-#: ../items/categories/level_9.txt:122
-msgid "Crest Shield"
-msgstr "Гербовый щит"
-
-#: ../items/categories/level_13.txt:5
-msgid "Plate Helmet"
-msgstr "Латный шлем"
-
-#: ../items/categories/level_13.txt:14
-msgid "Plate Curiass"
-msgstr "Латная кираса"
-
-#: ../items/categories/level_13.txt:23
-msgid "Plate Greaves"
-msgstr "Латные поножи"
-
-#: ../items/categories/level_13.txt:32
-msgid "Plate Boots"
-msgstr "Латные сапоги"
-
-#: ../items/categories/level_13.txt:41
-msgid "Plate Gauntlets"
-msgstr "Латные рукавицы"
-
-#: ../items/categories/level_13.txt:50
-msgid "Velvet Hood"
-msgstr "Вельветовый капюшон"
-
-#: ../items/categories/level_13.txt:59
-msgid "Velvet Vest"
-msgstr "Вельветовый жилет"
-
-#: ../items/categories/level_13.txt:68
-msgid "Velvet Skirt"
-msgstr "Вельветовый подол"
-
-#: ../items/categories/level_13.txt:77
-msgid "Velvet Boots"
-msgstr "Вельветовые сапоги"
-
-#: ../items/categories/level_13.txt:86
-msgid "Velvet Sleeves"
-msgstr "Вельветовые наручи"
-
-#: ../items/categories/level_13.txt:95
-msgid "Greatsword"
-msgstr "Великий меч"
-
-#: ../items/categories/level_13.txt:104
-msgid "Greatbow"
-msgstr "Великий лук"
-
-#: ../items/categories/level_13.txt:113
-msgid "Greatstaff"
-msgstr "Великий посох"
-
-#: ../items/categories/level_13.txt:122
-msgid "Tower Shield"
-msgstr "Осадный щит"
-
-#: ../items/categories/level_5.txt:5
-msgid "Leather Hood"
-msgstr "Кожаный капюшон"
-
-#: ../items/categories/level_5.txt:14
-msgid "Leather Tunic"
-msgstr "Кожаная накидка"
-
-#: ../items/categories/level_5.txt:23
-msgid "Leather Pants"
-msgstr "Кожаные штаны"
-
-#: ../items/categories/level_5.txt:32
-msgid "Leather Boots"
-msgstr "Кожаные ботинки"
-
-#: ../items/categories/level_5.txt:41
-msgid "Leather Gloves"
-msgstr "Кожаные рукавицы"
-
-#: ../items/categories/level_5.txt:50
-msgid "Wool Hood"
-msgstr "Шерстяной капюшон"
-
-#: ../items/categories/level_5.txt:59
-msgid "Wool Vest"
-msgstr "Шерстяной жилет"
-
-#: ../items/categories/level_5.txt:68
-msgid "Wool Skirt"
-msgstr "Шерстяной подол"
-
-#: ../items/categories/level_5.txt:77
-msgid "Wool Boots"
-msgstr "Шерстяные сапоги"
-
-#: ../items/categories/level_5.txt:86
-msgid "Wool Sleeves"
-msgstr "Шерстяные наручи"
-
-#: ../items/categories/level_5.txt:95
-msgid "Shortsword"
-msgstr "Короткий меч"
-
-#: ../items/categories/level_5.txt:104
-msgid "Shortbow"
-msgstr "Короткий лук"
-
-#: ../items/categories/level_5.txt:113
-msgid "Rod"
-msgstr "Скипетр"
-
-#: ../items/categories/level_5.txt:122
-msgid "Iron Buckler"
-msgstr "Железный щит"
+#: ../items/categories/level_4_unique.txt:78
+msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
+msgstr "Эти рваные штаны хоть и выглядят обгоревшими, но холодны на ощупь."
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -3284,33 +3039,227 @@ msgstr "Башня Колдуна"
 msgid "Wizard's Tower Research Hall Key"
 msgstr "Найден телепорт старой канализации. Башня Колдуна"
 
-#: ../items/categories/quest.txt:251
-msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
-msgstr "По запаху металла и шершавым лепесткам легко понять, что это за редкое растение."
+#: ../items/categories/quest.txt:247
+#, fuzzy
+msgid "Lorund's Sword"
+msgstr "Длинный меч"
 
-#: ../items/categories/quest.txt:261
-msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
-msgstr "У этого загадочного чёрного пера очень острый кончик, что делает его пригодным для письма."
+#: ../items/categories/quest.txt:256
+msgid "Nerin's Bow"
+msgstr ""
 
-#: ../items/categories/quest.txt:271
-msgid "A dark, magical energy flows through the tip of this small blade."
+#: ../items/categories/quest.txt:265
+msgid "Kayl's Staff"
 msgstr ""
 
 #: ../items/categories/quest.txt:278
+msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
+msgstr "По запаху металла и шершавым лепесткам легко понять, что это за редкое растение."
+
+#: ../items/categories/quest.txt:288
+msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
+msgstr "У этого загадочного чёрного пера очень острый кончик, что делает его пригодным для письма."
+
+#: ../items/categories/quest.txt:298
+msgid "A dark, magical energy flows through the tip of this small blade."
+msgstr ""
+
+#: ../items/categories/quest.txt:305
 msgid "Vial of Your Blood"
 msgstr "Пузырёк с собственной кровью"
 
-#: ../items/categories/quest.txt:281
+#: ../items/categories/quest.txt:308
 msgid "Spoils of the Red Altar ritual."
 msgstr ""
 
-#: ../items/categories/quest.txt:288
+#: ../items/categories/quest.txt:315
 msgid "Blood Inkwell"
 msgstr "Чернильница для крови"
 
-#: ../items/categories/quest.txt:291
+#: ../items/categories/quest.txt:318
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
 msgstr ""
+
+#: ../items/categories/scrolls.txt:5
+msgid "Summon Zombie Scroll"
+msgstr "Свиток призыва зомби"
+
+#: ../items/categories/scrolls.txt:8
+#, fuzzy
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Использование: призыв зомби"
+
+#: ../items/categories/scrolls.txt:16
+#, fuzzy
+msgid "Perdition Scroll"
+msgstr "Пристанище обречённых"
+
+#: ../items/categories/scrolls.txt:19
+#, fuzzy
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Использование: телепортация в указанное местоположение."
+
+#: ../items/categories/scrolls.txt:27
+#, fuzzy
+msgid "Shield Scroll"
+msgstr "Щит"
+
+#: ../items/categories/scrolls.txt:30
+#, fuzzy
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Создаёт силовое поле, поглощающее урон."
+
+#: ../items/categories/scrolls.txt:38
+#, fuzzy
+msgid "Fireball Scroll"
+msgstr "Огненный шар"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:49
+#, fuzzy
+msgid "Ice Bolt Scroll"
+msgstr "Ледяная стрела"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:60
+msgid "Haste Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:63
+#, fuzzy
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Ускоряет перемещение на некоторое время."
+
+#: ../items/categories/scrolls.txt:71
+#, fuzzy
+msgid "Immunity Scroll"
+msgstr "Устойчивость"
+
+#: ../items/categories/scrolls.txt:74
+#, fuzzy
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr "Снять ослабление и защититься от последующих ослаблений в течение некоторого времени."
+
+#: ../items/categories/scrolls.txt:82
+msgid "Reflection Scroll"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:85
+msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
+msgstr ""
+
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Холщовая рубашка полководца"
+
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Холщовая рубашка стрелка"
+
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Холщовая рубашка архимага"
+
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Холщовые штаны полководца"
+
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Холщовые штаны стрелка"
+
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Холщовые штаны архимага"
+
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Холщовые сандалии полководца"
+
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Холщовые сандалии стрелка"
+
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Холщовые сандалии архимага"
+
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Холщовые перчатки полководца"
+
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Холщовые перчатки стрелка"
+
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Холщовые перчатки архимага"
+
+#: ../items/categories/level_4.txt:149
+#, fuzzy
+msgid "Master Leather Belt"
+msgstr "Кожаный ремень странника"
+
+#: ../items/categories/level_4.txt:160
+#, fuzzy
+msgid "Master Pendant"
+msgstr "Кожаные штаны"
+
+#: ../items/categories/level_4.txt:171
+#, fuzzy
+msgid "Master Spellbook"
+msgstr "Импульсное кольцо магистра"
+
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Кинжал полководца"
+
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Рогатка стрелка"
+
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Жезл архимага"
+
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Деревянный щит храмовника"
+
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Огненное кольцо магистра"
+
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Ледяное кольцо магистра"
+
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Громовое кольцо магистра"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Тёмное кольцо магистра"
+
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Кольцо опыта магистра"
+
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Кольцо богатства магистра"
+
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Кольцо сокровищ магистра"
 
 #: ../items/categories/level_16_unique.txt:5
 msgid "Fleshband"
@@ -3319,6 +3268,132 @@ msgstr ""
 #: ../items/categories/level_16_unique.txt:6
 msgid "Smooth to the touch. Upon wearing it, it tightens itself around the finger."
 msgstr ""
+
+#: ../items/categories/level_16_unique.txt:20
+msgid "Soulband"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:21
+msgid "Glowing when worn, it clears the wearer's mind and allows them to deeply focus."
+msgstr ""
+
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Кольчужный шлем полководца"
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Кольчужный шлем стрелка"
+
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Шёлковый капюшон архимага"
+
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Curiass"
+msgstr "Кольчужная кираса полководца"
+
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Curiass"
+msgstr "Кольчужная кираса стрелка"
+
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Шёлковый жилет архимага"
+
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Кольчужные поножи полководца"
+
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Кольчужные поножи стрелка"
+
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Шёлковый подол архимага"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Кольчужные сапоги полководца"
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Кольчужные сапоги стрелка"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Шёлковые сапоги архимага"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Кольчужные перчатки полководца"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Кольчужные перчатки стрелка"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Шёлковые наручи архимага"
+
+#: ../items/categories/level_12.txt:185
+#, fuzzy
+msgid "Master Warrior Leather Belt"
+msgstr "Кожаный ремень воина"
+
+#: ../items/categories/level_12.txt:196
+#, fuzzy
+msgid "Master Ranger Pendant"
+msgstr "Адское кольцо магистра"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Длинный меч полководца"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Длинный лук стрелка"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Посох архимага"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Гербовый щит храмовника"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Воспламеняющее кольцо магистра"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Морозящее кольцо магистра"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Импульсное кольцо магистра"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Сумрачное кольцо магистра"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Интеллектуальное кольцо магистра"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Доходное кольцо магистра"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Кольцо-артефакт магистра"
 
 #: ../items/categories/level_1.txt:5
 msgid "Cloth Shirt"
@@ -3352,338 +3427,139 @@ msgstr "Жезл"
 msgid "Wood Buckler"
 msgstr "Деревянный щит"
 
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Кожаный капюшон полководца"
+#: ../items/categories/potions.txt:5
+msgid "Health Potion"
+msgstr "Зелье здоровья"
 
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Кожаный капюшон стрелка"
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Восстанавливает 25% жизни"
 
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Шерстяной капюшон архимага"
+#: ../items/categories/potions.txt:16
+msgid "Mana Potion"
+msgstr "Зелье маны"
 
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Кожаная накидка полководца"
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "Восстанавливает 25% маны"
 
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Кожаная накидка стрелка"
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Кольчужный шлем воина"
 
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Шерстяной жилет архимага"
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Кольчужный шлем странника"
 
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Кожаные штаны полководца"
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Шёлковый капюшон мага"
 
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Кожаные штаны стрелка"
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Curiass"
+msgstr "Кольчужная кираса воина"
 
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "Шерстяной подол архимага"
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Curiass"
+msgstr "Кольчужная кираса странника"
 
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Кожаные сапоги полководца"
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Шёлковый жилет мага"
 
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Кожаные сапоги стрелка"
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Кольчужные поножи воина"
 
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Шерстяные сапоги архимага"
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Кольчужные поножи странника"
 
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Кожаные перчатки полководца"
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Шёлковый подол мага"
 
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Кожаные перчатки стрелка"
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Кольчужные сапоги воина"
 
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Шерстяные наручи архимага"
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Кольчужные сапоги странника"
 
-#: ../items/categories/level_8.txt:185
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Шёлковые сапоги мага"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Кольчужные перчатки воина"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Кольчужные перчатки странника"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Шёлковые наручи мага"
+
+#: ../items/categories/level_11.txt:185
 #, fuzzy
-msgid "Master Fighting Leather Belt"
-msgstr "Боевой кожаный ремень"
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Кожаный ремень воина"
 
-#: ../items/categories/level_8.txt:196
+#: ../items/categories/level_11.txt:196
 #, fuzzy
-msgid "Master Recon Pendant"
-msgstr "Кольцо-реликвия магистра"
+msgid "Adventurer Ranger Pendant"
+msgstr "Адское кольцо авантюриста"
 
-#: ../items/categories/level_8.txt:207
-#, fuzzy
-msgid "Master Sorcerer Spellbook"
-msgstr "Шёлковый капюшон колдуна"
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr ""
 
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Короткий меч полководца"
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Длинный лук воина"
 
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Короткий лук стрелка"
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Длинный лук странника"
 
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Скипетр архимага"
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Посох мага"
 
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Железный щит храмовника"
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Гербовый щит паладина"
 
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Обжигающее кольцо магистра"
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Воспламеняющее кольцо авантюриста"
 
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Морозящее кольцо магистра"
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Морозящее кольцо авантюриста"
 
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Электрическое кольцо магистра"
-
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Теневое кольцо магистра"
-
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Кольцо знаний магистра"
-
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Кольцо обогащения магистра"
-
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Кольцо трофеев магистра"
-
-#: ../items/categories/level_2.txt:5
-msgid "Fighting Cloth Shirt"
-msgstr "Боевая холщовая рубашка"
-
-#: ../items/categories/level_2.txt:15
-msgid "Recon Cloth Shirt"
-msgstr "Холщовая рубашка лазутчика"
-
-#: ../items/categories/level_2.txt:25
-msgid "Sorcerer Cloth Shirt"
-msgstr "Холщовая рубашка колдуна"
-
-#: ../items/categories/level_2.txt:35
-msgid "Fighting Cloth Pants"
-msgstr "Боевые холщовые штаны"
-
-#: ../items/categories/level_2.txt:45
-msgid "Recon Cloth Pants"
-msgstr "Холщовые штаны лазутчика"
-
-#: ../items/categories/level_2.txt:55
-msgid "Sorcerer Cloth Pants"
-msgstr "Холщовые штаны колдуна"
-
-#: ../items/categories/level_2.txt:64
-msgid "Fighting Cloth Sandals"
-msgstr "Боевые холщовые сандалии"
-
-#: ../items/categories/level_2.txt:74
-msgid "Recon Cloth Sandals"
-msgstr "Холщовые сандалии лазутчика"
-
-#: ../items/categories/level_2.txt:83
-msgid "Sorcerer Cloth Sandals"
-msgstr "Холщовые сандалии колдуна"
-
-#: ../items/categories/level_2.txt:92
-msgid "Fighting Cloth Gloves"
-msgstr "Боевые холщовые перчатки"
-
-#: ../items/categories/level_2.txt:102
-msgid "Recon Cloth Gloves"
-msgstr "Холщовые перчатки лазутчика"
-
-#: ../items/categories/level_2.txt:111
-msgid "Sorcerer Cloth Gloves"
-msgstr "Холщовые перчатки колдуна"
-
-#: ../items/categories/level_2.txt:120
-#, fuzzy
-msgid "Wandering Leather Belt"
-msgstr "Кожаный ремень странника"
-
-#: ../items/categories/level_2.txt:129
-#, fuzzy
-msgid "Wandering Pendant"
-msgstr "Ледяное кольцо скитальца"
-
-#: ../items/categories/level_2.txt:138
-#, fuzzy
-msgid "Wandering Spellbook"
-msgstr "Импульсное кольцо скитальца"
-
-#: ../items/categories/level_2.txt:147
-msgid "Fighting Dagger"
-msgstr "Боевой кинжал"
-
-#: ../items/categories/level_2.txt:159
-msgid "Recon Slingshot"
-msgstr "Рогатка разведчика"
-
-#: ../items/categories/level_2.txt:171
-msgid "Sorcerer Wand"
-msgstr "Жезл колдуна"
-
-#: ../items/categories/level_2.txt:183
-msgid "Keeper Wood Buckler"
-msgstr "Деревянный щит хранителя"
-
-#: ../items/categories/level_2.txt:193
-msgid "Wandering Fire Ring"
-msgstr "Огненное кольцо скитальца"
-
-#: ../items/categories/level_2.txt:202
-msgid "Wandering Ice Ring"
-msgstr "Ледяное кольцо скитальца"
-
-#: ../items/categories/level_2.txt:211
-msgid "Wandering Lightning Ring"
-msgstr "Громовое кольцо скитальца"
-
-#: ../items/categories/level_2.txt:220
-msgid "Wandering Dark Ring"
-msgstr "Тёмное кольцо скитальца"
-
-#: ../items/categories/level_2.txt:229
-msgid "Wandering Experience Ring"
-msgstr "Кольцо опыта скитальца"
-
-#: ../items/categories/level_2.txt:238
-msgid "Wandering Wealth Ring"
-msgstr "Кольцо богатства скитальца"
-
-#: ../items/categories/level_2.txt:247
-msgid "Wandering Treasure Ring"
-msgstr "Кольцо сокровищ скитальца"
-
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Холщовая рубашка воина"
-
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Холщовая рубашка странника"
-
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Холщовая рубашка мага"
-
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Холщовые штаны воина"
-
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Холщовые штаны странника"
-
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Холщовые штаны мага"
-
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Холщовые сандалии воина"
-
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Холщовые сандалии странника"
-
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Холщовые сандалии мага"
-
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Холщовые перчатки воина"
-
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Холщовые перчатки странника"
-
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Холщовые перчатки мага"
-
-#: ../items/categories/level_3.txt:123
-#, fuzzy
-msgid "Adventurer Leather Belt"
-msgstr "Кожаный ремень колдуна"
-
-#: ../items/categories/level_3.txt:132
-#, fuzzy
-msgid "Adventurer Pendant"
-msgstr "авантюрист"
-
-#: ../items/categories/level_3.txt:141
-#, fuzzy
-msgid "Adventurer Spellbook"
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
 msgstr "Импульсное кольцо авантюриста"
 
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Кинжал воина"
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Сумрачное кольцо авантюриста"
 
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Рогатка странника"
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Интеллектуальное кольцо авантюриста"
 
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Жезл мага"
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Доходное  кольцо авантюриста"
 
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Деревянный щит паладина"
-
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Огненное кольцо авантюриста"
-
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Ледяное кольцо авантюриста"
-
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Громовое кольцо авантюриста"
-
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Тёмное кольцо авантюриста"
-
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Кольцо опыта авантюриста"
-
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Кольцо богатства авантюриста"
-
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Кольцо сокровищ авантюриста"
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Кольцо-артефакт авантюриста"
 
 #: ../items/categories/level_14.txt:5
 msgid "Fighting Plate Helmet"
@@ -3806,21 +3682,227 @@ msgstr "Кольцо изобилия скитальца"
 msgid "Wandering Relic Ring"
 msgstr "Кольцо-реликвия скитальца"
 
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Волчий глаз"
+#: ../items/categories/level_8_unique.txt:3
+msgid "Amir Blade"
+msgstr "Клинок Амира"
 
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "Улучшает способность попадать во врага и наносить ему критический урон."
+#: ../items/categories/level_8_unique.txt:4
+msgid "A remnant of those who guarded Fort Amir."
+msgstr "Напоминание о тех, кто защищал форт Амир."
 
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Выстрел"
+#: ../items/categories/level_8_unique.txt:18
+msgid "Huntsman Bow"
+msgstr "Охотничий лук"
 
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Базовая дальняя атака."
+#: ../items/categories/level_8_unique.txt:19
+msgid "Compact enough to be deadly at all ranges of combat."
+msgstr "Достаточно компактный, чтобы оставаться смертельным на всех дистанциях."
+
+#: ../items/categories/level_8_unique.txt:33
+msgid "Greed Cowl"
+msgstr "Клобук жадности"
+
+#: ../items/categories/level_8_unique.txt:34
+msgid "Riches fit for a queen."
+msgstr "Богатое королевское одеяние."
+
+#: ../items/categories/level_8_unique.txt:48
+msgid "Battle Leathers"
+msgstr "Боевые штаны из кожи"
+
+#: ../items/categories/level_8_unique.txt:49
+msgid "Designed to keep its wearer moving forward."
+msgstr "Созданы для того, чтобы владелец двигался вперёд."
+
+#: ../items/categories/level_8_unique.txt:63
+msgid "Escape Boots"
+msgstr "Сапоги-скороходы"
+
+#: ../items/categories/level_8_unique.txt:64
+msgid "Running away doesn't mean the battle is lost."
+msgstr "Убежать — не значит проиграть."
+
+#: ../items/categories/level_8_unique.txt:78
+msgid "Mez's Wraps"
+msgstr "Накидка Мез"
+
+#: ../items/categories/level_8_unique.txt:79
+msgid "With its layers of reptilian skin, not much can penetrate this armor."
+msgstr "Не всякое оружие пробьёт эту слоёную броню из кожи дракона."
+
+#: ../items/categories/level_5.txt:5
+msgid "Leather Hood"
+msgstr "Кожаный капюшон"
+
+#: ../items/categories/level_5.txt:14
+msgid "Leather Tunic"
+msgstr "Кожаная накидка"
+
+#: ../items/categories/level_5.txt:23
+msgid "Leather Pants"
+msgstr "Кожаные штаны"
+
+#: ../items/categories/level_5.txt:32
+msgid "Leather Boots"
+msgstr "Кожаные ботинки"
+
+#: ../items/categories/level_5.txt:41
+msgid "Leather Gloves"
+msgstr "Кожаные рукавицы"
+
+#: ../items/categories/level_5.txt:50
+msgid "Wool Hood"
+msgstr "Шерстяной капюшон"
+
+#: ../items/categories/level_5.txt:59
+msgid "Wool Vest"
+msgstr "Шерстяной жилет"
+
+#: ../items/categories/level_5.txt:68
+msgid "Wool Skirt"
+msgstr "Шерстяной подол"
+
+#: ../items/categories/level_5.txt:77
+msgid "Wool Boots"
+msgstr "Шерстяные сапоги"
+
+#: ../items/categories/level_5.txt:86
+msgid "Wool Sleeves"
+msgstr "Шерстяные наручи"
+
+#: ../items/categories/level_5.txt:95
+msgid "Shortsword"
+msgstr "Короткий меч"
+
+#: ../items/categories/level_5.txt:104
+msgid "Shortbow"
+msgstr "Короткий лук"
+
+#: ../items/categories/level_5.txt:113
+msgid "Rod"
+msgstr "Скипетр"
+
+#: ../items/categories/level_5.txt:122
+msgid "Iron Buckler"
+msgstr "Железный щит"
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Латный шлем воина"
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Латный шлем странника"
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Вельветовый капюшон мага"
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Curiass"
+msgstr "Латная кираса воина"
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Curiass"
+msgstr "Латная кираса странника"
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Вельветовый жилет мага"
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Латные поножи воина"
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Латные поножи странника"
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Вельветовый подол мага"
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Латные сапоги воина"
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Латные сапоги странника"
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Вельветовые сапоги мага"
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Латные рукавицы воина"
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Латные рукавицы странника"
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Вельветовые наручи мага"
+
+#: ../items/categories/level_15.txt:185
+#, fuzzy
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Кожаный ремень полководца"
+
+#: ../items/categories/level_15.txt:196
+#, fuzzy
+msgid "Adventurer Sniper Pendant"
+msgstr "Адское кольцо авантюриста"
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Великий меч воина"
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Великий лук странника"
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Великий посох мага"
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Осадный щит паладина"
+
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Адское кольцо авантюриста"
+
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Леденящее кольцо авантюриста"
+
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Разрядное кольцо авантюриста"
+
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Полое кольцо авантюриста"
+
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Академическое кольцо авантюриста"
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Кольцо изобилия авантюриста"
+
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Кольцо-реликвия авантюриста"
 
 #: ../powers/base/ranger/rapid_fire.txt:1
 msgid "Rapid Fire"
@@ -3830,13 +3912,21 @@ msgstr "Быстрый огонь"
 msgid "Fire five low power missiles in quick succession."
 msgstr "Серия из пяти выстрелов малой мощности."
 
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Медвежий капкан"
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Выстрел"
 
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr "Эта ловушка наносит урон больше, чем у оружия дальнего боя, и замедляет врага."
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Базовая дальняя атака."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Волчий глаз"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "Улучшает способность попадать во врага и наносить ему критический урон."
 
 #: ../powers/base/ranger/ember_shot.txt:1
 msgid "Ember Shot"
@@ -3854,6 +3944,14 @@ msgstr "Многострел"
 msgid "Shoot three projectiles simultaneously."
 msgstr "Выстрел одновременно тремя зарядами."
 
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Медвежий капкан"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr "Эта ловушка наносит урон больше, чем у оружия дальнего боя, и замедляет врага."
+
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
 msgstr "Капкан"
@@ -3861,10 +3959,6 @@ msgstr "Капкан"
 #: ../powers/base/ranger/caltrops.txt:2
 msgid "This trap deals reduced ranged weapon damage and slows the target."
 msgstr "Эта ловушка наносит урон меньше, чем у оружия дальнего боя, и замедляет врага."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Ускоряет перемещение на некоторое время."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -3874,49 +3968,17 @@ msgstr "Пронзающий выстрел"
 msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr "Выстрел, пробивающий броню и пронзающий насквозь нескольких врагов."
 
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Пламя"
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Ускоряет перемещение на некоторое время."
 
-#: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Поражение огнём нескольких врагов на расстоянии."
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Заморозка"
 
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Ледяная стрела"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Выстрел куском льда, замедляющий врагов."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Удар молнии"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
-msgstr "Удар молнии с неба с большим шансом нанесения критического урона замедленным врагам."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Разряд"
-
-#: ../powers/base/magician/shock.txt:2
-msgid "Shoot a ball of electricity that is extra effective against movement-impaired enemies."
-msgstr "Выстрел сгустком электричества, наносящий дополнительный урон замедленным врагам."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Огненный шар"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Бросок огненного шара, наносящего дополнительный ментальный урон."
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Создаёт силовое поле, поглощающее урон."
+#: ../powers/base/magician/freeze.txt:4
+msgid "Create a ray of several piercing cold shards that slow enemies."
+msgstr "Выпустить луч пронзающего холода, замедляющий врагов."
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -3926,13 +3988,74 @@ msgstr "Поток энергии"
 msgid "Mana reserves are increased and regenerate faster."
 msgstr "Увеличивает запасы маны и ускоряет её восстановление."
 
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Заморозка"
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Удар молнии"
 
-#: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr "Выпустить луч пронзающего холода, замедляющий врагов."
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
+msgstr "Удар молнии с неба с большим шансом нанесения критического урона замедленным врагам."
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Ледяная стрела"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Выстрел куском льда, замедляющий врагов."
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Огненный шар"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Бросок огненного шара, наносящего дополнительный ментальный урон."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Разряд"
+
+#: ../powers/base/magician/shock.txt:2
+msgid "Shoot a ball of electricity that is extra effective against movement-impaired enemies."
+msgstr "Выстрел сгустком электричества, наносящий дополнительный урон замедленным врагам."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Создаёт силовое поле, поглощающее урон."
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Пламя"
+
+#: ../powers/base/magician/burn.txt:4
+msgid "Blast multiple enemies in a distant area with fire."
+msgstr "Поражение огнём нескольких врагов на расстоянии."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Боевой крик"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "Снять ослабление и защититься от последующих ослаблений в течение некоторого времени."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Землетрясение"
+
+#: ../powers/base/warrior/quake.txt:4
+#, fuzzy
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Оглушить и отбросить назад ближайших врагов."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Бросок топора"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Бросок топора, наносящий урон, больше чем у оружия ближнего боя."
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -3950,14 +4073,6 @@ msgstr "Бросок ножа"
 msgid "Throw a knife to deal reduced melee weapon damage."
 msgstr "Бросок ножа, наносящий урон, меньше чем у оружия ближнего боя."
 
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Атака щитом"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Прорыв сквозь врагов, сокрушая их грубой силой."
-
 #: ../powers/base/warrior/blood_strike.txt:1
 msgid "Blood Strike"
 msgstr "Кровавый удар"
@@ -3974,30 +4089,13 @@ msgstr "Размах"
 msgid "Attack all enemies in a wide arc."
 msgstr "Поразить всех врагов по широкой дуге."
 
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Бросок топора"
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Атака щитом"
 
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Бросок топора, наносящий урон, больше чем у оружия ближнего боя."
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Землетрясение"
-
-#: ../powers/base/warrior/quake.txt:4
-#, fuzzy
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Оглушить и отбросить назад ближайших врагов."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Боевой крик"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr "Снять ослабление и защититься от последующих ослаблений в течение некоторого времени."
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Прорыв сквозь врагов, сокрушая их грубой силой."
 
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
@@ -4007,6 +4105,10 @@ msgstr "Удар"
 msgid "Basic melee attack."
 msgstr "Базовая ближняя атака."
 
+#: ../powers/categories/quest.txt:4
+msgid "Performing the ritual at the Red Altar has granted you faster regeneration."
+msgstr ""
+
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
 msgstr "Вызов"
@@ -4014,10 +4116,6 @@ msgstr "Вызов"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Базовая магическая атака."
-
-#: ../powers/categories/quest.txt:4
-msgid "Performing the ritual at the Red Altar has granted you faster regeneration."
-msgstr ""
 
 #: ../powers/trees/default.txt:11
 msgid "Magician"

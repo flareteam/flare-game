@@ -1,0 +1,22 @@
+name=Fallen Comrades
+
+[quest]
+requires_status=emp_martigan_init
+requires_not_status=emp_martigan_finish
+quest_text=Martigan has asked you to destroy the undead corpses of his former companions. He has also asked that you return with proof that you have done so.
+
+[quest]
+requires_status=emp_martigan_init,emp_martigan_sword
+requires_not_status=emp_martigan_finish
+quest_text=You have slain Lorund and recovered his sword.
+
+[quest]
+requires_status=emp_martigan_init,emp_martigan_bow
+requires_not_status=emp_martigan_finish
+quest_text=You have slain Nerin and recovered her bow.
+
+[quest]
+requires_status=emp_martigan_init,emp_martigan_staff
+requires_not_status=emp_martigan_finish
+quest_text=You have slain Kayl and recovered her staff.
+

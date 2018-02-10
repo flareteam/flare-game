@@ -1,0 +1,14 @@
+[event]
+unset_status=emp_martigan_init
+unset_status=emp_martigan_trade
+unset_status=emp_martigan_sword
+unset_status=emp_martigan_bow
+unset_status=emp_martigan_staff
+unset_status=emp_martigan_finish
+unset_status=emp_oasis_shortcut
+remove_item=1025,1026,1027
+msg=Reset quest: "Fallen Comrades"
+
+[event]
+requires_not_status=disable_reset_teleport
+intermap=maps/oasis.txt

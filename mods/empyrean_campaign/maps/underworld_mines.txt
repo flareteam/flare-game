@@ -526,6 +526,15 @@ hotspot=location
 intermap=maps/underworld_catacombs.txt,59,5
 tooltip=Underworld Catacombs
 
+[event]
+# to Oasis
+type=event
+location=18,82,1,2
+activate=on_trigger
+hotspot=location
+intermap=maps/oasis.txt,6,8
+tooltip=Oasis
+
 [enemy]
 type=enemy
 location=72,9,1,1

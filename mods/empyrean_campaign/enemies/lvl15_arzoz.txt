@@ -1,0 +1,34 @@
+INCLUDE enemies/base/skeleton.txt
+
+name=Arzoz
+level=15
+categories=arzoz
+xp=65536
+
+# combat stats
+stat=hp,1640
+speed=5.1
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,5
+power=melee,186,10
+passive_powers=185
+
+stat=accuracy,160
+stat=avoidance,80
+stat=poise,57
+
+stat=dmg_melee_min,250
+stat=dmg_melee_max,260
+cooldown=1200ms
+
+stat=absorb_min,15
+stat=absorb_max,15
+
+# loot
+loot=loot/level_15.txt
+loot_count=3,4
+
+# Soulband
+loot=420,1

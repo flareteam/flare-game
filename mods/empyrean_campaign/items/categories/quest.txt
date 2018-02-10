@@ -242,6 +242,33 @@ item_type=book
 pickup_status=emp_torture_notes
 book=books/wardens_notes.txt
 
+[item]
+id=1025
+name=Lorund's Sword
+INCLUDE items/base/weapons/melee/longsword.txt
+quest_item=true
+quality=unique
+item_type=relic
+pickup_status=emp_martigan_sword
+
+[item]
+id=1026
+name=Nerin's Bow
+INCLUDE items/base/weapons/ranged/longbow.txt
+quest_item=true
+quality=unique
+item_type=relic
+pickup_status=emp_martigan_bow
+
+[item]
+id=1027
+name=Kayl's Staff
+INCLUDE items/base/weapons/magic/staff.txt
+quest_item=true
+quality=unique
+item_type=relic
+pickup_status=emp_martigan_staff
+
 ### Main quest items
 [item]
 id=1100

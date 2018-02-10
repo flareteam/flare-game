@@ -1,0 +1,38 @@
+name=Martigan
+
+portrait=images/portraits/male05.png
+
+talker=true
+
+# animation info
+gfx=animations/npcs/guild_man2.txt
+
+vendor=true
+vendor_requires_status=emp_martigan_trade
+constant_stock=2:10,3:10
+random_stock=loot/trader_martigan.txt
+random_stock_count=15,20
+
+[dialog]
+topic=Talk
+requires_not_status=emp_martigan_init,emp_martigan_finish
+him=You there! I need your help. I'm the last of my group, and want nothing more than to leave this place.
+him=Yet I have one remaining task. I wish to visit the graves of my three fallen partners one last time.
+him=To my disadvantage, their bodies have been taken by the soil here. They tried to attack me when I got near.
+him=If you can prove to me that they are free them from their cursed form, I will be in your debt.
+him=I can't assist you myself, but I can offer some of my wares.
+set_status=emp_martigan_init
+set_status=emp_martigan_trade
+
+[dialog]
+topic=Zombies
+requires_not_status=emp_martigan_finish
+requires_status=emp_martigan_sword,emp_martigan_bow,emp_martigan_staff
+requires_item=1025,1026,1027
+remove_item=1025,1026,1027
+reward_xp=102400
+reward_item=1012,1
+set_status=emp_fig_4
+set_status=emp_martigan_finish
+unset_status=emp_martigan_init
+him=Indeed, these items belonged to my companions. I want you to take this as a reward.

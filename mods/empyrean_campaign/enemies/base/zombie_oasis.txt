@@ -1,0 +1,24 @@
+INCLUDE enemies/base/zombie.txt
+
+level=15
+xp=32768
+
+# combat stats
+stat=hp,410
+speed=4.4
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,5
+
+stat=accuracy,150
+stat=avoidance,80
+stat=poise,62
+
+stat=dmg_melee_min,225
+stat=dmg_melee_max,230
+cooldown=1450ms
+
+#loot
+loot=loot/level_15.txt
+loot_count=2
