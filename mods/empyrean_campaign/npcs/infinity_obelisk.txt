@@ -1,0 +1,25 @@
+name=Infinity Obelisk
+
+# animation info
+gfx=animations/npcs/return_obelisk2.txt
+
+talker=true
+
+[dialog]
+requires_not_status=emp_fig_all_placed
+him=(You touch the obelisk, but nothing happens.)
+
+[dialog]
+topic=Continue through the Halls of Infinity
+requires_status=emp_fig_all_placed
+intermap_random=maps/halls_of_infinity/maplist.txt
+soundfx=soundfx/environment/teleporter.ogg,0,0
+set_status=emp_infinity_init
+
+[dialog]
+topic=Return to Underworld Stronghold
+requires_status=emp_infinity_init
+intermap=maps/halls_of_infinity.txt,12,13
+soundfx=soundfx/environment/teleporter.ogg,0,0
+unset_status=emp_infinity_init
+

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="24" height="60" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="32">
+ <properties>
+  <property name="hero_pos" value="12,55"/>
+  <property name="music" value="music/dungeon_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Halls of Infinity"/>
+ </properties>
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="dungeon" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="24" height="60">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,37,41,41,18,42,37,36,18,44,19,40,40,17,46,47,18,40,44,41,47,46,0,0,
+0,44,44,45,45,41,46,39,38,39,37,19,38,45,46,43,39,37,39,19,45,47,0,0,
+0,41,42,24,25,34,35,33,34,35,32,34,32,33,32,34,35,34,33,24,25,37,0,0,
+0,44,37,27,26,32,33,33,35,33,33,33,34,32,33,33,35,32,34,27,26,38,0,0,
+0,17,19,33,35,30,23,23,23,23,23,23,23,23,23,23,23,23,31,35,32,44,0,0,
+0,44,37,35,33,22,48,50,50,50,50,50,50,50,50,50,50,50,20,32,33,40,0,0,
+0,16,19,33,32,22,49,0,0,0,0,0,0,0,0,0,0,0,20,33,35,40,0,0,
+0,47,46,35,35,22,49,0,0,0,0,0,0,0,0,0,0,0,20,32,33,42,0,0,
+0,46,36,33,33,22,49,0,0,0,0,0,0,0,0,0,0,0,20,33,33,16,0,0,
+0,37,16,34,34,22,49,0,0,0,24,21,21,25,49,0,0,0,20,35,33,16,0,0,
+0,42,17,33,35,22,49,0,0,0,20,35,32,22,49,0,0,0,20,32,34,19,0,0,
+0,17,43,32,35,22,49,0,0,0,20,32,34,22,49,0,0,0,20,33,33,44,0,0,
+0,18,42,34,35,22,49,0,0,0,20,32,35,22,49,0,0,0,20,32,32,17,0,0,
+0,36,16,32,35,29,21,21,21,21,28,34,33,29,21,21,21,21,28,32,34,17,0,0,
+0,18,47,24,25,34,34,34,35,32,32,33,35,33,32,35,32,35,35,24,25,41,0,0,
+0,47,19,27,26,32,32,34,32,34,35,32,35,35,33,33,33,32,35,27,26,39,0,0,
+0,47,17,42,43,45,18,44,46,16,47,42,18,19,44,16,18,17,42,39,18,43,0,0,
+0,0,0,0,0,0,0,0,0,37,45,45,17,44,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,40,42,38,46,16,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,38,44,38,44,37,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,40,37,37,46,41,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,44,36,41,17,17,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,47,19,45,16,37,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,16,37,46,44,43,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,40,45,47,45,47,40,17,38,16,37,38,43,19,0,0,0,0,0,0,
+0,0,0,0,0,47,34,33,35,19,45,16,43,44,47,35,34,33,0,0,0,0,0,0,
+0,0,0,0,0,46,33,35,33,35,34,40,19,32,32,34,35,35,0,0,0,0,0,0,
+0,0,0,0,0,37,34,35,34,58,32,19,18,34,59,35,34,32,0,0,0,0,0,0,
+0,0,0,0,0,46,35,34,33,34,35,44,45,32,34,33,33,34,0,0,0,0,0,0,
+0,0,0,0,0,18,35,32,34,38,16,41,43,37,19,32,34,32,0,0,0,0,0,0,
+0,0,0,0,0,42,37,36,18,32,45,36,18,17,33,43,19,43,0,0,0,0,0,0,
+0,0,0,0,0,47,18,44,17,43,43,16,44,38,40,39,40,41,0,0,0,0,0,0,
+0,0,0,0,0,40,42,43,41,46,43,38,19,37,16,41,43,37,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,45,39,41,46,46,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,47,44,37,36,47,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,19,17,38,16,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,46,39,19,36,37,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,43,43,19,43,39,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,17,17,38,42,43,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,39,36,45,37,43,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,39,39,38,40,37,17,43,38,16,18,47,18,18,0,0,0,0,0,0,
+0,0,0,0,0,40,32,32,33,46,17,19,47,42,40,34,35,34,0,0,0,0,0,0,
+0,0,0,0,0,43,32,34,34,33,35,38,41,32,32,33,35,35,0,0,0,0,0,0,
+0,0,0,0,0,39,32,35,34,56,33,47,16,34,57,34,32,34,0,0,0,0,0,0,
+0,0,0,0,0,19,34,35,34,32,34,19,45,33,34,32,34,33,0,0,0,0,0,0,
+0,0,0,0,0,18,32,32,33,43,39,18,37,47,37,35,35,33,0,0,0,0,0,0,
+0,0,0,0,0,43,17,38,39,35,17,42,18,40,32,38,19,39,0,0,0,0,0,0,
+0,0,0,0,0,40,43,47,46,18,18,36,36,16,42,43,45,41,0,0,0,0,0,0,
+0,0,0,0,0,43,43,46,17,38,36,37,41,38,43,41,47,16,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,45,19,36,46,42,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,36,36,42,17,43,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,42,43,37,46,18,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,47,17,38,17,42,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,36,39,36,17,44,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,37,16,17,38,47,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,40,47,36,42,17,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,46,37,37,16,16,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="object" width="24" height="60">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,77,65,99,69,103,101,107,65,103,99,105,69,99,103,101,107,65,103,65,99,65,78,0,
+0,64,0,0,0,0,0,0,0,0,0,0,0,0,181,0,0,0,0,0,0,0,70,0,
+0,106,0,127,124,0,0,0,0,110,151,135,133,151,110,0,0,0,0,127,124,0,82,0,
+0,68,0,126,125,0,0,0,0,0,0,177,0,0,0,0,0,0,0,126,125,0,82,0,
+0,98,0,0,0,151,0,0,0,0,0,0,0,0,0,0,0,0,151,0,0,0,82,0,
+0,102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,106,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,64,0,0,0,0,0,0,0,0,129,0,0,129,0,0,0,0,0,0,0,0,82,0,
+0,106,0,0,0,0,0,0,0,0,0,0,182,0,0,0,0,0,0,0,0,0,82,0,
+0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,98,0,0,0,151,0,0,0,0,0,0,0,0,0,0,0,0,151,0,0,0,82,0,
+0,68,0,127,124,0,0,0,0,0,0,0,0,0,0,0,0,0,0,127,124,0,82,0,
+0,106,0,126,125,0,0,0,0,0,0,0,0,0,0,0,0,0,0,126,125,0,82,0,
+0,104,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,
+0,76,71,83,83,83,83,83,83,88,0,0,0,0,91,83,83,83,83,83,83,83,95,0,
+0,0,0,0,0,0,0,0,0,80,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,102,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,104,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,114,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,102,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,77,107,103,65,73,0,0,0,0,90,81,103,107,78,0,0,0,0,0,
+0,0,0,0,0,106,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,
+0,0,0,0,0,102,0,128,0,0,0,0,0,0,0,0,130,0,82,0,0,0,0,0,
+0,0,0,0,0,98,0,134,0,0,0,0,0,0,0,0,134,0,82,0,0,0,0,0,
+0,0,0,0,0,100,0,128,0,0,0,0,0,0,0,0,130,0,82,0,0,0,0,0,
+0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,
+0,0,0,0,0,98,0,167,0,165,0,0,0,0,165,0,167,0,82,0,0,0,0,0,
+0,0,0,0,0,102,196,197,0,0,0,0,0,0,0,0,198,199,82,0,0,0,0,0,
+0,0,0,0,0,106,0,0,0,0,0,0,0,0,0,0,180,179,82,0,0,0,0,0,
+0,0,0,0,0,76,71,83,83,88,0,0,0,0,91,83,83,83,95,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,80,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,102,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,114,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,102,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,77,107,103,105,73,0,0,0,0,90,81,103,107,78,0,0,0,0,0,
+0,0,0,0,0,106,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,
+0,0,0,0,0,102,0,128,0,0,0,0,0,0,0,0,130,0,82,0,0,0,0,0,
+0,0,0,0,0,98,0,134,0,0,0,0,0,0,0,0,134,0,82,0,0,0,0,0,
+0,0,0,0,0,100,0,128,0,0,0,0,0,0,0,0,130,0,82,0,0,0,0,0,
+0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,
+0,0,0,0,0,98,0,167,0,165,0,0,0,0,165,0,167,0,82,0,0,0,0,0,
+0,0,0,0,0,102,196,197,0,0,0,0,0,0,0,0,198,199,82,0,0,0,0,0,
+0,0,0,0,0,106,178,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,
+0,0,0,0,0,76,71,83,83,88,0,0,0,0,91,83,83,83,95,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,80,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,102,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,106,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,98,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,106,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,102,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,104,0,0,0,0,82,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,76,71,282,283,83,95,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="collision" width="24" height="60">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,2,2,0,0,0,0,1,4,4,4,4,1,0,0,0,0,2,2,0,1,0,
+0,1,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,1,0,
+0,1,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,1,0,
+0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,4,4,4,4,4,4,4,4,4,4,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,4,4,4,4,4,4,4,4,4,4,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,4,4,2,2,2,2,2,2,4,4,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,4,4,2,3,0,0,3,2,4,4,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,4,4,2,0,4,0,0,2,4,4,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,4,4,2,0,0,0,0,2,4,4,2,0,0,0,0,1,0,
+0,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,0,
+0,1,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,1,0,
+0,1,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,1,0,
+0,1,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,3,3,3,3,0,
+0,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,3,0,0,0,0,0,0,0,0,3,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,4,0,0,0,0,0,0,0,0,4,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,3,0,0,0,0,0,0,0,0,3,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,4,0,4,0,0,0,0,4,0,4,0,1,3,3,3,3,0,
+0,3,3,3,3,1,4,4,0,0,0,0,0,0,0,0,4,4,1,3,3,3,3,0,
+0,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,0,
+0,3,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,3,3,3,3,0,
+0,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,3,0,0,0,0,0,0,0,0,3,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,4,0,0,0,0,0,0,0,0,4,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,3,0,0,0,0,0,0,0,0,3,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,0,
+0,3,3,3,3,1,0,4,0,4,0,0,0,0,4,0,4,0,1,3,3,3,3,0,
+0,3,3,3,3,1,4,4,0,0,0,0,0,0,0,0,4,4,1,3,3,3,3,0,
+0,3,3,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,0,
+0,3,3,3,3,1,1,1,1,1,0,0,0,0,1,1,1,1,1,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,0,
+0,3,3,3,3,3,3,3,3,1,1,1,1,1,1,3,3,3,3,3,3,3,3,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="event">
+  <object id="1" name="to Underworld Stronghold: Barracks" type="event" x="352" y="1824" width="64" height="64">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="intermap" value="maps/underworld_stronghold_2.txt,0,0"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/door_open.ogg,0,0"/>
+    <property name="tooltip" value="Underworld Stronghold: Barracks"/>
+   </properties>
+  </object>
+  <object id="2" name="Wind sound" type="event" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="3" name="brazier sound effect" type="event" x="672" y="1504" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="4" name="brazier sound effect" type="event" x="64" y="1504" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="5" name="brazier sound effect" type="event" x="672" y="992" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="6" name="brazier sound effect" type="event" x="64" y="992" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="7" name="Plaque 1" type="event" x="288" y="1504" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="The plaque reads: &quot;1&quot;."/>
+    <property name="repeat" value="true"/>
+    <property name="tooltip" value="Plaque"/>
+   </properties>
+  </object>
+  <object id="11" name="Plaque 2" type="event" x="448" y="1504" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="The plaque reads: &quot;2&quot;."/>
+    <property name="repeat" value="true"/>
+    <property name="tooltip" value="Plaque"/>
+   </properties>
+  </object>
+  <object id="12" name="Plaque 3" type="event" x="288" y="992" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="The plaque reads: &quot;3&quot;."/>
+    <property name="repeat" value="true"/>
+    <property name="tooltip" value="Plaque"/>
+   </properties>
+  </object>
+  <object id="13" name="Plaque 4" type="event" x="448" y="992" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="The plaque reads: &quot;4&quot;."/>
+    <property name="repeat" value="true"/>
+    <property name="tooltip" value="Plaque"/>
+   </properties>
+  </object>
+  <object id="14" name="Altar 1 (never got fig)" type="event" x="32" y="1312" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="7,44,1,1"/>
+    <property name="msg" value="The altar is empty."/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_fig_1"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="15" name="Altar 1 (have fig)" type="event" x="32" y="1344" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="7,44,1,1"/>
+    <property name="mapmod" value="background,9,44,60"/>
+    <property name="msg" value="You place the figure on the altar."/>
+    <property name="remove_item" value="1009"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_item" value="1009"/>
+    <property name="requires_status" value="emp_fig_1"/>
+    <property name="set_status" value="emp_fig_1_placed"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="16" name="Altar 1 (placed fig)" type="event" x="32" y="1376" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="7,44,1,1"/>
+    <property name="mapmod" value="background,9,44,56"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_status" value="emp_fig_1_placed"/>
+    <property name="reward_item" value="1009,1"/>
+    <property name="tooltip" value="Altar"/>
+    <property name="unset_status" value="emp_fig_1_placed,emp_fig_all_placed"/>
+   </properties>
+  </object>
+  <object id="17" name="Altar 1 (on_load symbol)" type="event" x="32" y="1408" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,9,44,60"/>
+    <property name="requires_status" value="emp_fig_1_placed"/>
+   </properties>
+  </object>
+  <object id="18" name="Altar 2 (on_load symbol)" type="event" x="704" y="1408" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,14,44,61"/>
+    <property name="requires_status" value="emp_fig_2_placed"/>
+   </properties>
+  </object>
+  <object id="19" name="Altar 2 (placed fig)" type="event" x="704" y="1376" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="16,44,1,1"/>
+    <property name="mapmod" value="background,14,44,57"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_status" value="emp_fig_2_placed"/>
+    <property name="reward_item" value="1010,1"/>
+    <property name="tooltip" value="Altar"/>
+    <property name="unset_status" value="emp_fig_2_placed,emp_fig_all_placed"/>
+   </properties>
+  </object>
+  <object id="20" name="Altar 2 (have fig)" type="event" x="704" y="1344" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="16,44,1,1"/>
+    <property name="mapmod" value="background,14,44,61"/>
+    <property name="msg" value="You place the figure on the altar."/>
+    <property name="remove_item" value="1010"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_item" value="1010"/>
+    <property name="requires_status" value="emp_fig_2"/>
+    <property name="set_status" value="emp_fig_2_placed"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="21" name="Altar 2 (never got fig)" type="event" x="704" y="1312" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="16,44,1,1"/>
+    <property name="msg" value="The altar is empty."/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_fig_2"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="22" name="Altar 3 (on_load symbol)" type="event" x="32" y="896" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,9,28,62"/>
+    <property name="requires_status" value="emp_fig_3_placed"/>
+   </properties>
+  </object>
+  <object id="23" name="Altar 3 (placed fig)" type="event" x="32" y="864" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="7,28,1,1"/>
+    <property name="mapmod" value="background,9,28,58"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_status" value="emp_fig_3_placed"/>
+    <property name="reward_item" value="1011,1"/>
+    <property name="tooltip" value="Altar"/>
+    <property name="unset_status" value="emp_fig_3_placed,emp_fig_all_placed"/>
+   </properties>
+  </object>
+  <object id="24" name="Altar 3 (have fig)" type="event" x="32" y="832" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="7,28,1,1"/>
+    <property name="mapmod" value="background,9,28,62"/>
+    <property name="msg" value="You place the figure on the altar."/>
+    <property name="remove_item" value="1011"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_item" value="1011"/>
+    <property name="requires_status" value="emp_fig_3"/>
+    <property name="set_status" value="emp_fig_3_placed"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="25" name="Altar 3 (never got fig)" type="event" x="32" y="800" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="7,28,1,1"/>
+    <property name="msg" value="The altar is empty."/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_fig_3"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="26" name="Altar 4 (on_load symbol)" type="event" x="704" y="928" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="background,14,28,63"/>
+    <property name="requires_status" value="emp_fig_2_placed"/>
+   </properties>
+  </object>
+  <object id="27" name="Altar 4 (placed fig)" type="event" x="704" y="896" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="16,28,1,1"/>
+    <property name="mapmod" value="background,14,28,59"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_status" value="emp_fig_4_placed"/>
+    <property name="reward_item" value="1012,1"/>
+    <property name="tooltip" value="Altar"/>
+    <property name="unset_status" value="emp_fig_4_placed,emp_fig_all_placed"/>
+   </properties>
+  </object>
+  <object id="28" name="Altar 4 (have fig)" type="event" x="704" y="864" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="16,28,1,1"/>
+    <property name="mapmod" value="background,14,28,63"/>
+    <property name="msg" value="You place the figure on the altar."/>
+    <property name="remove_item" value="1012"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_item" value="1012"/>
+    <property name="requires_status" value="emp_fig_4"/>
+    <property name="set_status" value="emp_fig_4_placed"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="29" name="Altar 4 (never got fig)" type="event" x="704" y="832" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="16,28,1,1"/>
+    <property name="msg" value="The altar is empty."/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_fig_4"/>
+    <property name="tooltip" value="Altar"/>
+   </properties>
+  </object>
+  <object id="31" name="all figs placed flag" type="event" x="0" y="608" width="32" height="32">
+   <properties>
+    <property name="activate" value="static"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_fig_all_placed"/>
+    <property name="requires_status" value="emp_fig_1_placed,emp_fig_2_placed,emp_fig_3_placed,emp_fig_4_placed"/>
+    <property name="set_status" value="emp_fig_all_placed"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="npc">
+  <object id="30" type="npc" x="352" y="352" width="32" height="32">
+   <properties>
+    <property name="filename" value="npcs/infinity_obelisk.txt"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
