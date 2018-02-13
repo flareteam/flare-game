@@ -899,6 +899,7 @@ post_power=158
 trait_elemental=fire
 modifier_damage=multiply,50,0
 
+# sonic goblin attack
 [power]
 id=254
 type=fixed
@@ -915,4 +916,37 @@ animation=animations/powers/cleave.txt
 floor=true
 post_effect=knockback,15,200ms
 post_effect=stun,0,1s,25
+
+# spike trap (automatic)
+[power]
+id=255
+type=fixed
+animation=animations/powers/spikes.txt
+use_hazard=true
+lifespan=533ms
+radius=1.0
+starting_pos=source
+complete_animation=true
+base_damage=melee
+visual_random=4
+
+# twin-axe
+[power]
+id=256
+type=missile
+new_state=shoot
+face=true
+directional=true
+animation=animations/powers/throw_axe.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=766ms
+radius=1.0
+speed=12
+modifier_damage=multiply,125,0
+count=2
+missile_angle=15
+angle_variance=10
+speed_variance=0.02
 

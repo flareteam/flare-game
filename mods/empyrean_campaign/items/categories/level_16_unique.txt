@@ -1,8 +1,8 @@
 # Torture Chambers
 [item]
 id=419
-INCLUDE items/base/rings/gold_1.txt
 name=Fleshband
+INCLUDE items/base/rings/gold_1.txt
 flavor=Smooth to the touch. Upon wearing it, it tightens itself around the finger.
 level=16
 quality=unique
@@ -15,9 +15,10 @@ bonus=lightning_resist,5
 bonus=dark_resist,5
 
 # Oasis
+[item]
 id=420
-INCLUDE items/base/rings/silver_1.txt
 name=Soulband
+INCLUDE items/base/rings/silver_1.txt
 flavor=Glowing when worn, it clears the wearer's mind and allows them to deeply focus.
 level=16
 quality=unique
@@ -28,4 +29,112 @@ bonus=fire_resist,5
 bonus=ice_resist,5
 bonus=lightning_resist,5
 bonus=dark_resist,5
+
+# Stronghold #1
+[item]
+id=421
+name=Underworld Cloak
+INCLUDE items/base/armor/mage_alt2/head.txt
+level=16
+quality=unique
+price=960
+abs=6,7
+requires_stat=defense,27
+requires_stat=mental,16
+bonus=mp,54
+
+[item]
+id=422
+name=Underworld Platemail
+INCLUDE items/base/armor/plate/chest.txt
+level=16
+quality=unique
+price=2400
+abs=8,9
+requires_stat=defense,28
+requires_stat=physical,14
+bonus=hp,600
+
+[item]
+id=423
+name=Underworld Boots
+INCLUDE items/base/armor/plate/feet.txt
+level=16
+quality=unique
+price=960
+abs=7
+requires_stat=defense,27
+requires_stat=offense,15
+bonus=avoidance,48
+
+[item]
+id=424
+name=Underworld Armguards
+INCLUDE items/base/armor/plate/hands.txt
+level=16
+quality=unique
+price=800
+abs=7
+requires_stat=defense,27
+requires_stat=offense,15
+bonus=accuracy,48
+
+[item]
+id=425
+name=Underworld Greaves
+INCLUDE items/base/armor/plate/legs.txt
+level=16
+quality=unique
+price=1600
+abs=8
+requires_stat=defense,28
+requires_stat=physical,14
+bonus=poise,48
+
+[item]
+id=426
+name=Underworld Tome
+INCLUDE items/base/misc/spellbook.txt
+level=16
+quality=unique
+price=1600
+requires_stat=defense,26
+requires_stat=mental,16
+bonus=mp_regen,48
+
+[item]
+id=427
+name=Underworld Blade
+INCLUDE items/base/weapons/melee/greatsword.txt
+level=16
+quality=unique
+price=3200
+dmg=melee,85,90
+requires_stat=physical,30
+bonus=dmg_melee_min,30
+bonus=dmg_melee_max,30
+
+[item]
+id=428
+name=Underworld Bow
+INCLUDE items/base/weapons/ranged/greatbow.txt
+level=16
+quality=unique
+price=3200
+dmg=ranged,85,90
+requires_stat=offense,30
+bonus=dmg_ranged_min,30
+bonus=dmg_ranged_max,30
+
+[item]
+id=429
+name=Underworld Sceptre
+INCLUDE items/base/weapons/magic/greatstaff.txt
+level=16
+quality=rare
+price=3200
+dmg=ment,85,90
+requires_stat=mental,30
+bonus=dmg_ment_min,30
+bonus=dmg_ment_max,30
 

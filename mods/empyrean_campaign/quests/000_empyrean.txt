@@ -66,4 +66,10 @@ quest_text=The time has come. Write your name in the Book of the Dead and gain e
 
 [quest]
 requires_status=emp_main_underworld
+requires_not_status=emp_main_stronghold
 quest_text=Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean.
+
+[quest]
+requires_status=emp_main_stronghold
+quest_text=You've found a stronghold in the Underworld. If there is a way back to Empyrean, it is through here.
+

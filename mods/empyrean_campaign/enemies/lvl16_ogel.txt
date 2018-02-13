@@ -1,0 +1,41 @@
+INCLUDE enemies/base/minotaur.txt
+
+name=Ogel
+level=16
+categories=ogel
+xp=131072
+
+# combat stats
+stat=hp,1820
+speed=5.2
+turn_delay=166ms
+chance_pursue=25
+
+power=melee,164,2
+power=melee,168,5
+power=ranged,192,5
+power=ranged,256,5
+
+stat=accuracy,165
+stat=avoidance,85
+stat=poise,70
+
+stat=dmg_melee_min,270
+stat=dmg_melee_max,280
+stat=dmg_ranged_min,265
+stat=dmg_ranged_max,275
+stat=absorb_min,16
+stat=absorb_max,17
+cooldown=1375ms
+
+# stronghold foyer key
+quest_loot=emp_stronghold1_init,emp_stronghold1_key,1028
+
+# loot
+loot=loot/level_16.txt
+loot_count=3,4
+
+# Underworld Armament part 1
+loot=421,1
+loot=422,1
+loot=423,1
