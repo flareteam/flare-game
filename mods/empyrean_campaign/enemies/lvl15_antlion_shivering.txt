@@ -1,0 +1,35 @@
+INCLUDE enemies/base/antlion_ice.txt
+
+name=Shivering Antlion
+level=15
+categories=antlion,dungeon
+rarity=uncommon
+xp=32768
+
+# combat stats
+stat=hp,390
+speed=5.4
+turn_delay=166ms
+
+chance_pursue=30
+
+power=melee,164,5
+power=melee,258,10
+
+stat=accuracy,155
+stat=avoidance,95
+stat=poise,52
+
+stat=absorb_min,15
+stat=absorb_max,16
+
+stat=dmg_melee_min,215
+stat=dmg_melee_max,220
+stat=dmg_ment_min,230
+stat=dmg_ment_max,235
+
+cooldown=1250ms
+
+# loot
+loot=loot/level_15.txt
+

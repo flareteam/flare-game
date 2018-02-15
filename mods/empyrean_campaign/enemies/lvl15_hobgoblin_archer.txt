@@ -1,0 +1,37 @@
+INCLUDE enemies/base/hobgoblin_archer.txt
+
+name=Hobgoblin Archer
+level=15
+categories=goblin,goblin_archer,dungeon,grassland
+rarity=uncommon
+xp=32768
+
+# combat stats
+stat=hp,400
+speed=3.9
+turn_delay=400ms
+
+stat=accuracy,155
+stat=avoidance,80
+stat=poise,52
+
+stat=dmg_melee_min,220
+stat=dmg_melee_max,225
+stat=dmg_ranged_min,225
+stat=dmg_ranged_max,230
+cooldown=1450ms
+stat=absorb_min,14
+stat=absorb_max,15
+
+# loot
+loot=loot/level_15.txt
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=2
+chance_flee=20
+flee_duration=3s
+flee_cooldown=1s
+flee_range=6
+threat_range=10
+power=melee,259,2
+power=ranged,259,40

@@ -1,0 +1,29 @@
+INCLUDE enemies/base/hobgoblin.txt
+
+name=Hobgoblin
+level=15
+categories=goblin,dungeon,grassland
+rarity=common
+xp=32768
+
+# combat stats
+stat=hp,400
+speed=3.9
+melee_range=1.125
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,5
+power=ranged,260,2
+
+stat=accuracy,155
+stat=avoidance,80
+stat=poise,52
+
+stat=dmg_melee_min,220
+stat=dmg_melee_max,225
+cooldown=1250ms
+
+# loot
+loot=loot/level_15.txt
+

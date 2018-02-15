@@ -242,6 +242,7 @@ complete_animation=true
 base_damage=melee
 visual_random=4
 soundfx=soundfx/powers/spikes.ogg
+source_type=neutral
 
 # quake
 [power]
@@ -929,6 +930,7 @@ starting_pos=source
 complete_animation=true
 base_damage=melee
 visual_random=4
+source_type=neutral
 
 # twin-axe
 [power]
@@ -949,4 +951,81 @@ count=2
 missile_angle=15
 angle_variance=10
 speed_variance=0.02
+
+# heal nearby enemies
+[power]
+id=257
+type=fixed
+new_state=cast
+use_hazard=true
+starting_pos=source
+radius=4
+source_type=hero
+multitarget=true
+ignore_zero_damage=true
+soundfx=soundfx/powers/heal.ogg
+post_effect=hp_restore,50,33ms
+post_effect=heal_animation,0,600ms
+cooldown=5s
+
+# ice quake
+[power]
+id=258
+type=fixed
+icon=10
+new_state=cast
+animation=animations/powers/quake.txt
+soundfx=soundfx/powers/quake.ogg
+use_hazard=true
+base_damage=ment
+lifespan=400ms
+radius=2.0
+floor=true
+visual_option=2
+starting_pos=source
+multitarget=true
+post_effect=stun,0,1s,25
+post_effect=slow,50,4s
+cooldown=5s
+modifier_damage=multiply,80,0
+post_effect=knockback,20,100ms
+
+# hobgoblin archer shoot
+[power]
+id=259
+type=missile
+new_state=swing
+face=true
+directional=true
+requires_los=true
+animation=animations/powers/arrows.txt
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+aim_assist=true
+requires_flags=ranged
+base_damage=ranged
+lifespan=533ms
+radius=1.0
+speed=24
+wall_power=157
+modifier_accuracy=multiply,75,0
+
+# hobgoblin throw knife
+[power]
+id=260
+type=missile
+new_state=cast
+face=true
+directional=true
+animation=animations/powers/throw_knife.txt
+use_hazard=true
+aim_assist=true
+base_damage=melee
+lifespan=800ms
+radius=1.0
+speed=12
+modifier_damage=multiply,90,0
+modifier_accuracy=multiply,90,0
+angle_variance=12
+speed_variance=0.05
 

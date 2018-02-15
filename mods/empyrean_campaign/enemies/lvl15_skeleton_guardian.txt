@@ -1,0 +1,33 @@
+INCLUDE enemies/base/skeleton.txt
+
+name=Skeleton Guardian
+level=15
+categories=skeleton_knight,skeleton,undead,dungeon
+rarity=uncommon
+xp=32768
+
+# combat stats
+stat=hp,410
+speed=4.9
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,8
+power=melee,168,10
+power=on_half_dead,257,100
+passive_powers=185
+
+stat=accuracy,160
+stat=avoidance,80
+stat=poise,57
+
+stat=dmg_melee_min,220
+stat=dmg_melee_max,230
+cooldown=1250ms
+
+stat=absorb_min,15
+stat=absorb_max,15
+
+# loot
+loot=loot/level_15.txt
+
