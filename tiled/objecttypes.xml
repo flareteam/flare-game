@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objecttypes>
+ <objecttype name="enemy" color="#ff9f3f">
+  <property name="category" type="string"/>
+  <property name="chance" type="string"/>
+  <property name="direction" type="string"/>
+  <property name="level" type="string"/>
+  <property name="number" type="string"/>
+  <property name="requires_not_status" type="string"/>
+  <property name="requires_status" type="string"/>
+  <property name="wander_radius" type="string"/>
+  <property name="waypoints" type="string"/>
+ </objecttype>
  <objecttype name="event" color="#3fffff">
   <property name="activate" type="string"/>
   <property name="book" type="string"/>
   <property name="chance_exec" type="string"/>
   <property name="cooldown" type="string"/>
   <property name="cutscene" type="string"/>
+  <property name="delay" type="string"/>
   <property name="hotspot" type="string"/>
   <property name="intermap" type="string"/>
   <property name="intermap_random" type="string"/>
@@ -46,17 +58,6 @@
   <property name="stash" type="string"/>
   <property name="tooltip" type="string"/>
   <property name="unset_status" type="string"/>
- </objecttype>
- <objecttype name="enemy" color="#ff9f3f">
-  <property name="category" type="string"/>
-  <property name="chance" type="string"/>
-  <property name="direction" type="string"/>
-  <property name="level" type="string"/>
-  <property name="number" type="string"/>
-  <property name="requires_not_status" type="string"/>
-  <property name="requires_status" type="string"/>
-  <property name="wander_radius" type="string"/>
-  <property name="waypoints" type="string"/>
  </objecttype>
  <objecttype name="npc" color="#9f40ff">
   <property name="filename" type="string"/>
