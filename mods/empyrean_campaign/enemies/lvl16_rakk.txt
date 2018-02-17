@@ -1,0 +1,51 @@
+INCLUDE enemies/base/wyvern_ice.txt
+
+name=Rakk
+level=16
+categories=rakk
+xp=131072
+
+# combat stats
+stat=hp,1740
+speed=5.2
+turn_delay=200ms
+
+stat=accuracy,170
+stat=avoidance,100
+stat=poise,55
+
+stat=dmg_melee_min,260
+stat=dmg_melee_max,265
+stat=dmg_ment_min,255
+stat=dmg_ment_max,265
+stat=absorb_min,15
+stat=absorb_max,16
+
+vulnerable=fire,125
+vulnerable=ice,50
+
+cooldown=1175ms
+
+# stronghold foyer key
+quest_loot=emp_stronghold2_init,emp_stronghold2_key,1029
+
+# loot
+loot=loot/level_16.txt
+loot_count=3,4
+
+# Underworld Armament part 2
+loot=424,1
+loot=425,1
+loot=426,1
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=5
+chance_flee=10
+flee_duration=3s
+flee_cooldown=1s
+flee_range=9
+threat_range=15,20
+melee_range=2.5
+power=melee,164,5
+power=melee,261,20
+power=ranged,172,60

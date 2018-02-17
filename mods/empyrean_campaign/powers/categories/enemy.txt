@@ -1014,7 +1014,7 @@ modifier_accuracy=multiply,75,0
 [power]
 id=260
 type=missile
-new_state=cast
+new_state=swing
 face=true
 directional=true
 animation=animations/powers/throw_knife.txt
@@ -1029,3 +1029,26 @@ modifier_accuracy=multiply,90,0
 angle_variance=12
 speed_variance=0.05
 
+# Rakk's freeze attack
+[power]
+id=261
+type=missile
+new_state=cast
+face=true
+animation=animations/powers/freeze_2.txt
+use_hazard=true
+soundfx=soundfx/powers/freeze.ogg
+speed=4
+trait_elemental=ice
+radius=1.2
+lifespan=500ms
+base_damage=ment
+visual_random=3
+count=12
+modifier_damage=multiply,90,0
+post_effect=slow,25,4s
+post_effect=knockback,15,100ms
+angle_variance=2
+speed_variance=0.05
+missile_angle=5
+starting_pos=source

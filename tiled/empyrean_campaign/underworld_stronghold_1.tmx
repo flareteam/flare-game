@@ -776,7 +776,7 @@
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
     <property name="msg" value="This door needs a key to be opened."/>
-    <property name="requires_not_status" value="emp_stronghold1_key;emp_stronghold2_door"/>
+    <property name="requires_not_status" value="emp_stronghold1_key;emp_stronghold1_door"/>
     <property name="tooltip" value="Locked Door"/>
    </properties>
   </object>
@@ -784,7 +784,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="intermap" value="maps/underworld_stronghold_2.txt,0,0"/>
+    <property name="intermap" value="maps/underworld_stronghold_2.txt,36,8"/>
     <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
     <property name="tooltip" value="Underworld Stronghold: Barracks"/>
    </properties>

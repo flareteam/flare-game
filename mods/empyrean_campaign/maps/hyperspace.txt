@@ -273,6 +273,17 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Underworld Catacombs
 
 [event]
+# to Underworld Stronghold: Barracks
+type=event
+location=7,16,2,2
+activate=on_trigger
+hotspot=location
+intermap=maps/underworld_stronghold_2.txt,44,9
+requires_status=emp_waypoint_11
+soundfx=soundfx/environment/teleporter.ogg,0,0
+tooltip=Underworld Stronghold: Barracks
+
+[event]
 # Wind sound
 type=event
 location=0,0,1,1
@@ -358,4 +369,12 @@ location=5,23,1,1
 activate=on_load
 mapmod=background,7,23,265
 requires_status=emp_waypoint_10
+
+[event]
+# unlock Underworld Stronghold: Barracks
+type=event
+location=5,17,1,1
+activate=on_load
+mapmod=background,7,17,265
+requires_status=emp_waypoint_11
 

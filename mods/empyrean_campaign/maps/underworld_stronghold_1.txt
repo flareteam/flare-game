@@ -812,7 +812,7 @@ location=21,25,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_stronghold1_key;emp_stronghold2_door
+requires_not_status=emp_stronghold1_key;emp_stronghold1_door
 tooltip=Locked Door
 
 [event]
@@ -821,7 +821,7 @@ type=event
 location=21,5,2,1
 activate=on_trigger
 hotspot=location
-intermap=maps/underworld_stronghold_2.txt,0,0
+intermap=maps/underworld_stronghold_2.txt,36,8
 soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Underworld Stronghold: Barracks
 
