@@ -4,6 +4,7 @@ height=80
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=76,6
 music=music/cave_theme.ogg
 tileset=tilesetdefs/tileset_cave.txt
@@ -285,6 +286,7 @@ location=65,21,2,2
 activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,30,17
+requires_status=emp_waypoint_4
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Hyperspace
 

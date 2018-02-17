@@ -4,6 +4,7 @@ height=80
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=2,8
 music=music/forest_theme.ogg
 tileset=tilesetdefs/tileset_grassland.txt
@@ -296,6 +297,7 @@ location=59,44,2,2
 activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,17,10
+requires_status=emp_waypoint_1
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Hyperspace
 

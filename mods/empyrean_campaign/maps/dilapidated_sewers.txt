@@ -4,6 +4,7 @@ height=80
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=64,8
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -297,6 +298,7 @@ location=35,27,2,2
 activate=on_trigger
 hotspot=location
 intermap=maps/hyperspace.txt,17,30
+requires_status=emp_waypoint_8
 soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Hyperspace
 

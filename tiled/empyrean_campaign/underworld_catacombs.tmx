@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.0" orientation="isometric" renderorder="right-down" width="120" height="105" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="60">
+<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="120" height="105" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="60">
  <properties>
   <property name="hero_pos" value="70,99"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -504,6 +504,7 @@
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/hyperspace.txt,9,23"/>
+    <property name="requires_status" value="emp_waypoint_10"/>
     <property name="soundfx" value="soundfx/environment/teleporter.ogg,0,0"/>
     <property name="tooltip" value="Hyperspace"/>
    </properties>
