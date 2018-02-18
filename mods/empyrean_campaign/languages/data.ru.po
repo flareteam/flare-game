@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 12:54+\n"
+"POT-Creation-Date: 2018-02-17 23:35+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -51,6 +51,11 @@ msgstr "Снаряжение Стража Храма"
 #, fuzzy
 msgid "Wizard's Apparatus"
 msgstr "Великий Посох Мага"
+
+#: ../items/sets.txt:36
+#, fuzzy
+msgid "Underworld Armament"
+msgstr "Ад"
 
 #: ../powers/effects.txt:6
 msgid "Shield"
@@ -417,9 +422,24 @@ msgstr "Гоблин-Соник"
 msgid "Shocker Skeleton"
 msgstr "Шокирующий Скелет"
 
+#: ../enemies/lvl15_antlion_shivering.txt:3
+#, fuzzy
+msgid "Shivering Antlion"
+msgstr "Огненный Муравьиный Лев"
+
 #: ../enemies/lvl15_arzoz.txt:3
 msgid "Arzoz"
 msgstr ""
+
+#: ../enemies/lvl15_hobgoblin.txt:3
+#, fuzzy
+msgid "Hobgoblin"
+msgstr "Гоблин"
+
+#: ../enemies/lvl15_hobgoblin_archer.txt:3
+#, fuzzy
+msgid "Hobgoblin Archer"
+msgstr "Гоблин-Копьеметатель"
 
 #: ../enemies/lvl15_kayl.txt:3
 msgid "Kayl"
@@ -433,9 +453,35 @@ msgstr ""
 msgid "Nerin"
 msgstr ""
 
+#: ../enemies/lvl15_skeleton_guardian.txt:3
+#, fuzzy
+msgid "Skeleton Guardian"
+msgstr "Скелет-Убийца"
+
 #: ../enemies/lvl15_vohn.txt:4
 msgid "Vohn"
 msgstr "Вон"
+
+#: ../enemies/lvl15_wyvern_ancient.txt:3
+#, fuzzy
+msgid "Ancient Wyvern"
+msgstr "Ледяная Виверна"
+
+#: ../enemies/lvl16_forgotten_grave.txt:3
+msgid "Forgotten Grave"
+msgstr ""
+
+#: ../enemies/lvl16_lezaith.txt:4
+msgid "Lezaith"
+msgstr ""
+
+#: ../enemies/lvl16_ogel.txt:3
+msgid "Ogel"
+msgstr ""
+
+#: ../enemies/lvl16_rakk.txt:3
+msgid "Rakk"
+msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
@@ -694,11 +740,11 @@ msgstr "Логово Муравьиного Льва"
 msgid "Temple of Mez: Basement"
 msgstr "Храм Мез: Подвал"
 
-#: ../maps/arrival.txt:10
+#: ../maps/arrival.txt:11
 msgid "Arrival"
 msgstr "Прибытие"
 
-#: ../maps/arrival.txt:170
+#: ../maps/arrival.txt:171
 msgid "River Trail"
 msgstr "Излучина Реки"
 
@@ -730,15 +776,15 @@ msgstr "Старая Канализация"
 msgid "Lumber"
 msgstr "Древесина"
 
-#: ../maps/blackmire_mines.txt:276
+#: ../maps/blackmire_mines.txt:277
 msgid "Blackmire Mines waypoint discovered."
 msgstr "Найден телепорт Торфяной Шахты."
 
-#: ../maps/blackmire_mines.txt:289
+#: ../maps/blackmire_mines.txt:291
 msgid "Hyperspace"
 msgstr "Гиперпространство"
 
-#: ../maps/blackmire_mines.txt:478
+#: ../maps/blackmire_mines.txt:480
 msgid "Lake Kuuma"
 msgstr "Озеро Куума"
 
@@ -762,11 +808,11 @@ msgstr "Добавлено Задание."
 msgid "You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked."
 msgstr "Вы записали своë имя в Книгу Мёртвых. Чёрное перо исчезло и чернильница осушилась. Вы надеетесь, что сработало."
 
-#: ../maps/dilapidated_sewers.txt:309
+#: ../maps/dilapidated_sewers.txt:311
 msgid "Dilapidated Sewers waypoint discovered."
 msgstr "Найден телепорт Старой Канализации."
 
-#: ../maps/dilapidated_sewers.txt:574
+#: ../maps/dilapidated_sewers.txt:576
 msgid "Fort Nasu"
 msgstr "Форт Насу"
 
@@ -855,23 +901,23 @@ msgstr "Странная Книга"
 msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
 msgstr "Тут лежит книга с названием «Отражение», но в ней не хватает всех страниц."
 
-#: ../maps/goblin_camp.txt:10
+#: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
 msgstr "Лагерь Гоблинов"
 
-#: ../maps/goblin_camp.txt:222
+#: ../maps/goblin_camp.txt:223
 msgid "Stonewood"
 msgstr "Каменный Лес"
 
-#: ../maps/goblin_camp.txt:401
+#: ../maps/goblin_camp.txt:402
 msgid "Merrimead Swamp"
 msgstr "Болото Меримед"
 
-#: ../maps/goblin_camp.txt:410
+#: ../maps/goblin_camp.txt:411
 msgid "Goblin Cave"
 msgstr "Пещера Гоблинов"
 
-#: ../maps/goblin_camp.txt:422
+#: ../maps/goblin_camp.txt:423
 msgid "Gravestone"
 msgstr "Надгробие"
 
@@ -952,7 +998,7 @@ msgstr "Локпорт"
 msgid "St. Maria: Mausoleum"
 msgstr "Св. Мария: Мавзолей"
 
-#: ../maps/lochport_cemetery.txt:307
+#: ../maps/lochport_cemetery.txt:309
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Найден телепорт Кладбища Локпорта."
 
@@ -976,11 +1022,11 @@ msgstr "Куча Костей"
 msgid "Blocked Mine Cart"
 msgstr "Застрявшая Вагонетка"
 
-#: ../maps/nazia_highlands.txt:10
+#: ../maps/nazia_highlands.txt:11
 msgid "Nazia Highlands"
 msgstr "Нагорье Назии"
 
-#: ../maps/nazia_highlands.txt:382
+#: ../maps/nazia_highlands.txt:383
 msgid "Nazia Mines"
 msgstr "Шахта Назии"
 
@@ -996,7 +1042,7 @@ msgstr "Пустая вагонетка не сможет разбить вал�
 msgid "Reset Quest: \"Trapped!\""
 msgstr ""
 
-#: ../maps/nazia_underground.txt:378
+#: ../maps/nazia_underground.txt:379
 msgid "Nazia Underground waypoint discovered."
 msgstr "Найден телепорт подземелья Назии."
 
@@ -1009,11 +1055,11 @@ msgstr ""
 msgid "Underworld Mines"
 msgstr "Заброшенная Шахта"
 
-#: ../maps/perdition_harbor.txt:170
+#: ../maps/perdition_harbor.txt:171
 msgid "Shared Stash"
 msgstr "Общие Запасы"
 
-#: ../maps/perdition_harbor.txt:268
+#: ../maps/perdition_harbor.txt:269
 msgid "Perdition Harbor waypoint discovered."
 msgstr "Найден телепорт Пристанища Обречённых."
 
@@ -1033,62 +1079,70 @@ msgstr "Без ключа эту дверь не открыть."
 msgid "Locked Door"
 msgstr "Запертая Дверь"
 
-#: ../maps/st_maria_2.txt:269
+#: ../maps/st_maria_2.txt:271
 msgid "St. Maria: Prison waypoint discovered."
 msgstr "Найден телепорт Тюрьмы Св. Марии"
 
-#: ../maps/st_maria_2.txt:461
+#: ../maps/st_maria_2.txt:463
 msgid "St. Maria: Crypt"
 msgstr "Св. Мария: Склеп"
 
-#: ../maps/st_maria_3.txt:409
+#: ../maps/st_maria_3.txt:410
 msgid "The plaque reads: Grave of the Saints"
 msgstr "На мемориальной плите высечено: «Могила святых»v"
 
-#: ../maps/st_maria_3.txt:418
+#: ../maps/st_maria_3.txt:419
 msgid "You remove the gravebloom flower from the Altar."
 msgstr "Вы сняли цветок с алтаря."
 
-#: ../maps/st_maria_3.txt:439
+#: ../maps/st_maria_3.txt:440
 msgid "There is a gravebloom flower on the altar, but it is frozen in place."
 msgstr "На алтаре есть цветок, но он заморожен в месте."
 
-#: ../maps/st_maria_3.txt:453
+#: ../maps/st_maria_3.txt:454
 msgid "The gravebloom flower laid upon the altar has thawed."
 msgstr "Цветок на латаре разтаял."
 
-#: ../maps/stonewood.txt:512
+#: ../maps/stonewood.txt:514
 msgid "Stonewood waypoint discovered."
 msgstr "Найден телепорт Каменного леса."
 
-#: ../maps/stormrock_pass.txt:894
+#: ../maps/stormrock_pass.txt:895
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Найден телепорт ущелья Скалы бурь."
 
-#: ../maps/stormrock_pass.txt:1052
+#: ../maps/stormrock_pass.txt:1053
 msgid "Stormrock Ruins"
 msgstr "Развалины Скалы бурь"
 
-#: ../maps/temple_of_mez_2.txt:349
+#: ../maps/temple_of_mez_2.txt:351
 msgid "Temple of Mez: Main Hall waypoint discovered."
 msgstr "Найден телепорт храма Мез (Центральный Зал)"
 
-#: ../maps/temple_of_mez_2.txt:532
+#: ../maps/temple_of_mez_2.txt:534
 msgid "The plaque reads: Red Altar"
 msgstr "На мемориальной плите высечено: «Красный алтарь»"
 
-#: ../maps/temple_of_mez_2.txt:543
+#: ../maps/temple_of_mez_2.txt:545
 msgid "Temple of Mez: Entrance"
 msgstr "Храм Мез: Вход"
 
-#: ../maps/temple_of_mez_2.txt:550
+#: ../maps/temple_of_mez_2.txt:552
 msgid "You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."
 msgstr "Вы режете свою руку Жертвенным Ножом. Боль нетерпимая. Трясясь, вам удаётся собрать часть своей крови в маленьком флакончике. Нож быстро нагревается и вдруг рассыпается. Ваша рана начинает закрываться, не оставляя никаких следов кроме тёплого чувства по всему телу."
 
-#: ../maps/temple_of_mez_2.txt:558
+#: ../maps/temple_of_mez_2.txt:560
 #, fuzzy
 msgid "Red Altar"
 msgstr "Алтарь"
+
+#: ../maps/the_pit.txt:12
+msgid "The Pit"
+msgstr ""
+
+#: ../maps/the_pit.txt:390
+msgid "It's locked."
+msgstr ""
 
 #: ../maps/torture_chambers.txt:12
 #, fuzzy
@@ -1122,6 +1176,15 @@ msgstr "Ящик Надзирателя"
 msgid "Underworld Catacombs waypoint discovered."
 msgstr "Найден телепорт Каменного леса."
 
+#: ../maps/underworld_mines.txt:545
+msgid "Underworld Stronghold: Foyer"
+msgstr ""
+
+#: ../maps/underworld_stronghold_2.txt:341
+#, fuzzy
+msgid "Underground Stronghold: Barracks waypoint discovered."
+msgstr "Найден телепорт Каменного леса."
+
 #: ../maps/wizards_tower_1.txt:341
 #, fuzzy
 msgid "to Black Oak City"
@@ -1132,11 +1195,11 @@ msgstr "в Город Красильный Дуб"
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Найден телепорт Башня Колдуна: Исследовательские камеры."
 
-#: ../maps/wizards_tower_2.txt:503
+#: ../maps/wizards_tower_2.txt:504
 msgid "Wizard's Tower: Laboratory"
 msgstr "Башня Колдуна: Лаборатория"
 
-#: ../maps/wizards_tower_2.txt:511
+#: ../maps/wizards_tower_2.txt:512
 #, fuzzy
 msgid "The plaque reads: Underworld Gate"
 msgstr "На мемориальной плите высечено: «Ворота в Ад»"
@@ -1194,9 +1257,17 @@ msgstr "После завершения ритуала у Красного Ал�
 msgid "The time has come. Write your name in the Book of the Dead and gain entry to the Underworld."
 msgstr "Пришло время записать имя в Книгу Мёртвых и получить доступ к Аду."
 
-#: ../quests/000_empyrean.txt:69
+#: ../quests/000_empyrean.txt:70
 msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
 msgstr "Идите в Ад. Портал в Ад находится в Башне Колдуна. Оттуда ищите дорогу в Емпериан."
+
+#: ../quests/000_empyrean.txt:75
+msgid "You've found a stronghold in the Underworld. If there is a way back to Empyrean, it is through here."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:80
+msgid "Face what awaits you in The Pit."
+msgstr ""
 
 #: ../quests/001_krolan.txt:1
 msgid "Krolan's Missing"
@@ -1882,6 +1953,47 @@ msgstr "adamgryu"
 #: ../cutscenes/credits.txt:31
 msgid "GuntherDorksen"
 msgstr "GuntherDorksen"
+
+#: ../cutscenes/ending.txt:7
+msgid "At long last, your journey across the surface and into the Underworld has come to an end."
+msgstr ""
+
+#: ../cutscenes/ending.txt:9
+msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
+msgstr ""
+
+#: ../cutscenes/ending.txt:11
+msgid "Guarding the obelisk was Leziath, a formidable opponent, yet no match for Exiled who faced her."
+msgstr ""
+
+#: ../cutscenes/ending.txt:13
+msgid "With Leziath's defeat, the path to the obelisk was clear."
+msgstr ""
+
+#: ../cutscenes/ending.txt:16
+msgid "Not a moment after Leziath crumbles into a pile of bones, a bolt of lightning strikes the obelisk."
+msgstr ""
+
+#: ../cutscenes/ending.txt:18
+msgid "Did Leziath cast a spell on the obelisk with her dying breath? Had Empyrean finally collapsed?"
+msgstr ""
+
+#: ../cutscenes/ending.txt:21
+#, fuzzy
+msgid "Maybe it's true what they say. No one returns from the surface. Most die or go missing. A few hide and survive, for a while."
+msgstr "Но ещё никто не вернулся с поверхности. Большинство погибли или пропали без вести. Лишь единицы смогли укрыться и выжить. Но это ненадолго..."
+
+#: ../cutscenes/ending.txt:23
+msgid "Even the Exiled."
+msgstr ""
+
+#: ../cutscenes/ending.txt:29
+msgid "And a very special thanks to..."
+msgstr ""
+
+#: ../cutscenes/ending.txt:30
+msgid "You!"
+msgstr ""
 
 #: ../books/book_of_the_dead.txt:13
 msgid "Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption."
@@ -3429,35 +3541,48 @@ msgstr ""
 msgid "Kayl's Staff"
 msgstr ""
 
-#: ../items/categories/quest.txt:278
+#: ../items/categories/quest.txt:274
+msgid "Underworld Stronghold Foyer Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:283
+msgid "Underworld Stronghold Barracks Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:292
+#, fuzzy
+msgid "Treasure Chest Key"
+msgstr "Сундук"
+
+#: ../items/categories/quest.txt:305
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr "По запаху металла и шершавым лепесткам легко понять, что это за редкое растение."
 
-#: ../items/categories/quest.txt:288
+#: ../items/categories/quest.txt:315
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "У этого загадочного чёрного пера очень острый кончик, что делает его пригодным для письма."
 
-#: ../items/categories/quest.txt:298
+#: ../items/categories/quest.txt:325
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr ""
 
-#: ../items/categories/quest.txt:305
+#: ../items/categories/quest.txt:332
 msgid "Vial of Your Blood"
 msgstr "Пузырёк с собственной кровью"
 
-#: ../items/categories/quest.txt:308
+#: ../items/categories/quest.txt:335
 msgid "Spoils of the Red Altar ritual."
 msgstr ""
 
-#: ../items/categories/quest.txt:315
+#: ../items/categories/quest.txt:342
 msgid "Blood Inkwell"
 msgstr "Чернильница для крови"
 
-#: ../items/categories/quest.txt:318
+#: ../items/categories/quest.txt:345
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:5
+#: ../items/categories/level_16_unique.txt:4
 msgid "Fleshband"
 msgstr ""
 
@@ -3469,9 +3594,54 @@ msgstr ""
 msgid "Soulband"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:21
+#: ../items/categories/level_16_unique.txt:22
 msgid "Glowing when worn, it clears the wearer's mind and allows them to deeply focus."
 msgstr ""
+
+#: ../items/categories/level_16_unique.txt:36
+#, fuzzy
+msgid "Underworld Cloak"
+msgstr "Ад"
+
+#: ../items/categories/level_16_unique.txt:48
+#, fuzzy
+msgid "Underworld Platemail"
+msgstr "Подземные Катакомбы"
+
+#: ../items/categories/level_16_unique.txt:60
+#, fuzzy
+msgid "Underworld Boots"
+msgstr "Ад"
+
+#: ../items/categories/level_16_unique.txt:72
+#, fuzzy
+msgid "Underworld Armguards"
+msgstr "Заброшенная Шахта"
+
+#: ../items/categories/level_16_unique.txt:84
+#, fuzzy
+msgid "Underworld Greaves"
+msgstr "Заброшенная Шахта"
+
+#: ../items/categories/level_16_unique.txt:96
+#, fuzzy
+msgid "Underworld Tome"
+msgstr "Ад"
+
+#: ../items/categories/level_16_unique.txt:107
+#, fuzzy
+msgid "Underworld Blade"
+msgstr "Ад"
+
+#: ../items/categories/level_16_unique.txt:119
+#, fuzzy
+msgid "Underworld Bow"
+msgstr "Ад"
+
+#: ../items/categories/level_16_unique.txt:131
+#, fuzzy
+msgid "Underworld Sceptre"
+msgstr "Ад"
 
 #: ../items/categories/level_1.txt:5
 msgid "Cloth Shirt"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 12:54+\n"
+"POT-Creation-Date: 2018-02-17 23:35+\n"
 "PO-Revision-Date: 2015-11-16 12:06+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -51,6 +51,11 @@ msgstr ""
 #: ../items/sets.txt:25
 msgid "Wizard's Apparatus"
 msgstr ""
+
+#: ../items/sets.txt:36
+#, fuzzy
+msgid "Underworld Armament"
+msgstr "Mèinnean an Dubh-chaill"
 
 #: ../powers/effects.txt:6
 msgid "Shield"
@@ -416,9 +421,23 @@ msgstr "Bòcan"
 msgid "Shocker Skeleton"
 msgstr "Cnàimhneach sgagach"
 
+#: ../enemies/lvl15_antlion_shivering.txt:3
+msgid "Shivering Antlion"
+msgstr ""
+
 #: ../enemies/lvl15_arzoz.txt:3
 msgid "Arzoz"
 msgstr ""
+
+#: ../enemies/lvl15_hobgoblin.txt:3
+#, fuzzy
+msgid "Hobgoblin"
+msgstr "Bòcan"
+
+#: ../enemies/lvl15_hobgoblin_archer.txt:3
+#, fuzzy
+msgid "Hobgoblin Archer"
+msgstr "Ruithear Bòcain"
 
 #: ../enemies/lvl15_kayl.txt:3
 msgid "Kayl"
@@ -432,8 +451,34 @@ msgstr ""
 msgid "Nerin"
 msgstr ""
 
+#: ../enemies/lvl15_skeleton_guardian.txt:3
+#, fuzzy
+msgid "Skeleton Guardian"
+msgstr "Foill-mhurtair"
+
 #: ../enemies/lvl15_vohn.txt:4
 msgid "Vohn"
+msgstr ""
+
+#: ../enemies/lvl15_wyvern_ancient.txt:3
+#, fuzzy
+msgid "Ancient Wyvern"
+msgstr "Fàinne an teine"
+
+#: ../enemies/lvl16_forgotten_grave.txt:3
+msgid "Forgotten Grave"
+msgstr ""
+
+#: ../enemies/lvl16_lezaith.txt:4
+msgid "Lezaith"
+msgstr ""
+
+#: ../enemies/lvl16_ogel.txt:3
+msgid "Ogel"
+msgstr ""
+
+#: ../enemies/lvl16_rakk.txt:3
+msgid "Rakk"
 msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
@@ -711,11 +756,11 @@ msgstr ""
 msgid "Temple of Mez: Basement"
 msgstr ""
 
-#: ../maps/arrival.txt:10
+#: ../maps/arrival.txt:11
 msgid "Arrival"
 msgstr "Teachd"
 
-#: ../maps/arrival.txt:170
+#: ../maps/arrival.txt:171
 msgid "River Trail"
 msgstr "Slighe na h-aibhne"
 
@@ -747,16 +792,16 @@ msgstr ""
 msgid "Lumber"
 msgstr "Fiodh"
 
-#: ../maps/blackmire_mines.txt:276
+#: ../maps/blackmire_mines.txt:277
 #, fuzzy
 msgid "Blackmire Mines waypoint discovered."
 msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
 
-#: ../maps/blackmire_mines.txt:289
+#: ../maps/blackmire_mines.txt:291
 msgid "Hyperspace"
 msgstr "Os-fhànais"
 
-#: ../maps/blackmire_mines.txt:478
+#: ../maps/blackmire_mines.txt:480
 msgid "Lake Kuuma"
 msgstr ""
 
@@ -780,12 +825,12 @@ msgstr ""
 msgid "You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked."
 msgstr ""
 
-#: ../maps/dilapidated_sewers.txt:309
+#: ../maps/dilapidated_sewers.txt:311
 #, fuzzy
 msgid "Dilapidated Sewers waypoint discovered."
 msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
 
-#: ../maps/dilapidated_sewers.txt:574
+#: ../maps/dilapidated_sewers.txt:576
 msgid "Fort Nasu"
 msgstr ""
 
@@ -875,23 +920,23 @@ msgstr "Srad orains"
 msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
 msgstr ""
 
-#: ../maps/goblin_camp.txt:10
+#: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
 msgstr "Campa nam bòcan"
 
-#: ../maps/goblin_camp.txt:222
+#: ../maps/goblin_camp.txt:223
 msgid "Stonewood"
 msgstr "Coille nan Clach"
 
-#: ../maps/goblin_camp.txt:401
+#: ../maps/goblin_camp.txt:402
 msgid "Merrimead Swamp"
 msgstr "Boglach na mìl-dhibhe meire"
 
-#: ../maps/goblin_camp.txt:410
+#: ../maps/goblin_camp.txt:411
 msgid "Goblin Cave"
 msgstr "Uamh nam bòcan"
 
-#: ../maps/goblin_camp.txt:422
+#: ../maps/goblin_camp.txt:423
 msgid "Gravestone"
 msgstr ""
 
@@ -967,7 +1012,7 @@ msgstr "Port an Locha"
 msgid "St. Maria: Mausoleum"
 msgstr ""
 
-#: ../maps/lochport_cemetery.txt:307
+#: ../maps/lochport_cemetery.txt:309
 #, fuzzy
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Chaidh puing-thurais Cladh na Glinne Guirme a lorg."
@@ -992,11 +1037,11 @@ msgstr ""
 msgid "Blocked Mine Cart"
 msgstr ""
 
-#: ../maps/nazia_highlands.txt:10
+#: ../maps/nazia_highlands.txt:11
 msgid "Nazia Highlands"
 msgstr ""
 
-#: ../maps/nazia_highlands.txt:382
+#: ../maps/nazia_highlands.txt:383
 msgid "Nazia Mines"
 msgstr ""
 
@@ -1012,7 +1057,7 @@ msgstr ""
 msgid "Reset Quest: \"Trapped!\""
 msgstr ""
 
-#: ../maps/nazia_underground.txt:378
+#: ../maps/nazia_underground.txt:379
 #, fuzzy
 msgid "Nazia Underground waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
@@ -1026,11 +1071,11 @@ msgstr ""
 msgid "Underworld Mines"
 msgstr "Mèinnean an Dubh-chaill"
 
-#: ../maps/perdition_harbor.txt:170
+#: ../maps/perdition_harbor.txt:171
 msgid "Shared Stash"
 msgstr "Stòr co-roinnte"
 
-#: ../maps/perdition_harbor.txt:268
+#: ../maps/perdition_harbor.txt:269
 msgid "Perdition Harbor waypoint discovered."
 msgstr "Chaidh puing-thurais Phort an Locha a lorg."
 
@@ -1050,65 +1095,73 @@ msgstr ""
 msgid "Locked Door"
 msgstr ""
 
-#: ../maps/st_maria_2.txt:269
+#: ../maps/st_maria_2.txt:271
 #, fuzzy
 msgid "St. Maria: Prison waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
 
-#: ../maps/st_maria_2.txt:461
+#: ../maps/st_maria_2.txt:463
 msgid "St. Maria: Crypt"
 msgstr ""
 
-#: ../maps/st_maria_3.txt:409
+#: ../maps/st_maria_3.txt:410
 msgid "The plaque reads: Grave of the Saints"
 msgstr ""
 
-#: ../maps/st_maria_3.txt:418
+#: ../maps/st_maria_3.txt:419
 msgid "You remove the gravebloom flower from the Altar."
 msgstr ""
 
-#: ../maps/st_maria_3.txt:439
+#: ../maps/st_maria_3.txt:440
 msgid "There is a gravebloom flower on the altar, but it is frozen in place."
 msgstr ""
 
-#: ../maps/st_maria_3.txt:453
+#: ../maps/st_maria_3.txt:454
 msgid "The gravebloom flower laid upon the altar has thawed."
 msgstr ""
 
-#: ../maps/stonewood.txt:512
+#: ../maps/stonewood.txt:514
 msgid "Stonewood waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
 
-#: ../maps/stormrock_pass.txt:894
+#: ../maps/stormrock_pass.txt:895
 #, fuzzy
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
 
-#: ../maps/stormrock_pass.txt:1052
+#: ../maps/stormrock_pass.txt:1053
 msgid "Stormrock Ruins"
 msgstr ""
 
-#: ../maps/temple_of_mez_2.txt:349
+#: ../maps/temple_of_mez_2.txt:351
 #, fuzzy
 msgid "Temple of Mez: Main Hall waypoint discovered."
 msgstr "Chaidh puing-thurais Phort an Locha a lorg."
 
-#: ../maps/temple_of_mez_2.txt:532
+#: ../maps/temple_of_mez_2.txt:534
 msgid "The plaque reads: Red Altar"
 msgstr ""
 
-#: ../maps/temple_of_mez_2.txt:543
+#: ../maps/temple_of_mez_2.txt:545
 msgid "Temple of Mez: Entrance"
 msgstr ""
 
-#: ../maps/temple_of_mez_2.txt:550
+#: ../maps/temple_of_mez_2.txt:552
 msgid "You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."
 msgstr ""
 
-#: ../maps/temple_of_mez_2.txt:558
+#: ../maps/temple_of_mez_2.txt:560
 #, fuzzy
 msgid "Red Altar"
 msgstr "Srad dhearg"
+
+#: ../maps/the_pit.txt:12
+msgid "The Pit"
+msgstr ""
+
+#: ../maps/the_pit.txt:390
+msgid "It's locked."
+msgstr ""
 
 #: ../maps/torture_chambers.txt:12
 #, fuzzy
@@ -1141,6 +1194,15 @@ msgstr "Geàrd"
 msgid "Underworld Catacombs waypoint discovered."
 msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
 
+#: ../maps/underworld_mines.txt:545
+msgid "Underworld Stronghold: Foyer"
+msgstr ""
+
+#: ../maps/underworld_stronghold_2.txt:341
+#, fuzzy
+msgid "Underground Stronghold: Barracks waypoint discovered."
+msgstr "Chaidh puing-thurais Coille nan Clach a lorg."
+
 #: ../maps/wizards_tower_1.txt:341
 msgid "to Black Oak City"
 msgstr ""
@@ -1150,11 +1212,11 @@ msgstr ""
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Chaidh puing-thurais Phort an Locha a lorg."
 
-#: ../maps/wizards_tower_2.txt:503
+#: ../maps/wizards_tower_2.txt:504
 msgid "Wizard's Tower: Laboratory"
 msgstr ""
 
-#: ../maps/wizards_tower_2.txt:511
+#: ../maps/wizards_tower_2.txt:512
 msgid "The plaque reads: Underworld Gate"
 msgstr ""
 
@@ -1210,8 +1272,16 @@ msgstr ""
 msgid "The time has come. Write your name in the Book of the Dead and gain entry to the Underworld."
 msgstr ""
 
-#: ../quests/000_empyrean.txt:69
+#: ../quests/000_empyrean.txt:70
 msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:75
+msgid "You've found a stronghold in the Underworld. If there is a way back to Empyrean, it is through here."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:80
+msgid "Face what awaits you in The Pit."
 msgstr ""
 
 #: ../quests/001_krolan.txt:1
@@ -1897,6 +1967,47 @@ msgstr ""
 
 #: ../cutscenes/credits.txt:31
 msgid "GuntherDorksen"
+msgstr ""
+
+#: ../cutscenes/ending.txt:7
+msgid "At long last, your journey across the surface and into the Underworld has come to an end."
+msgstr ""
+
+#: ../cutscenes/ending.txt:9
+msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
+msgstr ""
+
+#: ../cutscenes/ending.txt:11
+msgid "Guarding the obelisk was Leziath, a formidable opponent, yet no match for Exiled who faced her."
+msgstr ""
+
+#: ../cutscenes/ending.txt:13
+msgid "With Leziath's defeat, the path to the obelisk was clear."
+msgstr ""
+
+#: ../cutscenes/ending.txt:16
+msgid "Not a moment after Leziath crumbles into a pile of bones, a bolt of lightning strikes the obelisk."
+msgstr ""
+
+#: ../cutscenes/ending.txt:18
+msgid "Did Leziath cast a spell on the obelisk with her dying breath? Had Empyrean finally collapsed?"
+msgstr ""
+
+#: ../cutscenes/ending.txt:21
+#, fuzzy
+msgid "Maybe it's true what they say. No one returns from the surface. Most die or go missing. A few hide and survive, for a while."
+msgstr "Ach cha do thill duine beò on uachdar. Gheibh a' mhòrchuid bàs no thèid iad air chall. Thèid le cuid falach is tighinn beò greiseag co-dhiù."
+
+#: ../cutscenes/ending.txt:23
+msgid "Even the Exiled."
+msgstr ""
+
+#: ../cutscenes/ending.txt:29
+msgid "And a very special thanks to..."
+msgstr ""
+
+#: ../cutscenes/ending.txt:30
+msgid "You!"
 msgstr ""
 
 #: ../books/book_of_the_dead.txt:13
@@ -3520,36 +3631,49 @@ msgstr ""
 msgid "Kayl's Staff"
 msgstr ""
 
-#: ../items/categories/quest.txt:278
+#: ../items/categories/quest.txt:274
+msgid "Underworld Stronghold Foyer Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:283
+msgid "Underworld Stronghold Barracks Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:292
+#, fuzzy
+msgid "Treasure Chest Key"
+msgstr "Ciste ulaidh"
+
+#: ../items/categories/quest.txt:305
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr ""
 
-#: ../items/categories/quest.txt:288
+#: ../items/categories/quest.txt:315
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr ""
 
-#: ../items/categories/quest.txt:298
+#: ../items/categories/quest.txt:325
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr ""
 
-#: ../items/categories/quest.txt:305
+#: ../items/categories/quest.txt:332
 msgid "Vial of Your Blood"
 msgstr ""
 
-#: ../items/categories/quest.txt:308
+#: ../items/categories/quest.txt:335
 msgid "Spoils of the Red Altar ritual."
 msgstr ""
 
-#: ../items/categories/quest.txt:315
+#: ../items/categories/quest.txt:342
 #, fuzzy
 msgid "Blood Inkwell"
 msgstr "Buille fala"
 
-#: ../items/categories/quest.txt:318
+#: ../items/categories/quest.txt:345
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:5
+#: ../items/categories/level_16_unique.txt:4
 msgid "Fleshband"
 msgstr ""
 
@@ -3561,9 +3685,54 @@ msgstr ""
 msgid "Soulband"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:21
+#: ../items/categories/level_16_unique.txt:22
 msgid "Glowing when worn, it clears the wearer's mind and allows them to deeply focus."
 msgstr ""
+
+#: ../items/categories/level_16_unique.txt:36
+#, fuzzy
+msgid "Underworld Cloak"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:48
+#, fuzzy
+msgid "Underworld Platemail"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:60
+#, fuzzy
+msgid "Underworld Boots"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:72
+#, fuzzy
+msgid "Underworld Armguards"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:84
+#, fuzzy
+msgid "Underworld Greaves"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:96
+#, fuzzy
+msgid "Underworld Tome"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:107
+#, fuzzy
+msgid "Underworld Blade"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:119
+#, fuzzy
+msgid "Underworld Bow"
+msgstr "Mèinnean an Dubh-chaill"
+
+#: ../items/categories/level_16_unique.txt:131
+#, fuzzy
+msgid "Underworld Sceptre"
+msgstr "Mèinnean an Dubh-chaill"
 
 #: ../items/categories/level_1.txt:5
 msgid "Cloth Shirt"

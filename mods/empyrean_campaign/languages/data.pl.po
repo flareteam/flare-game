@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-16 10:31+\n"
+"POT-Creation-Date: 2018-02-17 23:35+\n"
 "PO-Revision-Date: 2018-12-12 01:29+0100\n"
 "Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -50,6 +50,11 @@ msgstr "Ubiór Strażnika Świątyni"
 #: ../items/sets.txt:25
 msgid "Wizard's Apparatus"
 msgstr "Aparatura Maga"
+
+#: ../items/sets.txt:36
+#, fuzzy
+msgid "Underworld Armament"
+msgstr "Podświat"
 
 #: ../powers/effects.txt:6
 msgid "Shield"
@@ -399,9 +404,24 @@ msgstr "Hałaśliwy Goblin"
 msgid "Shocker Skeleton"
 msgstr "Porażający Szkielet"
 
+#: ../enemies/lvl15_antlion_shivering.txt:3
+#, fuzzy
+msgid "Shivering Antlion"
+msgstr "Ogniociernisty Mrówkolew"
+
 #: ../enemies/lvl15_arzoz.txt:3
 msgid "Arzoz"
 msgstr "Arzoz"
+
+#: ../enemies/lvl15_hobgoblin.txt:3
+#, fuzzy
+msgid "Hobgoblin"
+msgstr "Goblin"
+
+#: ../enemies/lvl15_hobgoblin_archer.txt:3
+#, fuzzy
+msgid "Hobgoblin Archer"
+msgstr "Gobliński Miotacz"
 
 #: ../enemies/lvl15_kayl.txt:3
 msgid "Kayl"
@@ -415,9 +435,35 @@ msgstr "Lorund"
 msgid "Nerin"
 msgstr "Nerin"
 
+#: ../enemies/lvl15_skeleton_guardian.txt:3
+#, fuzzy
+msgid "Skeleton Guardian"
+msgstr "Szkielet Zabójca"
+
 #: ../enemies/lvl15_vohn.txt:4
 msgid "Vohn"
 msgstr "Vohn"
+
+#: ../enemies/lvl15_wyvern_ancient.txt:3
+#, fuzzy
+msgid "Ancient Wyvern"
+msgstr "Lodowa Wiwerna"
+
+#: ../enemies/lvl16_forgotten_grave.txt:3
+msgid "Forgotten Grave"
+msgstr ""
+
+#: ../enemies/lvl16_lezaith.txt:4
+msgid "Lezaith"
+msgstr ""
+
+#: ../enemies/lvl16_ogel.txt:3
+msgid "Ogel"
+msgstr ""
+
+#: ../enemies/lvl16_rakk.txt:3
+msgid "Rakk"
+msgstr ""
 
 #: ../enemies/lvl1_goblin_runner.txt:3
 msgid "Goblin Runner"
@@ -675,11 +721,11 @@ msgstr "Gniazdo Mrówkolwów"
 msgid "Temple of Mez: Basement"
 msgstr "Świątynia Meza: Piwnica"
 
-#: ../maps/arrival.txt:10
+#: ../maps/arrival.txt:11
 msgid "Arrival"
 msgstr "Przybycie"
 
-#: ../maps/arrival.txt:170
+#: ../maps/arrival.txt:171
 msgid "River Trail"
 msgstr "Brzeg Rzeki"
 
@@ -711,15 +757,15 @@ msgstr "Wyniszczałe Ścieki"
 msgid "Lumber"
 msgstr "Deski"
 
-#: ../maps/blackmire_mines.txt:276
+#: ../maps/blackmire_mines.txt:277
 msgid "Blackmire Mines waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Kopalniach Czarnobłocia."
 
-#: ../maps/blackmire_mines.txt:289
+#: ../maps/blackmire_mines.txt:291
 msgid "Hyperspace"
 msgstr "Hiperprzestrzeń"
 
-#: ../maps/blackmire_mines.txt:478
+#: ../maps/blackmire_mines.txt:480
 msgid "Lake Kuuma"
 msgstr "Rzeka Kuuma"
 
@@ -743,11 +789,11 @@ msgstr "Dodano zadanie."
 msgid "You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked."
 msgstr "Wpisujesz swoje imię do Księgi Umarłych. Czarne Pióro znika, a kałamarz wysycha. Masz nadzieję, że to zadziałało."
 
-#: ../maps/dilapidated_sewers.txt:309
+#: ../maps/dilapidated_sewers.txt:311
 msgid "Dilapidated Sewers waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Wyniszczałych Ściekach."
 
-#: ../maps/dilapidated_sewers.txt:574
+#: ../maps/dilapidated_sewers.txt:576
 msgid "Fort Nasu"
 msgstr "Fort Nasu"
 
@@ -835,23 +881,23 @@ msgstr "Dziwna Książka"
 msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
 msgstr "Znajduje się tu książka zatytułowana \"Odbicie\", ale nie ma w niej żadnej kartki."
 
-#: ../maps/goblin_camp.txt:10
+#: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
 msgstr "Obóz Goblinów"
 
-#: ../maps/goblin_camp.txt:222
+#: ../maps/goblin_camp.txt:223
 msgid "Stonewood"
 msgstr "Kamiennodrzew"
 
-#: ../maps/goblin_camp.txt:401
+#: ../maps/goblin_camp.txt:402
 msgid "Merrimead Swamp"
 msgstr "Bagno Zielonych Łąk"
 
-#: ../maps/goblin_camp.txt:410
+#: ../maps/goblin_camp.txt:411
 msgid "Goblin Cave"
 msgstr "Jaskinia Goblinów"
 
-#: ../maps/goblin_camp.txt:422
+#: ../maps/goblin_camp.txt:423
 msgid "Gravestone"
 msgstr "Kamień nagrobny"
 
@@ -927,7 +973,7 @@ msgstr "Zatoka Portowa"
 msgid "St. Maria: Mausoleum"
 msgstr "Św. Maria: Mauzoleum"
 
-#: ../maps/lochport_cemetery.txt:307
+#: ../maps/lochport_cemetery.txt:309
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny na Cmentarzu Zatoki Portowej."
 
@@ -951,11 +997,11 @@ msgstr "Sterta Kości"
 msgid "Blocked Mine Cart"
 msgstr "Zablokowany Wagonik"
 
-#: ../maps/nazia_highlands.txt:10
+#: ../maps/nazia_highlands.txt:11
 msgid "Nazia Highlands"
 msgstr "Wyżyny Nazia"
 
-#: ../maps/nazia_highlands.txt:382
+#: ../maps/nazia_highlands.txt:383
 msgid "Nazia Mines"
 msgstr "Kopalnie Nazia"
 
@@ -971,7 +1017,7 @@ msgstr "Sam wagonik nie przebije się przez to zwałowisko."
 msgid "Reset Quest: \"Trapped!\""
 msgstr "Zresetowano Zadanie: \"W potrzasku!\""
 
-#: ../maps/nazia_underground.txt:378
+#: ../maps/nazia_underground.txt:379
 msgid "Nazia Underground waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Podziemiach Nazia."
 
@@ -983,11 +1029,11 @@ msgstr "Oaza"
 msgid "Underworld Mines"
 msgstr "Kopalnie Podświata"
 
-#: ../maps/perdition_harbor.txt:170
+#: ../maps/perdition_harbor.txt:171
 msgid "Shared Stash"
 msgstr "Wspólna Skrytka"
 
-#: ../maps/perdition_harbor.txt:268
+#: ../maps/perdition_harbor.txt:269
 msgid "Perdition Harbor waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Zatoce Zatracenia."
 
@@ -1007,61 +1053,69 @@ msgstr "Do otwarcia tych drzwi potrzebny jest klucz."
 msgid "Locked Door"
 msgstr "Zamknięte Drzwi"
 
-#: ../maps/st_maria_2.txt:269
+#: ../maps/st_maria_2.txt:271
 msgid "St. Maria: Prison waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Więzieniu Św. Marii."
 
-#: ../maps/st_maria_2.txt:461
+#: ../maps/st_maria_2.txt:463
 msgid "St. Maria: Crypt"
 msgstr "Św. Maria: Krypta"
 
-#: ../maps/st_maria_3.txt:409
+#: ../maps/st_maria_3.txt:410
 msgid "The plaque reads: Grave of the Saints"
 msgstr "Napis na plakiecie: Grób Świętych"
 
-#: ../maps/st_maria_3.txt:418
+#: ../maps/st_maria_3.txt:419
 msgid "You remove the gravebloom flower from the Altar."
 msgstr "Zabierasz grobokwiat z Ołtarza."
 
-#: ../maps/st_maria_3.txt:439
+#: ../maps/st_maria_3.txt:440
 msgid "There is a gravebloom flower on the altar, but it is frozen in place."
 msgstr "Na ołtarzu widzisz grobokwiat, ale przymarzł do niego."
 
-#: ../maps/st_maria_3.txt:453
+#: ../maps/st_maria_3.txt:454
 msgid "The gravebloom flower laid upon the altar has thawed."
 msgstr "Grobokwiat znajdujący się na ołtarzu odtajał."
 
-#: ../maps/stonewood.txt:512
+#: ../maps/stonewood.txt:514
 msgid "Stonewood waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Kamiennodrzewiu."
 
-#: ../maps/stormrock_pass.txt:894
+#: ../maps/stormrock_pass.txt:895
 msgid "Stormrock Pass waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny na Ścieżce Burzokamienia."
 
-#: ../maps/stormrock_pass.txt:1052
+#: ../maps/stormrock_pass.txt:1053
 msgid "Stormrock Ruins"
 msgstr "Ruiny Burzokamienia"
 
-#: ../maps/temple_of_mez_2.txt:349
+#: ../maps/temple_of_mez_2.txt:351
 msgid "Temple of Mez: Main Hall waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Holu Głównym Świątyni Meza."
 
-#: ../maps/temple_of_mez_2.txt:532
+#: ../maps/temple_of_mez_2.txt:534
 msgid "The plaque reads: Red Altar"
 msgstr "Napis na plakiecie: Czerwony Ołtarz"
 
-#: ../maps/temple_of_mez_2.txt:543
+#: ../maps/temple_of_mez_2.txt:545
 msgid "Temple of Mez: Entrance"
 msgstr "Świątynia Meza: Wejście"
 
-#: ../maps/temple_of_mez_2.txt:550
+#: ../maps/temple_of_mez_2.txt:552
 msgid "You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."
 msgstr "Wbijasz w swoje ramię Nóź Poświęceń. Ból zbija Cię z nóg. Mimo drżenia udaje Ci się zebrać trochę własnej krwi do małej fiolki. Nóź błyskawicznie się nagrzewa, aż znika. Po chwili rana sama się zamyka, nie zostawiając ani śladu poza uczuciem gorąca, odczuwanym w całym ciele."
 
-#: ../maps/temple_of_mez_2.txt:558
+#: ../maps/temple_of_mez_2.txt:560
 msgid "Red Altar"
 msgstr "Czerwony Ołtarz"
+
+#: ../maps/the_pit.txt:12
+msgid "The Pit"
+msgstr ""
+
+#: ../maps/the_pit.txt:390
+msgid "It's locked."
+msgstr ""
 
 #: ../maps/torture_chambers.txt:12
 msgid "Torture Chambers"
@@ -1091,6 +1145,16 @@ msgstr "Skrzynia naczelnika"
 msgid "Underworld Catacombs waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Katakumbach Podświata."
 
+#: ../maps/underworld_mines.txt:545
+#, fuzzy
+msgid "Underworld Stronghold: Foyer"
+msgstr "Podziemna Twierdza: Koszary"
+
+#: ../maps/underworld_stronghold_2.txt:341
+#, fuzzy
+msgid "Underground Stronghold: Barracks waypoint discovered."
+msgstr "Odkryto punkt nawigacyjny w Katakumbach Podświata."
+
 #: ../maps/wizards_tower_1.txt:341
 msgid "to Black Oak City"
 msgstr "do Miasta Czarnego Dębu"
@@ -1099,11 +1163,11 @@ msgstr "do Miasta Czarnego Dębu"
 msgid "Wizard's Tower: Research Chambers waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny w Wieży Maga: Komnaty Badaczy."
 
-#: ../maps/wizards_tower_2.txt:503
+#: ../maps/wizards_tower_2.txt:504
 msgid "Wizard's Tower: Laboratory"
 msgstr "Wieża Maga: Laboratorium"
 
-#: ../maps/wizards_tower_2.txt:511
+#: ../maps/wizards_tower_2.txt:512
 msgid "The plaque reads: Underworld Gate"
 msgstr "Napis na plakiecie: Wrota Podświata"
 
@@ -1159,9 +1223,17 @@ msgstr "Po ukończeniu rytuału na Czerwonym Ołtarzu, wróć do Florina, aby ro
 msgid "The time has come. Write your name in the Book of the Dead and gain entry to the Underworld."
 msgstr "Nadszedł czas. Zapisz swoje imię w Księdze Umarłych, by zyskać dostęp do Podświata."
 
-#: ../quests/000_empyrean.txt:69
+#: ../quests/000_empyrean.txt:70
 msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
 msgstr "Przedostań się do Podświata. Portal do niego prowadzący znajduje się w Wieży Maga. Gdy tam się znajdziesz, znajdź sposób, by powrócić do Empyrean."
+
+#: ../quests/000_empyrean.txt:75
+msgid "You've found a stronghold in the Underworld. If there is a way back to Empyrean, it is through here."
+msgstr ""
+
+#: ../quests/000_empyrean.txt:80
+msgid "Face what awaits you in The Pit."
+msgstr ""
 
 #: ../quests/001_krolan.txt:1
 msgid "Krolan's Missing"
@@ -1834,6 +1906,47 @@ msgstr "adamgryu"
 #: ../cutscenes/credits.txt:31
 msgid "GuntherDorksen"
 msgstr "GuntherDorksen"
+
+#: ../cutscenes/ending.txt:7
+msgid "At long last, your journey across the surface and into the Underworld has come to an end."
+msgstr ""
+
+#: ../cutscenes/ending.txt:9
+msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
+msgstr ""
+
+#: ../cutscenes/ending.txt:11
+msgid "Guarding the obelisk was Leziath, a formidable opponent, yet no match for Exiled who faced her."
+msgstr ""
+
+#: ../cutscenes/ending.txt:13
+msgid "With Leziath's defeat, the path to the obelisk was clear."
+msgstr ""
+
+#: ../cutscenes/ending.txt:16
+msgid "Not a moment after Leziath crumbles into a pile of bones, a bolt of lightning strikes the obelisk."
+msgstr ""
+
+#: ../cutscenes/ending.txt:18
+msgid "Did Leziath cast a spell on the obelisk with her dying breath? Had Empyrean finally collapsed?"
+msgstr ""
+
+#: ../cutscenes/ending.txt:21
+#, fuzzy
+msgid "Maybe it's true what they say. No one returns from the surface. Most die or go missing. A few hide and survive, for a while."
+msgstr "Jednak z powierzchni nie wrócił nikt. Większość zmarła bądź zaginęła. Zaledwie garstka ukrywa się i żyje, póki co."
+
+#: ../cutscenes/ending.txt:23
+msgid "Even the Exiled."
+msgstr ""
+
+#: ../cutscenes/ending.txt:29
+msgid "And a very special thanks to..."
+msgstr ""
+
+#: ../cutscenes/ending.txt:30
+msgid "You!"
+msgstr ""
 
 #: ../books/book_of_the_dead.txt:13
 msgid "Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption."
@@ -3347,35 +3460,50 @@ msgstr "Łuk Nerin"
 msgid "Kayl's Staff"
 msgstr "Laska Kayl"
 
-#: ../items/categories/quest.txt:278
+#: ../items/categories/quest.txt:274
+#, fuzzy
+msgid "Underworld Stronghold Foyer Key"
+msgstr "Podziemna Twierdza: Koszary"
+
+#: ../items/categories/quest.txt:283
+#, fuzzy
+msgid "Underworld Stronghold Barracks Key"
+msgstr "Podziemna Twierdza: Koszary"
+
+#: ../items/categories/quest.txt:292
+#, fuzzy
+msgid "Treasure Chest Key"
+msgstr "Skrzynia ze skarbami"
+
+#: ../items/categories/quest.txt:305
 msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
 msgstr "Zapach żelaza i jego szorstkie płatki czynią tą rzadką roślinę łatwą do rozpoznania."
 
-#: ../items/categories/quest.txt:288
+#: ../items/categories/quest.txt:315
 msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
 msgstr "To tajemnicze czarne pióro ma bardzo ostry czubek, czyniący z niego pełnoprawny przyrząd do pisania."
 
-#: ../items/categories/quest.txt:298
+#: ../items/categories/quest.txt:325
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr "Przez czubek tego małego ostrza przepływa mroczna, magiczna energia."
 
-#: ../items/categories/quest.txt:305
+#: ../items/categories/quest.txt:332
 msgid "Vial of Your Blood"
 msgstr "Fiolka z Twoją Krwią"
 
-#: ../items/categories/quest.txt:308
+#: ../items/categories/quest.txt:335
 msgid "Spoils of the Red Altar ritual."
 msgstr "Owoce rytuału na Czerwonym Ołtarzu."
 
-#: ../items/categories/quest.txt:315
+#: ../items/categories/quest.txt:342
 msgid "Blood Inkwell"
 msgstr "Kałamarz Krwi"
 
-#: ../items/categories/quest.txt:318
+#: ../items/categories/quest.txt:345
 msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
 msgstr "Zgodnie ze słowami Florina, atrament może być użyty wyłącznie w Księdze Umarłych."
 
-#: ../items/categories/level_16_unique.txt:5
+#: ../items/categories/level_16_unique.txt:4
 msgid "Fleshband"
 msgstr "Cielesna Obrączka"
 
@@ -3387,9 +3515,54 @@ msgstr "Gładka w dotyku. Po jej założeniu, zaciska się na palcu."
 msgid "Soulband"
 msgstr "Duchowa Obrączka"
 
-#: ../items/categories/level_16_unique.txt:21
+#: ../items/categories/level_16_unique.txt:22
 msgid "Glowing when worn, it clears the wearer's mind and allows them to deeply focus."
 msgstr "Świeci po założeniu, oczyszcza umysł nosiciela i pozwala mu na głębokie skupienie."
+
+#: ../items/categories/level_16_unique.txt:36
+#, fuzzy
+msgid "Underworld Cloak"
+msgstr "Podświat"
+
+#: ../items/categories/level_16_unique.txt:48
+#, fuzzy
+msgid "Underworld Platemail"
+msgstr "Katakumby Podświata"
+
+#: ../items/categories/level_16_unique.txt:60
+#, fuzzy
+msgid "Underworld Boots"
+msgstr "Podświat"
+
+#: ../items/categories/level_16_unique.txt:72
+#, fuzzy
+msgid "Underworld Armguards"
+msgstr "Kopalnie Podświata"
+
+#: ../items/categories/level_16_unique.txt:84
+#, fuzzy
+msgid "Underworld Greaves"
+msgstr "Kopalnie Podświata"
+
+#: ../items/categories/level_16_unique.txt:96
+#, fuzzy
+msgid "Underworld Tome"
+msgstr "Podświat"
+
+#: ../items/categories/level_16_unique.txt:107
+#, fuzzy
+msgid "Underworld Blade"
+msgstr "Podświat"
+
+#: ../items/categories/level_16_unique.txt:119
+#, fuzzy
+msgid "Underworld Bow"
+msgstr "Podświat"
+
+#: ../items/categories/level_16_unique.txt:131
+#, fuzzy
+msgid "Underworld Sceptre"
+msgstr "Podświat"
 
 #: ../items/categories/level_1.txt:5
 msgid "Cloth Shirt"
