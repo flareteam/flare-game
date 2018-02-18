@@ -1,0 +1,21 @@
+INCLUDE enemies/base/grave.txt
+
+name=Forgotten Grave
+level=16
+xp=65536
+categories=forgotten_grave
+
+# combat stats
+stat=hp,1700
+stat=poise,100
+
+power=melee,262,100
+power=ranged,262,100
+passive_powers=170
+
+cooldown=2250ms
+
+# loot
+loot=loot/level_16.txt
+loot_count=1,2
+

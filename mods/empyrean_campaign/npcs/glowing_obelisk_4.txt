@@ -1,0 +1,19 @@
+name=Glowing Obelisk
+
+# animation info
+gfx=animations/npcs/return_obelisk2.txt
+
+talker=true
+
+[dialog]
+topic=Teleport
+requires_not_status=emp_lezaith_defeated
+him=(You touch the obelisk, but nothing happens.)
+
+[dialog]
+topic=Teleport
+requires_status=emp_lezaith_defeated
+soundfx=soundfx/environment/teleporter.ogg,0,0
+intermap=maps/perdition_harbor.txt,15,23
+set_status=emp_lezaith_respawn
+set_status=emp_main_finish

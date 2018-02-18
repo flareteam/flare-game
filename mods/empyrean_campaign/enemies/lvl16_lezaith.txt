@@ -1,0 +1,63 @@
+INCLUDE enemies/base/skeleton_mage.txt
+animations=animations/enemies/skeleton_mage_high_boss.txt
+
+name=Lezaith
+level=16
+categories=lezaith
+xp=262144
+
+defeat_status=emp_lezaith_defeated
+
+# combat stats
+stat=hp,13280
+speed=4.7
+turn_delay=200ms
+
+passive_powers=185
+
+stat=accuracy,165
+stat=avoidance,90
+stat=poise,55
+
+stat=absorb_min,15
+stat=absorb_max,15
+
+stat=dmg_melee_min,260
+stat=dmg_melee_max,265
+stat=dmg_ment_min,270
+stat=dmg_ment_max,275
+
+cooldown=1175ms
+
+# treasure chest key
+quest_loot=emp_pit_init,emp_pit_key,1030
+
+# loot
+loot=loot/level_16.txt
+loot_count=8
+
+# Underworld Armament part 3
+loot=427,1
+loot=428,1
+loot=429,1
+
+# Ranged units behaviour, see docs/ranged_behavior.txt
+chance_pursue=5
+chance_flee=20
+flee_duration=1s
+flee_cooldown=1s
+flee_range=8
+threat_range=10,20
+power=melee,164,2
+power=melee,179,5
+power=melee,183,2
+power=melee,263,1
+power=melee,264,1
+power=melee,265,1
+power=melee,266,1
+power=melee,267,1
+power=ranged,263,50
+power=ranged,264,50
+power=ranged,265,50
+power=ranged,266,50
+power=ranged,267,50

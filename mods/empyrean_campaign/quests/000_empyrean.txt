@@ -71,5 +71,10 @@ quest_text=Make your way to the Underworld. A portal to the Underworld was locat
 
 [quest]
 requires_status=emp_main_stronghold
+requires_not_status=emp_main_pit
 quest_text=You've found a stronghold in the Underworld. If there is a way back to Empyrean, it is through here.
 
+[quest]
+requires_status=emp_main_pit
+requires_not_status=emp_main_finish
+quest_text=Face what awaits you in The Pit.

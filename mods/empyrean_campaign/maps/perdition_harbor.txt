@@ -316,6 +316,16 @@ requires_status=emp_main_knife
 reward_xp=51200
 set_status=emp_main_reward3
 
+[event]
+# ending cutscene
+type=event
+location=14,37,1,1
+activate=on_load
+cutscene=cutscenes/ending.txt
+requires_not_status=empyrean_ending
+requires_status=emp_main_finish
+set_status=empyrean_ending
+
 [npc]
 type=npc
 location=25,8,1,1

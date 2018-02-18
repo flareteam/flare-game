@@ -1671,7 +1671,8 @@ tooltip=Halls of Infinity
 type=event
 location=12,20,4,3
 activate=on_trigger
-intermap=maps/the_pit.txt,0,0
+intermap=maps/the_pit.txt,71,71
+set_status=emp_pit_fall
 
 [enemy]
 type=enemy
