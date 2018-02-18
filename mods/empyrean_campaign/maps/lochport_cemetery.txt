@@ -7,6 +7,7 @@ orientation=isometric
 background_color=0,0,0,255
 hero_pos=2,7
 music=music/forest_theme.ogg
+parallax_layers=maps/parallax/rain.txt
 tileset=tilesetdefs/tileset_grassland.txt
 title=Lochport Cemetery
 
@@ -476,6 +477,13 @@ mapmod=object,7,62,97
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
+
+[event]
+# Rain sound effect
+type=event
+location=0,0,1,1
+activate=on_load
+soundfx=soundfx/environment/rain.ogg
 
 [enemy]
 type=enemy

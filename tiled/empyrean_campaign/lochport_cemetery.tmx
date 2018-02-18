@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="60" height="80" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="55">
+<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="60" height="80" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="56">
  <properties>
   <property name="hero_pos" value="2,7"/>
   <property name="music" value="music/forest_theme.ogg"/>
+  <property name="parallax_layers" value="maps/parallax/rain.txt"/>
   <property name="tileset" value="tilesetdefs/tileset_grassland.txt"/>
   <property name="title" value="Lochport Cemetery"/>
  </properties>
@@ -462,6 +463,12 @@
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Supplies"/>
+   </properties>
+  </object>
+  <object id="55" name="Rain sound effect" type="event" x="0" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/rain.ogg"/>
    </properties>
   </object>
  </objectgroup>

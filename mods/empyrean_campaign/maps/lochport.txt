@@ -4,8 +4,10 @@ height=60
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=43,1
 music=music/forest_theme.ogg
+parallax_layers=maps/parallax/rain.txt
 tileset=tilesetdefs/tileset_grassland.txt
 title=Lochport
 
@@ -365,6 +367,13 @@ activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_1.txt,39,66
 tooltip=St. Maria: Mausoleum
+
+[event]
+# Rain sound effect
+type=event
+location=0,0,1,1
+activate=on_load
+soundfx=soundfx/environment/rain.ogg
 
 [enemy]
 type=enemy
