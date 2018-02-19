@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-17 23:35+\n"
+"POT-Creation-Date: 2018-02-19 18:31+\n"
 "PO-Revision-Date: 2018-12-12 01:29+0100\n"
 "Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -292,6 +292,10 @@ msgstr "Wygnaniec"
 msgid "throwing axe"
 msgstr "topór do rzucania"
 
+#: ../enemies/base/ardwen.txt:3
+msgid "Ardwen"
+msgstr "Ardwen"
+
 #: ../enemies/catacomb_boulder_1.txt:6
 msgid "Boulder"
 msgstr "Głaz"
@@ -512,10 +516,6 @@ msgstr "Szkielet-Łucznik"
 #: ../enemies/lvl2_zombie.txt:3
 msgid "Zombie"
 msgstr "Zombie"
-
-#: ../enemies/lvl3_ardwen_quest.txt:3
-msgid "Ardwen"
-msgstr "Ardwen"
 
 #: ../enemies/lvl3_cursed_grave.txt:3
 msgid "Cursed Grave"
@@ -901,9 +901,18 @@ msgstr "Jaskinia Goblinów"
 msgid "Gravestone"
 msgstr "Kamień nagrobny"
 
-#: ../maps/halls_of_infinity.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:11
 msgid "Halls of Infinity"
 msgstr "Sale Nieskończoności"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:339
+#, fuzzy
+msgid "Mine Cart"
+msgstr "Pusty Wagonik"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:550
+msgid "Stalagmite Pillar"
+msgstr ""
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -965,15 +974,15 @@ msgstr "Katakumby Podświata"
 msgid "Boat"
 msgstr "Łódź"
 
-#: ../maps/lochport.txt:10
+#: ../maps/lochport.txt:12
 msgid "Lochport"
 msgstr "Zatoka Portowa"
 
-#: ../maps/lochport.txt:358
+#: ../maps/lochport.txt:360
 msgid "St. Maria: Mausoleum"
 msgstr "Św. Maria: Mauzoleum"
 
-#: ../maps/lochport_cemetery.txt:309
+#: ../maps/lochport_cemetery.txt:310
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Odkryto punkt nawigacyjny na Cmentarzu Zatoki Portowej."
 
@@ -1551,6 +1560,22 @@ msgstr "(Wyglądając na usatysfakcjonowanego, sięga do swojej torby i podaje C
 msgid "..."
 msgstr "..."
 
+#: ../npcs/base/infinity_obelisk.txt:1
+msgid "Infinity Obelisk"
+msgstr "Obelisk Nieskończoności"
+
+#: ../npcs/base/infinity_obelisk.txt:7
+msgid "(You touch the obelisk, but nothing happens.)"
+msgstr "(Dotykasz obelisku, ale nic się nie dzieje.)"
+
+#: ../npcs/base/infinity_obelisk.txt:10
+msgid "Continue through the Halls of Infinity"
+msgstr "Ruszaj dalej przez Sale Nieskończoności"
+
+#: ../npcs/base/infinity_obelisk.txt:17
+msgid "Return to Underworld Stronghold"
+msgstr "Wróć do Twierdzy Podświata"
+
 #: ../npcs/florin.txt:1
 msgid "Florin, Apothecary"
 msgstr "Florin, Aptekarz"
@@ -1658,22 +1683,6 @@ msgstr "W Wieży Maga znajdował się portal do Podświata. Powinienem tam wróc
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
 msgstr "Jarzący się Obelisk"
-
-#: ../npcs/glowing_obelisk_1.txt:11
-msgid "(You touch the obelisk, but nothing happens.)"
-msgstr "(Dotykasz obelisku, ale nic się nie dzieje.)"
-
-#: ../npcs/infinity_obelisk.txt:1
-msgid "Infinity Obelisk"
-msgstr "Obelisk Nieskończoności"
-
-#: ../npcs/infinity_obelisk.txt:13
-msgid "Continue through the Halls of Infinity"
-msgstr "Ruszaj dalej przez Sale Nieskończoności"
-
-#: ../npcs/infinity_obelisk.txt:20
-msgid "Return to Underworld Stronghold"
-msgstr "Wróć do Twierdzy Podświata"
 
 #: ../npcs/loren.txt:1
 msgid "Loren, Undead Trader"
@@ -1863,49 +1872,77 @@ msgstr "Clint Bellanger"
 msgid "Justin Jacobs"
 msgstr "Justin Jacobs"
 
-#: ../cutscenes/credits.txt:17
+#: ../cutscenes/credits.txt:16
 msgid "Visual Artists"
 msgstr "Artyści Wizualni"
 
-#: ../cutscenes/credits.txt:19
+#: ../cutscenes/credits.txt:18
 msgid "cron"
 msgstr "cron"
 
-#: ../cutscenes/credits.txt:20
+#: ../cutscenes/credits.txt:19
 msgid "Justin Nichol"
 msgstr "Justin Nichol"
 
-#: ../cutscenes/credits.txt:21
+#: ../cutscenes/credits.txt:20
 msgid "rubberduck"
 msgstr "rubberduck"
 
-#: ../cutscenes/credits.txt:22
+#: ../cutscenes/credits.txt:21
 msgid "Short-Ribs"
 msgstr "Short-Ribs"
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:22
 msgid "Stefano Peris"
 msgstr "Stefano Peris"
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:23
 msgid "VWolfDog"
 msgstr "VWolfDog"
 
-#: ../cutscenes/credits.txt:25
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr "yd"
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr "Imitatorzy Dźwięku"
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr "adamgryu"
 
-#: ../cutscenes/credits.txt:31
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
 msgstr "GuntherDorksen"
+
+#: ../cutscenes/credits.txt:33
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "gunchleoc"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Pavel Maryanov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Sang-froid"
+msgstr ""
+
+#: ../cutscenes/credits.txt:41
+msgid "sujiniku"
+msgstr ""
 
 #: ../cutscenes/ending.txt:7
 msgid "At long last, your journey across the surface and into the Underworld has come to an end."
@@ -2264,35 +2301,35 @@ msgstr "Goblińska Gałąź"
 msgid "Mana flows inside its primitive exterior."
 msgstr "Przez ten prymitywny przewodnik przepływa mana."
 
-#: ../items/categories/level_4_unique.txt:33
+#: ../items/categories/level_4_unique.txt:34
 msgid "Ardwen's Gloves"
 msgstr "Rękawice Ardwena"
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:35
 msgid "These hands built a village."
 msgstr "Dzięki nim zbudował wioskę."
 
-#: ../items/categories/level_4_unique.txt:49
+#: ../items/categories/level_4_unique.txt:50
 msgid "Blood Tunic"
 msgstr "Krwawa Tunika"
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:51
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Podczas jej noszenia, ogrzewa żyły właściciela."
 
-#: ../items/categories/level_4_unique.txt:63
+#: ../items/categories/level_4_unique.txt:64
 msgid "Dark Steppers"
 msgstr "Mroczne Chodaki"
 
-#: ../items/categories/level_4_unique.txt:64
+#: ../items/categories/level_4_unique.txt:65
 msgid "Dancing through the shadows."
 msgstr "Tańcz pośród cieni."
 
-#: ../items/categories/level_4_unique.txt:77
+#: ../items/categories/level_4_unique.txt:78
 msgid "Seagate's Tri-pants"
 msgstr "Trój-spodnie Seagate'a"
 
-#: ../items/categories/level_4_unique.txt:78
+#: ../items/categories/level_4_unique.txt:79
 msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
 msgstr "Te znoszone spodnie są pokryte popiołem, jednak są zimne w dotyku."
 
@@ -4255,6 +4292,65 @@ msgstr "Magik"
 #: ../scripts/powers/goblin_steal.txt:8
 msgid "Goblin Thief stole a potion!"
 msgstr "Gobliński Złodziej ukradł miksturę!"
+
+#: ../scripts/reset_amir.txt:11
+#, fuzzy
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Jednoocy Strażnicy"
+
+#: ../scripts/reset_journal.txt:8
+#, fuzzy
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Dziennik Kupca."
+
+#: ../scripts/reset_krolan.txt:8
+#, fuzzy
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Zaginięcie Krolana"
+
+#: ../scripts/reset_main.txt:49
+#, fuzzy
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Powrót do Empyrean"
+
+#: ../scripts/reset_martigan.txt:10
+#, fuzzy
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Upadli Towarzysze"
+
+#: ../scripts/reset_mog.txt:15
+#, fuzzy
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Zagubiona Dusza w Grocie Moga"
+
+#: ../scripts/reset_nasu.txt:11
+#, fuzzy
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Nietypowe Imię..."
+
+#: ../scripts/reset_naziamines.txt:9
+#, fuzzy
+msgid "Reset quest: \"Trapped!\""
+msgstr "Zresetowano Zadanie: \"W potrzasku!\""
+
+#: ../scripts/reset_ort.txt:6
+#, fuzzy
+msgid "Reset quest: \"Brother?\""
+msgstr "Zresetowano Zadanie: \"W potrzasku!\""
+
+#: ../scripts/reset_stormrock.txt:7
+#, fuzzy
+msgid "Reset quest: \"Locked Out\""
+msgstr "Zresetowano Zadanie: \"W potrzasku!\""
+
+#: ../scripts/reset_torture.txt:9
+#, fuzzy
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Zresetowano zadanie: \"Uwięzienie w Krypcie\""
+
+#: ../scripts/unlock_waypoints.txt:13
+msgid "Unlocked all waypoints"
+msgstr ""
 
 #~ msgid "Summon Zombie"
 #~ msgstr "Przywołanie Zombie"

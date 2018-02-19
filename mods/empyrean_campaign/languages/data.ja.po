@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-17 23:35+\n"
+"POT-Creation-Date: 2018-02-19 18:31+\n"
 "PO-Revision-Date: 2017-12-10 02:53+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,6 +293,10 @@ msgstr "亡命者"
 msgid "throwing axe"
 msgstr "投げオノ"
 
+#: ../enemies/base/ardwen.txt:3
+msgid "Ardwen"
+msgstr ""
+
 #: ../enemies/catacomb_boulder_1.txt:6
 msgid "Boulder"
 msgstr "丸い石柱"
@@ -510,10 +514,6 @@ msgstr "がいこつアーチャー"
 #: ../enemies/lvl2_zombie.txt:3
 msgid "Zombie"
 msgstr "ゾンビ"
-
-#: ../enemies/lvl3_ardwen_quest.txt:3
-msgid "Ardwen"
-msgstr ""
 
 #: ../enemies/lvl3_cursed_grave.txt:3
 msgid "Cursed Grave"
@@ -899,8 +899,17 @@ msgstr "ゴブリンの どうくつ"
 msgid "Gravestone"
 msgstr "墓石"
 
-#: ../maps/halls_of_infinity.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:11
 msgid "Halls of Infinity"
+msgstr ""
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:339
+#, fuzzy
+msgid "Mine Cart"
+msgstr "からっぽのマインカート"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:550
+msgid "Stalagmite Pillar"
 msgstr ""
 
 #: ../maps/halls_of_infinity.txt:223
@@ -963,15 +972,15 @@ msgstr "地下世界 カタコーム"
 msgid "Boat"
 msgstr "小舟"
 
-#: ../maps/lochport.txt:10
+#: ../maps/lochport.txt:12
 msgid "Lochport"
 msgstr ""
 
-#: ../maps/lochport.txt:358
+#: ../maps/lochport.txt:360
 msgid "St. Maria: Mausoleum"
 msgstr "聖マリア霊廟"
 
-#: ../maps/lochport_cemetery.txt:309
+#: ../maps/lochport_cemetery.txt:310
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Lochport 共同墓地のウェイポイントを発見した。"
 
@@ -1548,6 +1557,23 @@ msgstr "(満足そうに見え、 彼は手を伸ばして、彼のカバンに�
 msgid "..."
 msgstr ""
 
+#: ../npcs/base/infinity_obelisk.txt:1
+#, fuzzy
+msgid "Infinity Obelisk"
+msgstr "無限のオベリスク"
+
+#: ../npcs/base/infinity_obelisk.txt:7
+msgid "(You touch the obelisk, but nothing happens.)"
+msgstr "(あなたは オベリスクに さわった。 しかし、なにも行らなかった。)"
+
+#: ../npcs/base/infinity_obelisk.txt:10
+msgid "Continue through the Halls of Infinity"
+msgstr ""
+
+#: ../npcs/base/infinity_obelisk.txt:17
+msgid "Return to Underworld Stronghold"
+msgstr ""
+
 #: ../npcs/florin.txt:1
 msgid "Florin, Apothecary"
 msgstr "Florin, 薬師"
@@ -1655,23 +1681,6 @@ msgstr "Wizard の塔に地下世界への入口がありました。 私は、�
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
 msgstr "成長するオベリスク"
-
-#: ../npcs/glowing_obelisk_1.txt:11
-msgid "(You touch the obelisk, but nothing happens.)"
-msgstr "(あなたは オベリスクに さわった。 しかし、なにも行らなかった。)"
-
-#: ../npcs/infinity_obelisk.txt:1
-#, fuzzy
-msgid "Infinity Obelisk"
-msgstr "無限のオベリスク"
-
-#: ../npcs/infinity_obelisk.txt:13
-msgid "Continue through the Halls of Infinity"
-msgstr ""
-
-#: ../npcs/infinity_obelisk.txt:20
-msgid "Return to Underworld Stronghold"
-msgstr ""
 
 #: ../npcs/loren.txt:1
 msgid "Loren, Undead Trader"
@@ -1861,49 +1870,77 @@ msgstr ""
 msgid "Justin Jacobs"
 msgstr ""
 
-#: ../cutscenes/credits.txt:17
+#: ../cutscenes/credits.txt:16
 msgid "Visual Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:19
+#: ../cutscenes/credits.txt:18
 msgid "cron"
 msgstr ""
 
-#: ../cutscenes/credits.txt:20
+#: ../cutscenes/credits.txt:19
 msgid "Justin Nichol"
 msgstr ""
 
-#: ../cutscenes/credits.txt:21
+#: ../cutscenes/credits.txt:20
 msgid "rubberduck"
 msgstr ""
 
-#: ../cutscenes/credits.txt:22
+#: ../cutscenes/credits.txt:21
 #, fuzzy
 msgid "Short-Ribs"
 msgstr "ショートリブ"
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:22
 msgid "Stefano Peris"
 msgstr ""
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:23
 msgid "VWolfDog"
 msgstr ""
 
-#: ../cutscenes/credits.txt:25
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr ""
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr ""
 
-#: ../cutscenes/credits.txt:31
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:33
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "gunchleoc"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Pavel Maryanov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Sang-froid"
+msgstr ""
+
+#: ../cutscenes/credits.txt:41
+msgid "sujiniku"
 msgstr ""
 
 #: ../cutscenes/ending.txt:7
@@ -2263,35 +2300,35 @@ msgstr ""
 msgid "Mana flows inside its primitive exterior."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:33
+#: ../items/categories/level_4_unique.txt:34
 msgid "Ardwen's Gloves"
 msgstr "Ardwen のグラブ"
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:35
 msgid "These hands built a village."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:49
+#: ../items/categories/level_4_unique.txt:50
 msgid "Blood Tunic"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:51
 msgid "When worn, this shirt heats the wearers veins."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:63
+#: ../items/categories/level_4_unique.txt:64
 msgid "Dark Steppers"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:64
+#: ../items/categories/level_4_unique.txt:65
 msgid "Dancing through the shadows."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:77
+#: ../items/categories/level_4_unique.txt:78
 msgid "Seagate's Tri-pants"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:78
+#: ../items/categories/level_4_unique.txt:79
 msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
 msgstr ""
 
@@ -4252,3 +4289,57 @@ msgstr "マジシャン"
 #: ../scripts/powers/goblin_steal.txt:8
 msgid "Goblin Thief stole a potion!"
 msgstr "ゴブリン盗賊がポーションを盗んだ!"
+
+#: ../scripts/reset_amir.txt:11
+#, fuzzy
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "独眼のガーディアン"
+
+#: ../scripts/reset_journal.txt:8
+#, fuzzy
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "商人ジャーナル"
+
+#: ../scripts/reset_krolan.txt:8
+#, fuzzy
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Krolan の消失"
+
+#: ../scripts/reset_main.txt:49
+#, fuzzy
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Empyrean に戻る"
+
+#: ../scripts/reset_martigan.txt:10
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr ""
+
+#: ../scripts/reset_mog.txt:15
+#, fuzzy
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Mog 洞窟の 失われた魂"
+
+#: ../scripts/reset_nasu.txt:11
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr ""
+
+#: ../scripts/reset_naziamines.txt:9
+msgid "Reset quest: \"Trapped!\""
+msgstr ""
+
+#: ../scripts/reset_ort.txt:6
+msgid "Reset quest: \"Brother?\""
+msgstr ""
+
+#: ../scripts/reset_stormrock.txt:7
+msgid "Reset quest: \"Locked Out\""
+msgstr ""
+
+#: ../scripts/reset_torture.txt:9
+#, fuzzy
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "監獄長のノート"
+
+#: ../scripts/unlock_waypoints.txt:13
+msgid "Unlocked all waypoints"
+msgstr ""

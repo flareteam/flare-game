@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-17 23:35+\n"
+"POT-Creation-Date: 2018-02-19 18:31+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -295,6 +295,10 @@ msgstr "Изгнанник"
 msgid "throwing axe"
 msgstr "Бросок Топора"
 
+#: ../enemies/base/ardwen.txt:3
+msgid "Ardwen"
+msgstr "Ардвин"
+
 #: ../enemies/catacomb_boulder_1.txt:6
 msgid "Boulder"
 msgstr "Валун"
@@ -530,10 +534,6 @@ msgstr "Скелет-Лучник"
 #: ../enemies/lvl2_zombie.txt:3
 msgid "Zombie"
 msgstr "Зомби"
-
-#: ../enemies/lvl3_ardwen_quest.txt:3
-msgid "Ardwen"
-msgstr "Ардвин"
 
 #: ../enemies/lvl3_cursed_grave.txt:3
 msgid "Cursed Grave"
@@ -921,8 +921,17 @@ msgstr "Пещера Гоблинов"
 msgid "Gravestone"
 msgstr "Надгробие"
 
-#: ../maps/halls_of_infinity.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:11
 msgid "Halls of Infinity"
+msgstr ""
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:339
+#, fuzzy
+msgid "Mine Cart"
+msgstr "Пустая Вагонетка"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:550
+msgid "Stalagmite Pillar"
 msgstr ""
 
 #: ../maps/halls_of_infinity.txt:223
@@ -990,15 +999,15 @@ msgstr "Подземные Катакомбы"
 msgid "Boat"
 msgstr "Лодка"
 
-#: ../maps/lochport.txt:10
+#: ../maps/lochport.txt:12
 msgid "Lochport"
 msgstr "Локпорт"
 
-#: ../maps/lochport.txt:358
+#: ../maps/lochport.txt:360
 msgid "St. Maria: Mausoleum"
 msgstr "Св. Мария: Мавзолей"
 
-#: ../maps/lochport_cemetery.txt:309
+#: ../maps/lochport_cemetery.txt:310
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Найден телепорт Кладбища Локпорта."
 
@@ -1591,6 +1600,23 @@ msgstr "(Оставшись довольным, торговец кладёт к
 msgid "..."
 msgstr "..."
 
+#: ../npcs/base/infinity_obelisk.txt:1
+#, fuzzy
+msgid "Infinity Obelisk"
+msgstr "Светящийся обелиск"
+
+#: ../npcs/base/infinity_obelisk.txt:7
+msgid "(You touch the obelisk, but nothing happens.)"
+msgstr "(Вы касаетесь обелиска, но ничего не происходит.)"
+
+#: ../npcs/base/infinity_obelisk.txt:10
+msgid "Continue through the Halls of Infinity"
+msgstr ""
+
+#: ../npcs/base/infinity_obelisk.txt:17
+msgid "Return to Underworld Stronghold"
+msgstr ""
+
 #: ../npcs/florin.txt:1
 msgid "Florin, Apothecary"
 msgstr "Флорин, Аптекарь"
@@ -1699,23 +1725,6 @@ msgstr "Портал в ад был в Башне Колдуна. Я верну�
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
 msgstr "Светящийся Обелиск"
-
-#: ../npcs/glowing_obelisk_1.txt:11
-msgid "(You touch the obelisk, but nothing happens.)"
-msgstr "(Вы касаетесь обелиска, но ничего не происходит.)"
-
-#: ../npcs/infinity_obelisk.txt:1
-#, fuzzy
-msgid "Infinity Obelisk"
-msgstr "Светящийся обелиск"
-
-#: ../npcs/infinity_obelisk.txt:13
-msgid "Continue through the Halls of Infinity"
-msgstr ""
-
-#: ../npcs/infinity_obelisk.txt:20
-msgid "Return to Underworld Stronghold"
-msgstr ""
 
 #: ../npcs/loren.txt:1
 msgid "Loren, Undead Trader"
@@ -1908,51 +1917,79 @@ msgstr "Clint Bellanger"
 msgid "Justin Jacobs"
 msgstr "Justin Jacobs"
 
-#: ../cutscenes/credits.txt:17
+#: ../cutscenes/credits.txt:16
 msgid "Visual Artists"
 msgstr "Художники"
 
-#: ../cutscenes/credits.txt:19
+#: ../cutscenes/credits.txt:18
 msgid "cron"
 msgstr "cron"
 
-#: ../cutscenes/credits.txt:20
+#: ../cutscenes/credits.txt:19
 #, fuzzy
 msgid "Justin Nichol"
 msgstr "Justin Jacobs"
 
-#: ../cutscenes/credits.txt:21
+#: ../cutscenes/credits.txt:20
 msgid "rubberduck"
 msgstr "rubberduck"
 
-#: ../cutscenes/credits.txt:22
+#: ../cutscenes/credits.txt:21
 #, fuzzy
 msgid "Short-Ribs"
 msgstr "Короткий лук"
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:22
 msgid "Stefano Peris"
 msgstr "Stefano Peris"
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:23
 msgid "VWolfDog"
 msgstr "VWolfDog"
 
-#: ../cutscenes/credits.txt:25
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr "yd"
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr "Foley Artists"
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr "adamgryu"
 
-#: ../cutscenes/credits.txt:31
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
 msgstr "GuntherDorksen"
+
+#: ../cutscenes/credits.txt:33
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "gunchleoc"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Pavel Maryanov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Sang-froid"
+msgstr ""
+
+#: ../cutscenes/credits.txt:41
+msgid "sujiniku"
+msgstr ""
 
 #: ../cutscenes/ending.txt:7
 msgid "At long last, your journey across the surface and into the Underworld has come to an end."
@@ -2317,35 +2354,35 @@ msgstr "Ветка Гоблина"
 msgid "Mana flows inside its primitive exterior."
 msgstr "Под невзрачной внешностью скрывается поток маны."
 
-#: ../items/categories/level_4_unique.txt:33
+#: ../items/categories/level_4_unique.txt:34
 msgid "Ardwen's Gloves"
 msgstr "Перчатки Ардвина"
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:35
 msgid "These hands built a village."
 msgstr "Этими руками была построена деревня."
 
-#: ../items/categories/level_4_unique.txt:49
+#: ../items/categories/level_4_unique.txt:50
 msgid "Blood Tunic"
 msgstr "Кровавая Накидка"
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:51
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Эта рубашка разогревает кровь носящего её."
 
-#: ../items/categories/level_4_unique.txt:63
+#: ../items/categories/level_4_unique.txt:64
 msgid "Dark Steppers"
 msgstr "Тёмноступы"
 
-#: ../items/categories/level_4_unique.txt:64
+#: ../items/categories/level_4_unique.txt:65
 msgid "Dancing through the shadows."
 msgstr "Танцуй среди теней."
 
-#: ../items/categories/level_4_unique.txt:77
+#: ../items/categories/level_4_unique.txt:78
 msgid "Seagate's Tri-pants"
 msgstr "Штаны Сигейта"
 
-#: ../items/categories/level_4_unique.txt:78
+#: ../items/categories/level_4_unique.txt:79
 msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
 msgstr "Эти рваные штаны хоть и выглядят обгоревшими, но холодны на ощупь."
 
@@ -4348,6 +4385,65 @@ msgstr "Mаг"
 
 #: ../scripts/powers/goblin_steal.txt:8
 msgid "Goblin Thief stole a potion!"
+msgstr ""
+
+#: ../scripts/reset_amir.txt:11
+#, fuzzy
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Одноглазые Стражи"
+
+#: ../scripts/reset_journal.txt:8
+#, fuzzy
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Дневник Торговца"
+
+#: ../scripts/reset_krolan.txt:8
+#, fuzzy
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Кролан Пропал"
+
+#: ../scripts/reset_main.txt:49
+#, fuzzy
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Возвращение в Эмпирей"
+
+#: ../scripts/reset_martigan.txt:10
+#, fuzzy
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Склеп-ловушка"
+
+#: ../scripts/reset_mog.txt:15
+#, fuzzy
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Потерянная душа пещеры Мог"
+
+#: ../scripts/reset_nasu.txt:11
+#, fuzzy
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Необычное имя..."
+
+#: ../scripts/reset_naziamines.txt:9
+#, fuzzy
+msgid "Reset quest: \"Trapped!\""
+msgstr "Склеп-ловушка"
+
+#: ../scripts/reset_ort.txt:6
+#, fuzzy
+msgid "Reset quest: \"Brother?\""
+msgstr "Склеп-ловушка"
+
+#: ../scripts/reset_stormrock.txt:7
+#, fuzzy
+msgid "Reset quest: \"Locked Out\""
+msgstr "Склеп-ловушка"
+
+#: ../scripts/reset_torture.txt:9
+#, fuzzy
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Склеп-ловушка"
+
+#: ../scripts/unlock_waypoints.txt:13
+msgid "Unlocked all waypoints"
 msgstr ""
 
 #~ msgid "Summon Zombie"

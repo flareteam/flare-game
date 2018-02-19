@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-17 23:35+\n"
+"POT-Creation-Date: 2018-02-19 18:31+\n"
 "PO-Revision-Date: 2017-07-22 14:22+\n"
 "Last-Translator: Sang-froid <remi.millerat@gmail.com>\n"
 "Language-Team: French\n"
@@ -295,6 +295,10 @@ msgstr "Éxilé"
 msgid "throwing axe"
 msgstr "Jeter une hache"
 
+#: ../enemies/base/ardwen.txt:3
+msgid "Ardwen"
+msgstr "Ardwen"
+
 #: ../enemies/catacomb_boulder_1.txt:6
 msgid "Boulder"
 msgstr ""
@@ -532,10 +536,6 @@ msgstr "Archer Squelette"
 #: ../enemies/lvl2_zombie.txt:3
 msgid "Zombie"
 msgstr "Zombie"
-
-#: ../enemies/lvl3_ardwen_quest.txt:3
-msgid "Ardwen"
-msgstr "Ardwen"
 
 #: ../enemies/lvl3_cursed_grave.txt:3
 msgid "Cursed Grave"
@@ -927,8 +927,17 @@ msgstr "Cave des Gobelins"
 msgid "Gravestone"
 msgstr "Pierre gravée"
 
-#: ../maps/halls_of_infinity.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:11
 msgid "Halls of Infinity"
+msgstr ""
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:339
+#, fuzzy
+msgid "Mine Cart"
+msgstr "Mines de Blackmire"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:550
+msgid "Stalagmite Pillar"
 msgstr ""
 
 #: ../maps/halls_of_infinity.txt:223
@@ -995,15 +1004,15 @@ msgstr ""
 msgid "Boat"
 msgstr "Bateau"
 
-#: ../maps/lochport.txt:10
+#: ../maps/lochport.txt:12
 msgid "Lochport"
 msgstr "Lochport"
 
-#: ../maps/lochport.txt:358
+#: ../maps/lochport.txt:360
 msgid "St. Maria: Mausoleum"
 msgstr "Mausolée de St. Maria"
 
-#: ../maps/lochport_cemetery.txt:309
+#: ../maps/lochport_cemetery.txt:310
 msgid "Lochport Cemetery waypoint discovered."
 msgstr "Point de Passage du Cimetière de Lochport découvert."
 
@@ -1597,6 +1606,23 @@ msgstr "(Satisfait, il fouille dans son sac et vous offre une figurine d'Ours en
 msgid "..."
 msgstr "..."
 
+#: ../npcs/base/infinity_obelisk.txt:1
+#, fuzzy
+msgid "Infinity Obelisk"
+msgstr "Obélisque Rougeoyant"
+
+#: ../npcs/base/infinity_obelisk.txt:7
+msgid "(You touch the obelisk, but nothing happens.)"
+msgstr "(Vous touchez l'Obelisque mais il ne se passe rien.)"
+
+#: ../npcs/base/infinity_obelisk.txt:10
+msgid "Continue through the Halls of Infinity"
+msgstr ""
+
+#: ../npcs/base/infinity_obelisk.txt:17
+msgid "Return to Underworld Stronghold"
+msgstr ""
+
 #: ../npcs/florin.txt:1
 msgid "Florin, Apothecary"
 msgstr "Florin, Apothicaire"
@@ -1705,23 +1731,6 @@ msgstr ""
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
 msgstr "Obélisque Rougeoyant"
-
-#: ../npcs/glowing_obelisk_1.txt:11
-msgid "(You touch the obelisk, but nothing happens.)"
-msgstr "(Vous touchez l'Obelisque mais il ne se passe rien.)"
-
-#: ../npcs/infinity_obelisk.txt:1
-#, fuzzy
-msgid "Infinity Obelisk"
-msgstr "Obélisque Rougeoyant"
-
-#: ../npcs/infinity_obelisk.txt:13
-msgid "Continue through the Halls of Infinity"
-msgstr ""
-
-#: ../npcs/infinity_obelisk.txt:20
-msgid "Return to Underworld Stronghold"
-msgstr ""
 
 #: ../npcs/loren.txt:1
 msgid "Loren, Undead Trader"
@@ -1914,49 +1923,77 @@ msgstr ""
 msgid "Justin Jacobs"
 msgstr ""
 
-#: ../cutscenes/credits.txt:17
+#: ../cutscenes/credits.txt:16
 msgid "Visual Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:19
+#: ../cutscenes/credits.txt:18
 msgid "cron"
 msgstr ""
 
-#: ../cutscenes/credits.txt:20
+#: ../cutscenes/credits.txt:19
 msgid "Justin Nichol"
 msgstr ""
 
-#: ../cutscenes/credits.txt:21
+#: ../cutscenes/credits.txt:20
 msgid "rubberduck"
 msgstr ""
 
-#: ../cutscenes/credits.txt:22
+#: ../cutscenes/credits.txt:21
 #, fuzzy
 msgid "Short-Ribs"
 msgstr "Arc court"
 
-#: ../cutscenes/credits.txt:23
+#: ../cutscenes/credits.txt:22
 msgid "Stefano Peris"
 msgstr ""
 
-#: ../cutscenes/credits.txt:24
+#: ../cutscenes/credits.txt:23
 msgid "VWolfDog"
 msgstr ""
 
-#: ../cutscenes/credits.txt:25
+#: ../cutscenes/credits.txt:24
 msgid "yd"
 msgstr ""
 
-#: ../cutscenes/credits.txt:28
+#: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:30
+#: ../cutscenes/credits.txt:29
 msgid "adamgryu"
 msgstr ""
 
-#: ../cutscenes/credits.txt:31
+#: ../cutscenes/credits.txt:30
 msgid "GuntherDorksen"
+msgstr ""
+
+#: ../cutscenes/credits.txt:33
+msgid "Translators"
+msgstr ""
+
+#: ../cutscenes/credits.txt:35
+msgid "gunchleoc"
+msgstr ""
+
+#: ../cutscenes/credits.txt:36
+msgid "Igor Paliychuk"
+msgstr ""
+
+#: ../cutscenes/credits.txt:37
+msgid "Pavel Maryanov"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:39
+msgid "Sang-froid"
+msgstr ""
+
+#: ../cutscenes/credits.txt:41
+msgid "sujiniku"
 msgstr ""
 
 #: ../cutscenes/ending.txt:7
@@ -2327,35 +2364,35 @@ msgstr "Branche Gobelin"
 msgid "Mana flows inside its primitive exterior."
 msgstr "Le Mana coule à l'intérieur de son extérieur primitif."
 
-#: ../items/categories/level_4_unique.txt:33
+#: ../items/categories/level_4_unique.txt:34
 msgid "Ardwen's Gloves"
 msgstr "Gants d'Ardwen"
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:35
 msgid "These hands built a village."
 msgstr "Ces mains bâtirent un village."
 
-#: ../items/categories/level_4_unique.txt:49
+#: ../items/categories/level_4_unique.txt:50
 msgid "Blood Tunic"
 msgstr "Tunique de Sang"
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:51
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Lorsqu'elle est porté, cette chemise chauffe les veines des porteurs."
 
-#: ../items/categories/level_4_unique.txt:63
+#: ../items/categories/level_4_unique.txt:64
 msgid "Dark Steppers"
 msgstr "Marcheurs d'Ombres"
 
-#: ../items/categories/level_4_unique.txt:64
+#: ../items/categories/level_4_unique.txt:65
 msgid "Dancing through the shadows."
 msgstr "Danser dans les ombres."
 
-#: ../items/categories/level_4_unique.txt:77
+#: ../items/categories/level_4_unique.txt:78
 msgid "Seagate's Tri-pants"
 msgstr "Triple pantalon de Seagate"
 
-#: ../items/categories/level_4_unique.txt:78
+#: ../items/categories/level_4_unique.txt:79
 msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
 msgstr "Ces pantalons déchiquetés sont couverts de marques de brûlure, mais ils sont froids au toucher."
 
@@ -4356,6 +4393,64 @@ msgstr "Magicien"
 
 #: ../scripts/powers/goblin_steal.txt:8
 msgid "Goblin Thief stole a potion!"
+msgstr ""
+
+#: ../scripts/reset_amir.txt:11
+#, fuzzy
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Les Guardiens Borgnes"
+
+#: ../scripts/reset_journal.txt:8
+#, fuzzy
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Le Journal du Marchant"
+
+#: ../scripts/reset_krolan.txt:8
+#, fuzzy
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "L'Oubli de Krolan"
+
+#: ../scripts/reset_main.txt:49
+#, fuzzy
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Retourner à Empyrean"
+
+#: ../scripts/reset_martigan.txt:10
+#, fuzzy
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Piégé dans la Crypte"
+
+#: ../scripts/reset_mog.txt:15
+#, fuzzy
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Piégé dans la Crypte"
+
+#: ../scripts/reset_nasu.txt:11
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr ""
+
+#: ../scripts/reset_naziamines.txt:9
+#, fuzzy
+msgid "Reset quest: \"Trapped!\""
+msgstr "Piégé dans la Crypte"
+
+#: ../scripts/reset_ort.txt:6
+#, fuzzy
+msgid "Reset quest: \"Brother?\""
+msgstr "Piégé dans la Crypte"
+
+#: ../scripts/reset_stormrock.txt:7
+#, fuzzy
+msgid "Reset quest: \"Locked Out\""
+msgstr "Piégé dans la Crypte"
+
+#: ../scripts/reset_torture.txt:9
+#, fuzzy
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Piégé dans la Crypte"
+
+#: ../scripts/unlock_waypoints.txt:13
+msgid "Unlocked all waypoints"
 msgstr ""
 
 #~ msgid "Summon Zombie"
