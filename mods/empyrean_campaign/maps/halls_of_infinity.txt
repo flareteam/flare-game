@@ -511,8 +511,21 @@ requires_not_status=emp_fig_all_placed
 requires_status=emp_fig_1_placed,emp_fig_2_placed,emp_fig_3_placed,emp_fig_4_placed
 set_status=emp_fig_all_placed
 
+[event]
+# move abasi to this map
+type=event
+location=2,0,1,1
+activate=on_load
+requires_not_status=emp_abasi_3
+set_status=emp_abasi_3
+
 [npc]
 type=npc
 location=11,11,1,1
 filename=npcs/infinity_obelisk_2.txt
+
+[npc]
+type=npc
+location=12,4,1,1
+filename=npcs/abasi_3.txt
 

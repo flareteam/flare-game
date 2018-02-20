@@ -1,0 +1,23 @@
+name=Abasi, Traveling Merchant
+
+portrait=images/portraits/male11.png
+
+# animation info
+gfx=animations/npcs/wandering_trader1.txt
+
+# shop info
+vendor=true
+constant_stock=2:20,3:20,203:10,412:10,413:10,414:10,415:10,416:10,417:10,418:10
+# martigan also stocks level 16 items, so we'll just use his loot table
+random_stock=loot/trader_martigan.txt
+random_stock_count=15,20
+
+# voiceover files
+vox_intro=soundfx/npcs/male_merchant_01.ogg
+vox_intro=soundfx/npcs/male_merchant_02.ogg
+vox_intro=soundfx/npcs/male_merchant_03.ogg
+vox_intro=soundfx/npcs/male_merchant_04.ogg
+
+# TODO add some dialog?
+talker=false
+
