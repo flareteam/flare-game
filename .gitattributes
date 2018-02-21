@@ -15,8 +15,13 @@ tiled/ export-ignore
 # do not export the language recreation script
 mods/fantasycore/languages/readme.txt export-ignore
 mods/fantasycore/languages/xgettext.py export-ignore
+mods/fantasycore/languages/regenerate_po.sh export-ignore
 mods/alpha_demo/languages/readme.txt export-ignore
 mods/alpha_demo/languages/xgettext.py export-ignore
+mods/alpha_demo/languages/regenerate_po.sh export-ignore
+mods/empyrean_campaign/languages/readme.txt export-ignore
+mods/empyrean_campaign/languages/xgettext.py export-ignore
+mods/empyrean_campaign/languages/regenerate_po.sh export-ignore
 
 # the script to generate tar balls
 distribution/create_release_tarball.sh
