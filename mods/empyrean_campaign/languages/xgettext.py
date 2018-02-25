@@ -65,7 +65,7 @@ def extract(filename):
                 elif len(values) == 3:
                    # bonus={set_level},{stat},{value}
                    set_level, stat, value = values
-                elif len(values) == 4:
+                elif len(values) == 5:
                    # option=base,head,portrait,name
                    stat = values[-1]
                 comment = filename + ':' + str(i)

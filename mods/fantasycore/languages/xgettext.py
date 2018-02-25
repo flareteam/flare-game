@@ -53,7 +53,7 @@ def extract(filename):
                 line = line.split('=')[1]
                 line = line.strip('\n')
                 values = line.split(',')
-		# TODO checking length of values isn't reliable, check trigger too?
+                # TODO checking length of values isn't reliable, check trigger too?
                 if (trigger in plain_text):
                    stat = line.replace("\"", "\\\"");
                 elif len(values) == 1:
@@ -65,7 +65,7 @@ def extract(filename):
                 elif len(values) == 3:
                    # bonus={set_level},{stat},{value}
                    set_level, stat, value = values
-                elif len(values) == 4:
+                elif len(values) == 5:
                    # option=base,head,portrait,name
                    stat = values[-1]
                 comment = filename + ':' + str(i)
@@ -93,16 +93,6 @@ def save(filename):
     for line_c,line in zip(comments,keys):
         outfile.write(POT_STRING.format(comment=line_c, msgid=line))
 
-# this extracts the quest files from the quests directory
-def get_quests():
-    quests = set()
-    infile = open('../quests/index.txt', 'r')
-    for line in infile.readlines():
-        quests.add(line.strip('\n'))
-    infile.close()
-    return quests
-
-
 # HERE'S THE MAIN EXECUTION
 extract('../items/items.txt')
 extract('../items/types.txt')
@@ -120,16 +110,7 @@ extract('../engine/equip_flags.txt')
 extract('../engine/primary_stats.txt')
 extract('../engine/damage_types.txt')
 
-for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books']:
-    target = os.path.join('..', folder)
-    if os.path.isdir(target):
-        for filename in sorted(os.listdir(target)):
-                filename = os.path.join(target, filename)
-                if os.path.isfile(filename):
-                    extract(filename)
-
-# definitions for some larger collections of data are split up, so extract them here
-for folder in ['enemies', 'items', 'powers']:
+for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books', 'items', 'powers', 'scripts']:
     target = os.path.join('..', folder)
     if os.path.isdir(target):
         for filename in sorted(os.listdir(target)):
@@ -140,5 +121,7 @@ for folder in ['enemies', 'items', 'powers']:
                             f = os.path.join(root, f)
                             if os.path.isfile(f):
                                 extract(f)
+                elif os.path.isfile(subfolder):
+                    extract(subfolder)
 
 save('data.pot')
