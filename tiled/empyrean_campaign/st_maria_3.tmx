@@ -31,6 +31,9 @@
   <tileoffset x="0" y="48"/>
   <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
+ <tileset firstgid="288" name="boss_chest" tilewidth="64" tileheight="64" tilecount="4" columns="4">
+  <image source="../common/boss_chest.png" width="256" height="64"/>
+ </tileset>
  <layer name="background" width="40" height="60">
   <data encoding="csv">
 0,0,0,0,0,0,51,51,51,51,51,51,51,0,0,0,0,0,0,0,0,51,51,51,51,51,51,51,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -99,7 +102,7 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,145,0,0,167,183,0,167,0,0,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,288,0,0,167,183,0,167,0,0,288,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,167,0,193,0,0,193,0,0,126,123,123,123,123,123,123,123,123,123,123,125,0,0,193,0,0,193,0,167,0,0,0,0,0,0,0,0,0,
@@ -324,7 +327,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_4.txt"/>
     <property name="loot_count" value="4,5"/>
-    <property name="mapmod" value="object,12,2,161"/>
+    <property name="mapmod" value="object,12,2,289"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_seagate_chest1"/>
     <property name="set_status" value="emp_seagate_chest1"/>
@@ -338,7 +341,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_4.txt"/>
     <property name="loot_count" value="4,5"/>
-    <property name="mapmod" value="object,21,2,161"/>
+    <property name="mapmod" value="object,21,2,289"/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_seagate_chest2"/>
     <property name="set_status" value="emp_seagate_chest2"/>
@@ -475,7 +478,7 @@
   <object id="78" name="chest1 open" type="event" x="0" y="32" width="32" height="32">
    <properties>
     <property name="activate" value="on_load"/>
-    <property name="mapmod" value="object,12,2,161"/>
+    <property name="mapmod" value="object,12,2,289"/>
     <property name="requires_not_status" value="emp_seagate_respawn"/>
     <property name="requires_status" value="emp_seagate_chest1"/>
    </properties>
@@ -483,7 +486,7 @@
   <object id="79" name="chest2 open" type="event" x="32" y="32" width="32" height="32">
    <properties>
     <property name="activate" value="on_load"/>
-    <property name="mapmod" value="object,21,2,161"/>
+    <property name="mapmod" value="object,21,2,289"/>
     <property name="requires_not_status" value="emp_seagate_respawn"/>
     <property name="requires_status" value="emp_seagate_chest2"/>
    </properties>

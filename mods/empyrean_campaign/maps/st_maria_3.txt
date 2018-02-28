@@ -18,6 +18,7 @@ tileset=../../../tiled/dungeon/tiled_dungeon_2x2.png,128,64,0,16
 tileset=../../../tiled/dungeon/door_left.png,64,128,-16,-8
 tileset=../../../tiled/dungeon/door_right.png,64,128,16,-8
 tileset=../../../tiled/dungeon/stairs.png,256,256,0,48
+tileset=../../../tiled/common/boss_chest.png,64,64,0,0
 
 [layer]
 type=background
@@ -88,7 +89,7 @@ type=object
 data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,145,0,0,167,183,0,167,0,0,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,288,0,0,167,183,0,167,0,0,288,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,167,0,193,0,0,193,0,0,126,123,123,123,123,123,123,123,123,123,123,125,0,0,193,0,0,193,0,167,0,0,0,0,0,0,0,0,0,
@@ -325,7 +326,7 @@ activate=on_trigger
 hotspot=location
 loot=loot/level_4.txt
 loot_count=4,5
-mapmod=object,12,2,161
+mapmod=object,12,2,289
 repeat=false
 requires_not_status=emp_seagate_chest1
 set_status=emp_seagate_chest1
@@ -340,7 +341,7 @@ activate=on_trigger
 hotspot=location
 loot=loot/level_4.txt
 loot_count=4,5
-mapmod=object,21,2,161
+mapmod=object,21,2,289
 repeat=false
 requires_not_status=emp_seagate_chest2
 set_status=emp_seagate_chest2
@@ -493,7 +494,7 @@ set_status=emp_seagate_torches
 type=event
 location=0,1,1,1
 activate=on_load
-mapmod=object,12,2,161
+mapmod=object,12,2,289
 requires_not_status=emp_seagate_respawn
 requires_status=emp_seagate_chest1
 
@@ -502,7 +503,7 @@ requires_status=emp_seagate_chest1
 type=event
 location=1,1,1,1
 activate=on_load
-mapmod=object,21,2,161
+mapmod=object,21,2,289
 requires_not_status=emp_seagate_respawn
 requires_status=emp_seagate_chest2
 

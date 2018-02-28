@@ -31,6 +31,9 @@
   <tileoffset x="0" y="48"/>
   <image source="../../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
+ <tileset firstgid="288" name="boss_chest" tilewidth="64" tileheight="64" tilecount="4" columns="4">
+  <image source="../../common/boss_chest.png" width="256" height="64"/>
+ </tileset>
  <layer name="background" width="28" height="129">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,18,18,16,17,47,17,19,16,0,0,0,0,0,0,0,0,0,0,
@@ -169,7 +172,7 @@
 0,0,0,0,0,0,0,0,0,0,77,65,65,65,65,65,65,65,65,65,78,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,66,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,111,0,0,0,0,0,111,0,66,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,145,0,0,66,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,288,0,0,66,0,0,0,0,0,0,0,
 0,0,0,0,0,0,77,65,65,65,73,0,0,0,0,0,0,0,0,0,74,65,65,65,78,0,0,0,
 0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,
 0,0,0,0,0,0,68,0,111,0,0,0,0,0,0,0,0,0,0,0,0,0,111,0,82,0,0,0,
@@ -456,7 +459,7 @@
     <property name="hotspot" value="location"/>
     <property name="loot" value="loot/level_16.txt"/>
     <property name="loot_count" value="5,6"/>
-    <property name="mapmod" value="object,17,3,161"/>
+    <property name="mapmod" value="object,17,3,289"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
