@@ -1,10 +1,12 @@
 [power]
 id=162
 INCLUDE powers/base/items/health_potion.txt
+requires_hpmp_state=hp,not_full
 
 [power]
 id=163
 INCLUDE powers/base/items/mana_potion.txt
+requires_hpmp_state=mp,not_full
 
 [power]
 id=234
