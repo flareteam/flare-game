@@ -507,6 +507,18 @@ mapmod=object,21,2,289
 requires_not_status=emp_seagate_respawn
 requires_status=emp_seagate_chest2
 
+[event]
+# sparkle effect for gravebloom
+type=event
+location=25,16,1,1
+activate=static
+cooldown=1s
+power=268
+power_path=17,12
+repeat=true
+requires_not_status=emp_main_gravebloom
+requires_status=emp_main_init,emp_seagate_defeated
+
 [enemy]
 type=enemy
 location=6,5,1,1

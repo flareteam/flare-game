@@ -1107,7 +1107,7 @@ set_status=emp_nasu_teleporter
 [event]
 # Start quest
 type=event
-location=96,70,1,1
+location=1,0,1,1
 activate=on_load
 msg=Quest added.
 requires_not_status=emp_nasu_init,emp_nasu_finish
@@ -1123,6 +1123,7 @@ loot=1011,fixed,1
 repeat=false
 requires_not_status=emp_fig_3
 tooltip=Altar
+unset_status=emp_nasu_sparkle
 
 [event]
 # Fig message
@@ -1136,7 +1137,7 @@ requires_not_status=emp_fig_3
 [event]
 # Set Cat fig status
 type=event
-location=93,58,1,1
+location=2,0,1,1
 activate=on_load
 repeat=false
 requires_item=1011
@@ -1193,6 +1194,26 @@ msg=A book entitled "Reflection" sits here, but all the pages are missing.
 repeat=true
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book Stand
+
+[event]
+# sparkle effect for cat figure
+type=event
+location=5,0,1,1
+activate=static
+cooldown=1s
+power=268
+power_path=18,7
+repeat=true
+requires_not_status=emp_fig_3
+requires_status=emp_nasu_sparkle
+
+[event]
+# reset sparkle
+type=event
+location=4,0,1,1
+activate=on_load
+requires_not_status=emp_fig_3
+set_status=emp_nasu_sparkle
 
 [enemy]
 type=enemy
