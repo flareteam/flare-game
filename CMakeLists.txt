@@ -23,3 +23,8 @@ install(DIRECTORY
 install(DIRECTORY
   "${CMAKE_CURRENT_SOURCE_DIR}/mods/centered_statbars"
   DESTINATION ${DATADIR}/mods)
+
+# installing appdata
+install(FILES
+  "${CMAKE_CURRENT_SOURCE_DIR}/distribution/org.flarerpg.Flare.appdata.xml"
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/appdata)
