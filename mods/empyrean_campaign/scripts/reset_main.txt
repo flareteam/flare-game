@@ -2,6 +2,9 @@
 unset_status=emp_main_init
 unset_status=emp_main_info1,emp_main_info2,emp_main_info3
 unset_status=emp_main_reward1,emp_main_reward2,emp_main_reward3
+unset_status=emp_main_finish
+# unset_status=empyrean_backstory
+unset_status=empyrean_ending
 
 unset_status=emp_main_gravebloom
 unset_status=emp_main_quill
@@ -10,6 +13,7 @@ unset_status=emp_main_bloodvial
 unset_status=emp_main_bloodinkwell
 unset_status=emp_main_underworld
 unset_status=emp_main_stronghold
+unset_status=emp_main_pit
 
 unset_status=emp_stmaria1_init,emp_stmaria1_key,emp_stmaria1_door
 unset_status=emp_stmaria2_init,emp_stmaria2_key,emp_stmaria2_door
@@ -26,6 +30,10 @@ unset_status=emp_wizard2_init,emp_wizard2_key,emp_wizard2_door
 unset_status=emp_metzger_defeated,emp_metzger_respawn,emp_metzger_switch1,emp_metzger_switch2,emp_metzger_switch3,emp_metzger_switch4
 
 unset_status=emp_stronghold1_init,emp_stronghold1_key,emp_stronghold1_door
+unset_status=emp_stronghold2_init,emp_stronghold2_key,emp_stronghold2_door
+unset_status=emp_stronghold2_bypass
+unset_status=emp_pit_init,emp_pit_key,emp_pit_chest,emp_pit_fall
+unset_status=emp_lezaith_respawn,emp_lezaith_defeated
 
 remove_item=1100
 remove_item=1101
@@ -45,6 +53,8 @@ remove_item=1022
 remove_item=1023
 
 remove_item=1028
+remove_item=1029
+remove_item=1030
 
 msg=Reset quest: "Return to Empyrean"
 
