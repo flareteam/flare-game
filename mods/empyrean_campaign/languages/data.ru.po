@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare-empyrean_campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 11:34+\n"
+"POT-Creation-Date: 2018-03-26 11:22+\n"
 "PO-Revision-Date: 2016-09-14 16:46+\n"
 "Last-Translator: Pavel Maryanov <acid@jack.kiev.ua>\n"
 "Language-Team: Russian <gnu@dn07.ru>\n"
@@ -134,19 +134,19 @@ msgstr "Варвар"
 msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
 msgstr "Варвары сражаются, используя физическую силу и оружие ближнего боя. Основной навык: Сила"
 
-#: ../engine/classes.txt:16
+#: ../engine/classes.txt:17
 msgid "Scout"
 msgstr "Разведчик"
 
-#: ../engine/classes.txt:17
+#: ../engine/classes.txt:18
 msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
 msgstr "Разведчики предпочитают оружие дальнего боя и меткость. Основной навык: Нападение"
 
-#: ../engine/classes.txt:26
+#: ../engine/classes.txt:28
 msgid "Adept"
 msgstr "Адепт"
 
-#: ../engine/classes.txt:27
+#: ../engine/classes.txt:29
 msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
 msgstr "Адепты обладают природной способностью накладывать магические заклинания. Основной навык: Интеллект"
 
@@ -881,25 +881,21 @@ msgstr "У статуи не хватает одного глаза."
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Книжный шкаф скользит назад и открывает потайной проход."
 
-#: ../maps/fort_nasu.txt:1086
+#: ../maps/fort_nasu.txt:1026
 msgid "Book Stand"
 msgstr "Книжная Стойка"
 
-#: ../maps/fort_nasu.txt:1125
+#: ../maps/fort_nasu.txt:1065
 msgid "Altar"
 msgstr "Алтарь"
 
-#: ../maps/fort_nasu.txt:1132
+#: ../maps/fort_nasu.txt:1073
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "Войдя в тронный зал, вы увидели алтарь и стоящую на нём деревянную статуэтку."
 
-#: ../maps/fort_nasu.txt:1162
+#: ../maps/fort_nasu.txt:1103
 msgid "Strange Book"
 msgstr "Странная Книга"
-
-#: ../maps/fort_nasu.txt:1192
-msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
-msgstr "Тут лежит книга с названием «Отражение», но в ней не хватает всех страниц."
 
 #: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
@@ -1963,7 +1959,7 @@ msgid "Translators"
 msgstr ""
 
 #: ../cutscenes/credits.txt:35
-msgid "gunchleoc"
+msgid "GunChleoc"
 msgstr ""
 
 #: ../cutscenes/credits.txt:36
@@ -1971,18 +1967,22 @@ msgid "Igor Paliychuk"
 msgstr ""
 
 #: ../cutscenes/credits.txt:37
-msgid "Pavel Maryanov"
+msgid "Janet Hunt"
 msgstr ""
 
 #: ../cutscenes/credits.txt:38
-msgid "Pawel Puszczyński"
+msgid "Pavel Maryanov"
 msgstr ""
 
 #: ../cutscenes/credits.txt:39
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:40
 msgid "Sang-froid"
 msgstr ""
 
-#: ../cutscenes/credits.txt:41
+#: ../cutscenes/credits.txt:42
 msgid "sujiniku"
 msgstr ""
 
@@ -4250,7 +4250,8 @@ msgid "Thunderstrike"
 msgstr "Удар молнии"
 
 #: ../powers/base/magician/thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
+#, fuzzy
+msgid "Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies."
 msgstr "Удар молнии с неба с большим шансом нанесения критического урона замедленным врагам."
 
 #: ../powers/base/magician/shock.txt:1
@@ -4397,7 +4398,7 @@ msgstr "Дневник Торговца"
 msgid "Reset quest: \"Krolan's Missing\""
 msgstr "Кролан Пропал"
 
-#: ../scripts/reset_main.txt:49
+#: ../scripts/reset_main.txt:59
 #, fuzzy
 msgid "Reset quest: \"Return to Empyrean\""
 msgstr "Возвращение в Эмпирей"
@@ -4440,6 +4441,9 @@ msgstr "Склеп-ловушка"
 #: ../scripts/unlock_waypoints.txt:13
 msgid "Unlocked all waypoints"
 msgstr ""
+
+#~ msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+#~ msgstr "Тут лежит книга с названием «Отражение», но в ней не хватает всех страниц."
 
 #, fuzzy
 #~ msgid "to Black Oak City"

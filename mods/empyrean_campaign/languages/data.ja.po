@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 11:34+\n"
+"POT-Creation-Date: 2018-03-26 11:22+\n"
 "PO-Revision-Date: 2017-12-10 02:53+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,19 +133,19 @@ msgstr ""
 msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
 msgstr "Brute なら、物理的な強さが頼りになります。近接戦の武器で敵を攻撃します。 第一の特徴: 肉体"
 
-#: ../engine/classes.txt:16
+#: ../engine/classes.txt:17
 msgid "Scout"
 msgstr ""
 
-#: ../engine/classes.txt:17
+#: ../engine/classes.txt:18
 msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
 msgstr "Scout は遠距離攻撃の武器と戦闘の精度に特化しています。 第一の特徴: 攻撃"
 
-#: ../engine/classes.txt:26
+#: ../engine/classes.txt:28
 msgid "Adept"
 msgstr ""
 
-#: ../engine/classes.txt:27
+#: ../engine/classes.txt:29
 msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
 msgstr "Adept は魔法呪文を自然に唱えられる技能を持ちます。 第一の特徴: 精神"
 
@@ -859,25 +859,21 @@ msgstr "この像には目が欠けている。"
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "本棚が後ろにスライドして、隠れていた通路があらわれた。"
 
-#: ../maps/fort_nasu.txt:1086
+#: ../maps/fort_nasu.txt:1026
 msgid "Book Stand"
 msgstr "ブックスタンド"
 
-#: ../maps/fort_nasu.txt:1125
+#: ../maps/fort_nasu.txt:1065
 msgid "Altar"
 msgstr "祭壇"
 
-#: ../maps/fort_nasu.txt:1132
+#: ../maps/fort_nasu.txt:1073
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "あなたは謁見室に入ると、祭壇が見え、その近くに木の像があるのが見えた。"
 
-#: ../maps/fort_nasu.txt:1162
+#: ../maps/fort_nasu.txt:1103
 msgid "Strange Book"
 msgstr "奇妙な本"
-
-#: ../maps/fort_nasu.txt:1192
-msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
-msgstr ""
 
 #: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
@@ -1914,7 +1910,7 @@ msgid "Translators"
 msgstr ""
 
 #: ../cutscenes/credits.txt:35
-msgid "gunchleoc"
+msgid "GunChleoc"
 msgstr ""
 
 #: ../cutscenes/credits.txt:36
@@ -1922,18 +1918,22 @@ msgid "Igor Paliychuk"
 msgstr ""
 
 #: ../cutscenes/credits.txt:37
-msgid "Pavel Maryanov"
+msgid "Janet Hunt"
 msgstr ""
 
 #: ../cutscenes/credits.txt:38
-msgid "Pawel Puszczyński"
+msgid "Pavel Maryanov"
 msgstr ""
 
 #: ../cutscenes/credits.txt:39
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:40
 msgid "Sang-froid"
 msgstr ""
 
-#: ../cutscenes/credits.txt:41
+#: ../cutscenes/credits.txt:42
 msgid "sujiniku"
 msgstr ""
 
@@ -4153,7 +4153,7 @@ msgid "Thunderstrike"
 msgstr "サンダーストライク"
 
 #: ../powers/base/magician/thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
+msgid "Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies."
 msgstr ""
 
 #: ../powers/base/magician/shock.txt:1
@@ -4299,7 +4299,7 @@ msgstr "商人ジャーナル"
 msgid "Reset quest: \"Krolan's Missing\""
 msgstr "Krolan の消失"
 
-#: ../scripts/reset_main.txt:49
+#: ../scripts/reset_main.txt:59
 #, fuzzy
 msgid "Reset quest: \"Return to Empyrean\""
 msgstr "Empyrean に戻る"

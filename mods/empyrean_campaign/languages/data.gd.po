@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 11:34+\n"
+"POT-Creation-Date: 2018-03-26 11:22+\n"
 "PO-Revision-Date: 2018-03-10 21:02+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -13,8 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
-"(n > 2 && n < 20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Virtaal 0.7.1\n"
 
 #: ../items/items.txt:8
@@ -133,19 +132,19 @@ msgstr "Brùid"
 msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
 msgstr "Cuiridh brùidean an earbsa ann an neart na bodhaige is airm dlùtha gus nàimhdean a mhilleadh. Prìomh-bhuadh: bodhaig"
 
-#: ../engine/classes.txt:16
+#: ../engine/classes.txt:17
 msgid "Scout"
 msgstr "Rabhadair"
 
-#: ../engine/classes.txt:17
+#: ../engine/classes.txt:18
 msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
 msgstr "Tha rabhadairean eòlach air airm astair is pongalachd sa chòmhrag. Prìomh-bhuadh: ionnsaigh"
 
-#: ../engine/classes.txt:26
+#: ../engine/classes.txt:28
 msgid "Adept"
 msgstr "Innleachdach"
 
-#: ../engine/classes.txt:27
+#: ../engine/classes.txt:29
 msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
 msgstr "Tha comasan nàdarra aig innleachdaich gus geasan a chur. Prìomh-bhuadh: inntinn"
 
@@ -857,25 +856,21 @@ msgstr "Tha sùil a dhìth air an ìomhaigh."
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Dh’fhosgail am preas-leabhraichean, a’ toirt slighe dhìomhair am follais."
 
-#: ../maps/fort_nasu.txt:1086
+#: ../maps/fort_nasu.txt:1026
 msgid "Book Stand"
 msgstr "Seas-leabhraichean"
 
-#: ../maps/fort_nasu.txt:1125
+#: ../maps/fort_nasu.txt:1065
 msgid "Altar"
 msgstr "Altair"
 
-#: ../maps/fort_nasu.txt:1132
+#: ../maps/fort_nasu.txt:1073
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "Tha thu a’ tighinn a-steach do sheòmar na cathrach agus chì thu altair le samhail fiodha air."
 
-#: ../maps/fort_nasu.txt:1162
+#: ../maps/fort_nasu.txt:1103
 msgid "Strange Book"
 msgstr "Leabhar neònach"
-
-#: ../maps/fort_nasu.txt:1192
-msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
-msgstr "Tha leabhar air a bheil “Ath-thilgeadh” ann ach tha na duilleagan uile a dhìth air."
 
 #: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
@@ -1910,7 +1905,8 @@ msgid "Translators"
 msgstr "Eadar-theangadairean"
 
 #: ../cutscenes/credits.txt:35
-msgid "gunchleoc"
+#, fuzzy
+msgid "GunChleoc"
 msgstr "GunChleoc"
 
 #: ../cutscenes/credits.txt:36
@@ -1918,18 +1914,22 @@ msgid "Igor Paliychuk"
 msgstr "Igor Paliychuk"
 
 #: ../cutscenes/credits.txt:37
+msgid "Janet Hunt"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
 msgid "Pavel Maryanov"
 msgstr "Pavel Maryanov"
 
-#: ../cutscenes/credits.txt:38
+#: ../cutscenes/credits.txt:39
 msgid "Pawel Puszczyński"
 msgstr "Pawel Puszczyński"
 
-#: ../cutscenes/credits.txt:39
+#: ../cutscenes/credits.txt:40
 msgid "Sang-froid"
 msgstr "Sang-froid"
 
-#: ../cutscenes/credits.txt:41
+#: ../cutscenes/credits.txt:42
 msgid "sujiniku"
 msgstr "sujiniku"
 
@@ -4138,7 +4138,8 @@ msgid "Thunderstrike"
 msgstr "Buille tàirneanach"
 
 #: ../powers/base/magician/thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
+#, fuzzy
+msgid "Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies."
 msgstr "Boillsgidh dealan o na speuran aig astar le teans math gun dèan e dochann èiginneach air nàimhdean air a bheil cion-gluasaid."
 
 #: ../powers/base/magician/shock.txt:1
@@ -4281,7 +4282,7 @@ msgstr "Ath-shuidhich ceann-turais: “Leabhar-latha a’ mharsanta”"
 msgid "Reset quest: \"Krolan's Missing\""
 msgstr "Ath-shuidhich ceann-turais: “Chaidh Cròlan air chall”"
 
-#: ../scripts/reset_main.txt:49
+#: ../scripts/reset_main.txt:59
 msgid "Reset quest: \"Return to Empyrean\""
 msgstr "Ath-shuidhich ceann-turais: “Till gu Impirean”"
 
@@ -4316,6 +4317,9 @@ msgstr "Ath-shuidhich ceann-turais: \"Nòtaichean a’ mhaoir\""
 #: ../scripts/unlock_waypoints.txt:13
 msgid "Unlocked all waypoints"
 msgstr "Chaidh a’ ghlas a thoirt far gach puinge-turais"
+
+#~ msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+#~ msgstr "Tha leabhar air a bheil “Ath-thilgeadh” ann ach tha na duilleagan uile a dhìth air."
 
 #, fuzzy
 #~ msgid "Summon Zombie"

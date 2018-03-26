@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 11:34+\n"
+"POT-Creation-Date: 2018-03-26 11:22+\n"
 "PO-Revision-Date: 2018-12-12 01:29+0100\n"
 "Last-Translator: Paweł Puszczyński <pawonashi@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -132,19 +132,19 @@ msgstr "Siłacz"
 msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
 msgstr "Siłacze polegają na sile fizycznej i broni do walki w zwarciu, by powalić swoich przeciwników. Podstawowy atrybut: Siła Fizyczna"
 
-#: ../engine/classes.txt:16
+#: ../engine/classes.txt:17
 msgid "Scout"
 msgstr "Zwiadowca"
 
-#: ../engine/classes.txt:17
+#: ../engine/classes.txt:18
 msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
 msgstr "Zwiadowcy specjalizują się w broniach dystansowych i precyzji podczas walki. Podstawowy atrybut: Atak"
 
-#: ../engine/classes.txt:26
+#: ../engine/classes.txt:28
 msgid "Adept"
 msgstr "Adept"
 
-#: ../engine/classes.txt:27
+#: ../engine/classes.txt:29
 msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
 msgstr "Adepci posiadają naturalne zdolności do rzucania magicznych czarów. Podstawowy atrybut: Siła Umysłu"
 
@@ -861,25 +861,21 @@ msgstr "W statule brakuje oka."
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Regał odsuwa się, ukazując ukrytą ścieżkę."
 
-#: ../maps/fort_nasu.txt:1086
+#: ../maps/fort_nasu.txt:1026
 msgid "Book Stand"
 msgstr "Regał z Książkami"
 
-#: ../maps/fort_nasu.txt:1125
+#: ../maps/fort_nasu.txt:1065
 msgid "Altar"
 msgstr "Ołtarz"
 
-#: ../maps/fort_nasu.txt:1132
+#: ../maps/fort_nasu.txt:1073
 msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
 msgstr "Wchodząc do sali tronowej, zauważasz Ołtarz z umiejscowioną na nim drewnianą figurką."
 
-#: ../maps/fort_nasu.txt:1162
+#: ../maps/fort_nasu.txt:1103
 msgid "Strange Book"
 msgstr "Dziwna Książka"
-
-#: ../maps/fort_nasu.txt:1192
-msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
-msgstr "Znajduje się tu książka zatytułowana \"Odbicie\", ale nie ma w niej żadnej kartki."
 
 #: ../maps/goblin_camp.txt:11
 msgid "Goblin Camp"
@@ -1917,7 +1913,7 @@ msgid "Translators"
 msgstr ""
 
 #: ../cutscenes/credits.txt:35
-msgid "gunchleoc"
+msgid "GunChleoc"
 msgstr ""
 
 #: ../cutscenes/credits.txt:36
@@ -1925,18 +1921,22 @@ msgid "Igor Paliychuk"
 msgstr ""
 
 #: ../cutscenes/credits.txt:37
-msgid "Pavel Maryanov"
+msgid "Janet Hunt"
 msgstr ""
 
 #: ../cutscenes/credits.txt:38
-msgid "Pawel Puszczyński"
+msgid "Pavel Maryanov"
 msgstr ""
 
 #: ../cutscenes/credits.txt:39
+msgid "Pawel Puszczyński"
+msgstr ""
+
+#: ../cutscenes/credits.txt:40
 msgid "Sang-froid"
 msgstr ""
 
-#: ../cutscenes/credits.txt:41
+#: ../cutscenes/credits.txt:42
 msgid "sujiniku"
 msgstr ""
 
@@ -4158,7 +4158,8 @@ msgid "Thunderstrike"
 msgstr "Grom"
 
 #: ../powers/base/magician/thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a high chance to crit movement-impaired enemies."
+#, fuzzy
+msgid "Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies."
 msgstr "Błyskawica uderza z nieba z wysoką szansą na zadanie krytycznych obrażeń spowolnionym bądź unieruchomionym przeciwnikom."
 
 #: ../powers/base/magician/shock.txt:1
@@ -4304,7 +4305,7 @@ msgstr "Dziennik Kupca."
 msgid "Reset quest: \"Krolan's Missing\""
 msgstr "Zaginięcie Krolana"
 
-#: ../scripts/reset_main.txt:49
+#: ../scripts/reset_main.txt:59
 #, fuzzy
 msgid "Reset quest: \"Return to Empyrean\""
 msgstr "Powrót do Empyrean"
@@ -4347,6 +4348,9 @@ msgstr "Zresetowano zadanie: \"Uwięzienie w Krypcie\""
 #: ../scripts/unlock_waypoints.txt:13
 msgid "Unlocked all waypoints"
 msgstr ""
+
+#~ msgid "A book entitled \"Reflection\" sits here, but all the pages are missing."
+#~ msgstr "Znajduje się tu książka zatytułowana \"Odbicie\", ale nie ma w niej żadnej kartki."
 
 #~ msgid "to Black Oak City"
 #~ msgstr "do Miasta Czarnego Dębu"
