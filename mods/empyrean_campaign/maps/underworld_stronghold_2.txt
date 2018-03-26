@@ -1678,6 +1678,16 @@ activate=on_trigger
 intermap=maps/the_pit.txt,71,71
 set_status=emp_pit_fall
 
+[event]
+# sparkle effect for pit
+type=event
+location=17,24,1,1
+activate=static
+cooldown=1s
+power=268
+power_path=13,20
+repeat=true
+
 [enemy]
 type=enemy
 location=42,18,20,12
