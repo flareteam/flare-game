@@ -109,6 +109,7 @@ extract('../engine/titles.txt')
 extract('../engine/equip_flags.txt')
 extract('../engine/primary_stats.txt')
 extract('../engine/damage_types.txt')
+extract('../soundfx/subtitles.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books', 'items', 'powers', 'scripts']:
     target = os.path.join('..', folder)
