@@ -1,0 +1,13 @@
+# this file is automatically loaded when a New Game starts.
+# it's a dummy map to send the player to the actual starting point.
+
+[header]
+width=1
+height=1
+location=0,0,3
+
+[event]
+type=event
+location=0,0,1,1
+activate=on_load
+intermap=maps/testing_grounds.txt,50,50

@@ -1,0 +1,32 @@
+INCLUDE enemies/base/skeleton_weak.txt
+
+name=Skeleton
+level=1
+categories=skeleton_ai,skeleton,undead,dungeon
+xp=2
+
+# combat stats
+stat=hp,50
+speed=4.5
+turn_delay=233ms
+chance_pursue=10
+
+power=melee,1,5
+
+stat=accuracy,75
+stat=avoidance,25
+
+stat=dmg_melee_min,5
+stat=dmg_melee_max,25
+cooldown=833ms
+stat=absorb_min,3
+stat=absorb_max,3
+
+stat=wander,100
+
+# loot
+loot=loot/leveled_low.txt
+
+# dagger, wood buckler
+loot=32,5
+loot=56,5

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" nextobjectid="36">
+ <properties>
+  <property name="music" value="music/title_theme.ogg"/>
+  <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
+  <property name="title" value="Dev Lab - Map Drawing"/>
+ </properties>
+ <tileset firstgid="1" name="tiled_collision.png" tilewidth="64" tileheight="32" tilecount="15" columns="15">
+  <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="tiled_dungeon.png" tilewidth="64" tileheight="128" tilecount="240" columns="16">
+  <image source="../dungeon/tiled_dungeon.png" width="1024" height="1920"/>
+ </tileset>
+ <tileset firstgid="256" name="set_rules.png" tilewidth="64" tileheight="32" tilecount="8" columns="2">
+  <image source="../dungeon/set_rules.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="tiled_dungeon_2x2.png" tilewidth="128" tileheight="64" tilecount="16" columns="4">
+  <tileoffset x="0" y="16"/>
+  <image source="../dungeon/tiled_dungeon_2x2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="280" name="door_left.png" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="-16" y="-8"/>
+  <image source="../dungeon/door_left.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="282" name="door_right.png" tilewidth="64" tileheight="128" tilecount="2" columns="2">
+  <tileoffset x="16" y="-8"/>
+  <image source="../dungeon/door_right.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="284" name="stairs.png" tilewidth="256" tileheight="256" tilecount="4" columns="4">
+  <tileoffset x="0" y="48"/>
+  <image source="../dungeon/stairs.png" width="1024" height="256"/>
+ </tileset>
+ <layer name="background" width="100" height="100" locked="1">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="collision" width="100" height="100" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJzt0bEJACAAxEDdf2l70VZT3MHD9xmDgrl9+79bH97To0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1aTj3s7+hZpN0BhQ==
+  </data>
+ </layer>
+ <layer name="object" width="100" height="100" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJzt2rFqwzAUQNF8WoeGLu2SjBn6efnNBEoWkyEQ176Wz4E3GgQXSQh8OFB0NKvOadLj41kkFqNHix4terTo0aJHix4terTo0aJHix4terTo0TJHj+sM6+CP/dGiR4seLVvpsZc7ais99kKPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9Gj5rx57+f9gbvZHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4terRstceo/wdvtceo9GjRo0WPFj1a9GjRo0WPlqV6jPp+m5v90aJHix6vW+LM1aNl2uNnlVXwYH+0THt8rrIKHkbqMcIbx3nVokfLSOfVCPRo0aPF/dGiR4seLXq0uM9b9GjRo2Xa4/s+X/c5vzG/b36/57k8rcTabs1OdSU=
+  </data>
+ </layer>
+ <objectgroup name="enemy">
+  <object id="22" type="enemy" x="2656" y="576" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="23" type="enemy" x="1728" y="448" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="24" type="enemy" x="2592" y="1088" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="25" type="enemy" x="896" y="2784" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="26" type="enemy" x="384" y="2080" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="27" type="enemy" x="2656" y="1888" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="28" type="enemy" x="2752" y="2752" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="29" type="enemy" x="2176" y="640" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="30" type="enemy" x="1888" y="1280" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="31" type="enemy" x="768" y="768" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="33" type="enemy" x="480" y="1632" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="34" type="enemy" x="384" y="2784" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+  <object id="35" type="enemy" x="2208" y="2080" width="32" height="32">
+   <properties>
+    <property name="category" value="skeleton_ai"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="event" locked="1">
+  <object id="5" name="brazier sound effect" type="event" x="640" y="1280" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="6" name="brazier sound effect" type="event" x="1568" y="2720" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="14" name="brazier sound effect" type="event" x="1277.48" y="603.333" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="15" name="brazier sound effect" type="event" x="480" y="480" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="16" name="brazier sound effect" type="event" x="1408" y="2176" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="17" name="brazier sound effect" type="event" x="2335.06" y="2563.94" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="18" name="brazier sound effect" type="event" x="768" y="2464" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="npc" locked="1">
+  <object id="10" type="npc" x="1376" y="1600" width="32" height="32">
+   <properties>
+    <property name="filename" value="npcs/welcome.txt"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
