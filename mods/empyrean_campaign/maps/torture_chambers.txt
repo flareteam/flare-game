@@ -761,6 +761,15 @@ mapmod=object,28,31,163
 repeat=false
 requires_status=emp_torture_finish
 
+[event]
+# reset if quest is broken
+type=event
+location=2,0,1,1
+activate=on_load
+requires_not_status=emp_torture_barriers
+requires_status=emp_torture_finish
+script=scripts/reset_torture.txt
+
 [enemy]
 type=enemy
 location=80,15,4,3
