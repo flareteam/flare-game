@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="102" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="73">
+<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="102" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="74">
  <properties>
   <property name="hero_pos" value="97,8"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -735,6 +735,7 @@
   <object id="52" type="enemy" x="2560" y="480" width="128" height="96">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -743,6 +744,7 @@
   <object id="53" type="enemy" x="2304" y="192" width="128" height="96">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="2"/>
     <property name="wander_radius" value="2"/>
@@ -751,6 +753,7 @@
   <object id="54" type="enemy" x="2048" y="320" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="2"/>
     <property name="wander_radius" value="2"/>
@@ -759,6 +762,7 @@
   <object id="55" type="enemy" x="2336" y="704" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -767,6 +771,7 @@
   <object id="56" type="enemy" x="2048" y="832" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -775,6 +780,7 @@
   <object id="57" type="enemy" x="2336" y="1216" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="2"/>
     <property name="wander_radius" value="2"/>
@@ -783,6 +789,7 @@
   <object id="58" type="enemy" x="1920" y="1376" width="128" height="96">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -791,6 +798,7 @@
   <object id="59" type="enemy" x="1536" y="1376" width="128" height="96">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -799,6 +807,7 @@
   <object id="60" type="enemy" x="768" y="1088" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="2"/>
     <property name="wander_radius" value="2"/>
@@ -807,6 +816,7 @@
   <object id="61" type="enemy" x="768" y="1344" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -815,6 +825,7 @@
   <object id="62" type="enemy" x="1312" y="1600" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -823,6 +834,7 @@
   <object id="63" type="enemy" x="1312" y="1856" width="96" height="128">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -831,6 +843,7 @@
   <object id="64" type="enemy" x="1024" y="2144" width="128" height="96">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="2"/>
     <property name="wander_radius" value="2"/>
@@ -839,6 +852,7 @@
   <object id="65" type="enemy" x="768" y="2144" width="128" height="96">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="2"/>
@@ -847,6 +861,7 @@
   <object id="66" type="enemy" x="288" y="1312" width="64" height="64">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="1"/>
@@ -855,6 +870,7 @@
   <object id="67" type="enemy" x="288" y="544" width="64" height="64">
    <properties>
     <property name="category" value="dungeon"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="14"/>
     <property name="number" value="1"/>
     <property name="wander_radius" value="1"/>
@@ -891,6 +907,7 @@
   <object id="72" type="enemy" x="288" y="928" width="32" height="32">
    <properties>
     <property name="category" value="vohn"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="15"/>
     <property name="number" value="1"/>
    </properties>
