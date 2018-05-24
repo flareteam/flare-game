@@ -4,6 +4,7 @@ height=70
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=39,66
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -262,14 +263,14 @@ soundfx=soundfx/door_open.ogg
 tooltip=Switch
 
 [event]
-# to St. Maria: Prison
+# to St. Maria: Catacombs
 type=event
 location=37,15,4,4
 activate=on_trigger
 hotspot=location
 intermap=maps/st_maria_2.txt,33,7
 soundfx=soundfx/environment/stairs.ogg,0,0
-tooltip=St. Maria: Prison
+tooltip=St. Maria: Catacombs
 
 [event]
 type=event

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="81">
+<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="40" height="60" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="81">
  <properties>
   <property name="hero_pos" value="7,47"/>
   <property name="music" value="music/boss_theme.ogg"/>
@@ -227,13 +227,13 @@
 </data>
  </layer>
  <objectgroup name="event">
-  <object id="1" name="to St. Maria: Crypt" type="event" x="192" y="1472" width="32" height="64">
+  <object id="1" name="to St. Maria: Catacombs" type="event" x="192" y="1472" width="32" height="64">
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
     <property name="intermap" value="maps/st_maria_2.txt,15,5"/>
     <property name="soundfx" value="soundfx/environment/stairs.ogg,0,0"/>
-    <property name="tooltip" value="St. Maria: Prison"/>
+    <property name="tooltip" value="St. Maria: Catacombs"/>
    </properties>
   </object>
   <object id="6" name="torch set 1" type="event" x="352" y="1216" width="384" height="64">

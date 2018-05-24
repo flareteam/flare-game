@@ -185,7 +185,7 @@ soundfx=soundfx/environment/teleporter.ogg,0,0
 tooltip=Lochport Cemetery
 
 [event]
-# to St. Maria: Prison
+# to St. Maria: Catacombs
 type=event
 location=29,9,2,2
 activate=on_trigger
@@ -193,7 +193,7 @@ hotspot=location
 intermap=maps/st_maria_2.txt,44,24
 requires_status=emp_waypoint_3
 soundfx=soundfx/environment/teleporter.ogg,0,0
-tooltip=St. Maria: Prison
+tooltip=St. Maria: Catacombs
 
 [event]
 # to Blackmire Mines
@@ -307,7 +307,7 @@ mapmod=background,22,8,265
 requires_status=emp_waypoint_2
 
 [event]
-# unlock St. Maria: Prison
+# unlock St. Maria: Catacombs
 type=event
 location=29,7,1,1
 activate=on_load

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="95">
+<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="95">
  <properties>
   <property name="hero_pos" value="33,7"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
   <property name="tileset" value="tilesetdefs/tileset_dungeon.txt"/>
-  <property name="title" value="St. Maria: Prison"/>
+  <property name="title" value="St. Maria: Catacombs"/>
  </properties>
  <tileset firstgid="1" name="collision" tilewidth="64" tileheight="32" tilecount="15" columns="15">
   <image source="../dungeon/tiled_collision.png" width="960" height="32"/>
@@ -277,7 +277,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="mapmod" value="background,43,22,265"/>
-    <property name="msg" value="St. Maria: Prison waypoint discovered."/>
+    <property name="msg" value="St. Maria: Catacombs waypoint discovered."/>
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_waypoint_3"/>
     <property name="set_status" value="emp_waypoint_3"/>

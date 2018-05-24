@@ -8,7 +8,7 @@ background_color=0,0,0,255
 hero_pos=33,7
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
-title=St. Maria: Prison
+title=St. Maria: Catacombs
 
 [tilesets]
 tileset=../../../tiled/dungeon/tiled_collision.png,64,32,0,0
@@ -268,7 +268,7 @@ type=event
 location=42,21,4,5
 activate=on_trigger
 mapmod=background,43,22,265
-msg=St. Maria: Prison waypoint discovered.
+msg=St. Maria: Catacombs waypoint discovered.
 repeat=false
 requires_not_status=emp_waypoint_3
 set_status=emp_waypoint_3
