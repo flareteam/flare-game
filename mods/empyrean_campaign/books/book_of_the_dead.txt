@@ -12,7 +12,18 @@ text_pos=25,30,200,left
 text_font=0,0,0,font_old
 text=Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption.
 
+[image]
+image_pos=20,265
+image=images/books/book_of_the_dead_sign.png
+
+[text]
+text=${AVATAR_NAME}
+text_pos=25,260,215,center
+text_font=96,0,0,font_cursive_big
+requires_status=emp_main_underworld
+
 # page 2
 [image]
 image_pos=276,43
 image=images/books/book_of_the_dead.png
+
