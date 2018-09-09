@@ -27,4 +27,4 @@ install(DIRECTORY
 # installing appdata
 install(FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/distribution/org.flarerpg.Flare.appdata.xml"
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/appdata)
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/metainfo)
