@@ -1,0 +1,151 @@
+pos=0,0,416,320
+align=center
+soundfx_open=soundfx/inventory/inventory_potion.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=390,2
+background=images/menus/crafting_table.png
+
+[event_open]
+script=scripts/crafting/alchemy/init.txt
+
+[event_close]
+script=scripts/crafting/alchemy/clear.txt
+
+[text]
+text_pos=0,8,416,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Alchemy
+
+[button]
+button_pos=248,152
+text=Reset
+script=scripts/crafting/alchemy/init.txt
+requires_status=emp_alchemy_slot0_0
+
+[button]
+button_pos=248,280
+text=Craft
+requires_status=emp_alchemy_craft
+script=scripts/crafting/alchemy/craft.txt
+
+# Input: Empty Bottle
+[image]
+image_pos=32,48
+image_icon=512
+
+[button]
+button_image=images/menus/buttons/button_plus.png
+button_pos=64,48
+requires_status=emp_alchemy_0
+script=scripts/crafting/alchemy/add_0.txt
+
+[text]
+text_pos=88,52,136,left
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Empty Bottle
+
+# Input: Aloe Vera
+[image]
+image_pos=32,96
+image_icon=513
+
+[button]
+button_image=images/menus/buttons/button_plus.png
+button_pos=64,96
+requires_status=emp_alchemy_1
+script=scripts/crafting/alchemy/add_1.txt
+
+[text]
+text_pos=88,100,136,left
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Aloe Vera
+
+# Input: Mana Crystal
+[image]
+image_pos=32,144
+image_icon=514
+
+[button]
+button_image=images/menus/buttons/button_plus.png
+button_pos=64,144
+requires_status=emp_alchemy_2
+script=scripts/crafting/alchemy/add_2.txt
+
+[text]
+text_pos=88,148,136,left
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Mana Crystal
+
+# slot 0
+[image]
+image_pos=304,48
+image_icon=512
+requires_status=emp_alchemy_slot0_0
+
+# slot 1, aloe vera
+[image]
+image_pos=256,96
+image_icon=513
+requires_status=emp_alchemy_slot1_1
+
+# slot 1, mana crystals
+[image]
+image_pos=256,96
+image_icon=514
+requires_status=emp_alchemy_slot1_2
+
+# slot 2, aloe vera
+[image]
+image_pos=304,96
+image_icon=513
+requires_status=emp_alchemy_slot2_1
+
+# slot 2, mana crystals
+[image]
+image_pos=304,96
+image_icon=514
+requires_status=emp_alchemy_slot2_2
+
+# slot 3, aloe vera
+[image]
+image_pos=352,96
+image_icon=513
+requires_status=emp_alchemy_slot3_1
+
+# slot 3, mana crystals
+[image]
+image_pos=352,96
+image_icon=514
+requires_status=emp_alchemy_slot3_2
+
+# output, hp potion
+[image]
+image_pos=304,208
+image_icon=64
+requires_status=emp_alchemy_output_0
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Health Potion
+requires_status=emp_alchemy_output_0
+
+# output, mp potion
+[image]
+image_pos=304,208
+image_icon=65
+requires_status=emp_alchemy_output_1
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Mana Potion
+requires_status=emp_alchemy_output_1
+

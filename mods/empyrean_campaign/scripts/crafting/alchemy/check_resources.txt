@@ -1,0 +1,55 @@
+[event]
+unset_status=emp_alchemy_0
+unset_status=emp_alchemy_1
+unset_status=emp_alchemy_2
+
+unset_status=emp_alchemy_craft
+unset_status=emp_alchemy_output_0
+unset_status=emp_alchemy_output_1
+
+# empty bottle
+[event]
+requires_item=750
+requires_not_status=emp_alchemy_slot0_0
+set_status=emp_alchemy_0
+
+# aloe vera
+[event]
+requires_item=751
+requires_status=emp_alchemy_slot0_0
+requires_not_status=emp_alchemy_slot1_1
+requires_not_status=emp_alchemy_slot2_1
+requires_not_status=emp_alchemy_slot3_1
+set_status=emp_alchemy_1
+
+# mana crystals
+[event]
+requires_item=752
+requires_status=emp_alchemy_slot0_0
+requires_not_status=emp_alchemy_slot1_2
+requires_not_status=emp_alchemy_slot2_2
+requires_not_status=emp_alchemy_slot3_2
+set_status=emp_alchemy_2
+
+# hp potion recipe
+[event]
+requires_item=750
+requires_item=751
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_1
+requires_not_status=emp_alchemy_slot2_fill
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_output_0
+set_status=emp_alchemy_craft
+
+# mp potion recipe
+[event]
+requires_item=750
+requires_item=752
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_2
+requires_not_status=emp_alchemy_slot2_fill
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_output_1
+set_status=emp_alchemy_craft
+

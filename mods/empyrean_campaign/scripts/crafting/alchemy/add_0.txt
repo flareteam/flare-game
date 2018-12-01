@@ -1,0 +1,9 @@
+# add an Empty Bottle
+
+# bottle always goes into slot 0
+[event]
+unset_status=emp_alchemy_0
+set_status=emp_alchemy_slot0_0
+
+[event]
+script=scripts/crafting/alchemy/check_resources.txt

@@ -1,0 +1,14 @@
+# hp potion
+[event]
+requires_status=emp_alchemy_output_0
+remove_item=750,751
+reward_item=2,1
+
+# mp potion
+[event]
+requires_status=emp_alchemy_output_1
+remove_item=750,752
+reward_item=3,1
+
+[event]
+script=scripts/crafting/alchemy/check_resources.txt

@@ -1,0 +1,25 @@
+# add Aloe Vera
+
+[event]
+requires_status=emp_alchemy_slot1_fill
+requires_status=emp_alchemy_slot2_fill
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_slot3_1
+set_status=emp_alchemy_slot3_fill
+unset_status=emp_alchemy_1
+
+[event]
+requires_status=emp_alchemy_slot1_fill
+requires_not_status=emp_alchemy_slot2_fill
+set_status=emp_alchemy_slot2_1
+set_status=emp_alchemy_slot2_fill
+unset_status=emp_alchemy_1
+
+[event]
+requires_not_status=emp_alchemy_slot1_fill
+set_status=emp_alchemy_slot1_1
+set_status=emp_alchemy_slot1_fill
+unset_status=emp_alchemy_1
+
+[event]
+script=scripts/crafting/alchemy/check_resources.txt
