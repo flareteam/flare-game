@@ -4,6 +4,7 @@ height=50
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=17,46
 music=music/unrest_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -295,7 +296,6 @@ msg=Quest added.
 repeat=false
 requires_not_status=emp_main_init
 set_status=emp_main_init
-soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book of the Dead
 
 [event]
@@ -307,7 +307,6 @@ book=books/book_of_the_dead.txt
 hotspot=4,25,1,1
 requires_not_item=1104
 requires_status=emp_main_init
-soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Book of the Dead
 
 [event]
