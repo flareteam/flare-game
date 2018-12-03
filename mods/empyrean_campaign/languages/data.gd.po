@@ -3,15 +3,16 @@
 # 
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Translators:
-# GunChleoc, 2018
 # Justin Jacobs <jajdorkster@gmail.com>, 2018
+# GunChleoc, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 15:13+\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Justin Jacobs <jajdorkster@gmail.com>, 2018\n"
+"POT-Creation-Date: 2018-12-03 18:15+\n"
+"PO-Revision-Date: 2018-03-28 19:35+0000\n"
+"Last-Translator: GunChleoc, 2018\n"
 "Language-Team: Gaelic, Scottish (https://www.transifex.com/flareorg/teams/84925/gd/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,25 +24,33 @@ msgstr ""
 msgid "Gold"
 msgstr "Òr"
 
-#: ../items/items.txt:55
+#: ../items/items.txt:58
 msgid "DEV Boots"
 msgstr "Bòtannan luchd-leasachaidh"
 
-#: ../items/items.txt:60
+#: ../items/items.txt:63
 msgid "Use: Teleport to target position."
 msgstr "Feum: tele-phortadh dhan ionad-amais."
 
-#: ../items/items.txt:64
+#: ../items/items.txt:67
 msgid "DEV Invisibility Boots"
 msgstr "Bòtannan do-fhaicsinneachd luchd-leasachaidh"
 
-#: ../items/items.txt:69
+#: ../items/items.txt:72
 msgid "Use: Turn Invisible"
 msgstr "Feum: rach do-fhaicsinneach"
 
 #: ../items/types.txt:5
 msgid "Ancient Relic"
 msgstr "Taise àrsaidh"
+
+#: ../items/types.txt:9
+msgid "Crafting Resource"
+msgstr ""
+
+#: ../items/types.txt:13
+msgid "Crafting Tool"
+msgstr ""
 
 #: ../items/sets.txt:3
 msgid "St. Maria Garb"
@@ -58,6 +67,10 @@ msgstr "Uidheam draoidh"
 #: ../items/sets.txt:36
 msgid "Underworld Armament"
 msgstr "Armachd ifrinne"
+
+#: ../items/qualities.txt:5
+msgid "Normal"
+msgstr ""
 
 #: ../powers/effects.txt:6
 msgid "Shield"
@@ -779,23 +792,23 @@ msgstr "Ionad-siubhail"
 msgid "Lake Kuuma"
 msgstr "Loch a’ chadhaidh"
 
-#: ../maps/book_of_the_dead.txt:10
+#: ../maps/book_of_the_dead.txt:11
 msgid "Book of the Dead"
 msgstr "Leabhar nam Marbh"
 
-#: ../maps/book_of_the_dead.txt:191
+#: ../maps/book_of_the_dead.txt:192
 msgid "Perdition Harbor"
 msgstr "Port an Dubh-chaill"
 
-#: ../maps/book_of_the_dead.txt:201
+#: ../maps/book_of_the_dead.txt:202
 msgid "Salted Field"
 msgstr "Achadh saillte"
 
-#: ../maps/book_of_the_dead.txt:294
+#: ../maps/book_of_the_dead.txt:295
 msgid "Quest added."
 msgstr "Chaidh ceann-turais a chur ris."
 
-#: ../maps/book_of_the_dead.txt:349
+#: ../maps/book_of_the_dead.txt:348
 msgid ""
 "You sign your name in the Book of the Dead. The Black Quill vanishes and the"
 " inkwell is dry. You hope this worked."
@@ -888,15 +901,15 @@ msgid "The bookcase slides back and reveals a hidden path."
 msgstr ""
 "Dh’fhosgail am preas-leabhraichean, a’ toirt slighe dhìomhair am follais."
 
-#: ../maps/fort_nasu.txt:1026
+#: ../maps/fort_nasu.txt:1025
 msgid "Book Stand"
 msgstr "Seas-leabhraichean"
 
-#: ../maps/fort_nasu.txt:1065
+#: ../maps/fort_nasu.txt:1064
 msgid "Altar"
 msgstr "Altair"
 
-#: ../maps/fort_nasu.txt:1073
+#: ../maps/fort_nasu.txt:1072
 msgid ""
 "As you enter the throne room, you see an Altar with a wooden figurine placed"
 " upon it."
@@ -904,7 +917,7 @@ msgstr ""
 "Tha thu a’ tighinn a-steach do sheòmar na cathrach agus chì thu altair le "
 "samhail fiodha air."
 
-#: ../maps/fort_nasu.txt:1103
+#: ../maps/fort_nasu.txt:1102
 msgid "Strange Book"
 msgstr "Leabhar neònach"
 
@@ -928,17 +941,17 @@ msgstr "Uamh nam bòcan"
 msgid "Gravestone"
 msgstr "Leac-uaighe"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_5.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
 msgid "Halls of Infinity"
 msgstr "Tallachan na neo-chrìochnachd"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
-msgid "Stalagmite Pillar"
-msgstr "Colbh aol-charraigh"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
 msgid "Mine Cart"
 msgstr "Cart-mèinneir"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+msgid "Stalagmite Pillar"
+msgstr "Colbh aol-charraigh"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1431,14 +1444,14 @@ msgstr ""
 msgid "Locked Out"
 msgstr "Doras glaiste"
 
-#: ../quests/006_stormrock.txt:6
+#: ../quests/006_stormrock.txt:7
 msgid ""
 "The door to the Stormrock Ruins is locked. There must be a way to unlock it."
 msgstr ""
 "Tha an doras aig Dùn na Gaillinn glaiste. Feumaidh gu bheil dòigh ann gus "
 "fhosgladh."
 
-#: ../quests/006_stormrock.txt:11
+#: ../quests/006_stormrock.txt:12
 msgid ""
 "Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be"
 " hidden somewhere in the camp south of Stonewood."
@@ -1447,7 +1460,7 @@ msgstr ""
 " Feumaidh tu bheil i falaichte am badeigin sa champa gu deas air a’ choille "
 "chreagach."
 
-#: ../quests/006_stormrock.txt:16
+#: ../quests/006_stormrock.txt:17
 msgid ""
 "You found the key to the Stormrock Ruins. You should return there and speak "
 "to Aldwulf."
@@ -1923,6 +1936,10 @@ msgid ""
 "there."
 msgstr "Tha doras dhan ifrinn ann an tùr an draoidh. Tillidh mi dha."
 
+#: ../npcs/florin.txt:82
+msgid "Alchemy"
+msgstr ""
+
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
 msgstr "Tursa gleansach"
@@ -2272,74 +2289,78 @@ msgid "Eric R"
 msgstr "Eric R"
 
 #: ../cutscenes/credits.txt:37
+msgid "Fyrenic"
+msgstr ""
+
+#: ../cutscenes/credits.txt:38
 msgid "Gabriel Iasi"
 msgstr "Gabriel Iasi"
 
-#: ../cutscenes/credits.txt:38
+#: ../cutscenes/credits.txt:39
 msgid "GunChleoc"
 msgstr "GunChleoc"
 
-#: ../cutscenes/credits.txt:39
+#: ../cutscenes/credits.txt:40
 msgid "Igor Paliychuk"
 msgstr "Igor Paliychuk"
 
-#: ../cutscenes/credits.txt:40
+#: ../cutscenes/credits.txt:41
 msgid "Janet Hunt"
 msgstr "Janet Hunt"
 
-#: ../cutscenes/credits.txt:41
+#: ../cutscenes/credits.txt:42
 msgid "Mikalái Valér'evich Sakalóuski"
 msgstr "Mikalái Valér'evich Sakalóuski"
 
-#: ../cutscenes/credits.txt:42
+#: ../cutscenes/credits.txt:43
 msgid "Mykola Franchuk"
 msgstr "Mykola Franchuk"
 
-#: ../cutscenes/credits.txt:43
+#: ../cutscenes/credits.txt:44
 msgid "MOB2"
 msgstr "MOB2"
 
-#: ../cutscenes/credits.txt:44
+#: ../cutscenes/credits.txt:45
 msgid "Nea Retrogamer"
 msgstr "Nea Retrogamer"
 
-#: ../cutscenes/credits.txt:45
+#: ../cutscenes/credits.txt:46
 msgid "Pavel Maryanov"
 msgstr "Pavel Maryanov"
 
-#: ../cutscenes/credits.txt:46
+#: ../cutscenes/credits.txt:47
 msgid "Pawel Puszczyński"
 msgstr "Pawel Puszczyński"
 
-#: ../cutscenes/credits.txt:47
+#: ../cutscenes/credits.txt:48
 msgid "Rui"
 msgstr "Rui"
 
-#: ../cutscenes/credits.txt:48
+#: ../cutscenes/credits.txt:49
 msgid "Sang-froid"
 msgstr "Sang-froid"
 
-#: ../cutscenes/credits.txt:49
+#: ../cutscenes/credits.txt:50
 msgid "Sam Vo"
 msgstr "Sam Vo"
 
-#: ../cutscenes/credits.txt:50
+#: ../cutscenes/credits.txt:51
 msgid "Sergiy Borodych"
 msgstr "Sergiy Borodych"
 
-#: ../cutscenes/credits.txt:52
+#: ../cutscenes/credits.txt:53
 msgid "sujiniku"
 msgstr "sujiniku"
 
-#: ../cutscenes/credits.txt:53
+#: ../cutscenes/credits.txt:54
 msgid "Vicente Monteiro"
 msgstr "Vicente Monteiro"
 
-#: ../cutscenes/credits.txt:54
+#: ../cutscenes/credits.txt:55
 msgid "Wuzzy2"
 msgstr "Wuzzy2"
 
-#: ../cutscenes/credits.txt:55
+#: ../cutscenes/credits.txt:56
 msgid "Zmicer Turok"
 msgstr "Zmicer Turok"
 
@@ -2422,6 +2443,34 @@ msgstr ""
 msgid "${AVATAR_NAME}"
 msgstr "${AVATAR_NAME}"
 
+#: ../books/crafting_alchemy.txt:23
+msgid "Reset"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:29
+msgid "Craft"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:48
+msgid "Empty Bottle"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:65
+msgid "Aloe Vera"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:82
+msgid "Mana Crystal"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:136
+msgid "Health Potion"
+msgstr "Deoch-shlàinte"
+
+#: ../books/crafting_alchemy.txt:149
+msgid "Mana Potion"
+msgstr "Deoch mana"
+
 #: ../books/cutscene_list.txt:21
 msgid "Ending"
 msgstr "Deireadh"
@@ -2503,177 +2552,253 @@ msgid "Read the book on the second shelf of the nearest bookshelf."
 msgstr ""
 "Leugh an leabhar air an dàrna sgeilp dhen phreas-leabhraichean as fhaisge."
 
-#: ../items/categories/level_6.txt:5
-msgid "Fighting Leather Hood"
-msgstr "Abaid leathair sabaide"
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Lèine clòtha tighearna-chogaidh"
 
-#: ../items/categories/level_6.txt:17
-msgid "Recon Leather Hood"
-msgstr "Abaid leathair brathadair"
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Lèine clòtha gìomanaich"
 
-#: ../items/categories/level_6.txt:29
-msgid "Sorcerer Wool Hood"
-msgstr "Abaid clòimhe buidsich"
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Lèine clòtha àrd-dhraoidh"
 
-#: ../items/categories/level_6.txt:41
-msgid "Fighting Leather Tunic"
-msgstr "Lèine leathair sabaide"
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Briogais clòtha tighearna-chogaidh"
 
-#: ../items/categories/level_6.txt:53
-msgid "Recon Leather Tunic"
-msgstr "Lèine leathair brathadair"
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Briogais clòtha gìomanaich"
 
-#: ../items/categories/level_6.txt:65
-msgid "Sorcerer Wool Vest"
-msgstr "Peiteag clòimhe buidsich"
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Briogais clòtha àrd-dhraoidh"
 
-#: ../items/categories/level_6.txt:77
-msgid "Fighting Leather Pants"
-msgstr "Briogais leathair sabaide"
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Cuarain clòtha tighearna-chogaidh"
 
-#: ../items/categories/level_6.txt:89
-msgid "Recon Leather Pants"
-msgstr "Briogais leathair brathadair"
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Cuarain clòtha gìomanaich"
 
-#: ../items/categories/level_6.txt:101
-msgid "Sorcerer Wool Skirt"
-msgstr "Fèileadh clòimhe buidsich"
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Cuarain clòtha àrd-dhraoidh"
 
-#: ../items/categories/level_6.txt:113
-msgid "Fighting Leather Boots"
-msgstr "Bòtannan leathair sabaide"
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Miotagan clòtha tighearna-chogaidh"
 
-#: ../items/categories/level_6.txt:125
-msgid "Recon Leather Boots"
-msgstr "Bòtannan leathair brathadair"
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Miotagan clòtha gìomanaich"
 
-#: ../items/categories/level_6.txt:137
-msgid "Sorcerer Wool Boots"
-msgstr "Bòtannan clòimhe buidsich"
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Miotagan clòtha àrd-dhraoidh"
 
-#: ../items/categories/level_6.txt:149
-msgid "Fighting Leather Gloves"
-msgstr "Miotagan leathair sabaide"
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Crios leathair do mhaighstir"
 
-#: ../items/categories/level_6.txt:161
-msgid "Recon Leather Gloves"
-msgstr "Miotagan leathair brathadair"
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Crochag do mhaighstir"
 
-#: ../items/categories/level_6.txt:173
-msgid "Sorcerer Wool Sleeves"
-msgstr "Muinchillean clòimhe buidsich"
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Leabhar-gheasan maighistir"
 
-#: ../items/categories/level_6.txt:185
-msgid "Wandering Fighting Leather Belt"
-msgstr "Crios leathair sabaide do sheachran"
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Biodag tighearna-chogaidh"
 
-#: ../items/categories/level_6.txt:196
-msgid "Wandering Recon Pendant"
-msgstr "Crochag brathadair do sheachran"
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Longag gìomanaich"
 
-#: ../items/categories/level_6.txt:207
-msgid "Wandering Sorcerer Spellbook"
-msgstr "Leabhar-gheasan buidsich do sheachran"
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Slatan àrd-dhraoidh"
 
-#: ../items/categories/level_6.txt:218
-msgid "Fighting Shortsword"
-msgstr "Claidheamh-goirid sabaide"
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Sgiathag fiodha ridire an teampaill"
 
-#: ../items/categories/level_6.txt:230
-msgid "Recon Shortbow"
-msgstr "Bogha-goirid brathadair"
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Fàinne an teine do mhaighstir"
 
-#: ../items/categories/level_6.txt:242
-msgid "Sorcerer Rod"
-msgstr "Slat buidsich"
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Fàinne na deighe do mhaighstir"
 
-#: ../items/categories/level_6.txt:254
-msgid "Keeper Iron Buckler"
-msgstr "Sgiathag iarainn a’ ghlèidheadair"
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Fàinne an dealanaich do mhaighstir"
 
-#: ../items/categories/level_6.txt:265
-msgid "Wandering Burn Ring"
-msgstr "Fàinne an losgaidh do sheachran"
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Fàinne an dorchadais do mhaighstir"
 
-#: ../items/categories/level_6.txt:275
-msgid "Wandering Frost Ring"
-msgstr "Fàinne an reòthaidh do sheachran"
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Fàinne an eòlais do mhaighstir"
 
-#: ../items/categories/level_6.txt:285
-msgid "Wandering Electric Ring"
-msgstr "Fàinne an t-sruth-dealain do sheachran"
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Fàinne a’ bheartais do mhaighstir"
 
-#: ../items/categories/level_6.txt:295
-msgid "Wandering Shadow Ring"
-msgstr "Fàinne na sgàile do sheachran"
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Fàinne an ulaidh do mhaighstir"
 
-#: ../items/categories/level_6.txt:305
-msgid "Wandering Knowledge Ring"
-msgstr "Fàinne an fhiosrachaidh do sheachran"
+#: ../items/categories/level_5.txt:5
+msgid "Leather Hood"
+msgstr "Abaid leathair"
 
-#: ../items/categories/level_6.txt:315
-msgid "Wandering Prosperity Ring"
-msgstr "Fàinne na sealbhachd do sheachran"
+#: ../items/categories/level_5.txt:14
+msgid "Leather Tunic"
+msgstr "Lèine leathair"
 
-#: ../items/categories/level_6.txt:325
-msgid "Wandering Loot Ring"
-msgstr "Fàinne na spùinne do sheachran"
+#: ../items/categories/level_5.txt:23
+msgid "Leather Pants"
+msgstr "Briogais leathair"
 
-#: ../items/categories/level_9.txt:5
-msgid "Chain Coif"
-msgstr "Brèid slabhraidhe"
+#: ../items/categories/level_5.txt:32
+msgid "Leather Boots"
+msgstr "Bòtannan leathair"
 
-#: ../items/categories/level_9.txt:14
-msgid "Chain Cuirass"
-msgstr "Lùireach slabhraidhe"
+#: ../items/categories/level_5.txt:41
+msgid "Leather Gloves"
+msgstr "Miotagan leathair"
 
-#: ../items/categories/level_9.txt:23
-msgid "Chain Greaves"
-msgstr "Èideadh calpa slabhraidhe"
+#: ../items/categories/level_5.txt:50
+msgid "Wool Hood"
+msgstr "Abaid clòimhe"
 
-#: ../items/categories/level_9.txt:32
-msgid "Chain Boots"
-msgstr "Bòtannan slabhraidhe"
+#: ../items/categories/level_5.txt:59
+msgid "Wool Vest"
+msgstr "Peiteag clòimhe"
 
-#: ../items/categories/level_9.txt:41
-msgid "Chain Gloves"
-msgstr "Miotagan slabhraidhe"
+#: ../items/categories/level_5.txt:68
+msgid "Wool Skirt"
+msgstr "Fèileadh clòimhe"
 
-#: ../items/categories/level_9.txt:50
-msgid "Silk Hood"
-msgstr "Abaid sìoda"
+#: ../items/categories/level_5.txt:77
+msgid "Wool Boots"
+msgstr "Bòtannan clòimhe"
 
-#: ../items/categories/level_9.txt:59
-msgid "Silk Vest"
-msgstr "Peiteag sìoda"
+#: ../items/categories/level_5.txt:86
+msgid "Wool Sleeves"
+msgstr "Muinchillean clòimhe"
 
-#: ../items/categories/level_9.txt:68
-msgid "Silk Skirt"
-msgstr "Fèileadh sìoda"
+#: ../items/categories/level_5.txt:95
+msgid "Shortsword"
+msgstr "Claidheamh-goirid"
 
-#: ../items/categories/level_9.txt:77
-msgid "Silk Boots"
-msgstr "Bòtannan sìoda"
+#: ../items/categories/level_5.txt:104
+msgid "Shortbow"
+msgstr "Bogha-goirid"
 
-#: ../items/categories/level_9.txt:86
-msgid "Silk Sleeves"
-msgstr "Muinchillean sìoda"
+#: ../items/categories/level_5.txt:113
+msgid "Rod"
+msgstr "Slat"
 
-#: ../items/categories/level_9.txt:95
-msgid "Longsword"
-msgstr "Claidheamh-fada"
+#: ../items/categories/level_5.txt:122
+msgid "Iron Buckler"
+msgstr "Sgiathag iarainn"
 
-#: ../items/categories/level_9.txt:104
-msgid "Longbow"
-msgstr "Bogha-fada"
+#: ../items/categories/level_13.txt:5
+msgid "Plate Helmet"
+msgstr "Clogaid meatailt"
 
-#: ../items/categories/level_9.txt:113
-msgid "Staff"
-msgstr "Bata"
+#: ../items/categories/level_13.txt:14
+msgid "Plate Cuirass"
+msgstr "Lùireach meatailt"
 
-#: ../items/categories/level_9.txt:122
-msgid "Crest Shield"
-msgstr "Sgiath cìrein"
+#: ../items/categories/level_13.txt:23
+msgid "Plate Greaves"
+msgstr "Èideadh calpa meatailt"
+
+#: ../items/categories/level_13.txt:32
+msgid "Plate Boots"
+msgstr "Bòtannan meatailt"
+
+#: ../items/categories/level_13.txt:41
+msgid "Plate Gauntlets"
+msgstr "Dòrnagan meatailt"
+
+#: ../items/categories/level_13.txt:50
+msgid "Velvet Hood"
+msgstr "Abaid sìoda mholaich"
+
+#: ../items/categories/level_13.txt:59
+msgid "Velvet Vest"
+msgstr "Peiteag sìoda mholaich"
+
+#: ../items/categories/level_13.txt:68
+msgid "Velvet Skirt"
+msgstr "Fèileadh sìoda mholaich"
+
+#: ../items/categories/level_13.txt:77
+msgid "Velvet Boots"
+msgstr "Bòtannan sìoda mholaich"
+
+#: ../items/categories/level_13.txt:86
+msgid "Velvet Sleeves"
+msgstr "Muinchillean sìoda mholaich"
+
+#: ../items/categories/level_13.txt:95
+msgid "Greatsword"
+msgstr "Claidheamh mòr"
+
+#: ../items/categories/level_13.txt:104
+msgid "Greatbow"
+msgstr "Bogha mòr"
+
+#: ../items/categories/level_13.txt:113
+msgid "Greatstaff"
+msgstr "Bata mòr"
+
+#: ../items/categories/level_13.txt:122
+msgid "Tower Shield"
+msgstr "Sgiath tùir"
+
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Biodag"
+
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Longag"
+
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Slatan"
+
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Sgiathag fiodha"
 
 #: ../items/categories/level_8.txt:5
 msgid "Warlord Leather Hood"
@@ -2791,165 +2916,74 @@ msgstr "Fàinne na sealbhachd do mhaighstir"
 msgid "Master Loot Ring"
 msgstr "Fàinne na spùinne do mhaighstir"
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Lèine clòtha gaisgich"
+#: ../items/categories/scrolls.txt:5
+msgid "Summon Zombie Scroll"
+msgstr "Sgrola gairm cuirp coisiche"
 
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Lèine clòtha maoir-choille"
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Feum: gairm corp coisiche a nì sabaid às do leth"
 
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Lèine clòtha draoidh"
+#: ../items/categories/scrolls.txt:16
+msgid "Perdition Scroll"
+msgstr "Sgrola an Dubh-chaill"
 
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Briogais clòtha gaisgich"
+#: ../items/categories/scrolls.txt:19
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Feum: tele-phortadh gu port an Dubh-chaill"
 
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Briogais clòtha maoir-choille"
+#: ../items/categories/scrolls.txt:27
+msgid "Shield Scroll"
+msgstr "Sgrola sgèithe"
 
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Briogais clòtha draoidh"
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Feum: cruthaich sgiath draoidheach a cheapas dochann"
 
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Cuarain clòtha gaisgich"
+#: ../items/categories/scrolls.txt:38
+msgid "Fireball Scroll"
+msgstr "Sgrola bàla teine"
 
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Cuarain clòtha maoir-choille"
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr "Feum: tilg bàla teine"
 
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Cuarain clòtha draoidh"
+#: ../items/categories/scrolls.txt:49
+msgid "Ice Bolt Scroll"
+msgstr "Sgrola peileir deighe"
 
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Miotagan clòtha gaisgich"
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr "Feum: tilg peilear deighe"
 
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Miotagan clòtha maoir-choille"
+#: ../items/categories/scrolls.txt:60
+msgid "Haste Scroll"
+msgstr "Sgrola na cabhaige"
 
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Miotagan clòtha draoidh"
+#: ../items/categories/scrolls.txt:63
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Feum: gluais nas luaithe greis"
 
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "Crios leathair do bhaoghlair"
+#: ../items/categories/scrolls.txt:71
+msgid "Immunity Scroll"
+msgstr "Sgrola na dìonachd"
 
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "Crochag do bhaoghlair"
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Feum: thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean "
+"greis"
 
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "Leabhar-gheasan do bhaoghlair"
+#: ../items/categories/scrolls.txt:82
+msgid "Reflection Scroll"
+msgstr "Sgrola an ath-thilgidh"
 
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Biodag gaisgich"
-
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Longag maoir-choille"
-
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Slatan draoidh"
-
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Sgiathag fiodha ridire rìoghail"
-
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Fàinne an teine do bhaoghlair"
-
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Fàinne na deighe do bhaoghlair"
-
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Fàinne an dealanaich do bhaoghlair"
-
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Fàinne an dorchadais do bhaoghlair"
-
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Fàinne an eòlais do bhaoghlair"
-
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Fàinne a’ bheartais do bhaoghlair"
-
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Fàinne an ulaidh do bhaoghlair"
-
-#: ../items/categories/level_13.txt:5
-msgid "Plate Helmet"
-msgstr "Clogaid meatailt"
-
-#: ../items/categories/level_13.txt:14
-msgid "Plate Cuirass"
-msgstr "Lùireach meatailt"
-
-#: ../items/categories/level_13.txt:23
-msgid "Plate Greaves"
-msgstr "Èideadh calpa meatailt"
-
-#: ../items/categories/level_13.txt:32
-msgid "Plate Boots"
-msgstr "Bòtannan meatailt"
-
-#: ../items/categories/level_13.txt:41
-msgid "Plate Gauntlets"
-msgstr "Dòrnagan meatailt"
-
-#: ../items/categories/level_13.txt:50
-msgid "Velvet Hood"
-msgstr "Abaid sìoda mholaich"
-
-#: ../items/categories/level_13.txt:59
-msgid "Velvet Vest"
-msgstr "Peiteag sìoda mholaich"
-
-#: ../items/categories/level_13.txt:68
-msgid "Velvet Skirt"
-msgstr "Fèileadh sìoda mholaich"
-
-#: ../items/categories/level_13.txt:77
-msgid "Velvet Boots"
-msgstr "Bòtannan sìoda mholaich"
-
-#: ../items/categories/level_13.txt:86
-msgid "Velvet Sleeves"
-msgstr "Muinchillean sìoda mholaich"
-
-#: ../items/categories/level_13.txt:95
-msgid "Greatsword"
-msgstr "Claidheamh mòr"
-
-#: ../items/categories/level_13.txt:104
-msgid "Greatbow"
-msgstr "Bogha mòr"
-
-#: ../items/categories/level_13.txt:113
-msgid "Greatstaff"
-msgstr "Bata mòr"
-
-#: ../items/categories/level_13.txt:122
-msgid "Tower Shield"
-msgstr "Sgiath tùir"
+#: ../items/categories/scrolls.txt:85
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Feum: cruthaich sgiath draoidheach thilgeas air ais astasan is dochann greis"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3055,121 +3089,121 @@ msgstr "Fàinne a’ bheartais do sheachran"
 msgid "Wandering Treasure Ring"
 msgstr "Fàinne an ulaidh do sheachran"
 
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Clogaid meatailt tighearna-chogaidh"
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Clogaid meatailt gaisgich"
 
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Clogaid meatailt gìomanaich"
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Clogaid meatailt maoir-choille"
 
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Abaid sìoda mholaich àrd-dhraoidh"
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Abaid sìoda mholaich draoidh"
 
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Lùireach meatailt tighearna-chogaidh"
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Lùireach meatailt gaisgich"
 
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Lùireach meatailt gìomanaich"
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Lùireach meatailt maoir-choille"
 
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Peiteag sìoda mholaich àrd-dhraoidh"
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Peiteag sìoda mholaich draoidh"
 
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Èideadh calpa meatailt tighearna-chogaidh"
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Èideadh calpa meatailt gaisgich"
 
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Èideadh calpa meatailt gìomanaich"
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Èideadh calpa meatailt maoir-choille"
 
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Fèileadh sìoda mholaich àrd-dhraoidh"
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Fèileadh sìoda mholaich draoidh"
 
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Bòtannan meatailt tighearna-chogaidh"
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Bòtannan meatailt gaisgich"
 
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Bòtannan meatailt gìomanaich"
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Bòtannan meatailt maoir-choille"
 
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Bòtannan sìoda mholaich àrd-dhraoidh"
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Bòtannan sìoda mholaich draoidh"
 
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Dòrnagan meatailt tighearna-chogaidh"
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Dòrnagan meatailt gaisgich"
 
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Dòrnagan meatailt gìomanaich"
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Dòrnagan meatailt maoir-choille"
 
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Muinchillean sìoda mholaich àrd-dhraoidh"
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Muinchillean sìoda mholaich draoidh"
 
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "Crios leathair tighearna-chogaidh do mhaighstir"
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Crios leathair tighearna-chogaidh do bhaoghlair"
 
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "Crochag gìomanaich do mhaighstir"
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Crochag gìomanaich do bhaoghlair"
 
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "Leabhar-gheasan àrd-dhraoidh maighistir"
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Leabhar-gheasan àrd-dhraoidh do bhaoghlair"
 
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Claidheamh mòr tighearna-chogaidh"
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Claidheamh mòr gaisgich"
 
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Bogha mòr gìomanaich"
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Bogha mòr maoir-choille"
 
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Bata mòr àrd-dhraoidh"
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Bata mòr draoidh"
 
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Sgiath tùir ridir an teampaill"
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Sgiath tùir an ridire rìoghail"
 
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Fàinne na h-ifrinne do mhaighstir"
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Fàinne na h-ifrinne do bhaoghlair"
 
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Fàinne an eigh-shrutha do mhaighstir"
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Fàinne an eigh-shrutha do bhaoghlair"
 
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Fàinne a’ mhòr-dhealanaich do mhaighstir"
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Fàinne a’ mhòr-dhealanaich do bhaoghlair"
 
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Fàinne na falamhachd do mhaighstir"
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Fàinne na falamhachd do bhaoghlair"
 
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Fàinne an eòlaiche do mhaighstir"
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Fàinne an eòlaiche do bhaoghlair"
 
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Fàinne na maoine do mhaighstir"
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Fàinne na maoine do bhaoghlair"
 
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Fàinne na taise do mhaighstir"
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Fàinne na taise do bhaoghlair"
 
 #: ../items/categories/level_7.txt:5
 msgid "Warrior Leather Hood"
@@ -3287,65 +3321,6 @@ msgstr "Fàinne na sealbhachd do bhaoghlair"
 msgid "Adventurer Loot Ring"
 msgstr "Fàinne na spùinne do bhaoghlair"
 
-#: ../items/categories/level_12_unique.txt:5
-msgid "Lost Totem"
-msgstr "Tòtam caillte"
-
-#: ../items/categories/level_12_unique.txt:6
-msgid "The ancient scripture contained appears to be some sort of magic."
-msgstr "Tha coltas na draoidheachd air an sgrìobhadh àrsaidh ’na bhroinn."
-
-#: ../items/categories/level_12_unique.txt:21
-msgid "Mog's Axe"
-msgstr "Tuagh Mhoig"
-
-#: ../items/categories/level_12_unique.txt:22
-msgid "Not as sleek as an arrow, but just as effective."
-msgstr ""
-"Chan eil e cho sgiobalta ’s a tha saighead ach tha e a cheart cho "
-"èifeachdach."
-
-#: ../items/categories/level_12_unique.txt:36
-msgid "Guardsman Cuirass"
-msgstr "Màilleach geàird"
-
-#: ../items/categories/level_12_unique.txt:37
-msgid "A royal mail with a 'K' engraved on the breast."
-msgstr "Màilleach rìoghail le “K” gràbhailte air a’ bhroilleach."
-
-#: ../items/categories/level_12_unique.txt:53
-msgid "Inferno Pendant"
-msgstr "Crochag na h-ifrinne"
-
-#: ../items/categories/level_12_unique.txt:54
-msgid "Hot. Hot. Hot."
-msgstr "Cho teth ri èibhleag."
-
-#: ../items/categories/level_12_unique.txt:69
-msgid "Alchemist's Skirt"
-msgstr "Fèileadh cumasgair"
-
-#: ../items/categories/level_12_unique.txt:70
-msgid "Knowledge of formulating many concoctions bestows its wearer."
-msgstr ""
-"Ma chuireas tu seo ort, gheibh thu eòlas air mar a nì thu iomadh galamas."
-
-#: ../items/categories/level_12_unique.txt:79
-msgid "Drinking potions may create another potion of the same type."
-msgstr ""
-"Nuair a dh’òlas tu deoch, dh’fhaoidte gun dèid deoch eile dhen aon seòrsa a "
-"chruthachadh."
-
-#: ../items/categories/level_12_unique.txt:88
-msgid "Metzger's Battlemace"
-msgstr "Màs-cogaidh a’ Bhùidseir"
-
-#: ../items/categories/level_12_unique.txt:89
-msgid "Swinging this mace around leaves a clouded trail of dark smoke."
-msgstr ""
-"Nuair a nì thu sabaid leis a’ mhàs seo, cruthaichidh e lorgan de smùid "
-"dhorcha."
-
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
 msgstr "Brèid slabhraidhe sabaide"
@@ -3462,57 +3437,61 @@ msgstr "Fàinne na prothaide do sheachran"
 msgid "Wandering Artifact Ring"
 msgstr "Fàinne nam ball-ceàirde do sheachran"
 
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Òrd Chròlain"
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Bann feòla"
 
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Acainn cudromach do ghobha sam bith."
-
-#: ../items/categories/level_4_unique.txt:18
-msgid "Goblin Branch"
-msgstr "Meur bòcain"
-
-#: ../items/categories/level_4_unique.txt:19
-msgid "Mana flows inside its primitive exterior."
-msgstr "Tha mana a ruith ann ged a tha coltas primideach air."
-
-#: ../items/categories/level_4_unique.txt:34
-msgid "Ardwen's Gloves"
-msgstr "Miotagan Àrdair"
-
-#: ../items/categories/level_4_unique.txt:35
-msgid "These hands built a village."
-msgstr "Thog na làmhan seo baile."
-
-#: ../items/categories/level_4_unique.txt:50
-msgid "Blood Tunic"
-msgstr "Lèine fala"
-
-#: ../items/categories/level_4_unique.txt:51
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Nuair a chuireas tu ort i, thèid do chuislean a bhlàthachadh."
-
-#: ../items/categories/level_4_unique.txt:65
-msgid "Dark Steppers"
-msgstr "Dubh-bhrògan"
-
-#: ../items/categories/level_4_unique.txt:66
-msgid "Dancing through the shadows."
-msgstr "Dannsadh tro na sgàilean."
-
-#: ../items/categories/level_4_unique.txt:79
-msgid "Seagate's Tri-pants"
-msgstr "Trì-bhriogais Mhic na Mara"
-
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_16_unique.txt:6
 msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "Bann tlàth. Teannaichidh e nuair a chuireas tu air do chorrag e."
+
+#: ../items/categories/level_16_unique.txt:20
+msgid "Soulband"
+msgstr "Bann anama"
+
+#: ../items/categories/level_16_unique.txt:22
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
 msgstr ""
-"Tha coltas air a’ bhriogais robaich seo gun deach a losgadh ach tha iad fuar"
-" ’nad làimh."
+"Thig luisneachadh air nuair a chuireas tu ort e. Cuidichidh e le dùr-aire."
+
+#: ../items/categories/level_16_unique.txt:36
+msgid "Underworld Cloak"
+msgstr "Clòca ifrinne"
+
+#: ../items/categories/level_16_unique.txt:48
+msgid "Underworld Platemail"
+msgstr "Lùireach meatailt ifrinne"
+
+#: ../items/categories/level_16_unique.txt:60
+msgid "Underworld Boots"
+msgstr "Bòtannan ifrinne"
+
+#: ../items/categories/level_16_unique.txt:72
+msgid "Underworld Armguards"
+msgstr "Èideadh gàirdein ifrinne"
+
+#: ../items/categories/level_16_unique.txt:84
+msgid "Underworld Greaves"
+msgstr "Èideadh calpa ifrinne"
+
+#: ../items/categories/level_16_unique.txt:96
+msgid "Underworld Tome"
+msgstr "Leabhar ifrinne"
+
+#: ../items/categories/level_16_unique.txt:107
+msgid "Underworld Blade"
+msgstr "Lann ifrinne"
+
+#: ../items/categories/level_16_unique.txt:119
+msgid "Underworld Bow"
+msgstr "Bogha ifrinne"
+
+#: ../items/categories/level_16_unique.txt:131
+msgid "Underworld Sceptre"
+msgstr "Slat-rìoghail ifrinne"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -3686,398 +3665,181 @@ msgid ""
 msgstr ""
 "A-rèir Fhlòrain, seo an aon inc a ghabhas cleachdadh air Leabhar nam Marbh."
 
-#: ../items/categories/scrolls.txt:5
-msgid "Summon Zombie Scroll"
-msgstr "Sgrola gairm cuirp coisiche"
-
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Feum: gairm corp coisiche a nì sabaid às do leth"
-
-#: ../items/categories/scrolls.txt:16
-msgid "Perdition Scroll"
-msgstr "Sgrola an Dubh-chaill"
-
-#: ../items/categories/scrolls.txt:19
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Feum: tele-phortadh gu port an Dubh-chaill"
-
-#: ../items/categories/scrolls.txt:27
-msgid "Shield Scroll"
-msgstr "Sgrola sgèithe"
-
-#: ../items/categories/scrolls.txt:30
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Feum: cruthaich sgiath draoidheach a cheapas dochann"
-
-#: ../items/categories/scrolls.txt:38
-msgid "Fireball Scroll"
-msgstr "Sgrola bàla teine"
-
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr "Feum: tilg bàla teine"
-
-#: ../items/categories/scrolls.txt:49
-msgid "Ice Bolt Scroll"
-msgstr "Sgrola peileir deighe"
-
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr "Feum: tilg peilear deighe"
-
-#: ../items/categories/scrolls.txt:60
-msgid "Haste Scroll"
-msgstr "Sgrola na cabhaige"
-
-#: ../items/categories/scrolls.txt:63
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Feum: gluais nas luaithe greis"
-
-#: ../items/categories/scrolls.txt:71
-msgid "Immunity Scroll"
-msgstr "Sgrola na dìonachd"
-
-#: ../items/categories/scrolls.txt:74
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+#: ../items/categories/crafting.txt:38
+msgid "Mortar and Pestle"
 msgstr ""
-"Feum: thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean "
-"greis"
 
-#: ../items/categories/scrolls.txt:82
-msgid "Reflection Scroll"
-msgstr "Sgrola an ath-thilgidh"
-
-#: ../items/categories/scrolls.txt:85
-msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
+#: ../items/categories/crafting.txt:39
+msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
-"Feum: cruthaich sgiath draoidheach thilgeas air ais astasan is dochann greis"
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Lèine clòtha tighearna-chogaidh"
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Òrd Chròlain"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Lèine clòtha gìomanaich"
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Acainn cudromach do ghobha sam bith."
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Lèine clòtha àrd-dhraoidh"
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr "Meur bòcain"
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Briogais clòtha tighearna-chogaidh"
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr "Tha mana a ruith ann ged a tha coltas primideach air."
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Briogais clòtha gìomanaich"
+#: ../items/categories/level_4_unique.txt:34
+msgid "Ardwen's Gloves"
+msgstr "Miotagan Àrdair"
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Briogais clòtha àrd-dhraoidh"
+#: ../items/categories/level_4_unique.txt:35
+msgid "These hands built a village."
+msgstr "Thog na làmhan seo baile."
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Cuarain clòtha tighearna-chogaidh"
+#: ../items/categories/level_4_unique.txt:50
+msgid "Blood Tunic"
+msgstr "Lèine fala"
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Cuarain clòtha gìomanaich"
+#: ../items/categories/level_4_unique.txt:51
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Nuair a chuireas tu ort i, thèid do chuislean a bhlàthachadh."
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Cuarain clòtha àrd-dhraoidh"
+#: ../items/categories/level_4_unique.txt:65
+msgid "Dark Steppers"
+msgstr "Dubh-bhrògan"
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Miotagan clòtha tighearna-chogaidh"
+#: ../items/categories/level_4_unique.txt:66
+msgid "Dancing through the shadows."
+msgstr "Dannsadh tro na sgàilean."
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Miotagan clòtha gìomanaich"
+#: ../items/categories/level_4_unique.txt:79
+msgid "Seagate's Tri-pants"
+msgstr "Trì-bhriogais Mhic na Mara"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Miotagan clòtha àrd-dhraoidh"
-
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Crios leathair do mhaighstir"
-
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Crochag do mhaighstir"
-
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Leabhar-gheasan maighistir"
-
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Biodag tighearna-chogaidh"
-
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Longag gìomanaich"
-
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Slatan àrd-dhraoidh"
-
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Sgiathag fiodha ridire an teampaill"
-
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Fàinne an teine do mhaighstir"
-
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Fàinne na deighe do mhaighstir"
-
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Fàinne an dealanaich do mhaighstir"
-
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Fàinne an dorchadais do mhaighstir"
-
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Fàinne an eòlais do mhaighstir"
-
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Fàinne a’ bheartais do mhaighstir"
-
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "Fàinne an ulaidh do mhaighstir"
-
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Bann feòla"
-
-#: ../items/categories/level_16_unique.txt:6
+#: ../items/categories/level_4_unique.txt:80
 msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "Bann tlàth. Teannaichidh e nuair a chuireas tu air do chorrag e."
-
-#: ../items/categories/level_16_unique.txt:20
-msgid "Soulband"
-msgstr "Bann anama"
-
-#: ../items/categories/level_16_unique.txt:22
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
 msgstr ""
-"Thig luisneachadh air nuair a chuireas tu ort e. Cuidichidh e le dùr-aire."
+"Tha coltas air a’ bhriogais robaich seo gun deach a losgadh ach tha iad fuar"
+" ’nad làimh."
 
-#: ../items/categories/level_16_unique.txt:36
-msgid "Underworld Cloak"
-msgstr "Clòca ifrinne"
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Clogaid meatailt tighearna-chogaidh"
 
-#: ../items/categories/level_16_unique.txt:48
-msgid "Underworld Platemail"
-msgstr "Lùireach meatailt ifrinne"
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Clogaid meatailt gìomanaich"
 
-#: ../items/categories/level_16_unique.txt:60
-msgid "Underworld Boots"
-msgstr "Bòtannan ifrinne"
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Abaid sìoda mholaich àrd-dhraoidh"
 
-#: ../items/categories/level_16_unique.txt:72
-msgid "Underworld Armguards"
-msgstr "Èideadh gàirdein ifrinne"
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Lùireach meatailt tighearna-chogaidh"
 
-#: ../items/categories/level_16_unique.txt:84
-msgid "Underworld Greaves"
-msgstr "Èideadh calpa ifrinne"
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Lùireach meatailt gìomanaich"
 
-#: ../items/categories/level_16_unique.txt:96
-msgid "Underworld Tome"
-msgstr "Leabhar ifrinne"
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Peiteag sìoda mholaich àrd-dhraoidh"
 
-#: ../items/categories/level_16_unique.txt:107
-msgid "Underworld Blade"
-msgstr "Lann ifrinne"
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Èideadh calpa meatailt tighearna-chogaidh"
 
-#: ../items/categories/level_16_unique.txt:119
-msgid "Underworld Bow"
-msgstr "Bogha ifrinne"
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Èideadh calpa meatailt gìomanaich"
 
-#: ../items/categories/level_16_unique.txt:131
-msgid "Underworld Sceptre"
-msgstr "Slat-rìoghail ifrinne"
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Fèileadh sìoda mholaich àrd-dhraoidh"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Brèid slabhraidhe tighearna-chogaidh"
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Bòtannan meatailt tighearna-chogaidh"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Brèid slabhraidhe gìomanaich"
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Bòtannan meatailt gìomanaich"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Abaid sìoda àrd-dhraoidh"
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Bòtannan sìoda mholaich àrd-dhraoidh"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Lùireach slabhraidhe tighearna-chogaidh"
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Dòrnagan meatailt tighearna-chogaidh"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Lùireach slabhraidhe gìomanaich"
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Dòrnagan meatailt gìomanaich"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Peiteag sìoda àrd-dhraoidh"
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Muinchillean sìoda mholaich àrd-dhraoidh"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Èideadh calpa slabhraidhe tighearna-chogaidh"
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Crios leathair tighearna-chogaidh do mhaighstir"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Èideadh calpa slabhraidhe gìomanaich"
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Crochag gìomanaich do mhaighstir"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Fèileadh sìoda àrd-dhraoidh"
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Leabhar-gheasan àrd-dhraoidh maighistir"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Bòtannan slabhraidhe tighearna-chogaidh"
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Claidheamh mòr tighearna-chogaidh"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Bòtannan slabhraidhe gìomanaich"
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Bogha mòr gìomanaich"
 
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Bòtannan sìoda àrd-dhraoidh"
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Bata mòr àrd-dhraoidh"
 
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Miotagan slabhraidhe tighearna-chogaidh"
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Sgiath tùir ridir an teampaill"
 
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Miotagan slabhraidhe gìomanaich"
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Fàinne na h-ifrinne do mhaighstir"
 
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Muinchillean sìoda àrd-dhraoidh"
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Fàinne an eigh-shrutha do mhaighstir"
 
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Crios leathair gaisgich do mhaighstir"
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Fàinne a’ mhòr-dhealanaich do mhaighstir"
 
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Crochag maoir-choille do mhaighstir"
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Fàinne na falamhachd do mhaighstir"
 
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Leabhar-gheasan draoidh maighistir"
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Fàinne an eòlaiche do mhaighstir"
 
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Claidheamh-fada tighearna-chogaidh"
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Fàinne na maoine do mhaighstir"
 
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Bogha-fada gìomanaich"
-
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Bata àrd-dhraoidh"
-
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Sgiath cìrein ridire an teampaill"
-
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Fàinne an lasaidh do mhaighstir"
-
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Fàinne an eighreachaidh do mhaighstir"
-
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Fàinne an dealain do mhaighstir"
-
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Fàinne na duibhre do mhaighstir"
-
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Fàinne na h-innleachd do mhaighstir"
-
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Fàinne na prothaide do mhaighstir"
-
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Fàinne nam ball-ceàirde do mhaighstir"
-
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Lèine clòtha"
-
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Briogais clòtha"
-
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Cuarain clòtha"
-
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Miotagan clòtha"
-
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Biodag"
-
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Longag"
-
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Slatan"
-
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Sgiathag fiodha"
-
-#: ../items/categories/potions.txt:5
-msgid "Health Potion"
-msgstr "Deoch-shlàinte"
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Aisig 25% dhe na puingean-beatha as motha"
-
-#: ../items/categories/potions.txt:16
-msgid "Mana Potion"
-msgstr "Deoch mana"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "Aisig 25% dhe na puingean-gluasaid as motha"
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Fàinne na taise do mhaighstir"
 
 #: ../items/categories/level_11.txt:5
 msgid "Warrior Chain Coif"
@@ -4195,6 +3957,516 @@ msgstr "Fàinne na prothaide do bhaoghlair"
 msgid "Adventurer Artifact Ring"
 msgstr "Fàinne nam ball-ceàirde do bhaoghlair"
 
+#: ../items/categories/level_9.txt:5
+msgid "Chain Coif"
+msgstr "Brèid slabhraidhe"
+
+#: ../items/categories/level_9.txt:14
+msgid "Chain Cuirass"
+msgstr "Lùireach slabhraidhe"
+
+#: ../items/categories/level_9.txt:23
+msgid "Chain Greaves"
+msgstr "Èideadh calpa slabhraidhe"
+
+#: ../items/categories/level_9.txt:32
+msgid "Chain Boots"
+msgstr "Bòtannan slabhraidhe"
+
+#: ../items/categories/level_9.txt:41
+msgid "Chain Gloves"
+msgstr "Miotagan slabhraidhe"
+
+#: ../items/categories/level_9.txt:50
+msgid "Silk Hood"
+msgstr "Abaid sìoda"
+
+#: ../items/categories/level_9.txt:59
+msgid "Silk Vest"
+msgstr "Peiteag sìoda"
+
+#: ../items/categories/level_9.txt:68
+msgid "Silk Skirt"
+msgstr "Fèileadh sìoda"
+
+#: ../items/categories/level_9.txt:77
+msgid "Silk Boots"
+msgstr "Bòtannan sìoda"
+
+#: ../items/categories/level_9.txt:86
+msgid "Silk Sleeves"
+msgstr "Muinchillean sìoda"
+
+#: ../items/categories/level_9.txt:95
+msgid "Longsword"
+msgstr "Claidheamh-fada"
+
+#: ../items/categories/level_9.txt:104
+msgid "Longbow"
+msgstr "Bogha-fada"
+
+#: ../items/categories/level_9.txt:113
+msgid "Staff"
+msgstr "Bata"
+
+#: ../items/categories/level_9.txt:122
+msgid "Crest Shield"
+msgstr "Sgiath cìrein"
+
+#: ../items/categories/level_6.txt:5
+msgid "Fighting Leather Hood"
+msgstr "Abaid leathair sabaide"
+
+#: ../items/categories/level_6.txt:17
+msgid "Recon Leather Hood"
+msgstr "Abaid leathair brathadair"
+
+#: ../items/categories/level_6.txt:29
+msgid "Sorcerer Wool Hood"
+msgstr "Abaid clòimhe buidsich"
+
+#: ../items/categories/level_6.txt:41
+msgid "Fighting Leather Tunic"
+msgstr "Lèine leathair sabaide"
+
+#: ../items/categories/level_6.txt:53
+msgid "Recon Leather Tunic"
+msgstr "Lèine leathair brathadair"
+
+#: ../items/categories/level_6.txt:65
+msgid "Sorcerer Wool Vest"
+msgstr "Peiteag clòimhe buidsich"
+
+#: ../items/categories/level_6.txt:77
+msgid "Fighting Leather Pants"
+msgstr "Briogais leathair sabaide"
+
+#: ../items/categories/level_6.txt:89
+msgid "Recon Leather Pants"
+msgstr "Briogais leathair brathadair"
+
+#: ../items/categories/level_6.txt:101
+msgid "Sorcerer Wool Skirt"
+msgstr "Fèileadh clòimhe buidsich"
+
+#: ../items/categories/level_6.txt:113
+msgid "Fighting Leather Boots"
+msgstr "Bòtannan leathair sabaide"
+
+#: ../items/categories/level_6.txt:125
+msgid "Recon Leather Boots"
+msgstr "Bòtannan leathair brathadair"
+
+#: ../items/categories/level_6.txt:137
+msgid "Sorcerer Wool Boots"
+msgstr "Bòtannan clòimhe buidsich"
+
+#: ../items/categories/level_6.txt:149
+msgid "Fighting Leather Gloves"
+msgstr "Miotagan leathair sabaide"
+
+#: ../items/categories/level_6.txt:161
+msgid "Recon Leather Gloves"
+msgstr "Miotagan leathair brathadair"
+
+#: ../items/categories/level_6.txt:173
+msgid "Sorcerer Wool Sleeves"
+msgstr "Muinchillean clòimhe buidsich"
+
+#: ../items/categories/level_6.txt:185
+msgid "Wandering Fighting Leather Belt"
+msgstr "Crios leathair sabaide do sheachran"
+
+#: ../items/categories/level_6.txt:196
+msgid "Wandering Recon Pendant"
+msgstr "Crochag brathadair do sheachran"
+
+#: ../items/categories/level_6.txt:207
+msgid "Wandering Sorcerer Spellbook"
+msgstr "Leabhar-gheasan buidsich do sheachran"
+
+#: ../items/categories/level_6.txt:218
+msgid "Fighting Shortsword"
+msgstr "Claidheamh-goirid sabaide"
+
+#: ../items/categories/level_6.txt:230
+msgid "Recon Shortbow"
+msgstr "Bogha-goirid brathadair"
+
+#: ../items/categories/level_6.txt:242
+msgid "Sorcerer Rod"
+msgstr "Slat buidsich"
+
+#: ../items/categories/level_6.txt:254
+msgid "Keeper Iron Buckler"
+msgstr "Sgiathag iarainn a’ ghlèidheadair"
+
+#: ../items/categories/level_6.txt:265
+msgid "Wandering Burn Ring"
+msgstr "Fàinne an losgaidh do sheachran"
+
+#: ../items/categories/level_6.txt:275
+msgid "Wandering Frost Ring"
+msgstr "Fàinne an reòthaidh do sheachran"
+
+#: ../items/categories/level_6.txt:285
+msgid "Wandering Electric Ring"
+msgstr "Fàinne an t-sruth-dealain do sheachran"
+
+#: ../items/categories/level_6.txt:295
+msgid "Wandering Shadow Ring"
+msgstr "Fàinne na sgàile do sheachran"
+
+#: ../items/categories/level_6.txt:305
+msgid "Wandering Knowledge Ring"
+msgstr "Fàinne an fhiosrachaidh do sheachran"
+
+#: ../items/categories/level_6.txt:315
+msgid "Wandering Prosperity Ring"
+msgstr "Fàinne na sealbhachd do sheachran"
+
+#: ../items/categories/level_6.txt:325
+msgid "Wandering Loot Ring"
+msgstr "Fàinne na spùinne do sheachran"
+
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Lèine clòtha gaisgich"
+
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Lèine clòtha maoir-choille"
+
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Lèine clòtha draoidh"
+
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Briogais clòtha gaisgich"
+
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Briogais clòtha maoir-choille"
+
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Briogais clòtha draoidh"
+
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Cuarain clòtha gaisgich"
+
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Cuarain clòtha maoir-choille"
+
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Cuarain clòtha draoidh"
+
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Miotagan clòtha gaisgich"
+
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Miotagan clòtha maoir-choille"
+
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Miotagan clòtha draoidh"
+
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Crios leathair do bhaoghlair"
+
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Crochag do bhaoghlair"
+
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Leabhar-gheasan do bhaoghlair"
+
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Biodag gaisgich"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Longag maoir-choille"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Slatan draoidh"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Sgiathag fiodha ridire rìoghail"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Fàinne an teine do bhaoghlair"
+
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Fàinne na deighe do bhaoghlair"
+
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Fàinne an dealanaich do bhaoghlair"
+
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Fàinne an dorchadais do bhaoghlair"
+
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Fàinne an eòlais do bhaoghlair"
+
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Fàinne a’ bheartais do bhaoghlair"
+
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Fàinne an ulaidh do bhaoghlair"
+
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Brèid slabhraidhe tighearna-chogaidh"
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Brèid slabhraidhe gìomanaich"
+
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Abaid sìoda àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Lùireach slabhraidhe tighearna-chogaidh"
+
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Lùireach slabhraidhe gìomanaich"
+
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Peiteag sìoda àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Èideadh calpa slabhraidhe tighearna-chogaidh"
+
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Èideadh calpa slabhraidhe gìomanaich"
+
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Fèileadh sìoda àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Bòtannan slabhraidhe tighearna-chogaidh"
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Bòtannan slabhraidhe gìomanaich"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Bòtannan sìoda àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Miotagan slabhraidhe tighearna-chogaidh"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Miotagan slabhraidhe gìomanaich"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Muinchillean sìoda àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Crios leathair gaisgich do mhaighstir"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Crochag maoir-choille do mhaighstir"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Leabhar-gheasan draoidh maighistir"
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Claidheamh-fada tighearna-chogaidh"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Bogha-fada gìomanaich"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Bata àrd-dhraoidh"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Sgiath cìrein ridire an teampaill"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Fàinne an lasaidh do mhaighstir"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Fàinne an eighreachaidh do mhaighstir"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Fàinne an dealain do mhaighstir"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Fàinne na duibhre do mhaighstir"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Fàinne na h-innleachd do mhaighstir"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Fàinne na prothaide do mhaighstir"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Fàinne nam ball-ceàirde do mhaighstir"
+
+#: ../items/categories/level_8_unique.txt:3
+msgid "Amir Blade"
+msgstr "Lann Aimir"
+
+#: ../items/categories/level_8_unique.txt:4
+msgid "A remnant of those who guarded Fort Amir."
+msgstr "Iarmad dhen fheadhainn a dhìon Gearastan Aimir."
+
+#: ../items/categories/level_8_unique.txt:18
+msgid "Huntsman Bow"
+msgstr "Bogha sealgair"
+
+#: ../items/categories/level_8_unique.txt:19
+msgid "Compact enough to be deadly at all ranges of combat."
+msgstr ""
+"Tha e teann gu leòr gus a bhith marbhtach aig astar còmhraige sam bith."
+
+#: ../items/categories/level_8_unique.txt:34
+msgid "Greed Cowl"
+msgstr "Abaid an sannta"
+
+#: ../items/categories/level_8_unique.txt:35
+msgid "Riches fit for a queen."
+msgstr "Beartas iomchaidh do bhànrigh."
+
+#: ../items/categories/level_8_unique.txt:49
+msgid "Battle Leathers"
+msgstr "Leathair còmhraige"
+
+#: ../items/categories/level_8_unique.txt:50
+msgid "Designed to keep its wearer moving forward."
+msgstr "Chaidh a dhealbhadh ach an seas thu."
+
+#: ../items/categories/level_8_unique.txt:64
+msgid "Escape Boots"
+msgstr "Bòtannan teichidh"
+
+#: ../items/categories/level_8_unique.txt:65
+msgid "Running away doesn't mean the battle is lost."
+msgstr "Ma theicheas tu, cha chiall dha sin gun do chaill thu am blàr."
+
+#: ../items/categories/level_8_unique.txt:79
+msgid "Mez's Wraps"
+msgstr "Còmhdach Mheis"
+
+#: ../items/categories/level_8_unique.txt:80
+msgid "With its layers of reptilian skin, not much can penetrate this armor."
+msgstr ""
+"On a tha iomadh breath de chraiceann laghairt aice, cha mhòr nach bris dad "
+"an armachd seo."
+
+#: ../items/categories/level_12_unique.txt:5
+msgid "Lost Totem"
+msgstr "Tòtam caillte"
+
+#: ../items/categories/level_12_unique.txt:6
+msgid "The ancient scripture contained appears to be some sort of magic."
+msgstr "Tha coltas na draoidheachd air an sgrìobhadh àrsaidh ’na bhroinn."
+
+#: ../items/categories/level_12_unique.txt:21
+msgid "Mog's Axe"
+msgstr "Tuagh Mhoig"
+
+#: ../items/categories/level_12_unique.txt:22
+msgid "Not as sleek as an arrow, but just as effective."
+msgstr ""
+"Chan eil e cho sgiobalta ’s a tha saighead ach tha e a cheart cho "
+"èifeachdach."
+
+#: ../items/categories/level_12_unique.txt:36
+msgid "Guardsman Cuirass"
+msgstr "Màilleach geàird"
+
+#: ../items/categories/level_12_unique.txt:37
+msgid "A royal mail with a 'K' engraved on the breast."
+msgstr "Màilleach rìoghail le “K” gràbhailte air a’ bhroilleach."
+
+#: ../items/categories/level_12_unique.txt:53
+msgid "Inferno Pendant"
+msgstr "Crochag na h-ifrinne"
+
+#: ../items/categories/level_12_unique.txt:54
+msgid "Hot. Hot. Hot."
+msgstr "Cho teth ri èibhleag."
+
+#: ../items/categories/level_12_unique.txt:69
+msgid "Alchemist's Skirt"
+msgstr "Fèileadh cumasgair"
+
+#: ../items/categories/level_12_unique.txt:70
+msgid "Knowledge of formulating many concoctions bestows its wearer."
+msgstr ""
+"Ma chuireas tu seo ort, gheibh thu eòlas air mar a nì thu iomadh galamas."
+
+#: ../items/categories/level_12_unique.txt:79
+msgid "Drinking potions may create another potion of the same type."
+msgstr ""
+"Nuair a dh’òlas tu deoch, dh’fhaoidte gun dèid deoch eile dhen aon seòrsa a "
+"chruthachadh."
+
+#: ../items/categories/level_12_unique.txt:88
+msgid "Metzger's Battlemace"
+msgstr "Màs-cogaidh a’ Bhùidseir"
+
+#: ../items/categories/level_12_unique.txt:89
+msgid "Swinging this mace around leaves a clouded trail of dark smoke."
+msgstr ""
+"Nuair a nì thu sabaid leis a’ mhàs seo, cruthaichidh e lorgan de smùid "
+"dhorcha."
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Aisig 25% dhe na puingean-beatha as motha"
+
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "Aisig 25% dhe na puingean-gluasaid as motha"
+
 #: ../items/categories/level_14.txt:5
 msgid "Fighting Plate Helmet"
 msgstr "Clogaid meatailt sabaide"
@@ -4311,228 +4583,172 @@ msgstr "Fàinne na maoine do sheachran"
 msgid "Wandering Relic Ring"
 msgstr "Fàinne na taise do sheachran"
 
-#: ../items/categories/level_8_unique.txt:3
-msgid "Amir Blade"
-msgstr "Lann Aimir"
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Losgadh"
 
-#: ../items/categories/level_8_unique.txt:4
-msgid "A remnant of those who guarded Fort Amir."
-msgstr "Iarmad dhen fheadhainn a dhìon Gearastan Aimir."
+#: ../powers/base/magician/burn.txt:4
+msgid "Blast multiple enemies in a distant area with fire."
+msgstr "Gread iomadh nàmhaid air raon fad air falbh le teine."
 
-#: ../items/categories/level_8_unique.txt:18
-msgid "Huntsman Bow"
-msgstr "Bogha sealgair"
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Sruthadh lùiths"
 
-#: ../items/categories/level_8_unique.txt:19
-msgid "Compact enough to be deadly at all ranges of combat."
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
 msgstr ""
-"Tha e teann gu leòr gus a bhith marbhtach aig astar còmhraige sam bith."
+"Gheibh thu stòras nas motha de mana agus thèid ath-ghintinn dhut nas "
+"luaithe."
 
-#: ../items/categories/level_8_unique.txt:34
-msgid "Greed Cowl"
-msgstr "Abaid an sannta"
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Bàla teine"
 
-#: ../items/categories/level_8_unique.txt:35
-msgid "Riches fit for a queen."
-msgstr "Beartas iomchaidh do bhànrigh."
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Tilg bàla teine a nì dochann inntinne a bharrachd."
 
-#: ../items/categories/level_8_unique.txt:49
-msgid "Battle Leathers"
-msgstr "Leathair còmhraige"
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Buille tàirneanach"
 
-#: ../items/categories/level_8_unique.txt:50
-msgid "Designed to keep its wearer moving forward."
-msgstr "Chaidh a dhealbhadh ach an seas thu."
-
-#: ../items/categories/level_8_unique.txt:64
-msgid "Escape Boots"
-msgstr "Bòtannan teichidh"
-
-#: ../items/categories/level_8_unique.txt:65
-msgid "Running away doesn't mean the battle is lost."
-msgstr "Ma theicheas tu, cha chiall dha sin gun do chaill thu am blàr."
-
-#: ../items/categories/level_8_unique.txt:79
-msgid "Mez's Wraps"
-msgstr "Còmhdach Mheis"
-
-#: ../items/categories/level_8_unique.txt:80
-msgid "With its layers of reptilian skin, not much can penetrate this armor."
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies."
 msgstr ""
-"On a tha iomadh breath de chraiceann laghairt aice, cha mhòr nach bris dad "
-"an armachd seo."
+"Boillsgidh dealan o na speuran aig astar le teans math gun dèan e dochann "
+"èiginneach air nàimhdean air a bheil cion-gluasaid."
 
-#: ../items/categories/level_5.txt:5
-msgid "Leather Hood"
-msgstr "Abaid leathair"
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Cruthaich sgiath cumhachd a cheapas dochann."
 
-#: ../items/categories/level_5.txt:14
-msgid "Leather Tunic"
-msgstr "Lèine leathair"
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Dealan"
 
-#: ../items/categories/level_5.txt:23
-msgid "Leather Pants"
-msgstr "Briogais leathair"
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Tilg bàla dealain a bhios èifeachdach gu h-àraidh an aghaidh nàimhdean air a"
+" bheil cion-gluasaid."
 
-#: ../items/categories/level_5.txt:32
-msgid "Leather Boots"
-msgstr "Bòtannan leathair"
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Peilear deighe"
 
-#: ../items/categories/level_5.txt:41
-msgid "Leather Gloves"
-msgstr "Miotagan leathair"
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Loisg cnap deighe a chuireas maille air na nàimhdean."
 
-#: ../items/categories/level_5.txt:50
-msgid "Wool Hood"
-msgstr "Abaid clòimhe"
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Eighreachadh"
 
-#: ../items/categories/level_5.txt:59
-msgid "Wool Vest"
-msgstr "Peiteag clòimhe"
+#: ../powers/base/magician/freeze.txt:4
+msgid "Create a ray of several piercing cold shards that slow enemies."
+msgstr ""
+"Cruthaich leus le iomadh pristeal fuachd uabhasaich a chuireas maille air "
+"nàimhdean."
 
-#: ../items/categories/level_5.txt:68
-msgid "Wool Skirt"
-msgstr "Fèileadh clòimhe"
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Crith-thalmhainn"
 
-#: ../items/categories/level_5.txt:77
-msgid "Wool Boots"
-msgstr "Bòtannan clòimhe"
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr ""
+"Buail na nàimhdean faisg ort air ais le teans gun cuir thu an tuainealach "
+"orra."
 
-#: ../items/categories/level_5.txt:86
-msgid "Wool Sleeves"
-msgstr "Muinchillean clòimhe"
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Buille fala"
 
-#: ../items/categories/level_5.txt:95
-msgid "Shortsword"
-msgstr "Claidheamh-goirid"
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Thoir buille cumhachdach a nì lot a shileas fala."
 
-#: ../items/categories/level_5.txt:104
-msgid "Shortbow"
-msgstr "Bogha-goirid"
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Tilgeil sgeine"
 
-#: ../items/categories/level_5.txt:113
-msgid "Rod"
-msgstr "Slat"
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid "Throw a knife to deal reduced melee weapon damage."
+msgstr "Tilg sgian gus dochann airm dhlùth lùghdaichte a dhèanamh."
 
-#: ../items/categories/level_5.txt:122
-msgid "Iron Buckler"
-msgstr "Sgiathag iarainn"
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Balla cloiche"
 
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Clogaid meatailt gaisgich"
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr ""
+"Seas an aghaidh ionnsaighean nas treasa le barrachd slàinte is sùghadh."
 
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Clogaid meatailt maoir-choille"
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Bualadh sgèithe"
 
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Abaid sìoda mholaich draoidh"
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Dèan cruinn-leum air na nàimhdean, ’gan spleuchdadh leis an neart."
 
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Lùireach meatailt gaisgich"
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Spealgadh"
 
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Lùireach meatailt maoir-choille"
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Thoir ionnsaigh air gach nàmhaid le gluasad leathann."
 
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Peiteag sìoda mholaich draoidh"
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Tilgeil tuaighe"
 
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Èideadh calpa meatailt gaisgich"
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Tilg tuagh gus barrachd dochann airm dhlùth a dhèanamh."
 
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Èideadh calpa meatailt maoir-choille"
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Sluagh-ghairm"
 
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Fèileadh sìoda mholaich draoidh"
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr ""
+"Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean greis."
 
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Bòtannan meatailt gaisgich"
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Ribe mathain"
 
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Bòtannan meatailt maoir-choille"
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr ""
+"Nì an ribe seo dochann airm astair a bharrachd is chan urrainn dhan nàmhaid "
+"gluasad tuilleadh."
 
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Bòtannan sìoda mholaich draoidh"
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Ioma-losgadh"
 
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Dòrnagan meatailt gaisgich"
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot three projectiles simultaneously."
+msgstr "Loisg trì saighdean aig an aon àm."
 
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Dòrnagan meatailt maoir-choille"
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Sùl a’ mhadaidh-allaidh"
 
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Muinchillean sìoda mholaich draoidh"
-
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Crios leathair tighearna-chogaidh do bhaoghlair"
-
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "Crochag gìomanaich do bhaoghlair"
-
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "Leabhar-gheasan àrd-dhraoidh do bhaoghlair"
-
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Claidheamh mòr gaisgich"
-
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Bogha mòr maoir-choille"
-
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Bata mòr draoidh"
-
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Sgiath tùir an ridire rìoghail"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Fàinne na h-ifrinne do bhaoghlair"
-
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Fàinne an eigh-shrutha do bhaoghlair"
-
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "Fàinne a’ mhòr-dhealanaich do bhaoghlair"
-
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Fàinne na falamhachd do bhaoghlair"
-
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Fàinne an eòlaiche do bhaoghlair"
-
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Fàinne na maoine do bhaoghlair"
-
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Fàinne na taise do bhaoghlair"
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr ""
+"Bidh e nas fhasa dhut bualadh air na nàimhdean agus an leòn gu h-èiginneach."
 
 #: ../powers/base/ranger/rapid_fire.txt:1
 msgid "Rapid Fire"
@@ -4550,14 +4766,9 @@ msgstr "Losgadh"
 msgid "Basic ranged attack."
 msgstr "Ionnsaigh astair bhunasach."
 
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Sùl a’ mhadaidh-allaidh"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr ""
-"Bidh e nas fhasa dhut bualadh air na nàimhdean agus an leòn gu h-èiginneach."
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Gluais nas luaithe greis."
 
 #: ../powers/base/ranger/ember_shot.txt:1
 msgid "Ember Shot"
@@ -4570,24 +4781,6 @@ msgid ""
 msgstr ""
 "Seall èibhleagan losgach air astar beag. Èifeachdach an aghaidh nàimhdean "
 "armaichte."
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Ioma-losgadh"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Loisg trì saighdean aig an aon àm."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Ribe mathain"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr ""
-"Nì an ribe seo dochann airm astair a bharrachd is chan urrainn dhan nàmhaid "
-"gluasad tuilleadh."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -4608,149 +4801,19 @@ msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr ""
 "Loisg saighead a bhios coma mu armachd agus a thèid tro iomadh nàmhaid."
 
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Gluais nas luaithe greis."
+#: ../powers/categories/magician.txt:7
+msgid "Channel"
+msgstr "Geas"
 
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Eighreachadh"
+#: ../powers/categories/magician.txt:10
+msgid "Basic magic attack."
+msgstr "Ionnsaigh dhraoidheach bhunasach."
 
-#: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr ""
-"Cruthaich leus le iomadh pristeal fuachd uabhasaich a chuireas maille air "
-"nàimhdean."
-
-#: ../powers/base/magician/energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Sruthadh lùiths"
-
-#: ../powers/base/magician/energy_flow.txt:2
-msgid "Mana reserves are increased and regenerate faster."
-msgstr ""
-"Gheibh thu stòras nas motha de mana agus thèid ath-ghintinn dhut nas "
-"luaithe."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Buille tàirneanach"
-
-#: ../powers/base/magician/thunderstrike.txt:4
+#: ../powers/categories/quest.txt:4
 msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"Performing the ritual at the Red Altar has granted you faster regeneration."
 msgstr ""
-"Boillsgidh dealan o na speuran aig astar le teans math gun dèan e dochann "
-"èiginneach air nàimhdean air a bheil cion-gluasaid."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Peilear deighe"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Loisg cnap deighe a chuireas maille air na nàimhdean."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Bàla teine"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Tilg bàla teine a nì dochann inntinne a bharrachd."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Dealan"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr ""
-"Tilg bàla dealain a bhios èifeachdach gu h-àraidh an aghaidh nàimhdean air a"
-" bheil cion-gluasaid."
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Cruthaich sgiath cumhachd a cheapas dochann."
-
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Losgadh"
-
-#: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Gread iomadh nàmhaid air raon fad air falbh le teine."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Sluagh-ghairm"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr ""
-"Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean greis."
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Crith-thalmhainn"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr ""
-"Buail na nàimhdean faisg ort air ais le teans gun cuir thu an tuainealach "
-"orra."
-
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Tilgeil tuaighe"
-
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Tilg tuagh gus barrachd dochann airm dhlùth a dhèanamh."
-
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Balla cloiche"
-
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr ""
-"Seas an aghaidh ionnsaighean nas treasa le barrachd slàinte is sùghadh."
-
-#: ../powers/base/warrior/throw_knife.txt:1
-msgid "Throw Knife"
-msgstr "Tilgeil sgeine"
-
-#: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Tilg sgian gus dochann airm dhlùth lùghdaichte a dhèanamh."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Buille fala"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Thoir buille cumhachdach a nì lot a shileas fala."
-
-#: ../powers/base/warrior/cleave.txt:1
-msgid "Cleave"
-msgstr "Spealgadh"
-
-#: ../powers/base/warrior/cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Thoir ionnsaigh air gach nàmhaid le gluasad leathann."
-
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Bualadh sgèithe"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Dèan cruinn-leum air na nàimhdean, ’gan spleuchdadh leis an neart."
+"Thug an deas-ghnàth aig an altair dhearg ath-ghintinn nas luaithe dhut."
 
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
@@ -4759,20 +4822,6 @@ msgstr "Buille"
 #: ../powers/categories/warrior.txt:10
 msgid "Basic melee attack."
 msgstr "Ionnsaigh dhlùth bhunasach."
-
-#: ../powers/categories/quest.txt:4
-msgid ""
-"Performing the ritual at the Red Altar has granted you faster regeneration."
-msgstr ""
-"Thug an deas-ghnàth aig an altair dhearg ath-ghintinn nas luaithe dhut."
-
-#: ../powers/categories/magician.txt:7
-msgid "Channel"
-msgstr "Geas"
-
-#: ../powers/categories/magician.txt:10
-msgid "Basic magic attack."
-msgstr "Ionnsaigh dhraoidheach bhunasach."
 
 #: ../powers/trees/default.txt:11
 msgid "Magician"
