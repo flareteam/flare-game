@@ -4,7 +4,6 @@ height=100
 tilewidth=64
 tileheight=32
 orientation=isometric
-background_color=0,0,0,255
 hero_pos=97,8
 music=music/dungeon_theme.ogg
 parallax_layers=maps/parallax/fog.txt
@@ -682,7 +681,9 @@ loot=loot/level_14.txt
 loot_count=4,5
 mapmod=object,10,17,160
 repeat=false
+requires_not_status=emp_torture_chest2
 requires_status=emp_torture_barriers
+set_status=emp_torture_chest2
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
@@ -696,7 +697,9 @@ loot=loot/level_14.txt
 loot_count=4,5
 mapmod=object,9,42,161
 repeat=false
+requires_not_status=emp_torture_chest1
 requires_status=emp_torture_barriers
+set_status=emp_torture_chest1
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
@@ -718,7 +721,7 @@ mapmod=collision,78,87,3;background,78,87,50;background,79,87,0
 repeat=false
 requires_not_status=emp_torture_traps
 save_game=true
-set_status=emp_torture_traps
+set_status=emp_torture_traps,emp_torture_save
 soundfx=soundfx/door_open.ogg
 
 [event]
@@ -769,6 +772,38 @@ activate=on_load
 requires_not_status=emp_torture_barriers
 requires_status=emp_torture_finish
 script=scripts/reset_torture.txt
+
+[event]
+# remove save flag when leaving map
+type=event
+location=4,0,1,1
+activate=on_mapexit
+unset_status=emp_torture_save,emp_vohn_defeated
+
+[event]
+# reset statuses
+type=event
+location=6,0,1,1
+activate=on_load
+requires_not_status=emp_torture_save
+unset_status=emp_torture_chest1,emp_torture_chest2,emp_vohn_defeated
+
+[event]
+# chest 1 open (on_load)
+type=event
+location=0,2,1,1
+activate=on_load
+mapmod=object,9,42,161
+repeat=false
+requires_status=emp_torture_chest1,emp_torture_save
+
+[event]
+# chest 2 open (on_load)
+type=event
+location=0,3,1,1
+activate=on_load
+mapmod=object,10,17,160
+requires_status=emp_torture_chest2,emp_torture_save
 
 [enemy]
 type=enemy
@@ -943,10 +978,23 @@ level=14
 number=3
 
 [enemy]
+# vohn (save flag set)
 type=enemy
 location=9,29,1,1
 category=vohn
 invincible_requires_not_status=emp_torture_barriers
 level=15
 number=1
+requires_not_status=emp_vohn_defeated
+requires_status=emp_torture_save
+
+[enemy]
+# vohn
+type=enemy
+location=9,29,1,1
+category=vohn
+invincible_requires_not_status=emp_torture_barriers
+level=15
+number=1
+requires_not_status=emp_torture_save
 

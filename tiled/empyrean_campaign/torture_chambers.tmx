@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="102" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="75">
+<map version="1.0" tiledversion="2017.07.26" orientation="isometric" renderorder="right-down" width="102" height="100" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="82">
  <properties>
   <property name="hero_pos" value="97,8"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -657,7 +657,9 @@
     <property name="loot_count" value="4,5"/>
     <property name="mapmod" value="object,10,17,160"/>
     <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_torture_chest2"/>
     <property name="requires_status" value="emp_torture_barriers"/>
+    <property name="set_status" value="emp_torture_chest2"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
@@ -670,7 +672,9 @@
     <property name="loot_count" value="4,5"/>
     <property name="mapmod" value="object,9,42,161"/>
     <property name="repeat" value="false"/>
+    <property name="requires_not_status" value="emp_torture_chest1"/>
     <property name="requires_status" value="emp_torture_barriers"/>
+    <property name="set_status" value="emp_torture_chest1"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Treasure Chest"/>
    </properties>
@@ -690,7 +694,7 @@
     <property name="repeat" value="false"/>
     <property name="requires_not_status" value="emp_torture_traps"/>
     <property name="save_game" value="true"/>
-    <property name="set_status" value="emp_torture_traps"/>
+    <property name="set_status" value="emp_torture_traps,emp_torture_save"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
    </properties>
   </object>
@@ -736,6 +740,34 @@
     <property name="requires_not_status" value="emp_torture_barriers"/>
     <property name="requires_status" value="emp_torture_finish"/>
     <property name="script" value="scripts/reset_torture.txt"/>
+   </properties>
+  </object>
+  <object id="78" name="remove save flag when leaving map" type="event" x="128" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_mapexit"/>
+    <property name="unset_status" value="emp_torture_save,emp_vohn_defeated"/>
+   </properties>
+  </object>
+  <object id="79" name="reset statuses" type="event" x="192" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="requires_not_status" value="emp_torture_save"/>
+    <property name="unset_status" value="emp_torture_chest1,emp_torture_chest2,emp_vohn_defeated"/>
+   </properties>
+  </object>
+  <object id="80" name="chest 1 open (on_load)" type="event" x="0" y="64" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="object,9,42,161"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_status" value="emp_torture_chest1,emp_torture_save"/>
+   </properties>
+  </object>
+  <object id="81" name="chest 2 open (on_load)" type="event" x="0" y="96" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="mapmod" value="object,10,17,160"/>
+    <property name="requires_status" value="emp_torture_chest2,emp_torture_save"/>
    </properties>
   </object>
  </objectgroup>
@@ -912,12 +944,23 @@
     <property name="number" value="3"/>
    </properties>
   </object>
-  <object id="72" type="enemy" x="288" y="928" width="32" height="32">
+  <object id="72" name="vohn (save flag set)" type="enemy" x="288" y="928" width="32" height="32">
    <properties>
     <property name="category" value="vohn"/>
     <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
     <property name="level" value="15"/>
     <property name="number" value="1"/>
+    <property name="requires_not_status" value="emp_vohn_defeated"/>
+    <property name="requires_status" value="emp_torture_save"/>
+   </properties>
+  </object>
+  <object id="75" name="vohn" type="enemy" x="288" y="928" width="32" height="32">
+   <properties>
+    <property name="category" value="vohn"/>
+    <property name="invincible_requires_not_status" value="emp_torture_barriers"/>
+    <property name="level" value="15"/>
+    <property name="number" value="1"/>
+    <property name="requires_not_status" value="emp_torture_save"/>
    </properties>
   </object>
  </objectgroup>
