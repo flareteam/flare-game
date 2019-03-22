@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Run this script in the language directory to update the pot and all *.po files
 
 DO_MERGE=true
