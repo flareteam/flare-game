@@ -81,6 +81,23 @@ text_font=255,255,255,font_regular
 text_shadow=true
 text=Mana Crystal
 
+# Input: Mushrooms
+[image]
+image_pos=32,192
+image_icon=516
+
+[button]
+button_image=images/menus/buttons/button_plus.png
+button_pos=64,192
+requires_status=emp_alchemy_3
+script=scripts/crafting/alchemy/add_3.txt
+
+[text]
+text_pos=88,196,136,left
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Mushrooms
+
 # slot 0
 [image]
 image_pos=304,48
@@ -99,6 +116,12 @@ image_pos=256,96
 image_icon=514
 requires_status=emp_alchemy_slot1_2
 
+# slot 1, mushrooms
+[image]
+image_pos=256,96
+image_icon=516
+requires_status=emp_alchemy_slot1_3
+
 # slot 2, aloe vera
 [image]
 image_pos=304,96
@@ -111,6 +134,12 @@ image_pos=304,96
 image_icon=514
 requires_status=emp_alchemy_slot2_2
 
+# slot 3, mushrooms
+[image]
+image_pos=304,96
+image_icon=516
+requires_status=emp_alchemy_slot2_3
+
 # slot 3, aloe vera
 [image]
 image_pos=352,96
@@ -122,6 +151,12 @@ requires_status=emp_alchemy_slot3_1
 image_pos=352,96
 image_icon=514
 requires_status=emp_alchemy_slot3_2
+
+# slot 3, mushrooms
+[image]
+image_pos=352,96
+image_icon=516
+requires_status=emp_alchemy_slot3_3
 
 # output, hp potion
 [image]
@@ -148,4 +183,56 @@ text_font=255,255,255,font_regular
 text_shadow=true
 text=Mana Potion
 requires_status=emp_alchemy_output_1
+
+# output, stamina potion
+[image]
+image_pos=304,208
+image_icon=0
+requires_status=emp_alchemy_output_2
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Stamina Potion
+requires_status=emp_alchemy_output_2
+
+# output, restoration potion
+[image]
+image_pos=304,208
+image_icon=0
+requires_status=emp_alchemy_output_3
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Restoration Potion
+requires_status=emp_alchemy_output_3
+
+# output, treasure potion
+[image]
+image_pos=304,208
+image_icon=0
+requires_status=emp_alchemy_output_4
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Treasure Potion
+requires_status=emp_alchemy_output_4
+
+# output, elemental potion
+[image]
+image_pos=304,208
+image_icon=0
+requires_status=emp_alchemy_output_5
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_normal
+text_shadow=true
+text=Elemental Potion
+requires_status=emp_alchemy_output_5
 

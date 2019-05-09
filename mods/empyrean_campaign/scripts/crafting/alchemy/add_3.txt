@@ -1,0 +1,25 @@
+# add Mushrooms
+
+[event]
+requires_status=emp_alchemy_slot1_fill
+requires_status=emp_alchemy_slot2_fill
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_slot3_3
+set_status=emp_alchemy_slot3_fill
+unset_status=emp_alchemy_3
+
+[event]
+requires_status=emp_alchemy_slot1_fill
+requires_not_status=emp_alchemy_slot2_fill
+set_status=emp_alchemy_slot2_3
+set_status=emp_alchemy_slot2_fill
+unset_status=emp_alchemy_3
+
+[event]
+requires_not_status=emp_alchemy_slot1_fill
+set_status=emp_alchemy_slot1_3
+set_status=emp_alchemy_slot1_fill
+unset_status=emp_alchemy_3
+
+[event]
+script=scripts/crafting/alchemy/check_resources.txt

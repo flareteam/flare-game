@@ -10,5 +10,29 @@ requires_status=emp_alchemy_output_1
 remove_item=750,752
 reward_item=3,1
 
+# stamina potion
+[event]
+requires_status=emp_alchemy_output_2
+remove_item=750,754
+reward_item=775,1
+
+# restoration potion
+[event]
+requires_status=emp_alchemy_output_3
+remove_item=750,751,752
+reward_item=776,1
+
+# treasure potion
+[event]
+requires_status=emp_alchemy_output_4
+remove_item=750,751,754
+reward_item=777,1
+
+# elemental potion
+[event]
+requires_status=emp_alchemy_output_5
+remove_item=750,752,754
+reward_item=778,1
+
 [event]
 script=scripts/crafting/alchemy/check_resources.txt

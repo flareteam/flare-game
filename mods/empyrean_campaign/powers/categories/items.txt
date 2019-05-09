@@ -145,3 +145,63 @@ cooldown=20s
 post_effect=reflect_scroll,100,15s
 post_effect=reflect_scroll_dmg,25,15s
 remove_effect=shield,0
+
+[power]
+id=269
+type=fixed
+icon=0
+name=Stamina Potion
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=775
+cooldown=500ms
+buff=true
+post_effect=stamina_potion_icon,0,60s
+post_effect=hp_regen,300,60s
+post_effect=mp_regen,30,60s
+post_effect=speed,110,60s
+
+[power]
+id=270
+type=fixed
+icon=0
+name=Restoration Potion
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=776
+cooldown=500ms
+buff=true
+post_effect=hp_restore,25,33ms
+post_effect=mp_restore,25,33ms
+# TODO requires_hpmp_state=any?
+
+[power]
+id=271
+type=fixed
+icon=0
+name=Treasure Potion
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=777
+cooldown=500ms
+buff=true
+post_effect=treasure_potion_icon,0,60s
+post_effect=item_find,400,60s
+post_effect=currency_find,50,60s
+
+[power]
+id=272
+type=fixed
+icon=0
+name=Elemental Potion
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=778
+cooldown=500ms
+buff=true
+post_effect=elemental_potion_icon,0,60s
+post_effect=fire_resist,50,60s
+post_effect=ice_resist,50,60s
+post_effect=lightning_resist,50,60s
+post_effect=dark_resist,50,60s
+
