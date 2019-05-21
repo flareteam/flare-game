@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flare fantasycore\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 10:05+\n"
+"POT-Creation-Date: 2019-05-21 15:23+\n"
 "PO-Revision-Date: 2018-03-11 21:22+0000\n"
 "Last-Translator: GunChleoc <fios@foranagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -13,7 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Poedit 2.0.6\n"
 
 #: ../items/items.txt:8
@@ -44,31 +45,31 @@ msgstr "Seun Mhic an Truisg"
 msgid "Etched runes surround this talisman"
 msgstr "Tha rùn-sgrìobhadh snaidhte air an t-seun seo"
 
-#: ../items/items.txt:98
+#: ../items/items.txt:97
 msgid "Scathelocke's Spellbook"
 msgstr "Leabhar-gheasan Dhubhghlais"
 
-#: ../items/items.txt:109
+#: ../items/items.txt:108
 msgid "Scathelocke's Key"
 msgstr "Iuchair Dhubhghlais"
 
-#: ../items/items.txt:112
+#: ../items/items.txt:111
 msgid "Opens Scathelocke's Runed Chest"
 msgstr "Fosgail ciste rùn-sgrìobhte Dhubhghlais"
 
-#: ../items/items.txt:118
+#: ../items/items.txt:117
 msgid "Vesuvvio's Key"
 msgstr "Iuchair Bheniamin Teine"
 
-#: ../items/items.txt:121
+#: ../items/items.txt:120
 msgid "Opens Vesuvvio's Runed Chest"
 msgstr "Fosgail ciste rùn-sgrìobhte Bheniamin Teine"
 
-#: ../items/items.txt:127
+#: ../items/items.txt:126
 msgid "Grisbon's Key"
 msgstr "Iuchair Ghaothraidh"
 
-#: ../items/items.txt:130
+#: ../items/items.txt:129
 msgid "Opens Grisbon's Runed Chest"
 msgstr "Fosgail ciste rùn-sgrìobhte Ghaothraidh"
 
@@ -105,32 +106,47 @@ msgid "Brute"
 msgstr "Brùid"
 
 #: ../engine/classes.txt:7
-msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
-msgstr "Cuiridh brùidean an earbsa ann an neart na bodhaige is airm dlùtha gus nàimhdean a mhilleadh. Prìomh-bhuadh: bodhaig"
+msgid ""
+"Brutes rely on physical strength and melee weapons to strike down foes. "
+"Primary attribute: Physical"
+msgstr ""
+"Cuiridh brùidean an earbsa ann an neart na bodhaige is airm dlùtha gus "
+"nàimhdean a mhilleadh. Prìomh-bhuadh: bodhaig"
 
 #: ../engine/classes.txt:15
 msgid "Adept"
 msgstr "Innleachdach"
 
 #: ../engine/classes.txt:16
-msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
-msgstr "Tha comasan nàdarra aig innleachdaich gus geasan a chur. Prìomh-bhuadh: inntinn"
+msgid ""
+"Adepts have natural abilities in casting magical spells. Primary attribute: "
+"Mental"
+msgstr ""
+"Tha comasan nàdarra aig innleachdaich gus geasan a chur. Prìomh-bhuadh: "
+"inntinn"
 
 #: ../engine/classes.txt:25
 msgid "Scout"
 msgstr "Rabhadair"
 
 #: ../engine/classes.txt:26
-msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
-msgstr "Tha rabhadairean eòlach air airm astair is pongalachd sa chòmhrag. Prìomh-bhuadh: ionnsaigh"
+msgid ""
+"Scouts specialize in range weaponry and combat accuracy. Primary attribute: "
+"Offense"
+msgstr ""
+"Tha rabhadairean eòlach air airm astair is pongalachd sa chòmhrag. Prìomh-"
+"bhuadh: ionnsaigh"
 
 #: ../engine/classes.txt:35
 msgid "Keeper"
 msgstr "Glèidheadair"
 
 #: ../engine/classes.txt:36
-msgid "Keepers focus on defensive powers for survival. Primary attribute: Defense"
-msgstr "Tha glèidheadairean ag amas air cumhachdan dìona airson mairsinn beò. Prìomh-bhuadh: dìon"
+msgid ""
+"Keepers focus on defensive powers for survival. Primary attribute: Defense"
+msgstr ""
+"Tha glèidheadairean ag amas air cumhachdan dìona airson mairsinn beò. Prìomh-"
+"bhuadh: dìon"
 
 #: ../engine/classes.txt:44
 msgid "Wanderer"
@@ -138,7 +154,8 @@ msgstr "Taistealach"
 
 #: ../engine/classes.txt:45
 msgid "Wanderers choose their own paths. Primary attribute: custom"
-msgstr "Taghaidh taistealaich an t-slighe aca fhèin. Prìomh-bhuadh: gnàthaichte"
+msgstr ""
+"Taghaidh taistealaich an t-slighe aca fhèin. Prìomh-bhuadh: gnàthaichte"
 
 #: ../engine/titles.txt:4
 msgid "Grand Master"
@@ -436,423 +453,578 @@ msgstr "Corp coisiche deighe"
 msgid "Rotting Zombie"
 msgstr "Corp coisiche a’ lobhadh"
 
-#: ../maps/ancient_temple.txt:9
+#: ../maps/ancient_temple.txt:11
 msgid "Ancient Temple"
 msgstr "Teampall àrsaidh"
 
-#: ../maps/ancient_temple.txt:352
+#: ../maps/ancient_temple.txt:354
 msgid "Frontier Plains"
 msgstr "Machair crìche"
 
-#: ../maps/ancient_temple.txt:464
+#: ../maps/ancient_temple.txt:466
 msgid "Treasure Chest"
 msgstr "Ciste ulaidh"
 
-#: ../maps/ancient_temple.txt:487
-msgid "Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
-msgstr "Sgiamh nàdar nam fiaclan is spògan dearga; sgrìodan an aghaidh na creuda seo"
+#: ../maps/ancient_temple.txt:489
+msgid ""
+"Tho' Nature, red in tooth and claw; With ravine, shriek'd against his creed"
+msgstr ""
+"Sgiamh nàdar nam fiaclan is spògan dearga; sgrìodan an aghaidh na creuda seo"
 
-#: ../maps/ancient_temple.txt:490
+#: ../maps/ancient_temple.txt:492
 msgid "In Memoriam"
 msgstr "Mar chuimhneachan"
 
-#: ../maps/ancient_temple.txt:654
+#: ../maps/ancient_temple.txt:656
 msgid "Ancient Temple waypoint discovered."
 msgstr "Lorg thu puing-thurais an teampaill àrsaidh."
 
-#: ../maps/ancient_temple.txt:667
+#: ../maps/ancient_temple.txt:669
 msgid "Warp Zone"
 msgstr "Cearcall-siubhail"
 
-#: ../maps/averguard_academy.txt:10
+#: ../maps/averguard_academy.txt:11
 msgid "Averguard Academy"
 msgstr "Acadamaidh Geàrd na h-Aibhne"
 
-#: ../maps/averguard_academy.txt:340
+#: ../maps/averguard_academy.txt:341
 msgid "Averguard Atrium"
 msgstr "Ceàrnag Geàrd na h-Aibhne"
 
-#: ../maps/averguard_academy.txt:349
-msgid "\"Some say the Averguard Academy is the greatest collection of knowledge within the empire.\""
-msgstr "“Tha cuid a’ cumail a-mach gur e Acadamaidh Geàrd na h-Aibhne an cruinneachadh as motha de dh’eòlas san t-Impireachd.”"
+#: ../maps/averguard_academy.txt:350
+msgid ""
+"\"Some say the Averguard Academy is the greatest collection of knowledge "
+"within the empire.\""
+msgstr ""
+"“Tha cuid a’ cumail a-mach gur e Acadamaidh Geàrd na h-Aibhne an "
+"cruinneachadh as motha de dh’eòlas san t-Impireachd.”"
 
-#: ../maps/averguard_academy.txt:352
+#: ../maps/averguard_academy.txt:353
 msgid "Book Stand"
 msgstr "Seas-leabhraichean"
 
-#: ../maps/averguard_academy.txt:361
-msgid "\"Professor Langlier is High Sage of the Averguard.  Several volumes kept here are his own writings.\""
-msgstr "“’S e àrd-eòlach Geàrd na h-Aibhne a tha san Ollamh Mac an Truisg. Sgrìobh e fhèin chuid a leabhraichean a chumas sinn an-seo.”"
+#: ../maps/averguard_academy.txt:362
+msgid ""
+"\"Professor Langlier is High Sage of the Averguard.  Several volumes kept "
+"here are his own writings.\""
+msgstr ""
+"“’S e àrd-eòlach Geàrd na h-Aibhne a tha san Ollamh Mac an Truisg. Sgrìobh e "
+"fhèin chuid a leabhraichean a chumas sinn an-seo.”"
 
-#: ../maps/averguard_academy.txt:373
-msgid "\"The Academy is only open to oathkeeping members of the Averguard.  Few others know of its existence.\""
-msgstr "“Chan eil an acadamaidh fosgailte ach airson buill mhionnaichte aig Geàrd na h-Aibhne. Chan eil fios aig mòran dhuine eile gu bheil i ann.”"
+#: ../maps/averguard_academy.txt:374
+msgid ""
+"\"The Academy is only open to oathkeeping members of the Averguard.  Few "
+"others know of its existence.\""
+msgstr ""
+"“Chan eil an acadamaidh fosgailte ach airson buill mhionnaichte aig Geàrd na "
+"h-Aibhne. Chan eil fios aig mòran dhuine eile gu bheil i ann.”"
 
-#: ../maps/averguard_academy.txt:385
-msgid "\"The peasants could not be trusted with literacy.  Most gave up their books without incident.\""
-msgstr "“Cha b’ urrainnear earbsa a chur sna fo-dhaoine le comas leughaidh. Ghèill a’ mhòrchuid dhiubh na leabhraichean aca gun strì.”"
+#: ../maps/averguard_academy.txt:386
+msgid ""
+"\"The peasants could not be trusted with literacy.  Most gave up their books "
+"without incident.\""
+msgstr ""
+"“Cha b’ urrainnear earbsa a chur sna fo-dhaoine le comas leughaidh. Ghèill "
+"a’ mhòrchuid dhiubh na leabhraichean aca gun strì.”"
 
-#: ../maps/averguard_academy.txt:398
+#: ../maps/averguard_academy.txt:399
 msgid "This false book has a secret compartment."
 msgstr "Tha seotal dìomhair san leabhar fhuadain seo."
 
-#: ../maps/averguard_academy.txt:415
+#: ../maps/averguard_academy.txt:416
 msgid "Barrel"
 msgstr "Tunna"
 
-#: ../maps/averguard_academy.txt:463
+#: ../maps/averguard_academy.txt:464
 msgid "Crate"
 msgstr "Creat"
 
-#: ../maps/averguard_academy.txt:494
+#: ../maps/averguard_academy.txt:495
 msgid "This tomb glows with magical runes."
 msgstr "Tha an uaigh seo a’ luisneachadh le rùn-sgrìobhadh draoidheach."
 
-#: ../maps/averguard_academy.txt:505
+#: ../maps/averguard_academy.txt:506
 msgid "Langlier's Tomb"
 msgstr "Uaigh Mhic an Truisg"
 
-#: ../maps/averguard_atrium.txt:220
+#: ../maps/averguard_atrium.txt:221
 msgid "Goblin Warrens"
 msgstr "Broclach Bhòcan"
 
-#: ../maps/averguard_atrium.txt:229
+#: ../maps/averguard_atrium.txt:230
 msgid "Averguard Temple"
 msgstr "Teampall Geàrd na h-Aibhne"
 
-#: ../maps/averguard_atrium.txt:238
+#: ../maps/averguard_atrium.txt:239
 msgid "Averguard Prison"
 msgstr "Toll-dubh Geàrd na h-Aibhne"
 
-#: ../maps/averguard_atrium.txt:256
+#: ../maps/averguard_atrium.txt:257
 msgid "Averguard Complex"
 msgstr "Ionad Geàrd na h-Aibhne"
 
-#: ../maps/averguard_atrium.txt:279
+#: ../maps/averguard_atrium.txt:280
 msgid "Averguard Atrium waypoint discovered"
 msgstr "Lorg thu puing-thurais Ceàrnag Geàrd na h-Aibhne"
 
-#: ../maps/averguard_complex.txt:490
-msgid "This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To Get Eaten\". The rest of the book is unfinished."
-msgstr "Is “Trèanadh do bhiastaige” tiotal an leabhair seo. Tha “Mar a thèid d’ ithe” air Caibideil 1. Cha deach an corr dhen leabhar a chrìochnachadh."
+#: ../maps/averguard_complex.txt:491
+msgid ""
+"This book is entitled \"Training Your Antlion\". Chapter 1 is \"How Not To "
+"Get Eaten\". The rest of the book is unfinished."
+msgstr ""
+"Is “Trèanadh do bhiastaige” tiotal an leabhair seo. Tha “Mar a thèid d’ "
+"ithe” air Caibideil 1. Cha deach an corr dhen leabhar a chrìochnachadh."
 
-#: ../maps/averguard_complex.txt:629
+#: ../maps/averguard_complex.txt:630
 msgid "Switch System"
 msgstr "Siostam suidsidh"
 
-#: ../maps/averguard_prison.txt:375
+#: ../maps/averguard_prison.txt:376
 msgid "Switch"
 msgstr "Suidse"
 
-#: ../maps/averguard_prison.txt:384
-msgid "The last entry of this well-preserved journal reads: \"I feared it would come to this.  I knew the Warden's secrets but they would not be contained forever.\""
-msgstr "Seo an rud mu dheireadh a chaidh sgrìobhadh san leabhar-latha seo a chaidh a ghlèidheadh gu math: “B’ eagal leam gun tachradh seo. Bha mi eòlach air dìomhaireachd an neach-glèidhidh ach cha b’ urrainnear an cumail os ìosal gu bràth.”"
+#: ../maps/averguard_prison.txt:385
+msgid ""
+"The last entry of this well-preserved journal reads: \"I feared it would "
+"come to this.  I knew the Warden's secrets but they would not be contained "
+"forever.\""
+msgstr ""
+"Seo an rud mu dheireadh a chaidh sgrìobhadh san leabhar-latha seo a chaidh a "
+"ghlèidheadh gu math: “B’ eagal leam gun tachradh seo. Bha mi eòlach air "
+"dìomhaireachd an neach-glèidhidh ach cha b’ urrainnear an cumail os ìosal gu "
+"bràth.”"
 
-#: ../maps/averguard_temple.txt:455
-msgid "You insert the Averguard Key. Runes glow around the door, then fade. The door is still sealed."
-msgstr "Tha thu a’ cur Iuchair Geàrd na h-Aibhne a-steach. Tha rùn-sgrìobhaidh a’ tòiseachadh air luisneachadh mun doras ach crìonaidh e an uairsin. Tha an doras glaiste fhathast."
+#: ../maps/averguard_temple.txt:457
+msgid ""
+"You insert the Averguard Key. Runes glow around the door, then fade. The "
+"door is still sealed."
+msgstr ""
+"Tha thu a’ cur Iuchair Geàrd na h-Aibhne a-steach. Tha rùn-sgrìobhaidh a’ "
+"tòiseachadh air luisneachadh mun doras ach crìonaidh e an uairsin. Tha an "
+"doras glaiste fhathast."
 
-#: ../maps/averguard_temple.txt:461
+#: ../maps/averguard_temple.txt:463
 msgid "Sealed Temple Door"
 msgstr "Doras teampaill glaiste"
 
-#: ../maps/averguard_temple.txt:470
-msgid "You read aloud the runes on Langlier's Talisman. The Avergard Key begins to glow!"
-msgstr "Tha thu a’ leughadh an rùn-sgrìobhadh air Seun Mhic an Truisg os àrd. Tòisichidh Iuchair Geàrd na h-Aibhne air luisneachadh!"
+#: ../maps/averguard_temple.txt:472
+msgid ""
+"You read aloud the runes on Langlier's Talisman. The Avergard Key begins to "
+"glow!"
+msgstr ""
+"Tha thu a’ leughadh an rùn-sgrìobhadh air Seun Mhic an Truisg os àrd. "
+"Tòisichidh Iuchair Geàrd na h-Aibhne air luisneachadh!"
 
-#: ../maps/averguard_temple.txt:477
+#: ../maps/averguard_temple.txt:479
 msgid "Activate Talisman"
 msgstr "Gnìomhaich seun"
 
-#: ../maps/averguard_temple.txt:495
-msgid "\"Some said Sir Maddox cared too much for the peasants.  He would not quarantine, saying the villagers did not deserve to die locked away.\""
-msgstr "“Bha cuid dhen bheachd gun robh an Ridire Eòghann ro mheasail air na fo-dhaoine. Dhiùlt e gach cuarantain is esan a’ cumail a-mach nach toilleadh muinntir a’ bhaile bàs fhaighinn air an glasadh a-mach.”"
+#: ../maps/averguard_temple.txt:497
+msgid ""
+"\"Some said Sir Maddox cared too much for the peasants.  He would not "
+"quarantine, saying the villagers did not deserve to die locked away.\""
+msgstr ""
+"“Bha cuid dhen bheachd gun robh an Ridire Eòghann ro mheasail air na fo-"
+"dhaoine. Dhiùlt e gach cuarantain is esan a’ cumail a-mach nach toilleadh "
+"muinntir a’ bhaile bàs fhaighinn air an glasadh a-mach.”"
 
-#: ../maps/averguard_temple.txt:506
-msgid "\"Maddox died of the plague in 638.  After attempts to magically revive him failed he was sealed deep behind the temple.\""
-msgstr "“Chaochail an Lighiche leis a’ phlàigh ann an 638. Nuair a dh’fhàillig le gach oidhirp beatha a thoirt dhà a-rithist le draoidheachd, chaidh a ghlasadh gu domhain air cùlaibh an teampaill.”"
+#: ../maps/averguard_temple.txt:508
+msgid ""
+"\"Maddox died of the plague in 638.  After attempts to magically revive him "
+"failed he was sealed deep behind the temple.\""
+msgstr ""
+"“Chaochail an Lighiche leis a’ phlàigh ann an 638. Nuair a dh’fhàillig le "
+"gach oidhirp beatha a thoirt dhà a-rithist le draoidheachd, chaidh a "
+"ghlasadh gu domhain air cùlaibh an teampaill.”"
 
-#: ../maps/averguard_temple.txt:517
+#: ../maps/averguard_temple.txt:519
 msgid "This chest is locked."
 msgstr "Tha a’ chiste glaiste."
 
-#: ../maps/averguard_temple.txt:538
-msgid "A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue us all\""
-msgstr "Tha sanas fon ìomhaigh air a bheil “Ridire Eòghann an Lighiche, guma till e gus ar sàbhaladh uile”"
+#: ../maps/averguard_temple.txt:540
+msgid ""
+"A plaque under the statue reads \"Sir Evan Maddox, may he return to rescue "
+"us all\""
+msgstr ""
+"Tha sanas fon ìomhaigh air a bheil “Ridire Eòghann an Lighiche, guma till e "
+"gus ar sàbhaladh uile”"
 
-#: ../maps/averguard_temple.txt:546
-msgid "A ghastly voice reverberates from the next chamber.  \"What fool disturbs my tomb?!\""
-msgstr "Tha guth uabhasach a’ gairm on ath sheòmar. “Cò an amadan a chuireas dragh air m’ uaigh?!”"
-
-#: ../maps/averguard_temple.txt:555
-msgid "You wipe dust away from the tomb lid, revealing an inscription: \"Here lies Sir Evan Maddox\""
-msgstr "Tha thu a’ suathadh duslach far clàr an uaigh is chì thu sgrìobhadh ann: “Seo far bheil Ridire Eòghann an Lighiche ’na laighe”"
+#: ../maps/averguard_temple.txt:548
+msgid ""
+"A ghastly voice reverberates from the next chamber.  \"What fool disturbs my "
+"tomb?!\""
+msgstr ""
+"Tha guth uabhasach a’ gairm on ath sheòmar. “Cò an amadan a chuireas dragh "
+"air m’ uaigh?!”"
 
 #: ../maps/averguard_temple.txt:557
+msgid ""
+"You wipe dust away from the tomb lid, revealing an inscription: \"Here lies "
+"Sir Evan Maddox\""
+msgstr ""
+"Tha thu a’ suathadh duslach far clàr an uaigh is chì thu sgrìobhadh ann: "
+"“Seo far bheil Ridire Eòghann an Lighiche ’na laighe”"
+
+#: ../maps/averguard_temple.txt:559
 msgid "Maddox's Tomb"
 msgstr "Uaigh an Lighiche"
 
-#: ../maps/averguard_temple.txt:579
+#: ../maps/averguard_temple.txt:581
 msgid "A locked gate is here, with a small keyhole in the center."
 msgstr "Tha geata dùinte an-seo le toll-iuchrach beag sa mheadhan."
 
-#: ../maps/brothers_lair_atrium.txt:9
+#: ../maps/brothers_lair_atrium.txt:11
 msgid "Brothers' Lair Atrium"
 msgstr "Ceàrnag Tèarmann nam Bràithrean"
 
-#: ../maps/brothers_lair_atrium.txt:190
+#: ../maps/brothers_lair_atrium.txt:192
 msgid "Brothers' Lair Ice Hall"
 msgstr "Talla Deighe nam Bràithrean"
 
-#: ../maps/brothers_lair_atrium.txt:200
+#: ../maps/brothers_lair_atrium.txt:202
 msgid "Brothers' Sacrifice Room"
 msgstr "Seòmar Ìobairt nam Bràithrean"
 
-#: ../maps/brothers_lair_atrium.txt:210
+#: ../maps/brothers_lair_atrium.txt:212
 msgid "Cave of Living Bones 2"
 msgstr "Uamh nan Cnàmhan Beòtha 2"
 
-#: ../maps/brothers_lair_atrium.txt:220
+#: ../maps/brothers_lair_atrium.txt:222
 msgid "Brothers' Lair Fire Hall"
 msgstr "Talla Teine nam Bràithrean"
 
-#: ../maps/brothers_lair_atrium.txt:230
+#: ../maps/brothers_lair_atrium.txt:232
 msgid "Brothers' Lair Wind Hall"
 msgstr "Talla Gaoithe nam Bràithrean"
 
-#: ../maps/brothers_lair_atrium.txt:260
+#: ../maps/brothers_lair_atrium.txt:262
 msgid "Brothers Lair Atrium waypoint discovered"
 msgstr "Lorg thu puing-thurais Ceàrnag Tèarmann nam Bràithrean"
 
-#: ../maps/brothers_lair_fire_hall.txt:361
+#: ../maps/brothers_lair_fire_hall.txt:363
 msgid "Runed Chest"
 msgstr "Ciste rùn-sgrìobhte"
 
-#: ../maps/brothers_lair_fire_hall.txt:383
-msgid "\"Today Pompeii got a little over-excited to meet me and blew himself up. So I had to go into the caves and catch myself a NEW antlion burster. Again. I think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
-msgstr "“Chaill Pompeii a cheann an-diugh ’gam tadhal is spreadh e. Mar sin, bha agam ri dol dha na h-uamhan agus spreadhadair biastaige ùr a ghlacadh ann. A-rithist. Cha chreids mi nach cuir mir ‘Cracatoa’ air an fhear seo. ~Beniamin Teine (am Milltear)”"
+#: ../maps/brothers_lair_fire_hall.txt:385
+msgid ""
+"\"Today Pompeii got a little over-excited to meet me and blew himself up. So "
+"I had to go into the caves and catch myself a NEW antlion burster. Again. I "
+"think I'm going to name this one 'Krakatoa'. ~Vesuvvio (the Destroyer)\""
+msgstr ""
+"“Chaill Pompeii a cheann an-diugh ’gam tadhal is spreadh e. Mar sin, bha "
+"agam ri dol dha na h-uamhan agus spreadhadair biastaige ùr a ghlacadh ann. A-"
+"rithist. Cha chreids mi nach cuir mir ‘Cracatoa’ air an fhear seo. ~Beniamin "
+"Teine (am Milltear)”"
 
-#: ../maps/brothers_lair_ice_hall.txt:292
+#: ../maps/brothers_lair_ice_hall.txt:294
 msgid "Suspicious Bookcase"
 msgstr "Preas-leabhraichean amharasach"
 
-#: ../maps/brothers_lair_ice_hall.txt:301
-msgid "\"When we could no longer stand the idiotic practices of our master, I hatched a plan to kill him. My brothers agreed the deed had to be done.\""
-msgstr "“Nuair nach b’ urrainn dhuinn cleachdaidhean amaideach ar maighstir fhulaing tuilleadh, dh’innlich mi plana gus a mharbhadh. Dh’aontaich mo bhràithrean rium gun robh feum air a’ ghnìomh seo.”"
+#: ../maps/brothers_lair_ice_hall.txt:303
+msgid ""
+"\"When we could no longer stand the idiotic practices of our master, I "
+"hatched a plan to kill him. My brothers agreed the deed had to be done.\""
+msgstr ""
+"“Nuair nach b’ urrainn dhuinn cleachdaidhean amaideach ar maighstir fhulaing "
+"tuilleadh, dh’innlich mi plana gus a mharbhadh. Dh’aontaich mo bhràithrean "
+"rium gun robh feum air a’ ghnìomh seo.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:313
-msgid "\"In accordance with our plan, G. asked the old fool to teach him about the preparation of corpses in the later stages of decay. Naturally, the corpse in question was a cleverly disguised bomb made by V.\""
-msgstr "“Dh’fhaighnich G. a-rèir ar plana dhan bhodach amaideach an dh’ionnsaicheadh e dha mu ullachadh nan corp air an crìonadh. Gu nàdarra, cha b’ e ach boma an riochd cuirp a bh’ ann air a dhèanamh le B. gu seòlta.”"
+#: ../maps/brothers_lair_ice_hall.txt:315
+msgid ""
+"\"In accordance with our plan, G. asked the old fool to teach him about the "
+"preparation of corpses in the later stages of decay. Naturally, the corpse "
+"in question was a cleverly disguised bomb made by V.\""
+msgstr ""
+"“Dh’fhaighnich G. a-rèir ar plana dhan bhodach amaideach an dh’ionnsaicheadh "
+"e dha mu ullachadh nan corp air an crìonadh. Gu nàdarra, cha b’ e ach boma "
+"an riochd cuirp a bh’ ann air a dhèanamh le B. gu seòlta.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:324
-msgid "\"My brothers and I wandered around for a few days. In an incredible stroke of luck, we encountered a master necromancer who, seeing the marks of banishment on our foreheads, took us as his apprentices.\""
-msgstr "“Chaidh mi fhìn ’s mo bhràithrean ’nar taistealaich greis. Nach sinne a bha fortanach gun do thachair sinn air marbh-dhraoidh maighstir a mhothaich comharraidhean an fhògraidh air ar leth-chinn is a ghabh sinn mar fhoghlamaichean.”"
+#: ../maps/brothers_lair_ice_hall.txt:326
+msgid ""
+"\"My brothers and I wandered around for a few days. In an incredible stroke "
+"of luck, we encountered a master necromancer who, seeing the marks of "
+"banishment on our foreheads, took us as his apprentices.\""
+msgstr ""
+"“Chaidh mi fhìn ’s mo bhràithrean ’nar taistealaich greis. Nach sinne a bha "
+"fortanach gun do thachair sinn air marbh-dhraoidh maighstir a mhothaich "
+"comharraidhean an fhògraidh air ar leth-chinn is a ghabh sinn mar "
+"fhoghlamaichean.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:327
+#: ../maps/brothers_lair_ice_hall.txt:329
 msgid "Bookcase"
 msgstr "Preas-leabhraichean"
 
-#: ../maps/brothers_lair_ice_hall.txt:336
-msgid "\"We grew swiftly under the tutelage of the necromancer. The more we learned, the more we realized we could do better than the short-sighted git.\""
-msgstr "“Dh’fhàs sinn gu luath fo ionnsachadh a’ mharbh-dhraoidh. Mas as motha a dh’ionnsaicheadh sinn ’s ann nas soilleire a dh’fhàs e ’nar beachd gum biodh sinn na b’ fhearr dheth às aonais a’ chrògaire a bhiodh goirid ’na lèirsinn.”"
+#: ../maps/brothers_lair_ice_hall.txt:338
+msgid ""
+"\"We grew swiftly under the tutelage of the necromancer. The more we "
+"learned, the more we realized we could do better than the short-sighted git."
+"\""
+msgstr ""
+"“Dh’fhàs sinn gu luath fo ionnsachadh a’ mharbh-dhraoidh. Mas as motha a "
+"dh’ionnsaicheadh sinn ’s ann nas soilleire a dh’fhàs e ’nar beachd gum biodh "
+"sinn na b’ fhearr dheth às aonais a’ chrògaire a bhiodh goirid ’na lèirsinn.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:348
-msgid "\"My brothers V. and G. used to go to a wizard's academy with me. We were top students until one day V. killed another student in a spontaneous fit of rage.\""
-msgstr "“B’ àbhaist do mo dhà bhràthair B. is G. a dhol gu acadamaidh dhraoidhean còmhla rium. Bhios sinn ’nar sàr-oileanaich mus do mharbh B. oileanach eile air bhoile latha a bha sin.”"
+#: ../maps/brothers_lair_ice_hall.txt:350
+msgid ""
+"\"My brothers V. and G. used to go to a wizard's academy with me. We were "
+"top students until one day V. killed another student in a spontaneous fit of "
+"rage.\""
+msgstr ""
+"“B’ àbhaist do mo dhà bhràthair B. is G. a dhol gu acadamaidh dhraoidhean "
+"còmhla rium. Bhios sinn ’nar sàr-oileanaich mus do mharbh B. oileanach eile "
+"air bhoile latha a bha sin.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:360
-msgid "\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and I decided to defend our brother. We were expelled too. The wizards magically marked us with a sign of banishment on our foreheads so that no wizard would dare teach us.\""
-msgstr "“Fhuair B. a’ bhròg air sàilleibh eucoir mar a shaoileadh tu. Ged nach robh sin glic, thug mi fhìn is G. romhainn ar bràthair a dhìon. Fhuair sinn a’ bhròg cuideachd. Chuir na draoidh comharran nam fògarrach air ar leth-chinn ach nach dùraigeadh draoidh sam bith ar teagasg.”"
+#: ../maps/brothers_lair_ice_hall.txt:362
+msgid ""
+"\"Naturally, V. was expelled for his crime. It was foolish of us, but G. and "
+"I decided to defend our brother. We were expelled too. The wizards magically "
+"marked us with a sign of banishment on our foreheads so that no wizard would "
+"dare teach us.\""
+msgstr ""
+"“Fhuair B. a’ bhròg air sàilleibh eucoir mar a shaoileadh tu. Ged nach robh "
+"sin glic, thug mi fhìn is G. romhainn ar bràthair a dhìon. Fhuair sinn a’ "
+"bhròg cuideachd. Chuir na draoidh comharran nam fògarrach air ar leth-chinn "
+"ach nach dùraigeadh draoidh sam bith ar teagasg.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:372
-msgid "\"G. suggested that each of us should take one of the halls in the old necromancer's lair.\""
-msgstr "“Mhol G. gun gabhadh gach fear dhuinn aon dhe na tallaichean san àite-còmhnaidh aig an t-seann mharbh-dhraoidh.”"
+#: ../maps/brothers_lair_ice_hall.txt:374
+msgid ""
+"\"G. suggested that each of us should take one of the halls in the old "
+"necromancer's lair.\""
+msgstr ""
+"“Mhol G. gun gabhadh gach fear dhuinn aon dhe na tallaichean san àite-"
+"còmhnaidh aig an t-seann mharbh-dhraoidh.”"
 
-#: ../maps/brothers_lair_ice_hall.txt:384
-msgid "\"It's days like today that make me wonder if I should go a step further and eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
-msgstr "“’S ann air làithean mar a tha seo gum bi mi a’ cnuasadh am bu chòir dhomh cur às dha B. agus G. cuideachd… tha iad a’ cur dragh orm. ~Dubhghlas”"
+#: ../maps/brothers_lair_ice_hall.txt:386
+msgid ""
+"\"It's days like today that make me wonder if I should go a step further and "
+"eliminate V. and G. too... they're getting on my nerves. ~Scathelocke\""
+msgstr ""
+"“’S ann air làithean mar a tha seo gum bi mi a’ cnuasadh am bu chòir dhomh "
+"cur às dha B. agus G. cuideachd… tha iad a’ cur dragh orm. ~Dubhghlas”"
 
-#: ../maps/brothers_lair_wind_hall.txt:194
+#: ../maps/brothers_lair_wind_hall.txt:196
 msgid "Rising Wind Switch"
 msgstr "Suidse gaoithe a’ dìreadh"
 
-#: ../maps/brothers_lair_wind_hall.txt:208
+#: ../maps/brothers_lair_wind_hall.txt:210
 msgid "Rising Fire Switch"
 msgstr "Suidse teine a’ dìreadh"
 
-#: ../maps/brothers_lair_wind_hall.txt:219
+#: ../maps/brothers_lair_wind_hall.txt:221
 msgid "Rising Ice Switch"
 msgstr "Suidse deighe a’ dìreadh"
 
-#: ../maps/brothers_lair_wind_hall.txt:233
+#: ../maps/brothers_lair_wind_hall.txt:235
 msgid "Falling Ice Switch"
 msgstr "Suidse deighe a’ teàrnadh"
 
-#: ../maps/brothers_lair_wind_hall.txt:244
+#: ../maps/brothers_lair_wind_hall.txt:246
 msgid "Falling Wind Switch"
 msgstr "Suidse gaoithe a’ teàrnadh"
 
-#: ../maps/brothers_lair_wind_hall.txt:258
+#: ../maps/brothers_lair_wind_hall.txt:260
 msgid "Falling Fire Switch"
 msgstr "Suidse teine a’ teàrnadh"
 
-#: ../maps/brothers_lair_wind_hall.txt:272
+#: ../maps/brothers_lair_wind_hall.txt:274
 msgid "Waiting Wind Switch"
 msgstr "Suidse gaoithe a’ feitheamh"
 
-#: ../maps/brothers_lair_wind_hall.txt:284
+#: ../maps/brothers_lair_wind_hall.txt:286
 msgid "Waiting Fire Switch"
 msgstr "Suidse teine a’ feitheamh"
 
-#: ../maps/brothers_lair_wind_hall.txt:298
+#: ../maps/brothers_lair_wind_hall.txt:300
 msgid "Waiting Ice Switch"
 msgstr "Suidse deighe a’ feitheamh"
 
-#: ../maps/brothers_lair_wind_hall.txt:307
+#: ../maps/brothers_lair_wind_hall.txt:309
 msgid "\"Fire is either Falling or Waiting. One element, one temperament.\""
 msgstr "“Bidh teine a’ teàrnadh no a’ feitheamh. Seo nàdar na dùile.”"
 
-#: ../maps/brothers_lair_wind_hall.txt:319
+#: ../maps/brothers_lair_wind_hall.txt:321
 msgid "\"Wind is not Rising. Wind is Falling on the firmament.\""
 msgstr "“Chan èirigh a’ ghaoth. Teàrnaidh a’ ghaoth air na speuran.”"
 
-#: ../maps/brothers_lair_wind_hall.txt:341
-msgid "\"People used to ask me why I use a sword rather than a wand. It never occurs to them that the metal blade can conduct and channel lightning as well as (or better than!) any enchanted twig. ~Grisbon\""
-msgstr "“B’ àbhaist do dhaoine faighneachd dhiom carson a chleachdas mi claidheamh seach slatan. Cha tig e a-steach orra idir gun tèid dealanach tro lann meatailt a cheart cho math ri tro gheug seunta sam bith (no fhiù ’s nas fhearr!). ~Gaothraidh”"
+#: ../maps/brothers_lair_wind_hall.txt:343
+msgid ""
+"\"People used to ask me why I use a sword rather than a wand. It never "
+"occurs to them that the metal blade can conduct and channel lightning as "
+"well as (or better than!) any enchanted twig. ~Grisbon\""
+msgstr ""
+"“B’ àbhaist do dhaoine faighneachd dhiom carson a chleachdas mi claidheamh "
+"seach slatan. Cha tig e a-steach orra idir gun tèid dealanach tro lann "
+"meatailt a cheart cho math ri tro gheug seunta sam bith (no fhiù ’s nas "
+"fhearr!). ~Gaothraidh”"
 
-#: ../maps/cave1.txt:10
+#: ../maps/cave1.txt:11
 msgid "Caves Level 1"
 msgstr "Uamhan leibheil 1"
 
-#: ../maps/cave1.txt:345
+#: ../maps/cave1.txt:346
 msgid "Lost Mines Level 1"
 msgstr "Mèinnean caillte leibheil 1"
 
-#: ../maps/cave1.txt:355
+#: ../maps/cave1.txt:356
 msgid "Mine Cart"
 msgstr "Cart mèinneir"
 
-#: ../maps/cave1.txt:396
-msgid "The crumbling walls of the south tunnel are held up by planks of rotting wood."
-msgstr "Tha na ballachan aig an tunail deas a’ dol a-bhàn is ’gan cumail shuas le bùird a’ lobhadh."
+#: ../maps/cave1.txt:397
+msgid ""
+"The crumbling walls of the south tunnel are held up by planks of rotting "
+"wood."
+msgstr ""
+"Tha na ballachan aig an tunail deas a’ dol a-bhàn is ’gan cumail shuas le "
+"bùird a’ lobhadh."
 
-#: ../maps/cave1.txt:488
-msgid "These goblins have captured a human trader.  Human bones are carefully arranged around the pillar in preparation for a goblin ritual."
-msgstr "Tha na bòcain seo air fear-malairt daonna a ghlacadh. Tha cnàmhan daonna air an sgeadachadh mun cholbh gus deas-ghnàth nam bòcan ullachadh."
+#: ../maps/cave1.txt:489
+msgid ""
+"These goblins have captured a human trader.  Human bones are carefully "
+"arranged around the pillar in preparation for a goblin ritual."
+msgstr ""
+"Tha na bòcain seo air fear-malairt daonna a ghlacadh. Tha cnàmhan daonna air "
+"an sgeadachadh mun cholbh gus deas-ghnàth nam bòcan ullachadh."
 
-#: ../maps/cave1.txt:497
+#: ../maps/cave1.txt:498
 msgid "Talrych says, \"You arrived just in time.  Please, take this.\""
 msgstr "Tha Talroch ag ràdh, “Thàinig sibh ri àm. Nach gabh sibh seo?”"
 
-#: ../maps/cave1.txt:506
+#: ../maps/cave1.txt:507
 msgid "The walls collapse inward and rubble blocks off the passage!"
-msgstr "Tha na ballachan air tuiteam a-steach agus tha an spruilleach a’ bacadh na slighe!"
+msgstr ""
+"Tha na ballachan air tuiteam a-steach agus tha an spruilleach a’ bacadh na "
+"slighe!"
 
-#: ../maps/cave_of_living_bones1.txt:9
+#: ../maps/cave_of_living_bones1.txt:11
 msgid "Cave of Living Bones 1"
 msgstr "Uamh nan Cnàmhan Beòtha 1"
 
-#: ../maps/cave_of_living_bones1.txt:334
+#: ../maps/cave_of_living_bones1.txt:336
 msgid "Ydrakka Pass"
 msgstr "Bealach Iodraca"
 
-#: ../maps/cave_of_living_bones2.txt:283
+#: ../maps/cave_of_living_bones2.txt:285
 msgid "Cave of Living Bones 3"
 msgstr "Uamh nan Cnàmhan Beòtha 3"
 
-#: ../maps/cave_of_living_bones2.txt:336
-msgid "This pillar is laced with cracks and crevices. Maybe with enough force it can be knocked down."
+#: ../maps/cave_of_living_bones2.txt:338
+msgid ""
+"This pillar is laced with cracks and crevices. Maybe with enough force it "
+"can be knocked down."
 msgstr "Tha an colbh làn sgoran. Dh’fhaoidte gun gabh a leagail le neart."
 
-#: ../maps/cave_of_living_bones2.txt:339
+#: ../maps/cave_of_living_bones2.txt:341
 msgid "Giant Pillar"
 msgstr "Mòr-cholbh"
 
-#: ../maps/cave_of_living_bones2.txt:348
+#: ../maps/cave_of_living_bones2.txt:350
 msgid "Run! You don't want to be caught in the blast of your own explosion!"
-msgstr "Ruith! Chan eil thu airson do leònadh leis an spreadhadh a rinn thu fhèin!"
+msgstr ""
+"Ruith! Chan eil thu airson do leònadh leis an spreadhadh a rinn thu fhèin!"
 
-#: ../maps/cave_of_living_bones2.txt:353
+#: ../maps/cave_of_living_bones2.txt:355
 msgid "Place Explosive"
 msgstr "Cuir stuth-spreadhaidh"
 
-#: ../maps/cave_of_living_bones3.txt:135
+#: ../maps/cave_of_living_bones3.txt:137
 msgid "Crate of Blasting Powder"
 msgstr "Creat fùdair-spreadhaidh"
 
-#: ../maps/frontier_outpost.txt:9
+#: ../maps/frontier_outpost.txt:11
 msgid "Frontier Outpost"
 msgstr "Gearastan crìche"
 
-#: ../maps/frontier_outpost.txt:261
+#: ../maps/frontier_outpost.txt:263
 msgid "Mineshaft Longsword"
 msgstr "Claidheamh fada sluic mèinne"
 
-#: ../maps/frontier_outpost.txt:280
-msgid "Shared Stash"
-msgstr "Stòr co-roinnte"
+#: ../maps/frontier_outpost.txt:282
+msgid "Stash"
+msgstr ""
 
-#: ../maps/frontier_outpost.txt:288
+#: ../maps/frontier_outpost.txt:290
 msgid "Frontier Outpost waypoint discovered."
 msgstr "Lorg thu puing-thurais gearastan crìch."
 
-#: ../maps/frontier_plains.txt:815
+#: ../maps/frontier_plains.txt:817
 msgid "River Encampment"
 msgstr "Campachadh aibhne"
 
-#: ../maps/frontier_plains.txt:833
+#: ../maps/frontier_plains.txt:835
 msgid "White Wind"
 msgstr "Gaoth gheal"
 
-#: ../maps/frontier_plains.txt:855
+#: ../maps/frontier_plains.txt:857
 msgid "Supplies"
 msgstr "Stòrasan"
 
-#: ../maps/goblin_warrens.txt:338
+#: ../maps/goblin_warrens.txt:339
 msgid "This book bears the seal of the Averguard"
 msgstr "Tha an seula aig Geàrd na h-Aibhne air an leabhar seo"
 
-#: ../maps/goblin_warrens.txt:352
-msgid "\"In the Age of Settlement, the Averguard Knights defended peasants against the chaos of the wilderness.\""
-msgstr "“Ri linn an tuineachaidh, bhiodh na ridirean aig Geàrd na h-Aibhne a’ dìon nam fo-dhuine an aghaidh cunnartan an fhàsaich.”"
+#: ../maps/goblin_warrens.txt:353
+msgid ""
+"\"In the Age of Settlement, the Averguard Knights defended peasants against "
+"the chaos of the wilderness.\""
+msgstr ""
+"“Ri linn an tuineachaidh, bhiodh na ridirean aig Geàrd na h-Aibhne a’ dìon "
+"nam fo-dhuine an aghaidh cunnartan an fhàsaich.”"
 
-#: ../maps/goblin_warrens.txt:364
-msgid "\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful clerics from the corners of the world were brought here.  By the time a cure was found it was too late.\""
-msgstr "“Bha Ridire Eòghann an Lighiche os cionn Geàrd na h-Aibhne nuair a thàinig a’ phlàigh oirnn. Chaidh clèirich chumhachdach o fheadh an t-saoghail a thoirt an-seo. Nuair a chaidh leigheas a lorg, bha e ro anmoch mar-thà.”"
+#: ../maps/goblin_warrens.txt:365
+msgid ""
+"\"Sir Evan Maddox led the Averguard when the plague struck.  Powerful "
+"clerics from the corners of the world were brought here.  By the time a cure "
+"was found it was too late.\""
+msgstr ""
+"“Bha Ridire Eòghann an Lighiche os cionn Geàrd na h-Aibhne nuair a thàinig "
+"a’ phlàigh oirnn. Chaidh clèirich chumhachdach o fheadh an t-saoghail a "
+"thoirt an-seo. Nuair a chaidh leigheas a lorg, bha e ro anmoch mar-thà.”"
 
-#: ../maps/lost_mines1.txt:365
-msgid "It looks like the necromancer has been raising the corpses of dead miners as his minions."
-msgstr "Tha e coltach gu bheil am marbh-dhraoidh air cuirp nam mèinnearan èirigh ach am biodh iad ’nan tràillean dha."
+#: ../maps/lost_mines1.txt:366
+msgid ""
+"It looks like the necromancer has been raising the corpses of dead miners as "
+"his minions."
+msgstr ""
+"Tha e coltach gu bheil am marbh-dhraoidh air cuirp nam mèinnearan èirigh ach "
+"am biodh iad ’nan tràillean dha."
 
-#: ../maps/lost_mines1.txt:428
+#: ../maps/lost_mines1.txt:429
 msgid "A natural underground river flows through this room."
 msgstr "Tha abhainn nàdarra fon talamh a’ sruthadh tron rum seo."
 
-#: ../maps/lost_mines1.txt:474
+#: ../maps/lost_mines1.txt:475
 msgid "Stalagmite Pillar"
 msgstr "Colbh aol-charraigh"
 
-#: ../maps/lost_mines1.txt:481
-msgid "The river appears to have swollen recently, covering the location where the tracks once were."
-msgstr "Tha an abhainn air meudachadh o chionn ghoirid a-rèir coltais is tha i a’ còmhdachadh an ionaid far am b’ àbhaist do na slighean a bhith ann."
+#: ../maps/lost_mines1.txt:482
+msgid ""
+"The river appears to have swollen recently, covering the location where the "
+"tracks once were."
+msgstr ""
+"Tha an abhainn air meudachadh o chionn ghoirid a-rèir coltais is tha i a’ "
+"còmhdachadh an ionaid far am b’ àbhaist do na slighean a bhith ann."
 
-#: ../maps/lost_mines1.txt:511
-msgid "The undead in this room are dressed in the remnants of shredded mining clothes."
-msgstr "Tha na closaich san rum seo air èideadh sna tha air fhàgail de dh’aodach mèinneir."
+#: ../maps/lost_mines1.txt:512
+msgid ""
+"The undead in this room are dressed in the remnants of shredded mining "
+"clothes."
+msgstr ""
+"Tha na closaich san rum seo air èideadh sna tha air fhàgail de dh’aodach "
+"mèinneir."
 
-#: ../maps/warp_zone.txt:271
+#: ../maps/warp_zone.txt:273
 msgid "Brothers Lair Atrium"
 msgstr "Ceàrnag Tèarmann nam Bràithrean"
 
-#: ../maps/white_wind.txt:455
+#: ../maps/white_wind.txt:457
 msgid "You spot the abandoned tower in the distance."
 msgstr "Mhothaich tu an tùr trèigte aig astar."
 
-#: ../maps/white_wind.txt:465
+#: ../maps/white_wind.txt:467
 msgid "Looking through the grate, you confirm the tower is empty."
 msgstr "Thug thu sùil tron gheata is dhearbhaich thu gu bheil an tùr falamh."
 
-#: ../maps/ydrakka_pass.txt:398
+#: ../maps/ydrakka_pass.txt:400
 msgid "Ydrakka Pass waypoint discovered."
 msgstr "Lorg thu puing-thurais Bealach Iodraca."
 
@@ -865,32 +1037,50 @@ msgid "Report your victory over Ukkonen to Guill in the Goblin Warrens."
 msgstr "Innis do Ghuill mu cheannsachadh Caochlaidh ann am Broclach Bhòcan."
 
 #: ../quests/averguard_keep.txt:19
-msgid "Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome."
-msgstr "Rannsaich àite-còmhnaidh Chaochlaidh ann am Broclach Bhòcan airson leabhar Geàrd na h-Aibhne a chaidh air chall."
+msgid ""
+"Search Ukkonen's lair in the Goblin Warrens for a missing Averguard Tome."
+msgstr ""
+"Rannsaich àite-còmhnaidh Chaochlaidh ann am Broclach Bhòcan airson leabhar "
+"Geàrd na h-Aibhne a chaidh air chall."
 
 #: ../quests/averguard_keep.txt:24
 msgid "Deliver the Averguard Tome to Guill in the Goblin Warrens."
-msgstr "Lìbhrig an leabhar aig Geàrd na h-Aibhne do Ghuill ann am Broclach Bhòcan."
+msgstr ""
+"Lìbhrig an leabhar aig Geàrd na h-Aibhne do Ghuill ann am Broclach Bhòcan."
 
 #: ../quests/averguard_keep.txt:29
 msgid "Find the Averguard Key. It is held in Averguard Prison."
-msgstr "Lorg Iuchair Geàrd na h-Aibhne. Thathar ’ga cumail ann an Toll-dubh Geàrd na h-Aibhne."
+msgstr ""
+"Lorg Iuchair Geàrd na h-Aibhne. Thathar ’ga cumail ann an Toll-dubh Geàrd na "
+"h-Aibhne."
 
 #: ../quests/averguard_keep.txt:34
 msgid "Tell Guill that you have found the Averguard Key."
 msgstr "Innis do Ghuill gun do lorg thu Iuchair Geàrd na h-Aibhne."
 
 #: ../quests/averguard_keep.txt:40
-msgid "Use the Averguard Key to enter the burial chamber deep within Averguard Temple."
-msgstr "Cleachd Iuchair Geàrd na h-Aibhne gus dol a-steach dhan t-seòmar adhlacaidh ann an Teampall Geàrd na h-Aibhne."
+msgid ""
+"Use the Averguard Key to enter the burial chamber deep within Averguard "
+"Temple."
+msgstr ""
+"Cleachd Iuchair Geàrd na h-Aibhne gus dol a-steach dhan t-seòmar adhlacaidh "
+"ann an Teampall Geàrd na h-Aibhne."
 
 #: ../quests/averguard_keep.txt:45
-msgid "The Averguard Key did not open the burial chamber door. Speak to Guill for help."
-msgstr "Cha do dh’fhosgail Iuchair Geàrd na h-Aibhne doras an t-seòmair adhlacaidh. Bruidhinn ri Guill airson cuideachadh."
+msgid ""
+"The Averguard Key did not open the burial chamber door. Speak to Guill for "
+"help."
+msgstr ""
+"Cha do dh’fhosgail Iuchair Geàrd na h-Aibhne doras an t-seòmair adhlacaidh. "
+"Bruidhinn ri Guill airson cuideachadh."
 
 #: ../quests/averguard_keep.txt:50
-msgid "Search the Averguard Academy for Professor Langlier's secret to breaking the Burial Chamber seal."
-msgstr "Rannsaich Acadamaidh Geàrd na h-Aibhne airson an rùin-dìomhair aig an Ollamh Mac an Truisg airson an glas air an t-seòmar adhlacaidh a bhriseadh."
+msgid ""
+"Search the Averguard Academy for Professor Langlier's secret to breaking the "
+"Burial Chamber seal."
+msgstr ""
+"Rannsaich Acadamaidh Geàrd na h-Aibhne airson an rùin-dìomhair aig an Ollamh "
+"Mac an Truisg airson an glas air an t-seòmar adhlacaidh a bhriseadh."
 
 #: ../quests/averguard_keep.txt:55
 msgid "Show Langlier's Talisman to Guill."
@@ -898,7 +1088,9 @@ msgstr "Seall Seun Mhic an Truisg do Ghuill."
 
 #: ../quests/averguard_keep.txt:60
 msgid "Enter the Averguard Temple burial chamber and defeat Sir Evan Maddox."
-msgstr "Rach a-steach dhan t-seòmar adhlacaidh aig Teampall Geàrd na h-Aibhne is cuir ruaig air Ridire Eòghann an Lighiche."
+msgstr ""
+"Rach a-steach dhan t-seòmar adhlacaidh aig Teampall Geàrd na h-Aibhne is "
+"cuir ruaig air Ridire Eòghann an Lighiche."
 
 #: ../quests/averguard_keep.txt:65
 msgid "Report Maddox's defeat to Guill"
@@ -910,7 +1102,9 @@ msgstr "Cuir ruaig air na bòcainn aig a’ champachadh aibhne"
 
 #: ../quests/frontier.txt:10
 msgid "River Encampment cleared. Return to Martigan for your reward."
-msgstr "Tha thu air a’ champachadh aibhne fhalamhachadh. Till gu Martagan airson do dhuais."
+msgstr ""
+"Tha thu air a’ champachadh aibhne fhalamhachadh. Till gu Martagan airson do "
+"dhuais."
 
 #: ../quests/living_bones.txt:9
 msgid "Find a way to destroy the large pillar near the lake."
@@ -922,31 +1116,42 @@ msgstr "Cleachd am fùdar-spreadhaidh a lorg thu gus an colbh mòr a mhilleadh."
 
 #: ../quests/living_bones.txt:25
 msgid "Search for the name of the ice wizard to pass the statue guardian."
-msgstr "Lorg ainm an draoidh deighe gus faighinn seachad air a’ gheàrd ìomhaighe."
+msgstr ""
+"Lorg ainm an draoidh deighe gus faighinn seachad air a’ gheàrd ìomhaighe."
 
 #: ../quests/living_bones.txt:30
 msgid "Search for the name of the fire wizard to pass the statue guardian."
-msgstr "Lorg ainm an draoidh teine gus faighinn seachad air a’ gheàrd ìomhaighe."
+msgstr ""
+"Lorg ainm an draoidh teine gus faighinn seachad air a’ gheàrd ìomhaighe."
 
 #: ../quests/living_bones.txt:35
 msgid "Search for the name of the wind wizard to pass the statue guardian."
-msgstr "Lorg ainm an draoidh gaoithe gus faighinn seachad air a’ gheàrd ìomhaighe."
+msgstr ""
+"Lorg ainm an draoidh gaoithe gus faighinn seachad air a’ gheàrd ìomhaighe."
 
 #: ../quests/living_bones.txt:40
 msgid "Pass the ice statue guardian by using the name \"Scathelocke\"."
-msgstr "Cleachd an t-ainm “Dubhghlas” gus faighinn seachad air geàrd ìomhaighe deighe."
+msgstr ""
+"Cleachd an t-ainm “Dubhghlas” gus faighinn seachad air geàrd ìomhaighe "
+"deighe."
 
 #: ../quests/living_bones.txt:45
 msgid "Pass the fire statue guardian by using the name \"Vesuvvio\"."
-msgstr "Cleachd an t-ainm “Beniamin Teine” gus faighinn seachad air geàrd ìomhaighe teine."
+msgstr ""
+"Cleachd an t-ainm “Beniamin Teine” gus faighinn seachad air geàrd ìomhaighe "
+"teine."
 
 #: ../quests/living_bones.txt:50
 msgid "Pass the wind statue guardian by using the name \"Grisbon\"."
-msgstr "Cleachd an t-ainm “Gaothraidh” gus faighinn seachad air geàrd ìomhaighe gaoithe."
+msgstr ""
+"Cleachd an t-ainm “Gaothraidh” gus faighinn seachad air geàrd ìomhaighe "
+"gaoithe."
 
 #: ../quests/living_bones.txt:57
 msgid "Kill the three necromancer brothers: Scathelocke, Grisbon and Vesuvvio."
-msgstr "Marbh na trì bràithrean marbh-dhraoidh: Dubhghlas, Gaothraidh is Beiniamin Teine."
+msgstr ""
+"Marbh na trì bràithrean marbh-dhraoidh: Dubhghlas, Gaothraidh is Beiniamin "
+"Teine."
 
 #: ../quests/living_bones.txt:61
 msgid "Use Scathelocke's Key to open his runed chest."
@@ -954,7 +1159,8 @@ msgstr "Cleachd iuchair Dhubhghlais gus an ciste rùn-sgrìobhte aige fhosgladh.
 
 #: ../quests/living_bones.txt:65
 msgid "Use Vesuvvio's Key to open his runed chest."
-msgstr "Cleachd iuchair Bheniamin Teine gus an ciste rùn-sgrìobhte aige fhosgladh."
+msgstr ""
+"Cleachd iuchair Bheniamin Teine gus an ciste rùn-sgrìobhte aige fhosgladh."
 
 #: ../quests/living_bones.txt:69
 msgid "Use Grisbon's Key to open his runed chest."
@@ -962,11 +1168,15 @@ msgstr "Cleachd iuchair Ghaothraidh gus an ciste rùn-sgrìobhte aige fhosgladh.
 
 #: ../quests/mineshaft_longsword.txt:4
 msgid "Find and defeat the Reanimated Skeleton in Mineshaft Longsword."
-msgstr "Lorg is cuir ruaig air a’ chnàimhneach air ath-bheòthachadh ann an claidheamh fada sluic mèinne."
+msgstr ""
+"Lorg is cuir ruaig air a’ chnàimhneach air ath-bheòthachadh ann an "
+"claidheamh fada sluic mèinne."
 
 #: ../quests/mineshaft_longsword.txt:10
 msgid "Report the defeat of the Reanimated Skeleton to Martigan."
-msgstr "Innis dha Mhartagan gun do cheannsaich thu an cnàimhneach air ath-bheòthachadh."
+msgstr ""
+"Innis dha Mhartagan gun do cheannsaich thu an cnàimhneach air ath-"
+"bheòthachadh."
 
 #: ../quests/rotten_tower.txt:5
 msgid "Search the rotten tower south west of the Frontier Plains."
@@ -993,24 +1203,43 @@ msgid "Chat"
 msgstr "Cabadaich"
 
 #: ../npcs/guill.txt:18
-msgid "I am Guill, a scribe with the Order. I am grateful you've come -- we are short on trained warriors due to the call-to-arms in Ancelot."
-msgstr "’S mise Guill, sgrìobhaiche an Òrduigh. Tha mi taingeil gun tàinig sibh – tha gaisgich air an trèanadh a dhìth oirnn on a chaidh airm a thogail ann an Ainsealot."
+msgid ""
+"I am Guill, a scribe with the Order. I am grateful you've come -- we are "
+"short on trained warriors due to the call-to-arms in Ancelot."
+msgstr ""
+"’S mise Guill, sgrìobhaiche an Òrduigh. Tha mi taingeil gun tàinig sibh – "
+"tha gaisgich air an trèanadh a dhìth oirnn on a chaidh airm a thogail ann an "
+"Ainsealot."
 
 #: ../npcs/guill.txt:19
 msgid "Why is the Order interested in these ruins?"
 msgstr "Carson a tha ùidh aig an Òrdugh air an làrach seo?"
 
 #: ../npcs/guill.txt:20
-msgid "What the locals call the Goblin Warrens is actually the entrance to a grand underground fortress known as Averguard Keep. This site is sacred to our order. Our primary mission is to cleanse the evil from this place."
-msgstr "Chan e ach slighe a-steach do Dhaingean Geàrd na h-Aibhne a tha san àite air a chuireas a’ mhuinntir ionadail am Broclach Bhòcan. Tha an làrach seo naoimh dhan òrdugh againn. Is am prìomh-mhisean againn an àite seo a ghlanadh on olcas."
+msgid ""
+"What the locals call the Goblin Warrens is actually the entrance to a grand "
+"underground fortress known as Averguard Keep. This site is sacred to our "
+"order. Our primary mission is to cleanse the evil from this place."
+msgstr ""
+"Chan e ach slighe a-steach do Dhaingean Geàrd na h-Aibhne a tha san àite air "
+"a chuireas a’ mhuinntir ionadail am Broclach Bhòcan. Tha an làrach seo "
+"naoimh dhan òrdugh againn. Is am prìomh-mhisean againn an àite seo a "
+"ghlanadh on olcas."
 
 #: ../npcs/guill.txt:23
 msgid "Goblins Warrens"
 msgstr "Broclach Bhòcan"
 
 #: ../npcs/guill.txt:28
-msgid "The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating this place. His lair is here in the Warrens."
-msgstr "Tha na bòcain sa Bhroclach fo thighearna-cogaidh air a bheil Caochladh. Chan eil a’ mhòrchuid a bhòcain ach feòrachail; ’s ann fuileachdach a tha an Caochladh. Peanasaichibh e airson tàmailt a chur air an àite seo. Tha an t-àite-còmhnaidh aige sa Bhroclach seo."
+msgid ""
+"The goblins in the Warrens answer to a warlord named Ukkonen. Most goblins "
+"are merely curious; this Ukkonen is bloodthirsty. Punish him for desecrating "
+"this place. His lair is here in the Warrens."
+msgstr ""
+"Tha na bòcain sa Bhroclach fo thighearna-cogaidh air a bheil Caochladh. Chan "
+"eil a’ mhòrchuid a bhòcain ach feòrachail; ’s ann fuileachdach a tha an "
+"Caochladh. Peanasaichibh e airson tàmailt a chur air an àite seo. Tha an t-"
+"àite-còmhnaidh aige sa Bhroclach seo."
 
 #: ../npcs/guill.txt:31
 msgid "Ukkonen Search"
@@ -1025,56 +1254,102 @@ msgid "Ukkonen Defeated"
 msgstr "Chuir thu ruaig air Caochladh"
 
 #: ../npcs/guill.txt:44
-msgid "Ukkonen is defeated -- I sensed a calm in this place the moment you ended him. Take this reward for your bravery."
-msgstr "Tha Caochladh air cheannsachadh – Mhothaich mi sìth san àite seo cho luath ’s an do chuir sibh gu bàs e. Gabhaibh an duais seo airson ur gaisgeachd."
+msgid ""
+"Ukkonen is defeated -- I sensed a calm in this place the moment you ended "
+"him. Take this reward for your bravery."
+msgstr ""
+"Tha Caochladh air cheannsachadh – Mhothaich mi sìth san àite seo cho luath "
+"’s an do chuir sibh gu bàs e. Gabhaibh an duais seo airson ur gaisgeachd."
 
 #: ../npcs/guill.txt:47
 msgid "Averguard Chronicles"
 msgstr "Eachraidh Geàrd na h-Aibhne"
 
 #: ../npcs/guill.txt:51
-msgid "The Averguard left a set of Chronicles detailing their final era. One volume is missing. I've searched this entire area except for Ukkonen's lair. If you find the book please return to me."
-msgstr "Dh’fhàg Geàrd na h-Aibhne leabhraichean eachdraidh mun linn deireannach aca. Tha iom-leabhar a dhìth. Tha mi air an àite seo a rannsachadh gu lèir ach àite-còmhnaidh Chaochlaidh. Ma lorgas sibh an leabhar, an toir sibh air ais dhomh e?"
+msgid ""
+"The Averguard left a set of Chronicles detailing their final era. One volume "
+"is missing. I've searched this entire area except for Ukkonen's lair. If you "
+"find the book please return to me."
+msgstr ""
+"Dh’fhàg Geàrd na h-Aibhne leabhraichean eachdraidh mun linn deireannach aca. "
+"Tha iom-leabhar a dhìth. Tha mi air an àite seo a rannsachadh gu lèir ach "
+"àite-còmhnaidh Chaochlaidh. Ma lorgas sibh an leabhar, an toir sibh air ais "
+"dhomh e?"
 
 #: ../npcs/guill.txt:52
 msgid "I'll keep an eye out for it."
 msgstr "Bheir mi sùil a-mach air a shon."
 
 #: ../npcs/guill.txt:63
-msgid "You found this tome in Ukkonen's lair? Most excellent -- I feared this volume was lost. With it we can piece together the true history of this keep. I just need a moment to study..."
-msgstr "An do lorg sibh an leabhar seo ann an àite-còmhnaidh Chaochlaidh? Glè mhath – Bha mi fo amharas gun deach e air chall. ’S urrainn dhuinn eachdraidh fhìrinneach an daingein a choileanadh le seo. Chan fheum mi ach greis gus sùil a thoirt air…"
+msgid ""
+"You found this tome in Ukkonen's lair? Most excellent -- I feared this "
+"volume was lost. With it we can piece together the true history of this "
+"keep. I just need a moment to study..."
+msgstr ""
+"An do lorg sibh an leabhar seo ann an àite-còmhnaidh Chaochlaidh? Glè mhath "
+"– Bha mi fo amharas gun deach e air chall. ’S urrainn dhuinn eachdraidh "
+"fhìrinneach an daingein a choileanadh le seo. Chan fheum mi ach greis gus "
+"sùil a thoirt air…"
 
 #: ../npcs/guill.txt:66
 msgid "Averguard Keep"
 msgstr "Daingean aig Geàrd na h-Aibhne"
 
 #: ../npcs/guill.txt:70
-msgid "This tome confirms what we know of Averguard Keep -- it crumbled against the plague many centuries ago. But not all of the infected were destroyed. It appears many undead where locked away in hopes that a cure would be found."
-msgstr "Tha an leabhar seo a dhearbhadh an eòlais againn mu Dhaingean Geàrd na h-Aibhne – Chaidh e a-bhàn fon phlàigh o chionn linntean. Co-dhiù, cha deach a h-uile duine air an robh an galar a mhilleadh. A rèir coltais, chaidh iomadh closach a ghlasadh a-steach, an dòchas gun rachadh leigheas a lorg."
+msgid ""
+"This tome confirms what we know of Averguard Keep -- it crumbled against the "
+"plague many centuries ago. But not all of the infected were destroyed. It "
+"appears many undead where locked away in hopes that a cure would be found."
+msgstr ""
+"Tha an leabhar seo a dhearbhadh an eòlais againn mu Dhaingean Geàrd na h-"
+"Aibhne – Chaidh e a-bhàn fon phlàigh o chionn linntean. Co-dhiù, cha deach a "
+"h-uile duine air an robh an galar a mhilleadh. A rèir coltais, chaidh iomadh "
+"closach a ghlasadh a-steach, an dòchas gun rachadh leigheas a lorg."
 
 #: ../npcs/guill.txt:71
 msgid "Why were the undead spared?"
 msgstr "Carson a chaidh na closaich a leigeil mu rèir?"
 
 #: ../npcs/guill.txt:72
-msgid "I don't know, but we should investigate. Head into the Atrium, then the Averguard Prison. Search for a key to access the sealed areas of the Keep."
-msgstr "Chan eil fios agam, ach bu chòir dhuinn seo a rannsachadh. Rachaibh a-steach dhan cheàrnag is an uairsin dha Tholl-dubh Geàrd na h-Aibhne. Lorgaibh airson iuchair gus na raointean glaiste dhen daingean inntrigeadh."
+msgid ""
+"I don't know, but we should investigate. Head into the Atrium, then the "
+"Averguard Prison. Search for a key to access the sealed areas of the Keep."
+msgstr ""
+"Chan eil fios agam, ach bu chòir dhuinn seo a rannsachadh. Rachaibh a-steach "
+"dhan cheàrnag is an uairsin dha Tholl-dubh Geàrd na h-Aibhne. Lorgaibh "
+"airson iuchair gus na raointean glaiste dhen daingean inntrigeadh."
 
 #: ../npcs/guill.txt:79
-msgid "I have the prison key. The old prison warden carried it on his person -- he was infected, haunting the depths of the Prison."
-msgstr "Tha iuchair an tuill-dhuibh agam. Bha neach-glèidhidh an tuill-dhuibh ’ga chumail – ghabh e an galar, a’ tathach doimhne an tuill-dhuibh."
+msgid ""
+"I have the prison key. The old prison warden carried it on his person -- he "
+"was infected, haunting the depths of the Prison."
+msgstr ""
+"Tha iuchair an tuill-dhuibh agam. Bha neach-glèidhidh an tuill-dhuibh ’ga "
+"chumail – ghabh e an galar, a’ tathach doimhne an tuill-dhuibh."
 
 #: ../npcs/guill.txt:85
-msgid "A true shame that he was infected.  Well, now that we have the Averguard Key, the depths of Averguard Keep are open to us. The Order thanks you."
-msgstr "’S truagh gun do ghabh e an galar. Nise, on a tha Iuchair Geàrd na h-Aibhne againn, tha doimhne Daingean Geàrd na h-Aibhne fosgailte dhuinn. Tha an t-Òrdugh a’ cur taing dhuibh."
+msgid ""
+"A true shame that he was infected.  Well, now that we have the Averguard "
+"Key, the depths of Averguard Keep are open to us. The Order thanks you."
+msgstr ""
+"’S truagh gun do ghabh e an galar. Nise, on a tha Iuchair Geàrd na h-Aibhne "
+"againn, tha doimhne Daingean Geàrd na h-Aibhne fosgailte dhuinn. Tha an t-"
+"Òrdugh a’ cur taing dhuibh."
 
 #: ../npcs/guill.txt:88
 msgid "Burial Chamber"
 msgstr "Seòmar adhlacaidh"
 
 #: ../npcs/guill.txt:93
-msgid "There is one place within the Keep that no living being has seen for centuries: the burial chamber behind Averguard Temple. From the Atrium you can access the Temple. Use your key to enter the Burial Chamber."
-msgstr "Tha àite san daingean nach fhaca duine beò fad linntean: an seòmar adhlacaidh taobh thall Teampall Geàrd na h-Aibhne. ’S urrainn dhuibh an teampall inntrigeadh on cheàrnag. Cleachdaibh an iuchair gus faighinn a-steach dhan t-seòmar adhlacaidh."
+msgid ""
+"There is one place within the Keep that no living being has seen for "
+"centuries: the burial chamber behind Averguard Temple. From the Atrium you "
+"can access the Temple. Use your key to enter the Burial Chamber."
+msgstr ""
+"Tha àite san daingean nach fhaca duine beò fad linntean: an seòmar "
+"adhlacaidh taobh thall Teampall Geàrd na h-Aibhne. ’S urrainn dhuibh an "
+"teampall inntrigeadh on cheàrnag. Cleachdaibh an iuchair gus faighinn a-"
+"steach dhan t-seòmar adhlacaidh."
 
 #: ../npcs/guill.txt:94
 msgid "Who is buried there?"
@@ -1082,7 +1357,8 @@ msgstr "Cò chaidh adhlacadh an-siud?"
 
 #: ../npcs/guill.txt:95
 msgid "The powerful leader of the Averguard -- Sir Evan Maddox."
-msgstr "An ceannard cumhachdach air Geàrd na h-Aibhne – Ridire Eòghann an Lighiche."
+msgstr ""
+"An ceannard cumhachdach air Geàrd na h-Aibhne – Ridire Eòghann an Lighiche."
 
 #: ../npcs/guill.txt:100
 msgid "Key to Burial Chamber"
@@ -1090,47 +1366,95 @@ msgstr "Iuchair an t-seòmair adhlacaidh"
 
 #: ../npcs/guill.txt:104
 msgid "I tried the key on the Burial Chamber door but it would not open."
-msgstr "Dh’fheuch mi an iuchair air doras an t-seòmair adhlacaidh ach cha do dh’fhosgail e."
+msgstr ""
+"Dh’fheuch mi an iuchair air doras an t-seòmair adhlacaidh ach cha do "
+"dh’fhosgail e."
 
 #: ../npcs/guill.txt:105
-msgid "It must be sealed by powerful magic. There was only one sorceror of Averguard with that kind of power - Professor Langlier. Search through his collection to find a way into the Burial Chamber. Enter the Academy through the Atrium."
-msgstr "Feumaidh gun deach a ghlasadh le draoidheachd chumhachdach. Cha robh ach aon draoidh aig Geàrd na h-Aibhne aig a bhiodh a leithid cumhachd - an t-Ollamh Mac an Truisg. Rannsaichibh an cruinneachadh aige ach an lorg sibh dòigh gus dol a-steach dhan t-seòmar adhlacaidh. Rachaibh a-steach dhan acadamaidh tron cheàrnag."
+msgid ""
+"It must be sealed by powerful magic. There was only one sorceror of "
+"Averguard with that kind of power - Professor Langlier. Search through his "
+"collection to find a way into the Burial Chamber. Enter the Academy through "
+"the Atrium."
+msgstr ""
+"Feumaidh gun deach a ghlasadh le draoidheachd chumhachdach. Cha robh ach aon "
+"draoidh aig Geàrd na h-Aibhne aig a bhiodh a leithid cumhachd - an t-Ollamh "
+"Mac an Truisg. Rannsaichibh an cruinneachadh aige ach an lorg sibh dòigh gus "
+"dol a-steach dhan t-seòmar adhlacaidh. Rachaibh a-steach dhan acadamaidh "
+"tron cheàrnag."
 
 #: ../npcs/guill.txt:106
 msgid "As you wish."
 msgstr "Le ’r toil."
 
 #: ../npcs/guill.txt:107
-msgid "I must admit jealousy -- I have dreamed many years of seeing the old volumes there, but it is simply too dangerous yet."
-msgstr "Feumaidh mi aideachadh gu bheil am farmad orm – Bu mhiann leam na seann leabhraichean an-siud fhaicinn o chionn bliadhnaichean mòra ach tha e ro chunnartach fhathast."
+msgid ""
+"I must admit jealousy -- I have dreamed many years of seeing the old volumes "
+"there, but it is simply too dangerous yet."
+msgstr ""
+"Feumaidh mi aideachadh gu bheil am farmad orm – Bu mhiann leam na seann "
+"leabhraichean an-siud fhaicinn o chionn bliadhnaichean mòra ach tha e ro "
+"chunnartach fhathast."
 
 #: ../npcs/guill.txt:116
-msgid "I am back from the Academy. Langlier was rags and bones, yet still a powerful mage. He wore this symbol."
-msgstr "Tha mi air ais on acadamaidh. Cha b’ e Mac an Truisg ach cnàmhan is rabhlagan ach bha e fhathast ’na dhraoidh cumhachdach. Bha an samhla seo air."
+msgid ""
+"I am back from the Academy. Langlier was rags and bones, yet still a "
+"powerful mage. He wore this symbol."
+msgstr ""
+"Tha mi air ais on acadamaidh. Cha b’ e Mac an Truisg ach cnàmhan is "
+"rabhlagan ach bha e fhathast ’na dhraoidh cumhachdach. Bha an samhla seo air."
 
 #: ../npcs/guill.txt:120
-msgid "Fate has delivered this talisman to you. With it and the Averguard Key, you have the ability to open the Burial Chamber. Read these runes aloud at the sealed door and the path will be opened."
-msgstr "Thug an dàn an seun seo dhuibh. Bidh an comas agaibh gus an t-seòmar adhlacaidh fhosgladh leis an t-seun is Iuchair Geàrd na h-Aibhne. Leughaibh an rùn-sgrìobhadh os àrd aig an doras glaiste is thèid an t-slighe fhosgladh."
+msgid ""
+"Fate has delivered this talisman to you. With it and the Averguard Key, you "
+"have the ability to open the Burial Chamber. Read these runes aloud at the "
+"sealed door and the path will be opened."
+msgstr ""
+"Thug an dàn an seun seo dhuibh. Bidh an comas agaibh gus an t-seòmar "
+"adhlacaidh fhosgladh leis an t-seun is Iuchair Geàrd na h-Aibhne. Leughaibh "
+"an rùn-sgrìobhadh os àrd aig an doras glaiste is thèid an t-slighe fhosgladh."
 
 #: ../npcs/guill.txt:128
-msgid "My worst fear is come alive. Just as with the Warden and with Professor Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to reclaim the Keep, you must defeat him. The Order will reward you magnificently for this service. But be prepared -- not even undeath will limit Maddox's zeal. Enter the Burial Chamber and allow him redemption."
-msgstr "Thàinig an t-eagal as motha a bh’ agam gu bith. Tha Ridire Eòghann an Lighiche fhèin a’ fulang le neo-bhàs mar a tha an neach-glèidhidh is an t-Ollamh Mac an Truisg. Feumaidh sibh ruaig a thoirt dha ma tha sinn airson an daingean a ghabhail air ais. Ach thoiribh an aire – cha chuir eadhon an neo-bhàs stad air dìoghras an Lighiche. Rachaibh a-steach dhan t-seòmar adhlacaidh is thoiribh saorsa dha."
+msgid ""
+"My worst fear is come alive. Just as with the Warden and with Professor "
+"Langlier, Sir Evan Maddox himself was inflicted with undeath. If we are to "
+"reclaim the Keep, you must defeat him. The Order will reward you "
+"magnificently for this service. But be prepared -- not even undeath will "
+"limit Maddox's zeal. Enter the Burial Chamber and allow him redemption."
+msgstr ""
+"Thàinig an t-eagal as motha a bh’ agam gu bith. Tha Ridire Eòghann an "
+"Lighiche fhèin a’ fulang le neo-bhàs mar a tha an neach-glèidhidh is an t-"
+"Ollamh Mac an Truisg. Feumaidh sibh ruaig a thoirt dha ma tha sinn airson an "
+"daingean a ghabhail air ais. Ach thoiribh an aire – cha chuir eadhon an neo-"
+"bhàs stad air dìoghras an Lighiche. Rachaibh a-steach dhan t-seòmar "
+"adhlacaidh is thoiribh saorsa dha."
 
 #: ../npcs/guill.txt:131
 msgid "Maddox Defeated"
 msgstr "Chuir thu ruaig air Eòghann an Lighiche"
 
-#: ../npcs/guill.txt:142
-msgid "You have risked much for the Order. Take this final reward, as your mission here is complete. The grip of necromancy over Averguard Keep is broken -- in time the remaining undead will pass over into death."
-msgstr "Mheantairig sibh mòran às leth an Òrduigh. Gabhaibh an duais dheireannach seo on a tha am misean agaibh an-seo coileanta. Chan eil Daingean Geàrd na h-Aibhne fo mharbh-draoidheachd tuilleadh – Caochlaidh na closaich a tha air am fàgail rè àm."
-
 #: ../npcs/guill.txt:143
+msgid ""
+"You have risked much for the Order. Take this final reward, as your mission "
+"here is complete. The grip of necromancy over Averguard Keep is broken -- in "
+"time the remaining undead will pass over into death."
+msgstr ""
+"Mheantairig sibh mòran às leth an Òrduigh. Gabhaibh an duais dheireannach "
+"seo on a tha am misean agaibh an-seo coileanta. Chan eil Daingean Geàrd na h-"
+"Aibhne fo mharbh-draoidheachd tuilleadh – Caochlaidh na closaich a tha air "
+"am fàgail rè àm."
+
+#: ../npcs/guill.txt:144
 msgid "Thank you Guill. I am glad to be of service."
 msgstr "Tapadh leibh, a Ghuill. Tha mi toilichte gun tug mi cobhair dhuibh."
 
-#: ../npcs/guill.txt:148
-msgid "It is still dangerous here, but with Maddox defeated his followers will soon find rest."
-msgstr "Tha e fhathast cunnartach an-seo, ach on a chaidh an Lighiche a cheannsachadh gheibh an luchd-leantainn aige fois shìorraidh a dh’aithghearr."
+#: ../npcs/guill.txt:149
+msgid ""
+"It is still dangerous here, but with Maddox defeated his followers will soon "
+"find rest."
+msgstr ""
+"Tha e fhathast cunnartach an-seo, ach on a chaidh an Lighiche a "
+"cheannsachadh gheibh an luchd-leantainn aige fois shìorraidh a dh’aithghearr."
 
 #: ../npcs/kayl.txt:1
 msgid "Kayl, Alchemist"
@@ -1149,24 +1473,43 @@ msgid "Martigan, Overseer"
 msgstr "Martagan, fear-amhairc"
 
 #: ../npcs/martigan.txt:13
-msgid "Welcome to my mines, stranger. If you have the back for it, I've got the work."
-msgstr "Fàilte dha na mèinnean, a choigrich. Ma tha an druim agaibh, tha obair agam dhuibh."
+msgid ""
+"Welcome to my mines, stranger. If you have the back for it, I've got the "
+"work."
+msgstr ""
+"Fàilte dha na mèinnean, a choigrich. Ma tha an druim agaibh, tha obair agam "
+"dhuibh."
 
 #: ../npcs/martigan.txt:14
 msgid "I heard you might have something more interesting."
 msgstr "Chuala mi gun robh rudeigin na b’ inntinniche agaibh."
 
 #: ../npcs/martigan.txt:15
-msgid "Ah, you're the adventurer? If you seek out danger you're in the right place. We had two guards stationed here; both were recalled to Ancelot. Now we're vulnerable."
-msgstr "An sibhse am baoghlair? Ma tha sibh a’ sireadh cunnart, seo an t-àite dhuibh. Bhiodh dà fhreiceadan againn an-seo; chaidh an dithis aca a ghairm air ais gu Ainsealot. Tha sinn so-leònta a-nis."
+msgid ""
+"Ah, you're the adventurer? If you seek out danger you're in the right place. "
+"We had two guards stationed here; both were recalled to Ancelot. Now we're "
+"vulnerable."
+msgstr ""
+"An sibhse am baoghlair? Ma tha sibh a’ sireadh cunnart, seo an t-àite "
+"dhuibh. Bhiodh dà fhreiceadan againn an-seo; chaidh an dithis aca a ghairm "
+"air ais gu Ainsealot. Tha sinn so-leònta a-nis."
 
 #: ../npcs/martigan.txt:16
 msgid "So how's the mining business?"
 msgstr "Ciamar a tha a’ mhèinnearachd a’ dol?"
 
 #: ../npcs/martigan.txt:17
-msgid "Not good at all. While I was digging, my pickaxe scraped a skull that was wedged in the rock wall. Before I knew it, the nasty thing started moving and a whole body emerged. Now that thing is in there, preventing any more mining."
-msgstr "Chan eil gu math idir. Nuair a bha mi a’ tochladh, sgrìobh a’ phiocaid agam claigeann a bha air gèinneadh sa bhalla cloiche. Mun canadh tu deis-dè, thòisich an rud uabhasach seo air gluasad is thàinig corp gu lèir a-mach. Tha an rud a tha seo a-staigh an-siud a-nis is a’ cur bacadh air tochladh sam bidh."
+msgid ""
+"Not good at all. While I was digging, my pickaxe scraped a skull that was "
+"wedged in the rock wall. Before I knew it, the nasty thing started moving "
+"and a whole body emerged. Now that thing is in there, preventing any more "
+"mining."
+msgstr ""
+"Chan eil gu math idir. Nuair a bha mi a’ tochladh, sgrìobh a’ phiocaid agam "
+"claigeann a bha air gèinneadh sa bhalla cloiche. Mun canadh tu deis-dè, "
+"thòisich an rud uabhasach seo air gluasad is thàinig corp gu lèir a-mach. "
+"Tha an rud a tha seo a-staigh an-siud a-nis is a’ cur bacadh air tochladh "
+"sam bidh."
 
 #: ../npcs/martigan.txt:18
 msgid "Kill that skeleton for me, and I'll make it worth your while."
@@ -1177,60 +1520,96 @@ msgid "Goblin Camp"
 msgstr "Campa nam bòcan"
 
 #: ../npcs/martigan.txt:26
-msgid "We're having problems. Goblins. All the noise from our mining is drawing their attention. We can't have them thinking we're easy prey."
-msgstr "Tha duilgheadasan againn. Bòcain. Tha fuaim na mèinne againn ’gan tadhal. Cha bu chòir iad a bhith dhen bheachd gum biodh sinn ’nar ìobairtean furasta."
+msgid ""
+"We're having problems. Goblins. All the noise from our mining is drawing "
+"their attention. We can't have them thinking we're easy prey."
+msgstr ""
+"Tha duilgheadasan againn. Bòcain. Tha fuaim na mèinne againn ’gan tadhal. "
+"Cha bu chòir iad a bhith dhen bheachd gum biodh sinn ’nar ìobairtean furasta."
 
 #: ../npcs/martigan.txt:30
-msgid "Attack their encampment up river from here. 20 gold now, 80 more when you return."
-msgstr "Thoiribh ionnsaigh air a’ champachadh aca suas na h-aibhne on a sheo. Bheir mi 20 òr dhuibh an-dràsta is 80 a bharrachd nuair a thilleas sibh."
+msgid ""
+"Attack their encampment up river from here. 20 gold now, 80 more when you "
+"return."
+msgstr ""
+"Thoiribh ionnsaigh air a’ champachadh aca suas na h-aibhne on a sheo. Bheir "
+"mi 20 òr dhuibh an-dràsta is 80 a bharrachd nuair a thilleas sibh."
 
 #: ../npcs/martigan.txt:33
 msgid "Goblin Camp Search"
 msgstr "Rannsaich campa nam bòcan"
 
 #: ../npcs/martigan.txt:36
-msgid "The goblins have an encampment up the river from here on the west side. Clear them out and I'll pay you 80 gold."
-msgstr "Tha campachadh nam bòcan taobh an iar suas na h-aibhne on a sheo. Glanaibh e is bheir mi 80 òr dhuibh."
+msgid ""
+"The goblins have an encampment up the river from here on the west side. "
+"Clear them out and I'll pay you 80 gold."
+msgstr ""
+"Tha campachadh nam bòcan taobh an iar suas na h-aibhne on a sheo. Glanaibh e "
+"is bheir mi 80 òr dhuibh."
 
 #: ../npcs/martigan.txt:39
 msgid "Rilrak Defeated"
 msgstr "Chuir thu ruaig air Riolrag"
 
 #: ../npcs/martigan.txt:46
-msgid "Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
-msgstr "Seo obair mhì-shealbhach ach gheibh an luchd-obrach agam cadal sèimh a-nochd. Seo ur duais."
+msgid ""
+"Unfortunate work, but my workers will sleep safe tonight. Here's your reward."
+msgstr ""
+"Seo obair mhì-shealbhach ach gheibh an luchd-obrach agam cadal sèimh a-"
+"nochd. Seo ur duais."
 
 #: ../npcs/martigan.txt:51
-msgid "A member of the Order passed through our camp a few days ago. He left for the tower ruins in Ydrakka Pass."
-msgstr "Thàinig ball an Òrduigh tron champa againn o chionn beagan làithean. Dh’fhàg e gus dol a làrach an tùir air Bealach Iodraca."
+msgid ""
+"A member of the Order passed through our camp a few days ago. He left for "
+"the tower ruins in Ydrakka Pass."
+msgstr ""
+"Thàinig ball an Òrduigh tron champa againn o chionn beagan làithean. Dh’fhàg "
+"e gus dol a làrach an tùir air Bealach Iodraca."
 
 #: ../npcs/martigan.txt:54
 msgid "Rotten Tower"
 msgstr "Tùr lobhte"
 
 #: ../npcs/martigan.txt:57
-msgid "This region was once well guarded. There are watch towers positioned throughout these plains, but most are abandoned and crumbling now."
-msgstr "Bhiodh an sgìre seo ’ga dhìon gu math uair. Tha tùir freiceadain air feadh na machrach seo ach chaidh a’ mhòrchuid dhiubh a thrèigsinn is tha iad a’ dol a-bhàn a-nis."
+msgid ""
+"This region was once well guarded. There are watch towers positioned "
+"throughout these plains, but most are abandoned and crumbling now."
+msgstr ""
+"Bhiodh an sgìre seo ’ga dhìon gu math uair. Tha tùir freiceadain air feadh "
+"na machrach seo ach chaidh a’ mhòrchuid dhiubh a thrèigsinn is tha iad a’ "
+"dol a-bhàn a-nis."
 
 #: ../npcs/martigan.txt:58
-msgid "I need someone to inspect the outpost tower in White Winds, south west of the Frontier Plains. Let me know if goblins have found their way inside."
-msgstr "Tha cuideigin a dhìth orm gus sùil a thoirt air tùr a’ ghearasdain ann an Gaoithean Geala gu iar-dheas air a’ mhachair crìche. Innisibh dhomh ma fhuair bòcain a-steach."
+msgid ""
+"I need someone to inspect the outpost tower in White Winds, south west of "
+"the Frontier Plains. Let me know if goblins have found their way inside."
+msgstr ""
+"Tha cuideigin a dhìth orm gus sùil a thoirt air tùr a’ ghearasdain ann an "
+"Gaoithean Geala gu iar-dheas air a’ mhachair crìche. Innisibh dhomh ma "
+"fhuair bòcain a-steach."
 
 #: ../npcs/martigan.txt:62
 msgid "Rotten Tower Search"
 msgstr "Rannsaich an tùr lobhte"
 
 #: ../npcs/martigan.txt:65
-msgid "Search for the abandoned tower southwest of the Frontier plains. The lands around there are called White Wind."
-msgstr "Lorgaibh airson an tùr air thrèigsinn gu iar-dheas air a’ mhachair crìche. ’S e Gaoithean Geala a tha air an dùthaich mu thimcheall."
+msgid ""
+"Search for the abandoned tower southwest of the Frontier plains. The lands "
+"around there are called White Wind."
+msgstr ""
+"Lorgaibh airson an tùr air thrèigsinn gu iar-dheas air a’ mhachair crìche. "
+"’S e Gaoithean Geala a tha air an dùthaich mu thimcheall."
 
 #: ../npcs/martigan.txt:68
 msgid "Rotten Tower Found"
 msgstr "Lorg thu an tùr lobhte"
 
 #: ../npcs/martigan.txt:71
-msgid "There are plenty of goblins in the White Winds area, but not near the tower."
-msgstr "Tha grunn mhath bhocan ann an sgìre nan Gaoithean Geala ach cha tig iad faisg air an tùr."
+msgid ""
+"There are plenty of goblins in the White Winds area, but not near the tower."
+msgstr ""
+"Tha grunn mhath bhocan ann an sgìre nan Gaoithean Geala ach cha tig iad "
+"faisg air an tùr."
 
 #: ../npcs/martigan.txt:72
 msgid "Are you sure? Did you look inside the tower?"
@@ -1241,20 +1620,28 @@ msgid "Well..."
 msgstr "Uill…"
 
 #: ../npcs/martigan.txt:79
-msgid "There are plenty of goblins in the white winds area, but not near the tower."
-msgstr "Tha grunn mhath bhocan ann an sgìre nan Gaoithean Geala ach cha tig iad faisg air an tùr."
+msgid ""
+"There are plenty of goblins in the white winds area, but not near the tower."
+msgstr ""
+"Tha grunn mhath bhocan ann an sgìre nan Gaoithean Geala ach cha tig iad "
+"faisg air an tùr."
 
 #: ../npcs/martigan.txt:81
 msgid "I saw no signs of goblins through the locked iron grate door."
-msgstr "Chan fhaca mi sgeul air bòcain o thaobh a-muigh an dorais clèithe iarainn dhùinte."
+msgstr ""
+"Chan fhaca mi sgeul air bòcain o thaobh a-muigh an dorais clèithe iarainn "
+"dhùinte."
 
 #: ../npcs/martigan.txt:83
 msgid "Good! Have this small reward."
 msgstr "Glè mhath! Seo duais beag dhuibh."
 
 #: ../npcs/martigan.txt:91
-msgid "Please take care of that skeleton. Work in the mine can't continue otherwise."
-msgstr "An dèan sibh a’ chùis air a’ chnàimhneach? Chan urrainn dhan obair sa mhèinn a leantainn air adhart mar a thà."
+msgid ""
+"Please take care of that skeleton. Work in the mine can't continue otherwise."
+msgstr ""
+"An dèan sibh a’ chùis air a’ chnàimhneach? Chan urrainn dhan obair sa mhèinn "
+"a leantainn air adhart mar a thà."
 
 #: ../npcs/martigan.txt:94
 msgid "Skeleton Defeated"
@@ -1265,8 +1652,10 @@ msgid "I've defeated the Reanimated Skeleton."
 msgstr "Cheannsaich mi an cnàimhneach air ath-bheòthachadh."
 
 #: ../npcs/martigan.txt:99
-msgid "Excellent work! As promised, here's a little something for your troubles."
-msgstr "Math dha-rìribh! Mar a gheall mi dhuibh, seo rudeigin airson ur n-obair."
+msgid ""
+"Excellent work! As promised, here's a little something for your troubles."
+msgstr ""
+"Math dha-rìribh! Mar a gheall mi dhuibh, seo rudeigin airson ur n-obair."
 
 #: ../npcs/nerin.txt:1
 msgid "Nerin, Bowyer"
@@ -1293,20 +1682,31 @@ msgid "Vesuvvio."
 msgstr "Beniamin Teine."
 
 #: ../npcs/statue_guardian_fire.txt:22
-msgid "...Are you feeling alright, Master Vesuvvio? You did not refer to yourself as \"the Destroyer.\""
-msgstr "…A bheil sibh gu math, a Mhaighstir Bheniamin? Cha do chuir sibh “am Milltear” oirbh."
+msgid ""
+"...Are you feeling alright, Master Vesuvvio? You did not refer to yourself "
+"as \"the Destroyer.\""
+msgstr ""
+"…A bheil sibh gu math, a Mhaighstir Bheniamin? Cha do chuir sibh “am "
+"Milltear” oirbh."
 
 #: ../npcs/statue_guardian_fire.txt:23
-msgid "Have your brothers been teasing you about your real name being Stootley again?"
-msgstr "A bheil do bhràithrean a’ tarraing asad a-rithist gur e Seoc an t-ainm a th’ ort dha-rìribh?"
+msgid ""
+"Have your brothers been teasing you about your real name being Stootley "
+"again?"
+msgstr ""
+"A bheil do bhràithrean a’ tarraing asad a-rithist gur e Seoc an t-ainm a th’ "
+"ort dha-rìribh?"
 
 #: ../npcs/statue_guardian_fire.txt:24
 msgid "Er, no. It's all right. I'm Vesuvvio the Destroyer."
-msgstr "Uill… chan eil. Tha sin ceart gu leòr. ’S mise Beniamin Teine am Milltear."
+msgstr ""
+"Uill… chan eil. Tha sin ceart gu leòr. ’S mise Beniamin Teine am Milltear."
 
 #: ../npcs/statue_guardian_fire.txt:27
 msgid "Then welcome, Master Vesuvvio, may you enjoy your destruction tonight."
-msgstr "Mar sin, fàilte a Mhaighstir Bheniamin, gun gabhadh sibh tlachd às ur milleadh a-nochd."
+msgstr ""
+"Mar sin, fàilte a Mhaighstir Bheniamin, gun gabhadh sibh tlachd às ur "
+"milleadh a-nochd."
 
 #: ../npcs/statue_guardian_fire.txt:28
 msgid "(This Vesuvvio guy sure is strange...)"
@@ -1314,7 +1714,9 @@ msgstr "(Tha an duine Beniamin ud caran neònach…)"
 
 #: ../npcs/statue_guardian_fire.txt:32
 msgid "Welcome, Master Vesuvvio, may you enjoy your destruction tonight."
-msgstr "Fàilte a Mhaighstir Bheniamin, gun gabhadh sibh tlachd às ur milleadh a-nochd."
+msgstr ""
+"Fàilte a Mhaighstir Bheniamin, gun gabhadh sibh tlachd às ur milleadh a-"
+"nochd."
 
 #: ../npcs/statue_guardian_ice.txt:1
 msgid "Statue Guardian (Ice)"
@@ -1417,112 +1819,116 @@ msgid "Giovanni Dalla Torre"
 msgstr "Giovanni Dalla Torre"
 
 #: ../cutscenes/credits.txt:30
+msgid "GunChleoc"
+msgstr ""
+
+#: ../cutscenes/credits.txt:31
 msgid "Hans Joachim Desserud"
 msgstr "Hans Joachim Desserud"
 
-#: ../cutscenes/credits.txt:31
+#: ../cutscenes/credits.txt:32
 msgid "Igor Paliychuk"
 msgstr "Igor Paliychuk"
 
-#: ../cutscenes/credits.txt:32
+#: ../cutscenes/credits.txt:33
+msgid "Janet Hunt"
+msgstr ""
+
+#: ../cutscenes/credits.txt:34
 msgid "Juan Pablo Tamayo"
 msgstr "Juan Pablo Tamayo"
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits.txt:35
 msgid "Mikhail Karalevich"
 msgstr "Mikhail Karalevich"
 
-#: ../cutscenes/credits.txt:34
+#: ../cutscenes/credits.txt:36
 msgid "Miro Jánošík"
 msgstr "Miro Jánošík"
 
-#: ../cutscenes/credits.txt:35
+#: ../cutscenes/credits.txt:37
 msgid "Morgan Strauss"
 msgstr "Morgan Strauss"
 
-#: ../cutscenes/credits.txt:36
+#: ../cutscenes/credits.txt:38
 msgid "Nikita Vanku"
 msgstr "Nikita Vanku"
 
-#: ../cutscenes/credits.txt:37
+#: ../cutscenes/credits.txt:39
 msgid "Paul Wortmann"
 msgstr "Paul Wortmann"
 
-#: ../cutscenes/credits.txt:38
+#: ../cutscenes/credits.txt:40
 msgid "Pawel Puszczynski"
 msgstr "Pawel Puszczynski"
 
-#: ../cutscenes/credits.txt:39
+#: ../cutscenes/credits.txt:41
 msgid "Quentin Stievenart"
 msgstr "Quentin Stievenart"
 
-#: ../cutscenes/credits.txt:40
+#: ../cutscenes/credits.txt:42
 msgid "Sergey Basalaev"
 msgstr "Sergey Basalaev"
 
-#: ../cutscenes/credits.txt:42
+#: ../cutscenes/credits.txt:44
 msgid "sujiniku"
 msgstr "sujiniku"
 
-#: ../cutscenes/credits.txt:43
+#: ../cutscenes/credits.txt:45
 msgid "Thomas Glamsch"
 msgstr "Thomas Glamsch"
 
-#: ../cutscenes/credits.txt:44
+#: ../cutscenes/credits.txt:46
 msgid "Timo Sievänen"
 msgstr "Timo Sievänen"
 
-#: ../cutscenes/credits.txt:45
+#: ../cutscenes/credits.txt:47
+msgid "Wuzzy2"
+msgstr ""
+
+#: ../cutscenes/credits.txt:48
 msgid "Yannis Anthymidis"
 msgstr "Yannis Anthymidis"
 
-#: ../items/categories/armor_cloth.txt:5
-msgid "Cloth Shirt"
-msgstr "Lèine clòtha"
+#: ../items/categories/weapons_melee.txt:5
+msgid "Broken Dagger"
+msgstr "Biodag bhriste"
 
-#: ../items/categories/armor_cloth.txt:11
-msgid "Cloth Gloves"
-msgstr "Miotagan clòtha"
+#: ../items/categories/weapons_melee.txt:13
+msgid "Dagger"
+msgstr "Biodag"
 
-#: ../items/categories/armor_cloth.txt:17
-msgid "Cloth Pants"
-msgstr "Briogais clòtha"
+#: ../items/categories/weapons_melee.txt:21
+msgid "Shortsword"
+msgstr "Claidheamh goirid"
 
-#: ../items/categories/armor_cloth.txt:23
-msgid "Cloth Sandals"
-msgstr "Cuarain clòtha"
+#: ../items/categories/weapons_melee.txt:29
+msgid "Longsword"
+msgstr "Claidheamh fada"
 
-#: ../items/categories/weapons_ranged.txt:5
-msgid "Slingshot"
-msgstr "Longag"
+#: ../items/categories/weapons_melee.txt:37
+msgid "Greatsword"
+msgstr "Claidheamh mòr"
 
-#: ../items/categories/weapons_ranged.txt:13
-msgid "Shortbow"
-msgstr "Bogha goirid"
+#: ../items/categories/armor_chain.txt:5
+msgid "Chain Coif"
+msgstr "Brèid slabhraidhe"
 
-#: ../items/categories/weapons_ranged.txt:21
-msgid "Longbow"
-msgstr "Bogha fada"
+#: ../items/categories/armor_chain.txt:13
+msgid "Chain Cuirass"
+msgstr "Lùirich slabhraidhe"
 
-#: ../items/categories/weapons_ranged.txt:29
-msgid "Greatbow"
-msgstr "Bogha mòr"
+#: ../items/categories/armor_chain.txt:21
+msgid "Chain Gloves"
+msgstr "Miotagan slabhraidhe"
 
-#: ../items/categories/potions.txt:5
-msgid "Health Potion"
-msgstr "Deoch-shlàinte"
+#: ../items/categories/armor_chain.txt:29
+msgid "Chain Greaves"
+msgstr "Èideadh calpa slabhraidhe"
 
-#: ../items/categories/potions.txt:8
-msgid "Restore 50% of maximum HP"
-msgstr "Aisig 50% dhe na puingean-beatha as motha"
-
-#: ../items/categories/potions.txt:14
-msgid "Mana Potion"
-msgstr "Deoch mana"
-
-#: ../items/categories/potions.txt:17
-msgid "Restore 50% of maximum MP"
-msgstr "Aisig 50% dhe na puingean-gluasaid as motha"
+#: ../items/categories/armor_chain.txt:37
+msgid "Chain Boots"
+msgstr "Bòtannan slabhraidhe"
 
 #: ../items/categories/armor_leather.txt:5
 msgid "Leather Hood"
@@ -1544,6 +1950,63 @@ msgstr "Briogais leathair"
 msgid "Leather Boots"
 msgstr "Bòtannan leathair"
 
+#: ../items/categories/rings.txt:5
+msgid "Ring of Invisibility"
+msgstr "Fàinne na do-fhaicsinneachd"
+
+#: ../items/categories/rings.txt:7
+msgid "This nondescript ring was forged in the land where shadows lie."
+msgstr ""
+"Chaidh an fhàinne dho-chomharraichte seo a dhèanamh ann an tìr nan sgàilean."
+
+#: ../items/categories/rings.txt:13
+msgid "Ring of Regeneration"
+msgstr "Fàinne an leigheis"
+
+#: ../items/categories/rings.txt:20
+msgid "Ring of Concentration"
+msgstr "Fàinne na dùr-aire"
+
+#: ../items/categories/rings.txt:27
+msgid "Ring of Fire"
+msgstr "Fàinne an teine"
+
+#: ../items/categories/rings.txt:34
+msgid "Ring of Ice"
+msgstr "Fàinne na deighe"
+
+#: ../items/categories/rings.txt:41
+msgid "Lineage Signet Ring"
+msgstr "Fàinne-seula a’ ghineil"
+
+#: ../items/categories/rings.txt:48
+msgid "Ouroboros Ring"
+msgstr "Fàinne uroborois"
+
+#: ../items/categories/rings.txt:52
+msgid "One-time protection from death"
+msgstr "Dìon on bhàs aon turas"
+
+#: ../items/categories/rings.txt:56
+msgid "Relic Hunter's Ring"
+msgstr "Fàinne rannsaiche sheann-chuimhneachan"
+
+#: ../items/categories/weapons_magic.txt:5
+msgid "Wand"
+msgstr "Slatan"
+
+#: ../items/categories/weapons_magic.txt:13
+msgid "Rod"
+msgstr "Slat"
+
+#: ../items/categories/weapons_magic.txt:21
+msgid "Staff"
+msgstr "Bata"
+
+#: ../items/categories/weapons_magic.txt:29
+msgid "Greatstaff"
+msgstr "Bata mòr"
+
 #: ../items/categories/magic.txt:5
 msgid "Seven-league boots"
 msgstr "Botanan seachd-lìgean"
@@ -1557,8 +2020,11 @@ msgid "Thief Gloves"
 msgstr "Miotagan mèirle"
 
 #: ../items/categories/magic.txt:17
-msgid "In Lower Sceleris there is honor among thieves. Everyone else is a mark."
-msgstr "Tha onair am measg nam mèirlich ann an Seleris Ìochdarach. Tha duine am bith eile ’na chuimse."
+msgid ""
+"In Lower Sceleris there is honor among thieves. Everyone else is a mark."
+msgstr ""
+"Tha onair am measg nam mèirlich ann an Seleris Ìochdarach. Tha duine am bith "
+"eile ’na chuimse."
 
 #: ../items/categories/magic.txt:25
 msgid "Silent Tabi"
@@ -1605,16 +2071,24 @@ msgid "Ashwood Wand"
 msgstr "Slatan uinnseinn"
 
 #: ../items/categories/magic.txt:119
-msgid "The secrets to harvesting Yggdrasil twigs are known only to traitorous dryads."
-msgstr "Chan eil ach na doire-òighean brathach eòlach air an rùn-dìomhair mar a bhuainear geugan Yggdrasil."
+msgid ""
+"The secrets to harvesting Yggdrasil twigs are known only to traitorous "
+"dryads."
+msgstr ""
+"Chan eil ach na doire-òighean brathach eòlach air an rùn-dìomhair mar a "
+"bhuainear geugan Yggdrasil."
 
 #: ../items/categories/magic.txt:129
 msgid "Lawman's Sidearm"
 msgstr "Arm an fhir-lagha"
 
 #: ../items/categories/magic.txt:131
-msgid "The workmanship on this blade appears hurried, as if forged under the fever of vigilance."
-msgstr "Bha ceàrd an airm seo fo chabhag a-rèir coltais mar a rachadh a dhèanamh fo ro-chùram."
+msgid ""
+"The workmanship on this blade appears hurried, as if forged under the fever "
+"of vigilance."
+msgstr ""
+"Bha ceàrd an airm seo fo chabhag a-rèir coltais mar a rachadh a dhèanamh fo "
+"ro-chùram."
 
 #: ../items/categories/magic.txt:141
 msgid "Miner's Gloves"
@@ -1626,7 +2100,122 @@ msgstr "Fàinne dhìochuimhnte"
 
 #: ../items/categories/magic.txt:151
 msgid "Faded memories are vivid to the wearer of this silver band."
-msgstr "Tha na chaidh a-mach à cuimhne beò dhan fhear a chuireas an fhàinne airgid seo air."
+msgstr ""
+"Tha na chaidh a-mach à cuimhne beò dhan fhear a chuireas an fhàinne airgid "
+"seo air."
+
+#: ../items/categories/armor_mage.txt:5
+msgid "Mage Hood"
+msgstr "Abaid draoidh"
+
+#: ../items/categories/armor_mage.txt:8
+msgid "The seams on this hood are designed to aid the flow of mana."
+msgstr ""
+"Chaidh fuaighealan na h-abaide seo a dhealbhachadh ach an cuidich iad le "
+"sruthadh mana."
+
+#: ../items/categories/armor_mage.txt:15
+msgid "Mage Vest"
+msgstr "Peiteag draoidh"
+
+#: ../items/categories/armor_mage.txt:18
+msgid "Frost resistance runes line the inside of this vest."
+msgstr ""
+"Tha rùn-litrichean an aghaidh reòthaidh taobh a-staigh na peiteige seo."
+
+#: ../items/categories/armor_mage.txt:26
+msgid "Mage Sleeves"
+msgstr "Muinchillean draoidh"
+
+#: ../items/categories/armor_mage.txt:29
+msgid ""
+"The fire resistance runes that hem these sleeves help protect beginner "
+"students of Pyromancy."
+msgstr ""
+"Dìonaidh na rùn-litrichean an aghaidh teine ann am fàitheaman nam "
+"muinchillean seo oileanaich ùra na teine-dhraoidheachd."
+
+#: ../items/categories/armor_mage.txt:36
+msgid "Mage Skirt"
+msgstr "Sgiort draoidh"
+
+#: ../items/categories/armor_mage.txt:39
+msgid "Spell components are tucked into hidden pockets covering this skirt."
+msgstr ""
+"Tha co-phàirtean geasa ann am pòcaidean falaichte air feadh na sgiorta seo."
+
+#: ../items/categories/armor_mage.txt:47
+msgid "Mage Boots"
+msgstr "Bòtannan draoidh"
+
+#: ../items/categories/armor_mage.txt:50
+msgid "Attunement with the elements allow mages to ice and fire walk."
+msgstr ""
+"Leigidh gleus leis na dùilean leis na draoidh coiseachd air deigh is teine."
+
+#: ../items/categories/weapons_ranged.txt:5
+msgid "Slingshot"
+msgstr "Longag"
+
+#: ../items/categories/weapons_ranged.txt:13
+msgid "Shortbow"
+msgstr "Bogha goirid"
+
+#: ../items/categories/weapons_ranged.txt:21
+msgid "Longbow"
+msgstr "Bogha fada"
+
+#: ../items/categories/weapons_ranged.txt:29
+msgid "Greatbow"
+msgstr "Bogha mòr"
+
+#: ../items/categories/gems.txt:5
+msgid "Sapphire"
+msgstr "Saifear"
+
+#: ../items/categories/gems.txt:13
+msgid "Emerald"
+msgstr "Smàrag"
+
+#: ../items/categories/gems.txt:21
+msgid "Ruby"
+msgstr "Ruiteachan"
+
+#: ../items/categories/gems.txt:29
+msgid "Diamond"
+msgstr "Daoimean"
+
+#: ../items/categories/armor_cloth.txt:5
+msgid "Cloth Shirt"
+msgstr "Lèine clòtha"
+
+#: ../items/categories/armor_cloth.txt:11
+msgid "Cloth Gloves"
+msgstr "Miotagan clòtha"
+
+#: ../items/categories/armor_cloth.txt:17
+msgid "Cloth Pants"
+msgstr "Briogais clòtha"
+
+#: ../items/categories/armor_cloth.txt:23
+msgid "Cloth Sandals"
+msgstr "Cuarain clòtha"
+
+#: ../items/categories/shields.txt:5
+msgid "Wood Buckler"
+msgstr "Sgiathag fiodha"
+
+#: ../items/categories/shields.txt:13
+msgid "Iron Buckler"
+msgstr "Sgiathag iarainn"
+
+#: ../items/categories/shields.txt:21
+msgid "Crest Shield"
+msgstr "Sgiath cìrein"
+
+#: ../items/categories/shields.txt:29
+msgid "Tower Shield"
+msgstr "Sgiath tùir"
 
 #: ../items/categories/armor_plate.txt:5
 msgid "Plate Helmet"
@@ -1648,174 +2237,6 @@ msgstr "Èideadh calpa meatailt"
 msgid "Plate Boots"
 msgstr "Bòtannan meatailt"
 
-#: ../items/categories/weapons_magic.txt:5
-msgid "Wand"
-msgstr "Slatan"
-
-#: ../items/categories/weapons_magic.txt:13
-msgid "Rod"
-msgstr "Slat"
-
-#: ../items/categories/weapons_magic.txt:21
-msgid "Staff"
-msgstr "Bata"
-
-#: ../items/categories/weapons_magic.txt:29
-msgid "Greatstaff"
-msgstr "Bata mòr"
-
-#: ../items/categories/armor_chain.txt:5
-msgid "Chain Coif"
-msgstr "Brèid slabhraidhe"
-
-#: ../items/categories/armor_chain.txt:13
-msgid "Chain Cuirass"
-msgstr "Lùirich slabhraidhe"
-
-#: ../items/categories/armor_chain.txt:21
-msgid "Chain Gloves"
-msgstr "Miotagan slabhraidhe"
-
-#: ../items/categories/armor_chain.txt:29
-msgid "Chain Greaves"
-msgstr "Èideadh calpa slabhraidhe"
-
-#: ../items/categories/armor_chain.txt:37
-msgid "Chain Boots"
-msgstr "Bòtannan slabhraidhe"
-
-#: ../items/categories/shields.txt:5
-msgid "Wood Buckler"
-msgstr "Sgiathag fiodha"
-
-#: ../items/categories/shields.txt:13
-msgid "Iron Buckler"
-msgstr "Sgiathag iarainn"
-
-#: ../items/categories/shields.txt:21
-msgid "Crest Shield"
-msgstr "Sgiath cìrein"
-
-#: ../items/categories/shields.txt:29
-msgid "Tower Shield"
-msgstr "Sgiath tùir"
-
-#: ../items/categories/armor_mage.txt:5
-msgid "Mage Hood"
-msgstr "Abaid draoidh"
-
-#: ../items/categories/armor_mage.txt:8
-msgid "The seams on this hood are designed to aid the flow of mana."
-msgstr "Chaidh fuaighealan na h-abaide seo a dhealbhachadh ach an cuidich iad le sruthadh mana."
-
-#: ../items/categories/armor_mage.txt:15
-msgid "Mage Vest"
-msgstr "Peiteag draoidh"
-
-#: ../items/categories/armor_mage.txt:18
-msgid "Frost resistance runes line the inside of this vest."
-msgstr "Tha rùn-litrichean an aghaidh reòthaidh taobh a-staigh na peiteige seo."
-
-#: ../items/categories/armor_mage.txt:26
-msgid "Mage Sleeves"
-msgstr "Muinchillean draoidh"
-
-#: ../items/categories/armor_mage.txt:29
-msgid "The fire resistance runes that hem these sleeves help protect beginner students of Pyromancy."
-msgstr "Dìonaidh na rùn-litrichean an aghaidh teine ann am fàitheaman nam muinchillean seo oileanaich ùra na teine-dhraoidheachd."
-
-#: ../items/categories/armor_mage.txt:36
-msgid "Mage Skirt"
-msgstr "Sgiort draoidh"
-
-#: ../items/categories/armor_mage.txt:39
-msgid "Spell components are tucked into hidden pockets covering this skirt."
-msgstr "Tha co-phàirtean geasa ann am pòcaidean falaichte air feadh na sgiorta seo."
-
-#: ../items/categories/armor_mage.txt:47
-msgid "Mage Boots"
-msgstr "Bòtannan draoidh"
-
-#: ../items/categories/armor_mage.txt:50
-msgid "Attunement with the elements allow mages to ice and fire walk."
-msgstr "Leigidh gleus leis na dùilean leis na draoidh coiseachd air deigh is teine."
-
-#: ../items/categories/rings.txt:5
-msgid "Ring of Invisibility"
-msgstr "Fàinne na do-fhaicsinneachd"
-
-#: ../items/categories/rings.txt:7
-msgid "This nondescript ring was forged in the land where shadows lie."
-msgstr "Chaidh an fhàinne dho-chomharraichte seo a dhèanamh ann an tìr nan sgàilean."
-
-#: ../items/categories/rings.txt:13
-msgid "Ring of Regeneration"
-msgstr "Fàinne an leigheis"
-
-#: ../items/categories/rings.txt:20
-msgid "Ring of Concentration"
-msgstr "Fàinne na dùr-aire"
-
-#: ../items/categories/rings.txt:27
-msgid "Ring of Fire"
-msgstr "Fàinne an teine"
-
-#: ../items/categories/rings.txt:34
-msgid "Ring of Ice"
-msgstr "Fàinne na deighe"
-
-#: ../items/categories/rings.txt:41
-msgid "Lineage Signet Ring"
-msgstr "Fàinne-seula a’ ghineil"
-
-#: ../items/categories/rings.txt:48
-msgid "Ouroboros Ring"
-msgstr "Fàinne uroborois"
-
-#: ../items/categories/rings.txt:52
-msgid "One-time protection from death"
-msgstr "Dìon on bhàs aon turas"
-
-#: ../items/categories/rings.txt:56
-msgid "Relic Hunter's Ring"
-msgstr "Fàinne rannsaiche sheann-chuimhneachan"
-
-#: ../items/categories/gems.txt:5
-msgid "Sapphire"
-msgstr "Saifear"
-
-#: ../items/categories/gems.txt:13
-msgid "Emerald"
-msgstr "Smàrag"
-
-#: ../items/categories/gems.txt:21
-msgid "Ruby"
-msgstr "Ruiteachan"
-
-#: ../items/categories/gems.txt:29
-msgid "Diamond"
-msgstr "Daoimean"
-
-#: ../items/categories/weapons_melee.txt:5
-msgid "Broken Dagger"
-msgstr "Biodag bhriste"
-
-#: ../items/categories/weapons_melee.txt:13
-msgid "Dagger"
-msgstr "Biodag"
-
-#: ../items/categories/weapons_melee.txt:21
-msgid "Shortsword"
-msgstr "Claidheamh goirid"
-
-#: ../items/categories/weapons_melee.txt:29
-msgid "Longsword"
-msgstr "Claidheamh fada"
-
-#: ../items/categories/weapons_melee.txt:37
-msgid "Greatsword"
-msgstr "Claidheamh mòr"
-
 #: ../items/categories/figurines.txt:5
 msgid "Bear Figurine"
 msgstr "Samhail mathain"
@@ -1832,149 +2253,41 @@ msgstr "Samhail cait"
 msgid "Turtle Figurine"
 msgstr "Samhail turtair"
 
-#: ../powers/categories/items.txt:30
-msgid "Blink to a nearby location"
-msgstr "Priob do shùil airson gluasad gu ionad am fagas"
+#: ../items/categories/potions.txt:5
+msgid "Health Potion"
+msgstr "Deoch-shlàinte"
 
-#: ../powers/categories/warrior.txt:4
-msgid "Swing"
-msgstr "Buille"
+#: ../items/categories/potions.txt:8
+msgid "Restore 50% of maximum HP"
+msgstr "Aisig 50% dhe na puingean-beatha as motha"
 
-#: ../powers/categories/warrior.txt:7
-msgid "Basic melee attack"
-msgstr "Ionnsaigh dhlùth bhunasach"
+#: ../items/categories/potions.txt:14
+msgid "Mana Potion"
+msgstr "Deoch mana"
 
-#: ../powers/categories/warrior.txt:19
-msgid "Block"
-msgstr "Bacadh"
+#: ../items/categories/potions.txt:17
+msgid "Restore 50% of maximum MP"
+msgstr "Aisig 50% dhe na puingean-gluasaid as motha"
 
-#: ../powers/categories/warrior.txt:21
-msgid "Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance to reflect missiles increased by 50%."
-msgstr "Tog an sgiath agad gus do sheachnadh àrdachadh le 10% ’s do cheapadh le 1-5. Meudaichidh an teans gum frith-thilg thu astas le 50%."
+#: ../powers/categories/map_hazards.txt:3
+msgid "Fire Ammo"
+msgstr "Connadh teine"
 
-#: ../powers/categories/warrior.txt:33
-msgid "Blood Strike"
-msgstr "Buille fala"
+#: ../powers/categories/map_hazards.txt:23
+msgid "Ice Ammo"
+msgstr "Connadh deighe"
 
-#: ../powers/categories/warrior.txt:36
-msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
-msgstr "Cuir lot fuileachaidh a nì dochann a bharrachd fad 5 diogan"
+#: ../powers/categories/enemy.txt:257
+msgid "Shock [enemy]"
+msgstr "Dealan [nàmhaid]"
 
-#: ../powers/categories/warrior.txt:50
-msgid "Warcry"
-msgstr "Sluagh-ghairm"
-
-#: ../powers/categories/warrior.txt:53
-msgid "Remove debuffs and become immune to debuffs for 10 seconds"
-msgstr "Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean fad 10 diogan"
-
-#: ../powers/categories/warrior.txt:64
-msgid "Cleave"
-msgstr "Spealgadh"
-
-#: ../powers/categories/warrior.txt:67
-msgid "Attack all enemies in a wide arc, dealing 50% of melee weapon damage"
-msgstr "Thoir ionnsaigh air a h-uile nàmhaid le gluasad leathann, a’ toirt seachad 50% dhe dhochann an airm dhlùith"
-
-#: ../powers/categories/warrior.txt:85
-msgid "Heroic Swing"
-msgstr "Buille ghaisgeach"
-
-#: ../powers/categories/warrior.txt:88
-msgid "Melee attack with 10% HP steal"
-msgstr "Ionnsaigh dhlùth a ghoideas 10% a phuingean-beatha"
-
-#: ../powers/categories/warrior.txt:101
-msgid "Throw Knife"
-msgstr "Tilgeil sgeine"
-
-#: ../powers/categories/warrior.txt:104
-msgid "Throw a knife to deal 75% of melee weapon damage"
-msgstr "Tilg sgian gus 75% a dhochann airm dhlùth a dhèanamh"
-
-#: ../powers/categories/warrior.txt:120
-msgid "Throw Axe"
-msgstr "Tilgeil tuaighe"
-
-#: ../powers/categories/warrior.txt:123
-msgid "Throw an axe to deal 150% of melee weapon damage"
-msgstr "Tilg tuagh gus 150% a dhochann airm dhlùth a dhèanamh"
-
-#: ../powers/categories/ranger.txt:3
-msgid "Piercing Shot"
-msgstr "Losgadh sàthaidh"
-
-#: ../powers/categories/ranger.txt:6
-msgid "Fire a shot that ignores armor and goes through multiple enemies"
-msgstr "Loisg saighead a bhiod coma mu armachd agus a thèid tro iomadh nàmhaid"
-
-#: ../powers/categories/ranger.txt:12
-msgid "Multishot"
-msgstr "Ioma-losgadh"
-
-#: ../powers/categories/ranger.txt:15
-msgid "Shoot three projectiles simultaneously"
-msgstr "Loisg trì saighdean aig an aon àm"
-
-#: ../powers/categories/ranger.txt:21
-msgid "Shoot"
-msgstr "Losgadh"
-
-#: ../powers/categories/ranger.txt:24
-msgid "Basic ranged attack"
-msgstr "Ionnsaigh astair bhunasach"
-
-#: ../powers/categories/ranger.txt:30
-msgid "Rapid Fire"
-msgstr "Losgadh luath"
-
-#: ../powers/categories/ranger.txt:33
-msgid "Fire five low power missiles in quick succession"
-msgstr "Loisg còig astasan le cumhachd bheag gu luath"
-
-#: ../powers/categories/ranger.txt:40
-msgid "Ember Shot"
-msgstr "Losgadh èibhleagan"
-
-#: ../powers/categories/ranger.txt:43
-msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
-msgstr "Seall èibhleagan loisgeach air astar beag. Èifeachdach an aghaidh nàimhdean armaichte."
-
-#: ../powers/categories/ranger.txt:68
-msgid "Caltrops"
-msgstr "Cas-ribean"
-
-#: ../powers/categories/ranger.txt:71
-msgid "This trap deals 75% ranged weapon damage and slows the target."
-msgstr "Nì an ribe seo 75% a dhochann airm astair is cuiridh e maille air an nàmhaid."
-
-#: ../powers/categories/ranger.txt:89
-msgid "Bear Trap"
-msgstr "Ribe mathain"
-
-#: ../powers/categories/ranger.txt:92
-msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
-msgstr "Nì an ribe seo 75% a dhochann airm astair is chan urrainn dhan nàmhaid gluasad tuilleadh."
-
-#: ../powers/categories/ranger.txt:140
-msgid "Revert Form"
-msgstr "Aisig an cruth"
-
-#: ../powers/categories/ranger.txt:145
-msgid "Transform back to human"
-msgstr "Tionndaidh ’nad dhuine a-rithist"
-
-#: ../powers/categories/ranger.txt:155
-msgid "Move undetected with the opportunity to perform a sneak attack"
-msgstr "Gluais gun duine ’gad mhothachadh ach am faigh thu cothrom air ionnsaigh èalaidh"
-
-#: ../powers/categories/ranger.txt:165
-msgid "Sneak Attack"
-msgstr "Ionnsaigh èalaidh"
-
-#: ../powers/categories/ranger.txt:168
-msgid "Melee attack while stealthed for a high chance to crit"
-msgstr "Ionnsaigh dlùth le tàisleachadh le teans mhath air dochann èiginneach"
+#: ../powers/categories/enemy.txt:260
+msgid ""
+"Electrocute an enemy from a distance; +50% crit chance against movement-"
+"impaired enemies."
+msgstr ""
+"Tilg dealan air nàmhaid aig astar; teans èiginneach de +50% an aghaidh "
+"nàimhdean le easbhaidh gluasaid."
 
 #: ../powers/categories/visual_effects.txt:3
 msgid "Arrow Wall Strike"
@@ -1991,14 +2304,6 @@ msgstr "Srad ghorm"
 #: ../powers/categories/visual_effects.txt:40
 msgid "Red Spark"
 msgstr "Srad dhearg"
-
-#: ../powers/categories/enemy.txt:257
-msgid "Shock [enemy]"
-msgstr "Dealan [nàmhaid]"
-
-#: ../powers/categories/enemy.txt:260
-msgid "Electrocute an enemy from a distance; +50% crit chance against movement-impaired enemies."
-msgstr "Tilg dealan air nàmhaid aig astar; teans èiginneach de +50% an aghaidh nàimhdean le easbhaidh gluasaid."
 
 #: ../powers/categories/magician.txt:3
 msgid "Channel"
@@ -2048,41 +2353,197 @@ msgstr "Cruthaich leus fuachd uabhasaich a chuireas maille air nàimhdean"
 msgid "Teleport"
 msgstr "Tele-phortadh"
 
-#: ../powers/categories/magician.txt:143
+#: ../powers/categories/magician.txt:124
+msgid "Blink to a nearby location"
+msgstr "Priob do shùil airson gluasad gu ionad am fagas"
+
+#: ../powers/categories/magician.txt:142
 msgid "Burn"
 msgstr "Teine"
 
-#: ../powers/categories/magician.txt:146
+#: ../powers/categories/magician.txt:145
 msgid "Blast enemies in a distant area with fire"
 msgstr "Gread nàimhdean air raon fad air falbh le teine"
 
-#: ../powers/categories/magician.txt:168
+#: ../powers/categories/magician.txt:167
 msgid "Greater Channel"
 msgstr "Geas mhòr"
 
-#: ../powers/categories/magician.txt:171
+#: ../powers/categories/magician.txt:170
 msgid "Magic attack with 10% MP steal"
 msgstr "Ionnsaigh draoidheach a ghoideas 10% a phuingean-gluasaid"
 
-#: ../powers/categories/magician.txt:188
+#: ../powers/categories/magician.txt:187
 msgid "Thunderstrike"
 msgstr "Buille tàirneanach"
 
-#: ../powers/categories/magician.txt:191
+#: ../powers/categories/magician.txt:190
 msgid "Lightning strikes from the sky to stun enemies"
 msgstr "Bualaidh an dealanach on speur gus nàimhdean a chur ’nan tuaineal"
 
-#: ../powers/categories/map_hazards.txt:3
-msgid "Fire Ammo"
-msgstr "Connadh teine"
+#: ../powers/categories/ranger.txt:3
+msgid "Piercing Shot"
+msgstr "Losgadh sàthaidh"
 
-#: ../powers/categories/map_hazards.txt:23
-msgid "Ice Ammo"
-msgstr "Connadh deighe"
+#: ../powers/categories/ranger.txt:6
+msgid "Fire a shot that ignores armor and goes through multiple enemies"
+msgstr "Loisg saighead a bhiod coma mu armachd agus a thèid tro iomadh nàmhaid"
+
+#: ../powers/categories/ranger.txt:12
+msgid "Multishot"
+msgstr "Ioma-losgadh"
+
+#: ../powers/categories/ranger.txt:15
+msgid "Shoot three projectiles simultaneously"
+msgstr "Loisg trì saighdean aig an aon àm"
+
+#: ../powers/categories/ranger.txt:21
+msgid "Shoot"
+msgstr "Losgadh"
+
+#: ../powers/categories/ranger.txt:24
+msgid "Basic ranged attack"
+msgstr "Ionnsaigh astair bhunasach"
+
+#: ../powers/categories/ranger.txt:30
+msgid "Rapid Fire"
+msgstr "Losgadh luath"
+
+#: ../powers/categories/ranger.txt:33
+msgid "Fire five low power missiles in quick succession"
+msgstr "Loisg còig astasan le cumhachd bheag gu luath"
+
+#: ../powers/categories/ranger.txt:40
+msgid "Ember Shot"
+msgstr "Losgadh èibhleagan"
+
+#: ../powers/categories/ranger.txt:43
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies."
+msgstr ""
+"Seall èibhleagan loisgeach air astar beag. Èifeachdach an aghaidh nàimhdean "
+"armaichte."
+
+#: ../powers/categories/ranger.txt:68
+msgid "Caltrops"
+msgstr "Cas-ribean"
+
+#: ../powers/categories/ranger.txt:71
+msgid "This trap deals 75% ranged weapon damage and slows the target."
+msgstr ""
+"Nì an ribe seo 75% a dhochann airm astair is cuiridh e maille air an nàmhaid."
+
+#: ../powers/categories/ranger.txt:89
+msgid "Bear Trap"
+msgstr "Ribe mathain"
+
+#: ../powers/categories/ranger.txt:92
+msgid "This trap deals 150% ranged weapon damage and immobilizes the target."
+msgstr ""
+"Nì an ribe seo 75% a dhochann airm astair is chan urrainn dhan nàmhaid "
+"gluasad tuilleadh."
+
+#: ../powers/categories/ranger.txt:140
+msgid "Revert Form"
+msgstr "Aisig an cruth"
+
+#: ../powers/categories/ranger.txt:145
+msgid "Transform back to human"
+msgstr "Tionndaidh ’nad dhuine a-rithist"
+
+#: ../powers/categories/ranger.txt:155
+msgid "Move undetected with the opportunity to perform a sneak attack"
+msgstr ""
+"Gluais gun duine ’gad mhothachadh ach am faigh thu cothrom air ionnsaigh "
+"èalaidh"
+
+#: ../powers/categories/ranger.txt:165
+msgid "Sneak Attack"
+msgstr "Ionnsaigh èalaidh"
+
+#: ../powers/categories/ranger.txt:168
+msgid "Melee attack while stealthed for a high chance to crit"
+msgstr "Ionnsaigh dlùth le tàisleachadh le teans mhath air dochann èiginneach"
+
+#: ../powers/categories/warrior.txt:4
+msgid "Swing"
+msgstr "Buille"
+
+#: ../powers/categories/warrior.txt:7
+msgid "Basic melee attack"
+msgstr "Ionnsaigh dhlùth bhunasach"
+
+#: ../powers/categories/warrior.txt:19
+msgid "Block"
+msgstr "Bacadh"
+
+#: ../powers/categories/warrior.txt:21
+msgid ""
+"Raise your shield to raise your avoidance by 10% and absorb by 1-5. Chance "
+"to reflect missiles increased by 50%."
+msgstr ""
+"Tog an sgiath agad gus do sheachnadh àrdachadh le 10% ’s do cheapadh le 1-5. "
+"Meudaichidh an teans gum frith-thilg thu astas le 50%."
+
+#: ../powers/categories/warrior.txt:33
+msgid "Blood Strike"
+msgstr "Buille fala"
+
+#: ../powers/categories/warrior.txt:36
+msgid "Inflict a bleeding wound that causes additional damage over 5 seconds"
+msgstr "Cuir lot fuileachaidh a nì dochann a bharrachd fad 5 diogan"
+
+#: ../powers/categories/warrior.txt:50
+msgid "Warcry"
+msgstr "Sluagh-ghairm"
+
+#: ../powers/categories/warrior.txt:53
+msgid "Remove debuffs and become immune to debuffs for 10 seconds"
+msgstr ""
+"Thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean fad 10 "
+"diogan"
+
+#: ../powers/categories/warrior.txt:64
+msgid "Cleave"
+msgstr "Spealgadh"
+
+#: ../powers/categories/warrior.txt:67
+msgid "Attack all enemies in a wide arc, dealing 50% of melee weapon damage"
+msgstr ""
+"Thoir ionnsaigh air a h-uile nàmhaid le gluasad leathann, a’ toirt seachad "
+"50% dhe dhochann an airm dhlùith"
+
+#: ../powers/categories/warrior.txt:85
+msgid "Heroic Swing"
+msgstr "Buille ghaisgeach"
+
+#: ../powers/categories/warrior.txt:88
+msgid "Melee attack with 10% HP steal"
+msgstr "Ionnsaigh dhlùth a ghoideas 10% a phuingean-beatha"
+
+#: ../powers/categories/warrior.txt:101
+msgid "Throw Knife"
+msgstr "Tilgeil sgeine"
+
+#: ../powers/categories/warrior.txt:104
+msgid "Throw a knife to deal 75% of melee weapon damage"
+msgstr "Tilg sgian gus 75% a dhochann airm dhlùth a dhèanamh"
+
+#: ../powers/categories/warrior.txt:120
+msgid "Throw Axe"
+msgstr "Tilgeil tuaighe"
+
+#: ../powers/categories/warrior.txt:123
+msgid "Throw an axe to deal 150% of melee weapon damage"
+msgstr "Tilg tuagh gus 150% a dhochann airm dhlùth a dhèanamh"
 
 #: ../powers/trees/default.txt:11
 msgid "Magician"
 msgstr "Draoidh"
+
+#~ msgid "Shared Stash"
+#~ msgstr "Stòr co-roinnte"
 
 #~ msgid "Fire Resistance"
 #~ msgstr "Comas-seasaimh an aghaidh teine"
@@ -2093,8 +2554,26 @@ msgstr "Draoidh"
 #~ msgid "Mineshaft"
 #~ msgstr "Sloc mèinne"
 
-#~ msgid "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and Thane Brimhall"
-#~ msgstr "Luchd-dealbhaidh na susbainte - Clint Bellanger, Justin Jacobs, Stefan Beller agus Thane Brimhall"
+#~ msgid ""
+#~ "Content Designers - Clint Bellanger, Justin Jacobs, Stefan Beller, and "
+#~ "Thane Brimhall"
+#~ msgstr ""
+#~ "Luchd-dealbhaidh na susbainte - Clint Bellanger, Justin Jacobs, Stefan "
+#~ "Beller agus Thane Brimhall"
 
-#~ msgid "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen, and Yannis Anthymidis"
-#~ msgstr "Eadar-theangadairean - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo Sievänen agus Yannis Anthymidis"
+#~ msgid ""
+#~ "Translators - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas Berheim "
+#~ "Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, "
+#~ "Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim "
+#~ "Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro "
+#~ "Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, "
+#~ "Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo "
+#~ "Sievänen, and Yannis Anthymidis"
+#~ msgstr ""
+#~ "Eadar-theangadairean - Adrian Chaves Fernandez, Andrea Ranaldi, Andreas "
+#~ "Berheim Brudin, Bas Doodeman, Bonbadil, Carlos Sanchez, Chris Oelmueller, "
+#~ "Christoph J. Thompson, Evgen Pavlov, Giovanni Dalla Torre, Hans Joachim "
+#~ "Desserud, Igor Paliychuk, Juan Pablo Tamayo, Mikhail Karalevich, Miro "
+#~ "Jánošík, Morgan Strauss, Nikita Vanku, Paul Wortmann, Pawel Puszczynski, "
+#~ "Quentin Stievenart, Sergey Basalaev, Stefan Beller, Thomas Glamsch, Timo "
+#~ "Sievänen agus Yannis Anthymidis"
