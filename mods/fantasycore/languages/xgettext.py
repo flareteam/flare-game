@@ -47,6 +47,16 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'quest_text', 'description', 'topic', 'flavor', 'caption', 'text'
         ]
+    # The credits cutscenes mostly contain names of people that we don't want to translate.
+    # However, there are a few strings that we DO want translated, which we define here:
+    allowed_credits_strings = [
+        'Flare Engine Credits', 'Lead Programmers', 'Programmers', 'Default Art',
+        'Translators', 'Distributors', 'Special Thanks', 'For giving constant feedback and testing:',
+        'The community at OpenGameArt', 'For Tiled and the Flare map exporter:',
+        'Flare Game Credits - fantasycore', 'Lead Visual Artists', 'Visual Artists', 'Composers',
+        'Foley Artists', 'Voice Actors', 'Flare Game Credits - empyrean_campaign',
+        'Lead Content Designers', 'Flare Game Credits - alpha_demo', 'Content Designers'
+        ]
     for i, line in enumerate(infile, start=1):
         for trigger in triggers:
             if line.startswith(trigger + '='):
@@ -68,9 +78,14 @@ def extract(filename):
                 elif len(values) == 5:
                    # option=base,head,portrait,name
                    stat = values[-1]
+
+                test_key = stat.rstrip()
+                if filename.endswith('cutscenes/credits.txt') and test_key not in allowed_credits_strings:
+                    continue
+
                 comment = filename + ':' + str(i)
                 comments.append(comment)
-                keys.append(stat.rstrip())
+                keys.append(test_key)
 
 # this removes duplicates from keys in a clean way (without screwing up the order)
 def remove_duplicates():
