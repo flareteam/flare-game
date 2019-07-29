@@ -1,43 +1,56 @@
 # Copyright (C) 2011 Clint Bellanger
 # This file is distributed under the same license as the FLARE package.
-#
-# FIRST AUTHOR <bztsrc@gitlab>, 2019.
+# 
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translators:
+# Kalocsai Richárd <kalocsai.richard.r@gmail.com>, 2019
+# Justin Jacobs <jajdorkster@gmail.com>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 20:59+\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Hungarian <LL@li.org>\n"
-"Language: hu\n"
+"POT-Creation-Date: 2019-07-29 09:46+\n"
+"PO-Revision-Date: 2018-03-28 19:35+0000\n"
+"Last-Translator: Justin Jacobs <jajdorkster@gmail.com>, 2019\n"
+"Language-Team: Hungarian (https://www.transifex.com/flareorg/teams/84925/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../items/items.txt:8
 msgid "Gold"
 msgstr "Arany"
 
-#: ../items/items.txt:55
+#: ../items/items.txt:58
 msgid "DEV Boots"
 msgstr "FEJL Bakancs"
 
-#: ../items/items.txt:60
-msgid "Célja: tetszőleges helyre teleportál."
-msgstr ""
+#: ../items/items.txt:63
+msgid "Use: Teleport to target position."
+msgstr "Használat: Teleportálás a kijelölt helyre."
 
-#: ../items/items.txt:64
+#: ../items/items.txt:67
 msgid "DEV Invisibility Boots"
 msgstr "FEJL Láthatatlanbakancs"
 
-#: ../items/items.txt:69
-msgid "Célja: láthatatlanná tesz"
+#: ../items/items.txt:72
+msgid "Use: Turn Invisible"
 msgstr ""
 
 #: ../items/types.txt:5
 msgid "Ancient Relic"
 msgstr "Ősi relikvia"
+
+#: ../items/types.txt:9
+msgid "Crafting Resource"
+msgstr "Barkács alapanyag"
+
+#: ../items/types.txt:13
+msgid "Crafting Tool"
+msgstr "Barkács eszköz"
 
 #: ../items/sets.txt:3
 msgid "St. Maria Garb"
@@ -54,6 +67,10 @@ msgstr "Varázsló Felszerelés"
 #: ../items/sets.txt:36
 msgid "Underworld Armament"
 msgstr "Alvilági Páncél"
+
+#: ../items/qualities.txt:5
+msgid "Normal"
+msgstr ""
 
 #: ../powers/effects.txt:6
 msgid "Shield"
@@ -128,24 +145,34 @@ msgid "Brute"
 msgstr "Nyerserő"
 
 #: ../engine/classes.txt:7
-msgid "Brutes rely on physical strength and melee weapons to strike down foes. Primary attribute: Physical"
-msgstr "Nyerserő főleg fizikai erőre és közelharcra épít, hogy lesúlytson az ellenfelekre. Elsődlegesen: Fizikai"
+msgid ""
+"Brutes rely on physical strength and melee weapons to strike down foes. "
+"Primary attribute: Physical"
+msgstr ""
+"Nyerserő főleg fizikai erőre és közelharcra épít, hogy lesúlytson az "
+"ellenfelekre. Elsődlegesen: Fizikai"
 
 #: ../engine/classes.txt:17
 msgid "Scout"
 msgstr "Felderítő"
 
 #: ../engine/classes.txt:18
-msgid "Scouts specialize in range weaponry and combat accuracy. Primary attribute: Offense"
-msgstr "Felderítők lőfegyverekre és pontosságra építenek. Elsődlegesen: Védekezés"
+msgid ""
+"Scouts specialize in range weaponry and combat accuracy. Primary attribute: "
+"Offense"
+msgstr ""
+"Felderítők lőfegyverekre és pontosságra építenek. Elsődlegesen: Védekezés"
 
 #: ../engine/classes.txt:28
 msgid "Adept"
 msgstr "Táltos"
 
 #: ../engine/classes.txt:29
-msgid "Adepts have natural abilities in casting magical spells. Primary attribute: Mental"
-msgstr "A táltosok születésüktől fogva képesek varázsolni. Elsődlegesen: Mentális"
+msgid ""
+"Adepts have natural abilities in casting magical spells. Primary attribute: "
+"Mental"
+msgstr ""
+"A táltosok születésüktől fogva képesek varázsolni. Elsődlegesen: Mentális"
 
 #: ../engine/titles.txt:3
 msgid "Grand Master"
@@ -763,25 +790,29 @@ msgstr "Hiperűr"
 msgid "Lake Kuuma"
 msgstr "Kuuma Tava"
 
-#: ../maps/book_of_the_dead.txt:10
+#: ../maps/book_of_the_dead.txt:11
 msgid "Book of the Dead"
 msgstr "Halottak Könyve"
 
-#: ../maps/book_of_the_dead.txt:191
+#: ../maps/book_of_the_dead.txt:192
 msgid "Perdition Harbor"
 msgstr "Pergő Kikötő"
 
-#: ../maps/book_of_the_dead.txt:201
+#: ../maps/book_of_the_dead.txt:202
 msgid "Salted Field"
 msgstr "Felsózott Mező"
 
-#: ../maps/book_of_the_dead.txt:294
+#: ../maps/book_of_the_dead.txt:295
 msgid "Quest added."
 msgstr "Küldetést kaptál."
 
-#: ../maps/book_of_the_dead.txt:349
-msgid "You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked."
-msgstr "Beírod a neved a Halottak könyvébe. A Fekete Toll eltűnik, és a tinta kiszárad. Reméled, hogy működött."
+#: ../maps/book_of_the_dead.txt:348
+msgid ""
+"You sign your name in the Book of the Dead. The Black Quill vanishes and the"
+" inkwell is dry. You hope this worked."
+msgstr ""
+"Beírod a neved a Halottak könyvébe. A Fekete Toll eltűnik, és a tinta "
+"kiszárad. Reméled, hogy működött."
 
 #: ../maps/dilapidated_sewers.txt:311
 msgid "Dilapidated Sewers waypoint discovered."
@@ -812,8 +843,12 @@ msgid "Lochport Cemetery"
 msgstr "Lochport Temető"
 
 #: ../maps/family_crypt.txt:301
-msgid "The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."
-msgstr "A koporsón van egy bemélyedés, pont Ardwen gyűrű méretű. Behelyezed a gyűrűt a mélyedésbe."
+msgid ""
+"The coffin has a small slot the size of Ardwen's ring. You place the ring in"
+" the slot."
+msgstr ""
+"A koporsón van egy bemélyedés, pont Ardwen gyűrű méretű. Behelyezed a gyűrűt"
+" a mélyedésbe."
 
 #: ../maps/family_crypt.txt:310
 msgid "Ardwen's Coffin"
@@ -832,16 +867,24 @@ msgid "Fort Amir"
 msgstr "Amir Erődje"
 
 #: ../maps/fort_amir.txt:369
-msgid "Opening the book reveals that it has been hollowed out. A gem is concealed inside."
-msgstr "A könyvet kinyitva észreveszed, hogy ki lett vágva a közepe, és egy ékkő van benne."
+msgid ""
+"Opening the book reveals that it has been hollowed out. A gem is concealed "
+"inside."
+msgstr ""
+"A könyvet kinyitva észreveszed, hogy ki lett vágva a közepe, és egy ékkő van"
+" benne."
 
 #: ../maps/fort_amir.txt:373
 msgid "Book"
 msgstr "Könyv"
 
 #: ../maps/fort_amir.txt:398
-msgid "The statue is missing an eye. The sapphire fits securely in the statue's eye socket."
-msgstr "A szobornak hiányzik egy szeme. A zafír pont beleillik a szobor szemének helyére."
+msgid ""
+"The statue is missing an eye. The sapphire fits securely in the statue's eye"
+" socket."
+msgstr ""
+"A szobornak hiányzik egy szeme. A zafír pont beleillik a szobor szemének "
+"helyére."
 
 #: ../maps/fort_amir.txt:403
 msgid "Statue"
@@ -855,19 +898,21 @@ msgstr "A szobornak hiányzik az egyik szeme."
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "A könyvespolc odébbcsúszik, és egy rejtett folyosót pillantasz meg."
 
-#: ../maps/fort_nasu.txt:1026
+#: ../maps/fort_nasu.txt:1025
 msgid "Book Stand"
 msgstr "Könyvállvány"
 
-#: ../maps/fort_nasu.txt:1065
+#: ../maps/fort_nasu.txt:1064
 msgid "Altar"
 msgstr "Oltár"
 
-#: ../maps/fort_nasu.txt:1073
-msgid "As you enter the throne room, you see an Altar with a wooden figurine placed upon it."
+#: ../maps/fort_nasu.txt:1072
+msgid ""
+"As you enter the throne room, you see an Altar with a wooden figurine placed"
+" upon it."
 msgstr "Amint belépsz a trónterembe, meglátsz egy Oltárt fa figurával."
 
-#: ../maps/fort_nasu.txt:1103
+#: ../maps/fort_nasu.txt:1102
 msgid "Strange Book"
 msgstr "Különös Könyv"
 
@@ -891,7 +936,7 @@ msgstr "Manóbarlang"
 msgid "Gravestone"
 msgstr "Sírkő"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
 msgid "Halls of Infinity"
 msgstr "Végtelenség Csarnoka"
 
@@ -936,8 +981,8 @@ msgid "You place the figure on the altar."
 msgstr "Ráhelyezed a figurát az oltárra."
 
 #: ../maps/hyperspace.txt:196
-msgid "St. Maria: Prison"
-msgstr "Szent Mária: börtön"
+msgid "St. Maria: Catacombs"
+msgstr ""
 
 #: ../maps/hyperspace.txt:218
 msgid "Stormrock Pass"
@@ -958,6 +1003,10 @@ msgstr "Varázsótorony: kutató kamrák"
 #: ../maps/hyperspace.txt:273
 msgid "Underworld Catacombs"
 msgstr "Alvilági Katakombák"
+
+#: ../maps/hyperspace.txt:388
+msgid "Cutscenes"
+msgstr ""
 
 #: ../maps/lake_kuuma.txt:852
 msgid "Boat"
@@ -1028,8 +1077,8 @@ msgid "Underworld Mines"
 msgstr "Alvilági Bányák"
 
 #: ../maps/perdition_harbor.txt:171
-msgid "Shared Stash"
-msgstr "Megosztott Dugihely"
+msgid "Stash"
+msgstr ""
 
 #: ../maps/perdition_harbor.txt:269
 msgid "Perdition Harbor waypoint discovered."
@@ -1043,17 +1092,17 @@ msgstr "Pörgő Bányák"
 msgid "Krolan's Chest"
 msgstr "Krolan Ládája"
 
-#: ../maps/st_maria_1.txt:348
+#: ../maps/st_maria_1.txt:349
 msgid "This door needs a key to be opened."
 msgstr "Ehhez az ajtóhoz kulcs kell."
 
-#: ../maps/st_maria_1.txt:350
+#: ../maps/st_maria_1.txt:351
 msgid "Locked Door"
 msgstr "Bezárt ajtó"
 
 #: ../maps/st_maria_2.txt:271
-msgid "St. Maria: Prison waypoint discovered."
-msgstr "Szent Mária: börtönbe vezető utat találtál."
+msgid "St. Maria: Catacombs waypoint discovered."
+msgstr ""
 
 #: ../maps/st_maria_2.txt:463
 msgid "St. Maria: Crypt"
@@ -1100,8 +1149,16 @@ msgid "Temple of Mez: Entrance"
 msgstr "Mez Temploma: bejárat"
 
 #: ../maps/temple_of_mez_2.txt:552
-msgid "You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."
-msgstr "Megvágod a kezed az Áldozati tőrrel. A kín elviselhetetlen. Reszketve felfogsz pár csepp vért. A tőr felizzik, majd semmivé foszlik, a sebednek pedig hűlt helye. Csak egy kellemes érzés marad utánna."
+msgid ""
+"You cut into your arm with the Knife of Sacrifices. The pain is "
+"excruciating. Shaking, you manage to collect some of your blood in a small "
+"vial. The knife quickly raises in temperature until it disintegrates. Your "
+"wound then begins to close itself, leaving no trace at all besides a warm "
+"feeling throughout your body."
+msgstr ""
+"Megvágod a kezed az Áldozati tőrrel. A kín elviselhetetlen. Reszketve "
+"felfogsz pár csepp vért. A tőr felizzik, majd semmivé foszlik, a sebednek "
+"pedig hűlt helye. Csak egy kellemes érzés marad utánna."
 
 #: ../maps/temple_of_mez_2.txt:560
 msgid "Red Altar"
@@ -1115,27 +1172,27 @@ msgstr "A Verem"
 msgid "It's locked."
 msgstr "Be van zárva."
 
-#: ../maps/torture_chambers.txt:12
+#: ../maps/torture_chambers.txt:11
 msgid "Torture Chambers"
 msgstr "Kínzókamra"
 
-#: ../maps/torture_chambers.txt:343
+#: ../maps/torture_chambers.txt:342
 msgid "Underworld"
 msgstr "Alvilág"
 
-#: ../maps/torture_chambers.txt:557
+#: ../maps/torture_chambers.txt:556
 msgid "Upon touching the book, you are teleported to a strange room."
 msgstr "Amint megérinted a könyvet, egy különös helyre kerülsz."
 
-#: ../maps/torture_chambers.txt:561
+#: ../maps/torture_chambers.txt:560
 msgid "Bookshelf"
 msgstr "Könyvespolc"
 
-#: ../maps/torture_chambers.txt:570
+#: ../maps/torture_chambers.txt:569
 msgid "The warden's notes vanish!"
 msgstr "Az őr jegyzetei eltűnnek!"
 
-#: ../maps/torture_chambers.txt:646
+#: ../maps/torture_chambers.txt:645
 msgid "Warden's Crate"
 msgstr "Őr Ládája"
 
@@ -1167,63 +1224,110 @@ msgstr "A felirat szövege: Alvilág Kapuja"
 msgid "Return to Empyrean"
 msgstr "Vissza Empyreanba"
 
-#: ../quests/000_empyrean.txt:6
-msgid "The Book of the Dead states redemption is possible for those who sign their name in gravebloom ink. Florin in Perdition Harbor can tell you more."
-msgstr "A halottak Könyve szerint a megváltás lehetséges, ha sírvirágból készült tintával beírod a neved. Florin Pergő Kikötőben többet tud mondani."
+#: ../quests/000_empyrean.txt:7
+msgid ""
+"You found a chamber on the east side of Perdition Harbor that contains the "
+"Book of the Dead."
+msgstr ""
 
-#: ../quests/000_empyrean.txt:11
-msgid "Before leaving St. Maria's Crypt, it would be wise to look for anything useful."
+#: ../quests/000_empyrean.txt:12
+msgid ""
+"The Book of the Dead states redemption is possible for those who sign their "
+"name in gravebloom ink. Florin in Perdition Harbor can tell you more."
+msgstr ""
+"A halottak Könyve szerint a megváltás lehetséges, ha sírvirágból készült "
+"tintával beírod a neved. Florin Pergő Kikötőben többet tud mondani."
+
+#: ../quests/000_empyrean.txt:17
+msgid ""
+"Before leaving St. Maria's Crypt, it would be wise to look for anything "
+"useful."
 msgstr "Mielőtt elhagynád Szent Mária Kriptáit, bölcs dolog lenne körbenézni."
 
-#: ../quests/000_empyrean.txt:16
+#: ../quests/000_empyrean.txt:22
 msgid "Ask Florin about the Gravebloom flower."
 msgstr "Kérdezd Florint a Sírvirág tintáról."
 
-#: ../quests/000_empyrean.txt:22
-msgid "You've found a gravebloom flower. It is a primary component in the creation of gravebloom ink."
+#: ../quests/000_empyrean.txt:28
+msgid ""
+"You've found a gravebloom flower. It is a primary component in the creation "
+"of gravebloom ink."
 msgstr "Megtaláltad a sírvirágot. Ez a tinta fő alapanyaga."
 
-#: ../quests/000_empyrean.txt:27
-msgid "A strange black feather fell off of Mez. You should take it before leaving the Temple of Mez."
-msgstr "Egy különös fekete toll hull alá Mezről. Jobb lenne megszerezni, mielőtt elhagyod Mez Templomát."
+#: ../quests/000_empyrean.txt:33
+msgid ""
+"A strange black feather fell off of Mez. You should take it before leaving "
+"the Temple of Mez."
+msgstr ""
+"Egy különös fekete toll hull alá Mezről. Jobb lenne megszerezni, mielőtt "
+"elhagyod Mez Templomát."
 
-#: ../quests/000_empyrean.txt:32
+#: ../quests/000_empyrean.txt:38
 msgid "Ask Florin about the Black Quill."
 msgstr "Kérdezd Florint a Fekete Tollról."
 
-#: ../quests/000_empyrean.txt:38
-msgid "The Black Quill you found is the only thing capable of holding gravebloom ink. It will be the only way to write in the Book of the Dead."
-msgstr "A Fekete Toll, amit találtál az egyetlen, ami kibírja a sírvirág tintáját. Csak ezzel lehet írni a Halottak Könyvébe."
+#: ../quests/000_empyrean.txt:44
+msgid ""
+"The Black Quill you found is the only thing capable of holding gravebloom "
+"ink. It will be the only way to write in the Book of the Dead."
+msgstr ""
+"A Fekete Toll, amit találtál az egyetlen, ami kibírja a sírvirág tintáját. "
+"Csak ezzel lehet írni a Halottak Könyvébe."
 
-#: ../quests/000_empyrean.txt:43
-msgid "Before leaving the Wizard's Tower, you should take the knife that Metzger dropped."
-msgstr "Mielőtt elhagynád a Varázsló Tornyát, vedd fel a tőrt, amit Metzger ejtett el."
+#: ../quests/000_empyrean.txt:49
+msgid ""
+"Before leaving the Wizard's Tower, you should take the knife that Metzger "
+"dropped."
+msgstr ""
+"Mielőtt elhagynád a Varázsló Tornyát, vedd fel a tőrt, amit Metzger ejtett "
+"el."
 
-#: ../quests/000_empyrean.txt:48
+#: ../quests/000_empyrean.txt:54
 msgid "Ask Florin about the Knife of Sacrifices."
 msgstr "Kérdezd Florint az Áldozati Tőrről."
 
-#: ../quests/000_empyrean.txt:54
-msgid "Gravebloom ink requires a sample of your blood to be drawn with the Knife of Sacrifices. This must take place at the Red Altar in the Temple of Mez."
-msgstr "A sírvirág tintához szükséges egy csepp a véredből, amit az Áldozati Tőrrel ejtesz. Ezt a Vörös Oltárnál kell megejtened Mez Templomában."
-
 #: ../quests/000_empyrean.txt:60
-msgid "Having completed the ritual at the Red Altar, return to Florin to proceed with creating the gravebloom ink."
-msgstr "Miután végeztél a szertartással A Vörös Oltárnál, térj vissza Florinhoz, hogy elkészítse a tintát."
+msgid ""
+"Gravebloom ink requires a sample of your blood to be drawn with the Knife of"
+" Sacrifices. This must take place at the Red Altar in the Temple of Mez."
+msgstr ""
+"A sírvirág tintához szükséges egy csepp a véredből, amit az Áldozati Tőrrel "
+"ejtesz. Ezt a Vörös Oltárnál kell megejtened Mez Templomában."
 
-#: ../quests/000_empyrean.txt:65
-msgid "The time has come. Write your name in the Book of the Dead and gain entry to the Underworld."
-msgstr "Eljött az idő. Írd be a neved a Halottak Könyvábe, és nyerj bebocsátást az Alvilágba."
+#: ../quests/000_empyrean.txt:66
+msgid ""
+"Having completed the ritual at the Red Altar, return to Florin to proceed "
+"with creating the gravebloom ink."
+msgstr ""
+"Miután végeztél a szertartással A Vörös Oltárnál, térj vissza Florinhoz, "
+"hogy elkészítse a tintát."
 
-#: ../quests/000_empyrean.txt:70
-msgid "Make your way to the Underworld. A portal to the Underworld was located in the Wizard's Tower. Once you are there, search for a way to return to Empyrean."
-msgstr "Eljutottál az Alvilágba. A portál a Varázsló Tornyában található. Amint odaértél, keresd meg a kiutat Empyreanba."
+#: ../quests/000_empyrean.txt:71
+msgid ""
+"The time has come. Write your name in the Book of the Dead and gain entry to"
+" the Underworld."
+msgstr ""
+"Eljött az idő. Írd be a neved a Halottak Könyvábe, és nyerj bebocsátást az "
+"Alvilágba."
 
-#: ../quests/000_empyrean.txt:75
-msgid "You've found a stronghold in the Underworld. If there is a way back to Empyrean, it is through here."
-msgstr "Találtál egy erődítményt az Alvilágban. Ha van visszaút Empyreanba, akkor ott kell lennie."
+#: ../quests/000_empyrean.txt:76
+msgid ""
+"Make your way to the Underworld. A portal to the Underworld was located in "
+"the Wizard's Tower. Once you are there, search for a way to return to "
+"Empyrean."
+msgstr ""
+"Eljutottál az Alvilágba. A portál a Varázsló Tornyában található. Amint "
+"odaértél, keresd meg a kiutat Empyreanba."
 
-#: ../quests/000_empyrean.txt:80
+#: ../quests/000_empyrean.txt:81
+msgid ""
+"You've found a stronghold in the Underworld. If there is a way back to "
+"Empyrean, it is through here."
+msgstr ""
+"Találtál egy erődítményt az Alvilágban. Ha van visszaút Empyreanba, akkor "
+"ott kell lennie."
+
+#: ../quests/000_empyrean.txt:86
 msgid "Face what awaits you in The Pit."
 msgstr "Nézz szembe azzal, ami a Veremben vár rád."
 
@@ -1231,15 +1335,15 @@ msgstr "Nézz szembe azzal, ami a Veremben vár rád."
 msgid "Krolan's Missing"
 msgstr "Krolan eltűnt"
 
-#: ../quests/001_krolan.txt:6
+#: ../quests/001_krolan.txt:7
 msgid "Travel to the Perdition Mines and look for Krolan."
 msgstr "Menj a Pergő Bányákba, és keresd med Krolant."
 
-#: ../quests/001_krolan.txt:11
+#: ../quests/001_krolan.txt:12
 msgid "Use Krolan's key to search his chest."
 msgstr "Használd Krolan kulcsát, hogy átkutasd a ládáját."
 
-#: ../quests/001_krolan.txt:16
+#: ../quests/001_krolan.txt:17
 msgid "Return to Udana and inform her of Krolan's death."
 msgstr "Térj vissza Udanához, és tájékoztasd Krolan haláláról."
 
@@ -1247,15 +1351,19 @@ msgstr "Térj vissza Udanához, és tájékoztasd Krolan haláláról."
 msgid "The Merchant's Journal"
 msgstr "A Kereskedő Naplója"
 
-#: ../quests/002_journal.txt:7
+#: ../quests/002_journal.txt:8
 msgid "Find Abasi's journal. It is likely being carried by a nearby goblin."
-msgstr "Keresd meg Abasi naplóját. Valószínűleg egy közelben lévő manónál van."
+msgstr ""
+"Keresd meg Abasi naplóját. Valószínűleg egy közelben lévő manónál van."
 
-#: ../quests/002_journal.txt:13
-msgid "Find Abasi's journal. He said that it was last seen near the Goblin Cave."
-msgstr "Keresd meg Abasi naplóját. Azt mondta, a Manó Barlang környékén látta utoljára."
+#: ../quests/002_journal.txt:14
+msgid ""
+"Find Abasi's journal. He said that it was last seen near the Goblin Cave."
+msgstr ""
+"Keresd meg Abasi naplóját. Azt mondta, a Manó Barlang környékén látta "
+"utoljára."
 
-#: ../quests/002_journal.txt:18
+#: ../quests/002_journal.txt:19
 msgid "Return the journal to Abasi."
 msgstr "Vidd vissza a naplót Abasinak."
 
@@ -1263,95 +1371,124 @@ msgstr "Vidd vissza a naplót Abasinak."
 msgid "Trapped in the Crypt"
 msgstr "Csapdába esve a kriptában"
 
-#: ../quests/003_ardwen.txt:6
+#: ../quests/003_ardwen.txt:7
 msgid "Find a way to escape the Family Crypt."
 msgstr "Találd meg a kiutat a Családi Kriptából."
 
-#: ../quests/003_ardwen.txt:11
-msgid "You found a strange ring. Maybe it will aid in escaping the Family Crypt."
-msgstr "Egy különös gyűrűt találtál. Talán segít megszökni a Családi Kriptából."
+#: ../quests/003_ardwen.txt:12
+msgid ""
+"You found a strange ring. Maybe it will aid in escaping the Family Crypt."
+msgstr ""
+"Egy különös gyűrűt találtál. Talán segít megszökni a Családi Kriptából."
 
-#: ../quests/003_ardwen.txt:16
+#: ../quests/003_ardwen.txt:17
 msgid "Defeat Ardwen."
 msgstr "Győzd le Ardwent."
 
-#: ../quests/003_ardwen.txt:21
-msgid "Ardwen has been defeated. The lever near his coffin will likely open the nearby gate."
-msgstr "Ardwen elbukott. A koporsója melletti kar valószínűleg a közeli kaput nyitja."
+#: ../quests/003_ardwen.txt:22
+msgid ""
+"Ardwen has been defeated. The lever near his coffin will likely open the "
+"nearby gate."
+msgstr ""
+"Ardwen elbukott. A koporsója melletti kar valószínűleg a közeli kaput "
+"nyitja."
 
 #: ../quests/004_fort_amir.txt:1
 msgid "The One-Eyed Guardians"
 msgstr "A Félszemű Őrök"
 
-#: ../quests/004_fort_amir.txt:6
+#: ../quests/004_fort_amir.txt:7
 msgid "Investigate the statues in the Fort Amir throne room."
 msgstr "Vizsgáld meg Amir Erődjének tróntermében a szobrokat."
 
-#: ../quests/004_fort_amir.txt:11
+#: ../quests/004_fort_amir.txt:12
 msgid "You found a strange sapphire inside one of Fort Amir's books."
 msgstr "Egy különös zafírt találtál Amir Erődjének egyik könyvében."
 
-#: ../quests/004_fort_amir.txt:16
+#: ../quests/004_fort_amir.txt:17
 msgid "Gruzza dropped a strange sapphire."
 msgstr "Gruzza elejtette a különös zafírt."
 
-#: ../quests/004_fort_amir.txt:21
-msgid "The bookcase in the Fort Amir throne room opened up, revealing a secret passage."
+#: ../quests/004_fort_amir.txt:22
+msgid ""
+"The bookcase in the Fort Amir throne room opened up, revealing a secret "
+"passage."
 msgstr "A könyvespolc Amir Erődjében kinyílt, feltárva egy titkos alagutat."
 
 #: ../quests/005_ort.txt:1
 msgid "Brother?"
 msgstr "Testvér?"
 
-#: ../quests/005_ort.txt:6
-msgid "Ort gave you a ruby. It seemed like he wanted it delivered to someone he would call \"brother\"."
-msgstr "Ort adott egy rubint. Úgy tűnik, annak kell odaadnod, akit 'testvér'-ének szólíthat."
+#: ../quests/005_ort.txt:7
+msgid ""
+"Ort gave you a ruby. It seemed like he wanted it delivered to someone he "
+"would call \"brother\"."
+msgstr ""
+"Ort adott egy rubint. Úgy tűnik, annak kell odaadnod, akit 'testvér'-ének "
+"szólíthat."
 
 #: ../quests/006_stormrock.txt:1
 msgid "Locked Out"
 msgstr "Kizárva"
 
-#: ../quests/006_stormrock.txt:6
-msgid "The door to the Stormrock Ruins is locked. There must be a way to unlock it."
-msgstr "Az ajtó a Viharszikla Romoknál be van zárva. Valahogy biztos ki lehet nyitni."
+#: ../quests/006_stormrock.txt:7
+msgid ""
+"The door to the Stormrock Ruins is locked. There must be a way to unlock it."
+msgstr ""
+"Az ajtó a Viharszikla Romoknál be van zárva. Valahogy biztos ki lehet "
+"nyitni."
 
-#: ../quests/006_stormrock.txt:11
-msgid "Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be hidden somewhere in the camp south of Stonewood."
-msgstr "Aldwolf szeretné, ha megtalálnád a kulcsot a Viharszikla Romok ajtajához. Valahol Kőerdőtől délre fekvő táborban kell lennie."
+#: ../quests/006_stormrock.txt:12
+msgid ""
+"Aldwulf wants you to get the key to unlock the Stormrock Ruins. It should be"
+" hidden somewhere in the camp south of Stonewood."
+msgstr ""
+"Aldwolf szeretné, ha megtalálnád a kulcsot a Viharszikla Romok ajtajához. "
+"Valahol Kőerdőtől délre fekvő táborban kell lennie."
 
-#: ../quests/006_stormrock.txt:16
-msgid "You found the key to the Stormrock Ruins. You should return there and speak to Aldwulf."
-msgstr "Megtaláltad a kulcsot Viharszikla Romjaihoz. Menj oda, és beszélj Aldwulfal."
+#: ../quests/006_stormrock.txt:17
+msgid ""
+"You found the key to the Stormrock Ruins. You should return there and speak "
+"to Aldwulf."
+msgstr ""
+"Megtaláltad a kulcsot Viharszikla Romjaihoz. Menj oda, és beszélj Aldwulfal."
 
 #: ../quests/007_nazia_mines.txt:1
 msgid "Trapped!"
 msgstr "Csapda!"
 
-#: ../quests/007_nazia_mines.txt:6
-msgid "The path behind you has caved in. Find a way to escape the Nazia Mines."
+#: ../quests/007_nazia_mines.txt:7
+msgid ""
+"The path behind you has caved in. Find a way to escape the Nazia Mines."
 msgstr "A járat mögötted beomlott. Keress egy kiutat Nazia Bányáiból."
 
-#: ../quests/007_nazia_mines.txt:11
+#: ../quests/007_nazia_mines.txt:12
 msgid "You found some sticks of dynamite. Those should be useful."
 msgstr "Találtál egy rúd dinamitot. Ez még jól fog jönni."
 
-#: ../quests/007_nazia_mines.txt:15
-msgid "You successfully cleared the rubble and can safely escape the Nazia Mines."
-msgstr "Sikeresen megtisztítottad a járatot a törmeléktől, és szabadon távozhatsz Nazia Bányáiból."
+#: ../quests/007_nazia_mines.txt:16
+msgid ""
+"You successfully cleared the rubble and can safely escape the Nazia Mines."
+msgstr ""
+"Sikeresen megtisztítottad a járatot a törmeléktől, és szabadon távozhatsz "
+"Nazia Bányáiból."
 
 #: ../quests/008_mog.txt:1
 msgid "The Lost Soul of the Mog Caverns"
 msgstr "Mog Barlangjainak Elveszett Lelkei"
 
-#: ../quests/008_mog.txt:6
-msgid "You found a mysterious note in the Mog Caverns. Maybe its directions will lead to treasure?"
-msgstr "Találtál egy rejtélyes üzenetet Mog Barlangjaiban. Talán elvezet a kincshez?"
+#: ../quests/008_mog.txt:7
+msgid ""
+"You found a mysterious note in the Mog Caverns. Maybe its directions will "
+"lead to treasure?"
+msgstr ""
+"Találtál egy rejtélyes üzenetet Mog Barlangjaiban. Talán elvezet a kincshez?"
 
-#: ../quests/008_mog.txt:11
+#: ../quests/008_mog.txt:12
 msgid "You found another note. Keep following the trail."
 msgstr "Találtál egy újabb üzenetet. Kövesd a nyomot."
 
-#: ../quests/008_mog.txt:16
+#: ../quests/008_mog.txt:17
 msgid "A secret passage has been unveiled."
 msgstr "Egy titkos átjárót találtál."
 
@@ -1359,23 +1496,23 @@ msgstr "Egy titkos átjárót találtál."
 msgid "An Unusual Name..."
 msgstr "Egy szokatlan név..."
 
-#: ../quests/009_nasu.txt:6
+#: ../quests/009_nasu.txt:7
 msgid "Discover a way to open the entrance door in Fort Nasu."
 msgstr "Találd meg, hogy nyílik a kapu Nasu Erődjében."
 
-#: ../quests/009_nasu.txt:11
+#: ../quests/009_nasu.txt:12
 msgid "Discover a way to open the library door in Fort Nasu."
 msgstr "Találd meg, hogy nyílik a könyvtár ajtaja Nasu Erődjében."
 
-#: ../quests/009_nasu.txt:16
+#: ../quests/009_nasu.txt:17
 msgid "Discover a way to open the pit room door in Fort Nasu."
 msgstr "Találd meg, hogy nyílik a verem ajtaja Nasu Erődjében."
 
-#: ../quests/009_nasu.txt:21
+#: ../quests/009_nasu.txt:22
 msgid "Discover a way to open the final door in Fort Nasu."
 msgstr "Találd meg, hogy nyílik az utolsó ajtó Nasu Erődjében."
 
-#: ../quests/009_nasu.txt:26
+#: ../quests/009_nasu.txt:27
 msgid "Defeat Buchi."
 msgstr "Győzd le Buchit."
 
@@ -1383,19 +1520,19 @@ msgstr "Győzd le Buchit."
 msgid "Warden's Notes"
 msgstr "Őr jegyzetei"
 
-#: ../quests/010_torture.txt:6
+#: ../quests/010_torture.txt:7
 msgid "Find a way to get to the treasure in the Torture Chambers."
 msgstr "Találd meg a kincset a Kínzókamrában."
 
-#: ../quests/010_torture.txt:11
+#: ../quests/010_torture.txt:12
 msgid "You found some notes belonging to the prison warden."
 msgstr "Találsz néhány jegyzetet, amit a börtön őre készített."
 
-#: ../quests/010_torture.txt:16
+#: ../quests/010_torture.txt:17
 msgid "You successfully made it through the warden's traps."
 msgstr "Szerencsésen átjutottál az őr csapdáin."
 
-#: ../quests/010_torture.txt:21
+#: ../quests/010_torture.txt:22
 msgid "You disabled the barriers in the Torture Chambers."
 msgstr "Elhárítottad az akadályt a Kínzókamrában."
 
@@ -1403,19 +1540,24 @@ msgstr "Elhárítottad az akadályt a Kínzókamrában."
 msgid "Fallen Comrades"
 msgstr "Elesett Bajtársak"
 
-#: ../quests/011_martigan.txt:6
-msgid "Martigan has asked you to destroy the undead corpses of his former companions. He has also asked that you return with proof that you have done so."
-msgstr "Martigan arra kért, pusztísd el korábbi társai tetemeit. Azt is kérte, hogy vigyél róla bizonyítékot, hogy megtetted."
+#: ../quests/011_martigan.txt:7
+msgid ""
+"Martigan has asked you to destroy the undead corpses of his former "
+"companions. He has also asked that you return with proof that you have done "
+"so."
+msgstr ""
+"Martigan arra kért, pusztísd el korábbi társai tetemeit. Azt is kérte, hogy "
+"vigyél róla bizonyítékot, hogy megtetted."
 
-#: ../quests/011_martigan.txt:11
+#: ../quests/011_martigan.txt:12
 msgid "You have slain Lorund and recovered his sword."
 msgstr "Lekaszaboltad Lorundot, és megszerezted a kardját."
 
-#: ../quests/011_martigan.txt:16
+#: ../quests/011_martigan.txt:17
 msgid "You have slain Nerin and recovered her bow."
 msgstr "Lekaszaboltad Nerint, és megszerezted az íjját."
 
-#: ../quests/011_martigan.txt:21
+#: ../quests/011_martigan.txt:22
 msgid "You have slain Kayl and recovered her staff."
 msgstr "Lekaszaboltad Kaylt, és megszerezted a botját."
 
@@ -1440,8 +1582,12 @@ msgid "It's the least I can do."
 msgstr "Ennyit igazán megtehetek."
 
 #: ../npcs/abasi.txt:29
-msgid "When I awoke this morning, my journal was missing. No doubt one of those filthy green creatures stole it from me."
-msgstr "Amikor ma reggel felkeltem, a naplómnak hűlt helye volt. Nem kétséges, hogy valamelyik enyveskezű manó lopta el."
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr ""
+"Amikor ma reggel felkeltem, a naplómnak hűlt helye volt. Nem kétséges, hogy "
+"valamelyik enyveskezű manó lopta el."
 
 #: ../npcs/abasi.txt:30
 msgid "If you come across my journal in your travels, please return it to me."
@@ -1480,40 +1626,72 @@ msgid "Greetings, wanderer."
 msgstr "Üdvözlet, utazó."
 
 #: ../npcs/abasi_2.txt:27
-msgid "Judging from your appearance, you're no stranger to a long journey. For that reason, I ask that you keep an eye out for my missing journal."
-msgstr "A megjelenésed alapján nem ismeretlen számodra a hosszú utazás. Ezért arra kérlek, tartsd nyitva a szemed, hátha belefutsz az elopott naplóba."
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+"A megjelenésed alapján nem ismeretlen számodra a hosszú utazás. Ezért arra "
+"kérlek, tartsd nyitva a szemed, hátha belefutsz az elopott naplóba."
 
 #: ../npcs/abasi_2.txt:28
-msgid "I first noticed it was missing after a night of camping near the Goblin Cave. I searched for a while, but ultimately decided it was best to move on."
-msgstr "Először akkor vettem észre, hogy eltűnt, miután a Manó Barlangtól nem messze éjszakáztam. Kerestem egy ideig, aztán feladtam."
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"Először akkor vettem észre, hogy eltűnt, miután a Manó Barlangtól nem messze"
+" éjszakáztam. Kerestem egy ideig, aztán feladtam."
 
 #: ../npcs/aldwulf.txt:1
 msgid "Aldwulf, Treasure Hunter"
 msgstr "Aldwulf, kincsvadász"
 
 #: ../npcs/aldwulf.txt:12
-msgid "Greetings wanderer. I did not expect to meet anyone in a place like this."
+msgid ""
+"Greetings wanderer. I did not expect to meet anyone in a place like this."
 msgstr "Üdvözlet utazó. Nem számítottam társaságra egy ilyen helyen."
 
 #: ../npcs/aldwulf.txt:13
-msgid "I'm in a bit of a predicament. I wanted to come here in search of treasure, but my partner disagreed with my intentions."
-msgstr "Kicsit megakadtam. Egy kincs miatt jöttem ide, de a társam megkérdőjelezte a szándékaimat."
+msgid ""
+"I'm in a bit of a predicament. I wanted to come here in search of treasure, "
+"but my partner disagreed with my intentions."
+msgstr ""
+"Kicsit megakadtam. Egy kincs miatt jöttem ide, de a társam megkérdőjelezte a"
+" szándékaimat."
 
 #: ../npcs/aldwulf.txt:14
-msgid "In an effort to stop me, he stole the key we found that supposedly opened the door up ahead."
-msgstr "Hogy megállítson, ellopta a kulcsot ami állítólag ezt az ajtót nyitja."
+msgid ""
+"In an effort to stop me, he stole the key we found that supposedly opened "
+"the door up ahead."
+msgstr ""
+"Hogy megállítson, ellopta a kulcsot ami állítólag ezt az ajtót nyitja."
 
 #: ../npcs/aldwulf.txt:15
-msgid "Regardless, I took my chances and left our camp south of Stonewood, hoping I could break through without the key. As you might be able to tell, that hasn't worked out in my favor."
-msgstr "Ettől függetlenül szerencsét próbáltam, elhagytam a táborunkat délre Kőerdőtől, abban bízva, hogy kulcs nélkül is átjutok. Amint láthatod, nem igazán jött össze."
+msgid ""
+"Regardless, I took my chances and left our camp south of Stonewood, hoping I"
+" could break through without the key. As you might be able to tell, that "
+"hasn't worked out in my favor."
+msgstr ""
+"Ettől függetlenül szerencsét próbáltam, elhagytam a táborunkat délre "
+"Kőerdőtől, abban bízva, hogy kulcs nélkül is átjutok. Amint láthatod, nem "
+"igazán jött össze."
 
 #: ../npcs/aldwulf.txt:16
-msgid "If you come across my partner in your travels, do what you must to get that key from him and bring it to me. Do that, and I'll split whatever we find in these ruins with you."
-msgstr "Ha találkozol a társammal utazásaid során, tedd, amit tenned kell, hogy megszerezd a kulcsot tőle, és hozd el nekem. Tedd meg, és elfelezem akármilyen kincset is találunk a romok között."
+msgid ""
+"If you come across my partner in your travels, do what you must to get that "
+"key from him and bring it to me. Do that, and I'll split whatever we find in"
+" these ruins with you."
+msgstr ""
+"Ha találkozol a társammal utazásaid során, tedd, amit tenned kell, hogy "
+"megszerezd a kulcsot tőle, és hozd el nekem. Tedd meg, és elfelezem "
+"akármilyen kincset is találunk a romok között."
 
 #: ../npcs/aldwulf.txt:23
-msgid "Have you gotten the key yet? My partner likely has it hidden somewhere in the camp south of Stonewood."
-msgstr "Megtaláltad a kulcsot? A társam valószínűleg elrejtette a tábor közelében, Kőerdőtől délre."
+msgid ""
+"Have you gotten the key yet? My partner likely has it hidden somewhere in "
+"the camp south of Stonewood."
+msgstr ""
+"Megtaláltad a kulcsot? A társam valószínűleg elrejtette a tábor közelében, "
+"Kőerdőtől délre."
 
 #: ../npcs/bakat.txt:1
 msgid "Bakat, Goblin Packrat"
@@ -1536,8 +1714,12 @@ msgid "(He holds the ruby up into the light and examines it closely.)"
 msgstr "(A fény felé tartja, és alaposan megnézi magának.)"
 
 #: ../npcs/bakat.txt:26
-msgid "(Looking satisfied, he reaches into his bag and hands you a wooden bear figurine.)"
-msgstr "(Elégedettnek tűnik, ezért benyúl a táskájába és egy fa medve figurát ad a kezedbe.)"
+msgid ""
+"(Looking satisfied, he reaches into his bag and hands you a wooden bear "
+"figurine.)"
+msgstr ""
+"(Elégedettnek tűnik, ezért benyúl a táskájába és egy fa medve figurát ad a "
+"kezedbe.)"
 
 #: ../npcs/bakat.txt:27
 msgid "..."
@@ -1568,31 +1750,54 @@ msgid "What can you tell me about the Book of the Dead?"
 msgstr "Mit tudsz nekem mondani a Halottak Könyvéről?"
 
 #: ../npcs/florin.txt:28
-msgid "The Book of the Dead tells of redemption for those who sign their name in gravebloom ink. Your sins will be washed away, and you will be able to return to wherever you were banished from."
-msgstr "A Halottak Könyve szerint lehetséges a megváltás azok számára, akik beírják nevüket sírvirág tintával. Minden bűnüktől megszabadulnak, és visszatérhetnek oda, ahonnan száműzték őket."
+msgid ""
+"The Book of the Dead tells of redemption for those who sign their name in "
+"gravebloom ink. Your sins will be washed away, and you will be able to "
+"return to wherever you were banished from."
+msgstr ""
+"A Halottak Könyve szerint lehetséges a megváltás azok számára, akik beírják "
+"nevüket sírvirág tintával. Minden bűnüktől megszabadulnak, és "
+"visszatérhetnek oda, ahonnan száműzték őket."
 
 #: ../npcs/florin.txt:29
 msgid "So, where can I find gravebloom ink?"
 msgstr "Szóval, hol találok sírvirág tintát?"
 
 #: ../npcs/florin.txt:30
-msgid "Gravebloom ink is not something you find. You must make it yourself. Besides the Gravebloom flower, you will need to sacrifice your own blood with a special blade."
-msgstr "Sírvirág tintát nem talál csak úgy az ember. Magadnak kell csinálnod. Sírvirágon kívül áldoznod kell a saját véredből is egy speciális tőrrel."
+msgid ""
+"Gravebloom ink is not something you find. You must make it yourself. Besides"
+" the Gravebloom flower, you will need to sacrifice your own blood with a "
+"special blade."
+msgstr ""
+"Sírvirág tintát nem talál csak úgy az ember. Magadnak kell csinálnod. "
+"Sírvirágon kívül áldoznod kell a saját véredből is egy speciális tőrrel."
 
 #: ../npcs/florin.txt:31
-msgid "Even if you can create some gravebloom ink, you won't be able to write with just anything. The ink won't stick to a normal quill. You will need to find something capable of holding the gravebloom ink."
-msgstr "Még ha sikerülne is sírvirág tintát készítened, nem használhatod akármivel. A tintát nem használhatod sima tollal. Valami olyant kell találnod, ami kibírja a sírvirág tintát."
+msgid ""
+"Even if you can create some gravebloom ink, you won't be able to write with "
+"just anything. The ink won't stick to a normal quill. You will need to find "
+"something capable of holding the gravebloom ink."
+msgstr ""
+"Még ha sikerülne is sírvirág tintát készítened, nem használhatod akármivel. "
+"A tintát nem használhatod sima tollal. Valami olyant kell találnod, ami "
+"kibírja a sírvirág tintát."
 
 #: ../npcs/florin.txt:32
-msgid "If you can perform the ritual to make gravebloom ink and find a suitable writing utensil, redemption may be yours."
-msgstr "Ha sikerül végrehajtanod a sírvirág szertartását és találsz megfelelő tollat, akkor a megváltás a tiéd lehet."
+msgid ""
+"If you can perform the ritual to make gravebloom ink and find a suitable "
+"writing utensil, redemption may be yours."
+msgstr ""
+"Ha sikerül végrehajtanod a sírvirág szertartását és találsz megfelelő "
+"tollat, akkor a megváltás a tiéd lehet."
 
 #: ../npcs/florin.txt:35
 msgid "Gravebloom"
 msgstr "Sírvirág"
 
 #: ../npcs/florin.txt:39
-msgid "Ah yes, that is most certainly a gravebloom flower. It is the primary component in the creation of gravebloom ink."
+msgid ""
+"Ah yes, that is most certainly a gravebloom flower. It is the primary "
+"component in the creation of gravebloom ink."
 msgstr "Á igen, ez valóban egy sírvirág. Ez a tinta fő összetevője."
 
 #: ../npcs/florin.txt:42
@@ -1608,7 +1813,8 @@ msgid "It's certainly no normal quill. I've never seen anything like it."
 msgstr "Ez valóban nem közönséges toll. Még sosem láttam ehhez foghatót."
 
 #: ../npcs/florin.txt:48
-msgid "If anything is capable of writing with gravebloom ink, it is that quill."
+msgid ""
+"If anything is capable of writing with gravebloom ink, it is that quill."
 msgstr "Ha bármivel is lehet használni a tintát, akkor ez a toll az."
 
 #: ../npcs/florin.txt:51
@@ -1620,16 +1826,26 @@ msgid "Do you know anything about this knife?"
 msgstr "Mit tudsz mondani erről a tőrről?"
 
 #: ../npcs/florin.txt:56
-msgid "The Knife of Sacrifices. This must be the blade you will need to draw your blood for the gravebloom ink. From what I've read, this must be done at the \"Red Altar\"."
-msgstr "Ez az Áldozati Tőr. Ez bizonyára az a penge, amivel a véred kell vegyed a sírvirág tintához. Azt olvastam, ezt a Vörös Oltárnál kell megtenni."
+msgid ""
+"The Knife of Sacrifices. This must be the blade you will need to draw your "
+"blood for the gravebloom ink. From what I've read, this must be done at the "
+"\"Red Altar\"."
+msgstr ""
+"Ez az Áldozati Tőr. Ez bizonyára az a penge, amivel a véred kell vegyed a "
+"sírvirág tintához. Azt olvastam, ezt a Vörös Oltárnál kell megtenni."
 
 #: ../npcs/florin.txt:57
 msgid "I recall such an altar from the Temple of Mez."
 msgstr "Rémlik valami ilyen oltár Mez Templomában."
 
 #: ../npcs/florin.txt:58
-msgid "I don't know why this blade in particular is required to make the ink. Once it pierces your skin, there is no telling what effect it will have on you. Please keep this in mind."
-msgstr "Nem tudom, miért pont ez a penge szükséges a tintához. Amint a bőrödhöz ér, nem tudni, milyen hatással lesz. Kérlek tartsd ezt fejben."
+msgid ""
+"I don't know why this blade in particular is required to make the ink. Once "
+"it pierces your skin, there is no telling what effect it will have on you. "
+"Please keep this in mind."
+msgstr ""
+"Nem tudom, miért pont ez a penge szükséges a tintához. Amint a bőrödhöz ér, "
+"nem tudni, milyen hatással lesz. Kérlek tartsd ezt fejben."
 
 #: ../npcs/florin.txt:61
 msgid "Vial of Blood"
@@ -1640,28 +1856,53 @@ msgid "I completed the ritual at the Red Altar. What now?"
 msgstr "Elvégeztem a szertartást a Vörös Oltárnál. Hogyan tovább?"
 
 #: ../npcs/florin.txt:65
-msgid "We are ready to create a small amount of gravebloom ink. Allow me to perform the mixing."
-msgstr "Most már el tudunk készíteni egy kevés sírvirág tintát. Engedd meg, hogy én csináljam."
+msgid ""
+"We are ready to create a small amount of gravebloom ink. Allow me to perform"
+" the mixing."
+msgstr ""
+"Most már el tudunk készíteni egy kevés sírvirág tintát. Engedd meg, hogy én "
+"csináljam."
 
 #: ../npcs/florin.txt:66
-msgid "The correct ratio of Gravebloom to blood is important. Too much Gravebloom will cause the ink to eat through the paper. Too little Gravebloom and the ink won't adhere to the quill."
-msgstr "A helyes arány a sírvirág és a vér között nagyon fontos. Túl sok sírvirágtól áteszi magát a tinta a papíron. Túl kevés sírvirág esetén nem tapad a tollra."
+msgid ""
+"The correct ratio of Gravebloom to blood is important. Too much Gravebloom "
+"will cause the ink to eat through the paper. Too little Gravebloom and the "
+"ink won't adhere to the quill."
+msgstr ""
+"A helyes arány a sírvirág és a vér között nagyon fontos. Túl sok sírvirágtól"
+" áteszi magát a tinta a papíron. Túl kevés sírvirág esetén nem tapad a "
+"tollra."
 
 #: ../npcs/florin.txt:67
-msgid "(Florin carefully mixes the two elements into a small inkwell, alternating the additions of Gravebloom and blood.)"
-msgstr "(Florin óvatosan összekeveri a hozzávalókat egy kis tintatartóba, hozzáadva a sírvirágot és a vért.)"
+msgid ""
+"(Florin carefully mixes the two elements into a small inkwell, alternating "
+"the additions of Gravebloom and blood.)"
+msgstr ""
+"(Florin óvatosan összekeveri a hozzávalókat egy kis tintatartóba, hozzáadva "
+"a sírvirágot és a vért.)"
 
 #: ../npcs/florin.txt:72
-msgid "Finished! I don't want my work to go to waste, so move now to the Book of the Dead chamber."
-msgstr "Kész! Nem szeretném, ha kárba vészne, úgyhogy menj egyből a Holtak Könyvéhez."
+msgid ""
+"Finished! I don't want my work to go to waste, so move now to the Book of "
+"the Dead chamber."
+msgstr ""
+"Kész! Nem szeretném, ha kárba vészne, úgyhogy menj egyből a Holtak "
+"Könyvéhez."
 
 #: ../npcs/florin.txt:78
 msgid "The ritual is complete. The Underworld is open to you."
 msgstr "A rituálé kész. Az Alvilág nyitva áll előtted."
 
 #: ../npcs/florin.txt:79
-msgid "There was a portal to the Underworld in the Wizard's Tower. I shall return there."
-msgstr "Volt egy portál az Alvilágba a Varázsló Tornyában. Vissza kell térnem oda."
+msgid ""
+"There was a portal to the Underworld in the Wizard's Tower. I shall return "
+"there."
+msgstr ""
+"Volt egy portál az Alvilágba a Varázsló Tornyában. Vissza kell térnem oda."
+
+#: ../npcs/florin.txt:82
+msgid "Alchemy"
+msgstr ""
 
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
@@ -1676,20 +1917,34 @@ msgid "Martigan"
 msgstr ""
 
 #: ../npcs/martigan.txt:19
-msgid "You there! I need your help. I'm the last of my group, and want nothing more than to leave this place."
-msgstr "Te ott! Szükségem van a segítségedre. Az utolsó vagyok a csapatomból, és nagyon szeretnék kijutni."
+msgid ""
+"You there! I need your help. I'm the last of my group, and want nothing more"
+" than to leave this place."
+msgstr ""
+"Te ott! Szükségem van a segítségedre. Az utolsó vagyok a csapatomból, és "
+"nagyon szeretnék kijutni."
 
 #: ../npcs/martigan.txt:20
-msgid "Yet I have one remaining task. I wish to visit the graves of my three fallen partners one last time."
-msgstr "De előtte még van egy kis dolgom. Szeretném meglátogatni még egyszer utoljára a három elesett társam sírját."
+msgid ""
+"Yet I have one remaining task. I wish to visit the graves of my three fallen"
+" partners one last time."
+msgstr ""
+"De előtte még van egy kis dolgom. Szeretném meglátogatni még egyszer "
+"utoljára a három elesett társam sírját."
 
 #: ../npcs/martigan.txt:21
-msgid "To my disadvantage, their bodies have been taken by the soil here. They tried to attack me when I got near."
-msgstr "Szerencsétlenségemre testüket megelevenítette a föld. Legutóbb rámtámadtak, mikor a közelükbe mentem."
+msgid ""
+"To my disadvantage, their bodies have been taken by the soil here. They "
+"tried to attack me when I got near."
+msgstr ""
+"Szerencsétlenségemre testüket megelevenítette a föld. Legutóbb rámtámadtak, "
+"mikor a közelükbe mentem."
 
 #: ../npcs/martigan.txt:22
-msgid "If you can prove to me that they are free them from their cursed form, I will be in your debt."
-msgstr "Ha sikerült bebizonyítanod, hogy megszabadultak az átoktól, akkor mindörökké adósod leszek."
+msgid ""
+"If you can prove to me that they are free from their cursed form, I will be "
+"in your debt."
+msgstr ""
 
 #: ../npcs/martigan.txt:23
 msgid "I can't assist you myself, but I can offer some of my wares."
@@ -1700,7 +1955,9 @@ msgid "Zombies"
 msgstr "Zombik"
 
 #: ../npcs/martigan.txt:39
-msgid "Indeed, these items belonged to my companions. I want you to take this as a reward."
+msgid ""
+"Indeed, these items belonged to my companions. I want you to take this as a "
+"reward."
 msgstr "Valóban, ezek az elhunyt társaim dolgai. Fogadd el ezt jutalmul."
 
 #: ../npcs/ort.txt:1
@@ -1724,28 +1981,48 @@ msgid "Tutorial"
 msgstr "Oktatóanyag"
 
 #: ../npcs/tutorial.txt:11
-msgid "Welcome to the lands of the exiled. Allow me to go over a few things. Click on the arrow to continue."
-msgstr "Üdvözlünk a száműzöttek földjén! Hadd vezesselek körbe. Kattints a nyílra a folytatáshoz."
+msgid ""
+"Welcome to the lands of the exiled. Allow me to go over a few things. Click "
+"on the arrow to continue."
+msgstr ""
+"Üdvözlünk a száműzöttek földjén! Hadd vezesselek körbe. Kattints a nyílra a "
+"folytatáshoz."
 
 #: ../npcs/tutorial.txt:12
-msgid "Your health, mana, and experience points are displayed in the top left of the screen."
-msgstr "Az életerőd, manád és tapasztalati pontod a képernyő bal felső sarkában találod."
+msgid ""
+"Your health, mana, and experience points are displayed in the top left of "
+"the screen."
+msgstr ""
+"Az életerőd, manád és tapasztalati pontod a képernyő bal felső sarkában "
+"találod."
 
 #: ../npcs/tutorial.txt:13
 msgid "In the top right is a map of your current location."
 msgstr "Jobbra fent van a térkép és a jelenlegi helyzeted."
 
 #: ../npcs/tutorial.txt:14
-msgid "On the bottom of the screen is your action bar. Here, you have quick access to your most used abilities."
-msgstr "A képernyő alján helyezkedik el az akció sáv. Itt gyorsan eléred a gyakran használt képességeidet."
+msgid ""
+"On the bottom of the screen is your action bar. Here, you have quick access "
+"to your most used abilities."
+msgstr ""
+"A képernyő alján helyezkedik el az akció sáv. Itt gyorsan eléred a gyakran "
+"használt képességeidet."
 
 #: ../npcs/tutorial.txt:15
-msgid "In addition, you can access the Character, Inventory, Powers, and Log menus from the action bar."
-msgstr "Továbbá, eléred a Karakter Menüt, a Felszerelésed, Erő Menüt és a Napló menüpontokat is itt találod."
+msgid ""
+"In addition, you can access the Character, Inventory, Powers, and Log menus "
+"from the action bar."
+msgstr ""
+"Továbbá, eléred a Karakter Menüt, a Felszerelésed, Erő Menüt és a Napló "
+"menüpontokat is itt találod."
 
 #: ../npcs/tutorial.txt:16
-msgid "${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use your primary attack."
-msgstr "${INPUT_MOVEMENT} nyomásával tudsz mozogni. ${INPUT_ATTACK} az elsődleges támadásod."
+msgid ""
+"${INPUT_MOVEMENT} will allow you to move around. ${INPUT_ATTACK} will use "
+"your primary attack."
+msgstr ""
+"${INPUT_MOVEMENT} nyomásával tudsz mozogni. ${INPUT_ATTACK} az elsődleges "
+"támadásod."
 
 #: ../npcs/tutorial.txt:17
 msgid "Good luck!"
@@ -1756,11 +2033,14 @@ msgid "Udana, Metalworker"
 msgstr "Udana, fémmunkás"
 
 #: ../npcs/udana.txt:27
-msgid "Greetings stranger. It's not often that we have people come here from the west."
+msgid ""
+"Greetings stranger. It's not often that we have people come here from the "
+"west."
 msgstr "Üdvözöllek, idegen! Nem gyakran jön látogató hozzánk nyugatról."
 
 #: ../npcs/udana.txt:28
-msgid "I see that you're carrying a weapon. Would you be interested in helping us?"
+msgid ""
+"I see that you're carrying a weapon. Would you be interested in helping us?"
 msgstr "Látom, fegyvert viselsz. Nem segítenél nekünk?"
 
 #: ../npcs/udana.txt:29
@@ -1768,36 +2048,56 @@ msgid "Go on."
 msgstr "Folytasd."
 
 #: ../npcs/udana.txt:30
-msgid "One of our encampment's residents, Krolan, works in the nearby mines. He supplies me with various gems that I craft into jewelery."
-msgstr "A településünk egyik tagja, Krolan, a közeli bányában dolgozik. Ő szállítja az ékköveket az ékszereimhez."
+msgid ""
+"One of our encampment's residents, Krolan, works in the nearby mines. He "
+"supplies me with various gems that I craft into jewelery."
+msgstr ""
+"A településünk egyik tagja, Krolan, a közeli bányában dolgozik. Ő szállítja "
+"az ékköveket az ékszereimhez."
 
 #: ../npcs/udana.txt:31
-msgid "Krolan has not returned in some time, and I am starting to think the worst."
+msgid ""
+"Krolan has not returned in some time, and I am starting to think the worst."
 msgstr "Krolan nem tért vissza már egy ideje, és kezdek aggódni érte."
 
 #: ../npcs/udana.txt:32
-msgid "Could you please travel to the mines and look for Krolan? I will find some way to reward you for your trouble."
-msgstr "Elmennél a bányákba és megkeresnéd Krolant? Meghálálnám a fáradozásaidat."
+msgid ""
+"Could you please travel to the mines and look for Krolan? I will find some "
+"way to reward you for your trouble."
+msgstr ""
+"Elmennél a bányákba és megkeresnéd Krolant? Meghálálnám a fáradozásaidat."
 
 #: ../npcs/udana.txt:40
-msgid "Please hurry to find Krolan. The Perdition Mines are located near the Salted Field."
-msgstr "Kérlek siess, találd meg Krolant. A Pergő Bányák a Felsózott Mező közelében találhatók."
+msgid ""
+"Please hurry to find Krolan. The Perdition Mines are located near the Salted"
+" Field."
+msgstr ""
+"Kérlek siess, találd meg Krolant. A Pergő Bányák a Felsózott Mező közelében "
+"találhatók."
 
 #: ../npcs/udana.txt:46
 msgid "I have found Krolan, but he was no longer of this world."
 msgstr "Rátaláltam Krolanra, de sajnos már nem volt közöttünk."
 
 #: ../npcs/udana.txt:47
-msgid "This is terrible news. Our camp is already small, so this is a devastating loss."
+msgid ""
+"This is terrible news. Our camp is already small, so this is a devastating "
+"loss."
 msgstr "Ez szomorú hír. A településünk így is kicsi, ez hatalmas veszteség."
 
 #: ../npcs/udana.txt:48
-msgid "If it's any solace, I have his key and this emerald. Mementos to remember him by."
+msgid ""
+"If it's any solace, I have his key and this emerald. Mementos to remember "
+"him by."
 msgstr "Sovány vígasz, de itt a kulcsa és egy ékkő. Rá fognak emlékeztetni."
 
 #: ../npcs/udana.txt:49
-msgid "The key is enough of a memento. For your invaluable help, I can at least make you a ring with this emerald."
-msgstr "A kulcs elég emlékeztetőnek. A felbeszülhetetlen segítségedért cserébe, csinálok egy gyűrűt neked ebből az ékkőből."
+msgid ""
+"The key is enough of a memento. For your invaluable help, I can at least "
+"make you a ring with this emerald."
+msgstr ""
+"A kulcs elég emlékeztetőnek. A felbeszülhetetlen segítségedért cserébe, "
+"csinálok egy gyűrűt neked ebből az ékkőből."
 
 #: ../npcs/udana.txt:62
 msgid "Thank you again for your help."
@@ -1808,36 +2108,65 @@ msgid "Yora, Enchanter"
 msgstr "Yora, bájoló"
 
 #: ../cutscenes/backstory.txt:7
-msgid "Empyrean, the city in the sky. It is a majestic fortress and the last bastion of humankind."
-msgstr "Empyrean, a város az égben. Egy hatalmas erődítmény, és az emberiség utolsó mentsvára."
+msgid ""
+"Empyrean, the city in the sky. It is a majestic fortress and the last "
+"bastion of humankind."
+msgstr ""
+"Empyrean, a város az égben. Egy hatalmas erődítmény, és az emberiség utolsó "
+"mentsvára."
 
 #: ../cutscenes/backstory.txt:9
-msgid "At the height of the kingdom's power the city was a beacon of peace and law."
+msgid ""
+"At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "A királyság fénykorában a város a béke és törvény fellegvára volt."
 
 #: ../cutscenes/backstory.txt:11
-msgid "When darkness invaded the world in the last age people abandoned the surface. Empyrean was their only refuge."
-msgstr "Amikor a sötétség megszállta a világot, az emberek elhagyták a felszínt. Empyrean volt az utolsó menedékük."
+msgid ""
+"When darkness invaded the world in the last age people abandoned the "
+"surface. Empyrean was their only refuge."
+msgstr ""
+"Amikor a sötétség megszállta a világot, az emberek elhagyták a felszínt. "
+"Empyrean volt az utolsó menedékük."
 
 #: ../cutscenes/backstory.txt:13
-msgid "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and political infighting have consumed the city."
-msgstr "Most az Emeber Kora leáldozóban van. Empyrean omladozik. Kicsinyesség és a politikai csatározások felemésztik a várost."
+msgid ""
+"Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and "
+"political infighting have consumed the city."
+msgstr ""
+"Most az Emeber Kora leáldozóban van. Empyrean omladozik. Kicsinyesség és a "
+"politikai csatározások felemésztik a várost."
 
 #: ../cutscenes/backstory.txt:16
-msgid "Some, in desperation, flee to the surface hoping to survive without the protection of the city."
-msgstr "Néhányan elkeseredettségükben a felszínre menekültek, abban bízva, hogy égi segítség nélkül is boldogulnak."
+msgid ""
+"Some, in desperation, flee to the surface hoping to survive without the "
+"protection of the city."
+msgstr ""
+"Néhányan elkeseredettségükben a felszínre menekültek, abban bízva, hogy égi "
+"segítség nélkül is boldogulnak."
 
 #: ../cutscenes/backstory.txt:18
-msgid "But no one returns from the surface. Most die or go missing. A few hide and survive, for a while."
-msgstr "De senki sem tért vissza a felszínről. Legtöbben meghaltak vagy eltűntek. Néhányan elbújtak és túltéltek egy rövid ideig."
+msgid ""
+"But no one returns from the surface. Most die or go missing. A few hide and "
+"survive, for a while."
+msgstr ""
+"De senki sem tért vissza a felszínről. Legtöbben meghaltak vagy eltűntek. "
+"Néhányan elbújtak és túltéltek egy rövid ideig."
 
 #: ../cutscenes/backstory.txt:20
-msgid "Surface dwellers cling to hope. Hope that they'll return to Empyrean some day. Hope that a hero will fight back against the darkness."
-msgstr "A felszínlakók csak a reményben bízhatnak. A reményben, hogy egyszer visszatérnek Empyreanba. A reményben, hogy egy hős felveszi a harcot a sötétséggel."
+msgid ""
+"Surface dwellers cling to hope. Hope that they'll return to Empyrean some "
+"day. Hope that a hero will fight back against the darkness."
+msgstr ""
+"A felszínlakók csak a reményben bízhatnak. A reményben, hogy egyszer "
+"visszatérnek Empyreanba. A reményben, hogy egy hős felveszi a harcot a "
+"sötétséggel."
 
 #: ../cutscenes/backstory.txt:22
-msgid "There is always hope. But not for everyone: not for you. Not for the Exiled."
-msgstr "Mindig van remény. De nem mindenki számára: neked nincs. Nincs remény a száműzötteknek."
+msgid ""
+"There is always hope. But not for everyone: not for you. Not for the Exiled."
+msgstr ""
+"Mindig van remény. De nem mindenki számára: neked nincs. Nincs remény a "
+"száműzötteknek."
 
 #: ../cutscenes/credits.txt:7
 msgid "Flare Game Credits - empyrean_campaign"
@@ -1847,116 +2176,22 @@ msgstr "Flare Játék készítők - Empyrean kampány"
 msgid "Lead Content Designers"
 msgstr "Vezető Tartalom Szerkesztők"
 
-#: ../cutscenes/credits.txt:12
-msgid "Clint Bellanger"
-msgstr ""
-
-#: ../cutscenes/credits.txt:13
-msgid "Justin Jacobs"
-msgstr ""
-
 #: ../cutscenes/credits.txt:16
-msgid "Vizuális Tervezők"
-msgstr ""
-
-#: ../cutscenes/credits.txt:18
-msgid "cron"
-msgstr ""
-
-#: ../cutscenes/credits.txt:19
-msgid "Justin Nichol"
-msgstr ""
-
-#: ../cutscenes/credits.txt:20
-msgid "rubberduck"
-msgstr ""
-
-#: ../cutscenes/credits.txt:21
-msgid "Short-Ribs"
-msgstr ""
-
-#: ../cutscenes/credits.txt:22
-msgid "Stefano Peris"
-msgstr ""
-
-#: ../cutscenes/credits.txt:23
-msgid "VWolfDog"
-msgstr ""
-
-#: ../cutscenes/credits.txt:24
-msgid "yd"
+msgid "Visual Artists"
 msgstr ""
 
 #: ../cutscenes/credits.txt:27
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:29
-msgid "adamgryu"
-msgstr ""
-
-#: ../cutscenes/credits.txt:30
-msgid "GuntherDorksen"
-msgstr ""
-
 #: ../cutscenes/credits.txt:33
-msgid "Fordítók"
-msgstr ""
-
-#: ../cutscenes/credits.txt:35
-msgid "Diego J. Romero López"
-msgstr ""
-
-#: ../cutscenes/credits.txt:36
-msgid "GunChleoc"
-msgstr ""
-
-#: ../cutscenes/credits.txt:37
-msgid "Igor Paliychuk"
-msgstr ""
-
-#: ../cutscenes/credits.txt:38
-msgid "Janet Hunt"
-msgstr ""
-
-#: ../cutscenes/credits.txt:39
-msgid "Микола Франчук"
-msgstr ""
-
-#: ../cutscenes/credits.txt:40
-msgid "MOB2"
-msgstr ""
-
-#: ../cutscenes/credits.txt:41
-msgid "Nea Retrogamer"
-msgstr ""
-
-#: ../cutscenes/credits.txt:42
-msgid "Pavel Maryanov"
-msgstr ""
-
-#: ../cutscenes/credits.txt:43
-msgid "Pawel Puszczyński"
-msgstr ""
-
-#: ../cutscenes/credits.txt:44
-msgid "Rui"
-msgstr ""
-
-#: ../cutscenes/credits.txt:45
-msgid "Sang-froid"
-msgstr ""
-
-#: ../cutscenes/credits.txt:46
-msgid "Sergiy Borodych"
-msgstr ""
-
-#: ../cutscenes/credits.txt:48
-msgid "sujiniku"
+msgid "Translators"
 msgstr ""
 
 #: ../cutscenes/ending.txt:7
-msgid "At long last, your journey across the surface and into the Underworld has come to an end."
+msgid ""
+"At long last, your journey across the surface and into the Underworld has "
+"come to an end."
 msgstr "Nagysokára az utazásod a felszínről az Alvilágba a végére ért."
 
 #: ../cutscenes/ending.txt:9
@@ -1964,24 +2199,40 @@ msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
 msgstr "Amint belépsz a Verembe, egy obeliszk ragyog fel a távolban."
 
 #: ../cutscenes/ending.txt:11
-msgid "Guarding the obelisk was Lezaith, a formidable opponent, yet no match for Exiled who faced her."
-msgstr "Az obliszket Lezaith őrizte, egy félelmetes ellenfél, de nem volt esélye a Száműzöttel szemben."
+msgid ""
+"Guarding the obelisk was Lezaith, a formidable opponent, yet no match for "
+"Exiled who faced her."
+msgstr ""
+"Az obliszket Lezaith őrizte, egy félelmetes ellenfél, de nem volt esélye a "
+"Száműzöttel szemben."
 
 #: ../cutscenes/ending.txt:13
 msgid "With Lezaith's defeat, the path to the obelisk was clear."
 msgstr "Lezaith legyőzésével az út az obeliszkhez szabaddá vált."
 
 #: ../cutscenes/ending.txt:16
-msgid "Not a moment after Lezaith crumbles into a pile of bones, a bolt of lightning strikes the obelisk."
-msgstr "Abban a pillanatban, mikor Lezaith csontrakássá roskadt, egy villám csapott az obeliszkbe."
+msgid ""
+"Not a moment after Lezaith crumbles into a pile of bones, a bolt of "
+"lightning strikes the obelisk."
+msgstr ""
+"Abban a pillanatban, mikor Lezaith csontrakássá roskadt, egy villám csapott "
+"az obeliszkbe."
 
 #: ../cutscenes/ending.txt:18
-msgid "Did Lezaith cast a spell on the obelisk with her dying breath? Had Empyrean finally collapsed?"
-msgstr "Vajon Lezaith varázsolt egyet utolsó lehelletével? Összedőlt végül Empyrean?"
+msgid ""
+"Did Lezaith cast a spell on the obelisk with her dying breath? Had Empyrean "
+"finally collapsed?"
+msgstr ""
+"Vajon Lezaith varázsolt egyet utolsó lehelletével? Összedőlt végül Empyrean?"
 
 #: ../cutscenes/ending.txt:21
-msgid "Maybe it's true what they say. No one returns from the surface. Most die or go missing. A few hide and survive, for a while."
-msgstr "Talán igaz, amit mondanak. Senki sem tér vissza a felszínről. Legtöbben meghaltak vagy eltűntek. Néhányan elbújtak és túléltek, legalábbis egy ideig."
+msgid ""
+"Maybe it's true what they say. No one returns from the surface. Most die or "
+"go missing. A few hide and survive, for a while."
+msgstr ""
+"Talán igaz, amit mondanak. Senki sem tér vissza a felszínről. Legtöbben "
+"meghaltak vagy eltűntek. Néhányan elbújtak és túléltek, legalábbis egy "
+"ideig."
 
 #: ../cutscenes/ending.txt:23
 msgid "Even the Exiled."
@@ -1995,9 +2246,53 @@ msgstr "És nagyon nagy köszönet..."
 msgid "You!"
 msgstr "Neked!"
 
+#: ../cutscenes/ending.txt:34
+msgid "The End"
+msgstr ""
+
 #: ../books/book_of_the_dead.txt:13
-msgid "Those whose names are written here in gravebloom ink are admitted passage to the trail of redemption."
-msgstr "Akiknek a neve itt szerepel sírvirág tintával írva, azok előtt szabad az út a megváltás felé."
+msgid ""
+"Those whose names are written here in gravebloom ink are admitted passage to"
+" the trail of redemption."
+msgstr ""
+"Akiknek a neve itt szerepel sírvirág tintával írva, azok előtt szabad az út "
+"a megváltás felé."
+
+#: ../books/book_of_the_dead.txt:20
+msgid "${AVATAR_NAME}"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:23
+msgid "Reset"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:29
+msgid "Craft"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:48
+msgid "Empty Bottle"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:65
+msgid "Aloe Vera"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:82
+msgid "Mana Crystal"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:136
+msgid "Health Potion"
+msgstr "Életelixír"
+
+#: ../books/crafting_alchemy.txt:149
+msgid "Mana Potion"
+msgstr "Manaelixír"
+
+#: ../books/cutscene_list.txt:21
+msgid "Ending"
+msgstr ""
 
 #: ../books/merchants_journal.txt:13
 msgid "1488/9/27"
@@ -2073,7 +2368,8 @@ msgstr ""
 
 #: ../books/wardens_notes.txt:12
 msgid "Read the book on the second shelf of the nearest bookshelf."
-msgstr "Olvasd el a legközelebbi könyvespolc második polcán található könyvet."
+msgstr ""
+"Olvasd el a legközelebbi könyvespolc második polcán található könyvet."
 
 #: ../items/categories/level_4.txt:5
 msgid "Warlord Cloth Shirt"
@@ -2178,6 +2474,440 @@ msgstr "Mester gazdagsággyűrű"
 #: ../items/categories/level_4.txt:289
 msgid "Master Treasure Ring"
 msgstr "Mester kincsgyűrű"
+
+#: ../items/categories/level_5.txt:5
+msgid "Leather Hood"
+msgstr "Bőr kapucni"
+
+#: ../items/categories/level_5.txt:14
+msgid "Leather Tunic"
+msgstr "Bőrtunika"
+
+#: ../items/categories/level_5.txt:23
+msgid "Leather Pants"
+msgstr "Bőrnadrág"
+
+#: ../items/categories/level_5.txt:32
+msgid "Leather Boots"
+msgstr "Bőrcsizma"
+
+#: ../items/categories/level_5.txt:41
+msgid "Leather Gloves"
+msgstr "Bőrkesztyű"
+
+#: ../items/categories/level_5.txt:50
+msgid "Wool Hood"
+msgstr "Gyapjú kapucni"
+
+#: ../items/categories/level_5.txt:59
+msgid "Wool Vest"
+msgstr "Gyapjú mellény"
+
+#: ../items/categories/level_5.txt:68
+msgid "Wool Skirt"
+msgstr "Gyapjú ing"
+
+#: ../items/categories/level_5.txt:77
+msgid "Wool Boots"
+msgstr "Gyapjú csizma"
+
+#: ../items/categories/level_5.txt:86
+msgid "Wool Sleeves"
+msgstr "Gyapjú ujj"
+
+#: ../items/categories/level_5.txt:95
+msgid "Shortsword"
+msgstr "Rövidkard"
+
+#: ../items/categories/level_5.txt:104
+msgid "Shortbow"
+msgstr "Rövidíj"
+
+#: ../items/categories/level_5.txt:113
+msgid "Rod"
+msgstr "Pálca"
+
+#: ../items/categories/level_5.txt:122
+msgid "Iron Buckler"
+msgstr "Vaspajzs"
+
+#: ../items/categories/level_13.txt:5
+msgid "Plate Helmet"
+msgstr "Lemez sisak"
+
+#: ../items/categories/level_13.txt:14
+msgid "Plate Cuirass"
+msgstr "Lemez vért"
+
+#: ../items/categories/level_13.txt:23
+msgid "Plate Greaves"
+msgstr "Lemez nadrág"
+
+#: ../items/categories/level_13.txt:32
+msgid "Plate Boots"
+msgstr "Lemez csizma"
+
+#: ../items/categories/level_13.txt:41
+msgid "Plate Gauntlets"
+msgstr "Lemez kézvédő"
+
+#: ../items/categories/level_13.txt:50
+msgid "Velvet Hood"
+msgstr "Bársony kapucni"
+
+#: ../items/categories/level_13.txt:59
+msgid "Velvet Vest"
+msgstr "Bársony mellény"
+
+#: ../items/categories/level_13.txt:68
+msgid "Velvet Skirt"
+msgstr "Bársony ing"
+
+#: ../items/categories/level_13.txt:77
+msgid "Velvet Boots"
+msgstr "Bársony csizma"
+
+#: ../items/categories/level_13.txt:86
+msgid "Velvet Sleeves"
+msgstr "Bársony ujj"
+
+#: ../items/categories/level_13.txt:95
+msgid "Greatsword"
+msgstr "Nagykard"
+
+#: ../items/categories/level_13.txt:104
+msgid "Greatbow"
+msgstr "Nagyíj"
+
+#: ../items/categories/level_13.txt:113
+msgid "Greatstaff"
+msgstr "Nagybot"
+
+#: ../items/categories/level_13.txt:122
+msgid "Tower Shield"
+msgstr "Toronypajzs"
+
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Textiling"
+
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Textilnadrág"
+
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Textilszandál"
+
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Textilkesztyű"
+
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Tőr"
+
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Csúzli"
+
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Pálca"
+
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Fapajzs"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Hadúr bőrkapucni"
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Lövész bőrkapucni"
+
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Elemimágus gyapjú kapucni"
+
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Hadúr bőrtunika"
+
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Lövész bőrtunika"
+
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Elemimágus gyapjú mellény"
+
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Hadúr bőrnadrág"
+
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Lövész bőrnadrág"
+
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Elemimágus gyapjú ing"
+
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Hadúr bőrcsizma"
+
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Lövész bőrcsizma"
+
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Elemimágus gyapjú csizma"
+
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Hadúr bőrkesztyű"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Lövész bőrkesztyű"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Elemimágus gyapjú ujj"
+
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Mester Harcos bőröv"
+
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Mester Feldertő nyakék"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Mester Bűbájos Varázskönyv"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Hadúr rövidkard"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Lövész rövidíj"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Elemimágus bot"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Templomos vaspajzs"
+
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Mester Tűzgyűrű"
+
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Mester Jéggyűrű"
+
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Mester Elektromosgyűrű"
+
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Mester Árnygyűrű"
+
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Mester Tudásgyűrű"
+
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Mester Jólétgyűrű"
+
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Mester Kincsgyűrű"
+
+#: ../items/categories/scrolls.txt:5
+msgid "Summon Zombie Scroll"
+msgstr "Zombi megidézés tekercs"
+
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Célja: megidéz egy zombit, aki érted harcol"
+
+#: ../items/categories/scrolls.txt:17
+msgid "Perdition Scroll"
+msgstr "Pergő tekercs"
+
+#: ../items/categories/scrolls.txt:20
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Célja: Pergő Kikötőbe repít"
+
+#: ../items/categories/scrolls.txt:29
+msgid "Shield Scroll"
+msgstr "Pajzs tekercs"
+
+#: ../items/categories/scrolls.txt:32
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Célja: mágikus pajzsot hoz létre, ami felfogja a sebzést"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Fireball Scroll"
+msgstr "Tűzlabda tekercs"
+
+#: ../items/categories/scrolls.txt:44
+msgid "Use: Shoot a fireball"
+msgstr "Célja: tűzlabdát lő"
+
+#: ../items/categories/scrolls.txt:53
+msgid "Ice Bolt Scroll"
+msgstr "Jégvillám tekercs"
+
+#: ../items/categories/scrolls.txt:56
+msgid "Use: Shoot an ice bolt"
+msgstr "Célja: jégvillámot lő"
+
+#: ../items/categories/scrolls.txt:65
+msgid "Haste Scroll"
+msgstr "Sietség tekercs"
+
+#: ../items/categories/scrolls.txt:68
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Célja: rövid ideig nagyon gyors lesz tőle az ember"
+
+#: ../items/categories/scrolls.txt:77
+msgid "Immunity Scroll"
+msgstr "Immunitás tekercs"
+
+#: ../items/categories/scrolls.txt:80
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Célja: eltávolítja a negatív hatásokat és rövid időre immunissá tesz a "
+"negatív hatásokkal szemben"
+
+#: ../items/categories/scrolls.txt:89
+msgid "Reflection Scroll"
+msgstr "Visszatükrözés tekercs"
+
+#: ../items/categories/scrolls.txt:92
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Célja: rövid időre mágikus pajzsot hoz létre, ami visszveri a lövedékeket és"
+" sebzést"
+
+#: ../items/categories/level_2.txt:5
+msgid "Fighting Cloth Shirt"
+msgstr "Harcos textiling"
+
+#: ../items/categories/level_2.txt:15
+msgid "Recon Cloth Shirt"
+msgstr "Felderítő textiling"
+
+#: ../items/categories/level_2.txt:25
+msgid "Sorcerer Cloth Shirt"
+msgstr "Bűbájos textiling"
+
+#: ../items/categories/level_2.txt:35
+msgid "Fighting Cloth Pants"
+msgstr "Harcos textilnadrág"
+
+#: ../items/categories/level_2.txt:45
+msgid "Recon Cloth Pants"
+msgstr "Felderítő textilnadrág"
+
+#: ../items/categories/level_2.txt:55
+msgid "Sorcerer Cloth Pants"
+msgstr "Bűbájos textilnadrág"
+
+#: ../items/categories/level_2.txt:64
+msgid "Fighting Cloth Sandals"
+msgstr "Harcos textilszandál"
+
+#: ../items/categories/level_2.txt:74
+msgid "Recon Cloth Sandals"
+msgstr "Felderítő textilszandál"
+
+#: ../items/categories/level_2.txt:83
+msgid "Sorcerer Cloth Sandals"
+msgstr "Bűbájos textilszandál"
+
+#: ../items/categories/level_2.txt:92
+msgid "Fighting Cloth Gloves"
+msgstr "Harcos textilkesztyű"
+
+#: ../items/categories/level_2.txt:102
+msgid "Recon Cloth Gloves"
+msgstr "Felderítő textilkesztyű"
+
+#: ../items/categories/level_2.txt:111
+msgid "Sorcerer Cloth Gloves"
+msgstr "Bűbájos textilkesztyű"
+
+#: ../items/categories/level_2.txt:120
+msgid "Wandering Leather Belt"
+msgstr "Bóklászó bőröv"
+
+#: ../items/categories/level_2.txt:129
+msgid "Wandering Pendant"
+msgstr "Bóklászó nyakék"
+
+#: ../items/categories/level_2.txt:138
+msgid "Wandering Spellbook"
+msgstr "Bóklászó varázskönyv"
+
+#: ../items/categories/level_2.txt:147
+msgid "Fighting Dagger"
+msgstr "Harcos tőr"
+
+#: ../items/categories/level_2.txt:159
+msgid "Recon Slingshot"
+msgstr "Felderító csúzli"
+
+#: ../items/categories/level_2.txt:171
+msgid "Sorcerer Wand"
+msgstr "Bűbájos pálca"
+
+#: ../items/categories/level_2.txt:183
+msgid "Keeper Wood Buckler"
+msgstr "Őrző fapajzs"
+
+#: ../items/categories/level_2.txt:193
+msgid "Wandering Fire Ring"
+msgstr "Bóklászó Tűzgyűrű"
+
+#: ../items/categories/level_2.txt:202
+msgid "Wandering Ice Ring"
+msgstr "Bóklászó Jéggyűrű"
+
+#: ../items/categories/level_2.txt:211
+msgid "Wandering Lightning Ring"
+msgstr "Bóklászó Villámgyűrű"
+
+#: ../items/categories/level_2.txt:220
+msgid "Wandering Dark Ring"
+msgstr "Bóklászó Sötétséggyűrű"
+
+#: ../items/categories/level_2.txt:229
+msgid "Wandering Experience Ring"
+msgstr "Bóklászó Tapasztalatgyűrű"
+
+#: ../items/categories/level_2.txt:238
+msgid "Wandering Wealth Ring"
+msgstr "Bóklászó Jólétgyűrű"
+
+#: ../items/categories/level_2.txt:247
+msgid "Wandering Treasure Ring"
+msgstr "Bóklászó Kincsgyűrű"
 
 #: ../items/categories/level_15.txt:5
 msgid "Warrior Plate Helmet"
@@ -2295,414 +3025,6 @@ msgstr "Kalandozó Hatásgyűrű"
 msgid "Adventurer Relic Ring"
 msgstr "Kalandozó Régiséggyűrű"
 
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Krolan Kalapácsa"
-
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Vaskovács elengedhetetlen eszköze."
-
-#: ../items/categories/level_4_unique.txt:18
-msgid "Goblin Branch"
-msgstr "Manóág"
-
-#: ../items/categories/level_4_unique.txt:19
-msgid "Mana flows inside its primitive exterior."
-msgstr "Mana járja át a primitív belsejét."
-
-#: ../items/categories/level_4_unique.txt:34
-msgid "Ardwen's Gloves"
-msgstr "Ardwen kesztyűi"
-
-#: ../items/categories/level_4_unique.txt:35
-msgid "These hands built a village."
-msgstr "Ezek a kezek települést építettek."
-
-#: ../items/categories/level_4_unique.txt:50
-msgid "Blood Tunic"
-msgstr "Vértunika"
-
-#: ../items/categories/level_4_unique.txt:51
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Amikor hordják, fűti a tulaj vérét."
-
-#: ../items/categories/level_4_unique.txt:64
-msgid "Dark Steppers"
-msgstr "Sötétlépők"
-
-#: ../items/categories/level_4_unique.txt:65
-msgid "Dancing through the shadows."
-msgstr "Áttáncolnak a sötétségen."
-
-#: ../items/categories/level_4_unique.txt:78
-msgid "Seagate's Tri-pants"
-msgstr "Seagate trinadrágja"
-
-#: ../items/categories/level_4_unique.txt:79
-msgid "These ragged trousers are covered in scorch marks, yet are cold to the touch."
-msgstr "Ez a kopott gatya tele van égésnyomokkal, mégis hideg az érintése."
-
-#: ../items/categories/potions.txt:5
-msgid "Health Potion"
-msgstr "Életelixír"
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Visszaállítja az ÉP 25%-át"
-
-#: ../items/categories/potions.txt:16
-msgid "Mana Potion"
-msgstr "Manaelixír"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "Visszaállítja a MP 25%-át"
-
-#: ../items/categories/level_6.txt:5
-msgid "Fighting Leather Hood"
-msgstr "Harcos bőrkapucni"
-
-#: ../items/categories/level_6.txt:17
-msgid "Recon Leather Hood"
-msgstr "Felderítő bőrkapucni"
-
-#: ../items/categories/level_6.txt:29
-msgid "Sorcerer Wool Hood"
-msgstr "Bűbájos gyapjú kapucni"
-
-#: ../items/categories/level_6.txt:41
-msgid "Fighting Leather Tunic"
-msgstr "Harcos bőrtunika"
-
-#: ../items/categories/level_6.txt:53
-msgid "Recon Leather Tunic"
-msgstr "Felderítő bőrtunika"
-
-#: ../items/categories/level_6.txt:65
-msgid "Sorcerer Wool Vest"
-msgstr "Bűbájos gyapjú mellény"
-
-#: ../items/categories/level_6.txt:77
-msgid "Fighting Leather Pants"
-msgstr "Harcos bőrnadrág"
-
-#: ../items/categories/level_6.txt:89
-msgid "Recon Leather Pants"
-msgstr "Felderítő bőrnadrág"
-
-#: ../items/categories/level_6.txt:101
-msgid "Sorcerer Wool Skirt"
-msgstr "Bűbájos gyapjú ing"
-
-#: ../items/categories/level_6.txt:113
-msgid "Fighting Leather Boots"
-msgstr "Harcos bőrcsizma"
-
-#: ../items/categories/level_6.txt:125
-msgid "Recon Leather Boots"
-msgstr "Felderítő bőrcsizma"
-
-#: ../items/categories/level_6.txt:137
-msgid "Sorcerer Wool Boots"
-msgstr "Bűbájos gyapjúcsizma"
-
-#: ../items/categories/level_6.txt:149
-msgid "Fighting Leather Gloves"
-msgstr "Harcos bőrkesztyű"
-
-#: ../items/categories/level_6.txt:161
-msgid "Recon Leather Gloves"
-msgstr "Felderítő bőrkesztyű"
-
-#: ../items/categories/level_6.txt:173
-msgid "Sorcerer Wool Sleeves"
-msgstr "Bűbájos gyapjú kesztyű"
-
-#: ../items/categories/level_6.txt:185
-msgid "Wandering Fighting Leather Belt"
-msgstr "Bóklászó Harcos bőröv"
-
-#: ../items/categories/level_6.txt:196
-msgid "Wandering Recon Pendant"
-msgstr "Bóklászó Felderítő nyakék"
-
-#: ../items/categories/level_6.txt:207
-msgid "Wandering Sorcerer Spellbook"
-msgstr "Bóklászó Bűbájos varázskönyv"
-
-#: ../items/categories/level_6.txt:218
-msgid "Fighting Shortsword"
-msgstr "Harcos rövidkard"
-
-#: ../items/categories/level_6.txt:230
-msgid "Recon Shortbow"
-msgstr "Felderítő rövidíj"
-
-#: ../items/categories/level_6.txt:242
-msgid "Sorcerer Rod"
-msgstr "Bűbájos varázspálca"
-
-#: ../items/categories/level_6.txt:254
-msgid "Keeper Iron Buckler"
-msgstr "Őrző vaspajzs"
-
-#: ../items/categories/level_6.txt:265
-msgid "Wandering Burn Ring"
-msgstr "Bóklászó Égésgyűrű"
-
-#: ../items/categories/level_6.txt:275
-msgid "Wandering Frost Ring"
-msgstr "Bóklászó Fagygyűrű"
-
-#: ../items/categories/level_6.txt:285
-msgid "Wandering Electric Ring"
-msgstr "Bóklászó Elektromosgyűrű"
-
-#: ../items/categories/level_6.txt:295
-msgid "Wandering Shadow Ring"
-msgstr "Bóklászó Árnygyűrű"
-
-#: ../items/categories/level_6.txt:305
-msgid "Wandering Knowledge Ring"
-msgstr "Bóklászó Tudásgyűrű"
-
-#: ../items/categories/level_6.txt:315
-msgid "Wandering Prosperity Ring"
-msgstr "Bóklászó Jólétgyűrű"
-
-#: ../items/categories/level_6.txt:325
-msgid "Wandering Loot Ring"
-msgstr "Bóklászó Kincsgyűrű"
-
-#: ../items/categories/level_8_unique.txt:3
-msgid "Amir Blade"
-msgstr "Amir Pengéje"
-
-#: ../items/categories/level_8_unique.txt:4
-msgid "A remnant of those who guarded Fort Amir."
-msgstr "Azok emlékére, akik Amir Erődjét védték."
-
-#: ../items/categories/level_8_unique.txt:18
-msgid "Huntsman Bow"
-msgstr "Vadászíj"
-
-#: ../items/categories/level_8_unique.txt:19
-msgid "Compact enough to be deadly at all ranges of combat."
-msgstr "Eléggé kompakt és halálos különböző távból is."
-
-#: ../items/categories/level_8_unique.txt:33
-msgid "Greed Cowl"
-msgstr "Mohó Tehén"
-
-#: ../items/categories/level_8_unique.txt:34
-msgid "Riches fit for a queen."
-msgstr "Királynőhöz illő vagyon."
-
-#: ../items/categories/level_8_unique.txt:48
-msgid "Battle Leathers"
-msgstr "Csata bőrök"
-
-#: ../items/categories/level_8_unique.txt:49
-msgid "Designed to keep its wearer moving forward."
-msgstr "Arra tervezték, hogy a viselője előrenyomuljon."
-
-#: ../items/categories/level_8_unique.txt:63
-msgid "Escape Boots"
-msgstr "Menekülőcsizma"
-
-#: ../items/categories/level_8_unique.txt:64
-msgid "Running away doesn't mean the battle is lost."
-msgstr "Elmenekülni nem azt jelenti, hogy veszett a csata."
-
-#: ../items/categories/level_8_unique.txt:78
-msgid "Mez's Wraps"
-msgstr "Mez Vértje"
-
-#: ../items/categories/level_8_unique.txt:79
-msgid "With its layers of reptilian skin, not much can penetrate this armor."
-msgstr "Többrétegű hüllőbőrből készült, amin nem hatol át semmi."
-
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Hadúr láncvért sisak"
-
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Lövész láncvért sisak"
-
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Elemimágus selyem kapucni"
-
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Hadúr láncing"
-
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Lövész láncing"
-
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Elemimágus selyem mellény"
-
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Hadúr láncvért nadrág"
-
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Lövész láncvért nadrág"
-
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Elemimágus selyem ing"
-
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Hadúr láncvért csizma"
-
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Lövész láncvért csizma"
-
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Elemimágus selyem csizma"
-
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Hadúr láncvért kesztyű"
-
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Lövész láncvért kesztyű"
-
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Elemimágus selyem ujj"
-
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Mester harcos bőröv"
-
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Mester kósza nyakék"
-
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Mester Varázsló Varázskönyv"
-
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Hadúr hosszúkard"
-
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Lövész hosszúíj"
-
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Elemimágus bot"
-
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Templomos pajzs"
-
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Mester Lánggyűrű"
-
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Mester Fagygyűrű"
-
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Mester Sokkgyűrű"
-
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Mester Szikrázógyűrű"
-
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Mester Értelmiséggyűrű"
-
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Mester Gazdagsággyűrű"
-
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Mester Régiséggyűrű"
-
-#: ../items/categories/scrolls.txt:5
-msgid "Summon Zombie Scroll"
-msgstr "Zombi megidézés tekercs"
-
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Célja: megidéz egy zombit, aki érted harcol"
-
-#: ../items/categories/scrolls.txt:16
-msgid "Perdition Scroll"
-msgstr "Pergő tekercs"
-
-#: ../items/categories/scrolls.txt:19
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Célja: Pergő Kikötőbe repít"
-
-#: ../items/categories/scrolls.txt:27
-msgid "Shield Scroll"
-msgstr "Pajzs tekercs"
-
-#: ../items/categories/scrolls.txt:30
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Célja: mágikus pajzsot hoz létre, ami felfogja a sebzést"
-
-#: ../items/categories/scrolls.txt:38
-msgid "Fireball Scroll"
-msgstr "Tűzlabda tekercs"
-
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr "Célja: tűzlabdát lő"
-
-#: ../items/categories/scrolls.txt:49
-msgid "Ice Bolt Scroll"
-msgstr "Jégvillám tekercs"
-
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr "Célja: jégvillámot lő"
-
-#: ../items/categories/scrolls.txt:60
-msgid "Haste Scroll"
-msgstr "Sietség tekercs"
-
-#: ../items/categories/scrolls.txt:63
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Célja: rövid ideig nagyon gyors lesz tőle az ember"
-
-#: ../items/categories/scrolls.txt:71
-msgid "Immunity Scroll"
-msgstr "Immunitás tekercs"
-
-#: ../items/categories/scrolls.txt:74
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr "Célja: eltávolítja a negatív hatásokat és rövid időre immunissá tesz a negatív hatásokkal szemben"
-
-#: ../items/categories/scrolls.txt:82
-msgid "Reflection Scroll"
-msgstr "Visszatükrözés tekercs"
-
-#: ../items/categories/scrolls.txt:85
-msgid "Use: Creates a magical shield that reflects projectiles and damage for a limited time"
-msgstr "Célja: rövid időre mágikus pajzsot hoz létre, ami visszveri a lövedékeket és sebzést"
-
 #: ../items/categories/level_7.txt:5
 msgid "Warrior Leather Hood"
 msgstr "Harcos bőrkapucni"
@@ -2819,57 +3141,405 @@ msgstr "Kalandozó Jólétgyűrű"
 msgid "Adventurer Loot Ring"
 msgstr "Kalandozó Kincsgyűrű"
 
-#: ../items/categories/level_12_unique.txt:5
-msgid "Lost Totem"
-msgstr "Elveszett Totem"
+#: ../items/categories/level_10.txt:5
+msgid "Fighting Chain Coif"
+msgstr "Harcos láncvért sisak"
 
-#: ../items/categories/level_12_unique.txt:6
-msgid "The ancient scripture contained appears to be some sort of magic."
-msgstr "A benne rejlő ősi felirat úgy tűnik varázserővel bír."
+#: ../items/categories/level_10.txt:17
+msgid "Recon Chain Coif"
+msgstr "Felderítő láncvért sisak"
 
-#: ../items/categories/level_12_unique.txt:21
-msgid "Mog's Axe"
-msgstr "Mog Fejszéje"
+#: ../items/categories/level_10.txt:29
+msgid "Sorcerer Silk Hood"
+msgstr "Bűbájos selyem kapucni"
 
-#: ../items/categories/level_12_unique.txt:22
-msgid "Not as sleek as an arrow, but just as effective."
-msgstr "Nem olyan kecses, mint egy íjveszző, de ugyanannyira hatásos."
+#: ../items/categories/level_10.txt:41
+msgid "Fighting Chain Cuirass"
+msgstr "Harcos láncing"
 
-#: ../items/categories/level_12_unique.txt:36
-msgid "Guardsman Cuirass"
-msgstr "Őrszem mellvért"
+#: ../items/categories/level_10.txt:53
+msgid "Recon Chain Cuirass"
+msgstr "Felderítő láncing"
 
-#: ../items/categories/level_12_unique.txt:37
-msgid "A royal mail with a 'K' engraved on the breast."
-msgstr "Királyi kivitelezés, egy 'K'-val a mellénél."
+#: ../items/categories/level_10.txt:65
+msgid "Sorcerer Silk Vest"
+msgstr "Bűbájos selyem mellény"
 
-#: ../items/categories/level_12_unique.txt:53
-msgid "Inferno Pendant"
-msgstr "Végzet Nyakék"
+#: ../items/categories/level_10.txt:77
+msgid "Fighting Chain Greaves"
+msgstr "Harcos láncvért nadrág"
 
-#: ../items/categories/level_12_unique.txt:54
-msgid "Hot. Hot. Hot."
-msgstr "Forró. Forró. Forró."
+#: ../items/categories/level_10.txt:89
+msgid "Recon Chain Greaves"
+msgstr "Felderítő láncvért nadrág"
 
-#: ../items/categories/level_12_unique.txt:68
-msgid "Alchemist's Skirt"
-msgstr "Alkimista ing"
+#: ../items/categories/level_10.txt:101
+msgid "Sorcerer Silk Skirt"
+msgstr "Bűbájos selyem ing"
 
-#: ../items/categories/level_12_unique.txt:69
-msgid "Knowledge of formulating many concoctions bestows its wearer."
-msgstr "A viselőjét sok formula tudásával ruházza fel."
+#: ../items/categories/level_10.txt:113
+msgid "Fighting Chain Boots"
+msgstr "Harcos láncvért csizma"
 
-#: ../items/categories/level_12_unique.txt:78
-msgid "Drinking potions may create another potion of the same type."
-msgstr "Elixír elfogyasztása egy ugyanolyan elixírt eredményez."
+#: ../items/categories/level_10.txt:125
+msgid "Recon Chain Boots"
+msgstr "Felderítő láncvért csizma"
 
-#: ../items/categories/level_12_unique.txt:87
-msgid "Metzger's Battlemace"
-msgstr "Metzger Csatabárdja"
+#: ../items/categories/level_10.txt:137
+msgid "Sorcerer Silk Boots"
+msgstr "Bűbájos selyem csizma"
 
-#: ../items/categories/level_12_unique.txt:88
-msgid "Swinging this mace around leaves a clouded trail of dark smoke."
-msgstr "Ezt a csatabárdot lengetve sötét ködös füstöt hagy maga után."
+#: ../items/categories/level_10.txt:149
+msgid "Fighting Chain Gloves"
+msgstr "Harcos láncvért kesztyű"
+
+#: ../items/categories/level_10.txt:161
+msgid "Recon Chain Gloves"
+msgstr "Felderítő láncvért kesztyű"
+
+#: ../items/categories/level_10.txt:173
+msgid "Sorcerer Silk Sleeves"
+msgstr "Bűbájos selyem ujj"
+
+#: ../items/categories/level_10.txt:185
+msgid "Wandering Warrior Leather Belt"
+msgstr "Bóklászó harcos bőröv"
+
+#: ../items/categories/level_10.txt:196
+msgid "Wandering Ranger Pendant"
+msgstr "Bóklászó Felderítő nyakék"
+
+#: ../items/categories/level_10.txt:207
+msgid "Wandering Wizard Spellbook"
+msgstr "Bóklászó Varázsló Varázskönyv"
+
+#: ../items/categories/level_10.txt:218
+msgid "Fighting Longsword"
+msgstr "Harcos hosszúkard"
+
+#: ../items/categories/level_10.txt:230
+msgid "Recon Longbow"
+msgstr "Felderítő hosszúíj"
+
+#: ../items/categories/level_10.txt:242
+msgid "Sorcerer Staff"
+msgstr "Bűbájos bot"
+
+#: ../items/categories/level_10.txt:254
+msgid "Keeper Crest Shield"
+msgstr "Őrző pajzs"
+
+#: ../items/categories/level_10.txt:265
+msgid "Wandering Blaze Ring"
+msgstr "Bóklászó Lánggyűrű"
+
+#: ../items/categories/level_10.txt:275
+msgid "Wandering Freeze Ring"
+msgstr "Bóklászó Fagygyűrű"
+
+#: ../items/categories/level_10.txt:285
+msgid "Wandering Shock Ring"
+msgstr "Bóklászó Sokkgyűrű"
+
+#: ../items/categories/level_10.txt:295
+msgid "Wandering Gloom Ring"
+msgstr "Bóklászó Ragyogásgyűrű"
+
+#: ../items/categories/level_10.txt:305
+msgid "Wandering Intellectual Ring"
+msgstr "Bóklászó Értelemgyűrű"
+
+#: ../items/categories/level_10.txt:315
+msgid "Wandering Lucrative Ring"
+msgstr "Bóklászó Jólétgyűrű"
+
+#: ../items/categories/level_10.txt:325
+msgid "Wandering Artifact Ring"
+msgstr "Bóklászó Kincsgyűrű"
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Húskötés"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "Sima a tapintása. Viselés közben rásimul a viselő ujjára."
+
+#: ../items/categories/level_16_unique.txt:20
+msgid "Soulband"
+msgstr "Lélekkötés"
+
+#: ../items/categories/level_16_unique.txt:22
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Fénylik, mikor viselik, kitisztítja a viselő tudatát és segít a mély "
+"fókuszálásban."
+
+#: ../items/categories/level_16_unique.txt:36
+msgid "Underworld Cloak"
+msgstr "Alvilági Álca"
+
+#: ../items/categories/level_16_unique.txt:48
+msgid "Underworld Platemail"
+msgstr "Alvilági Lemezpajzs"
+
+#: ../items/categories/level_16_unique.txt:60
+msgid "Underworld Boots"
+msgstr "Alvilági Csizma"
+
+#: ../items/categories/level_16_unique.txt:72
+msgid "Underworld Armguards"
+msgstr "Alvilági Karvédők"
+
+#: ../items/categories/level_16_unique.txt:84
+msgid "Underworld Greaves"
+msgstr "Alvilági Nadrág"
+
+#: ../items/categories/level_16_unique.txt:96
+msgid "Underworld Tome"
+msgstr "Alvilági Tome"
+
+#: ../items/categories/level_16_unique.txt:107
+msgid "Underworld Blade"
+msgstr "Alvilági Penge"
+
+#: ../items/categories/level_16_unique.txt:119
+msgid "Underworld Bow"
+msgstr "Alvilági Íj"
+
+#: ../items/categories/level_16_unique.txt:131
+msgid "Underworld Sceptre"
+msgstr "Alvilági Sceptre"
+
+#: ../items/categories/quest.txt:3
+msgid "Krolan's Key"
+msgstr "Krolan kulcsa"
+
+#: ../items/categories/quest.txt:12
+msgid "Krolan's Emerald"
+msgstr "Krolan ékköve"
+
+#: ../items/categories/quest.txt:21
+msgid "Abasi's Journal"
+msgstr "Abasi naplója"
+
+#: ../items/categories/quest.txt:31
+msgid "Ardwen's Ring"
+msgstr "Ardwen gyűrűje"
+
+#: ../items/categories/quest.txt:40
+msgid "St. Maria Mausoleum Key"
+msgstr "Szent Mária Mauzóleum kulcsa"
+
+#: ../items/categories/quest.txt:49
+msgid "St. Maria Catacombs Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:58
+msgid "Strange Sapphire A"
+msgstr "Kölönös zafír A"
+
+#: ../items/categories/quest.txt:67
+msgid "Strange Sapphire B"
+msgstr "Különös zafír B"
+
+#: ../items/categories/quest.txt:85
+msgid "Bear Figurine"
+msgstr "Medve figura"
+
+#: ../items/categories/quest.txt:88
+msgid "Wood sculpture of a bear. A \"1\" is carved into the bottom."
+msgstr "Fából faragott medve figura. A talpára '1' van vésve."
+
+#: ../items/categories/quest.txt:97
+msgid "Owl Figurine"
+msgstr "Bagoly figura"
+
+#: ../items/categories/quest.txt:100
+msgid "Wood sculpture of an owl. A \"2\" is carved into the bottom."
+msgstr "Fából faragott bagoly figura. A talpára '2' van vésve."
+
+#: ../items/categories/quest.txt:109
+msgid "Cat Figurine"
+msgstr "Macska figura"
+
+#: ../items/categories/quest.txt:112
+msgid "Wood sculpture of a cat. A \"3\" is carved into the bottom."
+msgstr "Fából faragott macska figura. A talpára '3' van vésve"
+
+#: ../items/categories/quest.txt:121
+msgid "Turtle Figurine"
+msgstr "Teknőc figura"
+
+#: ../items/categories/quest.txt:124
+msgid "Wood sculpture of a turtle. A \"4\" is carved into the bottom."
+msgstr "Fából faragott teknős figura. A talpára '4' van vésve."
+
+#: ../items/categories/quest.txt:133
+msgid "Stormrock Key"
+msgstr "Viharszikla kulcsa"
+
+#: ../items/categories/quest.txt:142
+msgid "Temple of Mez Basement Key"
+msgstr "Mez Templomának alagsori kulcsa"
+
+#: ../items/categories/quest.txt:151
+msgid "Temple of Mez Main Hall Key"
+msgstr "Mez Templomának főcsarnok kulcsa"
+
+#: ../items/categories/quest.txt:160
+msgid "Dynamite"
+msgstr "Dinamit"
+
+#: ../items/categories/quest.txt:169
+msgid "Worn Note #1"
+msgstr "Kopott jegyzet 1"
+
+#: ../items/categories/quest.txt:179
+msgid "Worn Note #2"
+msgstr "Kopott jegyzet 2"
+
+#: ../items/categories/quest.txt:189
+msgid "Worn Note #3"
+msgstr "Kopott jegyzet 3"
+
+#: ../items/categories/quest.txt:199
+msgid "Worn Note #4"
+msgstr "Kopott jegyzet 4"
+
+#: ../items/categories/quest.txt:209
+msgid "Worn Note #5"
+msgstr "Kopott jegyzet 5"
+
+#: ../items/categories/quest.txt:219
+msgid "Wizard's Tower Entrance Key"
+msgstr "Varázsló Tornyának bejárati kulcsa"
+
+#: ../items/categories/quest.txt:228
+msgid "Wizard's Tower Research Hall Key"
+msgstr "Varázsló Tornyának kutató kamra kulcsa"
+
+#: ../items/categories/quest.txt:247
+msgid "Lorund's Sword"
+msgstr "Lorund kardja"
+
+#: ../items/categories/quest.txt:256
+msgid "Nerin's Bow"
+msgstr "Nerin íja"
+
+#: ../items/categories/quest.txt:265
+msgid "Kayl's Staff"
+msgstr "Kayl botja"
+
+#: ../items/categories/quest.txt:274
+msgid "Underworld Stronghold Foyer Key"
+msgstr "Alvilági Erőd Foyer kulcs"
+
+#: ../items/categories/quest.txt:283
+msgid "Underworld Stronghold Barracks Key"
+msgstr "Alvilági Erőd barakk kulcs"
+
+#: ../items/categories/quest.txt:292
+msgid "Treasure Chest Key"
+msgstr "Kincsesláda kulcsa"
+
+#: ../items/categories/quest.txt:305
+msgid ""
+"An odor of iron and its abrasive petals make this rare plant easy to "
+"identify."
+msgstr ""
+"A vasillat és az egyedi szirom jól felismerhetővé teszi ezt a ritka növényt."
+
+#: ../items/categories/quest.txt:315
+msgid ""
+"This mysterious black feather has a very sharp follicle, making it a "
+"suitable writing utensil."
+msgstr ""
+"Ennek a misztikus tollnak hegyes a vége, emiatt kiválóan lehet vele írni."
+
+#: ../items/categories/quest.txt:325
+msgid "A dark, magical energy flows through the tip of this small blade."
+msgstr "Sötét, mágikus energia áramlik a kis penge két vége között."
+
+#: ../items/categories/quest.txt:332
+msgid "Vial of Your Blood"
+msgstr "Csepp a véredből"
+
+#: ../items/categories/quest.txt:335
+msgid "Spoils of the Red Altar ritual."
+msgstr "Vörös Oltár ritáléjának kellékei"
+
+#: ../items/categories/quest.txt:342
+msgid "Blood Inkwell"
+msgstr "Vér Tintatartó"
+
+#: ../items/categories/quest.txt:345
+msgid ""
+"According to Florin, this is the only ink capable of being used in the Book "
+"of the Dead."
+msgstr ""
+"Florin szerint ez az egyetlen tinta, amivel a Halottak Könyvébe lehet írni."
+
+#: ../items/categories/crafting.txt:39
+msgid "Mortar and Pestle"
+msgstr ""
+
+#: ../items/categories/crafting.txt:40
+msgid "Use empty bottles and various ingredients to create potions."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Krolan Kalapácsa"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Vaskovács elengedhetetlen eszköze."
+
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr "Manóág"
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr "Mana járja át a primitív belsejét."
+
+#: ../items/categories/level_4_unique.txt:34
+msgid "Ardwen's Gloves"
+msgstr "Ardwen kesztyűi"
+
+#: ../items/categories/level_4_unique.txt:35
+msgid "These hands built a village."
+msgstr "Ezek a kezek települést építettek."
+
+#: ../items/categories/level_4_unique.txt:50
+msgid "Blood Tunic"
+msgstr "Vértunika"
+
+#: ../items/categories/level_4_unique.txt:51
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Amikor hordják, fűti a tulaj vérét."
+
+#: ../items/categories/level_4_unique.txt:65
+msgid "Dark Steppers"
+msgstr "Sötétlépők"
+
+#: ../items/categories/level_4_unique.txt:66
+msgid "Dancing through the shadows."
+msgstr "Áttáncolnak a sötétségen."
+
+#: ../items/categories/level_4_unique.txt:79
+msgid "Seagate's Tri-pants"
+msgstr "Seagate trinadrágja"
+
+#: ../items/categories/level_4_unique.txt:80
+msgid ""
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
+msgstr "Ez a kopott gatya tele van égésnyomokkal, mégis hideg az érintése."
 
 #: ../items/categories/level_16.txt:5
 msgid "Warlord Plate Helmet"
@@ -3103,122 +3773,6 @@ msgstr "Kalandozó Gazdagsággyűrű"
 msgid "Adventurer Artifact Ring"
 msgstr "Kalandozó Kincsgyűrű"
 
-#: ../items/categories/level_10.txt:5
-msgid "Fighting Chain Coif"
-msgstr "Harcos láncvért sisak"
-
-#: ../items/categories/level_10.txt:17
-msgid "Recon Chain Coif"
-msgstr "Felderítő láncvért sisak"
-
-#: ../items/categories/level_10.txt:29
-msgid "Sorcerer Silk Hood"
-msgstr "Bűbájos selyem kapucni"
-
-#: ../items/categories/level_10.txt:41
-msgid "Fighting Chain Cuirass"
-msgstr "Harcos láncing"
-
-#: ../items/categories/level_10.txt:53
-msgid "Recon Chain Cuirass"
-msgstr "Felderítő láncing"
-
-#: ../items/categories/level_10.txt:65
-msgid "Sorcerer Silk Vest"
-msgstr "Bűbájos selyem mellény"
-
-#: ../items/categories/level_10.txt:77
-msgid "Fighting Chain Greaves"
-msgstr "Harcos láncvért nadrág"
-
-#: ../items/categories/level_10.txt:89
-msgid "Recon Chain Greaves"
-msgstr "Felderítő láncvért nadrág"
-
-#: ../items/categories/level_10.txt:101
-msgid "Sorcerer Silk Skirt"
-msgstr "Bűbájos selyem ing"
-
-#: ../items/categories/level_10.txt:113
-msgid "Fighting Chain Boots"
-msgstr "Harcos láncvért csizma"
-
-#: ../items/categories/level_10.txt:125
-msgid "Recon Chain Boots"
-msgstr "Felderítő láncvért csizma"
-
-#: ../items/categories/level_10.txt:137
-msgid "Sorcerer Silk Boots"
-msgstr "Bűbájos selyem csizma"
-
-#: ../items/categories/level_10.txt:149
-msgid "Fighting Chain Gloves"
-msgstr "Harcos láncvért kesztyű"
-
-#: ../items/categories/level_10.txt:161
-msgid "Recon Chain Gloves"
-msgstr "Felderítő láncvért kesztyű"
-
-#: ../items/categories/level_10.txt:173
-msgid "Sorcerer Silk Sleeves"
-msgstr "Bűbájos selyem ujj"
-
-#: ../items/categories/level_10.txt:185
-msgid "Wandering Warrior Leather Belt"
-msgstr "Bóklászó harcos bőröv"
-
-#: ../items/categories/level_10.txt:196
-msgid "Wandering Ranger Pendant"
-msgstr "Bóklászó Felderítő nyakék"
-
-#: ../items/categories/level_10.txt:207
-msgid "Wandering Wizard Spellbook"
-msgstr "Bóklászó Varázsló Varázskönyv"
-
-#: ../items/categories/level_10.txt:218
-msgid "Fighting Longsword"
-msgstr "Harcos hosszúkard"
-
-#: ../items/categories/level_10.txt:230
-msgid "Recon Longbow"
-msgstr "Felderítő hosszúíj"
-
-#: ../items/categories/level_10.txt:242
-msgid "Sorcerer Staff"
-msgstr "Bűbájos bot"
-
-#: ../items/categories/level_10.txt:254
-msgid "Keeper Crest Shield"
-msgstr "Őrző pajzs"
-
-#: ../items/categories/level_10.txt:265
-msgid "Wandering Blaze Ring"
-msgstr "Bóklászó Lánggyűrű"
-
-#: ../items/categories/level_10.txt:275
-msgid "Wandering Freeze Ring"
-msgstr "Bóklászó Fagygyűrű"
-
-#: ../items/categories/level_10.txt:285
-msgid "Wandering Shock Ring"
-msgstr "Bóklászó Sokkgyűrű"
-
-#: ../items/categories/level_10.txt:295
-msgid "Wandering Gloom Ring"
-msgstr "Bóklászó Ragyogásgyűrű"
-
-#: ../items/categories/level_10.txt:305
-msgid "Wandering Intellectual Ring"
-msgstr "Bóklászó Értelemgyűrű"
-
-#: ../items/categories/level_10.txt:315
-msgid "Wandering Lucrative Ring"
-msgstr "Bóklászó Jólétgyűrű"
-
-#: ../items/categories/level_10.txt:325
-msgid "Wandering Artifact Ring"
-msgstr "Bóklászó Kincsgyűrű"
-
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
 msgstr "Láncvért sisak"
@@ -3275,580 +3829,120 @@ msgstr "Bot"
 msgid "Crest Shield"
 msgstr "Pajzs"
 
-#: ../items/categories/level_13.txt:5
-msgid "Plate Helmet"
-msgstr "Lemez sisak"
-
-#: ../items/categories/level_13.txt:14
-msgid "Plate Cuirass"
-msgstr "Lemez vért"
-
-#: ../items/categories/level_13.txt:23
-msgid "Plate Greaves"
-msgstr "Lemez nadrág"
-
-#: ../items/categories/level_13.txt:32
-msgid "Plate Boots"
-msgstr "Lemez csizma"
-
-#: ../items/categories/level_13.txt:41
-msgid "Plate Gauntlets"
-msgstr "Lemez kézvédő"
-
-#: ../items/categories/level_13.txt:50
-msgid "Velvet Hood"
-msgstr "Bársony kapucni"
-
-#: ../items/categories/level_13.txt:59
-msgid "Velvet Vest"
-msgstr "Bársony mellény"
-
-#: ../items/categories/level_13.txt:68
-msgid "Velvet Skirt"
-msgstr "Bársony ing"
-
-#: ../items/categories/level_13.txt:77
-msgid "Velvet Boots"
-msgstr "Bársony csizma"
-
-#: ../items/categories/level_13.txt:86
-msgid "Velvet Sleeves"
-msgstr "Bársony ujj"
-
-#: ../items/categories/level_13.txt:95
-msgid "Greatsword"
-msgstr "Nagykard"
-
-#: ../items/categories/level_13.txt:104
-msgid "Greatbow"
-msgstr "Nagyíj"
-
-#: ../items/categories/level_13.txt:113
-msgid "Greatstaff"
-msgstr "Nagybot"
-
-#: ../items/categories/level_13.txt:122
-msgid "Tower Shield"
-msgstr "Toronypajzs"
-
-#: ../items/categories/level_5.txt:5
-msgid "Leather Hood"
-msgstr "Bőr kapucni"
-
-#: ../items/categories/level_5.txt:14
-msgid "Leather Tunic"
-msgstr "Bőrtunika"
-
-#: ../items/categories/level_5.txt:23
-msgid "Leather Pants"
-msgstr "Bőrnadrág"
-
-#: ../items/categories/level_5.txt:32
-msgid "Leather Boots"
-msgstr "Bőrcsizma"
-
-#: ../items/categories/level_5.txt:41
-msgid "Leather Gloves"
-msgstr "Bőrkesztyű"
-
-#: ../items/categories/level_5.txt:50
-msgid "Wool Hood"
-msgstr "Gyapjú kapucni"
-
-#: ../items/categories/level_5.txt:59
-msgid "Wool Vest"
-msgstr "Gyapjú mellény"
-
-#: ../items/categories/level_5.txt:68
-msgid "Wool Skirt"
-msgstr "Gyapjú ing"
-
-#: ../items/categories/level_5.txt:77
-msgid "Wool Boots"
-msgstr "Gyapjú csizma"
-
-#: ../items/categories/level_5.txt:86
-msgid "Wool Sleeves"
-msgstr "Gyapjú ujj"
-
-#: ../items/categories/level_5.txt:95
-msgid "Shortsword"
-msgstr "Rövidkard"
-
-#: ../items/categories/level_5.txt:104
-msgid "Shortbow"
-msgstr "Rövidíj"
-
-#: ../items/categories/level_5.txt:113
-msgid "Rod"
-msgstr "Pálca"
-
-#: ../items/categories/level_5.txt:122
-msgid "Iron Buckler"
-msgstr "Vaspajzs"
-
-#: ../items/categories/quest.txt:3
-msgid "Krolan's Key"
-msgstr "Krolan kulcsa"
-
-#: ../items/categories/quest.txt:12
-msgid "Krolan's Emerald"
-msgstr "Krolan ékköve"
-
-#: ../items/categories/quest.txt:21
-msgid "Abasi's Journal"
-msgstr "Abasi naplója"
-
-#: ../items/categories/quest.txt:31
-msgid "Ardwen's Ring"
-msgstr "Ardwen gyűrűje"
-
-#: ../items/categories/quest.txt:40
-msgid "St. Maria Mausoleum Key"
-msgstr "Szent Mária Mauzóleum kulcsa"
-
-#: ../items/categories/quest.txt:49
-msgid "St. Maria Prison Key"
-msgstr "Szent Mária börtön kulcsa"
-
-#: ../items/categories/quest.txt:58
-msgid "Strange Sapphire A"
-msgstr "Kölönös zafír A"
-
-#: ../items/categories/quest.txt:67
-msgid "Strange Sapphire B"
-msgstr "Különös zafír B"
-
-#: ../items/categories/quest.txt:85
-msgid "Bear Figurine"
-msgstr "Medve figura"
-
-#: ../items/categories/quest.txt:88
-msgid "Wood sculpture of a bear. A \"1\" is carved into the bottom."
-msgstr "Fából faragott medve figura. A talpára '1' van vésve."
-
-#: ../items/categories/quest.txt:97
-msgid "Owl Figurine"
-msgstr "Bagoly figura"
-
-#: ../items/categories/quest.txt:100
-msgid "Wood sculpture of an owl. A \"2\" is carved into the bottom."
-msgstr "Fából faragott bagoly figura. A talpára '2' van vésve."
-
-#: ../items/categories/quest.txt:109
-msgid "Cat Figurine"
-msgstr "Macska figura"
-
-#: ../items/categories/quest.txt:112
-msgid "Wood sculpture of a cat. A \"3\" is carved into the bottom."
-msgstr "Fából faragott macska figura. A talpára '3' van vésve"
-
-#: ../items/categories/quest.txt:121
-msgid "Turtle Figurine"
-msgstr "Teknőc figura"
-
-#: ../items/categories/quest.txt:124
-msgid "Wood sculpture of a turtle. A \"4\" is carved into the bottom."
-msgstr "Fából faragott teknős figura. A talpára '4' van vésve."
-
-#: ../items/categories/quest.txt:133
-msgid "Stormrock Key"
-msgstr "Viharszikla kulcsa"
-
-#: ../items/categories/quest.txt:142
-msgid "Temple of Mez Basement Key"
-msgstr "Mez Templomának alagsori kulcsa"
-
-#: ../items/categories/quest.txt:151
-msgid "Temple of Mez Main Hall Key"
-msgstr "Mez Templomának főcsarnok kulcsa"
-
-#: ../items/categories/quest.txt:160
-msgid "Dynamite"
-msgstr "Dinamit"
-
-#: ../items/categories/quest.txt:169
-msgid "Worn Note #1"
-msgstr "Kopott jegyzet 1"
-
-#: ../items/categories/quest.txt:179
-msgid "Worn Note #2"
-msgstr "Kopott jegyzet 2"
-
-#: ../items/categories/quest.txt:189
-msgid "Worn Note #3"
-msgstr "Kopott jegyzet 3"
-
-#: ../items/categories/quest.txt:199
-msgid "Worn Note #4"
-msgstr "Kopott jegyzet 4"
-
-#: ../items/categories/quest.txt:209
-msgid "Worn Note #5"
-msgstr "Kopott jegyzet 5"
-
-#: ../items/categories/quest.txt:219
-msgid "Wizard's Tower Entrance Key"
-msgstr "Varázsló Tornyának bejárati kulcsa"
-
-#: ../items/categories/quest.txt:228
-msgid "Wizard's Tower Research Hall Key"
-msgstr "Varázsló Tornyának kutató kamra kulcsa"
-
-#: ../items/categories/quest.txt:247
-msgid "Lorund's Sword"
-msgstr "Lorund kardja"
-
-#: ../items/categories/quest.txt:256
-msgid "Nerin's Bow"
-msgstr "Nerin íja"
-
-#: ../items/categories/quest.txt:265
-msgid "Kayl's Staff"
-msgstr "Kayl botja"
-
-#: ../items/categories/quest.txt:274
-msgid "Underworld Stronghold Foyer Key"
-msgstr "Alvilági Erőd Foyer kulcs"
-
-#: ../items/categories/quest.txt:283
-msgid "Underworld Stronghold Barracks Key"
-msgstr "Alvilági Erőd barakk kulcs"
-
-#: ../items/categories/quest.txt:292
-msgid "Treasure Chest Key"
-msgstr "Kincsesláda kulcsa"
-
-#: ../items/categories/quest.txt:305
-msgid "An odor of iron and its abrasive petals make this rare plant easy to identify."
-msgstr "A vasillat és az egyedi szirom jól felismerhetővé teszi ezt a ritka növényt."
-
-#: ../items/categories/quest.txt:315
-msgid "This mysterious black feather has a very sharp follicle, making it a suitable writing utensil."
-msgstr "Ennek a misztikus tollnak hegyes a vége, emiatt kiválóan lehet vele írni."
-
-#: ../items/categories/quest.txt:325
-msgid "A dark, magical energy flows through the tip of this small blade."
-msgstr "Sötét, mágikus energia áramlik a kis penge két vége között."
-
-#: ../items/categories/quest.txt:332
-msgid "Vial of Your Blood"
-msgstr "Csepp a véredből"
-
-#: ../items/categories/quest.txt:335
-msgid "Spoils of the Red Altar ritual."
-msgstr "Vörös Oltár ritáléjának kellékei"
-
-#: ../items/categories/quest.txt:342
-msgid "Blood Inkwell"
-msgstr "Vér Tintatartó"
-
-#: ../items/categories/quest.txt:345
-msgid "According to Florin, this is the only ink capable of being used in the Book of the Dead."
-msgstr "Florin szerint ez az egyetlen tinta, amivel a Halottak Könyvébe lehet írni."
-
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Húskötés"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid "Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "Sima a tapintása. Viselés közben rásimul a viselő ujjára."
-
-#: ../items/categories/level_16_unique.txt:20
-msgid "Soulband"
-msgstr "Lélekkötés"
-
-#: ../items/categories/level_16_unique.txt:22
-msgid "Glowing when worn, it clears the wearer's mind and allows them to deeply focus."
-msgstr "Fénylik, mikor viselik, kitisztítja a viselő tudatát és segít a mély fókuszálásban."
-
-#: ../items/categories/level_16_unique.txt:36
-msgid "Underworld Cloak"
-msgstr "Alvilági Álca"
-
-#: ../items/categories/level_16_unique.txt:48
-msgid "Underworld Platemail"
-msgstr "Alvilági Lemezpajzs"
-
-#: ../items/categories/level_16_unique.txt:60
-msgid "Underworld Boots"
-msgstr "Alvilági Csizma"
-
-#: ../items/categories/level_16_unique.txt:72
-msgid "Underworld Armguards"
-msgstr "Alvilági Karvédők"
-
-#: ../items/categories/level_16_unique.txt:84
-msgid "Underworld Greaves"
-msgstr "Alvilági Nadrág"
-
-#: ../items/categories/level_16_unique.txt:96
-msgid "Underworld Tome"
-msgstr "Alvilági Tome"
-
-#: ../items/categories/level_16_unique.txt:107
-msgid "Underworld Blade"
-msgstr "Alvilági Penge"
-
-#: ../items/categories/level_16_unique.txt:119
-msgid "Underworld Bow"
-msgstr "Alvilági Íj"
-
-#: ../items/categories/level_16_unique.txt:131
-msgid "Underworld Sceptre"
-msgstr "Alvilági Sceptre"
-
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Textiling"
-
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Textilnadrág"
-
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Textilszandál"
-
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Textilkesztyű"
-
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Tőr"
-
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Csúzli"
-
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Pálca"
-
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Fapajzs"
-
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Hadúr bőrkapucni"
-
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Lövész bőrkapucni"
-
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Elemimágus gyapjú kapucni"
-
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Hadúr bőrtunika"
-
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Lövész bőrtunika"
-
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Elemimágus gyapjú mellény"
-
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Hadúr bőrnadrág"
-
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Lövész bőrnadrág"
-
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "Elemimágus gyapjú ing"
-
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Hadúr bőrcsizma"
-
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Lövész bőrcsizma"
-
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Elemimágus gyapjú csizma"
-
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Hadúr bőrkesztyű"
-
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Lövész bőrkesztyű"
-
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Elemimágus gyapjú ujj"
-
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "Mester Harcos bőröv"
-
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Mester Feldertő nyakék"
-
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Mester Bűbájos Varázskönyv"
-
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Hadúr rövidkard"
-
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Lövész rövidíj"
-
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Elemimágus bot"
-
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Templomos vaspajzs"
-
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Mester Tűzgyűrű"
-
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Mester Jéggyűrű"
-
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Mester Elektromosgyűrű"
-
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Mester Árnygyűrű"
-
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Mester Tudásgyűrű"
-
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Mester Jólétgyűrű"
-
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Mester Kincsgyűrű"
-
-#: ../items/categories/level_2.txt:5
-msgid "Fighting Cloth Shirt"
-msgstr "Harcos textiling"
-
-#: ../items/categories/level_2.txt:15
-msgid "Recon Cloth Shirt"
-msgstr "Felderítő textiling"
-
-#: ../items/categories/level_2.txt:25
-msgid "Sorcerer Cloth Shirt"
-msgstr "Bűbájos textiling"
-
-#: ../items/categories/level_2.txt:35
-msgid "Fighting Cloth Pants"
-msgstr "Harcos textilnadrág"
-
-#: ../items/categories/level_2.txt:45
-msgid "Recon Cloth Pants"
-msgstr "Felderítő textilnadrág"
-
-#: ../items/categories/level_2.txt:55
-msgid "Sorcerer Cloth Pants"
-msgstr "Bűbájos textilnadrág"
-
-#: ../items/categories/level_2.txt:64
-msgid "Fighting Cloth Sandals"
-msgstr "Harcos textilszandál"
-
-#: ../items/categories/level_2.txt:74
-msgid "Recon Cloth Sandals"
-msgstr "Felderítő textilszandál"
-
-#: ../items/categories/level_2.txt:83
-msgid "Sorcerer Cloth Sandals"
-msgstr "Bűbájos textilszandál"
-
-#: ../items/categories/level_2.txt:92
-msgid "Fighting Cloth Gloves"
-msgstr "Harcos textilkesztyű"
-
-#: ../items/categories/level_2.txt:102
-msgid "Recon Cloth Gloves"
-msgstr "Felderítő textilkesztyű"
-
-#: ../items/categories/level_2.txt:111
-msgid "Sorcerer Cloth Gloves"
-msgstr "Bűbájos textilkesztyű"
-
-#: ../items/categories/level_2.txt:120
-msgid "Wandering Leather Belt"
-msgstr "Bóklászó bőröv"
-
-#: ../items/categories/level_2.txt:129
-msgid "Wandering Pendant"
-msgstr "Bóklászó nyakék"
-
-#: ../items/categories/level_2.txt:138
-msgid "Wandering Spellbook"
-msgstr "Bóklászó varázskönyv"
-
-#: ../items/categories/level_2.txt:147
-msgid "Fighting Dagger"
-msgstr "Harcos tőr"
-
-#: ../items/categories/level_2.txt:159
-msgid "Recon Slingshot"
-msgstr "Felderító csúzli"
-
-#: ../items/categories/level_2.txt:171
-msgid "Sorcerer Wand"
-msgstr "Bűbájos pálca"
-
-#: ../items/categories/level_2.txt:183
-msgid "Keeper Wood Buckler"
-msgstr "Őrző fapajzs"
-
-#: ../items/categories/level_2.txt:193
-msgid "Wandering Fire Ring"
-msgstr "Bóklászó Tűzgyűrű"
-
-#: ../items/categories/level_2.txt:202
-msgid "Wandering Ice Ring"
-msgstr "Bóklászó Jéggyűrű"
-
-#: ../items/categories/level_2.txt:211
-msgid "Wandering Lightning Ring"
-msgstr "Bóklászó Villámgyűrű"
-
-#: ../items/categories/level_2.txt:220
-msgid "Wandering Dark Ring"
-msgstr "Bóklászó Sötétséggyűrű"
-
-#: ../items/categories/level_2.txt:229
-msgid "Wandering Experience Ring"
-msgstr "Bóklászó Tapasztalatgyűrű"
-
-#: ../items/categories/level_2.txt:238
-msgid "Wandering Wealth Ring"
+#: ../items/categories/level_6.txt:5
+msgid "Fighting Leather Hood"
+msgstr "Harcos bőrkapucni"
+
+#: ../items/categories/level_6.txt:17
+msgid "Recon Leather Hood"
+msgstr "Felderítő bőrkapucni"
+
+#: ../items/categories/level_6.txt:29
+msgid "Sorcerer Wool Hood"
+msgstr "Bűbájos gyapjú kapucni"
+
+#: ../items/categories/level_6.txt:41
+msgid "Fighting Leather Tunic"
+msgstr "Harcos bőrtunika"
+
+#: ../items/categories/level_6.txt:53
+msgid "Recon Leather Tunic"
+msgstr "Felderítő bőrtunika"
+
+#: ../items/categories/level_6.txt:65
+msgid "Sorcerer Wool Vest"
+msgstr "Bűbájos gyapjú mellény"
+
+#: ../items/categories/level_6.txt:77
+msgid "Fighting Leather Pants"
+msgstr "Harcos bőrnadrág"
+
+#: ../items/categories/level_6.txt:89
+msgid "Recon Leather Pants"
+msgstr "Felderítő bőrnadrág"
+
+#: ../items/categories/level_6.txt:101
+msgid "Sorcerer Wool Skirt"
+msgstr "Bűbájos gyapjú ing"
+
+#: ../items/categories/level_6.txt:113
+msgid "Fighting Leather Boots"
+msgstr "Harcos bőrcsizma"
+
+#: ../items/categories/level_6.txt:125
+msgid "Recon Leather Boots"
+msgstr "Felderítő bőrcsizma"
+
+#: ../items/categories/level_6.txt:137
+msgid "Sorcerer Wool Boots"
+msgstr "Bűbájos gyapjúcsizma"
+
+#: ../items/categories/level_6.txt:149
+msgid "Fighting Leather Gloves"
+msgstr "Harcos bőrkesztyű"
+
+#: ../items/categories/level_6.txt:161
+msgid "Recon Leather Gloves"
+msgstr "Felderítő bőrkesztyű"
+
+#: ../items/categories/level_6.txt:173
+msgid "Sorcerer Wool Sleeves"
+msgstr "Bűbájos gyapjú kesztyű"
+
+#: ../items/categories/level_6.txt:185
+msgid "Wandering Fighting Leather Belt"
+msgstr "Bóklászó Harcos bőröv"
+
+#: ../items/categories/level_6.txt:196
+msgid "Wandering Recon Pendant"
+msgstr "Bóklászó Felderítő nyakék"
+
+#: ../items/categories/level_6.txt:207
+msgid "Wandering Sorcerer Spellbook"
+msgstr "Bóklászó Bűbájos varázskönyv"
+
+#: ../items/categories/level_6.txt:218
+msgid "Fighting Shortsword"
+msgstr "Harcos rövidkard"
+
+#: ../items/categories/level_6.txt:230
+msgid "Recon Shortbow"
+msgstr "Felderítő rövidíj"
+
+#: ../items/categories/level_6.txt:242
+msgid "Sorcerer Rod"
+msgstr "Bűbájos varázspálca"
+
+#: ../items/categories/level_6.txt:254
+msgid "Keeper Iron Buckler"
+msgstr "Őrző vaspajzs"
+
+#: ../items/categories/level_6.txt:265
+msgid "Wandering Burn Ring"
+msgstr "Bóklászó Égésgyűrű"
+
+#: ../items/categories/level_6.txt:275
+msgid "Wandering Frost Ring"
+msgstr "Bóklászó Fagygyűrű"
+
+#: ../items/categories/level_6.txt:285
+msgid "Wandering Electric Ring"
+msgstr "Bóklászó Elektromosgyűrű"
+
+#: ../items/categories/level_6.txt:295
+msgid "Wandering Shadow Ring"
+msgstr "Bóklászó Árnygyűrű"
+
+#: ../items/categories/level_6.txt:305
+msgid "Wandering Knowledge Ring"
+msgstr "Bóklászó Tudásgyűrű"
+
+#: ../items/categories/level_6.txt:315
+msgid "Wandering Prosperity Ring"
 msgstr "Bóklászó Jólétgyűrű"
 
-#: ../items/categories/level_2.txt:247
-msgid "Wandering Treasure Ring"
+#: ../items/categories/level_6.txt:325
+msgid "Wandering Loot Ring"
 msgstr "Bóklászó Kincsgyűrű"
 
 #: ../items/categories/level_3.txt:5
@@ -3954,6 +4048,230 @@ msgstr "Kalandozó Gazdagsággyűrű"
 #: ../items/categories/level_3.txt:251
 msgid "Adventurer Treasure Ring"
 msgstr "Kalandozó Kincsgyűrű"
+
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Hadúr láncvért sisak"
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Lövész láncvért sisak"
+
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Elemimágus selyem kapucni"
+
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Hadúr láncing"
+
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Lövész láncing"
+
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Elemimágus selyem mellény"
+
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Hadúr láncvért nadrág"
+
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Lövész láncvért nadrág"
+
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Elemimágus selyem ing"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Hadúr láncvért csizma"
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Lövész láncvért csizma"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Elemimágus selyem csizma"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Hadúr láncvért kesztyű"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Lövész láncvért kesztyű"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Elemimágus selyem ujj"
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Mester harcos bőröv"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Mester kósza nyakék"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Mester Varázsló Varázskönyv"
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Hadúr hosszúkard"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Lövész hosszúíj"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Elemimágus bot"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Templomos pajzs"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Mester Lánggyűrű"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Mester Fagygyűrű"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Mester Sokkgyűrű"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Mester Szikrázógyűrű"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Mester Értelmiséggyűrű"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Mester Gazdagsággyűrű"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Mester Régiséggyűrű"
+
+#: ../items/categories/level_8_unique.txt:3
+msgid "Amir Blade"
+msgstr "Amir Pengéje"
+
+#: ../items/categories/level_8_unique.txt:4
+msgid "A remnant of those who guarded Fort Amir."
+msgstr "Azok emlékére, akik Amir Erődjét védték."
+
+#: ../items/categories/level_8_unique.txt:18
+msgid "Huntsman Bow"
+msgstr "Vadászíj"
+
+#: ../items/categories/level_8_unique.txt:19
+msgid "Compact enough to be deadly at all ranges of combat."
+msgstr "Eléggé kompakt és halálos különböző távból is."
+
+#: ../items/categories/level_8_unique.txt:34
+msgid "Greed Cowl"
+msgstr "Mohó Tehén"
+
+#: ../items/categories/level_8_unique.txt:35
+msgid "Riches fit for a queen."
+msgstr "Királynőhöz illő vagyon."
+
+#: ../items/categories/level_8_unique.txt:49
+msgid "Battle Leathers"
+msgstr "Csata bőrök"
+
+#: ../items/categories/level_8_unique.txt:50
+msgid "Designed to keep its wearer moving forward."
+msgstr "Arra tervezték, hogy a viselője előrenyomuljon."
+
+#: ../items/categories/level_8_unique.txt:64
+msgid "Escape Boots"
+msgstr "Menekülőcsizma"
+
+#: ../items/categories/level_8_unique.txt:65
+msgid "Running away doesn't mean the battle is lost."
+msgstr "Elmenekülni nem azt jelenti, hogy veszett a csata."
+
+#: ../items/categories/level_8_unique.txt:79
+msgid "Mez's Wraps"
+msgstr "Mez Vértje"
+
+#: ../items/categories/level_8_unique.txt:80
+msgid "With its layers of reptilian skin, not much can penetrate this armor."
+msgstr "Többrétegű hüllőbőrből készült, amin nem hatol át semmi."
+
+#: ../items/categories/level_12_unique.txt:5
+msgid "Lost Totem"
+msgstr "Elveszett Totem"
+
+#: ../items/categories/level_12_unique.txt:6
+msgid "The ancient scripture contained appears to be some sort of magic."
+msgstr "A benne rejlő ősi felirat úgy tűnik varázserővel bír."
+
+#: ../items/categories/level_12_unique.txt:21
+msgid "Mog's Axe"
+msgstr "Mog Fejszéje"
+
+#: ../items/categories/level_12_unique.txt:22
+msgid "Not as sleek as an arrow, but just as effective."
+msgstr "Nem olyan kecses, mint egy íjveszző, de ugyanannyira hatásos."
+
+#: ../items/categories/level_12_unique.txt:36
+msgid "Guardsman Cuirass"
+msgstr "Őrszem mellvért"
+
+#: ../items/categories/level_12_unique.txt:37
+msgid "A royal mail with a 'K' engraved on the breast."
+msgstr "Királyi kivitelezés, egy 'K'-val a mellénél."
+
+#: ../items/categories/level_12_unique.txt:53
+msgid "Inferno Pendant"
+msgstr "Végzet Nyakék"
+
+#: ../items/categories/level_12_unique.txt:54
+msgid "Hot. Hot. Hot."
+msgstr "Forró. Forró. Forró."
+
+#: ../items/categories/level_12_unique.txt:69
+msgid "Alchemist's Skirt"
+msgstr "Alkimista ing"
+
+#: ../items/categories/level_12_unique.txt:70
+msgid "Knowledge of formulating many concoctions bestows its wearer."
+msgstr "A viselőjét sok formula tudásával ruházza fel."
+
+#: ../items/categories/level_12_unique.txt:79
+msgid "Drinking potions may create another potion of the same type."
+msgstr "Elixír elfogyasztása egy ugyanolyan elixírt eredményez."
+
+#: ../items/categories/level_12_unique.txt:88
+msgid "Metzger's Battlemace"
+msgstr "Metzger Csatabárdja"
+
+#: ../items/categories/level_12_unique.txt:89
+msgid "Swinging this mace around leaves a clouded trail of dark smoke."
+msgstr "Ezt a csatabárdot lengetve sötét ködös füstöt hagy maga után."
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Visszaállítja az ÉP 25%-át"
+
+#: ../items/categories/potions.txt:20
+msgid "Restore 25% of maximum MP"
+msgstr "Visszaállítja a MP 25%-át"
 
 #: ../items/categories/level_14.txt:5
 msgid "Fighting Plate Helmet"
@@ -4071,74 +4389,6 @@ msgstr "Bóklászó Jutalomgyűrű"
 msgid "Wandering Relic Ring"
 msgstr "Bóklászó Kincsgyűrű"
 
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Farkas szem"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "Növeli az esélyét a találatnak és hogy kritikusan megsebezd az ellenfelet."
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Lövés"
-
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Alap távolsági támadás."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Gyorstűz"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Öt alacsony energiájú lövés gyors egymásutánjában."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Medvecsapda"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr "Ez a csapda kivédi a különösen nagy hatótávú sebzést és lebénítja az ellenfelet."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Szikralövés"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid "Fire a spray of burning embers at close range. Effective against armored enemies."
-msgstr "Közeltávra szétszór egy csomó izzó szikrát. Páncélos ellenfél ellen is jó."
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Többlövés"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Egyszerre három lövedéket lő ki."
-
-#: ../powers/base/ranger/caltrops.txt:1
-msgid "Caltrops"
-msgstr "Tüskegolyók"
-
-#: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
-msgstr "Ez a csapda kihárítja a csökkentett távolságú támadást és lelassítja az ellenfelet."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Rövid ideig nagyon gyors mozgást tesz lehetővé."
-
-#: ../powers/base/ranger/piercing_shot.txt:1
-msgid "Piercing Shot"
-msgstr "Döfőlövés"
-
-#: ../powers/base/ranger/piercing_shot.txt:2
-msgid "Fire a shot that ignores armor and goes through multiple enemies."
-msgstr "Ez a lövés áthatol a péncélon és több ellenfélen is."
-
 #: ../powers/base/magician/burn.txt:1
 msgid "Burn"
 msgstr "Égetés"
@@ -4146,42 +4396,6 @@ msgstr "Égetés"
 #: ../powers/base/magician/burn.txt:4
 msgid "Blast multiple enemies in a distant area with fire."
 msgstr "Távoli ellenfelekre küld lángoló halált."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Jégvillám"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Jégtömböt fagyaszt, amitől az ellenfél lelassul."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Villám"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid "Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies."
-msgstr "Villám hull az égből, nagy eséllyel kritikusan megsebezve a mozgáskorlátozott ellenfelet."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Sokk"
-
-#: ../powers/base/magician/shock.txt:2
-msgid "Shoot a ball of electricity that is extra effective against movement-impaired enemies."
-msgstr "Elektromos kisülést lő, ami kifejezetten hatásos mozgáskorlátozott ellendelek ellen."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Tűzgolyó"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Tűzgolyót lő, ami plusz mentális sebzést okoz."
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Erőteret hoz létre, ami felfogja a sebzést."
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -4191,6 +4405,50 @@ msgstr "Energiaáramlás"
 msgid "Mana reserves are increased and regenerate faster."
 msgstr "A manakészlet megnő és gyorsabban töltődik fel."
 
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Tűzgolyó"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Tűzgolyót lő, ami plusz mentális sebzést okoz."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Villám"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies."
+msgstr ""
+"Villám hull az égből, nagy eséllyel kritikusan megsebezve a "
+"mozgáskorlátozott ellenfelet."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Erőteret hoz létre, ami felfogja a sebzést."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Sokk"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Elektromos kisülést lő, ami kifejezetten hatásos mozgáskorlátozott "
+"ellendelek ellen."
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Jégvillám"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Jégtömböt fagyaszt, amitől az ellenfél lelassul."
+
 #: ../powers/base/magician/freeze.txt:1
 msgid "Freeze"
 msgstr "Fagyasztás"
@@ -4199,13 +4457,21 @@ msgstr "Fagyasztás"
 msgid "Create a ray of several piercing cold shards that slow enemies."
 msgstr "Jónéhány fagyáscsóvát lő ki, amitöl lelassul az ellenfél."
 
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Kőfal"
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Rengés"
 
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr "Nagyobb támadásnak is ellenáll, felfogja és elnyeli őket."
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Kiüti a közeli ellenfeleket, jó eséllyel megbénítva őket."
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Vérzivatar"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Erőteljes lökés, ami vérző sebeket ejt."
 
 #: ../powers/base/warrior/throw_knife.txt:1
 msgid "Throw Knife"
@@ -4215,6 +4481,14 @@ msgstr "Késdobálás"
 msgid "Throw a knife to deal reduced melee weapon damage."
 msgstr "Késdobálás csökkentett távú közelharci sebzést okoz."
 
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Kőfal"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr "Nagyobb támadásnak is ellenáll, felfogja és elnyeli őket."
+
 #: ../powers/base/warrior/shield_bash.txt:1
 msgid "Shield Bash"
 msgstr "Pajzsroham"
@@ -4222,14 +4496,6 @@ msgstr "Pajzsroham"
 #: ../powers/base/warrior/shield_bash.txt:2
 msgid "Dash into enemies, crushing them with sheer force."
 msgstr "Megrohamozza az ellenfeleket, puszta erővel aprítva őket."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Vérzivatar"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Erőteljes lökés, ami vérző sebeket ejt."
 
 #: ../powers/base/warrior/cleave.txt:1
 msgid "Cleave"
@@ -4247,14 +4513,6 @@ msgstr "Baltahajítás"
 msgid "Throw an axe to deal extra melee weapon damage."
 msgstr "Baltahajítással extra közelharci sebzés okozható."
 
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Rengés"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Kiüti a közeli ellenfeleket, jó eséllyel megbénítva őket."
-
 #: ../powers/base/warrior/warcry.txt:1
 msgid "Warcry"
 msgstr "Csatakiálltás"
@@ -4263,13 +4521,81 @@ msgstr "Csatakiálltás"
 msgid "Remove debuffs and become immune to debuffs for a limited time."
 msgstr "Lerázza a negatív hatásokat, és immunissá tesz rájuk egy rövid ideig."
 
-#: ../powers/categories/warrior.txt:7
-msgid "Swing"
-msgstr "Csapás"
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Medvecsapda"
 
-#: ../powers/categories/warrior.txt:10
-msgid "Basic melee attack."
-msgstr "Alap közelharci támadás."
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr ""
+"Ez a csapda kivédi a különösen nagy hatótávú sebzést és lebénítja az "
+"ellenfelet."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Többlövés"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot three projectiles simultaneously."
+msgstr "Egyszerre három lövedéket lő ki."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Farkas szem"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr ""
+"Növeli az esélyét a találatnak és hogy kritikusan megsebezd az ellenfelet."
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Gyorstűz"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Öt alacsony energiájú lövés gyors egymásutánjában."
+
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Lövés"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Alap távolsági támadás."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Rövid ideig nagyon gyors mozgást tesz lehetővé."
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Szikralövés"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies."
+msgstr ""
+"Közeltávra szétszór egy csomó izzó szikrát. Páncélos ellenfél ellen is jó."
+
+#: ../powers/base/ranger/caltrops.txt:1
+msgid "Caltrops"
+msgstr "Tüskegolyók"
+
+#: ../powers/base/ranger/caltrops.txt:2
+msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgstr ""
+"Ez a csapda kihárítja a csökkentett távolságú támadást és lelassítja az "
+"ellenfelet."
+
+#: ../powers/base/ranger/piercing_shot.txt:1
+msgid "Piercing Shot"
+msgstr "Döfőlövés"
+
+#: ../powers/base/ranger/piercing_shot.txt:2
+msgid "Fire a shot that ignores armor and goes through multiple enemies."
+msgstr "Ez a lövés áthatol a péncélon és több ellenfélen is."
 
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
@@ -4280,8 +4606,17 @@ msgid "Basic magic attack."
 msgstr "Alap mágikus támadás."
 
 #: ../powers/categories/quest.txt:4
-msgid "Performing the ritual at the Red Altar has granted you faster regeneration."
+msgid ""
+"Performing the ritual at the Red Altar has granted you faster regeneration."
 msgstr "A Vörös Oltárnál végzett rituálé miatt gyorsabban gyógyulsz ezentúl."
+
+#: ../powers/categories/warrior.txt:7
+msgid "Swing"
+msgstr "Csapás"
+
+#: ../powers/categories/warrior.txt:10
+msgid "Basic melee attack."
+msgstr "Alap közelharci támadás."
 
 #: ../powers/trees/default.txt:11
 msgid "Magician"
@@ -4331,11 +4666,10 @@ msgstr "Küldetés újrakezdése: 'Testvér?'"
 msgid "Reset quest: \"Locked Out\""
 msgstr "Küldetés újrakezdése: 'Kizárva'"
 
-#: ../scripts/reset_torture.txt:9
+#: ../scripts/reset_torture.txt:13
 msgid "Reset quest: \"Warden's Notes\""
 msgstr "Küldetés újrakezdése: 'Az őr jegyzetei'"
 
 #: ../scripts/unlock_waypoints.txt:14
 msgid "Unlocked all waypoints"
 msgstr "Minden ösvényt megnyitottál"
-
