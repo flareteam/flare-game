@@ -395,6 +395,21 @@ type=enemy
 location=69,65,1,1
 category=skeleton_ai
 
+[enemy]
+type=enemy
+location=94,74,1,1
+category=zombie_bloodthirsty_ai
+
+[enemy]
+type=enemy
+location=5,4,1,1
+category=zombie_bloodthirsty_ai
+
+[enemy]
+type=enemy
+location=94,4,1,1
+category=minotaur_ai
+
 [event]
 # brazier sound effect
 type=event
@@ -448,3 +463,4 @@ soundfx=soundfx/environment/open_fire_loop.ogg
 type=npc
 location=43,50,1,1
 filename=npcs/welcome.txt
+

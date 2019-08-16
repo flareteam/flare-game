@@ -1,0 +1,33 @@
+INCLUDE enemies/base/minotaur.txt
+
+name=Minotaur
+level=8
+categories=minotaur_ai,dungeon
+xp=200
+
+# combat stats
+stat=hp,300
+speed=5.5
+turn_delay=166ms
+chance_pursue=10
+
+power=melee,1,10
+power=melee,10,25
+
+stat=accuracy,90
+stat=avoidance,40
+
+stat=dmg_melee_min,100
+stat=dmg_melee_max,200
+stat=dmg_ment_min,100
+stat=dmg_ment_max,200
+stat=absorb_min,21
+stat=absorb_max,21
+cooldown=666ms
+
+# loot
+loot=loot/leveled_high.txt
+
+# Bear Figurine, Ouroboros Ring
+loot=119,1
+loot=112,1

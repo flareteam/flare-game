@@ -1,0 +1,35 @@
+INCLUDE enemies/base/zombie.txt
+
+name=Bloodthirsty Zombie
+level=5
+categories=zombie_bloodthirsty_ai,zombie,undead,dungeon
+xp=20
+
+# combat stats
+stat=hp,150
+speed=5.5
+turn_delay=166ms
+chance_pursue=10
+
+# melee power vampiric
+power=melee,36,15
+
+stat=accuracy,85
+stat=avoidance,31
+
+stat=dmg_melee_min,20
+stat=dmg_melee_max,50
+stat=dmg_ment_min,20
+stat=dmg_ment_max,50
+stat=absorb_min,12
+stat=absorb_max,12
+
+cooldown=500ms
+
+# loot
+loot=loot/leveled_mid.txt
+
+# blood gear, ring of regen
+loot=116,1
+loot=117,1
+loot=107,1
