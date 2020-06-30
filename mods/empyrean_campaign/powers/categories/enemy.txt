@@ -911,14 +911,14 @@ face=true
 use_hazard=true
 base_damage=melee
 lifespan=400ms
-radius=1.5
+radius=1.2
 starting_pos=melee
 aim_assist=true
 directional=true
 animation=animations/powers/cleave.txt
-floor=true
 post_effect=knockback,15,200ms
 post_effect=stun,0,1s,25
+complete_animation=true
 
 # spike trap (automatic)
 [power]
