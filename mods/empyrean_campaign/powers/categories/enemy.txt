@@ -236,7 +236,7 @@ type=fixed
 animation=animations/powers/spikes.txt
 use_hazard=true
 lifespan=533ms
-radius=1.25
+radius=0.75
 starting_pos=source
 complete_animation=true
 base_damage=melee
@@ -927,12 +927,13 @@ type=fixed
 animation=animations/powers/spikes.txt
 use_hazard=true
 lifespan=533ms
-radius=1.0
+radius=0.75
 starting_pos=source
 complete_animation=true
 base_damage=melee
 visual_random=4
 source_type=neutral
+post_effect=bleeding,5,10s
 
 # twin-axe
 [power]
