@@ -851,7 +851,7 @@ radius=1.0
 starting_pos=melee
 modifier_damage=multiply,50,0
 cooldown=20s
-script=on_hit,scripts/powers/goblin_steal.txt
+post_power=273
 
 # antlion larva spawn 1
 [power]
@@ -1186,3 +1186,15 @@ count=3
 angle_variance=6
 speed_variance=0.1
 
+# goblin steal script execution
+[power]
+id=273
+type=fixed
+new_state=instant
+use_hazard=true
+ignore_zero_damage=true
+lifespan=33ms
+radius=1.0
+starting_pos=target
+target_categories=hero
+script=on_hit,scripts/powers/goblin_steal.txt
