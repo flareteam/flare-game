@@ -80,4 +80,45 @@ you=There was a portal to the Underworld in the Wizard's Tower. I shall return t
 
 [dialog]
 topic=Alchemy
+requires_not_status=emp_alchemy_init
+him=If you plan on venturing further, you'll need to learn how to use the resources that you come across.
+him=I can show you how to mix potions, but I don't have any ingredients on hand.
+him=Can I ask you to procure some elements for me? I require one each of the following: Aloe Vera, Mana Crystal, and Mushrooms.
+you=I can do that.
+set_status=emp_alchemy_init
+him=Then return to me with these items, and I will make it worth your time.
+
+[dialog]
+topic=Alchemy
+requires_status=emp_alchemy_init
+requires_not_status=emp_alchemy_finish
+response=emp_alchemy_yes
+response=emp_alchemy_no
+him=Have you gotten those ingredients yet?
+
+[dialog]
+id=emp_alchemy_yes
+response_only=true
+topic=Yes
+requires_status=emp_alchemy_init
+requires_not_status=emp_alchemy_finish
+requires_item=751:1,752:1,754:1
+remove_item=752:1,754:1
+reward_item=750:5,753:1
+set_status=emp_alchemy_finish
+you=Here are the ingredients you asked for.
+him=Thank you. I was able to find some Aloe Vera on my own, so you can keep what you found.
+him=Also, take these empty bottles along with this mortar and pestle. You can use the mortar and pestle with that Aloe Vera you found to make a fine healing potion.
+him=If you ever lose that mortar and pestle, you can always speak to me if you want some potions made.
+
+[dialog]
+id=emp_alchemy_no
+response_only=true
+topic=No
+requires_status=emp_alchemy_init
+requires_not_status=emp_alchemy_finish
+
+[dialog]
+topic=Alchemy
+requires_status=emp_alchemy_finish
 book=books/crafting_alchemy.txt
