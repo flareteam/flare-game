@@ -1,0 +1,12 @@
+[dialog]
+topic=Talk
+requires_not_status=emp_journal_init
+requires_not_status=emp_journal_finish
+him=Greetings, wanderer.
+him=Judging from your appearance, you're no stranger to a long journey. For that reason, I ask that you keep an eye out for my missing journal.
+him=I first noticed it was missing after a night of camping near the Goblin Cave. I searched for a while, but ultimately decided it was best to move on.
+him=If you come across my journal in your travels, please return it to me.
+set_status=emp_journal_init
+set_status=emp_journal_later
+msg=Quest added.
+

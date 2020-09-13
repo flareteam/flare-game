@@ -1,0 +1,28 @@
+[dialog]
+topic=Journal
+requires_status=emp_journal_init
+requires_not_item=1002:1
+him=Any luck finding my journal?
+you=Not yet.
+
+[dialog]
+topic=Journal
+requires_status=emp_journal_init
+requires_status=emp_journal_found
+requires_item=1002:1
+you=Here is your journal.
+him=Wonderful! I had considered it forever lost at this point.
+him=I am in your debt. Please take this as a reward for your trouble.
+remove_item=1002
+reward_currency=300
+reward_xp=100
+set_status=emp_journal_finish
+unset_status=emp_journal_init
+unset_status=emp_journal_found
+unset_status=emp_journal_later
+
+[dialog]
+topic=Talk
+requires_status=emp_journal_finish
+him=Show no mercy for those thieving goblins.
+
