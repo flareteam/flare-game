@@ -33,16 +33,27 @@ her=Could you please travel to the mines and look for Krolan? I will find some w
 set_status=emp_krolan_init
 msg=Quest added.
 
+# no emerald
 [dialog]
 topic=Krolan
 requires_status=emp_krolan_init
-requires_not_status=emp_krolan_emerald
+requires_not_item=1001:1
 her=Please hurry to find Krolan. The Perdition Mines are located near the Salted Field.
 
+# emerald obtained, but no key
+[dialog]
+topic=Krolan
+requires_status=emp_krolan_init
+requires_not_item=1000:1
+requires_item=1001:1
+her=Please hurry to find Krolan. The Perdition Mines are located near the Salted Field.
+
+# both key and emerald obtained
 [dialog]
 topic=Krolan
 requires_status=emp_krolan_init
 requires_status=emp_krolan_emerald
+requires_item=1000:1,1001:1
 you=I have found Krolan, but he was no longer of this world.
 her=This is terrible news. Our camp is already small, so this is a devastating loss.
 you=If it's any solace, I have his key and this emerald. Mementos to remember him by.
