@@ -1,0 +1,154 @@
+[dialog]
+topic=Give items
+id=items
+response_only=true
+response=item_gold
+response=item_potions
+response=item_scrolls
+response=item_underworld_set
+response=item_dev_boots
+response=main
+her=
+
+[dialog]
+topic=Gold
+id=item_gold
+response_only=true
+reward_currency=50000
+
+[dialog]
+topic=Potions
+id=item_potions
+response_only=true
+response=item_potion_hp
+response=item_potion_mp
+response=item_potion_stamina
+response=item_potion_restoration
+response=item_potion_treasure
+response=item_potion_elemental
+response=main
+her=
+
+[dialog]
+topic=Health Potion
+id=item_potion_hp
+response_only=true
+reward_item=2:20
+
+[dialog]
+topic=Mana Potion
+id=item_potion_mp
+response_only=true
+reward_item=3:20
+
+[dialog]
+topic=Stamina Potion
+id=item_potion_stamina
+response_only=true
+reward_item=775:20
+
+[dialog]
+topic=Restoration Potion
+id=item_potion_restoration
+response_only=true
+reward_item=776:20
+
+[dialog]
+topic=Treasure Potion
+id=item_potion_treasure
+response_only=true
+reward_item=777:20
+
+[dialog]
+topic=Elemental Potion
+id=item_potion_elemental
+response_only=true
+reward_item=778:20
+
+[dialog]
+topic=Scrolls
+id=item_scrolls
+response_only=true
+response=item_scroll_zombie
+response=item_scroll_perdition
+response=item_scroll_shield
+response=item_scroll_fireball
+response=item_scroll_icebolt
+response=item_scroll_haste
+response=item_scroll_immunity
+response=item_scroll_reflection
+response=main
+her=
+
+[dialog]
+topic=Summon Zombie Scroll
+id=item_scroll_zombie
+response_only=true
+reward_item=203:20
+
+[dialog]
+topic=Perdition Scroll
+id=item_scroll_perdition
+response_only=true
+reward_item=412:20
+
+[dialog]
+topic=Shield Scroll
+id=item_scroll_shield
+response_only=true
+reward_item=413:20
+
+[dialog]
+topic=Fireball Scroll
+id=item_scroll_fireball
+response_only=true
+reward_item=414:20
+
+[dialog]
+topic=Ice Bolt Scroll
+id=item_scroll_icebolt
+response_only=true
+reward_item=415:20
+
+[dialog]
+topic=Haste Scroll
+id=item_scroll_haste
+response_only=true
+reward_item=416:20
+
+[dialog]
+topic=Immunity Scroll
+id=item_scroll_immunity
+response_only=true
+reward_item=417:20
+
+[dialog]
+topic=Reflection Scroll
+id=item_scroll_reflection
+response_only=true
+reward_item=418:20
+
+[dialog]
+topic=Underworld Set (with rings)
+id=item_underworld_set
+response_only=true
+reward_item=419
+reward_item=420
+reward_item=421
+reward_item=422
+reward_item=423
+reward_item=424
+reward_item=425
+reward_item=426
+reward_item=427
+reward_item=428
+reward_item=429
+
+[dialog]
+topic=DEV Boots
+id=item_dev_boots
+response_only=true
+reward_item=2000
+#reward_item=2001
+
+

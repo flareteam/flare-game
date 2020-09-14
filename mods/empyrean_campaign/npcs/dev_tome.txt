@@ -1,0 +1,82 @@
+name=DEV Tome
+
+talker=true
+
+# main menu
+[dialog]
+# topic is only visible when used as a response
+topic=Cancel
+id=main
+response=teleport
+response=player
+response=campaign
+response=cancel
+her=
+
+# this is the "Cancel" that appears at the top level, which closes the menu
+[dialog]
+topic=Cancel
+id=cancel
+response_only=true
+
+[dialog]
+topic=Player
+id=player
+response_only=true
+response=items
+response=respec
+response=save_game
+response=restore_hpmp
+response=main
+her=
+
+[dialog]
+topic=Campaign
+id=campaign
+response_only=true
+response=reset_quests
+response=waypoints
+response=main
+her=
+
+INCLUDE npcs/base/dev_tome/teleport.txt
+INCLUDE npcs/base/dev_tome/reset_quests.txt
+INCLUDE npcs/base/dev_tome/items.txt
+INCLUDE npcs/base/dev_tome/respec.txt
+
+# restore HP/MP
+[dialog]
+topic=Restore HP/MP/status
+id=restore_hpmp
+response_only=true
+restore=all
+
+# save game
+[dialog]
+topic=Save game at current position
+id=save_game
+response_only=true
+save_game=true
+
+# waypoints
+[dialog]
+topic=Waypoints
+id=waypoints
+response_only=true
+response=waypoints_lock
+response=waypoints_unlock
+response=main
+her=
+
+[dialog]
+topic=Lock all Hyperspace waypoints
+id=waypoints_lock
+response_only=true
+script=scripts/dev/waypoints_lock.txt
+
+[dialog]
+topic=Unlock all Hyperspace waypoints
+id=waypoints_unlock
+response_only=true
+script=scripts/dev/waypoints_unlock.txt
+

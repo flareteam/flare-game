@@ -1,0 +1,476 @@
+# teleport: region select
+[dialog]
+topic=Teleport
+id=teleport
+response_only=true
+response=map_region_intro
+response=map_region_st_maria
+response=map_region_mez
+response=map_region_wizard
+response=map_region_underworld
+response=map_region_infinity
+response=map_region_hoi
+response=main
+her=
+
+[dialog]
+topic=Introduction
+id=map_region_intro
+response_only=true
+response=map_arrival
+response=map_river_trail
+response=map_perdition_harbor
+response=map_hyperspace
+response=map_book_of_the_dead
+response=main
+her=
+
+[dialog]
+topic=Region 1: Salted Field -> St. Maria
+id=map_region_st_maria
+response_only=true
+response=map_salted_field
+response=map_perdition_mines
+response=map_stonewood
+response=map_goblin_camp
+response=map_goblin_cave
+response=map_merrimead_swamp
+response=map_lochport_cemetery
+response=map_family_crypt
+response=map_lochport
+response=map_st_maria_1
+response=map_st_maria_2
+response=map_st_maria_3
+response=main
+her=
+
+[dialog]
+topic=Region 2: Lake Kuuma -> Temple of Mez
+id=map_region_mez
+response_only=true
+response=map_lake_kuuma
+response=map_fort_amir
+response=map_blackmire_mines
+response=map_abandoned_mines
+response=map_grot_lagoon
+response=map_the_breach
+response=map_stormrock_pass
+response=map_stormrock_ruins
+response=map_antlion_nest
+response=map_temple_of_mez_1
+response=map_temple_of_mez_2
+response=map_temple_of_mez_3
+response=main
+her=
+
+[dialog]
+topic=Region 3: Nazia Highlands -> Wizard's Tower
+id=map_region_wizard
+response_only=true
+response=map_nazia_highlands
+response=map_nazia_mines
+response=map_nazia_underground
+response=map_southern_ridge
+response=map_mog_caverns
+response=map_black_oak_farm
+response=map_dilapidated_sewers
+response=map_fort_nasu
+response=map_black_oak_city
+response=map_wizards_tower_1
+response=map_wizards_tower_2
+response=map_wizards_tower_3
+response=main
+her=
+
+[dialog]
+topic=Region 4: Underworld
+id=map_region_underworld
+response_only=true
+response=map_underworld
+response=map_underworld_catacombs
+response=map_underworld_mines
+response=map_oasis
+response=map_underworld_stronghold_1
+response=map_underworld_stronghold_2
+response=map_the_pit
+response=main
+her=
+
+[dialog]
+topic=Halls of Infinity
+id=map_region_hoi
+response_only=true
+response=map_hoi_hub
+response=map_hoi_1
+response=map_hoi_2
+response=map_hoi_3
+response=map_hoi_4
+response=map_hoi_5
+response=map_hoi_6
+response=map_hoi_7
+response=map_hoi_8
+response=map_hoi_9
+response=map_hoi_10
+response=main
+her=
+
+[dialog]
+topic=Arrival
+intermap=maps/arrival.txt
+id=map_arrival
+response_only=true
+
+[dialog]
+topic=River Trail
+intermap=maps/river_trail.txt
+id=map_river_trail
+response_only=true
+
+[dialog]
+topic=Perdition Harbor
+intermap=maps/perdition_harbor.txt
+id=map_perdition_harbor
+response_only=true
+
+[dialog]
+topic=Hyperspace
+intermap=maps/hyperspace.txt
+id=map_hyperspace
+response_only=true
+
+[dialog]
+topic=Book of the Dead
+intermap=maps/book_of_the_dead.txt
+id=map_book_of_the_dead
+response_only=true
+
+[dialog]
+topic=Salted Field
+intermap=maps/salted_field.txt
+id=map_salted_field
+response_only=true
+
+[dialog]
+topic=Perdition Mines
+intermap=maps/perdition_mines.txt
+id=map_perdition_mines
+response_only=true
+
+[dialog]
+topic=Stonewood
+intermap=maps/stonewood.txt
+id=map_stonewood
+response_only=true
+
+[dialog]
+topic=Goblin Camp
+intermap=maps/goblin_camp.txt
+id=map_goblin_camp
+response_only=true
+
+[dialog]
+topic=Goblin Cave
+intermap=maps/goblin_cave.txt
+id=map_goblin_cave
+response_only=true
+
+[dialog]
+topic=Merrimead Swamp
+intermap=maps/merrimead_swamp.txt
+id=map_merrimead_swamp
+response_only=true
+
+[dialog]
+topic=Lochport Cemetery
+intermap=maps/lochport_cemetery.txt
+id=map_lochport_cemetery
+response_only=true
+
+[dialog]
+topic=Family Crypt
+intermap=maps/family_crypt.txt
+id=map_family_crypt
+response_only=true
+
+[dialog]
+topic=Lochport
+intermap=maps/lochport.txt
+id=map_lochport
+response_only=true
+
+[dialog]
+topic=St. Maria: Mausoleum
+intermap=maps/st_maria_1.txt
+id=map_st_maria_1
+response_only=true
+
+[dialog]
+topic=St. Maria: Catacombs
+intermap=maps/st_maria_2.txt
+id=map_st_maria_2
+response_only=true
+
+[dialog]
+topic=St. Maria: Crypt
+intermap=maps/st_maria_3.txt
+id=map_st_maria_3
+response_only=true
+
+[dialog]
+topic=Lake Kuuma
+intermap=maps/lake_kuuma.txt
+id=map_lake_kuuma
+response_only=true
+
+[dialog]
+topic=Fort Amir
+intermap=maps/fort_amir.txt
+id=map_fort_amir
+response_only=true
+
+[dialog]
+topic=Blackmire Mines
+intermap=maps/blackmire_mines.txt
+id=map_blackmire_mines
+response_only=true
+
+[dialog]
+topic=Abandoned Mines
+intermap=maps/abandoned_mines.txt
+id=map_abandoned_mines
+response_only=true
+
+[dialog]
+topic=Grot Lagoon
+intermap=maps/grot_lagoon.txt
+id=map_grot_lagoon
+response_only=true
+
+[dialog]
+topic=The Breach
+intermap=maps/the_breach.txt
+id=map_the_breach
+response_only=true
+
+[dialog]
+topic=Stormrock Pass
+intermap=maps/stormrock_pass.txt
+id=map_stormrock_pass
+response_only=true
+
+[dialog]
+topic=Stormrock Ruins
+intermap=maps/stormrock_ruins.txt
+id=map_stormrock_ruins
+response_only=true
+
+[dialog]
+topic=Antlion Nest
+intermap=maps/antlion_nest.txt
+id=map_antlion_nest
+response_only=true
+
+[dialog]
+topic=Temple of Mez: Basement
+intermap=maps/temple_of_mez_1.txt
+id=map_temple_of_mez_1
+response_only=true
+
+[dialog]
+topic=Temple of Mez: Main Hall
+intermap=maps/temple_of_mez_2.txt
+id=map_temple_of_mez_2
+response_only=true
+
+[dialog]
+topic=Temple of Mez: Entrance
+intermap=maps/temple_of_mez_3.txt
+id=map_temple_of_mez_3
+response_only=true
+
+[dialog]
+topic=Nazia Highlands
+intermap=maps/nazia_highlands.txt
+id=map_nazia_highlands
+response_only=true
+
+[dialog]
+topic=Nazia Mines
+intermap=maps/nazia_mines.txt
+id=map_nazia_mines
+response_only=true
+
+[dialog]
+topic=Nazia Underground
+intermap=maps/nazia_underground.txt
+id=map_nazia_underground
+response_only=true
+
+[dialog]
+topic=Southern Ridge
+intermap=maps/southern_ridge.txt
+id=map_southern_ridge
+response_only=true
+
+[dialog]
+topic=Mog Caverns
+intermap=maps/mog_caverns.txt
+id=map_mog_caverns
+response_only=true
+
+[dialog]
+topic=Black Oak Farm
+intermap=maps/black_oak_farm.txt
+id=map_black_oak_farm
+response_only=true
+
+[dialog]
+topic=Dilapidated Sewers
+intermap=maps/dilapidated_sewers.txt
+id=map_dilapidated_sewers
+response_only=true
+
+[dialog]
+topic=Fort Nasu
+intermap=maps/fort_nasu.txt
+id=map_fort_nasu
+response_only=true
+
+[dialog]
+topic=Black Oak City
+intermap=maps/black_oak_city.txt
+id=map_black_oak_city
+response_only=true
+
+[dialog]
+topic=Wizard's Tower: Entrance Hall
+intermap=maps/wizards_tower_1.txt
+id=map_wizards_tower_1
+response_only=true
+
+[dialog]
+topic=Wizard's Tower: Research Chambers
+intermap=maps/wizards_tower_2.txt
+id=map_wizards_tower_2
+response_only=true
+
+[dialog]
+topic=Wizard's Tower: Laboratory
+intermap=maps/wizards_tower_3.txt
+id=map_wizards_tower_3
+response_only=true
+
+[dialog]
+topic=Underworld
+intermap=maps/underworld.txt
+id=map_underworld
+response_only=true
+
+[dialog]
+topic=Torture Chambers
+intermap=maps/torture_chambers.txt
+id=map_torture_chambers
+response_only=true
+
+[dialog]
+topic=Underworld Catacombs
+intermap=maps/underworld_catacombs.txt
+id=map_underworld_catacombs
+response_only=true
+
+[dialog]
+topic=Underworld Mines
+intermap=maps/underworld_mines.txt
+id=map_underworld_mines
+response_only=true
+
+[dialog]
+topic=Oasis
+intermap=maps/oasis.txt
+id=map_oasis
+response_only=true
+
+[dialog]
+topic=Underworld Stronghold: Foyer
+intermap=maps/underworld_stronghold_1.txt
+id=map_underworld_stronghold_1
+response_only=true
+
+[dialog]
+topic=Underworld Stronghold: Barracks
+intermap=maps/underworld_stronghold_2.txt
+id=map_underworld_stronghold_2
+response_only=true
+
+[dialog]
+topic=The Pit
+intermap=maps/the_pit.txt
+id=map_the_pit
+response_only=true
+
+[dialog]
+topic=Halls of Infinity
+intermap=maps/halls_of_infinity.txt
+id=map_hoi_hub
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 1
+intermap=maps/halls_of_infinity/halls_of_infinity_1.txt
+id=map_hoi_1
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 2
+intermap=maps/halls_of_infinity/halls_of_infinity_2.txt
+id=map_hoi_2
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 3
+intermap=maps/halls_of_infinity/halls_of_infinity_3.txt
+id=map_hoi_3
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 4
+intermap=maps/halls_of_infinity/halls_of_infinity_4.txt
+id=map_hoi_4
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 5
+intermap=maps/halls_of_infinity/halls_of_infinity_5.txt
+id=map_hoi_5
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 6
+intermap=maps/halls_of_infinity/halls_of_infinity_6.txt
+id=map_hoi_6
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 7
+intermap=maps/halls_of_infinity/halls_of_infinity_7.txt
+id=map_hoi_7
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 8
+intermap=maps/halls_of_infinity/halls_of_infinity_8.txt
+id=map_hoi_8
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 9
+intermap=maps/halls_of_infinity/halls_of_infinity_9.txt
+id=map_hoi_9
+response_only=true
+
+[dialog]
+topic=Halls of Infinity: 10
+intermap=maps/halls_of_infinity/halls_of_infinity_10.txt
+id=map_hoi_10
+response_only=true
+

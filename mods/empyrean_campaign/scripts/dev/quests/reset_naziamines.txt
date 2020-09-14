@@ -5,9 +5,13 @@ unset_status=emp_naziamines_chest
 unset_status=emp_naziamines_cleared
 unset_status=emp_naziamines_finish
 remove_item=1016
+
+# reset figurine quest
 remove_item=1010
+unset_status=emp_fig_2
+unset_status=emp_fig_2_placed
+
 msg=Reset quest: "Trapped!"
-# TODO reset figurine quest
 
 [event]
 requires_not_status=disable_reset_teleport

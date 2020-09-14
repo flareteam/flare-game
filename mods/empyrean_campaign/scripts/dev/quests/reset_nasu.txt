@@ -8,6 +8,12 @@ unset_status=emp_nasu_init
 unset_status=emp_nasu_buchi
 unset_status=emp_nasu_teleporter
 unset_status=emp_nasu_finish
+
+# reset figurine quest
+remove_item=1011
+unset_status=emp_fig_3
+unset_status=emp_fig_3_placed
+
 msg=Reset quest: "An Unusual Name..."
 
 [event]

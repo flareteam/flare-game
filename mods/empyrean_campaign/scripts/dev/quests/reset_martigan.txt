@@ -7,6 +7,12 @@ unset_status=emp_martigan_staff
 unset_status=emp_martigan_finish
 unset_status=emp_oasis_shortcut
 remove_item=1025,1026,1027
+
+# reset figurine quest
+remove_item=1012
+unset_status=emp_fig_4
+unset_status=emp_fig_4_placed
+
 msg=Reset quest: "Fallen Comrades"
 
 [event]

@@ -47,6 +47,7 @@ soundfx=soundfx/powers/teleport.ogg
 buff=true
 post_effect=dev_invis,0,0
 replace_by_effect=502,dev_invis,1
+requires_equipped_item=2001
 
 [power]
 id=502
@@ -57,4 +58,13 @@ new_state=cast
 soundfx=soundfx/powers/teleport.ogg
 buff=true
 remove_effect=dev_invis,1
+requires_equipped_item=2001
 
+[power]
+id=503
+name=DEV Tome
+icon=225
+type=fixed
+new_state=instant
+script=on_cast,scripts/powers/dev_tome.txt
+requires_item=2002,0
