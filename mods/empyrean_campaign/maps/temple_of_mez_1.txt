@@ -4,6 +4,7 @@ height=80
 tilewidth=64
 tileheight=32
 orientation=isometric
+background_color=0,0,0,255
 hero_pos=76,34
 music=music/dungeon_theme.ogg
 tileset=tilesetdefs/tileset_dungeon.txt
@@ -398,7 +399,8 @@ location=29,13,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_mez1_key;emp_mez1_door
+requires_not_item=1014
+requires_not_status=emp_mez1_door
 tooltip=Locked Door
 
 [event]

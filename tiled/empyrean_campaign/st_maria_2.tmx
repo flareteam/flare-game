@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="95">
+<map version="1.4" tiledversion="1.4.2" orientation="isometric" renderorder="right-down" width="70" height="70" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="95">
  <properties>
   <property name="hero_pos" value="33,7"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -31,7 +31,7 @@
   <tileoffset x="0" y="48"/>
   <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer name="background" width="70" height="70">
+ <layer id="1" name="background" width="70" height="70">
   <data encoding="csv">
 0,0,0,0,0,0,38,37,38,44,36,0,0,0,47,43,42,45,44,17,44,46,36,0,0,0,46,47,39,45,36,47,38,42,41,43,41,39,47,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,38,39,47,38,42,0,0,0,41,51,51,51,51,51,51,51,51,0,0,0,37,37,36,41,41,36,46,45,36,39,40,45,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -105,7 +105,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="70" height="70">
+ <layer id="2" name="object" width="70" height="70">
   <data encoding="csv">
 0,0,0,0,0,0,77,69,99,103,69,78,0,0,77,65,109,105,97,69,97,109,69,78,0,0,77,69,97,65,103,109,65,97,65,103,65,109,69,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,64,0,0,0,0,70,0,0,108,0,0,0,0,0,0,0,0,70,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -179,7 +179,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="70" height="70">
+ <layer id="3" name="collision" width="70" height="70">
   <data encoding="csv">
 3,3,3,3,3,3,1,1,1,1,1,1,3,3,1,1,1,1,1,1,1,1,1,1,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,1,0,0,0,0,1,3,3,1,0,0,0,0,0,0,0,0,1,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -253,7 +253,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event">
+ <objectgroup id="4" name="event">
   <object id="1" name="to St. Maria: Mausoleum" type="event" x="1024" y="192" width="64" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
@@ -305,7 +305,8 @@
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
     <property name="msg" value="This door needs a key to be opened."/>
-    <property name="requires_not_status" value="emp_stmaria2_key;emp_stmaria2_door"/>
+    <property name="requires_not_item" value="1005"/>
+    <property name="requires_not_status" value="emp_stmaria2_door"/>
     <property name="tooltip" value="Locked Door"/>
    </properties>
   </object>
@@ -579,7 +580,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy">
+ <objectgroup id="5" name="enemy">
   <object id="12" type="enemy" x="992" y="864" width="128" height="128">
    <properties>
     <property name="category" value="undead"/>
@@ -764,7 +765,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="npc">
+ <objectgroup id="6" name="npc">
   <object id="6" type="npc" x="640" y="736" width="32" height="32">
    <properties>
     <property name="filename" value="npcs/yora.txt"/>

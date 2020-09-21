@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="100" height="108" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="50">
+<map version="1.4" tiledversion="1.4.2" orientation="isometric" renderorder="right-down" width="100" height="108" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="50">
  <properties>
   <property name="hero_pos" value="10,68"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -31,7 +31,7 @@
   <tileoffset x="0" y="48"/>
   <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer name="background" width="100" height="108">
+ <layer id="1" name="background" width="100" height="108">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,39,19,47,17,18,46,38,16,38,38,16,43,46,19,40,37,46,19,38,44,44,17,18,40,46,45,42,37,17,37,18,19,0,0,0,0,0,0,
@@ -143,7 +143,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="100" height="108">
+ <layer id="2" name="object" width="100" height="108">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,109,65,69,107,103,65,99,69,103,65,99,101,103,107,101,69,65,101,107,103,101,99,69,103,65,99,69,103,107,69,69,105,78,0,0,0,0,0,
@@ -255,7 +255,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="100" height="108">
+ <layer id="3" name="collision" width="100" height="108">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,
@@ -367,7 +367,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event">
+ <objectgroup id="4" name="event">
   <object id="1" name="Unlock waypoint" type="event" x="480" y="2656" width="192" height="192">
    <properties>
     <property name="activate" value="on_trigger"/>
@@ -487,7 +487,8 @@
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
     <property name="msg" value="This door needs a key to be opened."/>
-    <property name="requires_not_status" value="emp_wizard2_key,emp_wizard2_door"/>
+    <property name="requires_not_item" value="1023"/>
+    <property name="requires_not_status" value="emp_wizard2_door"/>
     <property name="tooltip" value="Locked Door"/>
    </properties>
   </object>
@@ -558,7 +559,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy">
+ <objectgroup id="5" name="enemy">
   <object id="12" type="enemy" x="2176" y="2816" width="32" height="32">
    <properties>
     <property name="category" value="ice_sentry"/>

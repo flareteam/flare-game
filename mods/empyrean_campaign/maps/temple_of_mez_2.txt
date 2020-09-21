@@ -400,7 +400,8 @@ location=45,81,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_mez2_key;emp_mez2_door
+requires_not_item=1015
+requires_not_status=emp_mez2_door
 tooltip=Locked Door
 
 [event]

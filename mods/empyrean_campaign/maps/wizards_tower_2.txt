@@ -489,7 +489,8 @@ location=35,23,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_wizard2_key,emp_wizard2_door
+requires_not_item=1023
+requires_not_status=emp_wizard2_door
 tooltip=Locked Door
 
 [event]

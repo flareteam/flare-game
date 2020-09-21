@@ -299,7 +299,8 @@ location=27,50,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_stmaria2_key;emp_stmaria2_door
+requires_not_item=1005
+requires_not_status=emp_stmaria2_door
 tooltip=Locked Door
 
 [event]
