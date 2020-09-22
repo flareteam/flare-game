@@ -19,6 +19,14 @@ talker=true
 [dialog]
 topic=Goblin's Ruby
 requires_status=emp_ort_init
+requires_not_item=1008
+requires_not_status=emp_ort_finish
+him=...
+
+[dialog]
+topic=Goblin's Ruby
+requires_status=emp_ort_init
+requires_item=1008
 requires_not_status=emp_ort_finish
 you=(You show Bakat the ruby you received from Ort.)
 him=(Bakat snatches the jewel from your grasp.)
