@@ -359,7 +359,8 @@ location=47,68,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_stormrock_key;emp_stormrock_door
+requires_not_item=1013
+requires_not_status=emp_stormrock_door
 set_status=emp_stormrock_init
 tooltip=Locked Door
 
