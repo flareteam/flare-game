@@ -1,0 +1,35 @@
+pos=0,0,500,350
+align=center
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=464,16
+background=images/menus/book.png
+
+# page 1
+[text]
+text_pos=25,30,200,left
+text_font=0,0,0,font_cursive
+text=The other subjects had been very eager, so I invited a few to watch today's challenger.
+
+[text]
+text_pos=25,130,200,left
+text_font=0,0,0,font_cursive
+text=The entertainment didn't last long. The subject immediately went south.
+
+# page 2
+[text]
+text_pos=275,30,200,left
+text_font=128,0,0,font_cursive
+text=1468/7/10
+
+[text]
+text_pos=275,80,200,left
+text_font=0,0,0,font_cursive
+text=No subjects asked to take the test today.
+
+[button]
+button_pos=25,275
+button_image=images/menus/buttons/left.png
+book=books/wardens_notes.txt
+
