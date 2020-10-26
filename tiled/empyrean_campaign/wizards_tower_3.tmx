@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="isometric" renderorder="right-down" width="84" height="92" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="72">
+<map version="1.4" tiledversion="1.4.2" orientation="isometric" renderorder="right-down" width="84" height="92" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="73">
  <properties>
   <property name="hero_pos" value="4,7"/>
   <property name="music" value="music/boss_theme.ogg"/>
@@ -77,7 +77,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,21,21,21,21,21,21,21,21,21,21,21,21,21,21,25,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,18,38,60,61,37,42,45,41,19,19,46,19,58,59,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,18,38,56,57,37,42,45,41,19,19,46,19,58,59,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,24,21,21,21,21,21,21,25,49,0,0,0,0,0,0,0,24,21,21,21,21,21,21,25,49,0,0,0,0,0,0,0,20,17,40,18,19,36,36,45,18,39,42,37,38,45,41,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,20,46,39,56,57,43,37,22,49,0,0,0,0,0,0,0,20,36,16,17,19,37,18,22,49,0,0,0,0,0,0,0,20,46,39,30,23,23,23,23,23,23,23,23,31,17,37,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,20,36,43,18,17,40,42,22,49,0,0,0,0,0,0,0,20,41,47,46,18,37,40,22,49,0,0,0,0,0,0,0,20,17,18,22,32,48,50,50,50,50,50,50,20,44,36,22,49,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -390,6 +390,7 @@
    <properties>
     <property name="intramap" value="46,29"/>
     <property name="repeat" value="true"/>
+    <property name="requires_status" value="emp_metzger_defeated"/>
     <property name="soundfx" value="soundfx/powers/teleport.ogg,0,0"/>
    </properties>
   </object>
@@ -659,6 +660,14 @@
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/door_open.ogg"/>
     <property name="tooltip" value="Switch"/>
+   </properties>
+  </object>
+  <object id="72" name="activate switch island teleport" type="event" x="1376" y="1184" width="32" height="32">
+   <properties>
+    <property name="activate" value="static"/>
+    <property name="mapmod" value="background,45,41,60;background,46,41,61"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_status" value="emp_metzger_defeated"/>
    </properties>
   </object>
  </objectgroup>
