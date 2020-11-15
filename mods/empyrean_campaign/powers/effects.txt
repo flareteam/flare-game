@@ -27,6 +27,16 @@ icon=24
 can_stack=false
 
 [effect]
+id=slow_ice
+name=Slow
+type=speed
+icon=24
+can_stack=false
+animation=animations/powers/status_freeze.txt
+render_above=true
+color_mod=127,127,255
+
+[effect]
 id=stun
 name=Stun
 type=stun

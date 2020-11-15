@@ -134,7 +134,7 @@ speed=15
 trait_elemental=ice
 post_power=159
 wall_power=159
-post_effect=slow,50,2s
+post_effect=slow_ice,50,2s
 modifier_accuracy=multiply,75,0
 
 # fireball
@@ -191,7 +191,7 @@ base_damage=melee
 lifespan=33ms
 radius=1.0
 starting_pos=melee
-post_effect=slow,0,5s
+post_effect=slow_ice,0,5s
 cooldown=5s
 
 # shadowball
@@ -278,7 +278,7 @@ radius=1.0
 starting_pos=melee
 trait_elemental=ice
 post_power=159
-post_effect=slow,50,2s
+post_effect=slow_ice,50,2s
 
 # antlion explode
 [power]
@@ -320,7 +320,7 @@ complete_animation=true
 count=12
 multitarget=true
 modifier_damage=multiply,80,0
-post_effect=slow,25,4s
+post_effect=slow_ice,25,4s
 
 # Prioss's multi-spear
 [power]
@@ -708,7 +708,7 @@ speed=15
 trait_elemental=ice
 post_power=159
 wall_power=159
-post_effect=slow,50,2s
+post_effect=slow_ice,50,2s
 modifier_damage=multiply,75,0
 modifier_accuracy=multiply,75,0
 count=12
@@ -990,7 +990,7 @@ visual_option=2
 starting_pos=source
 multitarget=true
 post_effect=stun,0,1s,25
-post_effect=slow,50,4s
+post_effect=slow_ice,50,4s
 cooldown=5s
 modifier_damage=multiply,80,0
 post_effect=knockback,20,100ms
@@ -1051,7 +1051,7 @@ base_damage=ment
 visual_random=3
 count=8
 modifier_damage=multiply,30,0
-post_effect=slow,25,4s
+post_effect=slow_ice,25,4s
 post_effect=knockback,15,100ms
 angle_variance=2
 speed_variance=0.05
@@ -1135,7 +1135,7 @@ speed=15
 trait_elemental=ice
 post_power=159
 wall_power=159
-post_effect=slow,50,2s
+post_effect=slow_ice,50,2s
 modifier_accuracy=multiply,75,0
 count=3
 angle_variance=6
