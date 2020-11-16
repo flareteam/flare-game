@@ -51,6 +51,15 @@ icon=12
 can_stack=false
 
 [effect]
+id=immunity_hero
+name=Immunity
+type=immunity
+icon=12
+can_stack=false
+animation=animations/powers/immunity.txt
+render_above=true
+
+[effect]
 id=haste
 name=Haste
 type=speed
