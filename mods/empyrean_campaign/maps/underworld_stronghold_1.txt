@@ -812,7 +812,8 @@ location=21,25,2,2
 activate=on_trigger
 hotspot=location
 msg=This door needs a key to be opened.
-requires_not_status=emp_stronghold1_key;emp_stronghold1_door
+requires_not_item=1028
+requires_not_status=emp_stronghold1_door
 tooltip=Locked Door
 
 [event]
