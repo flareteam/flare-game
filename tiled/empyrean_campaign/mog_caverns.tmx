@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="isometric" renderorder="right-down" width="60" height="80" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="58">
+<map version="1.4" tiledversion="1.4.3" orientation="isometric" renderorder="right-down" width="60" height="80" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="58">
  <editorsettings>
   <export target="../../mods/empyrean_campaign/maps/mog_caverns.txt" format="flare"/>
  </editorsettings>
@@ -296,6 +296,7 @@
     <property name="msg" value="You found another note. Keep following the trail."/>
     <property name="remove_item" value="1017:1"/>
     <property name="repeat" value="false"/>
+    <property name="requires_item" value="1017:1"/>
     <property name="requires_not_status" value="emp_mog_note2,emp_mog_finish"/>
     <property name="requires_status" value="emp_mog_init"/>
     <property name="reward_item" value="1018:1"/>
@@ -313,6 +314,7 @@
     <property name="msg" value="You found another note. Keep following the trail."/>
     <property name="remove_item" value="1018:1"/>
     <property name="repeat" value="false"/>
+    <property name="requires_item" value="1018:1"/>
     <property name="requires_not_status" value="emp_mog_note3,emp_mog_finish"/>
     <property name="requires_status" value="emp_mog_init,emp_mog_note2"/>
     <property name="reward_item" value="1019:1"/>
@@ -328,6 +330,7 @@
     <property name="msg" value="You found another note. Keep following the trail."/>
     <property name="remove_item" value="1019:1"/>
     <property name="repeat" value="false"/>
+    <property name="requires_item" value="1019:1"/>
     <property name="requires_not_status" value="emp_mog_note4,emp_mog_finish"/>
     <property name="requires_status" value="emp_mog_init,emp_mog_note3"/>
     <property name="reward_item" value="1020:1"/>
@@ -343,6 +346,7 @@
     <property name="msg" value="You found another note. Keep following the trail."/>
     <property name="remove_item" value="1020:1"/>
     <property name="repeat" value="false"/>
+    <property name="requires_item" value="1020:1"/>
     <property name="requires_not_status" value="emp_mog_note5,emp_mog_finish"/>
     <property name="requires_status" value="emp_mog_init,emp_mog_note4"/>
     <property name="reward_item" value="1021:1"/>
@@ -357,6 +361,7 @@
     <property name="mapmod" value="object,11,37,0;collision,11,37,0"/>
     <property name="remove_item" value="1021:1"/>
     <property name="repeat" value="false"/>
+    <property name="requires_item" value="1021:1"/>
     <property name="requires_not_status" value="emp_mog_door1"/>
     <property name="requires_status" value="emp_mog_init,emp_mog_note5"/>
     <property name="set_status" value="emp_mog_door1"/>
