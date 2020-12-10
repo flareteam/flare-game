@@ -90,11 +90,12 @@ flavor=Swinging this mace around leaves a clouded trail of dark smoke.
 level=12
 quality=unique
 price=1300
-dmg=melee,65,70
-requires_stat=physical,22
-bonus=dmg_melee_min,20
-bonus=dmg_melee_max,20
+dmg=melee,85,90
+dmg=ment,75,80
+requires_stat=physical,14
+requires_stat=mental,8
 bonus=accuracy,30
 bonus=dark_resist,25
 bonus_power_level=152,1
+equip_flags=mental
 
