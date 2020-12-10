@@ -347,10 +347,22 @@ activate=on_trigger
 hotspot=4,25,1,1
 msg=You sign your name in the Book of the Dead. The Black Quill vanishes and the inkwell is dry. You hope this worked.
 remove_item=1101,1104
-requires_item=1104
+requires_item=1101,1104
 requires_status=emp_main_bloodinkwell
 set_status=emp_main_underworld
 shakycam=2s
 soundfx=soundfx/powers/thunder.ogg
+tooltip=Book of the Dead
+
+[event]
+# book of the dead (have inkwell, but not quill)
+type=event
+location=6,20,1,1
+activate=on_trigger
+book=books/book_of_the_dead.txt
+hotspot=4,25,1,1
+requires_item=1104
+requires_not_item=1101
+requires_status=emp_main_init
 tooltip=Book of the Dead
 

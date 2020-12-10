@@ -528,6 +528,7 @@ requires_not_status=emp_mez2_init
 set_status=emp_mez2_init
 
 [event]
+# Plaque
 type=event
 location=46,56,1,1
 activate=on_trigger
@@ -546,6 +547,7 @@ soundfx=soundfx/environment/stairs.ogg,0,0
 tooltip=Temple of Mez: Entrance
 
 [event]
+# Main quest: Red Altar
 type=event
 location=45,51,2,1
 activate=on_trigger
@@ -553,11 +555,25 @@ hotspot=location
 msg=You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body.
 remove_item=1102
 repeat=false
+requires_item=1102
 requires_not_status=emp_main_bloodvial
 requires_status=emp_main_knife
 reward_item=1103
 set_status=emp_main_bloodvial
 soundfx=soundfx/enemies/zombie_hit.ogg
+tooltip=Red Altar
+
+[event]
+# Main quest: Red Altar (no knife)
+type=event
+location=45,51,2,1
+activate=on_trigger
+cooldown=1s
+hotspot=location
+msg=Nothing happens.
+repeat=true
+requires_not_item=1102
+requires_not_status=emp_main_bloodvial
 tooltip=Red Altar
 
 [enemy]

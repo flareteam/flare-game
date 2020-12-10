@@ -61,6 +61,16 @@ him=I don't know why this blade in particular is required to make the ink. Once 
 topic=Vial of Blood
 requires_status=emp_main_bloodvial
 requires_not_status=emp_main_bloodinkwell
+requires_item=1103:1
+requires_not_item=1100:1
+you=I completed the ritual at the Red Altar. What now?
+him=I can create a small amount of gravebloom ink for you, but I require a Gravebloom flower accomplish this. Return to me with both the flower and the blood.
+
+[dialog]
+topic=Vial of Blood
+requires_status=emp_main_bloodvial
+requires_not_status=emp_main_bloodinkwell
+requires_item=1100:1,1103:1
 you=I completed the ritual at the Red Altar. What now?
 him=We are ready to create a small amount of gravebloom ink. Allow me to perform the mixing.
 him=The correct ratio of Gravebloom to blood is important. Too much Gravebloom will cause the ink to eat through the paper. Too little Gravebloom and the ink won't adhere to the quill.

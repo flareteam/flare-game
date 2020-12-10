@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="55">
+<map version="1.4" tiledversion="1.4.3" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="56">
+ <editorsettings>
+  <export target="../../mods/empyrean_campaign/maps/temple_of_mez_2.txt" format="flare"/>
+ </editorsettings>
  <properties>
   <property name="hero_pos" value="70,10"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -521,7 +524,7 @@
     <property name="set_status" value="emp_mez2_init"/>
    </properties>
   </object>
-  <object id="52" type="event" x="1472" y="1792" width="32" height="32">
+  <object id="52" name="Plaque" type="event" x="1472" y="1792" width="32" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
@@ -538,18 +541,31 @@
     <property name="tooltip" value="Temple of Mez: Entrance"/>
    </properties>
   </object>
-  <object id="54" type="event" x="1440" y="1632" width="64" height="32">
+  <object id="54" name="Main quest: Red Altar" type="event" x="1440" y="1632" width="64" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
     <property name="msg" value="You cut into your arm with the Knife of Sacrifices. The pain is excruciating. Shaking, you manage to collect some of your blood in a small vial. The knife quickly raises in temperature until it disintegrates. Your wound then begins to close itself, leaving no trace at all besides a warm feeling throughout your body."/>
     <property name="remove_item" value="1102"/>
     <property name="repeat" value="false"/>
+    <property name="requires_item" value="1102"/>
     <property name="requires_not_status" value="emp_main_bloodvial"/>
     <property name="requires_status" value="emp_main_knife"/>
     <property name="reward_item" value="1103"/>
     <property name="set_status" value="emp_main_bloodvial"/>
     <property name="soundfx" value="soundfx/enemies/zombie_hit.ogg"/>
+    <property name="tooltip" value="Red Altar"/>
+   </properties>
+  </object>
+  <object id="55" name="Main quest: Red Altar (no knife)" type="event" x="1440" y="1632" width="64" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="msg" value="Nothing happens."/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_item" value="1102"/>
+    <property name="requires_not_status" value="emp_main_bloodvial"/>
     <property name="tooltip" value="Red Altar"/>
    </properties>
   </object>
