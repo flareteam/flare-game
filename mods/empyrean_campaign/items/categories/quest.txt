@@ -266,8 +266,11 @@ name=Lorund's Sword
 INCLUDE items/base/weapons/melee/longsword.txt
 quest_item=true
 quality=unique
-item_type=relic
 pickup_status=emp_martigan_sword
+dmg=melee,75,80
+requires_stat=physical,22
+bonus=hp,250
+no_stash=shared
 
 [item]
 id=1026
@@ -275,8 +278,11 @@ name=Nerin's Bow
 INCLUDE items/base/weapons/ranged/longbow.txt
 quest_item=true
 quality=unique
-item_type=relic
 pickup_status=emp_martigan_bow
+dmg=ranged,75,80
+requires_stat=offense,22
+bonus=accuracy,15
+no_stash=shared
 
 [item]
 id=1027
@@ -284,8 +290,11 @@ name=Kayl's Staff
 INCLUDE items/base/weapons/magic/staff.txt
 quest_item=true
 quality=unique
-item_type=relic
 pickup_status=emp_martigan_staff
+dmg=ment,75,80
+requires_stat=mental,22
+bonus=mp,30
+no_stash=shared
 
 [item]
 id=1028
