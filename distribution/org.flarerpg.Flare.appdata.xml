@@ -2,11 +2,11 @@
 <component type="desktop-application">
 	<id>org.flarerpg.Flare</id>
 	<metadata_license>CC0-1.0</metadata_license>
-	<!--FIXME: convert to an SPDX license string-->
 	<project_license>GPL-3.0-or-later AND CC-BY-SA-3.0</project_license>
 	<name>Flare: Empyrean Campaign</name>
+	<summary>2D action role playing game</summary>
 	<description>
-		<p>Flare is an open source, 2D action role playing game. Its game play can be likened to the games in the Diablo series.</p>
+		<p>Flare is an open source, 2D action role playing game. Its gameplay can be likened to the games in the Diablo series.</p>
 		<p>The Empyrean Campaign is a game made by the Flare team. The story begins with the player being exiled from their homeland of Empyrean, resulting in them embarking on a quest to regain entry. This journey takes the player through many regions, with plenty of side quests along the way.</p>
 		<p>The player can choose between three different character classes with distinct strengths and skills. Each character class has unique powers to unlock and improve as they level up.</p>
 		<ul>
@@ -15,11 +15,11 @@
 			<li>Adept - A spell caster who challenges enemies with fire, ice and lightning-based attacks.</li>
 		</ul>
 		<p>Players may find or buy different items to protect themselves from attacks or boost their stats. These include potions, scrolls, weapons, armor, and magical artifacts. Along with the normal equipment, there are enchanted, rare, and unique pieces of gear that provide extra bonuses.</p>
-		<p>The Flare engine is licensed under GPL 3, where as the Empyrean Campaign is licensed under CC-BY-SA 3.0. Both the engine and the game content are actively developed, including new features, art, and content.</p>
+		<p>The Flare engine is licensed under GPL 3, whereas the Empyrean Campaign is licensed under CC-BY-SA 3.0. Both the engine and the game content are being actively developed, including new features, art, and content.</p>
 	</description>
 	<url type="homepage">http://flarerpg.org/</url>
 	<releases>
-		<release date="2018-03-12" version="1.0" />
+		<release date="2019-07-27" version="1.11" />
 	</releases>
 	<screenshots>
 		<screenshot type="default">
@@ -47,32 +47,12 @@
 			<image type="source">http://flarerpg.org/wp-content/uploads/2018/03/empyrean_8.jpg</image>
 		</screenshot>
 	</screenshots>
-	<content_rating type="oars-1.0">
-		<content_attribute id="violence-cartoon">none</content_attribute>
+	<content_rating type="oars-1.1">
 		<content_attribute id="violence-fantasy">intense</content_attribute>
-		<content_attribute id="violence-realistic">none</content_attribute>
 		<content_attribute id="violence-bloodshed">intense</content_attribute>
-		<content_attribute id="violence-sexual">none</content_attribute>
-		<content_attribute id="drugs-alcohol">none</content_attribute>
-		<content_attribute id="drugs-narcotics">none</content_attribute>
-		<content_attribute id="drugs-tobacco">none</content_attribute>
-		<content_attribute id="sex-nudity">none</content_attribute>
-		<content_attribute id="sex-themes">none</content_attribute>
-		<content_attribute id="language-profanity">none</content_attribute>
-		<content_attribute id="language-humor">none</content_attribute>
-		<content_attribute id="language-discrimination">none</content_attribute>
-		<content_attribute id="social-chat">none</content_attribute>
-		<content_attribute id="social-info">none</content_attribute>
-		<content_attribute id="social-audio">none</content_attribute>
-		<content_attribute id="social-location">none</content_attribute>
-		<content_attribute id="social-contacts">none</content_attribute>
-		<content_attribute id="money-purchasing">none</content_attribute>
-		<content_attribute id="money-gambling">none</content_attribute>
 	</content_rating>
 	<developer_name>Clint Bellanger and Contributors</developer_name>
-	<!--FIXME: where to report bugs for the application-->
 	<url type="bugtracker">https://github.com/flareteam/flare-game/issues</url>
-	<!--FIXME: where on the internet users can find help-->
 	<url type="help">https://opengameart.org/forums/flare</url>
 	<!--FIXME: this is optional, but recommended-->
 	<!--<update_contact></update_contact>-->
