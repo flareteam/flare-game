@@ -217,3 +217,12 @@ post_effect=ice_resist,50,60s
 post_effect=lightning_resist,50,60s
 post_effect=dark_resist,50,60s
 
+[power]
+id=274
+type=fixed
+icon=515
+name=Mortar and Pestle
+description=Use empty bottles and various ingredients to create potions.
+new_state=instant
+requires_item=753,0
+script=on_cast,scripts/powers/mortar_and_pestle.txt
