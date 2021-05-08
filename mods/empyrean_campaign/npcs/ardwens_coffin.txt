@@ -1,0 +1,56 @@
+name=Ardwen's Coffin
+
+talker=true
+
+# quest not complete; second ring not yet inserted
+[dialog]
+requires_not_status=emp_ardwen_ring_2_used,emp_ardwen_spawn,emp_ardwen_finish
+response=emp_ardwen_ring_1
+response=emp_ardwen_ring_2
+response=emp_ardwen_cancel
+him=A finger-sized post is protruding from the lid of the coffin. It looks as though something is missing.
+
+[dialog]
+id=emp_ardwen_ring_1
+response_only=true
+topic=Place the Gold Family Ring on the coffin
+requires_item=1003:1
+remove_item=1003:1
+unset_status=emp_ardwen_ring_1
+script=scripts/maps/family_crypt/open_chest_room.txt
+msg=The ring dissolved into nothing!
+shakycam=1s
+intramap=3,56
+soundfx=soundfx/powers/teleport.ogg
+
+[dialog]
+id=emp_ardwen_ring_2
+response_only=true
+topic=Place the Silver Family Ring on the coffin
+requires_item=1031:1
+remove_item=1031:1
+unset_status=emp_ardwen_ring_2
+msg=The ring dissolved into nothing!
+set_status=emp_ardwen_ring_2_used
+script=scripts/maps/family_crypt/spawn_ardwen.txt
+spawn=ardwen_quest,12,4
+
+[dialog]
+id=emp_ardwen_cancel
+response_only=true
+topic=Cancel
+
+# quest not complete; second ring has been inserted
+[dialog]
+requires_status=emp_ardwen_ring_2_used
+requires_not_status=emp_ardwen_spawn,emp_ardwen_defeated,emp_ardwen_finish
+script=scripts/maps/family_crypt/spawn_ardwen.txt
+spawn=ardwen_quest,12,4
+
+# quest complete
+[dialog]
+requires_status=emp_ardwen_finish
+requires_not_status=emp_ardwen_spawn,emp_ardwen_defeated
+script=scripts/maps/family_crypt/spawn_ardwen.txt
+spawn=ardwen,12,4
+

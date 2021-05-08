@@ -1,0 +1,7 @@
+# this script doesn't contain the actual "spawn" attribute because it's used for spawning both the quest and non-quest enemies
+[event]
+mapmod=collision,12,4,0
+set_status=emp_ardwen_spawn
+shakycam=1s
+soundfx=soundfx/environment/stone_open.ogg,11,4
+script=scripts/maps/family_crypt/lock_exit.txt

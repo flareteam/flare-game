@@ -1,0 +1,18 @@
+[event]
+requires_status=emp_ardwen_spawn
+requires_not_status=emp_ardwen_defeated
+msg=The switch won't budge.
+
+[event]
+requires_not_status=emp_ardwen_spawn,emp_ardwen_exit
+soundfx=soundfx/door_open.ogg
+mapmod=object,12,3,166;object,19,12,113;collision,19,12,0
+set_status=emp_ardwen_exit
+
+[event]
+requires_status=emp_ardwen_defeated
+requires_not_status=emp_ardwen_exit
+soundfx=soundfx/door_open.ogg
+mapmod=object,12,3,166;object,19,12,113;collision,19,12,0
+set_status=emp_ardwen_exit
+

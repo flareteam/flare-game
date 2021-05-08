@@ -1,0 +1,8 @@
+[event]
+requires_not_status=emp_ardwen_chest_room
+soundfx=soundfx/door_open.ogg,9,51
+set_status=emp_ardwen_chest_room
+
+[event]
+mapmod=collision,9,51,0;object,9,51,112
+

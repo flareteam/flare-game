@@ -31,12 +31,14 @@ no_stash=shared
 
 [item]
 id=1003
-name=Ardwen's Ring
-INCLUDE items/base/rings/silver_3.txt
+name=Gold Family Ring
+INCLUDE items/base/rings/gold_1.txt
 quest_item=true
 quality=unique
 item_type=ring
-pickup_status=emp_ardwen_ring
+pickup_status=emp_ardwen_ring_1
+bonus=hp,25
+no_stash=shared
 
 [item]
 id=1004
@@ -329,6 +331,17 @@ quest_item=true
 quality=unique
 item_type=key
 pickup_status=emp_pit_key
+
+[item]
+id=1031
+name=Silver Family Ring
+INCLUDE items/base/rings/silver_1.txt
+quest_item=true
+quality=unique
+item_type=ring
+pickup_status=emp_ardwen_ring_2
+bonus=mp,3
+no_stash=shared
 
 ### Main quest items
 [item]

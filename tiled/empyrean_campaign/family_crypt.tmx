@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.1" orientation="isometric" renderorder="right-down" width="38" height="56" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="44">
+<map version="1.5" tiledversion="1.6.0" orientation="isometric" renderorder="right-down" width="38" height="65" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="53">
+ <editorsettings>
+  <export target="../../mods/empyrean_campaign/maps/family_crypt.txt" format="flare"/>
+ </editorsettings>
  <properties>
   <property name="hero_pos" value="31,39"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -31,7 +34,7 @@
   <tileoffset x="0" y="48"/>
   <image source="../dungeon/stairs.png" width="1024" height="256"/>
  </tileset>
- <layer name="background" width="38" height="56">
+ <layer id="1" name="background" width="38" height="65">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,40,36,42,42,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -82,16 +85,25 @@
 0,0,0,0,0,0,0,0,0,0,0,51,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,51,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,51,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,16,17,41,18,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,39,19,40,47,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,42,19,16,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,47,39,16,47,37,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,16,37,36,44,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,51,51,51,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,0,0,0,0,0,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,0,0,0,0,0,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,0,0,0,0,0,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,0,0,0,0,0,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,16,16,16,16,16,0,0,0,0,0,0,0,0,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,16,16,16,16,16,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="38" height="56">
+ <layer id="2" name="object" width="38" height="65">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,77,99,107,99,65,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -106,9 +118,9 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,77,65,65,69,105,69,69,0,0,0,0,0,0,0,0,65,65,107,115,107,69,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,64,147,146,0,0,180,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,64,163,162,0,0,180,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,104,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,108,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,108,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,68,0,0,0,0,0,0,0,0,0,180,0,0,0,0,0,178,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -128,7 +140,7 @@
 0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,68,0,0,75,72,0,0,0,0,0,0,0,0,0,0,0,0,75,72,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,102,0,0,74,73,0,0,0,0,0,0,0,0,0,0,0,0,74,73,0,0,82,0,0,0,0,77,105,65,69,69,65,65,101,97,78,0,
-0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,0,0,0,82,0,0,0,0,106,0,0,0,0,0,0,146,147,70,0,
+0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,0,0,0,82,0,0,0,0,106,0,0,0,0,0,0,0,151,70,0,
 0,108,0,0,0,0,0,0,0,0,0,0,178,0,0,0,0,0,0,0,0,0,90,81,103,101,103,73,0,0,0,0,0,0,0,0,82,0,
 0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,149,0,0,0,0,0,0,0,0,181,0,82,0,
 0,68,0,0,0,0,0,0,0,180,0,0,0,0,0,0,0,0,0,0,177,0,0,0,0,0,0,0,0,0,284,0,0,0,0,0,82,0,
@@ -142,16 +154,25 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,77,73,0,0,90,94,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,98,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,100,144,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,98,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,68,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,76,71,83,83,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,77,65,103,65,78,0,0,0,77,73,0,0,90,81,65,99,65,103,65,99,65,65,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,64,128,0,0,70,0,0,0,64,0,0,0,0,0,0,0,181,135,136,0,0,151,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,106,144,0,0,0,0,0,0,114,0,0,0,178,0,0,0,0,0,0,0,0,147,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,64,128,0,0,82,0,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,100,180,0,0,82,0,0,0,76,71,83,83,83,88,0,0,0,91,83,83,83,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,100,0,0,0,82,0,0,0,0,0,0,0,0,80,180,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,102,0,178,0,82,0,0,0,0,0,0,0,0,64,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,64,0,0,0,82,0,0,0,0,0,0,0,0,102,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,104,0,0,0,82,0,0,0,0,0,0,0,0,108,0,0,181,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,76,71,83,83,95,0,0,0,0,0,0,0,0,114,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,90,81,65,107,103,78,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,102,181,0,0,0,0,0,145,129,70,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,201,0,0,0,0,0,0,181,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,200,178,0,0,0,0,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,71,83,83,83,83,83,83,83,95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="38" height="56">
+ <layer id="3" name="collision" width="38" height="65">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -168,7 +189,7 @@
 3,1,1,1,1,1,1,1,2,2,0,0,0,0,2,2,1,1,1,2,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,4,4,0,0,0,0,2,2,0,0,0,0,2,2,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,1,4,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,0,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,0,0,0,0,2,2,0,0,0,0,2,2,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -188,9 +209,9 @@
 3,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,1,1,2,2,2,2,0,0,0,0,2,2,2,2,1,1,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,1,0,0,1,1,2,2,2,2,0,0,0,0,2,2,2,2,1,1,0,0,1,3,3,3,3,1,1,1,1,1,1,1,1,1,1,3,
-3,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,3,3,3,3,1,0,0,1,1,1,1,4,4,1,3,
+3,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,3,3,3,3,1,0,0,1,1,1,1,0,4,1,3,
 3,1,0,0,0,0,2,2,2,2,0,0,0,0,2,2,2,2,0,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,0,0,1,3,
-3,1,0,0,0,0,0,0,2,2,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,2,0,0,0,0,1,1,1,1,0,0,1,3,
+3,1,0,0,0,0,0,0,2,2,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,4,0,0,0,0,1,1,1,1,0,0,1,3,
 3,1,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,3,
 3,1,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,
 3,1,0,0,0,0,0,0,2,2,0,0,0,0,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,
@@ -202,21 +223,106 @@
 3,3,3,3,3,3,3,3,2,2,2,0,0,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,2,2,2,0,0,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,2,2,2,0,0,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,1,1,0,0,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,1,4,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,1,1,1,1,3,3,3,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,1,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,4,4,0,0,4,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,4,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,4,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,1,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,0,0,0,1,3,3,3,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,0,0,0,1,3,3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,0,0,0,1,3,3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,0,0,0,1,3,3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,0,0,0,1,3,3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,1,1,1,1,1,3,3,3,3,3,3,3,3,1,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,0,0,4,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,4,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,4,0,0,0,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event">
-  <object id="4" name="rune teleport" type="event" x="480" y="448" width="32" height="64">
+ <objectgroup id="4" name="event">
+  <object id="49" name="reset statuses" type="event" x="128" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="unset_status" value="emp_ardwen_spawn,emp_ardwen_defeated,emp_ardwen_exit"/>
+   </properties>
+  </object>
+  <object id="46" name="end quest" type="event" x="96" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="static"/>
+    <property name="requires_not_status" value="emp_ardwen_finish"/>
+    <property name="requires_status" value="emp_ardwen_init,emp_ardwen_defeated"/>
+    <property name="reward_xp" value="200"/>
+    <property name="set_status" value="emp_ardwen_finish"/>
+    <property name="unset_status" value="emp_ardwen_init,emp_ardwen_ring_2_used,emp_ardwen_spawn"/>
+   </properties>
+  </object>
+  <object id="12" name="exit door switch" type="event" x="384" y="96" width="32" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
-    <property name="intramap" value="7,14"/>
-    <property name="soundfx" value="soundfx/environment/teleporter.ogg"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_ardwen_exit"/>
+    <property name="script" value="scripts/maps/family_crypt/open_exit.txt"/>
+    <property name="tooltip" value="Switch"/>
+   </properties>
+  </object>
+  <object id="26" name="Ardwen's Coffin" type="event" x="352" y="96" width="32" height="64">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
+    <property name="hotspot" value="location"/>
+    <property name="npc" value="npcs/ardwens_coffin.txt"/>
+    <property name="repeat" value="true"/>
+    <property name="requires_not_status" value="emp_ardwen_spawn,emp_ardwen_defeated"/>
+    <property name="tooltip" value="Ardwen's Coffin"/>
+   </properties>
+  </object>
+  <object id="47" name="open chest room (on_load)" type="event" x="64" y="0" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="requires_status" value="emp_ardwen_chest_room"/>
+    <property name="script" value="scripts/maps/family_crypt/open_chest_room.txt"/>
+   </properties>
+  </object>
+  <object id="45" name="Chest 2" type="event" x="64" y="1632" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,2,51,160"/>
+    <property name="repeat" value="false"/>
+    <property name="script" value="scripts/maps/family_crypt/chest_2.txt"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="13" name="Chest 1" type="event" x="672" y="1920" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,21,60,161"/>
+    <property name="repeat" value="false"/>
+    <property name="script" value="scripts/maps/family_crypt/chest_1.txt"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Treasure Chest"/>
+   </properties>
+  </object>
+  <object id="44" name="Crate" type="event" x="704" y="1632" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot_count" value="1,2"/>
+    <property name="mapmod" value="object,22,51,163"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/wood_open.ogg"/>
+    <property name="tooltip" value="Crate"/>
    </properties>
   </object>
   <object id="5" name="start Ardwen quest" type="event" x="224" y="448" width="32" height="32">
@@ -228,39 +334,21 @@
     <property name="set_status" value="emp_ardwen_init"/>
    </properties>
   </object>
-  <object id="12" name="open door" type="event" x="384" y="96" width="32" height="32">
+  <object id="4" name="rune teleport" type="event" x="480" y="448" width="32" height="64">
    <properties>
     <property name="activate" value="on_trigger"/>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="object,12,3,166;object,19,12,113;collision,19,12,0"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_ardwen_init"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
-    <property name="tooltip" value="Switch"/>
-   </properties>
-  </object>
-  <object id="13" name="Ardwen's key" type="event" x="256" y="1632" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_trigger"/>
-    <property name="hotspot" value="10,51,1,1"/>
-    <property name="loot" value="loot/level_2.txt;1003,fixed,1"/>
-    <property name="loot_count" value="1,2"/>
-    <property name="mapmod" value="object,10,51,160"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_ardwen_ring"/>
-    <property name="requires_status" value="emp_ardwen_init"/>
-    <property name="set_status" value="emp_ardwen_chest"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
+    <property name="intramap" value="7,14"/>
+    <property name="soundfx" value="soundfx/environment/teleporter.ogg"/>
    </properties>
   </object>
   <object id="15" name="In Memoriam" type="event" x="800" y="1184" width="32" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
+    <property name="cooldown" value="1s"/>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,25,37,165"/>
     <property name="msg" value="Ardwen (1308-1364), founder of Lochport"/>
-    <property name="repeat" value="false"/>
+    <property name="repeat" value="true"/>
     <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="In Memoriam"/>
    </properties>
@@ -275,119 +363,14 @@
     <property name="unset_status" value="emp_ardwen_chest"/>
    </properties>
   </object>
-  <object id="24" name="treasure" type="event" x="320" y="1632" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_trigger"/>
-    <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_2.txt"/>
-    <property name="loot_count" value="1,2"/>
-    <property name="mapmod" value="object,10,51,160"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_ardwen_init;emp_ardwen_chest"/>
-    <property name="soundfx" value="soundfx/wood_open.ogg"/>
-    <property name="tooltip" value="Treasure Chest"/>
-   </properties>
-  </object>
-  <object id="25" name="Ardwen's key (on_load)" type="event" x="256" y="1568" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_load"/>
-    <property name="mapmod" value="object,10,51,160"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_status" value="emp_ardwen_ring"/>
-    <property name="set_status" value="emp_ardwen_chest"/>
-   </properties>
-  </object>
-  <object id="26" name="Spawn Ardwen" type="event" x="352" y="96" width="32" height="64">
-   <properties>
-    <property name="activate" value="on_trigger"/>
-    <property name="hotspot" value="location"/>
-    <property name="mapmod" value="collision,12,4,0"/>
-    <property name="msg" value="The coffin has a small slot the size of Ardwen's ring. You place the ring in the slot."/>
-    <property name="remove_item" value="1003"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_ardwen_summoned"/>
-    <property name="requires_status" value="emp_ardwen_ring"/>
-    <property name="set_status" value="emp_ardwen_summoned"/>
-    <property name="shakycam" value="1s"/>
-    <property name="soundfx" value="soundfx/environment/stone_open.ogg,11,4"/>
-    <property name="spawn" value="ardwen_quest,12,4"/>
-    <property name="tooltip" value="Ardwen's Coffin"/>
-   </properties>
-  </object>
-  <object id="28" name="open door (ardwen defeated)" type="event" x="384" y="32" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_trigger"/>
-    <property name="hotspot" value="12,3,1,1"/>
-    <property name="mapmod" value="object,12,3,166;object,19,12,113;collision,19,12,0"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_status" value="emp_ardwen_defeated"/>
-    <property name="reward_xp" value="200"/>
-    <property name="set_status" value="emp_ardwen_finish"/>
-    <property name="soundfx" value="soundfx/door_open.ogg"/>
-    <property name="tooltip" value="Switch"/>
-    <property name="unset_status" value="emp_ardwen_init;emp_ardwen_ring;emp_ardwen_summoned;emp_ardwen_defeated"/>
-   </properties>
-  </object>
-  <object id="29" name="locked door" type="event" x="448" y="32" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_trigger"/>
-    <property name="hotspot" value="12,3,1,1"/>
-    <property name="msg" value="The switch won't budge."/>
-    <property name="requires_not_status" value="emp_ardwen_defeated"/>
-    <property name="requires_status" value="emp_ardwen_init"/>
-    <property name="tooltip" value="Switch"/>
-   </properties>
-  </object>
-  <object id="30" name="clear Ardwen quest collision tile" type="event" x="320" y="32" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_load"/>
-    <property name="mapmod" value="collision,12,4,0"/>
-    <property name="requires_not_status" value="emp_ardwen_init"/>
-   </properties>
-  </object>
-  <object id="31" name="Spawn Ardwen (on_load)" type="event" x="256" y="32" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_load"/>
-    <property name="mapmod" value="collision,12,4,0"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_status" value="emp_ardwen_summoned"/>
-    <property name="spawn" value="ardwen_quest,12,4"/>
-   </properties>
-  </object>
-  <object id="32" name="remove chest status" type="event" x="192" y="1568" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_load"/>
-    <property name="repeat" value="false"/>
-    <property name="requires_not_status" value="emp_ardwen_init"/>
-    <property name="requires_status" value="emp_ardwen_chest"/>
-    <property name="unset_status" value="emp_ardwen_chest"/>
-   </properties>
-  </object>
   <object id="37" name="Wind sound" type="event" x="0" y="0" width="32" height="32">
    <properties>
     <property name="activate" value="on_load"/>
     <property name="soundfx" value="soundfx/environment/cave_wind_loop.ogg"/>
    </properties>
   </object>
-  <object id="42" name="post-quest Ardwen spawn" type="event" x="192" y="32" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_load"/>
-    <property name="mapmod" value="collision,12,4,0"/>
-    <property name="requires_status" value="emp_ardwen_finish"/>
-    <property name="spawn" value="ardwen,12,4"/>
-   </properties>
-  </object>
-  <object id="43" name="reset quest" type="event" x="64" y="0" width="32" height="32">
-   <properties>
-    <property name="activate" value="on_load"/>
-    <property name="msg" value="Reset quest: &quot;Trapped in the Crypt&quot;"/>
-    <property name="requires_not_status" value="emp_ardwen_finish"/>
-    <property name="requires_status" value="emp_ardwen_init"/>
-    <property name="script" value="scripts/maps/family_crypt/reset_quest.txt"/>
-   </properties>
-  </object>
  </objectgroup>
- <objectgroup name="enemy">
+ <objectgroup id="5" name="enemy">
   <object id="16" type="enemy" x="384" y="1088" width="32" height="32">
    <properties>
     <property name="category" value="skeleton_archer"/>
@@ -436,11 +419,34 @@
     <property name="wander_radius" value="2"/>
    </properties>
   </object>
-  <object id="35" type="enemy" x="352" y="1568" width="96" height="160">
+  <object id="35" type="enemy" x="352" y="1568" width="128" height="128">
    <properties>
     <property name="category" value="undead"/>
     <property name="level" value="2"/>
     <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object id="50" type="enemy" x="480" y="1888" width="128" height="128">
+   <properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="2,3"/>
+   </properties>
+  </object>
+  <object id="51" type="enemy" x="608" y="1600" width="128" height="96">
+   <properties>
+    <property name="category" value="undead"/>
+    <property name="level" value="2"/>
+    <property name="number" value="1,2"/>
+   </properties>
+  </object>
+  <object id="52" type="enemy" x="64" y="1728" width="32" height="32">
+   <properties>
+    <property name="category" value="undead"/>
+    <property name="direction" value="W"/>
+    <property name="level" value="2"/>
+    <property name="number" value="1"/>
+    <property name="wander_radius" value="0"/>
    </properties>
   </object>
  </objectgroup>

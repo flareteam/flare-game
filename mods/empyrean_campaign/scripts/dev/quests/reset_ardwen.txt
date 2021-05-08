@@ -1,11 +1,22 @@
 [event]
 unset_status=emp_ardwen_init
+unset_status=emp_ardwen_ring_1
+unset_status=emp_ardwen_ring_2
+unset_status=emp_ardwen_ring_2_used
+unset_status=emp_ardwen_spawn
+unset_status=emp_ardwen_defeated
+unset_status=emp_ardwen_finish
+unset_status=emp_ardwen_chest_room
+unset_status=emp_ardwen_exit
+
+remove_item=1003
+remove_item=1031
+
+# old statuses
 unset_status=emp_ardwen_ring
 unset_status=emp_ardwen_chest
 unset_status=emp_ardwen_summoned
-unset_status=emp_ardwen_defeated
-unset_status=emp_ardwen_finish
-remove_item=1003
+
 msg=Reset quest: "Trapped in the Crypt"
 
 [event]
