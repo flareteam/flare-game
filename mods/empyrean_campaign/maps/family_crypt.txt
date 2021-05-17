@@ -277,6 +277,16 @@ requires_status=emp_ardwen_chest_room
 script=scripts/maps/family_crypt/open_chest_room.txt
 
 [event]
+# open chest room (on_load, for old saves)
+type=event
+location=2,1,1,1
+activate=on_load
+requires_not_status=emp_ardwen_chest_room
+requires_status=emp_ardwen_finish
+script=scripts/maps/family_crypt/open_chest_room.txt
+set_status=emp_ardwen_chest_room
+
+[event]
 # Chest 2
 type=event
 location=2,51,1,1

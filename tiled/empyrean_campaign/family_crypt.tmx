@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="isometric" renderorder="right-down" width="38" height="65" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="53">
+<map version="1.5" tiledversion="1.6.0" orientation="isometric" renderorder="right-down" width="38" height="65" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="54">
  <editorsettings>
   <export target="../../mods/empyrean_campaign/maps/family_crypt.txt" format="flare"/>
  </editorsettings>
@@ -285,6 +285,15 @@
     <property name="activate" value="on_load"/>
     <property name="requires_status" value="emp_ardwen_chest_room"/>
     <property name="script" value="scripts/maps/family_crypt/open_chest_room.txt"/>
+   </properties>
+  </object>
+  <object id="53" name="open chest room (on_load, for old saves)" type="event" x="64" y="32" width="32" height="32">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="requires_not_status" value="emp_ardwen_chest_room"/>
+    <property name="requires_status" value="emp_ardwen_finish"/>
+    <property name="script" value="scripts/maps/family_crypt/open_chest_room.txt"/>
+    <property name="set_status" value="emp_ardwen_chest_room"/>
    </properties>
   </object>
   <object id="45" name="Chest 2" type="event" x="64" y="1632" width="32" height="32">
