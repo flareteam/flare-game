@@ -80,6 +80,8 @@ def extract(filename):
                    stat = values[-1]
 
                 test_key = stat.rstrip()
+                if test_key == "":
+                    continue
                 if filename.endswith('cutscenes/credits.txt') and test_key not in allowed_credits_strings:
                     continue
 
