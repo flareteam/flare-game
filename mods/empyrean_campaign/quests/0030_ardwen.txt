@@ -6,15 +6,15 @@ requires_status=emp_ardwen_init
 quest_text=Investigate the Family Crypt.
 
 [quest]
-requires_status=emp_ardwen_ring_1
+requires_status=emp_ardwen_init,emp_ardwen_ring_1
 quest_text=You found a strange ring. It might have a use beyond its mundane magical properties.
 
 [quest]
-requires_status=emp_ardwen_ring_2
+requires_status=emp_ardwen_init,emp_ardwen_ring_2
 quest_text=You found another strange ring. Maybe this one will have a different effect.
 
 [quest]
-requires_status=emp_ardwen_spawn
+requires_status=emp_ardwen_init,emp_ardwen_spawn
 requires_not_status=emp_ardwen_defeated
 quest_text=Defeat Ardwen.
 
