@@ -180,6 +180,7 @@ icon=261
 quest_item=true
 quality=unique
 pickup_status=emp_naziamines_dynamite
+no_stash=shared
 
 [item]
 id=1017
@@ -341,6 +342,17 @@ quality=unique
 item_type=ring
 pickup_status=emp_ardwen_ring_2
 bonus=mp,3
+no_stash=shared
+
+[item]
+id=1032
+name=Blast Powder
+INCLUDE items/base/misc/generic.txt
+icon=262
+item_type=crafting
+quest_item=true
+quality=unique
+pickup_status=emp_naziamines_powder
 no_stash=shared
 
 ### Main quest items

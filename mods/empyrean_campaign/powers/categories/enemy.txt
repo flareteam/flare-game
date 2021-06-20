@@ -583,12 +583,10 @@ use_hazard=true
 radius=1
 lifespan=10s
 speed=4
-modifier_accuracy=absolute,1100
-modifier_damage=absolute,1,1
-modifier_critical=absolute,100
-target_categories=nazia_boulder
+# fake target category so that it can't hit any other entity
+target_categories=nazia_door
 source_type=hero
-post_power=200
+wall_power=200
 
 # Nazia minecart explosion
 [power]
@@ -603,6 +601,7 @@ floor=true
 complete_animation=true
 starting_pos=target
 modifier_damage=absolute,0,0
+script=on_cast,scripts/maps/nazia_mines/minecart_explode.txt
 
 # Dark Mist
 [power]

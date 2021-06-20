@@ -98,7 +98,27 @@ text_font=255,255,255,font_regular
 text_shadow=true
 text=Mushrooms
 
-# slot 0
+# Input: Blast Powder
+[image]
+image_pos=32,240
+image_icon=262
+requires_status=emp_naziamines_powder
+
+[button]
+button_image=images/menus/buttons/button_plus.png
+button_pos=64,240
+requires_status=emp_alchemy_4
+script=scripts/crafting/alchemy/add_4.txt
+requires_status=emp_naziamines_powder
+
+[text]
+text_pos=88,244,136,left
+text_font=255,255,255,font_regular
+text_shadow=true
+text=Blast Powder
+requires_status=emp_naziamines_powder
+
+# slot 0, empty bottle
 [image]
 image_pos=304,48
 image_icon=512
@@ -122,6 +142,12 @@ image_pos=256,96
 image_icon=516
 requires_status=emp_alchemy_slot1_3
 
+# slot 1, blast powder
+[image]
+image_pos=256,96
+image_icon=262
+requires_status=emp_alchemy_slot1_4
+
 # slot 2, aloe vera
 [image]
 image_pos=304,96
@@ -140,6 +166,12 @@ image_pos=304,96
 image_icon=516
 requires_status=emp_alchemy_slot2_3
 
+# slot 3, blast powder
+[image]
+image_pos=304,96
+image_icon=262
+requires_status=emp_alchemy_slot2_4
+
 # slot 3, aloe vera
 [image]
 image_pos=352,96
@@ -157,6 +189,12 @@ requires_status=emp_alchemy_slot3_2
 image_pos=352,96
 image_icon=516
 requires_status=emp_alchemy_slot3_3
+
+# slot 3, blast powder
+[image]
+image_pos=352,96
+image_icon=262
+requires_status=emp_alchemy_slot3_4
 
 # output, hp potion
 [image]
@@ -235,4 +273,17 @@ text_font=255,255,255,font_regular
 text_shadow=true
 text=Elemental Potion
 requires_status=emp_alchemy_output_5
+
+# output, dynamite
+[image]
+image_pos=304,208
+image_icon=261
+requires_status=emp_alchemy_output_6
+
+[text]
+text_pos=240,248,160,center
+text_font=255,255,255,font_regular
+text_shadow=true
+text=Dynamite
+requires_status=emp_alchemy_output_6
 

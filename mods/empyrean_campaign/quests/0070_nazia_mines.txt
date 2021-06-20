@@ -1,17 +1,28 @@
-name=Trapped!
+name=The Buried Fortress
 complete_status=emp_naziamines_finish
 
 [quest]
 requires_status=emp_naziamines_init
 requires_not_status=emp_naziamines_cleared
-quest_text=The path behind you has caved in. Find a way to escape the Nazia Mines.
+quest_text=The excavation of the mines has revealed man-made structures. Perhaps this is more than just a cave.
+
+[quest]
+requires_status=emp_naziamines_door_locked
+requires_not_status=emp_naziamines_cleared
+quest_text=You found a door, but it appears to be barricaded from the inside.
+
+[quest]
+requires_status=emp_naziamines_powder
+requires_not_status=emp_naziamines_dynamite
+quest_text=You found a satchel of Blast Powder. Maybe an alchemist like Florin would know how to make this into something more effective?
 
 [quest]
 requires_status=emp_naziamines_dynamite
 requires_not_status=emp_naziamines_cleared
-quest_text=You found some sticks of dynamite. Those should be useful.
+quest_text=Mixing the Blast Powder with some shavings of a Mana Crystal has created Dynamite. This could be useful.
 
 [quest]
 requires_status=emp_naziamines_cleared
-quest_text=You successfully cleared the rubble and can safely escape the Nazia Mines.
+requires_not_status=emp_naziamines_finish
+quest_text=You successfully destroyed the previously barricaded door and can further explore the Nazia Mines.
 

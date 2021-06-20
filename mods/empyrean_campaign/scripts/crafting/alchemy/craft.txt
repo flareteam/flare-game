@@ -34,5 +34,13 @@ requires_status=emp_alchemy_output_5
 remove_item=750,752,754
 reward_item=778,1
 
+# dynamite
+[event]
+requires_status=emp_alchemy_output_6
+remove_item=750,752,1032
+reward_item=1016,1
+unset_status=emp_naziamines_powder
+set_status=emp_naziamines_dynamite
+
 [event]
 script=scripts/crafting/alchemy/check_resources.txt

@@ -132,3 +132,16 @@ requires_not_status=emp_alchemy_finish
 topic=Alchemy
 requires_status=emp_alchemy_finish
 book=books/crafting_alchemy.txt
+
+[dialog]
+topic=Blast Powder
+requires_status=emp_naziamines_powder
+him=Blast powder? With a little bit of Mana Crystal, you can make quite the explosion with that stuff.
+him=The process is fairly volatile, so allow me to do the mixing.
+him=...
+requires_item=1032:1
+remove_item=1032:1
+reward_item=1016:1
+unset_status=emp_naziamines_powder
+set_status=emp_naziamines_dynamite
+him=There. Now be careful with that.

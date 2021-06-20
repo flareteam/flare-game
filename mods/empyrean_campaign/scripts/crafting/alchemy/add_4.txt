@@ -1,0 +1,25 @@
+# add Blast Powder
+
+[event]
+requires_status=emp_alchemy_slot1_fill
+requires_status=emp_alchemy_slot2_fill
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_slot3_4
+set_status=emp_alchemy_slot3_fill
+unset_status=emp_alchemy_4
+
+[event]
+requires_status=emp_alchemy_slot1_fill
+requires_not_status=emp_alchemy_slot2_fill
+set_status=emp_alchemy_slot2_4
+set_status=emp_alchemy_slot2_fill
+unset_status=emp_alchemy_4
+
+[event]
+requires_not_status=emp_alchemy_slot1_fill
+set_status=emp_alchemy_slot1_4
+set_status=emp_alchemy_slot1_fill
+unset_status=emp_alchemy_4
+
+[event]
+script=scripts/crafting/alchemy/check_resources.txt

@@ -2,6 +2,8 @@
 unset_status=emp_alchemy_0
 unset_status=emp_alchemy_1
 unset_status=emp_alchemy_2
+unset_status=emp_alchemy_3
+unset_status=emp_alchemy_4
 
 unset_status=emp_alchemy_craft
 unset_status=emp_alchemy_output_0
@@ -43,6 +45,15 @@ requires_not_status=emp_alchemy_slot1_3
 requires_not_status=emp_alchemy_slot2_3
 requires_not_status=emp_alchemy_slot3_3
 set_status=emp_alchemy_3
+
+# blast powder
+[event]
+requires_item=1032
+requires_status=emp_alchemy_slot0_0
+requires_not_status=emp_alchemy_slot1_4
+requires_not_status=emp_alchemy_slot2_4
+requires_not_status=emp_alchemy_slot3_4
+set_status=emp_alchemy_4
 
 # hp potion recipe
 [event]
@@ -138,5 +149,26 @@ requires_status=emp_alchemy_slot1_3
 requires_status=emp_alchemy_slot2_2
 requires_not_status=emp_alchemy_slot3_fill
 set_status=emp_alchemy_output_5
+set_status=emp_alchemy_craft
+
+# dynamite recipe
+[event]
+requires_item=750
+requires_item=752,1032
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_2
+requires_status=emp_alchemy_slot2_4
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_output_6
+set_status=emp_alchemy_craft
+
+[event]
+requires_item=750
+requires_item=752,1032
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_4
+requires_status=emp_alchemy_slot2_2
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_output_6
 set_status=emp_alchemy_craft
 
