@@ -1,0 +1,11 @@
+# No key
+[event]
+requires_not_item=1030
+msg=It's locked.
+
+# Have key, but Lezaith not defeated
+[event]
+requires_item=1030
+requires_not_status=emp_lezaith_defeated
+msg=You try to unlock the chest, but it's sealed by an unknown power.
+

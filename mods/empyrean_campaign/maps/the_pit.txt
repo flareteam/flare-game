@@ -388,9 +388,9 @@ location=27,4,1,1
 activate=on_trigger
 cooldown=1s
 hotspot=location
-msg=It's locked.
-requires_not_item=1030
-requires_not_status=emp_pit_chest,emp_pit_key
+repeat=true
+requires_not_status=emp_pit_chest
+script=scripts/maps/the_pit/locked_chest.txt
 tooltip=Treasure Chest
 
 [event]
@@ -406,7 +406,7 @@ remove_item=1030
 repeat=false
 requires_item=1030
 requires_not_status=emp_pit_chest
-requires_status=emp_pit_key
+requires_status=emp_pit_key,emp_lezaith_defeated
 set_status=emp_pit_chest
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
