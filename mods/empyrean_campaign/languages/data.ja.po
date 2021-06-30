@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-23 20:45+\n"
+"POT-Creation-Date: 2021-06-30 17:48+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2019\n"
 "Language-Team: Japanese (https://www.transifex.com/flareorg/teams/84925/ja/)\n"
@@ -1050,17 +1050,21 @@ msgstr "Nazia 高原"
 msgid "Nazia Mines"
 msgstr "Nazia 鉱山"
 
-#: ../maps/nazia_mines.txt:247
+#: ../maps/nazia_mines.txt:240
 msgid "Empty Mine Cart"
 msgstr "からっぽのマインカート"
 
-#: ../maps/nazia_mines.txt:296
-msgid "By itself, this mine cart can't break open the rubble."
-msgstr "これだけでは、ガレキを破壊できない。"
-
-#: ../maps/nazia_mines.txt:424
-msgid "Reset Quest: \"Trapped!\""
+#: ../maps/nazia_mines.txt:291
+msgid "By itself, this mine cart can't break open the door."
 msgstr ""
+
+#: ../maps/nazia_mines.txt:428
+msgid "You found a door, but it appears to be barricaded from the inside."
+msgstr ""
+
+#: ../maps/nazia_mines.txt:433
+msgid "Locked Door"
+msgstr "カギのかかったトビラ"
 
 #: ../maps/nazia_underground.txt:260
 msgid "The switch won't budge."
@@ -1097,10 +1101,6 @@ msgstr "Krolan の箱"
 #: ../maps/st_maria_1.txt:349
 msgid "This door needs a key to be opened."
 msgstr "このトビラを開くには、カギが必要です。"
-
-#: ../maps/st_maria_1.txt:352
-msgid "Locked Door"
-msgstr "カギのかかったトビラ"
 
 #: ../maps/st_maria_2.txt:271
 msgid "St. Maria: Catacombs waypoint discovered."
@@ -1172,10 +1172,6 @@ msgstr ""
 
 #: ../maps/the_pit.txt:12
 msgid "The Pit"
-msgstr ""
-
-#: ../maps/the_pit.txt:391
-msgid "It's locked."
 msgstr ""
 
 #: ../maps/torture_chambers.txt:12
@@ -1460,22 +1456,32 @@ msgid ""
 msgstr "あなたは ストームロック廃墟のカギ を見つけた。 そのことを Aldwulf に伝えるため、 彼のもとに戻るべきだ。"
 
 #: ../quests/0070_nazia_mines.txt:1
-msgid "Trapped!"
-msgstr "ワナだ!"
+msgid "The Buried Fortress"
+msgstr ""
 
 #: ../quests/0070_nazia_mines.txt:7
 msgid ""
-"The path behind you has caved in. Find a way to escape the Nazia Mines."
-msgstr "あなたの後ろの道が崩落した。 脱出できる方法を捜さなければならない。"
+"The excavation of the mines has revealed man-made structures. Perhaps this "
+"is more than just a cave."
+msgstr ""
 
-#: ../quests/0070_nazia_mines.txt:12
-msgid "You found some sticks of dynamite. Those should be useful."
-msgstr "あなたはダイナマイトを発見した。 きっと、これを使えばよいだろう。"
-
-#: ../quests/0070_nazia_mines.txt:16
+#: ../quests/0070_nazia_mines.txt:17
 msgid ""
-"You successfully cleared the rubble and can safely escape the Nazia Mines."
-msgstr "ガレキの除去に成功したので、鉱山から脱出できる。"
+"You found a satchel of Blast Powder. Maybe an alchemist like Florin would "
+"know how to make this into something more effective?"
+msgstr ""
+
+#: ../quests/0070_nazia_mines.txt:22
+msgid ""
+"Mixing the Blast Powder with some shavings of a Mana Crystal has created "
+"Dynamite. This could be useful."
+msgstr ""
+
+#: ../quests/0070_nazia_mines.txt:27
+msgid ""
+"You successfully destroyed the previously barricaded door and can further "
+"explore the Nazia Mines."
+msgstr ""
 
 #: ../quests/0080_mog.txt:1
 msgid "The Lost Soul of the Mog Caverns"
@@ -1702,7 +1708,7 @@ msgid "Reset quest: \"Locked Out\""
 msgstr ""
 
 #: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"Trapped!\""
+msgid "Reset quest: \"The Buried Fortress\""
 msgstr ""
 
 #: ../npcs/base/dev_tome/reset_quests.txt:76
@@ -2254,6 +2260,24 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: ../npcs/florin.txt:137
+msgid "Blast Powder"
+msgstr ""
+
+#: ../npcs/florin.txt:139
+msgid ""
+"Blast powder? With a little bit of Mana Crystal, you can make quite the "
+"explosion with that stuff."
+msgstr ""
+
+#: ../npcs/florin.txt:140
+msgid "The process is fairly volatile, so allow me to do the mixing."
+msgstr ""
+
+#: ../npcs/florin.txt:147
+msgid "There. Now be careful with that."
+msgstr ""
+
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
 msgstr "成長するオベリスク"
@@ -2592,6 +2616,10 @@ msgstr "マナ結晶"
 #: ../books/crafting_alchemy.txt:99
 msgid "Mushrooms"
 msgstr ""
+
+#: ../books/crafting_alchemy.txt:287
+msgid "Dynamite"
+msgstr "ダイナマイト"
 
 #: ../books/cutscene_list.txt:21
 msgid "Ending"
@@ -3641,95 +3669,91 @@ msgstr "Mez 寺 ベースメントの カギ"
 msgid "Temple of Mez Main Hall Key"
 msgstr "Mez 寺 メインホールの カギ"
 
-#: ../items/categories/quest.txt:177
-msgid "Dynamite"
-msgstr "ダイナマイト"
-
-#: ../items/categories/quest.txt:186
+#: ../items/categories/quest.txt:187
 msgid "Worn Note #1"
 msgstr "ふるびたノート #1"
 
-#: ../items/categories/quest.txt:197
+#: ../items/categories/quest.txt:198
 msgid "Worn Note #2"
 msgstr "ふるびたノート #2"
 
-#: ../items/categories/quest.txt:208
+#: ../items/categories/quest.txt:209
 msgid "Worn Note #3"
 msgstr "ふるびたノート #3"
 
-#: ../items/categories/quest.txt:219
+#: ../items/categories/quest.txt:220
 msgid "Worn Note #4"
 msgstr "ふるびたノート #4"
 
-#: ../items/categories/quest.txt:230
+#: ../items/categories/quest.txt:231
 msgid "Worn Note #5"
 msgstr "ふるびたノート #5"
 
-#: ../items/categories/quest.txt:241
+#: ../items/categories/quest.txt:242
 msgid "Wizard's Tower Entrance Key"
 msgstr "Wizard の塔 エントランスの カギ"
 
-#: ../items/categories/quest.txt:251
+#: ../items/categories/quest.txt:252
 msgid "Wizard's Tower Research Hall Key"
 msgstr "Wizard の塔 研究棟の カギ"
 
-#: ../items/categories/quest.txt:272
+#: ../items/categories/quest.txt:273
 msgid "Lorund's Sword"
 msgstr ""
 
-#: ../items/categories/quest.txt:284
+#: ../items/categories/quest.txt:285
 msgid "Nerin's Bow"
 msgstr "ネリンの弓"
 
-#: ../items/categories/quest.txt:296
+#: ../items/categories/quest.txt:297
 msgid "Kayl's Staff"
 msgstr "カイルの杖"
 
-#: ../items/categories/quest.txt:308
+#: ../items/categories/quest.txt:309
 msgid "Underworld Stronghold Foyer Key"
 msgstr "下の世界 Stronghold Foyer のカギ"
 
-#: ../items/categories/quest.txt:318
+#: ../items/categories/quest.txt:319
 msgid "Underworld Stronghold Barracks Key"
 msgstr "下の世界 Stronghold Barracks のカギ"
 
-#: ../items/categories/quest.txt:328
+#: ../items/categories/quest.txt:329
 msgid "Treasure Chest Key"
 msgstr "宝箱のカギ"
 
-#: ../items/categories/quest.txt:337
+#: ../items/categories/quest.txt:339
 msgid "Silver Family Ring"
 msgstr ""
 
-#: ../items/categories/quest.txt:352
+#: ../items/categories/quest.txt:365
 msgid ""
 "An odor of iron and its abrasive petals make this rare plant easy to "
 "identify."
 msgstr "鉄の匂いと研磨されたかのような花びらが、この珍しい植物を際立たせている。"
 
-#: ../items/categories/quest.txt:363
+#: ../items/categories/quest.txt:376
 msgid ""
 "This mysterious black feather has a very sharp follicle, making it a "
 "suitable writing utensil."
 msgstr "この神秘的な黒い羽はとても鋭い毛包を持ち、そのため適切な筆記用具になっている。"
 
-#: ../items/categories/quest.txt:374
+#: ../items/categories/quest.txt:387
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr "ヤミの魔法エネルギーが、このヤイバの先端を流れている。"
 
-#: ../items/categories/quest.txt:382
+#: ../items/categories/quest.txt:395
 msgid "Vial of Your Blood"
 msgstr "あなたの血のビン"
 
-#: ../items/categories/quest.txt:385
+#: ../items/categories/quest.txt:398
 msgid "Spoils of the Red Altar ritual."
 msgstr "赤の祭壇での儀式による成果物"
 
-#: ../items/categories/quest.txt:393
+#: ../items/categories/quest.txt:406
 msgid "Blood Inkwell"
 msgstr "血のインクつぼ"
 
-#: ../items/categories/quest.txt:396
+#: ../items/categories/quest.txt:409
 msgid ""
 "According to Florin, this is the only ink capable of being used in the Book "
 "of the Dead."
@@ -4945,6 +4969,14 @@ msgstr ""
 
 #: ../scripts/dev/waypoints_unlock.txt:14
 msgid "Unlocked all waypoints"
+msgstr ""
+
+#: ../scripts/maps/the_pit/locked_chest.txt:4
+msgid "It's locked."
+msgstr ""
+
+#: ../scripts/maps/the_pit/locked_chest.txt:10
+msgid "You try to unlock the chest, but it's sealed by an unknown power."
 msgstr ""
 
 #: ../scripts/powers/goblin_steal.txt:8
