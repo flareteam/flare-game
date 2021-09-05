@@ -1,11 +1,11 @@
 type=fixed
 icon=65
-name=Mana Potion
-description=Restore 25% of maximum MP
+name=Super Mana Potion
+description=Restore 50% of maximum MP
 new_state=instant
 soundfx=soundfx/powers/potion.ogg
-requires_item=3
+requires_item=781
 cooldown=500ms
 buff=true
-post_effect=mp_restore,25,1s
+post_effect=mp_restore,50,1s
 requires_hpmp_state=all,ignore,0,not_percent,100

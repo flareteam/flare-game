@@ -1,12 +1,10 @@
 [power]
 id=162
 INCLUDE powers/base/items/health_potion.txt
-requires_hpmp_state=all,not_percent,100,ignore,0
 
 [power]
 id=163
 INCLUDE powers/base/items/mana_potion.txt
-requires_hpmp_state=all,ignore,0,not_percent,100
 
 [power]
 id=234
@@ -226,3 +224,20 @@ description=Use empty bottles and various ingredients to create potions.
 new_state=instant
 requires_item=753,0
 script=on_cast,scripts/powers/mortar_and_pestle.txt
+
+[power]
+id=275
+INCLUDE powers/base/items/super_health_potion.txt
+
+[power]
+id=276
+INCLUDE powers/base/items/ultra_health_potion.txt
+
+[power]
+id=277
+INCLUDE powers/base/items/super_mana_potion.txt
+
+[power]
+id=278
+INCLUDE powers/base/items/ultra_mana_potion.txt
+

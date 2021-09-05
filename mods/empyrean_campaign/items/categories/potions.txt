@@ -76,3 +76,51 @@ price_per_level=30
 max_quantity=20
 no_stash=shared
 
+[item]
+id=779
+name=Super Health Potion
+INCLUDE items/base/potion/hp.txt
+power=275
+power_desc=Restore 50% of maximum HP
+price=40
+price_sell=30
+price_per_level=40
+max_quantity=20
+no_stash=shared
+
+[item]
+id=780
+name=Ultra Health Potion
+INCLUDE items/base/potion/hp.txt
+power=276
+power_desc=Restore 75% of maximum HP
+price=60
+price_sell=45
+price_per_level=60
+max_quantity=20
+no_stash=shared
+
+[item]
+id=781
+name=Super Mana Potion
+INCLUDE items/base/potion/mp.txt
+power=277
+power_desc=Restore 50% of maximum MP
+price=40
+price_sell=30
+price_per_level=40
+max_quantity=20
+no_stash=shared
+
+[item]
+id=782
+name=Ultra Mana Potion
+INCLUDE items/base/potion/mp.txt
+power=278
+power_desc=Restore 75% of maximum MP
+price=60
+price_sell=45
+price_per_level=60
+max_quantity=20
+no_stash=shared
+

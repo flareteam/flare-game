@@ -1,11 +1,11 @@
 type=fixed
 icon=64
-name=Health Potion
-description=Restore 25% of maximum HP
+name=Ultra Health Potion
+description=Restore 75% of maximum HP
 soundfx=soundfx/powers/potion.ogg
 new_state=instant
-requires_item=2
+requires_item=780
 cooldown=500ms
 buff=true
-post_effect=hp_restore,25,1s
+post_effect=hp_restore,75,1s
 requires_hpmp_state=all,not_percent,100,ignore,0

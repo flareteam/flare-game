@@ -42,5 +42,29 @@ reward_item=1016,1
 unset_status=emp_naziamines_powder
 set_status=emp_naziamines_dynamite
 
+# super hp potion
+[event]
+requires_status=emp_alchemy_output_7
+remove_item=750,751:2
+reward_item=779,1
+
+# ultra hp potion
+[event]
+requires_status=emp_alchemy_output_8
+remove_item=750,751:3
+reward_item=780,1
+
+# super mp potion
+[event]
+requires_status=emp_alchemy_output_9
+remove_item=750,752:2
+reward_item=781,1
+
+# ultra mp potion
+[event]
+requires_status=emp_alchemy_output_10
+remove_item=750,752:3
+reward_item=782,1
+
 [event]
 script=scripts/crafting/alchemy/check_resources.txt

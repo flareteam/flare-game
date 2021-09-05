@@ -12,6 +12,11 @@ unset_status=emp_alchemy_output_2
 unset_status=emp_alchemy_output_3
 unset_status=emp_alchemy_output_4
 unset_status=emp_alchemy_output_5
+unset_status=emp_alchemy_output_6
+unset_status=emp_alchemy_output_7
+unset_status=emp_alchemy_output_8
+unset_status=emp_alchemy_output_9
+unset_status=emp_alchemy_output_10
 
 # empty bottle
 [event]
@@ -21,32 +26,105 @@ set_status=emp_alchemy_0
 
 # aloe vera
 [event]
+requires_item=751:3
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_1
+requires_status=emp_alchemy_slot2_1
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_1
+
+[event]
+requires_item=751:2
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_1
+requires_not_status=emp_alchemy_slot2_1
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_1
+
+[event]
+requires_item=751:2
+requires_status=emp_alchemy_slot0_0
+requires_not_status=emp_alchemy_slot1_1
+requires_status=emp_alchemy_slot2_1
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_1
+
+[event]
 requires_item=751
 requires_status=emp_alchemy_slot0_0
 requires_not_status=emp_alchemy_slot1_1
 requires_not_status=emp_alchemy_slot2_1
-requires_not_status=emp_alchemy_slot3_1
+requires_not_status=emp_alchemy_slot3_fill
 set_status=emp_alchemy_1
 
 # mana crystals
+[event]
+requires_item=752:3
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_2
+requires_status=emp_alchemy_slot2_2
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_2
+
+[event]
+requires_item=752:2
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_2
+requires_not_status=emp_alchemy_slot2_2
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_2
+
+[event]
+requires_item=752:2
+requires_status=emp_alchemy_slot0_0
+requires_not_status=emp_alchemy_slot1_2
+requires_status=emp_alchemy_slot2_2
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_2
+
 [event]
 requires_item=752
 requires_status=emp_alchemy_slot0_0
 requires_not_status=emp_alchemy_slot1_2
 requires_not_status=emp_alchemy_slot2_2
-requires_not_status=emp_alchemy_slot3_2
+requires_not_status=emp_alchemy_slot3_fill
 set_status=emp_alchemy_2
 
 # mushrooms
+[event]
+requires_item=754:3
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_3
+requires_status=emp_alchemy_slot2_3
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_3
+
+[event]
+requires_item=754:2
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_3
+requires_not_status=emp_alchemy_slot2_3
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_3
+
+[event]
+requires_item=754:2
+requires_status=emp_alchemy_slot0_0
+requires_not_status=emp_alchemy_slot1_3
+requires_status=emp_alchemy_slot2_3
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_3
+
 [event]
 requires_item=754
 requires_status=emp_alchemy_slot0_0
 requires_not_status=emp_alchemy_slot1_3
 requires_not_status=emp_alchemy_slot2_3
-requires_not_status=emp_alchemy_slot3_3
+requires_not_status=emp_alchemy_slot3_fill
 set_status=emp_alchemy_3
 
 # blast powder
+# the player can only have one of these, so we don't bother checking quantity here
 [event]
 requires_item=1032
 requires_status=emp_alchemy_slot0_0
@@ -170,5 +248,49 @@ requires_status=emp_alchemy_slot1_4
 requires_status=emp_alchemy_slot2_2
 requires_not_status=emp_alchemy_slot3_fill
 set_status=emp_alchemy_output_6
+set_status=emp_alchemy_craft
+
+# super hp potion recipe
+[event]
+requires_item=750
+requires_item=751:2
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_1
+requires_status=emp_alchemy_slot2_1
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_output_7
+set_status=emp_alchemy_craft
+
+# ultra hp potion recipe
+[event]
+requires_item=750
+requires_item=751:3
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_1
+requires_status=emp_alchemy_slot2_1
+requires_status=emp_alchemy_slot3_1
+set_status=emp_alchemy_output_8
+set_status=emp_alchemy_craft
+
+# super mp potion recipe
+[event]
+requires_item=750
+requires_item=752:2
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_2
+requires_status=emp_alchemy_slot2_2
+requires_not_status=emp_alchemy_slot3_fill
+set_status=emp_alchemy_output_9
+set_status=emp_alchemy_craft
+
+# ultra mp potion recipe
+[event]
+requires_item=750
+requires_item=752:3
+requires_status=emp_alchemy_slot0_0
+requires_status=emp_alchemy_slot1_2
+requires_status=emp_alchemy_slot2_2
+requires_status=emp_alchemy_slot3_2
+set_status=emp_alchemy_output_10
 set_status=emp_alchemy_craft
 
