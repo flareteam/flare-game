@@ -9,12 +9,12 @@ INCLUDE powers/base/items/mana_potion.txt
 [power]
 id=234
 INCLUDE powers/base/items/health_potion.txt
-script=on_cast,scripts/powers/alchemist_skirt_hp.txt
+script=on_cast,scripts/powers/alchemist_skirt/hp.txt
 
 [power]
 id=235
 INCLUDE powers/base/items/mana_potion.txt
-script=on_cast,scripts/powers/alchemist_skirt_mp.txt
+script=on_cast,scripts/powers/alchemist_skirt/mp.txt
 
 [power]
 id=181
@@ -154,66 +154,19 @@ remove_effect=shield,0
 
 [power]
 id=269
-type=fixed
-icon=80
-name=Stamina Potion
-description=Temporarily increase regeneration and movement speed
-soundfx=soundfx/powers/potion.ogg
-new_state=instant
-requires_item=775
-cooldown=500ms
-buff=true
-post_effect=stamina_potion_icon,0,60s
-post_effect=hp_regen,300,60s
-post_effect=mp_regen,30,60s
-post_effect=speed,110,60s
+INCLUDE powers/base/items/stamina_potion.txt
 
 [power]
 id=270
-type=fixed
-icon=81
-name=Restoration Potion
-description=Restore 25% of both HP and MP
-soundfx=soundfx/powers/potion.ogg
-new_state=instant
-requires_item=776
-cooldown=500ms
-buff=true
-post_effect=hp_restore,25,1s
-post_effect=mp_restore,25,1s
-requires_hpmp_state=any,not_percent,100,not_percent,100
+INCLUDE powers/base/items/restoration_potion.txt
 
 [power]
 id=271
-type=fixed
-icon=82
-name=Treasure Potion
-description=Temporarily increases the ability to find items and gold
-soundfx=soundfx/powers/potion.ogg
-new_state=instant
-requires_item=777
-cooldown=500ms
-buff=true
-post_effect=treasure_potion_icon,0,60s
-post_effect=item_find,400,60s
-post_effect=currency_find,50,60s
+INCLUDE powers/base/items/treasure_potion.txt
 
 [power]
 id=272
-type=fixed
-icon=83
-name=Elemental Potion
-description=Temporarily increases the resistance to all forms of magic by 50%
-soundfx=soundfx/powers/potion.ogg
-new_state=instant
-requires_item=778
-cooldown=500ms
-buff=true
-post_effect=elemental_potion_icon,0,60s
-post_effect=fire_resist,50,60s
-post_effect=ice_resist,50,60s
-post_effect=lightning_resist,50,60s
-post_effect=dark_resist,50,60s
+INCLUDE powers/base/items/elemental_potion.txt
 
 [power]
 id=274
@@ -240,4 +193,44 @@ INCLUDE powers/base/items/super_mana_potion.txt
 [power]
 id=278
 INCLUDE powers/base/items/ultra_mana_potion.txt
+
+[power]
+id=279
+INCLUDE powers/base/items/stamina_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/stamina.txt
+
+[power]
+id=280
+INCLUDE powers/base/items/restoration_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/restoration.txt
+
+[power]
+id=281
+INCLUDE powers/base/items/treasure_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/treasure.txt
+
+[power]
+id=282
+INCLUDE powers/base/items/elemental_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/elemental.txt
+
+[power]
+id=283
+INCLUDE powers/base/items/super_health_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/super_hp.txt
+
+[power]
+id=284
+INCLUDE powers/base/items/ultra_health_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/ultra_hp.txt
+
+[power]
+id=285
+INCLUDE powers/base/items/super_mana_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/super_mp.txt
+
+[power]
+id=286
+INCLUDE powers/base/items/ultra_mana_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/ultra_mp.txt
 

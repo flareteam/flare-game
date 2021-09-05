@@ -1,0 +1,14 @@
+type=fixed
+icon=83
+name=Elemental Potion
+description=Temporarily increases the resistance to all forms of magic by 50%
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=778
+cooldown=500ms
+buff=true
+post_effect=elemental_potion_icon,0,60s
+post_effect=fire_resist,50,60s
+post_effect=ice_resist,50,60s
+post_effect=lightning_resist,50,60s
+post_effect=dark_resist,50,60s

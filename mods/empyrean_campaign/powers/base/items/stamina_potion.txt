@@ -1,0 +1,13 @@
+type=fixed
+icon=80
+name=Stamina Potion
+description=Temporarily increase regeneration and movement speed
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=775
+cooldown=500ms
+buff=true
+post_effect=stamina_potion_icon,0,60s
+post_effect=hp_regen,300,60s
+post_effect=mp_regen,30,60s
+post_effect=speed,110,60s

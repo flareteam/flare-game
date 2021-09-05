@@ -1,0 +1,12 @@
+type=fixed
+icon=82
+name=Treasure Potion
+description=Temporarily increases the ability to find items and gold
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=777
+cooldown=500ms
+buff=true
+post_effect=treasure_potion_icon,0,60s
+post_effect=item_find,400,60s
+post_effect=currency_find,50,60s

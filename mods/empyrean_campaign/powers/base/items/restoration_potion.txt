@@ -1,0 +1,12 @@
+type=fixed
+icon=81
+name=Restoration Potion
+description=Restore 25% of both HP and MP
+soundfx=soundfx/powers/potion.ogg
+new_state=instant
+requires_item=776
+cooldown=500ms
+buff=true
+post_effect=hp_restore,25,1s
+post_effect=mp_restore,25,1s
+requires_hpmp_state=any,not_percent,100,not_percent,100
