@@ -4,6 +4,7 @@ talker=true
 
 # quest not complete; second ring not yet inserted
 [dialog]
+topic=Ardwen's Coffin
 requires_not_status=emp_ardwen_ring_2_used,emp_ardwen_spawn,emp_ardwen_finish
 response=emp_ardwen_ring_1
 response=emp_ardwen_ring_2
@@ -42,6 +43,7 @@ topic=Cancel
 
 # quest not complete; second ring has been inserted
 [dialog]
+topic=Ardwen's Coffin
 requires_status=emp_ardwen_ring_2_used
 requires_not_status=emp_ardwen_spawn,emp_ardwen_defeated,emp_ardwen_finish
 script=scripts/maps/family_crypt/spawn_ardwen.txt
@@ -49,6 +51,7 @@ spawn=ardwen_quest,12,4
 
 # quest complete
 [dialog]
+topic=Ardwen's Coffin
 requires_status=emp_ardwen_finish
 requires_not_status=emp_ardwen_spawn,emp_ardwen_defeated
 script=scripts/maps/family_crypt/spawn_ardwen.txt
