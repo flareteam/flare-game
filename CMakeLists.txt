@@ -1,5 +1,5 @@
-Project (Flare-Game)
-cmake_minimum_required (VERSION 2.6)
+Project (Flare-Game LANGUAGES NONE)
+cmake_minimum_required (VERSION 2.8.12)
 
 Set (PACKAGE "FLARE-GAME")
 Set (VERSION "1.12")
