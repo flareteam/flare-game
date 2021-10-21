@@ -1199,3 +1199,13 @@ radius=1.0
 starting_pos=target
 target_categories=hero
 script=on_hit,scripts/powers/goblin_steal.txt
+
+# Lezaith's slow/stun immunity
+[power]
+id=287
+type=fixed
+buff=true
+passive=true
+post_effect=immunity_slow,0,0
+post_effect=immunity_stun,0,0
+
