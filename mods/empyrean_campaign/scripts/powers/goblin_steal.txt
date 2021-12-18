@@ -1,20 +1,109 @@
-# 1 Health Potion
 [event]
-requires_not_status=emp_script_goblin_steal
-chance_exec=50
+random_status=clear
+
+
+
+# Health Potion
+[event]
 requires_item=2
-remove_item=2
-set_status=emp_script_goblin_steal
-msg=Goblin Thief stole a potion!
+random_status=append,emp_script_goblin_steal_1
 
-# 1 Mana Potion
+# Mana Potion
 [event]
-requires_not_status=emp_script_goblin_steal
 requires_item=3
-remove_item=3
-set_status=emp_script_goblin_steal
-msg=Goblin Thief stole a potion!
+random_status=append,emp_script_goblin_steal_2
 
-# Gold
+# Stamina Potion
 [event]
-unset_status=emp_script_goblin_steal
+requires_item=775
+random_status=append,emp_script_goblin_steal_3
+
+# Restoration Potion
+[event]
+requires_item=776
+random_status=append,emp_script_goblin_steal_4
+
+# Treasure Potion
+[event]
+requires_item=777
+random_status=append,emp_script_goblin_steal_5
+
+# Elemental Potion
+[event]
+requires_item=778
+random_status=append,emp_script_goblin_steal_6
+
+# Super Health Potion
+[event]
+requires_item=779
+random_status=append,emp_script_goblin_steal_7
+
+# Ultra Health Potion
+[event]
+requires_item=780
+random_status=append,emp_script_goblin_steal_8
+
+# Super Mana Potion
+[event]
+requires_item=781
+random_status=append,emp_script_goblin_steal_9
+
+# Ultra Mana Potion
+[event]
+requires_item=782
+random_status=append,emp_script_goblin_steal_10
+
+
+
+[event]
+random_status=roll
+random_status=set
+
+
+
+[event]
+requires_status=emp_script_goblin_steal_1
+remove_item=2
+
+[event]
+requires_status=emp_script_goblin_steal_2
+remove_item=3
+
+[event]
+requires_status=emp_script_goblin_steal_3
+remove_item=775
+
+[event]
+requires_status=emp_script_goblin_steal_4
+remove_item=776
+
+[event]
+requires_status=emp_script_goblin_steal_5
+remove_item=777
+
+[event]
+requires_status=emp_script_goblin_steal_6
+remove_item=778
+
+[event]
+requires_status=emp_script_goblin_steal_7
+remove_item=779
+
+[event]
+requires_status=emp_script_goblin_steal_8
+remove_item=780
+
+[event]
+requires_status=emp_script_goblin_steal_9
+remove_item=781
+
+[event]
+requires_status=emp_script_goblin_steal_10
+remove_item=782
+
+
+
+[event]
+msg=Goblin Thief stole a potion!
+random_status=unset
+random_status=clear
