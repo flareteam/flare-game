@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 17:48+\n"
+"POT-Creation-Date: 2022-01-09 13:46+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Kirim Saja <kirim.aja1111@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/flareorg/teams/84925/id/)\n"
@@ -942,17 +942,17 @@ msgstr "Gua Goblin"
 msgid "Gravestone"
 msgstr "Nisan"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
 msgid "Halls of Infinity"
 msgstr "Aula Tak Terhingga"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
-msgid "Stalagmite Pillar"
-msgstr "Pilar Stalagmit"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
 msgid "Mine Cart"
 msgstr "Kereta Tambang"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+msgid "Stalagmite Pillar"
+msgstr "Pilar Stalagmit"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1679,7 +1679,7 @@ msgstr ""
 "Sudah dapat kuncinya belum? Pasangan saya mungkin menyembunyikannya di suatu"
 " tempat di perkemahan selatan Stonewood."
 
-#: ../npcs/ardwens_coffin.txt:11
+#: ../npcs/ardwens_coffin.txt:12
 msgid ""
 "A finger-sized post is protruding from the lid of the coffin. It looks as "
 "though something is missing."
@@ -1687,19 +1687,19 @@ msgstr ""
 "Sebuah tiang seukuran jari menonjol dari tutup peti mati. Sepertinya ada "
 "sesuatu yang hilang."
 
-#: ../npcs/ardwens_coffin.txt:16
+#: ../npcs/ardwens_coffin.txt:17
 msgid "Place the Gold Family Ring on the coffin"
 msgstr "Tempatkan Cincin Keluarga Emas di peti mati"
 
-#: ../npcs/ardwens_coffin.txt:21
+#: ../npcs/ardwens_coffin.txt:22
 msgid "The ring dissolved into nothing!"
 msgstr "Cincin itu larut menjadi tidak ada!"
 
-#: ../npcs/ardwens_coffin.txt:29
+#: ../npcs/ardwens_coffin.txt:30
 msgid "Place the Silver Family Ring on the coffin"
 msgstr "Tempatkan Cincin Keluarga Perak di peti mati"
 
-#: ../npcs/ardwens_coffin.txt:41
+#: ../npcs/ardwens_coffin.txt:42
 msgid "Cancel"
 msgstr "Batal"
 
@@ -1737,73 +1737,97 @@ msgstr "(Tampak puas, dia merogoh tasnya dan memberimu patung beruang kayu.)"
 msgid "Infinity Obelisk"
 msgstr "Obelisk Tak Terbatas"
 
-#: ../npcs/base/infinity_obelisk.txt:7
+#: ../npcs/base/infinity_obelisk.txt:8
 msgid "(You touch the obelisk, but nothing happens.)"
 msgstr "(Anda menyentuh obelisk, tetapi tidak ada yang terjadi.)"
 
-#: ../npcs/base/infinity_obelisk.txt:10
+#: ../npcs/base/infinity_obelisk.txt:11
 msgid "Continue through the Halls of Infinity"
 msgstr "Lanjutkan melalui Aula Tak Terhingga"
 
-#: ../npcs/base/infinity_obelisk.txt:17
+#: ../npcs/base/infinity_obelisk.txt:18
 msgid "Return to Underworld Stronghold"
 msgstr "Kembali ke Benteng Dunia Bawah"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
-msgstr "Setel ulang pencarian"
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, Pedagang Keliling"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr "Setel ulang pencarian: \"Kembali ke Empyrean\""
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "Jurnal"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr "Setel ulang pencarian: \"Krolan Hilang\""
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "Adakah yang beruntung menemukan jurnal saya?"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
-msgstr "Setel ulang pencarian: \"Kimia\""
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "Belum."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr "Setel ulang pencarian: \"Jurnal Pedagang\""
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "Ini jurnalmu."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr "Setel ulang pencarian: \"Terjebak di Ruangan Tersembunyi\""
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Hebat! Saya telah menganggapnya hilang selamanya pada saat ini."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr "Setel ulang pencarian: \"Penjaga Bermata Satu\""
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr ""
+"Saya berhutang pada Anda. Tolong ambil ini sebagai hadiah untuk masalahmu."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr "Setel ulang pencarian: \"Saudara?\""
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "Jangan menunjukkan belas kasihan bagi para goblin pencuri itu."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr "Setel ulang pencarian: \"Terkunci\""
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "Hati-hati di jalan-jalan ini. Para goblin itu hanyalah masalah."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
-msgstr "Setel ulang pencarian: \"Benteng yang Terkubur\""
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "Terima kasih atas peringatannya."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr "Setel ulang pencarian: \"Jiwa yang Hilang dari Gua Mog\""
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "Ini yang paling bisa saya lakukan."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr "Setel ulang pencarian: \"Nama yang Tidak Biasa...\""
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr ""
+"Ketika saya bangun pagi ini, jurnal saya hilang. Tidak diragukan lagi salah "
+"satu makhluk hijau kotor itu mencurinya dariku."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr "Setel ulang pencarian: \"Catatan Sipir\""
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr ""
+"Jika Anda menemukan jurnal saya dalam perjalanan Anda, tolong kembalikan "
+"kepada saya."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
-msgstr "Setel ulang pencarian: \"Kawan-kawan yang Jatuh\""
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "Salam, pengembara."
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+"Dilihat dari penampilan Anda, Anda tidak asing dengan perjalanan panjang. "
+"Untuk alasan itu, saya meminta Anda untuk mengawasi jurnal saya yang hilang."
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"Saya pertama kali menyadarinya hilang setelah semalam berkemah di dekat Gua "
+"Goblin. Saya mencari beberapa saat, tetapi akhirnya memutuskan yang terbaik "
+"adalah melanjutkan."
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1901,65 +1925,61 @@ msgstr "Level 19"
 msgid "Level 20"
 msgstr "Level 20"
 
-#: ../npcs/base/dev_tome/teleport.txt:17
-msgid "Introduction"
-msgstr "Pengenalan"
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
+msgstr "Setel ulang pencarian"
 
-#: ../npcs/base/dev_tome/teleport.txt:29
-msgid "Region 1: Salted Field -> St. Maria"
-msgstr "Wilayah 1: Ladang Bergaram -> St. Maria"
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Setel ulang pencarian: \"Kembali ke Empyrean\""
 
-#: ../npcs/base/dev_tome/teleport.txt:48
-msgid "Region 2: Lake Kuuma -> Temple of Mez"
-msgstr "Wilayah 2: Danau Kuuma -> Kuil Mez"
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Setel ulang pencarian: \"Krolan Hilang\""
 
-#: ../npcs/base/dev_tome/teleport.txt:67
-msgid "Region 3: Nazia Highlands -> Wizard's Tower"
-msgstr "Wilayah 3: Dataran Tinggi Nazia -> Menara Penyihir"
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
+msgstr "Setel ulang pencarian: \"Kimia\""
 
-#: ../npcs/base/dev_tome/teleport.txt:86
-msgid "Region 4: Underworld"
-msgstr "Wilayah 4: Dunia Bawah"
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Setel ulang pencarian: \"Jurnal Pedagang\""
 
-#: ../npcs/base/dev_tome/teleport.txt:419
-msgid "Halls of Infinity: 1"
-msgstr "Aula Tak Terhingga: 1"
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "Setel ulang pencarian: \"Terjebak di Ruangan Tersembunyi\""
 
-#: ../npcs/base/dev_tome/teleport.txt:425
-msgid "Halls of Infinity: 2"
-msgstr "Aula Tak Terhingga: 2"
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Setel ulang pencarian: \"Penjaga Bermata Satu\""
 
-#: ../npcs/base/dev_tome/teleport.txt:431
-msgid "Halls of Infinity: 3"
-msgstr "Aula Tak Terhingga: 3"
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr "Setel ulang pencarian: \"Saudara?\""
 
-#: ../npcs/base/dev_tome/teleport.txt:437
-msgid "Halls of Infinity: 4"
-msgstr "Aula Tak Terhingga: 4"
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr "Setel ulang pencarian: \"Terkunci\""
 
-#: ../npcs/base/dev_tome/teleport.txt:443
-msgid "Halls of Infinity: 5"
-msgstr "Aula Tak Terhingga: 5"
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
+msgstr "Setel ulang pencarian: \"Benteng yang Terkubur\""
 
-#: ../npcs/base/dev_tome/teleport.txt:449
-msgid "Halls of Infinity: 6"
-msgstr "Aula Tak Terhingga: 6"
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Setel ulang pencarian: \"Jiwa yang Hilang dari Gua Mog\""
 
-#: ../npcs/base/dev_tome/teleport.txt:455
-msgid "Halls of Infinity: 7"
-msgstr "Aula Tak Terhingga: 7"
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Setel ulang pencarian: \"Nama yang Tidak Biasa...\""
 
-#: ../npcs/base/dev_tome/teleport.txt:461
-msgid "Halls of Infinity: 8"
-msgstr "Aula Tak Terhingga: 8"
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Setel ulang pencarian: \"Catatan Sipir\""
 
-#: ../npcs/base/dev_tome/teleport.txt:467
-msgid "Halls of Infinity: 9"
-msgstr "Aula Tak Terhingga: 9"
-
-#: ../npcs/base/dev_tome/teleport.txt:473
-msgid "Halls of Infinity: 10"
-msgstr "Aula Tak Terhingga: 10"
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Setel ulang pencarian: \"Kawan-kawan yang Jatuh\""
 
 #: ../npcs/base/dev_tome/items.txt:2
 msgid "Give items"
@@ -2021,85 +2041,65 @@ msgstr "Gulungan Cerminan"
 msgid "Underworld Set (with rings)"
 msgstr "Set Dunia Bawah (dengan cincin)"
 
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr "Hati-hati di jalan-jalan ini. Para goblin itu hanyalah masalah."
+#: ../npcs/base/dev_tome/teleport.txt:17
+msgid "Introduction"
+msgstr "Pengenalan"
 
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "Terima kasih atas peringatannya."
+#: ../npcs/base/dev_tome/teleport.txt:29
+msgid "Region 1: Salted Field -> St. Maria"
+msgstr "Wilayah 1: Ladang Bergaram -> St. Maria"
 
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "Ini yang paling bisa saya lakukan."
+#: ../npcs/base/dev_tome/teleport.txt:48
+msgid "Region 2: Lake Kuuma -> Temple of Mez"
+msgstr "Wilayah 2: Danau Kuuma -> Kuil Mez"
 
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
-msgstr ""
-"Ketika saya bangun pagi ini, jurnal saya hilang. Tidak diragukan lagi salah "
-"satu makhluk hijau kotor itu mencurinya dariku."
+#: ../npcs/base/dev_tome/teleport.txt:67
+msgid "Region 3: Nazia Highlands -> Wizard's Tower"
+msgstr "Wilayah 3: Dataran Tinggi Nazia -> Menara Penyihir"
 
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr ""
-"Jika Anda menemukan jurnal saya dalam perjalanan Anda, tolong kembalikan "
-"kepada saya."
+#: ../npcs/base/dev_tome/teleport.txt:86
+msgid "Region 4: Underworld"
+msgstr "Wilayah 4: Dunia Bawah"
 
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "Abasi, Pedagang Keliling"
+#: ../npcs/base/dev_tome/teleport.txt:419
+msgid "Halls of Infinity: 1"
+msgstr "Aula Tak Terhingga: 1"
 
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "Jurnal"
+#: ../npcs/base/dev_tome/teleport.txt:425
+msgid "Halls of Infinity: 2"
+msgstr "Aula Tak Terhingga: 2"
 
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "Adakah yang beruntung menemukan jurnal saya?"
+#: ../npcs/base/dev_tome/teleport.txt:431
+msgid "Halls of Infinity: 3"
+msgstr "Aula Tak Terhingga: 3"
 
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "Belum."
+#: ../npcs/base/dev_tome/teleport.txt:437
+msgid "Halls of Infinity: 4"
+msgstr "Aula Tak Terhingga: 4"
 
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "Ini jurnalmu."
+#: ../npcs/base/dev_tome/teleport.txt:443
+msgid "Halls of Infinity: 5"
+msgstr "Aula Tak Terhingga: 5"
 
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "Hebat! Saya telah menganggapnya hilang selamanya pada saat ini."
+#: ../npcs/base/dev_tome/teleport.txt:449
+msgid "Halls of Infinity: 6"
+msgstr "Aula Tak Terhingga: 6"
 
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr ""
-"Saya berhutang pada Anda. Tolong ambil ini sebagai hadiah untuk masalahmu."
+#: ../npcs/base/dev_tome/teleport.txt:455
+msgid "Halls of Infinity: 7"
+msgstr "Aula Tak Terhingga: 7"
 
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "Jangan menunjukkan belas kasihan bagi para goblin pencuri itu."
+#: ../npcs/base/dev_tome/teleport.txt:461
+msgid "Halls of Infinity: 8"
+msgstr "Aula Tak Terhingga: 8"
 
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "Salam, pengembara."
+#: ../npcs/base/dev_tome/teleport.txt:467
+msgid "Halls of Infinity: 9"
+msgstr "Aula Tak Terhingga: 9"
 
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
-msgstr ""
-"Dilihat dari penampilan Anda, Anda tidak asing dengan perjalanan panjang. "
-"Untuk alasan itu, saya meminta Anda untuk mengawasi jurnal saya yang hilang."
-
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
-msgstr ""
-"Saya pertama kali menyadarinya hilang setelah semalam berkemah di dekat Gua "
-"Goblin. Saya mencari beberapa saat, tetapi akhirnya memutuskan yang terbaik "
-"adalah melanjutkan."
+#: ../npcs/base/dev_tome/teleport.txt:473
+msgid "Halls of Infinity: 10"
+msgstr "Aula Tak Terhingga: 10"
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2810,6 +2810,22 @@ msgstr "Jamur"
 msgid "Dynamite"
 msgstr "Dinamit"
 
+#: ../books/crafting_alchemy.txt:300
+msgid "Super Health Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:313
+msgid "Ultra Health Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:326
+msgid "Super Mana Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:339
+msgid "Ultra Mana Potion"
+msgstr ""
+
 #: ../books/cutscene_list.txt:21
 msgid "Ending"
 msgstr "Akhir"
@@ -2933,121 +2949,109 @@ msgstr "1468/7/10"
 msgid "No subjects asked to take the test today."
 msgstr "Tidak ada mata pelajaran yang diminta untuk mengikuti tes hari ini."
 
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
-msgstr "Helm Plat Tempur"
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Baju Kain Panglima Perang"
 
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
-msgstr "Helm Plat Recon"
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Baju Kain Sniper"
 
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr "Tudung Beludru Tukang Sihir"
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Baju Kain Penyihir Agung"
 
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "Kuiras Plat Tempur"
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Celana Kain Panglima Perang"
 
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "Kuiras Plat Recon"
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Celana Kain Sniper"
 
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr "Rompi Beludru Tukang Sihir"
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Celana Kain Penyihir Agung"
 
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "Pelindung Kaki Plat Tempur"
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Sandal Kain Panglima Perang"
 
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "Pelindung Kaki Plat Recon"
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Sandal Kain Sniper"
 
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr "Rok Beludru Tukang Sihir"
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Sandal Kain Penyihir Agung"
 
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "Sepatu Plat Tempur"
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Sarung Tangan Kain Paanglima Perang"
 
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "Sepatu Plat Recon"
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Sarung Tangan kulit Sniper"
 
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr "Sepatu Beludru Tukang Sihir"
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Sarung Tangan kulit Penyihir Agung"
 
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "Gauntlet Plat Tempur"
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Sabuk Kulit Master"
 
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "Gauntlet Plat Recon"
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Liontin Master"
 
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr "Kaos Lengan Beludru Tukang Sihir"
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Buku Mantra Master"
 
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr "Sabuk Kulit Panglima Perang Pengembaraan"
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Belati Panglima Perang"
 
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr "Liontin Sniper Pengembaraan"
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Ketapel Sniper"
 
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr "Buku Mantra Penyihir Agung Pengembaraan"
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Tongkat Sihir Penyihir Agung"
 
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "Pedang Besar Tempur"
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Tameng Kecil Kayu Templar"
 
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "Busur Besar Recon"
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Cincin Api Master"
 
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr "Tongkat Besar Tukang Sihir"
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Cincin Es Master"
 
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "Perisai Menara Penjaga "
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Cincin Petir Master"
 
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr "Cincin Neraka Pengembaraan"
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Cincin Gelap Pengembaraan"
 
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr "Cincin Glasial Pengembaraan"
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Cincin Experience Master"
 
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr "Cincin Volt Pengembaraan"
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Cincin Kekayaan Master"
 
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr "Cincin Kehampaan Pengembaraan"
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr "Cincin Cendekia Pengembaraan"
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr "Cincin Kemakmuran Pengembaraan"
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
-msgstr "Cincin Peninggalan Pengembaraan"
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "CIncin Harta Karun Master"
 
 #: ../items/categories/level_5.txt:5
 msgid "Leather Hood"
@@ -3105,122 +3109,6 @@ msgstr "Gada"
 msgid "Iron Buckler"
 msgstr "Tameng Kecil Besi"
 
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Helm Plat Panglima Perang"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Helm Plat Sniper"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Tudung Beludru Penyihir Agung"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Kuiras Plat Panglima Tempur"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Kuiras Plat Sniper"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Rompi Beludru Penyihir Agung"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Pelindung Kaki Plat Panglima Perang"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Pelindung Kaki Plat Sniper"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Rok Beludru Penyihir Agung"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Sepatu Plat Panglima Perang"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Sepatu Plat Sniper"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Sepatu Beludru Penyihir Agung"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Gauntlet Plat Panglima Perang"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Gauntlet Plat Sniper"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Kaos Lengan Beludru Penyihir Agung"
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "Sabuk Kulit Master Panglima Perang"
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "Liontin Master Sniper"
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "Buku Mantra Master Penyihir Agung"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Pedang Besar Panglima Perang"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Busur Besar Sniper"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Tongkat Besar Penyihir Agung"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Perisai Menara Templar"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Cincin Neraka Master"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Cincin Glasial Master"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Cincin Volt Master"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Cincin Kehampaan Master"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Cincin Cendekia Master"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Cincin Kemakmuran Master"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Cincin Peninggalan Master"
-
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "Helm Plat"
@@ -3277,297 +3165,193 @@ msgstr "Tongkat Besar"
 msgid "Tower Shield"
 msgstr "Perisai Menara"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Koif Rantai Panglima Perang"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Baju Kain"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Koif Rantai Sniper"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Celana Kain"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Tudung Sutra Penyihir Agung"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Sandal Kain"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Kuiras Rantai Panglima Perang"
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Sarung Tangan Kain"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Kuiras Rantai Sniper"
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Belati"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Rompi Sutra Penyihir Agung"
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Ketapel"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Pelindung Kaki Rantai Panglima Perang"
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Tongkat Sihir"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Pelindung Kaki Rantai Sniper"
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Tameng Kecil Kayu"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Rok Sutra Penyihir Agung"
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Tudung Kulit Panglima Perang"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Sepatu Rantai Panglima Perang"
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Tudung Kulit Sniper"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Sepatu Rantai Sniper"
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Tudung Wol Penyihir Agung"
 
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Sepatu Sutra Penyihir Agung"
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Tunik Kulit Panglima Perang"
 
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Sarung Tangan Rantai Panglima Perang"
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Tunik Kulit Sniper"
 
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Sarung Tangan Rantai Sniper"
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Rompi Wol Penyihir Agung"
 
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Kaos Lengan Sutra Penyihir Agung"
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Celana Kulit Panglima Perang"
 
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Sabuk Kulit Master Prajurit"
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Celana Kulit Sniper"
 
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Liontin Ranger Master"
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Rok Wol Penyihir Agung"
 
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Buku Mantra Guru Penyihir "
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Sepatu Kulit Panglima Perang"
 
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Pedang Panjang Panglima Perang"
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Sepatu Kulit Sniper"
 
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Busur Panjang Sniper"
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Sepatu Wol Penyihir Agung"
 
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Tongkat Penyihir Agung"
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Sarung Tangan Kulit Panglima Perang"
 
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Perisai Puncak Templar"
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Sarung Tangan Kulit Sniper"
 
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Cincin Bara Master"
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Kaos Lengan Wol Penyihir Agung"
 
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Cincin Beku Master"
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Sabuk Kulit Master Tempur"
 
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Cincin Kejut Master"
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Liontin Recon Master"
 
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Cincin Kegelapan Master"
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Buku Mantra Master Penyihir"
 
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Cincin Intelektual Master"
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Pedang Pendek Panglima Perang"
 
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Cincin Penguntung Master"
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Busur Pendek Sniper"
 
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Cincin Artefak Master"
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Gada Penyihir Agung"
 
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Palu Krolan"
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Tameng Kecil Besi Templar"
 
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Alat penting untuk setiap pandai besi."
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Cincin Bakar Master"
 
-#: ../items/categories/level_4_unique.txt:18
-msgid "Goblin Branch"
-msgstr "Ranting Goblin"
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Cincin Pembeku Master"
 
-#: ../items/categories/level_4_unique.txt:19
-msgid "Mana flows inside its primitive exterior."
-msgstr "Mana mengalir di dalam eksterior primitifnya."
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Cincin Listrik Master"
 
-#: ../items/categories/level_4_unique.txt:34
-msgid "Ardwen's Gloves"
-msgstr "Sarung Tangan Ardwen"
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Cincin Bayangan Master"
 
-#: ../items/categories/level_4_unique.txt:35
-msgid "These hands built a village."
-msgstr "Tangan-tangan ini membangun sebuah desa."
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Cincin Pengetahuan Master"
 
-#: ../items/categories/level_4_unique.txt:50
-msgid "Blood Tunic"
-msgstr "Tunik Darah"
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Cincin Kemakmuran Master"
 
-#: ../items/categories/level_4_unique.txt:51
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Saat dikenakan, kemeja ini menghangatkan urat nadi pemakainya."
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Cincin Penjarahan Master"
 
-#: ../items/categories/level_4_unique.txt:65
-msgid "Dark Steppers"
-msgstr "Stepper Kegelapan"
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Gunakan: Panggil zombie untuk bertarung untukmu"
 
-#: ../items/categories/level_4_unique.txt:66
-msgid "Dancing through the shadows."
-msgstr "Menari melalui bayang-bayang."
+#: ../items/categories/scrolls.txt:20
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Gunakan: Teleportasi ke Pelabuhan Kebinasaan"
 
-#: ../items/categories/level_4_unique.txt:79
-msgid "Seagate's Tri-pants"
-msgstr "Tri-celana Seagate"
+#: ../items/categories/scrolls.txt:32
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Gunakan: Buat perisai ajaib yang menyerap damage"
 
-#: ../items/categories/level_4_unique.txt:80
-msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
+#: ../items/categories/scrolls.txt:44
+msgid "Use: Shoot a fireball"
+msgstr "Gunakan: Tembak bola api"
+
+#: ../items/categories/scrolls.txt:56
+msgid "Use: Shoot an ice bolt"
+msgstr "Gunakan: Tembak baut es"
+
+#: ../items/categories/scrolls.txt:68
+msgid "Use: Move at an increased speed for a limited time"
 msgstr ""
-"Celana compang-camping ini ditutupi bekas hangus, namun terasa dingin saat "
-"disentuh."
+"Gunakan: Bergerak dengan kecepatan yang ditingkatkan untuk waktu yang "
+"terbatas"
 
-#: ../items/categories/level_4_unique.txt:95
-msgid "Ardwen's Ring"
-msgstr "Cincin Ardwen"
+#: ../items/categories/scrolls.txt:80
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Gunakan: Hapus debuff dan menjadi kebal terhadap debuff untuk waktu yang "
+"terbatas"
 
-#: ../items/categories/level_4_unique.txt:96
-msgid "Lochport's finest."
-msgstr "Lochport terbaik."
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Koif Rantai Prajurit"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Koif Rantai Ranger"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "Tudung Sutra Penyihir"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr "Kuiras Rantai Prajurit"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr "Kuiras Rantai Ranger"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "Rompi Sutra Penyihir"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Pelindung Kaki Rantai Prajurit"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Pelindung Kaki Rantai Ranger"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "Rok Sutra Penyihir"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Sepatu Rantai Prajurit"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Sepatu Rantai Ranger"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "Sepatu Sutra Penyihir"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Sarung Tangan Rantai Prajurit"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Sarung Tangan Rantai Ranger"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "Kaos Lengan Sutra Penyihir"
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr "Sabuk Kulit Prajurit Penjelajah"
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr "Liontin Ranger Penjelajah"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr "Buku Mantra Penyihir Penjelajah"
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Pedang Panjang Prajurit"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Busur Panjang Ranger"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "Tongkat Penyihir"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "Perisai Puncak Paladin"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "Cincin Bara Penjelajah"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "Cincin Beku Penjelajah"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "Cincin Kejut Penjelajah"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "Cincin Kegelapan Penjelajah"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "Cincin Intelektual Penjelajah"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "Cincin Penguntung Penjelajah"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "Cincin Artefak Penjelajah"
+#: ../items/categories/scrolls.txt:92
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Gunakan: Membuat perisai magis yang memantulkan proyektil dan damage untuk "
+"waktu yang terbatas"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3672,6 +3456,238 @@ msgstr "Cincin Kekayaan Pengembaraan"
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
 msgstr "CIncin Harta Karun Pengembaraan"
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Helm Plat Prajurit"
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Helm Plat Ranger"
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Tudung Beludru Penyihir"
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Kuiras Plat Prajurit"
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Kuiras Plat Ranger"
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Rompi Beludru Penyihir"
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Pelindung Kaki Plat Prajurit"
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Pelindung Kaki Plat Ranger"
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Rok Beludru Penyihir"
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Sepatu Plat Prajurit"
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Sepatu Plat Ranger"
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Sepatu Beludru Penyihir"
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Gauntlet Plat Prajurit"
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Gauntlet Plat Ranger"
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Kaos Lengan Beludru Penyihir"
+
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Sabuk Kulit Panglima PerangPenjelajah"
+
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Liontin Sniper Penjelajah"
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Buku Mantra Penyihir Agung Penjelajah"
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Pedang Besar Prajurit"
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Busur Besar Ranger"
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Tongkat Besar Penyihir"
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Perisai Menara Paladin"
+
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Cincin Neraka Penjelajah"
+
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Cincin Glasial Penjelajah"
+
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Cincin Volt Penjelajah"
+
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Cincin Kehampaan Penjelajah"
+
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Cincin Cendekia Penjelajah"
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Cincin Kemakmuran Penjelajah"
+
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Cincin Peninggalan Penjelajah"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Tudung Kulit Prajurit"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Tudung Kulit Ranger"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "Tudung Wol Penyihir"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Tunik Kulit Prajurit"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Tunik Kulit Ranger"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "Rompi Wol Penyihir"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Celana Kulit Prajurit"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Celana Kulit Ranger"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "Rok Wol Penyihir"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Sepatu Kulit Prajurit"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Sepatu Kulit Ranger"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "Sepatu Wol Penyihir"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Sarung Tangan Kulit Prajurit"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Sarung Tangan Kulit Ranger"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "Kaos Lengan Wol Penyihir"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Sabuk Kulit Tarung Penjelajah"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Liontin Recon Penjelajah"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Buku Mantra Penyihir Penjelajah"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Pedang Pendek Prajurit"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Busur Pendek Ranger"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "Gada Penyihir"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Tameng Kecil Besi Paladin"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "Cincin Bakar Penjelajah"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "Cincin Pembeku Penjelajah"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "Cincin Listrik Penjelajah"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "Cincin Bayangan Penjelajah"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "Cincin Pengetahuan Penjelajah"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "Cincin Kemakmuran Penjelajah"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "Cincin Penjarahan Penjelajah"
 
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
@@ -3788,6 +3804,65 @@ msgstr "Cincin Penguntung Pengembaraan"
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "Cincin Artefak Pengembaraan"
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Pita daging"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr ""
+"Halus saat disentuh. Setelah memakainya, itu mengencangkan dirinya sendiri "
+"di sekitar jari."
+
+#: ../items/categories/level_16_unique.txt:20
+msgid "Soulband"
+msgstr "Soulband"
+
+#: ../items/categories/level_16_unique.txt:22
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Bersinar saat dipakai, itu menjernihkan pikiran pemakainya dan memungkinkan "
+"mereka untuk fokus secara mendalam."
+
+#: ../items/categories/level_16_unique.txt:36
+msgid "Underworld Cloak"
+msgstr "Jubah Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:48
+msgid "Underworld Platemail"
+msgstr "Zirah Plat Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:60
+msgid "Underworld Boots"
+msgstr "Sepatu Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:72
+msgid "Underworld Armguards"
+msgstr "Pelindung Lengan Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:84
+msgid "Underworld Greaves"
+msgstr "Pelindung Kaki Duniah Bawah"
+
+#: ../items/categories/level_16_unique.txt:96
+msgid "Underworld Tome"
+msgstr "Kitab Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:107
+msgid "Underworld Blade"
+msgstr "Pedang Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:119
+msgid "Underworld Bow"
+msgstr "Busur Dunia Bawah"
+
+#: ../items/categories/level_16_unique.txt:131
+msgid "Underworld Sceptre"
+msgstr "Tongkat Kerajaan Dunia Bawah"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -3961,266 +4036,6 @@ msgstr ""
 "Menurut Florin, ini adalah satu-satunya tinta yang bisa digunakan dalam Buku"
 " Kematian."
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Baju Kain Prajurit"
-
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Baju Kain Ranger"
-
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Baju Kain Penyihir"
-
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Celana Kain Prajurit"
-
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Celana Kain Ranger"
-
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Celana Kain Penyihir"
-
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Sandal Kain Prajurit"
-
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Sandal Kain Ranger"
-
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Sandal Kain Penyihir"
-
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Sarung Tangan Kain Prajurit"
-
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Sarung Tangan Kain Ranger"
-
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Sarung Tangan kulit Penyihir"
-
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "Sabuk Kulit Penjelajah"
-
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "Liontin Penjelajah"
-
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "Buku Mantra Penjelajah"
-
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Belati Prajurit"
-
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Ketapel Ranger"
-
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Tongkat Sihir Penyihir"
-
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Tameng Kecil Kayu Paladin"
-
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Cincin Api Penjelajah"
-
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Cincin Es Penjelajah"
-
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Cincin Petir Penjelajah"
-
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Cincin Gelap Penjelajah"
-
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Cincin Experience Penjelajah"
-
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Cincin Kekayaan Penjelajah"
-
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Cincin Harta Karun Penjelajah"
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "Tudung Kulit Prajurit"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "Tudung Kulit Ranger"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr "Tudung Wol Penyihir"
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "Tunik Kulit Prajurit"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "Tunik Kulit Ranger"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr "Rompi Wol Penyihir"
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "Celana Kulit Prajurit"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "Celana Kulit Ranger"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr "Rok Wol Penyihir"
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "Sepatu Kulit Prajurit"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "Sepatu Kulit Ranger"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr "Sepatu Wol Penyihir"
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "Sarung Tangan Kulit Prajurit"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "Sarung Tangan Kulit Ranger"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr "Kaos Lengan Wol Penyihir"
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "Sabuk Kulit Tarung Penjelajah"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "Liontin Recon Penjelajah"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "Buku Mantra Penyihir Penjelajah"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "Pedang Pendek Prajurit"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "Busur Pendek Ranger"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "Gada Penyihir"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "Tameng Kecil Besi Paladin"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr "Cincin Bakar Penjelajah"
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr "Cincin Pembeku Penjelajah"
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr "Cincin Listrik Penjelajah"
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr "Cincin Bayangan Penjelajah"
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr "Cincin Pengetahuan Penjelajah"
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr "Cincin Kemakmuran Penjelajah"
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr "Cincin Penjarahan Penjelajah"
-
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Gunakan: Panggil zombie untuk bertarung untukmu"
-
-#: ../items/categories/scrolls.txt:20
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Gunakan: Teleportasi ke Pelabuhan Kebinasaan"
-
-#: ../items/categories/scrolls.txt:32
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Gunakan: Buat perisai ajaib yang menyerap damage"
-
-#: ../items/categories/scrolls.txt:44
-msgid "Use: Shoot a fireball"
-msgstr "Gunakan: Tembak bola api"
-
-#: ../items/categories/scrolls.txt:56
-msgid "Use: Shoot an ice bolt"
-msgstr "Gunakan: Tembak baut es"
-
-#: ../items/categories/scrolls.txt:68
-msgid "Use: Move at an increased speed for a limited time"
-msgstr ""
-"Gunakan: Bergerak dengan kecepatan yang ditingkatkan untuk waktu yang "
-"terbatas"
-
-#: ../items/categories/scrolls.txt:80
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr ""
-"Gunakan: Hapus debuff dan menjadi kebal terhadap debuff untuk waktu yang "
-"terbatas"
-
-#: ../items/categories/scrolls.txt:92
-msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
-msgstr ""
-"Gunakan: Membuat perisai magis yang memantulkan proyektil dan damage untuk "
-"waktu yang terbatas"
-
 #: ../items/categories/crafting.txt:39
 msgid "Mortar and Pestle"
 msgstr "Mortir dan Alu"
@@ -4228,6 +4043,298 @@ msgstr "Mortir dan Alu"
 #: ../items/categories/crafting.txt:40
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr "Gunakan botol kosong dan berbagai bahan untuk membuat ramuan."
+
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Palu Krolan"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Alat penting untuk setiap pandai besi."
+
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr "Ranting Goblin"
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr "Mana mengalir di dalam eksterior primitifnya."
+
+#: ../items/categories/level_4_unique.txt:34
+msgid "Ardwen's Gloves"
+msgstr "Sarung Tangan Ardwen"
+
+#: ../items/categories/level_4_unique.txt:35
+msgid "These hands built a village."
+msgstr "Tangan-tangan ini membangun sebuah desa."
+
+#: ../items/categories/level_4_unique.txt:50
+msgid "Blood Tunic"
+msgstr "Tunik Darah"
+
+#: ../items/categories/level_4_unique.txt:51
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Saat dikenakan, kemeja ini menghangatkan urat nadi pemakainya."
+
+#: ../items/categories/level_4_unique.txt:65
+msgid "Dark Steppers"
+msgstr "Stepper Kegelapan"
+
+#: ../items/categories/level_4_unique.txt:66
+msgid "Dancing through the shadows."
+msgstr "Menari melalui bayang-bayang."
+
+#: ../items/categories/level_4_unique.txt:79
+msgid "Seagate's Tri-pants"
+msgstr "Tri-celana Seagate"
+
+#: ../items/categories/level_4_unique.txt:80
+msgid ""
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
+msgstr ""
+"Celana compang-camping ini ditutupi bekas hangus, namun terasa dingin saat "
+"disentuh."
+
+#: ../items/categories/level_4_unique.txt:95
+msgid "Ardwen's Ring"
+msgstr "Cincin Ardwen"
+
+#: ../items/categories/level_4_unique.txt:96
+msgid "Lochport's finest."
+msgstr "Lochport terbaik."
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Helm Plat Panglima Perang"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Helm Plat Sniper"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Tudung Beludru Penyihir Agung"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Kuiras Plat Panglima Tempur"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Kuiras Plat Sniper"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Rompi Beludru Penyihir Agung"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Pelindung Kaki Plat Panglima Perang"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Pelindung Kaki Plat Sniper"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Rok Beludru Penyihir Agung"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Sepatu Plat Panglima Perang"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Sepatu Plat Sniper"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Sepatu Beludru Penyihir Agung"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Gauntlet Plat Panglima Perang"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Gauntlet Plat Sniper"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Kaos Lengan Beludru Penyihir Agung"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Sabuk Kulit Master Panglima Perang"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Liontin Master Sniper"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Buku Mantra Master Penyihir Agung"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Pedang Besar Panglima Perang"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Busur Besar Sniper"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Tongkat Besar Penyihir Agung"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Perisai Menara Templar"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Cincin Neraka Master"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Cincin Glasial Master"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Cincin Volt Master"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Cincin Kehampaan Master"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Cincin Cendekia Master"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Cincin Kemakmuran Master"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Cincin Peninggalan Master"
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Koif Rantai Prajurit"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Koif Rantai Ranger"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Tudung Sutra Penyihir"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "Kuiras Rantai Prajurit"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "Kuiras Rantai Ranger"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Rompi Sutra Penyihir"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Pelindung Kaki Rantai Prajurit"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Pelindung Kaki Rantai Ranger"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Rok Sutra Penyihir"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Sepatu Rantai Prajurit"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Sepatu Rantai Ranger"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Sepatu Sutra Penyihir"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Sarung Tangan Rantai Prajurit"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Sarung Tangan Rantai Ranger"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Kaos Lengan Sutra Penyihir"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Sabuk Kulit Prajurit Penjelajah"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "Liontin Ranger Penjelajah"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "Buku Mantra Penyihir Penjelajah"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Pedang Panjang Prajurit"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Busur Panjang Ranger"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Tongkat Penyihir"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Perisai Puncak Paladin"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Cincin Bara Penjelajah"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Cincin Beku Penjelajah"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "Cincin Kejut Penjelajah"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Cincin Kegelapan Penjelajah"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Cincin Intelektual Penjelajah"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Cincin Penguntung Penjelajah"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Cincin Artefak Penjelajah"
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4284,122 +4391,6 @@ msgstr "Tongkat"
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
 msgstr "Perisai Puncak"
-
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Tudung Kulit Panglima Perang"
-
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Tudung Kulit Sniper"
-
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Tudung Wol Penyihir Agung"
-
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Tunik Kulit Panglima Perang"
-
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Tunik Kulit Sniper"
-
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Rompi Wol Penyihir Agung"
-
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Celana Kulit Panglima Perang"
-
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Celana Kulit Sniper"
-
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "Rok Wol Penyihir Agung"
-
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Sepatu Kulit Panglima Perang"
-
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Sepatu Kulit Sniper"
-
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Sepatu Wol Penyihir Agung"
-
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Sarung Tangan Kulit Panglima Perang"
-
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Sarung Tangan Kulit Sniper"
-
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Kaos Lengan Wol Penyihir Agung"
-
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "Sabuk Kulit Master Tempur"
-
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Liontin Recon Master"
-
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Buku Mantra Master Penyihir"
-
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Pedang Pendek Panglima Perang"
-
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Busur Pendek Sniper"
-
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Gada Penyihir Agung"
-
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Tameng Kecil Besi Templar"
-
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Cincin Bakar Master"
-
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Cincin Pembeku Master"
-
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Cincin Listrik Master"
-
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Cincin Bayangan Master"
-
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Cincin Pengetahuan Master"
-
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Cincin Kemakmuran Master"
-
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Cincin Penjarahan Master"
 
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
@@ -4517,153 +4508,225 @@ msgstr "Cincin Kemakmuran Pengembaraan"
 msgid "Wandering Loot Ring"
 msgstr "Cincin Penjarahan Pengembaraan"
 
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Helm Plat Prajurit"
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Baju Kain Prajurit"
 
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Helm Plat Ranger"
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Baju Kain Ranger"
 
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Tudung Beludru Penyihir"
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Baju Kain Penyihir"
 
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Kuiras Plat Prajurit"
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Celana Kain Prajurit"
 
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Kuiras Plat Ranger"
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Celana Kain Ranger"
 
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Rompi Beludru Penyihir"
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Celana Kain Penyihir"
 
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Pelindung Kaki Plat Prajurit"
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Sandal Kain Prajurit"
 
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Pelindung Kaki Plat Ranger"
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Sandal Kain Ranger"
 
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Rok Beludru Penyihir"
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Sandal Kain Penyihir"
 
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Sepatu Plat Prajurit"
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Sarung Tangan Kain Prajurit"
 
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Sepatu Plat Ranger"
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Sarung Tangan Kain Ranger"
 
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Sepatu Beludru Penyihir"
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Sarung Tangan kulit Penyihir"
 
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Gauntlet Plat Prajurit"
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Sabuk Kulit Penjelajah"
 
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Gauntlet Plat Ranger"
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Liontin Penjelajah"
 
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Kaos Lengan Beludru Penyihir"
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Buku Mantra Penjelajah"
 
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Sabuk Kulit Panglima PerangPenjelajah"
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Belati Prajurit"
 
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "Liontin Sniper Penjelajah"
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Ketapel Ranger"
 
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "Buku Mantra Penyihir Agung Penjelajah"
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Tongkat Sihir Penyihir"
 
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Pedang Besar Prajurit"
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Tameng Kecil Kayu Paladin"
 
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Busur Besar Ranger"
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Cincin Api Penjelajah"
 
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Tongkat Besar Penyihir"
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Cincin Es Penjelajah"
 
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Perisai Menara Paladin"
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Cincin Petir Penjelajah"
 
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Cincin Neraka Penjelajah"
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Cincin Gelap Penjelajah"
 
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Cincin Glasial Penjelajah"
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Cincin Experience Penjelajah"
 
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "Cincin Volt Penjelajah"
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Cincin Kekayaan Penjelajah"
 
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Cincin Kehampaan Penjelajah"
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Cincin Harta Karun Penjelajah"
 
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Cincin Cendekia Penjelajah"
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Koif Rantai Panglima Perang"
 
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Cincin Kemakmuran Penjelajah"
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Koif Rantai Sniper"
 
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Cincin Peninggalan Penjelajah"
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Tudung Sutra Penyihir Agung"
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Baju Kain"
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Kuiras Rantai Panglima Perang"
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Celana Kain"
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Kuiras Rantai Sniper"
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Sandal Kain"
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Rompi Sutra Penyihir Agung"
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Sarung Tangan Kain"
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Pelindung Kaki Rantai Panglima Perang"
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Belati"
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Pelindung Kaki Rantai Sniper"
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Ketapel"
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Rok Sutra Penyihir Agung"
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Tongkat Sihir"
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Sepatu Rantai Panglima Perang"
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Tameng Kecil Kayu"
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Sepatu Rantai Sniper"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Sepatu Sutra Penyihir Agung"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Sarung Tangan Rantai Panglima Perang"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Sarung Tangan Rantai Sniper"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Kaos Lengan Sutra Penyihir Agung"
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Sabuk Kulit Master Prajurit"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Liontin Ranger Master"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Buku Mantra Guru Penyihir "
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Pedang Panjang Panglima Perang"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Busur Panjang Sniper"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Tongkat Penyihir Agung"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Perisai Puncak Templar"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Cincin Bara Master"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Cincin Beku Master"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Cincin Kejut Master"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Cincin Kegelapan Master"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Cincin Intelektual Master"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Cincin Penguntung Master"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Cincin Artefak Master"
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4714,91 +4777,6 @@ msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "Dengan lapisan kulit reptilnya, tidak banyak yang bisa menembus armor ini."
 
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Pita daging"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr ""
-"Halus saat disentuh. Setelah memakainya, itu mengencangkan dirinya sendiri "
-"di sekitar jari."
-
-#: ../items/categories/level_16_unique.txt:20
-msgid "Soulband"
-msgstr "Soulband"
-
-#: ../items/categories/level_16_unique.txt:22
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr ""
-"Bersinar saat dipakai, itu menjernihkan pikiran pemakainya dan memungkinkan "
-"mereka untuk fokus secara mendalam."
-
-#: ../items/categories/level_16_unique.txt:36
-msgid "Underworld Cloak"
-msgstr "Jubah Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:48
-msgid "Underworld Platemail"
-msgstr "Zirah Plat Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:60
-msgid "Underworld Boots"
-msgstr "Sepatu Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:72
-msgid "Underworld Armguards"
-msgstr "Pelindung Lengan Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:84
-msgid "Underworld Greaves"
-msgstr "Pelindung Kaki Duniah Bawah"
-
-#: ../items/categories/level_16_unique.txt:96
-msgid "Underworld Tome"
-msgstr "Kitab Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:107
-msgid "Underworld Blade"
-msgstr "Pedang Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:119
-msgid "Underworld Bow"
-msgstr "Busur Dunia Bawah"
-
-#: ../items/categories/level_16_unique.txt:131
-msgid "Underworld Sceptre"
-msgstr "Tongkat Kerajaan Dunia Bawah"
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Pulihkan 25% dari HP maksimum"
-
-#: ../items/categories/potions.txt:20
-msgid "Restore 25% of maximum MP"
-msgstr "Pulihkan 25% dari MP maksimum"
-
-#: ../items/categories/potions.txt:33
-msgid "Temporarily increase regeneration and movement speed"
-msgstr "Meningkatkan regenerasi dan kecepatan gerakan untuk sementara"
-
-#: ../items/categories/potions.txt:46
-msgid "Restore 25% of both HP and MP"
-msgstr "Pulihkan 25% dari HP dan MP"
-
-#: ../items/categories/potions.txt:59
-msgid "Temporarily increases the ability to find items and gold"
-msgstr "Meningkatkan kemampuan untuk menemukan item dan emas untuk sementara"
-
-#: ../items/categories/potions.txt:72
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr ""
-"Meningkatkan ketahanan terhadap semua bentuk sihir untuk sementara sebesar "
-"50%"
-
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
 msgstr "Totem yang Hilang"
@@ -4839,121 +4817,367 @@ msgstr "Rok Alkimis"
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr "Pengetahuan meracik banyak racikan menganugerahkan pemakainya."
 
-#: ../items/categories/level_12_unique.txt:79
+#: ../items/categories/level_12_unique.txt:87
 msgid "Drinking potions may create another potion of the same type."
 msgstr "Minum ramuan dapat membuat ramuan lain dari jenis yang sama."
 
-#: ../items/categories/level_12_unique.txt:88
+#: ../items/categories/level_12_unique.txt:96
 msgid "Metzger's Battlemace"
 msgstr "Gada Tempur Metzgertz"
 
-#: ../items/categories/level_12_unique.txt:89
+#: ../items/categories/level_12_unique.txt:97
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Mengayunkan gada ini meninggalkan jejak kabut asap gelap."
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Baju Kain Panglima Perang"
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Pulihkan 25% dari HP maksimum"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Baju Kain Sniper"
+#: ../items/categories/potions.txt:20
+msgid "Restore 25% of maximum MP"
+msgstr "Pulihkan 25% dari MP maksimum"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Baju Kain Penyihir Agung"
+#: ../items/categories/potions.txt:33
+msgid "Temporarily increase regeneration and movement speed"
+msgstr "Meningkatkan regenerasi dan kecepatan gerakan untuk sementara"
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Celana Kain Panglima Perang"
+#: ../items/categories/potions.txt:46
+msgid "Restore 25% of both HP and MP"
+msgstr "Pulihkan 25% dari HP dan MP"
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Celana Kain Sniper"
+#: ../items/categories/potions.txt:59
+msgid "Temporarily increases the ability to find items and gold"
+msgstr "Meningkatkan kemampuan untuk menemukan item dan emas untuk sementara"
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Celana Kain Penyihir Agung"
+#: ../items/categories/potions.txt:72
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr ""
+"Meningkatkan ketahanan terhadap semua bentuk sihir untuk sementara sebesar "
+"50%"
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Sandal Kain Panglima Perang"
+#: ../items/categories/potions.txt:85
+msgid "Restore 50% of maximum HP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Sandal Kain Sniper"
+#: ../items/categories/potions.txt:98
+msgid "Restore 75% of maximum HP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Sandal Kain Penyihir Agung"
+#: ../items/categories/potions.txt:111
+msgid "Restore 50% of maximum MP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Sarung Tangan Kain Paanglima Perang"
+#: ../items/categories/potions.txt:124
+msgid "Restore 75% of maximum MP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Sarung Tangan kulit Sniper"
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "Helm Plat Tempur"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Sarung Tangan kulit Penyihir Agung"
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "Helm Plat Recon"
 
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Sabuk Kulit Master"
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "Tudung Beludru Tukang Sihir"
 
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Liontin Master"
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "Kuiras Plat Tempur"
 
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Buku Mantra Master"
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "Kuiras Plat Recon"
 
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Belati Panglima Perang"
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "Rompi Beludru Tukang Sihir"
 
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Ketapel Sniper"
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "Pelindung Kaki Plat Tempur"
 
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Tongkat Sihir Penyihir Agung"
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "Pelindung Kaki Plat Recon"
 
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Tameng Kecil Kayu Templar"
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "Rok Beludru Tukang Sihir"
 
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Cincin Api Master"
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "Sepatu Plat Tempur"
 
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Cincin Es Master"
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "Sepatu Plat Recon"
 
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Cincin Petir Master"
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "Sepatu Beludru Tukang Sihir"
 
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Cincin Gelap Pengembaraan"
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "Gauntlet Plat Tempur"
 
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Cincin Experience Master"
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "Gauntlet Plat Recon"
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Cincin Kekayaan Master"
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "Kaos Lengan Beludru Tukang Sihir"
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "CIncin Harta Karun Master"
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "Sabuk Kulit Panglima Perang Pengembaraan"
+
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "Liontin Sniper Pengembaraan"
+
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "Buku Mantra Penyihir Agung Pengembaraan"
+
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "Pedang Besar Tempur"
+
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "Busur Besar Recon"
+
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "Tongkat Besar Tukang Sihir"
+
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Perisai Menara Penjaga "
+
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "Cincin Neraka Pengembaraan"
+
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "Cincin Glasial Pengembaraan"
+
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "Cincin Volt Pengembaraan"
+
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "Cincin Kehampaan Pengembaraan"
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "Cincin Cendekia Pengembaraan"
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "Cincin Kemakmuran Pengembaraan"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "Cincin Peninggalan Pengembaraan"
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Bakar"
+
+#: ../powers/base/magician/burn.txt:4
+msgid "Blast multiple enemies in a distant area with fire."
+msgstr "Meledakkan beberapa musuh di area yang jauh dengan api."
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Aliran Energi"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
+msgstr "Cadangan mana meningkat dan beregenerasi lebih cepat."
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Bola api"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Luncurkan bola api yang memberikan damage mental tambahan."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "sambaran petir"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies."
+msgstr ""
+"Petir menyambar dari langit dengan peluang tinggi untuk memberikan damage "
+"kritis pada musuh yang mengalami gangguan gerakan."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Buat medan gaya yang menyerap damage."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Terkejut"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Menembak bola listrik yang lebih efektif melawan musuh yang tidak bisa "
+"bergerak."
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Baut Es"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Luncurkan bongkahan es yang memperlambat musuh."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Beku"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid "Create a ray of several piercing cold shards that slow enemies."
+msgstr ""
+"Buat sinar dari beberapa beling dingin yang menusuk yang memperlambat musuh."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Gempa"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Hancurkan musuh di sekitar dengan peluang setrum."
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Serangan berdarah"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Berikan pukulan kuat yang menimbulkan luka berdarah."
+
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Lempar Pisau"
+
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid "Throw a knife to deal reduced melee weapon damage."
+msgstr "Lemparkan pisau untuk mengurangi damage senjata jarak dekat."
+
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Dinding batu"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr ""
+"Tahan serangan yang lebih kuat dengan lebih banyak kesehatan dan penyerapan."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Perisai Bash"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Lari ke musuh, hancurkan mereka dengan kekuatan belaka."
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Membelah"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Serang semua musuh dalam lebar busur."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Lempar Kapak"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Lempar kapak untuk memberikan damage tambahan senjata jarak dekat."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Seruan perang"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr ""
+"Hapus debuff dan menjadi kebal terhadap debuff untuk waktu yang terbatas."
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Perangkap Beruang"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr ""
+"Perangkap ini memberikan damage tambahan senjata jarak jauh dan melumpuhkan "
+"target."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Tembakan Banyak"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot three projectiles simultaneously."
+msgstr "Tembak tiga proyektil secara bersamaan."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Mata Serigala"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "Meningkatkan kemampuan untuk memukul dan melukai musuh secara kritis."
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Tembakan beruntun"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Tembakkan lima misil berdaya rendah secara berurutan."
+
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Tembak"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Serangan dasar jarak jauh."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Bergerak dengan kecepatan yang meningkat untuk waktu yang terbatas."
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Tembakan Bara Api"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies."
+msgstr ""
+"Menyemprot bara api dari jarak dekat. Efektif melawan musuh lapis baja."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -4972,198 +5196,6 @@ msgstr "Tembakan tembus"
 #: ../powers/base/ranger/piercing_shot.txt:2
 msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr "Tembakan yang mengabaikan armor dan melewati banyak musuh."
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Tembak"
-
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Serangan dasar jarak jauh."
-
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Mata Serigala"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "Meningkatkan kemampuan untuk memukul dan melukai musuh secara kritis."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Bergerak dengan kecepatan yang meningkat untuk waktu yang terbatas."
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Tembakan Banyak"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Tembak tiga proyektil secara bersamaan."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Perangkap Beruang"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr ""
-"Perangkap ini memberikan damage tambahan senjata jarak jauh dan melumpuhkan "
-"target."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Tembakan Bara Api"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
-msgstr ""
-"Menyemprot bara api dari jarak dekat. Efektif melawan musuh lapis baja."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Tembakan beruntun"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Tembakkan lima misil berdaya rendah secara berurutan."
-
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Bakar"
-
-#: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Meledakkan beberapa musuh di area yang jauh dengan api."
-
-#: ../powers/base/magician/energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Aliran Energi"
-
-#: ../powers/base/magician/energy_flow.txt:2
-msgid "Mana reserves are increased and regenerate faster."
-msgstr "Cadangan mana meningkat dan beregenerasi lebih cepat."
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Buat medan gaya yang menyerap damage."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Terkejut"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr ""
-"Menembak bola listrik yang lebih efektif melawan musuh yang tidak bisa "
-"bergerak."
-
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Beku"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr ""
-"Buat sinar dari beberapa beling dingin yang menusuk yang memperlambat musuh."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Baut Es"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Luncurkan bongkahan es yang memperlambat musuh."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "sambaran petir"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
-msgstr ""
-"Petir menyambar dari langit dengan peluang tinggi untuk memberikan damage "
-"kritis pada musuh yang mengalami gangguan gerakan."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Bola api"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Luncurkan bola api yang memberikan damage mental tambahan."
-
-#: ../powers/base/warrior/throw_knife.txt:1
-msgid "Throw Knife"
-msgstr "Lempar Pisau"
-
-#: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Lemparkan pisau untuk mengurangi damage senjata jarak dekat."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Serangan berdarah"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Berikan pukulan kuat yang menimbulkan luka berdarah."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Seruan perang"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr ""
-"Hapus debuff dan menjadi kebal terhadap debuff untuk waktu yang terbatas."
-
-#: ../powers/base/warrior/cleave.txt:1
-msgid "Cleave"
-msgstr "Membelah"
-
-#: ../powers/base/warrior/cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Serang semua musuh dalam lebar busur."
-
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Lempar Kapak"
-
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Lempar kapak untuk memberikan damage tambahan senjata jarak dekat."
-
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Perisai Bash"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Lari ke musuh, hancurkan mereka dengan kekuatan belaka."
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Gempa"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Hancurkan musuh di sekitar dengan peluang setrum."
-
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Dinding batu"
-
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr ""
-"Tahan serangan yang lebih kuat dengan lebih banyak kesehatan dan penyerapan."
 
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
@@ -5190,13 +5222,13 @@ msgstr "Serangan dasar jarak dekat"
 msgid "Magician"
 msgstr "Ahli Sihir"
 
-#: ../scripts/dev/waypoints_lock.txt:14
-msgid "Locked all waypoints"
-msgstr "Semua titik arah terkunci"
-
 #: ../scripts/dev/waypoints_unlock.txt:14
 msgid "Unlocked all waypoints"
 msgstr "Semua titik arah terbuka"
+
+#: ../scripts/dev/waypoints_lock.txt:14
+msgid "Locked all waypoints"
+msgstr "Semua titik arah terkunci"
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
 msgid "It's locked."
@@ -5208,6 +5240,6 @@ msgstr ""
 "Anda mencoba membuka peti, tetapi peti itu disegel oleh kekuatan yang tidak "
 "diketahui."
 
-#: ../scripts/powers/goblin_steal.txt:8
+#: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Goblin Pencuri mencuri ramuan!"

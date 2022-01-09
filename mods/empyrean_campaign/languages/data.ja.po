@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 17:48+\n"
+"POT-Creation-Date: 2022-01-09 13:46+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2019\n"
 "Language-Team: Japanese (https://www.transifex.com/flareorg/teams/84925/ja/)\n"
@@ -930,17 +930,17 @@ msgstr "ゴブリンの どうくつ"
 msgid "Gravestone"
 msgstr "墓石"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
 msgid "Halls of Infinity"
-msgstr ""
-
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
-msgid "Stalagmite Pillar"
 msgstr ""
 
 #: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
 msgid "Mine Cart"
 msgstr "マインカート"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+msgid "Stalagmite Pillar"
+msgstr ""
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1603,25 +1603,25 @@ msgid ""
 "the camp south of Stonewood."
 msgstr "まだカギを入手していませんか?  私の仲間は、おそらく ストーンウッドから南のキャンプのどこかに 隠れているでしょう。"
 
-#: ../npcs/ardwens_coffin.txt:11
+#: ../npcs/ardwens_coffin.txt:12
 msgid ""
 "A finger-sized post is protruding from the lid of the coffin. It looks as "
 "though something is missing."
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:16
+#: ../npcs/ardwens_coffin.txt:17
 msgid "Place the Gold Family Ring on the coffin"
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:21
+#: ../npcs/ardwens_coffin.txt:22
 msgid "The ring dissolved into nothing!"
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:29
+#: ../npcs/ardwens_coffin.txt:30
 msgid "Place the Silver Family Ring on the coffin"
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:41
+#: ../npcs/ardwens_coffin.txt:42
 msgid "Cancel"
 msgstr ""
 
@@ -1659,73 +1659,91 @@ msgstr "(満足そうに見え、 彼は手を伸ばして、彼のカバンに�
 msgid "Infinity Obelisk"
 msgstr ""
 
-#: ../npcs/base/infinity_obelisk.txt:7
+#: ../npcs/base/infinity_obelisk.txt:8
 msgid "(You touch the obelisk, but nothing happens.)"
 msgstr "(あなたは オベリスクに さわった。 しかし、なにも行らなかった。)"
 
-#: ../npcs/base/infinity_obelisk.txt:10
+#: ../npcs/base/infinity_obelisk.txt:11
 msgid "Continue through the Halls of Infinity"
 msgstr ""
 
-#: ../npcs/base/infinity_obelisk.txt:17
+#: ../npcs/base/infinity_obelisk.txt:18
 msgid "Return to Underworld Stronghold"
 msgstr ""
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
-msgstr ""
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, 旅している商人"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "ジャーナル"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "ジャーナルを見つけたのですか?"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "まだです。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "これがジャーナルでしょう。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "すばらしい。 てっきり私は、 この場所で悩みつづけるハメになるかと、 心配してました。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr "あなたのご苦労に、ぜひ報酬を、支払わせてください。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr ""
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "ここらの泥棒ゴブリンに、慈悲を示さないでください。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr ""
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "ここの道には注意してください。 ゴブリンはいませんが、トラブルです。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
-msgstr ""
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "ご忠告、ありがとう。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr ""
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "できることをしただけです。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr ""
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr "今朝、おきたら、私のジャーナルが無くなっていたのです。 きっと、ミドリ色のずるいモンスターが、 盗んでいったんだろう。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr ""
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr "もし、ジャーナルを旅の途中にでも見かけたら、 わたしのもとに返すようにしてください。"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "こんにちわ、みしらぬ人。"
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
 msgstr ""
+"あなたの外見から判断すると、長い休暇旅行の最中の人では なさそうです。 "
+"そこでお願いですが、私の行方不明のジャーナルに、道中、注意をしていただけませんか?"
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"晩にキャンプしていた場所が、ゴブリンのどうくつが近かったのです。 その翌日、ジャーナルが無くなっていることに気づいたのです。 "
+"その場所でしばらく探したのですが、そのあと、場所を移動する決心をしました。"
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1823,64 +1841,60 @@ msgstr ""
 msgid "Level 20"
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:17
-msgid "Introduction"
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:29
-msgid "Region 1: Salted Field -> St. Maria"
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:48
-msgid "Region 2: Lake Kuuma -> Temple of Mez"
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:67
-msgid "Region 3: Nazia Highlands -> Wizard's Tower"
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:86
-msgid "Region 4: Underworld"
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:419
-msgid "Halls of Infinity: 1"
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:425
-msgid "Halls of Infinity: 2"
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:431
-msgid "Halls of Infinity: 3"
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:437
-msgid "Halls of Infinity: 4"
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:443
-msgid "Halls of Infinity: 5"
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:449
-msgid "Halls of Infinity: 6"
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:455
-msgid "Halls of Infinity: 7"
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:461
-msgid "Halls of Infinity: 8"
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:467
-msgid "Halls of Infinity: 9"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:473
-msgid "Halls of Infinity: 10"
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
 msgstr ""
 
 #: ../npcs/base/dev_tome/items.txt:2
@@ -1943,79 +1957,65 @@ msgstr "リフレクションの巻き物"
 msgid "Underworld Set (with rings)"
 msgstr ""
 
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr "ここの道には注意してください。 ゴブリンはいませんが、トラブルです。"
-
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "ご忠告、ありがとう。"
-
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "できることをしただけです。"
-
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
-msgstr "今朝、おきたら、私のジャーナルが無くなっていたのです。 きっと、ミドリ色のずるいモンスターが、 盗んでいったんだろう。"
-
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr "もし、ジャーナルを旅の途中にでも見かけたら、 わたしのもとに返すようにしてください。"
-
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "Abasi, 旅している商人"
-
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "ジャーナル"
-
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "ジャーナルを見つけたのですか?"
-
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "まだです。"
-
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "これがジャーナルでしょう。"
-
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "すばらしい。 てっきり私は、 この場所で悩みつづけるハメになるかと、 心配してました。"
-
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr "あなたのご苦労に、ぜひ報酬を、支払わせてください。"
-
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "ここらの泥棒ゴブリンに、慈悲を示さないでください。"
-
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "こんにちわ、みしらぬ人。"
-
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
+#: ../npcs/base/dev_tome/teleport.txt:17
+msgid "Introduction"
 msgstr ""
-"あなたの外見から判断すると、長い休暇旅行の最中の人では なさそうです。 "
-"そこでお願いですが、私の行方不明のジャーナルに、道中、注意をしていただけませんか?"
 
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
+#: ../npcs/base/dev_tome/teleport.txt:29
+msgid "Region 1: Salted Field -> St. Maria"
 msgstr ""
-"晩にキャンプしていた場所が、ゴブリンのどうくつが近かったのです。 その翌日、ジャーナルが無くなっていることに気づいたのです。 "
-"その場所でしばらく探したのですが、そのあと、場所を移動する決心をしました。"
+
+#: ../npcs/base/dev_tome/teleport.txt:48
+msgid "Region 2: Lake Kuuma -> Temple of Mez"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:67
+msgid "Region 3: Nazia Highlands -> Wizard's Tower"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:86
+msgid "Region 4: Underworld"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:419
+msgid "Halls of Infinity: 1"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:425
+msgid "Halls of Infinity: 2"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:431
+msgid "Halls of Infinity: 3"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:437
+msgid "Halls of Infinity: 4"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:443
+msgid "Halls of Infinity: 5"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:449
+msgid "Halls of Infinity: 6"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:455
+msgid "Halls of Infinity: 7"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:461
+msgid "Halls of Infinity: 8"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:467
+msgid "Halls of Infinity: 9"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:473
+msgid "Halls of Infinity: 10"
+msgstr ""
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2621,6 +2621,22 @@ msgstr ""
 msgid "Dynamite"
 msgstr "ダイナマイト"
 
+#: ../books/crafting_alchemy.txt:300
+msgid "Super Health Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:313
+msgid "Ultra Health Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:326
+msgid "Super Mana Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:339
+msgid "Ultra Mana Potion"
+msgstr ""
+
 #: ../books/cutscene_list.txt:21
 msgid "Ending"
 msgstr ""
@@ -2739,120 +2755,108 @@ msgstr ""
 msgid "No subjects asked to take the test today."
 msgstr ""
 
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Warlord 布のシャツ"
+
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Sniper 布のシャツ"
+
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Archwizard 布のシャツ"
+
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Warlord 布のシャツ"
+
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Sniper 布のズボン"
+
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Archwizard 布のズボン"
+
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Warlord 布のサンダル"
+
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Sniper 布のサンダル"
+
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Archwizard 布のサンダル"
+
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Warlord 布のグラブ"
+
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Sniper 布のグラブ"
+
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Archwizard 布のグラブ"
+
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Master 革ベルト"
+
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Master ペンダント"
+
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Master 呪文書"
+
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Warlord ダガー"
+
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "スナイパーのスリングショット"
+
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Archwizard ワンド"
+
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Templar 木バックラー"
+
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Master 炎リング"
+
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Master こおり リング"
+
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Master 光リング"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Master ヤミのリング"
+
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
 msgstr ""
 
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
 msgstr ""
 
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr ""
-
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "戦いの 板金 胸当て"
-
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "偵察の 板金 胸当て"
-
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr ""
-
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "戦いの 板金すね当て"
-
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "偵察の 板金すね当て"
-
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr ""
-
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "戦いの 板金ブーツ"
-
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "偵察の 板金ブーツ"
-
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr ""
-
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "戦いの 板金ガントレット"
-
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "偵察の 板金ガントレット"
-
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr ""
-
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr ""
-
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr ""
-
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr ""
-
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "戦いの大剣"
-
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "偵察の大弓"
-
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr ""
-
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "Keeper タワーシールド"
-
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr ""
-
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr ""
-
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr ""
-
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr ""
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr ""
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr ""
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
 msgstr ""
 
 #: ../items/categories/level_5.txt:5
@@ -2911,122 +2915,6 @@ msgstr "ロッド"
 msgid "Iron Buckler"
 msgstr "鉄のバックラー"
 
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Warlord 板金かぶと"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Sniper 板金かぶと"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr ""
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Warlord 板金の胸当て"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Sniper 板金の胸当て"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr ""
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Warlord 板金のすね当て"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Sniper 板金のすね当て"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr ""
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Warlord 板金のブーツ"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Sniper 板金のブーツ"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr ""
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Warlord 板金ガントレット"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Sniper 板金ガントレット"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr ""
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr ""
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr ""
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr ""
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Warlord 大剣"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Sniper 大きな弓"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr ""
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Templar タワーシールド"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr ""
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr ""
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr ""
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr ""
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr ""
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr ""
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr ""
-
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "板金のかぶと"
@@ -3083,295 +2971,187 @@ msgstr "グレートスタッフ"
 msgid "Tower Shield"
 msgstr "タワーシールド"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Warlord 鎖ずきん"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "布のシャツ"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Sniper 鎖ずきん"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "布のズボン"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "布のサンダル"
+
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "布のグラブ"
+
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "ダガー"
+
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "スリングショット"
+
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "ワンド"
+
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "木のバックラー"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Warlord 革フード"
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Sniper 革フード"
+
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
 msgstr ""
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Warlord 鎖の胸当て"
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Warlord 革チュニック"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Sniper 鎖の胸当て"
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Sniper 革チュニック"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
 msgstr ""
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Warlord 鎖のすね当て"
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Warlord 革ズボン"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Sniper 鎖のすね当て"
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Sniper 革ズボン"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
 msgstr ""
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Warlord 鎖ブーツ"
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Warlord 革ブーツ"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Sniper 鎖ブーツ"
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Sniper 革ブーツ"
 
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Archwizard シルクのブーツ"
-
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Warlord 鎖グラブ"
-
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Sniper 鎖グラブ"
-
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
 msgstr ""
 
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Master Warrior 革ベルト"
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Warlord 革グラブ"
 
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Master Ranger ペンダント"
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Sniper 革グラブ"
 
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Master Wizard 呪文書"
-
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Warlord 長剣"
-
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Sniper 長弓"
-
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
 msgstr ""
 
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
 msgstr ""
 
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Master 偵察ペンダント"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Master ソーサラー呪文書"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Warlord 小剣"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Sniper 小さな弓"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Archwizard ロッド"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Templar 鉄バックラー"
+
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
 msgstr ""
 
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Master こおり リング"
-
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
 msgstr ""
 
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
 msgstr ""
 
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
 msgstr ""
 
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
 msgstr ""
 
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Krolan のハンマー"
-
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "鍛冶に使う道具でもある。"
-
-#: ../items/categories/level_4_unique.txt:18
-msgid "Goblin Branch"
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:19
-msgid "Mana flows inside its primitive exterior."
-msgstr ""
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "使用: ゾンビが召喚され、いっしょに戦ってくれる"
 
-#: ../items/categories/level_4_unique.txt:34
-msgid "Ardwen's Gloves"
-msgstr "Ardwen のグラブ"
+#: ../items/categories/scrolls.txt:20
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "使用: Perdition 入り江 にテレポート"
 
-#: ../items/categories/level_4_unique.txt:35
-msgid "These hands built a village."
-msgstr ""
+#: ../items/categories/scrolls.txt:32
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "使用: 魔法のシールドを作り、ダメージを吸収する"
 
-#: ../items/categories/level_4_unique.txt:50
-msgid "Blood Tunic"
-msgstr ""
+#: ../items/categories/scrolls.txt:44
+msgid "Use: Shoot a fireball"
+msgstr "使用: ファイアボールを打ち出す"
 
-#: ../items/categories/level_4_unique.txt:51
-msgid "When worn, this shirt heats the wearers veins."
-msgstr ""
+#: ../items/categories/scrolls.txt:56
+msgid "Use: Shoot an ice bolt"
+msgstr "使用: こおりのボルトを打ち出す"
 
-#: ../items/categories/level_4_unique.txt:65
-msgid "Dark Steppers"
-msgstr ""
+#: ../items/categories/scrolls.txt:68
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "使用: スピードが増加した状態で、一定時間だけ、動ける"
 
-#: ../items/categories/level_4_unique.txt:66
-msgid "Dancing through the shadows."
-msgstr ""
+#: ../items/categories/scrolls.txt:80
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr "使用: デバフを除去し、 一定時間だけデバフをまぬがれる"
 
-#: ../items/categories/level_4_unique.txt:79
-msgid "Seagate's Tri-pants"
-msgstr ""
-
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/scrolls.txt:92
 msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
-msgstr ""
-
-#: ../items/categories/level_4_unique.txt:95
-msgid "Ardwen's Ring"
-msgstr "Ardwen のリング"
-
-#: ../items/categories/level_4_unique.txt:96
-msgid "Lochport's finest."
-msgstr ""
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Warrior 鎖ずきん"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Ranger 鎖ずきん"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr ""
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr ""
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr ""
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr ""
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Warrior 鎖のすね当て"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Ranger 鎖のすね当て"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr ""
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Warrior 鎖のブーツ"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Ranger 鎖のブーツ"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr ""
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Warrior 鎖のグラブ"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Ranger 鎖のグラブ"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr ""
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr ""
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr ""
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr ""
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Warrior 長剣"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Ranger 長弓"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "ウィザードのスタッフ"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr ""
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr ""
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr ""
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr ""
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr ""
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr ""
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr ""
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr "使用: 魔法のシールドによって、投擲物（とうてきぶつ）を一定時間だけ反射できる"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3475,6 +3255,238 @@ msgstr ""
 
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Warrior 板金のかぶと"
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Ranger 板金のかぶと"
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr ""
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Warrior 板金の胸当て"
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Ranger 板金の胸当て"
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr ""
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Warrior 板金のすね当て"
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Ranger 板金のすね当て"
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr ""
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Warrior 板金のブーツ"
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Ranger 板金のブーツ"
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr ""
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Warrior 板金のガントレット"
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Ranger 板金のガントレット"
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr ""
+
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr ""
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Warrior グレートソード"
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Ranger グレートボウ"
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Wizard グレートスタッフ"
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Paladin タワーシールド"
+
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr ""
+
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Warrior 革フード"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Ranger 革フード"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr ""
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Warrior 革チュニック"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Ranger 革チュニック"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr ""
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Warrior 革ズボン"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Ranger 革ズボン"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr ""
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Warrior 革ブーツ"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Ranger 革ブーツ"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr ""
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Warrior 革グラブ"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Ranger 革グラブ"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr ""
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Adventurer 戦いの革ベルト"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Adventurer 偵察の革ベルト"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Adventurer ソーサラーの呪文書"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Warrior 小剣"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Ranger 小さな弓"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "ウィザードのロッド"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Paladin 鉄バックラー"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr ""
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
 msgstr ""
 
 #: ../items/categories/level_10.txt:5
@@ -3591,6 +3603,61 @@ msgstr ""
 
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "フレッシュバンド"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "なめらかな肌ざわり。 指に装着すれば、このアイテム自身が収縮して締まる。"
+
+#: ../items/categories/level_16_unique.txt:20
+msgid "Soulband"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:22
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:36
+msgid "Underworld Cloak"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:48
+msgid "Underworld Platemail"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:60
+msgid "Underworld Boots"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:72
+msgid "Underworld Armguards"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:84
+msgid "Underworld Greaves"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:96
+msgid "Underworld Tome"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:107
+msgid "Underworld Blade"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:119
+msgid "Underworld Bow"
+msgstr ""
+
+#: ../items/categories/level_16_unique.txt:131
+msgid "Underworld Sceptre"
 msgstr ""
 
 #: ../items/categories/quest.txt:3
@@ -3759,260 +3826,6 @@ msgid ""
 "of the Dead."
 msgstr ""
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr ""
-
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "レンジャーの布シャツ"
-
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "ウィザードの布シャツ"
-
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr ""
-
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "レンジャーの布ズボン"
-
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "ウィザードの布ズボン"
-
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr ""
-
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "レンジャーの布サンダル"
-
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "ウィザードの布サンダル"
-
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr ""
-
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "レンジャーの布グラブ"
-
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "ウィザードの布グラブ"
-
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr ""
-
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr ""
-
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr ""
-
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "ウィリアーのダガー"
-
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "レンジャーのスリングショット"
-
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "ウィザードのワンド"
-
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "パラディンの木バックラー"
-
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr ""
-
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr ""
-
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr ""
-
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr ""
-
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr ""
-
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr ""
-
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "Warrior 革フード"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "Ranger 革フード"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr ""
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "Warrior 革チュニック"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "Ranger 革チュニック"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr ""
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "Warrior 革ズボン"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "Ranger 革ズボン"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr ""
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "Warrior 革ブーツ"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "Ranger 革ブーツ"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr ""
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "Warrior 革グラブ"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "Ranger 革グラブ"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr ""
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "Adventurer 戦いの革ベルト"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "Adventurer 偵察の革ベルト"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "Adventurer ソーサラーの呪文書"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "Warrior 小剣"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "Ranger 小さな弓"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "ウィザードのロッド"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "Paladin 鉄バックラー"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr ""
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr ""
-
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "使用: ゾンビが召喚され、いっしょに戦ってくれる"
-
-#: ../items/categories/scrolls.txt:20
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "使用: Perdition 入り江 にテレポート"
-
-#: ../items/categories/scrolls.txt:32
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "使用: 魔法のシールドを作り、ダメージを吸収する"
-
-#: ../items/categories/scrolls.txt:44
-msgid "Use: Shoot a fireball"
-msgstr "使用: ファイアボールを打ち出す"
-
-#: ../items/categories/scrolls.txt:56
-msgid "Use: Shoot an ice bolt"
-msgstr "使用: こおりのボルトを打ち出す"
-
-#: ../items/categories/scrolls.txt:68
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "使用: スピードが増加した状態で、一定時間だけ、動ける"
-
-#: ../items/categories/scrolls.txt:80
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr "使用: デバフを除去し、 一定時間だけデバフをまぬがれる"
-
-#: ../items/categories/scrolls.txt:92
-msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
-msgstr "使用: 魔法のシールドによって、投擲物（とうてきぶつ）を一定時間だけ反射できる"
-
 #: ../items/categories/crafting.txt:39
 msgid "Mortar and Pestle"
 msgstr "すりばち と すりこぎ"
@@ -4020,6 +3833,296 @@ msgstr "すりばち と すりこぎ"
 #: ../items/categories/crafting.txt:40
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr "カラのボトル と 材料成分 を消費して、ポーション を作ります。"
+
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Krolan のハンマー"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "鍛冶に使う道具でもある。"
+
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:34
+msgid "Ardwen's Gloves"
+msgstr "Ardwen のグラブ"
+
+#: ../items/categories/level_4_unique.txt:35
+msgid "These hands built a village."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:50
+msgid "Blood Tunic"
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:51
+msgid "When worn, this shirt heats the wearers veins."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:65
+msgid "Dark Steppers"
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:66
+msgid "Dancing through the shadows."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:79
+msgid "Seagate's Tri-pants"
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:80
+msgid ""
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
+msgstr ""
+
+#: ../items/categories/level_4_unique.txt:95
+msgid "Ardwen's Ring"
+msgstr "Ardwen のリング"
+
+#: ../items/categories/level_4_unique.txt:96
+msgid "Lochport's finest."
+msgstr ""
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Warlord 板金かぶと"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Sniper 板金かぶと"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr ""
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Warlord 板金の胸当て"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Sniper 板金の胸当て"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr ""
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Warlord 板金のすね当て"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Sniper 板金のすね当て"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr ""
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Warlord 板金のブーツ"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Sniper 板金のブーツ"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr ""
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Warlord 板金ガントレット"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Sniper 板金ガントレット"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr ""
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr ""
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Warlord 大剣"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Sniper 大きな弓"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr ""
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Templar タワーシールド"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr ""
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Warrior 鎖ずきん"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Ranger 鎖ずきん"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr ""
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr ""
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr ""
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr ""
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Warrior 鎖のすね当て"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Ranger 鎖のすね当て"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr ""
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Warrior 鎖のブーツ"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Ranger 鎖のブーツ"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr ""
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Warrior 鎖のグラブ"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Ranger 鎖のグラブ"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr ""
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr ""
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr ""
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Warrior 長剣"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Ranger 長弓"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "ウィザードのスタッフ"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr ""
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr ""
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr ""
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4075,122 +4178,6 @@ msgstr "スタッフ"
 
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
-msgstr ""
-
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Warlord 革フード"
-
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Sniper 革フード"
-
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr ""
-
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Warlord 革チュニック"
-
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Sniper 革チュニック"
-
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr ""
-
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Warlord 革ズボン"
-
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Sniper 革ズボン"
-
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr ""
-
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Warlord 革ブーツ"
-
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Sniper 革ブーツ"
-
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr ""
-
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Warlord 革グラブ"
-
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Sniper 革グラブ"
-
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr ""
-
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr ""
-
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Master 偵察ペンダント"
-
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Master ソーサラー呪文書"
-
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Warlord 小剣"
-
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Sniper 小さな弓"
-
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Archwizard ロッド"
-
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Templar 鉄バックラー"
-
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr ""
-
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr ""
-
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr ""
-
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr ""
-
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr ""
-
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr ""
-
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
 msgstr ""
 
 #: ../items/categories/level_6.txt:5
@@ -4309,153 +4296,225 @@ msgstr ""
 msgid "Wandering Loot Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Warrior 板金のかぶと"
-
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Ranger 板金のかぶと"
-
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
 msgstr ""
 
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Warrior 板金の胸当て"
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "レンジャーの布シャツ"
 
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Ranger 板金の胸当て"
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "ウィザードの布シャツ"
 
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
 msgstr ""
 
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Warrior 板金のすね当て"
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "レンジャーの布ズボン"
 
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Ranger 板金のすね当て"
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "ウィザードの布ズボン"
 
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
 msgstr ""
 
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Warrior 板金のブーツ"
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "レンジャーの布サンダル"
 
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Ranger 板金のブーツ"
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "ウィザードの布サンダル"
 
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
 msgstr ""
 
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Warrior 板金のガントレット"
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "レンジャーの布グラブ"
 
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Ranger 板金のガントレット"
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "ウィザードの布グラブ"
 
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
 msgstr ""
 
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
 msgstr ""
 
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
 msgstr ""
 
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "ウィリアーのダガー"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "レンジャーのスリングショット"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "ウィザードのワンド"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "パラディンの木バックラー"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Warrior グレートソード"
-
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Ranger グレートボウ"
-
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Wizard グレートスタッフ"
-
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Paladin タワーシールド"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
 msgstr ""
 
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Warlord 鎖ずきん"
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Sniper 鎖ずきん"
+
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
 msgstr ""
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "布のシャツ"
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Warlord 鎖の胸当て"
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "布のズボン"
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Sniper 鎖の胸当て"
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "布のサンダル"
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr ""
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "布のグラブ"
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Warlord 鎖のすね当て"
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "ダガー"
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Sniper 鎖のすね当て"
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "スリングショット"
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr ""
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "ワンド"
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Warlord 鎖ブーツ"
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "木のバックラー"
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Sniper 鎖ブーツ"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Archwizard シルクのブーツ"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Warlord 鎖グラブ"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Sniper 鎖グラブ"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr ""
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Master Warrior 革ベルト"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Master Ranger ペンダント"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Master Wizard 呪文書"
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Warlord 長剣"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Sniper 長弓"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr ""
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr ""
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Master こおり リング"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr ""
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr ""
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4505,85 +4564,6 @@ msgstr ""
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "フレッシュバンド"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "なめらかな肌ざわり。 指に装着すれば、このアイテム自身が収縮して締まる。"
-
-#: ../items/categories/level_16_unique.txt:20
-msgid "Soulband"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:22
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:36
-msgid "Underworld Cloak"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:48
-msgid "Underworld Platemail"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:60
-msgid "Underworld Boots"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:72
-msgid "Underworld Armguards"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:84
-msgid "Underworld Greaves"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:96
-msgid "Underworld Tome"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:107
-msgid "Underworld Blade"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:119
-msgid "Underworld Bow"
-msgstr ""
-
-#: ../items/categories/level_16_unique.txt:131
-msgid "Underworld Sceptre"
-msgstr ""
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "最大HPのうち 25% を回復"
-
-#: ../items/categories/potions.txt:20
-msgid "Restore 25% of maximum MP"
-msgstr "最大MPのうち 25% を回復"
-
-#: ../items/categories/potions.txt:33
-msgid "Temporarily increase regeneration and movement speed"
-msgstr ""
-
-#: ../items/categories/potions.txt:46
-msgid "Restore 25% of both HP and MP"
-msgstr ""
-
-#: ../items/categories/potions.txt:59
-msgid "Temporarily increases the ability to find items and gold"
-msgstr ""
-
-#: ../items/categories/potions.txt:72
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr ""
-
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
 msgstr ""
@@ -4624,190 +4604,172 @@ msgstr ""
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:79
+#: ../items/categories/level_12_unique.txt:87
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:88
+#: ../items/categories/level_12_unique.txt:96
 msgid "Metzger's Battlemace"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:89
+#: ../items/categories/level_12_unique.txt:97
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Warlord 布のシャツ"
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "最大HPのうち 25% を回復"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Sniper 布のシャツ"
+#: ../items/categories/potions.txt:20
+msgid "Restore 25% of maximum MP"
+msgstr "最大MPのうち 25% を回復"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Archwizard 布のシャツ"
-
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Warlord 布のシャツ"
-
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Sniper 布のズボン"
-
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Archwizard 布のズボン"
-
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Warlord 布のサンダル"
-
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Sniper 布のサンダル"
-
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Archwizard 布のサンダル"
-
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Warlord 布のグラブ"
-
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Sniper 布のグラブ"
-
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Archwizard 布のグラブ"
-
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Master 革ベルト"
-
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Master ペンダント"
-
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Master 呪文書"
-
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Warlord ダガー"
-
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "スナイパーのスリングショット"
-
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Archwizard ワンド"
-
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Templar 木バックラー"
-
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Master 炎リング"
-
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Master こおり リング"
-
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Master 光リング"
-
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Master ヤミのリング"
-
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
+#: ../items/categories/potions.txt:33
+msgid "Temporarily increase regeneration and movement speed"
 msgstr ""
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
+#: ../items/categories/potions.txt:46
+msgid "Restore 25% of both HP and MP"
 msgstr ""
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
+#: ../items/categories/potions.txt:59
+msgid "Temporarily increases the ability to find items and gold"
 msgstr ""
 
-#: ../powers/base/ranger/caltrops.txt:1
-msgid "Caltrops"
-msgstr "まきびし"
-
-#: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
-msgstr "この罠は、獲物に 少なめの遠距離武器ダメージ を与え、さらに動けなくする。"
-
-#: ../powers/base/ranger/piercing_shot.txt:1
-msgid "Piercing Shot"
-msgstr "ピアスショット"
-
-#: ../powers/base/ranger/piercing_shot.txt:2
-msgid "Fire a shot that ignores armor and goes through multiple enemies."
-msgstr "防具を無視し、複数の敵を貫通する矢を放ちます。"
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
+#: ../items/categories/potions.txt:72
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr ""
 
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "基本的な遠距離攻撃"
-
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "オオカミの目"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "命中率を増加させ、敵をクリティカルに仕留めます。"
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "移動スピードが一定時間のあいだ、 増加します。"
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "マルチショット"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "同時に3つ発射を撃つ。"
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "クマの罠"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr "この罠は、獲物に 多めの遠距離武器ダメージ を与え、さらに動けなくします。"
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "エンバーショット"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+#: ../items/categories/potions.txt:85
+msgid "Restore 50% of maximum HP"
 msgstr ""
 
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "ラピッドファイア"
+#: ../items/categories/potions.txt:98
+msgid "Restore 75% of maximum HP"
+msgstr ""
 
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
+#: ../items/categories/potions.txt:111
+msgid "Restore 50% of maximum MP"
+msgstr ""
+
+#: ../items/categories/potions.txt:124
+msgid "Restore 75% of maximum MP"
+msgstr ""
+
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr ""
+
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr ""
+
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "戦いの 板金 胸当て"
+
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "偵察の 板金 胸当て"
+
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr ""
+
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "戦いの 板金すね当て"
+
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "偵察の 板金すね当て"
+
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr ""
+
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "戦いの 板金ブーツ"
+
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "偵察の 板金ブーツ"
+
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr ""
+
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "戦いの 板金ガントレット"
+
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "偵察の 板金ガントレット"
+
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr ""
+
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr ""
+
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr ""
+
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr ""
+
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "戦いの大剣"
+
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "偵察の大弓"
+
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr ""
+
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Keeper タワーシールド"
+
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr ""
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
 msgstr ""
 
 #: ../powers/base/magician/burn.txt:1
@@ -4826,6 +4788,24 @@ msgstr ""
 msgid "Mana reserves are increased and regenerate faster."
 msgstr "マナの蓄積量が増加して、 回復スピードも速まります。"
 
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "ファイアボール"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr ""
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "サンダーストライク"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies."
+msgstr ""
+
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
 msgstr ""
@@ -4840,14 +4820,6 @@ msgid ""
 "impaired enemies."
 msgstr ""
 
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "フリーズ"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr ""
-
 #: ../powers/base/magician/ice_bolt.txt:1
 msgid "Ice Bolt"
 msgstr "こおりのボルト"
@@ -4856,22 +4828,28 @@ msgstr "こおりのボルト"
 msgid "Launch a chunk of ice that slows enemies."
 msgstr "敵を減速させる、こおりの かたまり を発射する。"
 
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "サンダーストライク"
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "フリーズ"
 
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+#: ../powers/base/magician/freeze.txt:4
+msgid "Create a ray of several piercing cold shards that slow enemies."
 msgstr ""
 
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "ファイアボール"
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "クエイク"
 
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr ""
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "ブラッドストライク"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
 msgstr ""
 
 #: ../powers/base/warrior/throw_knife.txt:1
@@ -4882,21 +4860,21 @@ msgstr "ナイフ投げ"
 msgid "Throw a knife to deal reduced melee weapon damage."
 msgstr "ナイフをひとつ投げ、 弱めの近接攻撃ダメージを与える。"
 
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "ブラッドストライク"
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "石の壁"
 
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr "ヘルスと吸収が増加するので、敵の強い攻撃にも、持ちこたえられる。"
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "シールドバッシュ"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
 msgstr ""
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "ウォークライ"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr "デバフを除去し、 一定時間だけデバフをまぬがれる。"
 
 #: ../powers/base/warrior/cleave.txt:1
 msgid "Cleave"
@@ -4914,29 +4892,83 @@ msgstr "オノ投げ"
 msgid "Throw an axe to deal extra melee weapon damage."
 msgstr "オノをひとつ投げ、大きめの近接攻撃ダメージを与える。"
 
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "シールドバッシュ"
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "ウォークライ"
 
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "デバフを除去し、 一定時間だけデバフをまぬがれる。"
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "クマの罠"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr "この罠は、獲物に 多めの遠距離武器ダメージ を与え、さらに動けなくします。"
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "マルチショット"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot three projectiles simultaneously."
+msgstr "同時に3つ発射を撃つ。"
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "オオカミの目"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "命中率を増加させ、敵をクリティカルに仕留めます。"
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "ラピッドファイア"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
 msgstr ""
 
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "クエイク"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
 msgstr ""
 
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "石の壁"
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "基本的な遠距離攻撃"
 
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr "ヘルスと吸収が増加するので、敵の強い攻撃にも、持ちこたえられる。"
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "移動スピードが一定時間のあいだ、 増加します。"
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "エンバーショット"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies."
+msgstr ""
+
+#: ../powers/base/ranger/caltrops.txt:1
+msgid "Caltrops"
+msgstr "まきびし"
+
+#: ../powers/base/ranger/caltrops.txt:2
+msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgstr "この罠は、獲物に 少なめの遠距離武器ダメージ を与え、さらに動けなくする。"
+
+#: ../powers/base/ranger/piercing_shot.txt:1
+msgid "Piercing Shot"
+msgstr "ピアスショット"
+
+#: ../powers/base/ranger/piercing_shot.txt:2
+msgid "Fire a shot that ignores armor and goes through multiple enemies."
+msgstr "防具を無視し、複数の敵を貫通する矢を放ちます。"
 
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
@@ -4963,12 +4995,12 @@ msgstr "基本的な近接攻撃。"
 msgid "Magician"
 msgstr "マジシャン"
 
-#: ../scripts/dev/waypoints_lock.txt:14
-msgid "Locked all waypoints"
-msgstr ""
-
 #: ../scripts/dev/waypoints_unlock.txt:14
 msgid "Unlocked all waypoints"
+msgstr ""
+
+#: ../scripts/dev/waypoints_lock.txt:14
+msgid "Locked all waypoints"
 msgstr ""
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
@@ -4979,6 +5011,6 @@ msgstr ""
 msgid "You try to unlock the chest, but it's sealed by an unknown power."
 msgstr ""
 
-#: ../scripts/powers/goblin_steal.txt:8
+#: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "ゴブリン盗賊がポーションを盗んだ!"

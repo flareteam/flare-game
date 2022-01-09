@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 17:48+\n"
+"POT-Creation-Date: 2022-01-09 13:46+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: litoll <litoll@freemail.hu>, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/flareorg/teams/84925/hu/)\n"
@@ -941,17 +941,17 @@ msgstr "Manóbarlang"
 msgid "Gravestone"
 msgstr "Sírkő"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
 msgid "Halls of Infinity"
 msgstr "Végtelenség Csarnoka"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
-msgid "Stalagmite Pillar"
-msgstr "Sztalagmit Oszlop"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
 msgid "Mine Cart"
 msgstr "Bányászkocsi"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+msgid "Stalagmite Pillar"
+msgstr "Sztalagmit Oszlop"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1649,25 +1649,25 @@ msgstr ""
 "Megtaláltad a kulcsot? A társam valószínűleg elrejtette a tábor közelében, "
 "Kőerdőtől délre."
 
-#: ../npcs/ardwens_coffin.txt:11
+#: ../npcs/ardwens_coffin.txt:12
 msgid ""
 "A finger-sized post is protruding from the lid of the coffin. It looks as "
 "though something is missing."
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:16
+#: ../npcs/ardwens_coffin.txt:17
 msgid "Place the Gold Family Ring on the coffin"
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:21
+#: ../npcs/ardwens_coffin.txt:22
 msgid "The ring dissolved into nothing!"
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:29
+#: ../npcs/ardwens_coffin.txt:30
 msgid "Place the Silver Family Ring on the coffin"
 msgstr ""
 
-#: ../npcs/ardwens_coffin.txt:41
+#: ../npcs/ardwens_coffin.txt:42
 msgid "Cancel"
 msgstr ""
 
@@ -1707,73 +1707,93 @@ msgstr ""
 msgid "Infinity Obelisk"
 msgstr "Végtelenség Obeliszkje"
 
-#: ../npcs/base/infinity_obelisk.txt:7
+#: ../npcs/base/infinity_obelisk.txt:8
 msgid "(You touch the obelisk, but nothing happens.)"
 msgstr "(Megérinted az obeliszket, de semmi nem történik.)"
 
-#: ../npcs/base/infinity_obelisk.txt:10
+#: ../npcs/base/infinity_obelisk.txt:11
 msgid "Continue through the Halls of Infinity"
 msgstr "Folytasd az utad a Végtelenség Csarnokán keresztül"
 
-#: ../npcs/base/infinity_obelisk.txt:17
+#: ../npcs/base/infinity_obelisk.txt:18
 msgid "Return to Underworld Stronghold"
 msgstr "Visszatérés az Alvilági Erődbe"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, utazó kereskedő"
+
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "Napló"
+
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "Sikerült megtalálni a naplómat?"
+
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "Még nem."
+
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "Igen, itt a naplód."
+
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Csodálatos! Már kezdtem azt hinni, mindörökre elveszett."
+
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr "Az adósod vagyok. Kérlek fogadd el ezt jutalmul a fáradozásaidért."
+
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "Ne kegyelmezz ezeknek a tolvaj manóknak."
+
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "Légy óvatos ezeken az utakon. Ezek a manók sok bajt okoznak."
+
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "Kösz a figyelmeztetést."
+
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "Ennyit igazán megtehetek."
+
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
 msgstr ""
+"Amikor ma reggel felkeltem, a naplómnak hűlt helye volt. Nem kétséges, hogy "
+"valamelyik enyveskezű manó lopta el."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr "Küldetés újrakezdése: 'Visszatérés Empyreanba'"
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr "Ha utazásod során rábukkannál a naplómra, kérlek hozd vissza nekem."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr "Küldetés újrakezdése: 'Krolan eltűnt'"
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "Üdvözlet, utazó."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
 msgstr ""
+"A megjelenésed alapján nem ismeretlen számodra a hosszú utazás. Ezért arra "
+"kérlek, tartsd nyitva a szemed, hátha belefutsz az elopott naplóba."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr "Küldetés újrakezdése: 'A kereskedő naplója'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr "Küldetés újrakezdése: 'Kriptában ragadtam'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr "Küldetés újrakezdése: 'Egyszemű őrök'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr "Küldetés újrakezdése: 'Testvér?'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr "Küldetés újrakezdése: 'Kizárva'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
 msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr "Küldetés újrakezdése: 'Mog Barlang elveszett lelkei'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr "Küldetés újrakezdése: 'Egy szokatlan név...'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr "Küldetés újrakezdése: 'Az őr jegyzetei'"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
-msgstr "Küldetés újrakezdése: 'Elesett bajtársak'"
+"Először akkor vettem észre, hogy eltűnt, miután a Manó Barlangtól nem messze"
+" éjszakáztam. Kerestem egy ideig, aztán feladtam."
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1871,65 +1891,61 @@ msgstr ""
 msgid "Level 20"
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:17
-msgid "Introduction"
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:29
-msgid "Region 1: Salted Field -> St. Maria"
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Küldetés újrakezdése: 'Visszatérés Empyreanba'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Küldetés újrakezdése: 'Krolan eltűnt'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:48
-msgid "Region 2: Lake Kuuma -> Temple of Mez"
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Küldetés újrakezdése: 'A kereskedő naplója'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "Küldetés újrakezdése: 'Kriptában ragadtam'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Küldetés újrakezdése: 'Egyszemű őrök'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr "Küldetés újrakezdése: 'Testvér?'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr "Küldetés újrakezdése: 'Kizárva'"
+
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
 msgstr ""
 
-#: ../npcs/base/dev_tome/teleport.txt:67
-msgid "Region 3: Nazia Highlands -> Wizard's Tower"
-msgstr ""
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Küldetés újrakezdése: 'Mog Barlang elveszett lelkei'"
 
-#: ../npcs/base/dev_tome/teleport.txt:86
-msgid "Region 4: Underworld"
-msgstr ""
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Küldetés újrakezdése: 'Egy szokatlan név...'"
 
-#: ../npcs/base/dev_tome/teleport.txt:419
-msgid "Halls of Infinity: 1"
-msgstr ""
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Küldetés újrakezdése: 'Az őr jegyzetei'"
 
-#: ../npcs/base/dev_tome/teleport.txt:425
-msgid "Halls of Infinity: 2"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:431
-msgid "Halls of Infinity: 3"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:437
-msgid "Halls of Infinity: 4"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:443
-msgid "Halls of Infinity: 5"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:449
-msgid "Halls of Infinity: 6"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:455
-msgid "Halls of Infinity: 7"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:461
-msgid "Halls of Infinity: 8"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:467
-msgid "Halls of Infinity: 9"
-msgstr ""
-
-#: ../npcs/base/dev_tome/teleport.txt:473
-msgid "Halls of Infinity: 10"
-msgstr ""
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Küldetés újrakezdése: 'Elesett bajtársak'"
 
 #: ../npcs/base/dev_tome/items.txt:2
 msgid "Give items"
@@ -1991,81 +2007,65 @@ msgstr "Visszatükrözés tekercs"
 msgid "Underworld Set (with rings)"
 msgstr ""
 
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr "Légy óvatos ezeken az utakon. Ezek a manók sok bajt okoznak."
-
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "Kösz a figyelmeztetést."
-
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "Ennyit igazán megtehetek."
-
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
+#: ../npcs/base/dev_tome/teleport.txt:17
+msgid "Introduction"
 msgstr ""
-"Amikor ma reggel felkeltem, a naplómnak hűlt helye volt. Nem kétséges, hogy "
-"valamelyik enyveskezű manó lopta el."
 
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr "Ha utazásod során rábukkannál a naplómra, kérlek hozd vissza nekem."
-
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "Abasi, utazó kereskedő"
-
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "Napló"
-
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "Sikerült megtalálni a naplómat?"
-
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "Még nem."
-
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "Igen, itt a naplód."
-
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "Csodálatos! Már kezdtem azt hinni, mindörökre elveszett."
-
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr "Az adósod vagyok. Kérlek fogadd el ezt jutalmul a fáradozásaidért."
-
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "Ne kegyelmezz ezeknek a tolvaj manóknak."
-
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "Üdvözlet, utazó."
-
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
+#: ../npcs/base/dev_tome/teleport.txt:29
+msgid "Region 1: Salted Field -> St. Maria"
 msgstr ""
-"A megjelenésed alapján nem ismeretlen számodra a hosszú utazás. Ezért arra "
-"kérlek, tartsd nyitva a szemed, hátha belefutsz az elopott naplóba."
 
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
+#: ../npcs/base/dev_tome/teleport.txt:48
+msgid "Region 2: Lake Kuuma -> Temple of Mez"
 msgstr ""
-"Először akkor vettem észre, hogy eltűnt, miután a Manó Barlangtól nem messze"
-" éjszakáztam. Kerestem egy ideig, aztán feladtam."
+
+#: ../npcs/base/dev_tome/teleport.txt:67
+msgid "Region 3: Nazia Highlands -> Wizard's Tower"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:86
+msgid "Region 4: Underworld"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:419
+msgid "Halls of Infinity: 1"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:425
+msgid "Halls of Infinity: 2"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:431
+msgid "Halls of Infinity: 3"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:437
+msgid "Halls of Infinity: 4"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:443
+msgid "Halls of Infinity: 5"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:449
+msgid "Halls of Infinity: 6"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:455
+msgid "Halls of Infinity: 7"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:461
+msgid "Halls of Infinity: 8"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:467
+msgid "Halls of Infinity: 9"
+msgstr ""
+
+#: ../npcs/base/dev_tome/teleport.txt:473
+msgid "Halls of Infinity: 10"
+msgstr ""
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2726,6 +2726,22 @@ msgstr ""
 msgid "Dynamite"
 msgstr "Dinamit"
 
+#: ../books/crafting_alchemy.txt:300
+msgid "Super Health Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:313
+msgid "Ultra Health Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:326
+msgid "Super Mana Potion"
+msgstr ""
+
+#: ../books/crafting_alchemy.txt:339
+msgid "Ultra Mana Potion"
+msgstr ""
+
 #: ../books/cutscene_list.txt:21
 msgid "Ending"
 msgstr ""
@@ -2844,121 +2860,109 @@ msgstr ""
 msgid "No subjects asked to take the test today."
 msgstr ""
 
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
-msgstr "Harcos lemez sisak"
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Hadúr ing"
 
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
-msgstr "Felderítő lemez sisak"
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Lövész ing"
 
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr "Bűbájos bársony kapucni"
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Elemimágus ing"
 
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "Harcos lemezvért"
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Hadúr nadrág"
 
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "Felderítő lemezvért"
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Lövész nadrág"
 
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr "Bűbájos bársony mellény"
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Elemimágus nadrág"
 
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "Harcos lemez nadrág"
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Hadúr szandál"
 
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "Felderítő lemez nadrág"
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Lövész szandál"
 
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr "Bűbájos bársony ing"
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Elemimágus szandál"
 
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "Harcos lemez csizma"
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Hadúr kesztyű"
 
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "Felderítő lemez csizma"
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Lövész kesztyű"
 
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr "Bűbájos bársony csizma"
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Elemimágus kesztyű"
 
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "Harcos lemez karvédő"
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Mester bőröv"
 
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "Felderítő lemez karvédő"
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Mester nagyék"
 
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr "Bűbájos bársony ujj"
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Mester varázskönyv"
 
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr "Bóklászó Hadúr bőröv"
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Hadúr tőr"
 
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr "Bóklászó Lövész nyakék"
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Lövész parittya"
 
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr "Bóklászó Elemimágus Varázskönyv"
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Elemimágus bot"
 
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "Harcos nagykard"
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Templomos fapajzs"
 
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "Felderítő nagyíj"
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Mester tűzgyűrű"
 
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr "Bűbájos nagybot"
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Mester jéggyűrű"
 
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "Őrző toronypajzs"
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Mester villámlásgyűrű"
 
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr "Bóklászó Végzetgyűrű"
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Mester sötétséggyűrű"
 
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr "Bóklászó Jéggyűrű"
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Mester tapasztalatgyűrű"
 
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr "Bóklászó Feszültséggyűrű"
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Mester gazdagsággyűrű"
 
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr "Bóklásó Ürességgyűrű"
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr "Bóklászó Tudósgyűrű"
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr "Bóklászó Jutalomgyűrű"
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
-msgstr "Bóklászó Kincsgyűrű"
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Mester kincsgyűrű"
 
 #: ../items/categories/level_5.txt:5
 msgid "Leather Hood"
@@ -3016,122 +3020,6 @@ msgstr "Pálca"
 msgid "Iron Buckler"
 msgstr "Vaspajzs"
 
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Hadúr lemez sisak"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Lövész lemez sisak"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Elemimágus bársony kapucni"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Hadúr lemez vért"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Lövész lemez vért"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Elemimágus bársony mellény"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Hadúr lemez nadrág"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Lövész lemez nadrág"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Elemimágus bársony ing"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Hadúr lemez csizma"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Lövész lemez csizma"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Elemimágus bársony csizma"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Hadúr lemez karvédő"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Lövész lemez karvédő"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Elemimágus bársony ujj"
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "Mester Hadúr bőröv"
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "Mester Lövész nyakék"
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "Mester Elemimágus Varázskönyv"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Hadúr nagykard"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Lövész nagyíj"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Elemimágus nagybot"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Templomos toronypajzs"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Mester Végzetgyűrű"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Mester Jéggyűrű"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Mester Feszültséggyűrű"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Mester Ürességgyűrű"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Mester Tudósgyűrű"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Mester Gazdagsággyűrű"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Mester Relikviagyűrű"
-
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "Lemez sisak"
@@ -3188,295 +3076,191 @@ msgstr "Nagybot"
 msgid "Tower Shield"
 msgstr "Toronypajzs"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Hadúr láncvért sisak"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Textiling"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Lövész láncvért sisak"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Textilnadrág"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Elemimágus selyem kapucni"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Textilszandál"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Hadúr láncing"
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Textilkesztyű"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Lövész láncing"
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Tőr"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Elemimágus selyem mellény"
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Csúzli"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Hadúr láncvért nadrág"
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Pálca"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Lövész láncvért nadrág"
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Fapajzs"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Elemimágus selyem ing"
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Hadúr bőrkapucni"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Hadúr láncvért csizma"
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Lövész bőrkapucni"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Lövész láncvért csizma"
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Elemimágus gyapjú kapucni"
 
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Elemimágus selyem csizma"
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Hadúr bőrtunika"
 
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Hadúr láncvért kesztyű"
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Lövész bőrtunika"
 
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Lövész láncvért kesztyű"
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Elemimágus gyapjú mellény"
 
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Elemimágus selyem ujj"
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Hadúr bőrnadrág"
 
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Mester harcos bőröv"
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Lövész bőrnadrág"
 
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Mester kósza nyakék"
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Elemimágus gyapjú ing"
 
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Mester Varázsló Varázskönyv"
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Hadúr bőrcsizma"
 
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Hadúr hosszúkard"
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Lövész bőrcsizma"
 
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Lövész hosszúíj"
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Elemimágus gyapjú csizma"
 
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Hadúr bőrkesztyű"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Lövész bőrkesztyű"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Elemimágus gyapjú ujj"
+
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Mester Harcos bőröv"
+
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Mester Feldertő nyakék"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Mester Bűbájos Varázskönyv"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Hadúr rövidkard"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Lövész rövidíj"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
 msgstr "Elemimágus bot"
 
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Templomos pajzs"
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Templomos vaspajzs"
 
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Mester Lánggyűrű"
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Mester Tűzgyűrű"
 
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Mester Fagygyűrű"
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Mester Jéggyűrű"
 
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Mester Sokkgyűrű"
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Mester Elektromosgyűrű"
 
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Mester Szikrázógyűrű"
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Mester Árnygyűrű"
 
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Mester Értelmiséggyűrű"
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Mester Tudásgyűrű"
 
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Mester Gazdagsággyűrű"
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Mester Jólétgyűrű"
 
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Mester Régiséggyűrű"
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Mester Kincsgyűrű"
 
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Krolan Kalapácsa"
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Használat: megidéz egy zombit, aki érted harcol"
 
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Vaskovács elengedhetetlen eszköze."
+#: ../items/categories/scrolls.txt:20
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Használat: Pergő Kikötőbe repít"
 
-#: ../items/categories/level_4_unique.txt:18
-msgid "Goblin Branch"
-msgstr "Manóág"
+#: ../items/categories/scrolls.txt:32
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Használat: mágikus pajzsot hoz létre, ami felfogja a sebzést"
 
-#: ../items/categories/level_4_unique.txt:19
-msgid "Mana flows inside its primitive exterior."
-msgstr "Mana járja át a primitív belsejét."
+#: ../items/categories/scrolls.txt:44
+msgid "Use: Shoot a fireball"
+msgstr "Használat: tűzlabdát lő"
 
-#: ../items/categories/level_4_unique.txt:34
-msgid "Ardwen's Gloves"
-msgstr "Ardwen kesztyűi"
+#: ../items/categories/scrolls.txt:56
+msgid "Use: Shoot an ice bolt"
+msgstr "Használat: jégvillámot lő"
 
-#: ../items/categories/level_4_unique.txt:35
-msgid "These hands built a village."
-msgstr "Ezek a kezek települést építettek."
+#: ../items/categories/scrolls.txt:68
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Használat: rövid ideig nagyon gyors lesz tőle az ember"
 
-#: ../items/categories/level_4_unique.txt:50
-msgid "Blood Tunic"
-msgstr "Vértunika"
-
-#: ../items/categories/level_4_unique.txt:51
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Amikor hordják, fűti a tulaj vérét."
-
-#: ../items/categories/level_4_unique.txt:65
-msgid "Dark Steppers"
-msgstr "Sötétlépők"
-
-#: ../items/categories/level_4_unique.txt:66
-msgid "Dancing through the shadows."
-msgstr "Áttáncolnak a sötétségen."
-
-#: ../items/categories/level_4_unique.txt:79
-msgid "Seagate's Tri-pants"
-msgstr "Seagate trinadrágja"
-
-#: ../items/categories/level_4_unique.txt:80
-msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
-msgstr "Ez a kopott gatya tele van égésnyomokkal, mégis hideg az érintése."
-
-#: ../items/categories/level_4_unique.txt:95
-msgid "Ardwen's Ring"
-msgstr "Ardwen gyűrűje"
-
-#: ../items/categories/level_4_unique.txt:96
-msgid "Lochport's finest."
+#: ../items/categories/scrolls.txt:80
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
+"Használat: eltávolítja a negatív hatásokat és rövid időre immunissá tesz a "
+"negatív hatásokkal szemben"
 
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Harcos láncvért sisak"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Kósza láncvért sisak"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "Varázsló selyem kapucni"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr "Harcos láncing"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr "Kósza láncing"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "Varázsló selyem mellény"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Harcos láncvért nadrág"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Kósza láncvért nadrág"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "Varázsló selyem ing"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Harcos láncvért csizma"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Kósza láncvért csizma"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "Varázsló selyem csizma"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Harcos láncvért kesztyű"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Kósza láncvért kesztyű"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "Varázsló selyem kesztyű"
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr "Kalandozó Harcos bőröv"
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr "Kalandozó Kósza nyakék"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr "Kalandozó Varázsló Varázskönyv"
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Harcos hosszúkard"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Kósza hosszúíj"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "Varázsló bot"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "Paplovag pajzs"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "Kalandozó Lánggyűrű"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "Kalandozó Fagygyűrű"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "Kalandozó Sokkgyűrű"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "Kalandozó Ragyogásgyűrű"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "Kalandozó Tudásgyűrű"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "Kalandozó Gazdagsággyűrű"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "Kalandozó Kincsgyűrű"
+#: ../items/categories/scrolls.txt:92
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Használat: rövid időre mágikus pajzsot hoz létre, ami visszaveri a "
+"lövedékeket és sebzést"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3581,6 +3365,238 @@ msgstr "Bóklászó Jólétgyűrű"
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
 msgstr "Bóklászó Kincsgyűrű"
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Harcos lemez sisak"
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Kósza lemez sisak"
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Varázsló bársony kapucni"
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Harcos lemez mellvért"
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Kósza lemez mellvért"
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Varázsló bársony mellény"
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Harcos lemez nadrág"
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Kösza lemez nadrág"
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Varázsló bársony ing"
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Harcos lemez csizma"
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Kósza lemez csizma"
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Varázsló bársony csizma"
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Harcos lemez kézvédő"
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Kósza lemez kézvédő"
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Varázsló bársony ujj"
+
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Kalandozó Hadúr bőröv"
+
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Kalandozó Lövész nyakék"
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Kalandozó Elemimágus Varázskönyv"
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Harcos hosszúkard"
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Kósza nagynyílpuska"
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Varázsló nagybot"
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Paplovag toronypajzs"
+
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Kalandozó Végzetgyűrű"
+
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Kalandozó Fagygyűrű"
+
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Kalandozó Villámgyűrű"
+
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Kalandozó Ürességgyűrű"
+
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Kalandozó Tudósgyűrű"
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Kalandozó Hatásgyűrű"
+
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Kalandozó Régiséggyűrű"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Harcos bőrkapucni"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Kósza bőrkapucni"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "Varázsló gyapjú kapucni"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Harcos bőrtunika"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Kósza bőrtunika"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "Varázsló gyapjú mellény"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Harcos bőrnadrág"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Kósza börnadrág"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "Varázsló gyapjú ing"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Harcos bőrcsizma"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Kósza bőrcsizma"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "Varázsló gyapjú csizma"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Harcos bőrkesztyű"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Kósza bőrkesztyű"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "Varázsló gyapjú ujj"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Kalandozó harcos bőröv"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Kalandozó felderítő nyakék"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Kalandozó bűbájos varázskönyv"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Harcos rövidkard"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Kósza rövidíj"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "Varázsló pálcája"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Paplovag vaspajzs"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "Kalandozó Égésgyűrű"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "Kalandozó Fagygyűrű"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "Kalandozó Elektromosgyűrű"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "Kalandozó Árnygyűrű"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "Kalandozó Tudásgyűrű"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "Kalandozó Jólétgyűrű"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "Kalandozó Kincsgyűrű"
 
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
@@ -3697,6 +3713,63 @@ msgstr "Bóklászó Jólétgyűrű"
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "Bóklászó Kincsgyűrű"
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Húskötés"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "Sima a tapintása. Viselés közben rásimul a viselő ujjára."
+
+#: ../items/categories/level_16_unique.txt:20
+msgid "Soulband"
+msgstr "Lélekkötés"
+
+#: ../items/categories/level_16_unique.txt:22
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Fénylik, mikor viselik, kitisztítja a viselő tudatát és segít a mély "
+"fókuszálásban."
+
+#: ../items/categories/level_16_unique.txt:36
+msgid "Underworld Cloak"
+msgstr "Alvilági Álca"
+
+#: ../items/categories/level_16_unique.txt:48
+msgid "Underworld Platemail"
+msgstr "Alvilági Lemezpajzs"
+
+#: ../items/categories/level_16_unique.txt:60
+msgid "Underworld Boots"
+msgstr "Alvilági Csizma"
+
+#: ../items/categories/level_16_unique.txt:72
+msgid "Underworld Armguards"
+msgstr "Alvilági Karvédők"
+
+#: ../items/categories/level_16_unique.txt:84
+msgid "Underworld Greaves"
+msgstr "Alvilági Nadrág"
+
+#: ../items/categories/level_16_unique.txt:96
+msgid "Underworld Tome"
+msgstr "Alvilági Tome"
+
+#: ../items/categories/level_16_unique.txt:107
+msgid "Underworld Blade"
+msgstr "Alvilági Penge"
+
+#: ../items/categories/level_16_unique.txt:119
+msgid "Underworld Bow"
+msgstr "Alvilági Íj"
+
+#: ../items/categories/level_16_unique.txt:131
+msgid "Underworld Sceptre"
+msgstr "Alvilági Sceptre"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -3867,264 +3940,6 @@ msgid ""
 msgstr ""
 "Florin szerint ez az egyetlen tinta, amivel a Halottak Könyvébe lehet írni."
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Harcos textiling"
-
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Kósza textiling"
-
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Varázsló textiling"
-
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Harcos textilnadrág"
-
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Kósza textilnadrág"
-
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Varázsló textilnadrág"
-
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Harcos textilszandál"
-
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Kósza textilszandál"
-
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Varázsló textilszandál"
-
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Harcos textilkesztyű"
-
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Kósza textilkesztyű"
-
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Varázsló textilkesztyű"
-
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "Kalandozó bőröv"
-
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "Kalandozó nyakék"
-
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "Kalandozó varázskönyv"
-
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Harcos tőr"
-
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Kósza csúzli"
-
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Varázsló pálca"
-
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Paplovag fapajzs"
-
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Kalandozó Tűzgyűrű"
-
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Kalandozó Jéggyűrű"
-
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Kalandozó Villámgyűrű"
-
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Kalandozó Sötétséggyűrű"
-
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Kalandozó Tapasztalatgyűrű"
-
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Kalandozó Gazdagsággyűrű"
-
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Kalandozó Kincsgyűrű"
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "Harcos bőrkapucni"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "Kósza bőrkapucni"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr "Varázsló gyapjú kapucni"
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "Harcos bőrtunika"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "Kósza bőrtunika"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr "Varázsló gyapjú mellény"
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "Harcos bőrnadrág"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "Kósza börnadrág"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr "Varázsló gyapjú ing"
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "Harcos bőrcsizma"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "Kósza bőrcsizma"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr "Varázsló gyapjú csizma"
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "Harcos bőrkesztyű"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "Kósza bőrkesztyű"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr "Varázsló gyapjú ujj"
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "Kalandozó harcos bőröv"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "Kalandozó felderítő nyakék"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "Kalandozó bűbájos varázskönyv"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "Harcos rövidkard"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "Kósza rövidíj"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "Varázsló pálcája"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "Paplovag vaspajzs"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr "Kalandozó Égésgyűrű"
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr "Kalandozó Fagygyűrű"
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr "Kalandozó Elektromosgyűrű"
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr "Kalandozó Árnygyűrű"
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr "Kalandozó Tudásgyűrű"
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr "Kalandozó Jólétgyűrű"
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr "Kalandozó Kincsgyűrű"
-
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Használat: megidéz egy zombit, aki érted harcol"
-
-#: ../items/categories/scrolls.txt:20
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Használat: Pergő Kikötőbe repít"
-
-#: ../items/categories/scrolls.txt:32
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Használat: mágikus pajzsot hoz létre, ami felfogja a sebzést"
-
-#: ../items/categories/scrolls.txt:44
-msgid "Use: Shoot a fireball"
-msgstr "Használat: tűzlabdát lő"
-
-#: ../items/categories/scrolls.txt:56
-msgid "Use: Shoot an ice bolt"
-msgstr "Használat: jégvillámot lő"
-
-#: ../items/categories/scrolls.txt:68
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Használat: rövid ideig nagyon gyors lesz tőle az ember"
-
-#: ../items/categories/scrolls.txt:80
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr ""
-"Használat: eltávolítja a negatív hatásokat és rövid időre immunissá tesz a "
-"negatív hatásokkal szemben"
-
-#: ../items/categories/scrolls.txt:92
-msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
-msgstr ""
-"Használat: rövid időre mágikus pajzsot hoz létre, ami visszaveri a "
-"lövedékeket és sebzést"
-
 #: ../items/categories/crafting.txt:39
 msgid "Mortar and Pestle"
 msgstr ""
@@ -4132,6 +3947,296 @@ msgstr ""
 #: ../items/categories/crafting.txt:40
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
+
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Krolan Kalapácsa"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Vaskovács elengedhetetlen eszköze."
+
+#: ../items/categories/level_4_unique.txt:18
+msgid "Goblin Branch"
+msgstr "Manóág"
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Mana flows inside its primitive exterior."
+msgstr "Mana járja át a primitív belsejét."
+
+#: ../items/categories/level_4_unique.txt:34
+msgid "Ardwen's Gloves"
+msgstr "Ardwen kesztyűi"
+
+#: ../items/categories/level_4_unique.txt:35
+msgid "These hands built a village."
+msgstr "Ezek a kezek települést építettek."
+
+#: ../items/categories/level_4_unique.txt:50
+msgid "Blood Tunic"
+msgstr "Vértunika"
+
+#: ../items/categories/level_4_unique.txt:51
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Amikor hordják, fűti a tulaj vérét."
+
+#: ../items/categories/level_4_unique.txt:65
+msgid "Dark Steppers"
+msgstr "Sötétlépők"
+
+#: ../items/categories/level_4_unique.txt:66
+msgid "Dancing through the shadows."
+msgstr "Áttáncolnak a sötétségen."
+
+#: ../items/categories/level_4_unique.txt:79
+msgid "Seagate's Tri-pants"
+msgstr "Seagate trinadrágja"
+
+#: ../items/categories/level_4_unique.txt:80
+msgid ""
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
+msgstr "Ez a kopott gatya tele van égésnyomokkal, mégis hideg az érintése."
+
+#: ../items/categories/level_4_unique.txt:95
+msgid "Ardwen's Ring"
+msgstr "Ardwen gyűrűje"
+
+#: ../items/categories/level_4_unique.txt:96
+msgid "Lochport's finest."
+msgstr ""
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Hadúr lemez sisak"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Lövész lemez sisak"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Elemimágus bársony kapucni"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Hadúr lemez vért"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Lövész lemez vért"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Elemimágus bársony mellény"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Hadúr lemez nadrág"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Lövész lemez nadrág"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Elemimágus bársony ing"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Hadúr lemez csizma"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Lövész lemez csizma"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Elemimágus bársony csizma"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Hadúr lemez karvédő"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Lövész lemez karvédő"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Elemimágus bársony ujj"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Mester Hadúr bőröv"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Mester Lövész nyakék"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Mester Elemimágus Varázskönyv"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Hadúr nagykard"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Lövész nagyíj"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Elemimágus nagybot"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Templomos toronypajzs"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Mester Végzetgyűrű"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Mester Jéggyűrű"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Mester Feszültséggyűrű"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Mester Ürességgyűrű"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Mester Tudósgyűrű"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Mester Gazdagsággyűrű"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Mester Relikviagyűrű"
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Harcos láncvért sisak"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Kósza láncvért sisak"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Varázsló selyem kapucni"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "Harcos láncing"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "Kósza láncing"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Varázsló selyem mellény"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Harcos láncvért nadrág"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Kósza láncvért nadrág"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Varázsló selyem ing"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Harcos láncvért csizma"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Kósza láncvért csizma"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Varázsló selyem csizma"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Harcos láncvért kesztyű"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Kósza láncvért kesztyű"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Varázsló selyem kesztyű"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Kalandozó Harcos bőröv"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "Kalandozó Kósza nyakék"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "Kalandozó Varázsló Varázskönyv"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Harcos hosszúkard"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Kósza hosszúíj"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Varázsló bot"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Paplovag pajzs"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Kalandozó Lánggyűrű"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Kalandozó Fagygyűrű"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "Kalandozó Sokkgyűrű"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Kalandozó Ragyogásgyűrű"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Kalandozó Tudásgyűrű"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Kalandozó Gazdagsággyűrű"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Kalandozó Kincsgyűrű"
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4188,122 +4293,6 @@ msgstr "Bot"
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
 msgstr "Pajzs"
-
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Hadúr bőrkapucni"
-
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Lövész bőrkapucni"
-
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Elemimágus gyapjú kapucni"
-
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Hadúr bőrtunika"
-
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Lövész bőrtunika"
-
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Elemimágus gyapjú mellény"
-
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Hadúr bőrnadrág"
-
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Lövész bőrnadrág"
-
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "Elemimágus gyapjú ing"
-
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Hadúr bőrcsizma"
-
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Lövész bőrcsizma"
-
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Elemimágus gyapjú csizma"
-
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Hadúr bőrkesztyű"
-
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Lövész bőrkesztyű"
-
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Elemimágus gyapjú ujj"
-
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "Mester Harcos bőröv"
-
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Mester Feldertő nyakék"
-
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Mester Bűbájos Varázskönyv"
-
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Hadúr rövidkard"
-
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Lövész rövidíj"
-
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Elemimágus bot"
-
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Templomos vaspajzs"
-
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Mester Tűzgyűrű"
-
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Mester Jéggyűrű"
-
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Mester Elektromosgyűrű"
-
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Mester Árnygyűrű"
-
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Mester Tudásgyűrű"
-
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Mester Jólétgyűrű"
-
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Mester Kincsgyűrű"
 
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
@@ -4421,153 +4410,225 @@ msgstr "Bóklászó Jólétgyűrű"
 msgid "Wandering Loot Ring"
 msgstr "Bóklászó Kincsgyűrű"
 
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Harcos lemez sisak"
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Harcos textiling"
 
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Kósza lemez sisak"
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Kósza textiling"
 
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Varázsló bársony kapucni"
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Varázsló textiling"
 
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Harcos lemez mellvért"
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Harcos textilnadrág"
 
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Kósza lemez mellvért"
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Kósza textilnadrág"
 
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Varázsló bársony mellény"
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Varázsló textilnadrág"
 
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Harcos lemez nadrág"
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Harcos textilszandál"
 
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Kösza lemez nadrág"
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Kósza textilszandál"
 
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Varázsló bársony ing"
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Varázsló textilszandál"
 
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Harcos lemez csizma"
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Harcos textilkesztyű"
 
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Kósza lemez csizma"
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Kósza textilkesztyű"
 
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Varázsló bársony csizma"
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Varázsló textilkesztyű"
 
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Harcos lemez kézvédő"
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Kalandozó bőröv"
 
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Kósza lemez kézvédő"
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Kalandozó nyakék"
 
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Varázsló bársony ujj"
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Kalandozó varázskönyv"
 
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Kalandozó Hadúr bőröv"
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Harcos tőr"
 
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "Kalandozó Lövész nyakék"
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Kósza csúzli"
 
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "Kalandozó Elemimágus Varázskönyv"
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Varázsló pálca"
 
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Harcos hosszúkard"
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Paplovag fapajzs"
 
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Kósza nagynyílpuska"
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Kalandozó Tűzgyűrű"
 
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Varázsló nagybot"
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Kalandozó Jéggyűrű"
 
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Paplovag toronypajzs"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Kalandozó Végzetgyűrű"
-
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Kalandozó Fagygyűrű"
-
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
 msgstr "Kalandozó Villámgyűrű"
 
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Kalandozó Ürességgyűrű"
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Kalandozó Sötétséggyűrű"
 
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Kalandozó Tudósgyűrű"
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Kalandozó Tapasztalatgyűrű"
 
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Kalandozó Hatásgyűrű"
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Kalandozó Gazdagsággyűrű"
 
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Kalandozó Régiséggyűrű"
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Kalandozó Kincsgyűrű"
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Textiling"
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Hadúr láncvért sisak"
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Textilnadrág"
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Lövész láncvért sisak"
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Textilszandál"
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Elemimágus selyem kapucni"
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Textilkesztyű"
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Hadúr láncing"
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Tőr"
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Lövész láncing"
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Csúzli"
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Elemimágus selyem mellény"
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Pálca"
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Hadúr láncvért nadrág"
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Fapajzs"
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Lövész láncvért nadrág"
+
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Elemimágus selyem ing"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Hadúr láncvért csizma"
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Lövész láncvért csizma"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Elemimágus selyem csizma"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Hadúr láncvért kesztyű"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Lövész láncvért kesztyű"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Elemimágus selyem ujj"
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Mester harcos bőröv"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Mester kósza nyakék"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Mester Varázsló Varázskönyv"
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Hadúr hosszúkard"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Lövész hosszúíj"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Elemimágus bot"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Templomos pajzs"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Mester Lánggyűrű"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Mester Fagygyűrű"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Mester Sokkgyűrű"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Mester Szikrázógyűrű"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Mester Értelmiséggyűrű"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Mester Gazdagsággyűrű"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Mester Régiséggyűrű"
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4617,87 +4678,6 @@ msgstr "Mez Vértje"
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr "Többrétegű hüllőbőrből készült, amin nem hatol át semmi."
 
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Húskötés"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "Sima a tapintása. Viselés közben rásimul a viselő ujjára."
-
-#: ../items/categories/level_16_unique.txt:20
-msgid "Soulband"
-msgstr "Lélekkötés"
-
-#: ../items/categories/level_16_unique.txt:22
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr ""
-"Fénylik, mikor viselik, kitisztítja a viselő tudatát és segít a mély "
-"fókuszálásban."
-
-#: ../items/categories/level_16_unique.txt:36
-msgid "Underworld Cloak"
-msgstr "Alvilági Álca"
-
-#: ../items/categories/level_16_unique.txt:48
-msgid "Underworld Platemail"
-msgstr "Alvilági Lemezpajzs"
-
-#: ../items/categories/level_16_unique.txt:60
-msgid "Underworld Boots"
-msgstr "Alvilági Csizma"
-
-#: ../items/categories/level_16_unique.txt:72
-msgid "Underworld Armguards"
-msgstr "Alvilági Karvédők"
-
-#: ../items/categories/level_16_unique.txt:84
-msgid "Underworld Greaves"
-msgstr "Alvilági Nadrág"
-
-#: ../items/categories/level_16_unique.txt:96
-msgid "Underworld Tome"
-msgstr "Alvilági Tome"
-
-#: ../items/categories/level_16_unique.txt:107
-msgid "Underworld Blade"
-msgstr "Alvilági Penge"
-
-#: ../items/categories/level_16_unique.txt:119
-msgid "Underworld Bow"
-msgstr "Alvilági Íj"
-
-#: ../items/categories/level_16_unique.txt:131
-msgid "Underworld Sceptre"
-msgstr "Alvilági Sceptre"
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Visszaállítja az ÉP 25%-át"
-
-#: ../items/categories/potions.txt:20
-msgid "Restore 25% of maximum MP"
-msgstr "Visszaállítja a MP 25%-át"
-
-#: ../items/categories/potions.txt:33
-msgid "Temporarily increase regeneration and movement speed"
-msgstr ""
-
-#: ../items/categories/potions.txt:46
-msgid "Restore 25% of both HP and MP"
-msgstr ""
-
-#: ../items/categories/potions.txt:59
-msgid "Temporarily increases the ability to find items and gold"
-msgstr ""
-
-#: ../items/categories/potions.txt:72
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr ""
-
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
 msgstr "Elveszett Totem"
@@ -4738,121 +4718,363 @@ msgstr "Alkimista ing"
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr "A viselőjét sok formula tudásával ruházza fel."
 
-#: ../items/categories/level_12_unique.txt:79
+#: ../items/categories/level_12_unique.txt:87
 msgid "Drinking potions may create another potion of the same type."
 msgstr "Elixír elfogyasztása egy ugyanolyan elixírt eredményez."
 
-#: ../items/categories/level_12_unique.txt:88
+#: ../items/categories/level_12_unique.txt:96
 msgid "Metzger's Battlemace"
 msgstr "Metzger Csatabárdja"
 
-#: ../items/categories/level_12_unique.txt:89
+#: ../items/categories/level_12_unique.txt:97
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Ezt a csatabárdot lengetve sötét ködös füstöt hagy maga után."
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Hadúr ing"
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Visszaállítja az ÉP 25%-át"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Lövész ing"
+#: ../items/categories/potions.txt:20
+msgid "Restore 25% of maximum MP"
+msgstr "Visszaállítja a MP 25%-át"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Elemimágus ing"
+#: ../items/categories/potions.txt:33
+msgid "Temporarily increase regeneration and movement speed"
+msgstr ""
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Hadúr nadrág"
+#: ../items/categories/potions.txt:46
+msgid "Restore 25% of both HP and MP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Lövész nadrág"
+#: ../items/categories/potions.txt:59
+msgid "Temporarily increases the ability to find items and gold"
+msgstr ""
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Elemimágus nadrág"
+#: ../items/categories/potions.txt:72
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr ""
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Hadúr szandál"
+#: ../items/categories/potions.txt:85
+msgid "Restore 50% of maximum HP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Lövész szandál"
+#: ../items/categories/potions.txt:98
+msgid "Restore 75% of maximum HP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Elemimágus szandál"
+#: ../items/categories/potions.txt:111
+msgid "Restore 50% of maximum MP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Hadúr kesztyű"
+#: ../items/categories/potions.txt:124
+msgid "Restore 75% of maximum MP"
+msgstr ""
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Lövész kesztyű"
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "Harcos lemez sisak"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Elemimágus kesztyű"
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "Felderítő lemez sisak"
 
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Mester bőröv"
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "Bűbájos bársony kapucni"
 
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Mester nagyék"
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "Harcos lemezvért"
 
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Mester varázskönyv"
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "Felderítő lemezvért"
 
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Hadúr tőr"
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "Bűbájos bársony mellény"
 
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Lövész parittya"
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "Harcos lemez nadrág"
 
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Elemimágus bot"
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "Felderítő lemez nadrág"
 
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Templomos fapajzs"
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "Bűbájos bársony ing"
 
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Mester tűzgyűrű"
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "Harcos lemez csizma"
 
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Mester jéggyűrű"
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "Felderítő lemez csizma"
 
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Mester villámlásgyűrű"
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "Bűbájos bársony csizma"
 
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Mester sötétséggyűrű"
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "Harcos lemez karvédő"
 
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Mester tapasztalatgyűrű"
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "Felderítő lemez karvédő"
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Mester gazdagsággyűrű"
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "Bűbájos bársony ujj"
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "Mester kincsgyűrű"
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "Bóklászó Hadúr bőröv"
+
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "Bóklászó Lövész nyakék"
+
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "Bóklászó Elemimágus Varázskönyv"
+
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "Harcos nagykard"
+
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "Felderítő nagyíj"
+
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "Bűbájos nagybot"
+
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Őrző toronypajzs"
+
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "Bóklászó Végzetgyűrű"
+
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "Bóklászó Jéggyűrű"
+
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "Bóklászó Feszültséggyűrű"
+
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "Bóklásó Ürességgyűrű"
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "Bóklászó Tudósgyűrű"
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "Bóklászó Jutalomgyűrű"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "Bóklászó Kincsgyűrű"
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Égetés"
+
+#: ../powers/base/magician/burn.txt:4
+msgid "Blast multiple enemies in a distant area with fire."
+msgstr "Távoli ellenfelekre küld lángoló halált."
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Energiaáramlás"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
+msgstr "A manakészlet megnő és gyorsabban töltődik fel."
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Tűzgolyó"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Tűzgolyót lő, ami plusz mentális sebzést okoz."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Villám"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies."
+msgstr ""
+"Villám hull az égből, nagy eséllyel kritikusan megsebezve a "
+"mozgáskorlátozott ellenfelet."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Erőteret hoz létre, ami felfogja a sebzést."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Sokk"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Elektromos kisülést lő, ami kifejezetten hatásos mozgáskorlátozott "
+"ellendelek ellen."
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Jégvillám"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Jégtömböt fagyaszt, amitől az ellenfél lelassul."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Fagyasztás"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid "Create a ray of several piercing cold shards that slow enemies."
+msgstr "Jónéhány fagyáscsóvát lő ki, amitöl lelassul az ellenfél."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Rengés"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Kiüti a közeli ellenfeleket, jó eséllyel megbénítva őket."
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Vérzivatar"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Erőteljes lökés, ami vérző sebeket ejt."
+
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Késdobálás"
+
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid "Throw a knife to deal reduced melee weapon damage."
+msgstr "Késdobálás csökkentett távú közelharci sebzést okoz."
+
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Kőfal"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr "Nagyobb támadásnak is ellenáll, felfogja és elnyeli őket."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Pajzsroham"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Megrohamozza az ellenfeleket, puszta erővel aprítva őket."
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Klávé"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Minden ellenséget egyszerre támad széles körben."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Baltahajítás"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Baltahajítással extra közelharci sebzés okozható."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Csatakiálltás"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "Lerázza a negatív hatásokat, és immunissá tesz rájuk egy rövid ideig."
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Medvecsapda"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgstr ""
+"Ez a csapda kivédi a különösen nagy hatótávú sebzést és lebénítja az "
+"ellenfelet."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Többlövés"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot three projectiles simultaneously."
+msgstr "Egyszerre három lövedéket lő ki."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Farkas szem"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr ""
+"Növeli az esélyét a találatnak és hogy kritikusan megsebezd az ellenfelet."
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Gyorstűz"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Öt alacsony energiájú lövés gyors egymásutánjában."
+
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Lövés"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Alap távolsági támadás."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Rövid ideig nagyon gyors mozgást tesz lehetővé."
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Szikralövés"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies."
+msgstr ""
+"Közeltávra szétszór egy csomó izzó szikrát. Páncélos ellenfél ellen is jó."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -4871,196 +5093,6 @@ msgstr "Döfőlövés"
 #: ../powers/base/ranger/piercing_shot.txt:2
 msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr "Ez a lövés áthatol a péncélon és több ellenfélen is."
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Lövés"
-
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Alap távolsági támadás."
-
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Farkas szem"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr ""
-"Növeli az esélyét a találatnak és hogy kritikusan megsebezd az ellenfelet."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Rövid ideig nagyon gyors mozgást tesz lehetővé."
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Többlövés"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Egyszerre három lövedéket lő ki."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Medvecsapda"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr ""
-"Ez a csapda kivédi a különösen nagy hatótávú sebzést és lebénítja az "
-"ellenfelet."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Szikralövés"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
-msgstr ""
-"Közeltávra szétszór egy csomó izzó szikrát. Páncélos ellenfél ellen is jó."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Gyorstűz"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Öt alacsony energiájú lövés gyors egymásutánjában."
-
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Égetés"
-
-#: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Távoli ellenfelekre küld lángoló halált."
-
-#: ../powers/base/magician/energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Energiaáramlás"
-
-#: ../powers/base/magician/energy_flow.txt:2
-msgid "Mana reserves are increased and regenerate faster."
-msgstr "A manakészlet megnő és gyorsabban töltődik fel."
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Erőteret hoz létre, ami felfogja a sebzést."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Sokk"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr ""
-"Elektromos kisülést lő, ami kifejezetten hatásos mozgáskorlátozott "
-"ellendelek ellen."
-
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Fagyasztás"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr "Jónéhány fagyáscsóvát lő ki, amitöl lelassul az ellenfél."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Jégvillám"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Jégtömböt fagyaszt, amitől az ellenfél lelassul."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Villám"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
-msgstr ""
-"Villám hull az égből, nagy eséllyel kritikusan megsebezve a "
-"mozgáskorlátozott ellenfelet."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Tűzgolyó"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Tűzgolyót lő, ami plusz mentális sebzést okoz."
-
-#: ../powers/base/warrior/throw_knife.txt:1
-msgid "Throw Knife"
-msgstr "Késdobálás"
-
-#: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Késdobálás csökkentett távú közelharci sebzést okoz."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Vérzivatar"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Erőteljes lökés, ami vérző sebeket ejt."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Csatakiálltás"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr "Lerázza a negatív hatásokat, és immunissá tesz rájuk egy rövid ideig."
-
-#: ../powers/base/warrior/cleave.txt:1
-msgid "Cleave"
-msgstr "Klávé"
-
-#: ../powers/base/warrior/cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Minden ellenséget egyszerre támad széles körben."
-
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Baltahajítás"
-
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Baltahajítással extra közelharci sebzés okozható."
-
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Pajzsroham"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Megrohamozza az ellenfeleket, puszta erővel aprítva őket."
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Rengés"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Kiüti a közeli ellenfeleket, jó eséllyel megbénítva őket."
-
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Kőfal"
-
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr "Nagyobb támadásnak is ellenáll, felfogja és elnyeli őket."
 
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
@@ -5087,13 +5119,13 @@ msgstr "Alap közelharci támadás."
 msgid "Magician"
 msgstr "Mágus"
 
-#: ../scripts/dev/waypoints_lock.txt:14
-msgid "Locked all waypoints"
-msgstr ""
-
 #: ../scripts/dev/waypoints_unlock.txt:14
 msgid "Unlocked all waypoints"
 msgstr "Minden ösvényt megnyitottál"
+
+#: ../scripts/dev/waypoints_lock.txt:14
+msgid "Locked all waypoints"
+msgstr ""
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
 msgid "It's locked."
@@ -5103,6 +5135,6 @@ msgstr "Be van zárva."
 msgid "You try to unlock the chest, but it's sealed by an unknown power."
 msgstr ""
 
-#: ../scripts/powers/goblin_steal.txt:8
+#: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Manó tolvaj elcsórt egy elixírt!"
