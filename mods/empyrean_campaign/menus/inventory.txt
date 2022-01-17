@@ -1,0 +1,46 @@
+# Settings for the Inventory menu
+# the first two values are x,y positions
+# some items have two more values, width and height
+
+pos=0,0,320,416
+align=right
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=294,2
+help=2,2,24,24
+
+set_previous=48,87,images/menus/buttons/up.png
+set_next=48,147,images/menus/buttons/down.png
+label_equipment_set=59,120,center,top
+
+# define x,y position, slot type
+equipment_slot=96,64,hands,1
+equipment_slot=96,112,ring,1
+equipment_slot=96,160,main,1
+equipment_slot=144,32,head,1
+equipment_slot=144,80,chest,1
+equipment_slot=144,128,legs,1
+equipment_slot=144,176,feet,1
+equipment_slot=192,64,artifact,1
+equipment_slot=192,112,ring,1
+equipment_slot=192,160,off,1
+
+equipment_slot=96,64,hands,2
+equipment_slot=96,112,ring,2
+equipment_slot=96,160,main,2
+equipment_slot=144,32,head,2
+equipment_slot=144,80,chest,2
+equipment_slot=144,128,legs,2
+equipment_slot=144,176,feet,2
+equipment_slot=192,64,artifact,2
+equipment_slot=192,112,ring,2
+equipment_slot=192,160,off,2
+
+carried_area=32,224
+carried_cols=8
+carried_rows=5
+
+label_title=160,8,center,top
+currency=288,208,right,center
+
