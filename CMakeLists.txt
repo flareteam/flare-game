@@ -2,7 +2,7 @@ Project (Flare-Game LANGUAGES NONE)
 cmake_minimum_required (VERSION 2.8.12)
 
 Set (PACKAGE "FLARE-GAME")
-Set (VERSION "1.12")
+Set (VERSION "1.13")
 
 set(BINDIR  "games"             CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game executable will be installed.")
 set(DATADIR "share/games/flare" CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game data files will be installed.")
