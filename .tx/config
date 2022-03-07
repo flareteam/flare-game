@@ -1,17 +1,17 @@
 [main]
 host = https://www.transifex.com
 
-[flare-game.fantasycore-data-pot]
-file_filter = mods/fantasycore/languages/data.<lang>.po
+[o:flareorg:p:flare-game:r:empyrean-data-pot]
+file_filter  = mods/empyrean_campaign/languages/data.<lang>.po
+source_file  = mods/empyrean_campaign/languages/data.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = mods/fantasycore/languages/data.pot
-source_lang = en
-type = PO
 
-[flare-game.empyrean-data-pot]
-file_filter = mods/empyrean_campaign/languages/data.<lang>.po
+[o:flareorg:p:flare-game:r:fantasycore-data-pot]
+file_filter  = mods/fantasycore/languages/data.<lang>.po
+source_file  = mods/fantasycore/languages/data.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = mods/empyrean_campaign/languages/data.pot
-source_lang = en
-type = PO
 
