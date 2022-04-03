@@ -46,14 +46,14 @@ can_stack=false
 [effect]
 id=immunity
 name=Immunity
-type=immunity
+type=resist_all
 icon=12
 can_stack=false
 
 [effect]
 id=immunity_hero
 name=Immunity
-type=immunity
+type=resist_all
 icon=12
 can_stack=false
 animation=animations/powers/immunity.txt
@@ -82,11 +82,6 @@ type=mpot_percent
 [effect]
 id=knockback
 type=knockback
-can_stack=false
-
-[effect]
-id=immunity_bleed
-type=immunity_damage
 can_stack=false
 
 [effect]

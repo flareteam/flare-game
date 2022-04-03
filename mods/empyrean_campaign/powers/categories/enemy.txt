@@ -93,7 +93,7 @@ id=170
 type=fixed
 buff=true
 passive=true
-post_effect=immunity,0,0
+post_effect=immunity,100,0
 
 # shoot arrow
 [power]
@@ -347,7 +347,7 @@ id=185
 type=fixed
 buff=true
 passive=true
-post_effect=immunity_bleed,0,0
+post_effect=resist_damage_over_time,100,0
 
 # skeleton shield bash
 [power]
@@ -1206,6 +1206,6 @@ id=287
 type=fixed
 buff=true
 passive=true
-post_effect=immunity_slow,0,0
-post_effect=immunity_stun,0,0
+post_effect=resist_slow,100,0
+post_effect=resist_stun,100,0
 
