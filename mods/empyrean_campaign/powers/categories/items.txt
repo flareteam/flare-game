@@ -63,52 +63,21 @@ remove_effect=reflect_scroll_dmg,0
 
 [power]
 id=248
-type=missile
-icon=74
 name=Fireball Scroll
-description=Use: Shoot a fireball
-new_state=cast
+description=Use: Shoot a fireball. For a brief time, additional fireballs can be shot by performing a basic attack.
+INCLUDE powers/base/items/fireball_scroll.txt
 requires_item=414
-base_damage=scroll
-modifier_damage=multiply,175,175
-face=true
-directional=true
-animation=animations/powers/fireball.txt
-soundfx=soundfx/powers/fireball.ogg
-use_hazard=true
-aim_assist=true
-lifespan=800ms
-radius=1.0
-speed=16
-trait_elemental=fire
-post_power=158
-wall_power=158
-cooldown=2s
+pre_power=288
+cooldown=12s
 
 [power]
 id=249
-type=missile
-icon=78
 name=Ice Bolt Scroll
-description=Use: Shoot an ice bolt
-new_state=cast
+description=Use: Shoot an ice bolt. For a brief time, addition ice bolts can be shot by performing a basic attack.
+INCLUDE powers/base/items/icebolt_scroll.txt
 requires_item=415
-base_damage=scroll
-modifier_damage=multiply,150,150
-face=true
-directional=true
-animation=animations/powers/icicle.txt
-soundfx=soundfx/powers/shock.ogg
-use_hazard=true
-aim_assist=true
-lifespan=800ms
-radius=1.0
-speed=16
-trait_elemental=ice
-post_power=159
-wall_power=159
-post_effect=slow_ice,50,8s
-cooldown=2s
+pre_power=290
+cooldown=12s
 
 [power]
 id=250
@@ -233,4 +202,28 @@ script=on_cast,scripts/powers/alchemist_skirt/super_mp.txt
 id=286
 INCLUDE powers/base/items/ultra_mana_potion.txt
 script=on_cast,scripts/powers/alchemist_skirt/ultra_mp.txt
+
+[power]
+id=288
+type=fixed
+new_state=instant
+buff=true
+post_effect=fireball_scroll,0,10s
+remove_effect=icebolt_scroll
+
+[power]
+id=289
+INCLUDE powers/base/items/fireball_scroll.txt
+
+[power]
+id=290
+type=fixed
+new_state=instant
+buff=true
+post_effect=icebolt_scroll,0,10s
+remove_effect=fireball_scroll
+
+[power]
+id=291
+INCLUDE powers/base/items/icebolt_scroll.txt
 
