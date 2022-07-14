@@ -1,0 +1,452 @@
+{
+    "automappingRulesFile": "",
+    "commands": [
+    ],
+    "extensionsPath": "extensions",
+    "folders": [
+        "."
+    ],
+    "propertyTypes": [
+        {
+            "color": "#ffff9f3f",
+            "id": 1,
+            "members": [
+                {
+                    "name": "category",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "chance",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "direction",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "invincible_requires_not_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "invincible_requires_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "number",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_class",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_class",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "wander_radius",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "waypoints",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "name": "enemy",
+            "type": "class",
+            "useAs": [
+                "object",
+                "tile"
+            ]
+        },
+        {
+            "color": "#ff3fffff",
+            "id": 2,
+            "members": [
+                {
+                    "name": "activate",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "book",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "chance_exec",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "cooldown",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "cutscene",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "delay",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "hotspot",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "intermap",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "intermap_random",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "intramap",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "loot",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "loot_count",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "mapmod",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "msg",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "music",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "npc",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "parallax_layers",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "power",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "power_damage",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "power_path",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "reachable_from",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "remove_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "remove_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "repeat",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_class",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_class",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "respec",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "restore",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "reward_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "reward_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "reward_loot",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "reward_loot_count",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "reward_xp",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "save_game",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "script",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "set_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "shakycam",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "soundfx",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "spawn",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "stash",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "tooltip",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "unset_status",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "name": "event",
+            "type": "class",
+            "useAs": [
+                "object",
+                "tile"
+            ]
+        },
+        {
+            "color": "#ff9f40ff",
+            "id": 3,
+            "members": [
+                {
+                    "name": "direction",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "filename",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_class",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_class",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_currency",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_item",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_level",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_not_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "requires_status",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "name": "npc",
+            "type": "class",
+            "useAs": [
+                "object",
+                "tile"
+            ]
+        }
+    ]
+}
