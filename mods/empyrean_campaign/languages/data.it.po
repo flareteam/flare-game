@@ -5,6 +5,7 @@
 # Translators:
 # MOB2 <thewattyk@gmail.com>, 2018
 # Justin Jacobs <jajdorkster@gmail.com>, 2020
+# Riccardi Unix, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,13 +13,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-09 13:46+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
-"Last-Translator: Justin Jacobs <jajdorkster@gmail.com>, 2020\n"
+"Last-Translator: Riccardi Unix, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/flareorg/teams/84925/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: ../items/items.txt:8
 msgid "Gold"
@@ -42,11 +43,11 @@ msgstr "Uso: Rendono Invisibile"
 
 #: ../items/items.txt:76
 msgid "DEV Tome"
-msgstr ""
+msgstr "Tomo DEV"
 
 #: ../items/items.txt:80
 msgid "Use: Open DEV Tome"
-msgstr ""
+msgstr "Usa: Apri Tomo DEV"
 
 #: ../items/types.txt:5
 msgid "Ancient Relic"
@@ -54,11 +55,11 @@ msgstr "Antico Reperto"
 
 #: ../items/types.txt:9
 msgid "Crafting Resource"
-msgstr ""
+msgstr "Crea Risorsa"
 
 #: ../items/types.txt:13
 msgid "Crafting Tool"
-msgstr ""
+msgstr "Strumento di creazione"
 
 #: ../items/sets.txt:3
 msgid "St. Maria Garb"
@@ -78,7 +79,7 @@ msgstr "Armamenti del Mondo Sotterraneo"
 
 #: ../items/qualities.txt:5
 msgid "Normal"
-msgstr ""
+msgstr "Normale"
 
 #: ../powers/effects.txt:6
 msgid "Shield"
@@ -122,15 +123,15 @@ msgstr "Rilancio"
 
 #: ../powers/effects.txt:176
 msgid "Stamina Potion"
-msgstr ""
+msgstr "Pozione del Mana"
 
 #: ../powers/effects.txt:182
 msgid "Treasure Potion"
-msgstr ""
+msgstr "Forziere del Tesoro"
 
 #: ../powers/effects.txt:188
 msgid "Elemental Potion"
-msgstr ""
+msgstr "Pozione Elementale"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -1014,7 +1015,7 @@ msgstr "Catacombe del Mondo Sotterraneo"
 
 #: ../maps/hyperspace.txt:388
 msgid "Cutscenes"
-msgstr ""
+msgstr "Cutscene"
 
 #: ../maps/lake_kuuma.txt:852
 msgid "Boat"
@@ -1071,10 +1072,11 @@ msgstr "Carrello di miniera vuoto"
 #: ../maps/nazia_mines.txt:291
 msgid "By itself, this mine cart can't break open the door."
 msgstr ""
+"Da solo, questo carrello da miniera non è in grado di rompere la porta."
 
 #: ../maps/nazia_mines.txt:428
 msgid "You found a door, but it appears to be barricaded from the inside."
-msgstr ""
+msgstr "Hai trovato una porta, ma sembra essere barricata dall'interno."
 
 #: ../maps/nazia_mines.txt:433
 msgid "Locked Door"
@@ -1098,7 +1100,7 @@ msgstr "Miniere del Mondo Sotterraneo"
 
 #: ../maps/perdition_harbor.txt:171
 msgid "Stash"
-msgstr ""
+msgstr "Scorta"
 
 #: ../maps/perdition_harbor.txt:269
 msgid "Perdition Harbor waypoint discovered."
@@ -1184,7 +1186,7 @@ msgstr "Altare Rosso"
 
 #: ../maps/temple_of_mez_2.txt:573
 msgid "Nothing happens."
-msgstr ""
+msgstr "Non succede nulla."
 
 #: ../maps/the_pit.txt:12
 msgid "The Pit"
@@ -1204,11 +1206,13 @@ msgstr "Hai disabilitato le barriere nelle Camere di Tortura."
 
 #: ../maps/torture_chambers.txt:1276
 msgid "Bookstand"
-msgstr ""
+msgstr "Leggio"
 
 #: ../maps/torture_chambers.txt:1285
 msgid "You have returned the warden's notes. The traps are now disabled."
 msgstr ""
+"Hai restituito gli appunti del guardiano. Le trappole sono state "
+"disattivate."
 
 #: ../maps/torture_chambers.txt:1306
 msgid "You successfully made it through the warden's traps."
@@ -1247,6 +1251,8 @@ msgid ""
 "You found a chamber on the east side of Perdition Harbor that contains the "
 "Book of the Dead."
 msgstr ""
+"Hai trovato una camera sul lato est del Porto della Perdizione che contiene "
+"il Libro dei Morti."
 
 #: ../quests/0000_empyrean.txt:12
 msgid ""
@@ -1373,29 +1379,31 @@ msgstr "Torna da Udana e informala della morte di Krolan."
 
 #: ../quests/0011_alchemy.txt:1
 msgid "Alchemy"
-msgstr ""
+msgstr "Alchemia"
 
 #: ../quests/0011_alchemy.txt:7
 msgid ""
 "Florin requested a sample of 3 ingredients: Aloe Vera, Mana Crystals, and "
 "Mushrooms."
 msgstr ""
+"Florin ha richiesto un campione di 3 ingredienti: Aloe Vera, Cristalli di "
+"Mana e Funghi."
 
 #: ../quests/0011_alchemy.txt:13
 msgid "You've found some Aloe Vera."
-msgstr ""
+msgstr "Hai trovato della Aloe Vera."
 
 #: ../quests/0011_alchemy.txt:19
 msgid "You've found a Mana Crystal."
-msgstr ""
+msgstr "Hai trovato dei Cristalli di Mana."
 
 #: ../quests/0011_alchemy.txt:25
 msgid "You've found some Mushrooms."
-msgstr ""
+msgstr "Hai trovato dei Fughi."
 
 #: ../quests/0011_alchemy.txt:31
 msgid "You've found all 3 ingredients. Return them to Florin."
-msgstr ""
+msgstr "Hai trovato tutti e 3 gli ingredienti. Portali a Florin."
 
 #: ../quests/0020_journal.txt:1
 msgid "The Merchant's Journal"
@@ -1424,18 +1432,21 @@ msgstr "In Trappola nella Cripta"
 
 #: ../quests/0030_ardwen.txt:6
 msgid "Investigate the Family Crypt."
-msgstr ""
+msgstr "Indaga la Cripta di Famiglia."
 
 #: ../quests/0030_ardwen.txt:10
 msgid ""
 "You found a strange ring. It might have a use beyond its mundane magical "
 "properties."
 msgstr ""
+"Hai trovato uno strano anello. Potrebbe avere un uso che va oltre le sue "
+"banali proprietà magiche."
 
 #: ../quests/0030_ardwen.txt:14
 msgid ""
 "You found another strange ring. Maybe this one will have a different effect."
 msgstr ""
+"Hai trovato un altro stano anello. Forse questo avrà un effetto diverso."
 
 #: ../quests/0030_ardwen.txt:19
 msgid "Defeat Ardwen."
@@ -1508,31 +1519,39 @@ msgstr ""
 
 #: ../quests/0070_nazia_mines.txt:1
 msgid "The Buried Fortress"
-msgstr ""
+msgstr "La Fortezza Sepolta"
 
 #: ../quests/0070_nazia_mines.txt:7
 msgid ""
 "The excavation of the mines has revealed man-made structures. Perhaps this "
 "is more than just a cave."
 msgstr ""
+"Lo scavo delle miniere ha rivelato strutture create dall'uomo. Forse si "
+"tratta di qualcosa di più di una semplice grotta."
 
 #: ../quests/0070_nazia_mines.txt:17
 msgid ""
 "You found a satchel of Blast Powder. Maybe an alchemist like Florin would "
 "know how to make this into something more effective?"
 msgstr ""
+"Hai trovato un sacchetto di polvere da sparo. Forse un alchimista come "
+"Florin saprebbe come trasformarla in qualcosa di più efficace."
 
 #: ../quests/0070_nazia_mines.txt:22
 msgid ""
 "Mixing the Blast Powder with some shavings of a Mana Crystal has created "
 "Dynamite. This could be useful."
 msgstr ""
+"Mescolando la Polvere da Sparo con alcuni frammenti di una Cristallo di Mano"
+" si crea la Dinamite. Potrebbe essere utile."
 
 #: ../quests/0070_nazia_mines.txt:27
 msgid ""
 "You successfully destroyed the previously barricaded door and can further "
 "explore the Nazia Mines."
 msgstr ""
+"Avete distrutto con successo la porta precedentemente sbarrata e potete "
+"esplorare ulteriormente le Miniere di Nazia."
 
 #: ../quests/0080_mog.txt:1
 msgid "The Lost Soul of the Mog Caverns"
@@ -1676,22 +1695,24 @@ msgid ""
 "A finger-sized post is protruding from the lid of the coffin. It looks as "
 "though something is missing."
 msgstr ""
+"Dal coperchio della bara sporge un palo grande come un dito. Sembra come "
+"manchi qualcosa."
 
 #: ../npcs/ardwens_coffin.txt:17
 msgid "Place the Gold Family Ring on the coffin"
-msgstr ""
+msgstr "Posiziona l'Anello di famiglia d'oro sulla bara"
 
 #: ../npcs/ardwens_coffin.txt:22
 msgid "The ring dissolved into nothing!"
-msgstr ""
+msgstr "L'anello si è dissolto nel nulla!"
 
 #: ../npcs/ardwens_coffin.txt:30
 msgid "Place the Silver Family Ring on the coffin"
-msgstr ""
+msgstr "Posiziona l'Anello di famiglia d'argento sulla bara"
 
 #: ../npcs/ardwens_coffin.txt:42
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 #: ../npcs/bakat.txt:1
 msgid "Bakat, Goblin Packrat"
@@ -1825,103 +1846,103 @@ msgstr ""
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
-msgstr ""
+msgstr "Rispetto"
 
 #: ../npcs/base/dev_tome/respec.txt:12
 msgid "Reset power points"
-msgstr ""
+msgstr "Resetta i punti dei Poteri"
 
 #: ../npcs/base/dev_tome/respec.txt:18
 msgid "Reset stat points"
-msgstr ""
+msgstr "Resetta i punti delle statistiche"
 
 #: ../npcs/base/dev_tome/respec.txt:24
 msgid "Reset level"
-msgstr ""
+msgstr "Resetta il livello"
 
 #: ../npcs/base/dev_tome/respec.txt:51
 msgid "Level 1"
-msgstr ""
+msgstr "Livello 1"
 
 #: ../npcs/base/dev_tome/respec.txt:57
 msgid "Level 2"
-msgstr ""
+msgstr "Livello 2"
 
 #: ../npcs/base/dev_tome/respec.txt:64
 msgid "Level 3"
-msgstr ""
+msgstr "Livello 3"
 
 #: ../npcs/base/dev_tome/respec.txt:71
 msgid "Level 4"
-msgstr ""
+msgstr "Livello 4"
 
 #: ../npcs/base/dev_tome/respec.txt:85
 msgid "Level 5"
-msgstr ""
+msgstr "Livello 5"
 
 #: ../npcs/base/dev_tome/respec.txt:92
 msgid "Level 6"
-msgstr ""
+msgstr "Livello 6"
 
 #: ../npcs/base/dev_tome/respec.txt:99
 msgid "Level 7"
-msgstr ""
+msgstr "Livello 7"
 
 #: ../npcs/base/dev_tome/respec.txt:106
 msgid "Level 8"
-msgstr ""
+msgstr "Livello 8"
 
 #: ../npcs/base/dev_tome/respec.txt:113
 msgid "Level 9"
-msgstr ""
+msgstr "Livello 9"
 
 #: ../npcs/base/dev_tome/respec.txt:120
 msgid "Level 10"
-msgstr ""
+msgstr "Livello 10"
 
 #: ../npcs/base/dev_tome/respec.txt:127
 msgid "Level 11"
-msgstr ""
+msgstr "Livello 11"
 
 #: ../npcs/base/dev_tome/respec.txt:134
 msgid "Level 12"
-msgstr ""
+msgstr "Livello 12"
 
 #: ../npcs/base/dev_tome/respec.txt:141
 msgid "Level 13"
-msgstr ""
+msgstr "Livello 13"
 
 #: ../npcs/base/dev_tome/respec.txt:148
 msgid "Level 14"
-msgstr ""
+msgstr "Livello 14"
 
 #: ../npcs/base/dev_tome/respec.txt:155
 msgid "Level 15"
-msgstr ""
+msgstr "Livello 15"
 
 #: ../npcs/base/dev_tome/respec.txt:162
 msgid "Level 16"
-msgstr ""
+msgstr "Livello 16"
 
 #: ../npcs/base/dev_tome/respec.txt:169
 msgid "Level 17"
-msgstr ""
+msgstr "Livello 17"
 
 #: ../npcs/base/dev_tome/respec.txt:176
 msgid "Level 18"
-msgstr ""
+msgstr "Livello 18"
 
 #: ../npcs/base/dev_tome/respec.txt:183
 msgid "Level 19"
-msgstr ""
+msgstr "Livello 19"
 
 #: ../npcs/base/dev_tome/respec.txt:190
 msgid "Level 20"
-msgstr ""
+msgstr "Livello 20"
 
 #: ../npcs/base/dev_tome/reset_quests.txt:2
 msgid "Reset quests"
-msgstr ""
+msgstr "Resetta Missioni"
 
 #: ../npcs/base/dev_tome/reset_quests.txt:22
 msgid "Reset quest: \"Return to Empyrean\""
@@ -1933,7 +1954,7 @@ msgstr "Resetta la missione: \"La Scomparsa di Krolan\""
 
 #: ../npcs/base/dev_tome/reset_quests.txt:34
 msgid "Reset quest: \"Alchemy\""
-msgstr ""
+msgstr "Resetta missione: \"Alchimia\""
 
 #: ../npcs/base/dev_tome/reset_quests.txt:40
 msgid "Reset quest: \"The Merchant's Journal\""
@@ -1957,7 +1978,7 @@ msgstr "Resetta la missione: \"Chiusi Fuori\""
 
 #: ../npcs/base/dev_tome/reset_quests.txt:70
 msgid "Reset quest: \"The Buried Fortress\""
-msgstr ""
+msgstr "Resetta missione: \"La Fortezza Sepolta\""
 
 #: ../npcs/base/dev_tome/reset_quests.txt:76
 msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
@@ -1977,11 +1998,11 @@ msgstr "Resetta la missione: \"Compagni Caduti\""
 
 #: ../npcs/base/dev_tome/items.txt:2
 msgid "Give items"
-msgstr ""
+msgstr "Dare oggetti"
 
 #: ../npcs/base/dev_tome/items.txt:20
 msgid "Potions"
-msgstr ""
+msgstr "Pozioni"
 
 #: ../npcs/base/dev_tome/items.txt:33
 msgid "Health Potion"
@@ -1993,11 +2014,11 @@ msgstr "Pozione del Mana"
 
 #: ../npcs/base/dev_tome/items.txt:51
 msgid "Restoration Potion"
-msgstr ""
+msgstr "Pozione di ripristino "
 
 #: ../npcs/base/dev_tome/items.txt:69
 msgid "Scrolls"
-msgstr ""
+msgstr "Pergamene"
 
 #: ../npcs/base/dev_tome/items.txt:84
 msgid "Summon Zombie Scroll"
@@ -2033,95 +2054,95 @@ msgstr "Pergamena di Riflesso"
 
 #: ../npcs/base/dev_tome/items.txt:132
 msgid "Underworld Set (with rings)"
-msgstr ""
+msgstr "Set Underworld (con anelli)"
 
 #: ../npcs/base/dev_tome/teleport.txt:17
 msgid "Introduction"
-msgstr ""
+msgstr "Introduzione"
 
 #: ../npcs/base/dev_tome/teleport.txt:29
 msgid "Region 1: Salted Field -> St. Maria"
-msgstr ""
+msgstr "Regione 1: Campo Salato -> Santa Maria"
 
 #: ../npcs/base/dev_tome/teleport.txt:48
 msgid "Region 2: Lake Kuuma -> Temple of Mez"
-msgstr ""
+msgstr "Regione 2: Lago Kuuma -> Tempo di Mez"
 
 #: ../npcs/base/dev_tome/teleport.txt:67
 msgid "Region 3: Nazia Highlands -> Wizard's Tower"
-msgstr ""
+msgstr "Regione 3: Altipiano di Nazia -> Torre del Mago"
 
 #: ../npcs/base/dev_tome/teleport.txt:86
 msgid "Region 4: Underworld"
-msgstr ""
+msgstr "Regione 4: Underworld"
 
 #: ../npcs/base/dev_tome/teleport.txt:419
 msgid "Halls of Infinity: 1"
-msgstr ""
+msgstr "Sale dell'Infinito: 1"
 
 #: ../npcs/base/dev_tome/teleport.txt:425
 msgid "Halls of Infinity: 2"
-msgstr ""
+msgstr "Sale dell'Infinito: 2"
 
 #: ../npcs/base/dev_tome/teleport.txt:431
 msgid "Halls of Infinity: 3"
-msgstr ""
+msgstr "Sale dell'Infinito: 3"
 
 #: ../npcs/base/dev_tome/teleport.txt:437
 msgid "Halls of Infinity: 4"
-msgstr ""
+msgstr "Sale dell'Infinito: 4"
 
 #: ../npcs/base/dev_tome/teleport.txt:443
 msgid "Halls of Infinity: 5"
-msgstr ""
+msgstr "Sale dell'Infinito: 5"
 
 #: ../npcs/base/dev_tome/teleport.txt:449
 msgid "Halls of Infinity: 6"
-msgstr ""
+msgstr "Sale dell'Infinito: 6"
 
 #: ../npcs/base/dev_tome/teleport.txt:455
 msgid "Halls of Infinity: 7"
-msgstr ""
+msgstr "Sale dell'Infinito: 7"
 
 #: ../npcs/base/dev_tome/teleport.txt:461
 msgid "Halls of Infinity: 8"
-msgstr ""
+msgstr "Sale dell'Infinito: 8"
 
 #: ../npcs/base/dev_tome/teleport.txt:467
 msgid "Halls of Infinity: 9"
-msgstr ""
+msgstr "Sale dell'Infinito: 9"
 
 #: ../npcs/base/dev_tome/teleport.txt:473
 msgid "Halls of Infinity: 10"
-msgstr ""
+msgstr "Sale dell'Infinito: 10"
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
-msgstr ""
+msgstr "Giocatore"
 
 #: ../npcs/dev_tome.txt:34
 msgid "Campaign"
-msgstr ""
+msgstr "Campagna"
 
 #: ../npcs/dev_tome.txt:49
 msgid "Restore HP/MP/status"
-msgstr ""
+msgstr "Ripristina stato HP/MP"
 
 #: ../npcs/dev_tome.txt:56
 msgid "Save game at current position"
-msgstr ""
+msgstr "Salva gioco nella posizione corrente"
 
 #: ../npcs/dev_tome.txt:63
 msgid "Waypoints"
-msgstr ""
+msgstr "Waypoints"
 
 #: ../npcs/dev_tome.txt:72
 msgid "Lock all Hyperspace waypoints"
-msgstr ""
+msgstr "Blocca tutti i teletrasporti dell'Iperspazio."
 
 #: ../npcs/dev_tome.txt:78
 msgid "Unlock all Hyperspace waypoints"
-msgstr ""
+msgstr "Sblocca tutti i teletrasporti dell'Iperspazio."
 
 #: ../npcs/florin.txt:1
 msgid "Florin, Apothecary"
@@ -2249,6 +2270,9 @@ msgid ""
 "Gravebloom flower accomplish this. Return to me with both the flower and the"
 " blood."
 msgstr ""
+"Posso creare una piccola quantità di inchiostro Gravebloom per voi, ma per "
+"farlo ho bisogno di un fiore Gravebloom. Tornate da me con il fiore e il "
+"sangue."
 
 #: ../npcs/florin.txt:75
 msgid ""
@@ -2302,44 +2326,53 @@ msgid ""
 "If you plan on venturing further, you'll need to learn how to use the "
 "resources that you come across."
 msgstr ""
+"Se intendete avventurarvi oltre, dovrai imparare a utilizzare le risorse che"
+" incontrerai."
 
 #: ../npcs/florin.txt:95
 msgid ""
 "I can show you how to mix potions, but I don't have any ingredients on hand."
 msgstr ""
+"Posso mostrarti come si preparano le pozioni, ma non ho gli ingredienti a "
+"portata di mano."
 
 #: ../npcs/florin.txt:96
 msgid ""
 "Can I ask you to procure some elements for me? I require one each of the "
 "following: Aloe Vera, Mana Crystal, and Mushrooms."
 msgstr ""
+"Posso chiederti di procurarmi alcuni elementi ? Ho bisogno di ciascuno dei "
+"seguenti elementi: Aloe Vera. Cristallo di Mana e Funghi."
 
 #: ../npcs/florin.txt:97
 msgid "I can do that."
-msgstr ""
+msgstr "Non posso farlo."
 
 #: ../npcs/florin.txt:99
 msgid ""
 "Then return to me with these items, and I will make it worth your time."
 msgstr ""
+"Poi torna da me con questi oggetti e farò in modo che ne valga la pena."
 
 #: ../npcs/florin.txt:107
 msgid "Have you gotten those ingredients yet?"
-msgstr ""
+msgstr "Hai già trovato gli ingredienti ?"
 
 #: ../npcs/florin.txt:112
 msgid "Yes"
-msgstr ""
+msgstr "Sì"
 
 #: ../npcs/florin.txt:119
 msgid "Here are the ingredients you asked for."
-msgstr ""
+msgstr "Ecco gli ingredienti richiesti."
 
 #: ../npcs/florin.txt:120
 msgid ""
 "Thank you. I was able to find some Aloe Vera on my own, so you can keep what"
 " you found."
 msgstr ""
+"Grazie. Sono riuscito a trovare da solo dell'Aloe Vera, quindi puoi tenere "
+"quella che hai trovato."
 
 #: ../npcs/florin.txt:121
 msgid ""
@@ -2347,34 +2380,43 @@ msgid ""
 "use the mortar and pestle with that Aloe Vera you found to make a fine "
 "healing potion."
 msgstr ""
+"Prendi anche queste bottiglie vuote insieme al mortaio e pestello. Potete "
+"usare il mortaio e pestello con l'Aloe Vera che avete trovato per fare una "
+"pozione curativa."
 
 #: ../npcs/florin.txt:122
 msgid ""
 "If you ever lose that mortar and pestle, you can always speak to me if you "
 "want some potions made."
 msgstr ""
+"Se mai dovessi perdere il mortaio e pestello, puoi sempre rivolgerti a me se"
+" vuoi preparare delle pozioni."
 
 #: ../npcs/florin.txt:127
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: ../npcs/florin.txt:137
 msgid "Blast Powder"
-msgstr ""
+msgstr "Polvere Esplosiva"
 
 #: ../npcs/florin.txt:139
 msgid ""
 "Blast powder? With a little bit of Mana Crystal, you can make quite the "
 "explosion with that stuff."
 msgstr ""
+"Polvere esplosiva ? Con un po di Cristallo di Mana, si può creare una bella "
+"esplosione con quella roba."
 
 #: ../npcs/florin.txt:140
 msgid "The process is fairly volatile, so allow me to do the mixing."
 msgstr ""
+"Il processo è abbastanza volatile, quindi permettetemi di fare la "
+"miscelazione."
 
 #: ../npcs/florin.txt:147
 msgid "There. Now be careful with that."
-msgstr ""
+msgstr "Ecco. Ora fate attenzione con quello."
 
 #: ../npcs/glowing_obelisk_1.txt:1
 msgid "Glowing Obelisk"
@@ -2732,7 +2774,7 @@ msgstr "Te!"
 
 #: ../cutscenes/ending.txt:34
 msgid "The End"
-msgstr ""
+msgstr "Fine"
 
 #: ../books/book_of_the_dead.txt:13
 msgid ""
@@ -2744,31 +2786,31 @@ msgstr ""
 
 #: ../books/book_of_the_dead.txt:20
 msgid "${AVATAR_NAME}"
-msgstr ""
+msgstr "${AVATAR_NAME}"
 
 #: ../books/crafting_alchemy.txt:23
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: ../books/crafting_alchemy.txt:29
 msgid "Craft"
-msgstr ""
+msgstr "Craft"
 
 #: ../books/crafting_alchemy.txt:48
 msgid "Empty Bottle"
-msgstr ""
+msgstr "Bottiglia Vuota"
 
 #: ../books/crafting_alchemy.txt:65
 msgid "Aloe Vera"
-msgstr ""
+msgstr "Aloe Vera"
 
 #: ../books/crafting_alchemy.txt:82
 msgid "Mana Crystal"
-msgstr ""
+msgstr "Cristalli del Mana"
 
 #: ../books/crafting_alchemy.txt:99
 msgid "Mushrooms"
-msgstr ""
+msgstr "Funghi"
 
 #: ../books/crafting_alchemy.txt:287
 msgid "Dynamite"
@@ -2776,23 +2818,23 @@ msgstr "Dinamite"
 
 #: ../books/crafting_alchemy.txt:300
 msgid "Super Health Potion"
-msgstr ""
+msgstr "Super Pozione di Guarigione"
 
 #: ../books/crafting_alchemy.txt:313
 msgid "Ultra Health Potion"
-msgstr ""
+msgstr "Pozione di Guarigione Ultra"
 
 #: ../books/crafting_alchemy.txt:326
 msgid "Super Mana Potion"
-msgstr ""
+msgstr "Super Pozione del Mana"
 
 #: ../books/crafting_alchemy.txt:339
 msgid "Ultra Mana Potion"
-msgstr ""
+msgstr "Pozione del Mana Ultra"
 
 #: ../books/cutscene_list.txt:21
 msgid "Ending"
-msgstr ""
+msgstr "Finale"
 
 #: ../books/merchants_journal.txt:13
 msgid "1472/9/27"
@@ -2868,7 +2910,7 @@ msgstr "-K"
 
 #: ../books/wardens_notes.txt:13
 msgid "1468/7/9"
-msgstr ""
+msgstr "9/7/1468"
 
 #: ../books/wardens_notes.txt:18
 msgid ""
@@ -2876,37 +2918,44 @@ msgid ""
 "anyone made it through, but they always want to try. I gave them the same "
 "advice as with all the subjects:"
 msgstr ""
+"Un altro soggetto ha chiesto di fare il test. Non ricordo l'ultima volta che"
+" qualcuno ce l'ha fatta, ma vogliano sempre provarci. Ho dato loro lo stesso"
+" consiglio che ho dato a tutti:"
 
 #: ../books/wardens_notes.txt:24
 msgid "East at the first symbol."
-msgstr ""
+msgstr "Est al primo simbolo."
 
 #: ../books/wardens_notes.txt:29
 msgid "South at the next."
-msgstr ""
+msgstr "Sud alla prossima."
 
 #: ../books/wardens_notes.txt:34
 msgid "West two times, then carry on from there."
-msgstr ""
+msgstr "Ovest due volte, poi proseguire dritto."
 
 #: ../books/wardens_notes_2.txt:13
 msgid ""
 "The other subjects had been very eager, so I invited a few to watch today's "
 "challenger."
 msgstr ""
+"Gli altri soggetti erano molto impazienti, così ne invitai alcuni a guardare"
+" lo sfidante di oggi."
 
 #: ../books/wardens_notes_2.txt:18
 msgid ""
 "The entertainment didn't last long. The subject immediately went south."
 msgstr ""
+"L'intrattenimento non è durato a lungo. Il soggetto è andato subito a "
+"rotoli."
 
 #: ../books/wardens_notes_2.txt:24
 msgid "1468/7/10"
-msgstr ""
+msgstr "10/07/1468"
 
 #: ../books/wardens_notes_2.txt:29
 msgid "No subjects asked to take the test today."
-msgstr ""
+msgstr "Nessun soggetto ha chiesto di fare il test oggi."
 
 #: ../items/categories/level_4.txt:5
 msgid "Warlord Cloth Shirt"
@@ -3833,7 +3882,7 @@ msgstr "Diario di Abasi"
 
 #: ../items/categories/quest.txt:34
 msgid "Gold Family Ring"
-msgstr ""
+msgstr "Anello di famiglia d'oro"
 
 #: ../items/categories/quest.txt:45
 msgid "St. Maria Mausoleum Key"
@@ -3949,7 +3998,7 @@ msgstr "Baule del tesoro"
 
 #: ../items/categories/quest.txt:339
 msgid "Silver Family Ring"
-msgstr ""
+msgstr "Anello di famiglia d'argento"
 
 #: ../items/categories/quest.txt:365
 msgid ""
@@ -3995,11 +4044,11 @@ msgstr ""
 
 #: ../items/categories/crafting.txt:39
 msgid "Mortar and Pestle"
-msgstr ""
+msgstr "Mortaio e pestello"
 
 #: ../items/categories/crafting.txt:40
 msgid "Use empty bottles and various ingredients to create potions."
-msgstr ""
+msgstr "Usa bottiglie vuote e vari ingredienti per creare pozioni."
 
 #: ../items/categories/level_4_unique.txt:3
 msgid "Krolan's Hammer"
@@ -4059,7 +4108,7 @@ msgstr "Anello di Ardwen"
 
 #: ../items/categories/level_4_unique.txt:96
 msgid "Lochport's finest."
-msgstr ""
+msgstr "Il meglio di Lochport."
 
 #: ../items/categories/level_16.txt:5
 msgid "Warlord Plate Helmet"
@@ -4799,35 +4848,36 @@ msgstr "Recuperi 25% del massimo di MP"
 
 #: ../items/categories/potions.txt:33
 msgid "Temporarily increase regeneration and movement speed"
-msgstr ""
+msgstr "Aumenta temporaneamente a rigenerazione e la velocità di movimento"
 
 #: ../items/categories/potions.txt:46
 msgid "Restore 25% of both HP and MP"
-msgstr ""
+msgstr "Recupera 25% dei MP e HP massimi"
 
 #: ../items/categories/potions.txt:59
 msgid "Temporarily increases the ability to find items and gold"
-msgstr ""
+msgstr "Aumenta temporaneamente la capacità di trovare oggetti e oro"
 
 #: ../items/categories/potions.txt:72
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr ""
+"Aumenta temporaneamente la resistenza a tutte le forme di magia del 50%"
 
 #: ../items/categories/potions.txt:85
 msgid "Restore 50% of maximum HP"
-msgstr ""
+msgstr "Recuperi 50% degli HP massimi"
 
 #: ../items/categories/potions.txt:98
 msgid "Restore 75% of maximum HP"
-msgstr ""
+msgstr "Recuperi 75% degli HP massimi"
 
 #: ../items/categories/potions.txt:111
 msgid "Restore 50% of maximum MP"
-msgstr ""
+msgstr "Recuperi 50% degli MP massimi"
 
 #: ../items/categories/potions.txt:124
 msgid "Restore 75% of maximum MP"
-msgstr ""
+msgstr "Recuperi 75% degli MP massimi"
 
 #: ../items/categories/level_14.txt:5
 msgid "Fighting Plate Helmet"
@@ -5187,7 +5237,7 @@ msgstr "Sbloccati tutti i teletrasporti"
 
 #: ../scripts/dev/waypoints_lock.txt:14
 msgid "Locked all waypoints"
-msgstr ""
+msgstr "Blocca tutti i teletrasporti"
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
 msgid "It's locked."
@@ -5196,6 +5246,7 @@ msgstr "E' chiuso."
 #: ../scripts/maps/the_pit/locked_chest.txt:10
 msgid "You try to unlock the chest, but it's sealed by an unknown power."
 msgstr ""
+"Cerchi di aprire il forziere, ma è sigillato da un potere sconosciuto."
 
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
