@@ -41,7 +41,15 @@ def extract(filename):
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
         'power_desc', 'quest_text', 'description',
         'tab_title', 'currency_name', 'flavor', 'topic', 'option',
-        'caption', 'text', 'name_min', 'name_max'
+        'caption', 'text', 'name_min', 'name_max',
+
+        # engine/resource_stats.txt
+        'text_base', 'text_base_desc',
+        'text_regen', 'text_regen_desc',
+        'text_steal', 'text_steal_desc',
+        'text_resist_steal', 'text_resist_steal_desc',
+        'text_combat_heal', 'text_log_restore', 'text_log_low',
+        'text_tooltip_heal', 'text_tooltip_cost',
     ]
     plain_text = [
         'msg', 'him', 'her', 'you', 'name', 'title', 'tooltip',
@@ -126,6 +134,7 @@ extract('../engine/titles.txt')
 extract('../engine/equip_flags.txt')
 extract('../engine/primary_stats.txt')
 extract('../engine/damage_types.txt')
+extract('../engine/resource_stats.txt')
 extract('../soundfx/subtitles.txt')
 
 for folder in ['enemies', 'maps', 'quests', 'npcs', 'cutscenes', 'books', 'items', 'powers', 'scripts']:
