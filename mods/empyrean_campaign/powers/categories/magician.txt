@@ -113,28 +113,28 @@ id=128
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=3
 modifier_damage=multiply,125,0
-post_effect=slow_ice,45,6s
+post_effect=slow_ice,50,6s
 
 [power]
 id=129
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=4
 modifier_damage=multiply,150,0
-post_effect=slow_ice,40,8s
+post_effect=slow_ice,50,8s
 
 [power]
 id=130
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=5
 modifier_damage=multiply,175,0
-post_effect=slow_ice,35,10s
+post_effect=slow_ice,50,10s
 
 [power]
 id=131
 INCLUDE powers/base/magician/ice_bolt.txt
 requires_mp=6
 modifier_damage=multiply,200,0
-post_effect=slow_ice,30,12s
+post_effect=slow_ice,50,12s
 
 
 
@@ -147,35 +147,35 @@ id=132
 INCLUDE powers/base/magician/shock.txt
 requires_mp=2
 modifier_damage=multiply,100,0
-trait_crits_impaired=50
+trait_crits_impaired=25
 
 [power]
 id=133
 INCLUDE powers/base/magician/shock.txt
 requires_mp=3
 modifier_damage=multiply,125,0
-trait_crits_impaired=60
+trait_crits_impaired=30
 
 [power]
 id=134
 INCLUDE powers/base/magician/shock.txt
 requires_mp=4
 modifier_damage=multiply,150,0
-trait_crits_impaired=70
+trait_crits_impaired=35
 
 [power]
 id=135
 INCLUDE powers/base/magician/shock.txt
 requires_mp=5
 modifier_damage=multiply,175,0
-trait_crits_impaired=80
+trait_crits_impaired=40
 
 [power]
 id=136
 INCLUDE powers/base/magician/shock.txt
 requires_mp=6
 modifier_damage=multiply,200,0
-trait_crits_impaired=90
+trait_crits_impaired=45
 
 
 
@@ -223,36 +223,36 @@ modifier_damage=multiply,200,0
 id=142
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=2
-modifier_damage=multiply,70,0
+modifier_damage=multiply,100,0
 post_effect=slow_ice,25,4s
 
 [power]
 id=143
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=3
-modifier_damage=multiply,90,0
-post_effect=slow_ice,20,6s
+modifier_damage=multiply,125,0
+post_effect=slow_ice,25,6s
 
 [power]
 id=144
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=4
-modifier_damage=multiply,110,0
-post_effect=slow_ice,15,8s
+modifier_damage=multiply,150,0
+post_effect=slow_ice,25,8s
 
 [power]
 id=145
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=5
-modifier_damage=multiply,130,0
-post_effect=slow_ice,10,10s
+modifier_damage=multiply,175,0
+post_effect=slow_ice,25,10s
 
 [power]
 id=146
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=6
-modifier_damage=multiply,150,0
-post_effect=slow_ice,5,12s
+modifier_damage=multiply,200,0
+post_effect=slow_ice,25,12s
 
 
 
