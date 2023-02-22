@@ -148,38 +148,39 @@ INCLUDE powers/base/magician/shock.txt
 requires_mp=2
 modifier_damage=multiply,100,0
 trait_crits_impaired=75
+post_effect=stun,0,600ms,10
 
 [power]
 id=133
 INCLUDE powers/base/magician/shock.txt
 requires_mp=3
-modifier_damage=multiply,110,0
+modifier_damage=multiply,105,0
 trait_crits_impaired=80
-post_effect=stun,0,1s,15
+post_effect=stun,0,700ms,20
 
 [power]
 id=134
 INCLUDE powers/base/magician/shock.txt
 requires_mp=4
-modifier_damage=multiply,120,0
+modifier_damage=multiply,110,0
 trait_crits_impaired=85
-post_effect=stun,0,1s,30
+post_effect=stun,0,800ms,30
 
 [power]
 id=135
 INCLUDE powers/base/magician/shock.txt
 requires_mp=5
-modifier_damage=multiply,130,0
+modifier_damage=multiply,115,0
 trait_crits_impaired=90
-post_effect=stun,0,1s,45
+post_effect=stun,0,900ms,40
 
 [power]
 id=136
 INCLUDE powers/base/magician/shock.txt
 requires_mp=6
-modifier_damage=multiply,140,0
+modifier_damage=multiply,120,0
 trait_crits_impaired=95
-post_effect=stun,0,1s,60
+post_effect=stun,0,1s,50
 
 
 
@@ -270,39 +271,39 @@ INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=4
 modifier_damage=multiply,100,0
 trait_crits_impaired=75
-post_effect=stun,0,1s,15
+post_effect=stun,0,1s,20
 
 [power]
 id=148
 INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=6
-modifier_damage=multiply,115,0
+modifier_damage=multiply,105,0
 trait_crits_impaired=80
-post_effect=stun,0,1250ms,30
+post_effect=stun,0,1250ms,35
 
 [power]
 id=149
 INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=8
-modifier_damage=multiply,130,0
+modifier_damage=multiply,110,0
 trait_crits_impaired=85
-post_effect=stun,0,1500ms,45
+post_effect=stun,0,1500ms,50
 
 [power]
 id=150
 INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=10
-modifier_damage=multiply,145,0
+modifier_damage=multiply,115,0
 trait_crits_impaired=90
-post_effect=stun,0,1750ms,60
+post_effect=stun,0,1750ms,65
 
 [power]
 id=151
 INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=12
-modifier_damage=multiply,160,0
+modifier_damage=multiply,120,0
 trait_crits_impaired=95
-post_effect=stun,0,2s,75
+post_effect=stun,0,2s,80
 
 
 
