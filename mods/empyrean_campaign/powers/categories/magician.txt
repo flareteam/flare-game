@@ -192,31 +192,31 @@ post_effect=stun,0,1s,50
 id=137
 INCLUDE powers/base/magician/burn.txt
 requires_mp=4
-modifier_damage=multiply,120,0
+modifier_damage=multiply,140,0
 
 [power]
 id=138
 INCLUDE powers/base/magician/burn.txt
 requires_mp=6
-modifier_damage=multiply,140,0
+modifier_damage=multiply,170,0
 
 [power]
 id=139
 INCLUDE powers/base/magician/burn.txt
 requires_mp=8
-modifier_damage=multiply,160,0
+modifier_damage=multiply,200,0
 
 [power]
 id=140
 INCLUDE powers/base/magician/burn.txt
 requires_mp=10
-modifier_damage=multiply,180,0
+modifier_damage=multiply,230,0
 
 [power]
 id=141
 INCLUDE powers/base/magician/burn.txt
 requires_mp=12
-modifier_damage=multiply,200,0
+modifier_damage=multiply,260,0
 
 
 
@@ -227,35 +227,35 @@ modifier_damage=multiply,200,0
 [power]
 id=142
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=4
+requires_mp=3
 modifier_damage=multiply,120,0
 post_effect=slow_ice,25,4s
 
 [power]
 id=143
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=6
+requires_mp=4
 modifier_damage=multiply,140,0
 post_effect=slow_ice,20,6s
 
 [power]
 id=144
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=8
+requires_mp=5
 modifier_damage=multiply,160,0
 post_effect=slow_ice,15,8s
 
 [power]
 id=145
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=10
+requires_mp=6
 modifier_damage=multiply,180,0
 post_effect=slow_ice,10,10s
 
 [power]
 id=146
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=12
+requires_mp=7
 modifier_damage=multiply,200,0
 post_effect=slow_ice,5,12s
 
