@@ -465,37 +465,42 @@ new_state=swing
 [power]
 id=100
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=1
+requires_mp=2
 cooldown=2s
-modifier_damage=multiply,75,0
+modifier_damage=multiply,60,0
+post_effect=slow,50,2s
 
 [power]
 id=101
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=1
+requires_mp=3
 cooldown=1600ms
-modifier_damage=multiply,80,0
+modifier_damage=multiply,75,0
+post_effect=slow,50,3s
 
 [power]
 id=102
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=1
+requires_mp=4
 cooldown=1200ms
-modifier_damage=multiply,85,0
+modifier_damage=multiply,90,0
+post_effect=slow,50,4s
 
 [power]
 id=103
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=1
+requires_mp=5
 cooldown=800ms
-modifier_damage=multiply,90,0
+modifier_damage=multiply,105,0
+post_effect=slow,50,5s
 
 [power]
 id=104
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=1
+requires_mp=6
 cooldown=400ms
-modifier_damage=multiply,95,0
+modifier_damage=multiply,120,0
+post_effect=slow,50,6s
 
 
 
@@ -507,41 +512,41 @@ modifier_damage=multiply,95,0
 id=105
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=3
-cooldown=4s
+cooldown=2s
 modifier_damage=multiply,110,0
-post_effect=slow,0,5s
+post_effect=stun,0,5s
 
 [power]
 id=106
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=5
-cooldown=3200ms
+cooldown=1600ms
 modifier_damage=multiply,125,0
-post_effect=slow,0,8s
+post_effect=stun,0,8s
 
 [power]
 id=107
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=7
-cooldown=2400ms
+cooldown=1200ms
 modifier_damage=multiply,140,0
-post_effect=slow,0,11s
+post_effect=stun,0,11s
 
 [power]
 id=108
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=9
-cooldown=1600ms
+cooldown=800ms
 modifier_damage=multiply,155,0
-post_effect=slow,0,14s
+post_effect=stun,0,14s
 
 [power]
 id=109
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=11
-cooldown=800ms
+cooldown=400ms
 modifier_damage=multiply,170,0
-post_effect=slow,0,18s
+post_effect=stun,0,18s
 
 
 

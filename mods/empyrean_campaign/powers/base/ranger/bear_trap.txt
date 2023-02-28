@@ -1,5 +1,5 @@
 name=Bear Trap
-description=This trap deals extra ranged weapon damage and immobilizes the target.
+description=This trap deals extra ranged weapon damage and stuns the target.
 type=fixed
 icon=21
 new_state=swing
@@ -9,7 +9,7 @@ starting_pos=melee
 animation=animations/powers/bear_trap.txt
 use_hazard=true
 base_damage=ranged
-lifespan=10s
+lifespan=30s
 radius=1.0
 post_power=110
 
