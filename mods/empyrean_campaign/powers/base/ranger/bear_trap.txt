@@ -1,15 +1,15 @@
 name=Bear Trap
-description=This trap immobilizes and stuns the enemy that touches it while also dealing extra ranged damage.
+description=This trap immobilizes and stuns the enemy that touches it while also dealing extra ranged damage. Active for 60 seconds.
 type=fixed
 icon=21
-new_state=swing
+new_state=instant
 face=true
 directional=true
 starting_pos=melee
 animation=animations/powers/bear_trap.txt
 use_hazard=true
 base_damage=ranged
-lifespan=30s
+lifespan=60s
 radius=1.0
 post_power=110
 

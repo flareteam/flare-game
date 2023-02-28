@@ -1,15 +1,15 @@
 name=Caltrops
-description=This trap slows any enemy that touches it while also dealing some ranged weapon damage.
+description=This trap slows any enemy that touches it while also dealing some ranged weapon damage. Active for 60 seconds.
 type=fixed
 icon=20
-new_state=swing
+new_state=instant
 face=true
 directional=true
 starting_pos=melee
 animation=animations/powers/caltrops.txt
 use_hazard=true
 base_damage=ranged
-lifespan=30s
+lifespan=60s
 radius=1.0
 multitarget=true
 
