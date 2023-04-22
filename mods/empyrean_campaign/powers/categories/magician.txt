@@ -192,31 +192,31 @@ post_effect=stun,0,1s,50
 id=137
 INCLUDE powers/base/magician/burn.txt
 requires_mp=4
-modifier_damage=multiply,140,0
+modifier_damage=multiply,130,0
 
 [power]
 id=138
 INCLUDE powers/base/magician/burn.txt
 requires_mp=6
-modifier_damage=multiply,180,0
+modifier_damage=multiply,160,0
 
 [power]
 id=139
 INCLUDE powers/base/magician/burn.txt
 requires_mp=8
-modifier_damage=multiply,220,0
+modifier_damage=multiply,190,0
 
 [power]
 id=140
 INCLUDE powers/base/magician/burn.txt
 requires_mp=10
-modifier_damage=multiply,260,0
+modifier_damage=multiply,220,0
 
 [power]
 id=141
 INCLUDE powers/base/magician/burn.txt
 requires_mp=12
-modifier_damage=multiply,300,0
+modifier_damage=multiply,250,0
 
 
 
@@ -271,7 +271,7 @@ INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=4
 modifier_damage=multiply,100,0
 trait_crits_impaired=75
-post_effect=stun,0,1s,20
+post_effect=stun,0,600ms,10
 
 [power]
 id=148
@@ -279,7 +279,7 @@ INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=6
 modifier_damage=multiply,105,0
 trait_crits_impaired=80
-post_effect=stun,0,1250ms,35
+post_effect=stun,0,700ms,20
 
 [power]
 id=149
@@ -287,7 +287,7 @@ INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=8
 modifier_damage=multiply,110,0
 trait_crits_impaired=85
-post_effect=stun,0,1500ms,50
+post_effect=stun,0,800ms,30
 
 [power]
 id=150
@@ -295,7 +295,7 @@ INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=10
 modifier_damage=multiply,115,0
 trait_crits_impaired=90
-post_effect=stun,0,1750ms,65
+post_effect=stun,0,900ms,40
 
 [power]
 id=151
@@ -303,7 +303,7 @@ INCLUDE powers/base/magician/thunderstrike.txt
 requires_mp=12
 modifier_damage=multiply,120,0
 trait_crits_impaired=95
-post_effect=stun,0,2s,80
+post_effect=stun,0,1s,50
 
 
 
