@@ -514,7 +514,6 @@ INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=2s
 modifier_damage=multiply,120,0
-post_effect=stun,0,2s
 
 [power]
 id=106
@@ -522,7 +521,6 @@ INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=1600ms
 modifier_damage=multiply,125,0
-post_effect=stun,0,4s
 
 [power]
 id=107
@@ -530,7 +528,6 @@ INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=1200ms
 modifier_damage=multiply,130,0
-post_effect=stun,0,6s
 
 [power]
 id=108
@@ -538,7 +535,6 @@ INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=800ms
 modifier_damage=multiply,135,0
-post_effect=stun,0,8s
 
 [power]
 id=109
@@ -546,7 +542,6 @@ INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=400ms
 modifier_damage=multiply,140,0
-post_effect=stun,0,10s
 
 
 
@@ -561,7 +556,7 @@ animation=animations/powers/bear_trap_trigger.txt
 use_hazard=true
 no_attack=true
 directional=true
-lifespan=3s
+lifespan=5s
 starting_pos=target
 
 
