@@ -475,7 +475,7 @@ id=101
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=1
 cooldown=1600ms
-modifier_damage=multiply,75,0
+modifier_damage=multiply,65,0
 post_effect=slow,50,3s
 
 [power]
@@ -483,7 +483,7 @@ id=102
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=1
 cooldown=1200ms
-modifier_damage=multiply,90,0
+modifier_damage=multiply,70,0
 post_effect=slow,50,4s
 
 [power]
@@ -491,7 +491,7 @@ id=103
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=1
 cooldown=800ms
-modifier_damage=multiply,105,0
+modifier_damage=multiply,75,0
 post_effect=slow,50,5s
 
 [power]
@@ -499,7 +499,7 @@ id=104
 INCLUDE powers/base/ranger/caltrops.txt
 requires_mp=1
 cooldown=400ms
-modifier_damage=multiply,120,0
+modifier_damage=multiply,80,0
 post_effect=slow,50,6s
 
 
@@ -514,44 +514,39 @@ INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=2s
 modifier_damage=multiply,120,0
-post_effect=slow,0,5s
-post_effect=stun,0,5s
+post_effect=stun,0,2s
 
 [power]
 id=106
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=1600ms
-modifier_damage=multiply,135,0
-post_effect=slow,0,8s
-post_effect=stun,0,8s
+modifier_damage=multiply,125,0
+post_effect=stun,0,4s
 
 [power]
 id=107
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=1200ms
-modifier_damage=multiply,150,0
-post_effect=slow,0,11s
-post_effect=stun,0,11s
+modifier_damage=multiply,130,0
+post_effect=stun,0,6s
 
 [power]
 id=108
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=800ms
-modifier_damage=multiply,165,0
-post_effect=slow,0,14s
-post_effect=stun,0,14s
+modifier_damage=multiply,135,0
+post_effect=stun,0,8s
 
 [power]
 id=109
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=1
 cooldown=400ms
-modifier_damage=multiply,180,0
-post_effect=slow,0,18s
-post_effect=stun,0,18s
+modifier_damage=multiply,140,0
+post_effect=stun,0,10s
 
 
 
@@ -566,7 +561,7 @@ animation=animations/powers/bear_trap_trigger.txt
 use_hazard=true
 no_attack=true
 directional=true
-lifespan=18s
+lifespan=3s
 starting_pos=target
 
 
