@@ -9,6 +9,7 @@
     "propertyTypes": [
         {
             "color": "#ffff9f3f",
+            "drawFill": true,
             "id": 1,
             "members": [
                 {
@@ -116,6 +117,7 @@
         },
         {
             "color": "#ff3fffff",
+            "drawFill": true,
             "id": 2,
             "members": [
                 {
@@ -378,6 +380,7 @@
         },
         {
             "color": "#ff9f40ff",
+            "drawFill": true,
             "id": 3,
             "members": [
                 {
@@ -437,6 +440,16 @@
                 },
                 {
                     "name": "requires_status",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "wander_radius",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "waypoints",
                     "type": "string",
                     "value": ""
                 }
