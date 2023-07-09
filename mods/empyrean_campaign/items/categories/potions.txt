@@ -6,9 +6,8 @@ name=Health Potion
 INCLUDE items/base/potion/hp.txt
 power=162
 power_desc=Restore 25% of maximum HP
-price=20
+price=20,player_level:20
 price_sell=15
-price_per_level=20
 max_quantity=20
 no_stash=shared
 
@@ -18,9 +17,8 @@ name=Mana Potion
 INCLUDE items/base/potion/mp.txt
 power=163
 power_desc=Restore 25% of maximum MP
-price=20
+price=20,player_level:20
 price_sell=15
-price_per_level=20
 max_quantity=20
 no_stash=shared
 
@@ -31,9 +29,8 @@ INCLUDE items/base/potion/hp.txt
 icon=80
 power=269
 power_desc=Temporarily increase regeneration and movement speed
-price=20
+price=20,player_level:20
 price_sell=15
-price_per_level=20
 max_quantity=20
 no_stash=shared
 
@@ -44,9 +41,8 @@ INCLUDE items/base/potion/hp.txt
 icon=81
 power=270
 power_desc=Restore 25% of both HP and MP
-price=40
+price=40,player_level:30
 price_sell=35
-price_per_level=30
 max_quantity=20
 no_stash=shared
 
@@ -57,9 +53,8 @@ INCLUDE items/base/potion/hp.txt
 icon=82
 power=271
 power_desc=Temporarily increases the ability to find items and gold
-price=40
+price=40,player_level:30
 price_sell=35
-price_per_level=30
 max_quantity=20
 no_stash=shared
 
@@ -70,9 +65,8 @@ INCLUDE items/base/potion/hp.txt
 icon=83
 power=272
 power_desc=Temporarily increases the resistance to all forms of magic by 50%
-price=40
+price=40,player_level:30
 price_sell=35
-price_per_level=30
 max_quantity=20
 no_stash=shared
 
@@ -83,9 +77,8 @@ INCLUDE items/base/potion/hp.txt
 icon=84
 power=275
 power_desc=Restore 50% of maximum HP
-price=40
+price=40,player_level:40
 price_sell=30
-price_per_level=40
 max_quantity=20
 no_stash=shared
 
@@ -96,9 +89,8 @@ INCLUDE items/base/potion/hp.txt
 icon=85
 power=276
 power_desc=Restore 75% of maximum HP
-price=60
+price=60,player_level:60
 price_sell=45
-price_per_level=60
 max_quantity=20
 no_stash=shared
 
@@ -109,9 +101,8 @@ INCLUDE items/base/potion/mp.txt
 icon=86
 power=277
 power_desc=Restore 50% of maximum MP
-price=40
+price=40,player_level:40
 price_sell=30
-price_per_level=40
 max_quantity=20
 no_stash=shared
 
@@ -122,9 +113,8 @@ INCLUDE items/base/potion/mp.txt
 icon=87
 power=278
 power_desc=Restore 75% of maximum MP
-price=60
+price=60,player_level:60
 price_sell=45
-price_per_level=60
 max_quantity=20
 no_stash=shared
 

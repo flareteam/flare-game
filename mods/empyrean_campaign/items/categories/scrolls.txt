@@ -6,8 +6,7 @@ name=Summon Zombie Scroll
 INCLUDE items/base/scrolls/scroll_2.txt
 power=181
 power_desc=Use: Summon a zombie to fight for you
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -18,8 +17,7 @@ name=Perdition Scroll
 INCLUDE items/base/scrolls/scroll_8.txt
 power=246
 power_desc=Use: Teleport to Perdition Harbor
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -30,8 +28,7 @@ name=Shield Scroll
 INCLUDE items/base/scrolls/scroll_4.txt
 power=247
 power_desc=Use: Create a magical shield that absorbs damage
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -42,8 +39,7 @@ name=Fireball Scroll
 INCLUDE items/base/scrolls/scroll_3.txt
 power=248
 power_desc=Use: Shoot a fireball
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -54,8 +50,7 @@ name=Ice Bolt Scroll
 INCLUDE items/base/scrolls/scroll_7.txt
 power=249
 power_desc=Use: Shoot an ice bolt
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -66,8 +61,7 @@ name=Haste Scroll
 INCLUDE items/base/scrolls/scroll_1.txt
 power=250
 power_desc=Use: Move at an increased speed for a limited time
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -78,8 +72,7 @@ name=Immunity Scroll
 INCLUDE items/base/scrolls/scroll_5.txt
 power=251
 power_desc=Use: Remove debuffs and become immune to debuffs for a limited time
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
@@ -90,8 +83,7 @@ name=Reflection Scroll
 INCLUDE items/base/scrolls/scroll_6.txt
 power=252
 power_desc=Use: Creates a magical shield that reflects projectiles and damage for a limited time
-price=25
-price_per_level=25
+price=25,player_level:25
 price_sell=12
 max_quantity=20
 no_stash=shared
