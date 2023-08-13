@@ -32,18 +32,24 @@ stat_per_level=avoidance,3
 stat=crit,1
 stat_per_level=crit,1
 
-stat=dmg_melee_min,0
-stat=dmg_melee_max,0
+stat=dmg_melee_min,15
+stat=dmg_melee_max,20
+stat_per_level=dmg_melee_min,2
+stat_per_level=dmg_melee_max,2
 stat_per_primary=physical,dmg_melee_min,1
 stat_per_primary=physical,dmg_melee_max,1
 
-stat=dmg_ment_min,0
-stat=dmg_ment_max,0
+stat=dmg_ment_min,15
+stat=dmg_ment_max,20
+stat_per_level=dmg_ment_min,2
+stat_per_level=dmg_ment_max,2
 stat_per_primary=mental,dmg_ment_min,1
 stat_per_primary=mental,dmg_ment_max,1
 
-stat=dmg_ranged_min,0
-stat=dmg_ranged_max,0
+stat=dmg_ranged_min,15
+stat=dmg_ranged_max,20
+stat_per_level=dmg_ranged_min,2
+stat_per_level=dmg_ranged_max,2
 stat_per_primary=offense,dmg_ranged_min,1
 stat_per_primary=offense,dmg_ranged_max,1
 
