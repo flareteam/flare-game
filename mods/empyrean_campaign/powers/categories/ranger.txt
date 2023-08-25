@@ -30,37 +30,42 @@ INCLUDE powers/base/ranger/ammo_axe.txt
 [power]
 id=45
 INCLUDE powers/base/ranger/haste.txt
-post_effect=haste,105,10s
-post_effect=haste_attack,110,10s
-requires_mp=4
+post_effect=haste,105,30s
+post_effect=haste_attack,110,30s
+cooldown=40s
+requires_mp=18
 
 [power]
 id=46
 INCLUDE powers/base/ranger/haste.txt
-post_effect=haste,110,10s
-post_effect=haste_attack,120,10s
-requires_mp=7
+post_effect=haste,110,35s
+post_effect=haste_attack,120,35s
+cooldown=45s
+requires_mp=20
 
 [power]
 id=47
 INCLUDE powers/base/ranger/haste.txt
-post_effect=haste,115,10s
-post_effect=haste_attack,130,10s
-requires_mp=10
+post_effect=haste,115,40s
+post_effect=haste_attack,130,40s
+cooldown=50s
+requires_mp=22
 
 [power]
 id=48
 INCLUDE powers/base/ranger/haste.txt
-post_effect=haste,120,10s
-post_effect=haste_attack,140,10s
-requires_mp=12
+post_effect=haste,120,45s
+post_effect=haste_attack,140,45s
+cooldown=55s
+requires_mp=24
 
 [power]
 id=49
 INCLUDE powers/base/ranger/haste.txt
-post_effect=haste,125,10s
-post_effect=haste_attack,150,10s
-requires_mp=15
+post_effect=haste,125,50s
+post_effect=haste_attack,150,50s
+cooldown=60s
+requires_mp=26
 
 
 
@@ -465,37 +470,37 @@ new_state=swing
 [power]
 id=100
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=2
-cooldown=2s
-modifier_damage=multiply,75,0
+requires_mp=4
+modifier_damage=multiply,55,0
+post_effect=slow,50,5s
 
 [power]
 id=101
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=3
-cooldown=1600ms
-modifier_damage=multiply,80,0
+requires_mp=5
+modifier_damage=multiply,65,0
+post_effect=slow,50,5500ms
 
 [power]
 id=102
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=4
-cooldown=1200ms
-modifier_damage=multiply,85,0
+requires_mp=6
+modifier_damage=multiply,75,0
+post_effect=slow,50,6s
 
 [power]
 id=103
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=5
-cooldown=800ms
-modifier_damage=multiply,90,0
+requires_mp=7
+modifier_damage=multiply,85,0
+post_effect=slow,50,6500ms
 
 [power]
 id=104
 INCLUDE powers/base/ranger/caltrops.txt
-requires_mp=6
-cooldown=400ms
+requires_mp=8
 modifier_damage=multiply,95,0
+post_effect=slow,50,7s
 
 
 
@@ -506,37 +511,37 @@ modifier_damage=multiply,95,0
 [power]
 id=105
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=3
-cooldown=2s
-modifier_damage=multiply,110,0
+requires_mp=6
+modifier_damage=multiply,140,0
+post_effect=bleeding,5,5s,25
 
 [power]
 id=106
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=5
-cooldown=1600ms
-modifier_damage=multiply,115,0
+requires_mp=7
+modifier_damage=multiply,155,0
+post_effect=bleeding,5,5s,25
 
 [power]
 id=107
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=7
-cooldown=1200ms
-modifier_damage=multiply,120,0
+requires_mp=8
+modifier_damage=multiply,170,0
+post_effect=bleeding,5,5s,25
 
 [power]
 id=108
 INCLUDE powers/base/ranger/bear_trap.txt
 requires_mp=9
-cooldown=800ms
-modifier_damage=multiply,125,0
+modifier_damage=multiply,185,0
+post_effect=bleeding,5,5s,25
 
 [power]
 id=109
 INCLUDE powers/base/ranger/bear_trap.txt
-requires_mp=11
-cooldown=400ms
-modifier_damage=multiply,130,0
+requires_mp=10
+modifier_damage=multiply,200,0
+post_effect=bleeding,5,5s,25
 
 
 
@@ -551,7 +556,7 @@ animation=animations/powers/bear_trap_trigger.txt
 use_hazard=true
 no_attack=true
 directional=true
-lifespan=3s
+lifespan=5s
 starting_pos=target
 
 

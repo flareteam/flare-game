@@ -1,15 +1,16 @@
 name=Caltrops
-description=This trap deals reduced ranged weapon damage and slows the target.
+description=This trap deals reduced ranged weapon damage and slows the target. Can affect multiple targets.
 type=fixed
 icon=20
-new_state=swing
+new_state=cast
 face=true
 directional=true
 starting_pos=melee
 animation=animations/powers/caltrops.txt
 use_hazard=true
 base_damage=ranged
-lifespan=10s
+lifespan=60s
 radius=1.0
-post_effect=slow,50,3s
+multitarget=true
+cooldown=800ms
 

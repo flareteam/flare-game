@@ -1,11 +1,9 @@
 name=Multishot
-description=Shoot three projectiles simultaneously.
+description=Shoot multiple projectiles in an arc simultaneously.
 type=missile
 icon=8
 new_state=shoot
 face=true
-count=3
-missile_angle=15
 base_damage=ranged
 aim_assist=true
 soundfx=soundfx/powers/shoot.ogg
@@ -15,4 +13,7 @@ lifespan=533ms
 radius=1.0
 speed=24
 requires_flags=ranged
-
+missile_angle=5
+angle_variance=1
+speed_variance=0.02
+modifier_damage=multiply,50,0
