@@ -1,12 +1,12 @@
 name=Freeze
 type=repeater
 icon=14
-description=Create a ray of several piercing cold shards that slow enemies.
+description=Create a ray of several piercing cold shards that slow enemies. Shards have a chance of shattering into a cloud of frost that makes enemies weak to ice damage.
 new_state=cast
 face=true
 animation=animations/powers/freeze.txt
 soundfx=soundfx/powers/freeze.ogg
-speed=24
+speed=36
 trait_elemental=ice
 radius=1.2
 lifespan=400ms
@@ -14,6 +14,8 @@ base_damage=ment
 delay=100ms
 visual_random=3
 complete_animation=true
-count=12
+count=18
 multitarget=true
+cooldown=800ms
+post_power=292,25
 

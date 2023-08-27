@@ -1,7 +1,7 @@
 name=Burn
 type=fixed
 icon=37
-description=Blast multiple enemies in a distant area with fire.
+description=Blast multiple enemies in a distant area with fire. Has a chance to inflict a severe burn that makes enemies very weak to fire damage.
 new_state=cast
 face=true
 requires_los=true
@@ -11,11 +11,12 @@ soundfx=soundfx/powers/burn.ogg
 use_hazard=true
 base_damage=ment
 lifespan=600ms
-radius=2.0
+radius=2
 floor=true
 trait_elemental=fire
 starting_pos=target
 multitarget=true
 post_power=158
 target_range=8.0
+cooldown=800ms
 

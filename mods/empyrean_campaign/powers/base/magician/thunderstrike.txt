@@ -1,7 +1,7 @@
 name=Thunderstrike
 type=fixed
 icon=36
-description=Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies.
+description=Lightning strikes from the sky with a high chance to critically damage movement-impaired enemies. Upon striking an enemy, releases a wave of energy that has a chance of stunning other enemies.
 new_state=cast
 face=true
 requires_los=true
@@ -16,6 +16,8 @@ trait_elemental=lightning
 starting_pos=target
 multitarget=true
 post_power=159
-target_range=8.0
+target_range=12
 modifier_damage=multiply,75,0
-
+post_power=293
+cooldown=800ms
+post_hazards_skip_target=true

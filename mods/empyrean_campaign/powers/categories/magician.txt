@@ -32,31 +32,31 @@ replace_by_effect=291,icebolt_scroll,1
 [power]
 id=117
 INCLUDE powers/base/magician/shield.txt
-requires_mp=7
+requires_mp=18
 modifier_damage=multiply,200,0
 
 [power]
 id=118
 INCLUDE powers/base/magician/shield.txt
-requires_mp=12
+requires_mp=20
 modifier_damage=multiply,250,0
 
 [power]
 id=119
 INCLUDE powers/base/magician/shield.txt
-requires_mp=17
+requires_mp=22
 modifier_damage=multiply,300,0
 
 [power]
 id=120
 INCLUDE powers/base/magician/shield.txt
-requires_mp=21
+requires_mp=24
 modifier_damage=multiply,350,0
 
 [power]
 id=121
 INCLUDE powers/base/magician/shield.txt
-requires_mp=24
+requires_mp=26
 modifier_damage=multiply,400,0
 
 
@@ -68,32 +68,32 @@ modifier_damage=multiply,400,0
 [power]
 id=122
 INCLUDE powers/base/magician/fireball.txt
-requires_mp=2
-modifier_damage=multiply,105,0
+requires_mp=5
+modifier_damage=multiply,130,0
 
 [power]
 id=123
 INCLUDE powers/base/magician/fireball.txt
-requires_mp=3
-modifier_damage=multiply,110,0
+requires_mp=6
+modifier_damage=multiply,145,0
 
 [power]
 id=124
 INCLUDE powers/base/magician/fireball.txt
-requires_mp=4
-modifier_damage=multiply,115,0
+requires_mp=7
+modifier_damage=multiply,160,0
 
 [power]
 id=125
 INCLUDE powers/base/magician/fireball.txt
-requires_mp=5
-modifier_damage=multiply,120,0
+requires_mp=8
+modifier_damage=multiply,175,0
 
 [power]
 id=126
 INCLUDE powers/base/magician/fireball.txt
-requires_mp=6
-modifier_damage=multiply,125,0
+requires_mp=9
+modifier_damage=multiply,190,0
 
 
 
@@ -104,32 +104,37 @@ modifier_damage=multiply,125,0
 [power]
 id=127
 INCLUDE powers/base/magician/ice_bolt.txt
-requires_mp=2
+requires_mp=5
+modifier_damage=multiply,110,0
 post_effect=slow_ice,50,4s
 
 [power]
 id=128
 INCLUDE powers/base/magician/ice_bolt.txt
-requires_mp=3
-post_effect=slow_ice,50,6s
+requires_mp=6
+modifier_damage=multiply,120,0
+post_effect=slow_ice,50,5s
 
 [power]
 id=129
 INCLUDE powers/base/magician/ice_bolt.txt
-requires_mp=4
-post_effect=slow_ice,50,8s
+requires_mp=7
+modifier_damage=multiply,130,0
+post_effect=slow_ice,50,6s
 
 [power]
 id=130
 INCLUDE powers/base/magician/ice_bolt.txt
-requires_mp=5
-post_effect=slow_ice,50,10s
+requires_mp=8
+modifier_damage=multiply,140,0
+post_effect=slow_ice,50,7s
 
 [power]
 id=131
 INCLUDE powers/base/magician/ice_bolt.txt
-requires_mp=6
-post_effect=slow_ice,50,12s
+requires_mp=9
+modifier_damage=multiply,150,0
+post_effect=slow_ice,50,8s
 
 
 
@@ -140,31 +145,36 @@ post_effect=slow_ice,50,12s
 [power]
 id=132
 INCLUDE powers/base/magician/shock.txt
-requires_mp=2
+requires_mp=5
+modifier_damage=multiply,120,0
 trait_crits_impaired=50
 
 [power]
 id=133
 INCLUDE powers/base/magician/shock.txt
-requires_mp=3
+requires_mp=6
+modifier_damage=multiply,130,0
 trait_crits_impaired=55
 
 [power]
 id=134
 INCLUDE powers/base/magician/shock.txt
-requires_mp=4
+requires_mp=7
+modifier_damage=multiply,140,0
 trait_crits_impaired=60
 
 [power]
 id=135
 INCLUDE powers/base/magician/shock.txt
-requires_mp=5
+requires_mp=8
+modifier_damage=multiply,150,0
 trait_crits_impaired=65
 
 [power]
 id=136
 INCLUDE powers/base/magician/shock.txt
-requires_mp=6
+requires_mp=9
+modifier_damage=multiply,150,0
 trait_crits_impaired=70
 
 
@@ -176,32 +186,37 @@ trait_crits_impaired=70
 [power]
 id=137
 INCLUDE powers/base/magician/burn.txt
-requires_mp=6
-modifier_damage=multiply,75,0
+requires_mp=8
+modifier_damage=multiply,80,0
+post_effect=fire_weakness,-150,5s,50
 
 [power]
 id=138
 INCLUDE powers/base/magician/burn.txt
-requires_mp=8
-modifier_damage=multiply,80,0
+requires_mp=9
+modifier_damage=multiply,90,0
+post_effect=fire_weakness,-150,5s,60
 
 [power]
 id=139
 INCLUDE powers/base/magician/burn.txt
 requires_mp=10
-modifier_damage=multiply,85,0
+modifier_damage=multiply,100,0
+post_effect=fire_weakness,-150,5s,70
 
 [power]
 id=140
 INCLUDE powers/base/magician/burn.txt
-requires_mp=12
-modifier_damage=multiply,90,0
+requires_mp=11
+modifier_damage=multiply,110,0
+post_effect=fire_weakness,-150,5s,80
 
 [power]
 id=141
 INCLUDE powers/base/magician/burn.txt
-requires_mp=14
-modifier_damage=multiply,95,0
+requires_mp=12
+modifier_damage=multiply,120,0
+post_effect=fire_weakness,-150,5s,90
 
 
 
@@ -212,37 +227,37 @@ modifier_damage=multiply,95,0
 [power]
 id=142
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=6
+requires_mp=8
 modifier_damage=multiply,70,0
 post_effect=slow_ice,25,4s
 
 [power]
 id=143
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=8
-modifier_damage=multiply,75,0
-post_effect=slow_ice,25,6s
+requires_mp=9
+modifier_damage=multiply,80,0
+post_effect=slow_ice,25,5s
 
 [power]
 id=144
 INCLUDE powers/base/magician/freeze.txt
 requires_mp=10
-modifier_damage=multiply,80,0
-post_effect=slow_ice,25,8s
+modifier_damage=multiply,90,0
+post_effect=slow_ice,25,6s
 
 [power]
 id=145
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=12
-modifier_damage=multiply,85,0
-post_effect=slow_ice,25,10s
+requires_mp=11
+modifier_damage=multiply,100,0
+post_effect=slow_ice,25,7s
 
 [power]
 id=146
 INCLUDE powers/base/magician/freeze.txt
-requires_mp=14
-modifier_damage=multiply,90,0
-post_effect=slow_ice,25,12s
+requires_mp=12
+modifier_damage=multiply,110,0
+post_effect=slow_ice,25,8s
 
 
 
@@ -253,31 +268,36 @@ post_effect=slow_ice,25,12s
 [power]
 id=147
 INCLUDE powers/base/magician/thunderstrike.txt
-requires_mp=6
+requires_mp=8
+modifier_damage=multiply,90,0
 trait_crits_impaired=75
 
 [power]
 id=148
 INCLUDE powers/base/magician/thunderstrike.txt
-requires_mp=8
+requires_mp=10
+modifier_damage=multiply,100,0
 trait_crits_impaired=80
 
 [power]
 id=149
 INCLUDE powers/base/magician/thunderstrike.txt
-requires_mp=10
+requires_mp=12
+modifier_damage=multiply,110,0
 trait_crits_impaired=85
 
 [power]
 id=150
 INCLUDE powers/base/magician/thunderstrike.txt
-requires_mp=12
+requires_mp=14
+modifier_damage=multiply,120,0
 trait_crits_impaired=90
 
 [power]
 id=151
 INCLUDE powers/base/magician/thunderstrike.txt
-requires_mp=14
+requires_mp=16
+modifier_damage=multiply,130,0
 trait_crits_impaired=95
 
 
@@ -316,3 +336,42 @@ INCLUDE powers/base/magician/energy_flow.txt
 post_effect=mp,50,0
 post_effect=mp_regen,75,0
 
+# freeze shard cloud
+[power]
+id=292
+type=fixed
+animation=animations/powers/quake.txt
+soundfx=soundfx/powers/shock.ogg
+visual_option=2
+use_hazard=true
+floor=true
+starting_pos=target
+multitarget=true
+lifespan=400ms
+radius=2
+ignore_zero_damage=true
+post_effect=ice_weakness,-75,5s
+
+# thunderstrike chain
+[power]
+id=293
+type=missile
+animation=animations/powers/lightning.txt
+use_hazard=true
+directional=false
+speed=16
+base_damage=ment
+lifespan=800ms
+radius=1
+trait_elemental=lightning
+starting_pos=melee
+multitarget=false
+post_power=159
+wall_power=159
+modifier_damage=multiply,10,0
+trait_crits_impaired=25
+count=6
+missile_angle=60
+speed_variance=0.1
+angle_variance=5
+post_effect=stun,0,2s,25
