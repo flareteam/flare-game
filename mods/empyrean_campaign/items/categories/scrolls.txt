@@ -88,3 +88,16 @@ price_sell=12
 max_quantity=20
 no_stash=shared
 
+[item]
+id=431
+name=Tome of Second Chances
+INCLUDE items/base/misc/book.txt
+power_desc=Use: Resets all stat and power points
+price=500,player_level:500
+price_sell=1
+max_quantity=5
+no_stash=shared
+script=scripts/powers/respec_tome.txt
+quality=unique
+item_type=consumable
+
