@@ -872,11 +872,12 @@ requires_status=emp_kuuma_boat
 unset_status=emp_kuuma_boat
 
 [event]
+# Supplies
 type=event
 location=39,58,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 loot_count=2
 mapmod=object,39,58,97
 repeat=false
@@ -884,11 +885,12 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
+# Supplies
 type=event
 location=40,60,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 loot_count=2
 mapmod=object,40,60,523
 repeat=false
@@ -896,33 +898,36 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
+# Supplies
 type=event
 location=87,100,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,87,100,521
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
+# Supplies
 type=event
 location=75,75,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,75,75,97
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Supplies
 
 [event]
+# Supplies
 type=event
 location=85,40,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,85,40,99
 repeat=false
 soundfx=soundfx/wood_open.ogg

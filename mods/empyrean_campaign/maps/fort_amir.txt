@@ -292,55 +292,60 @@ soundfx=soundfx/door_open.ogg
 tooltip=Switch
 
 [event]
+# Crate
 type=event
 location=37,32,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,37,32,163
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
+# Barrel
 type=event
 location=44,37,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,44,37,162
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Crate
 type=event
 location=59,57,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,59,57,163
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
+# Barrel
 type=event
 location=68,4,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,68,4,162
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Treasure Chest
 type=event
 location=5,13,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 loot_count=2
 mapmod=object,5,13,160
 reachable_from=3,13,2,2
@@ -349,11 +354,12 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Treasure Chest
 type=event
 location=65,6,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_5.txt
+loot=loot/chest_level_5.txt
 mapmod=object,65,6,161
 repeat=false
 soundfx=soundfx/wood_open.ogg
@@ -487,11 +493,12 @@ set_status=emp_amir_finish
 unset_status=emp_amir_init,emp_amir_gem_a,emp_amir_gem_b
 
 [event]
+# Treasure Chest
 type=event
 location=53,36,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_6.txt
+loot=loot/chest_level_6.txt
 loot_count=5,7
 mapmod=object,53,36,161
 repeat=false

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="41">
+<map version="1.11" tiledversion="1.11.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="7" nextobjectid="41">
  <properties>
   <property name="hero_pos" value="21,40"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -22,7 +22,7 @@
  <tileset firstgid="266" name="boss_chest" tilewidth="64" tileheight="64" tilecount="4" columns="4">
   <image source="../../common/boss_chest.png" width="256" height="64"/>
  </tileset>
- <layer name="background" width="100" height="100">
+ <layer id="1" name="background" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -126,7 +126,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="100" height="100">
+ <layer id="2" name="object" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -230,7 +230,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="100" height="100">
+ <layer id="3" name="collision" width="100" height="100">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -334,12 +334,12 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event">
+ <objectgroup id="4" name="event">
   <object id="3" name="Crate" type="event" x="2208" y="2112" width="32" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,69,66,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -350,7 +350,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,83,83,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -361,7 +361,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,88,76,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -372,7 +372,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,30,71,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -383,7 +383,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,33,37,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -394,7 +394,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,29,70,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -405,7 +405,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,68,65,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -416,7 +416,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,83,84,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -427,7 +427,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,73,35,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -438,7 +438,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_15.txt"/>
+    <property name="loot" value="loot/chest_level_15.txt"/>
     <property name="mapmod" value="object,29,53,177"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -521,7 +521,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_16.txt"/>
+    <property name="loot" value="loot/chest_level_16.txt"/>
     <property name="loot_count" value="5,6"/>
     <property name="mapmod" value="object,85,74,267"/>
     <property name="repeat" value="false"/>
@@ -530,7 +530,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy" visible="0">
+ <objectgroup id="5" name="enemy" visible="0">
   <object id="28" type="enemy" x="896" y="1696" width="256" height="288">
    <properties>
     <property name="category" value="dungeon"/>
@@ -602,7 +602,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="npc">
+ <objectgroup id="6" name="npc">
   <object id="38" type="npc" x="2656" y="2464" width="32" height="32">
    <properties>
     <property name="filename" value="npcs/infinity_obelisk_2.txt"/>

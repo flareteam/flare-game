@@ -330,33 +330,35 @@ data=
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 
 [event]
+# Mine Cart
 type=event
 location=17,48,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,17,48,128
 repeat=false
 tooltip=Mine Cart
 
 [event]
-# nest treasure
+# Barrel
 type=event
 location=29,75,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,29,75,178
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Treasure Chest
 type=event
 location=43,92,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_16.txt
+loot=loot/chest_level_16.txt
 loot_count=5,6
 mapmod=object,43,92,269
 repeat=false
@@ -364,89 +366,96 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Barrel
 type=event
 location=29,76,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,29,76,178
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
-# crate in nest hallway
+# Crate
 type=event
 location=59,61,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,59,61,179
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
+# Barrel
 type=event
 location=2,29,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,2,29,178
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Barrel
 type=event
 location=2,30,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,2,30,178
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Treasure Chest
 type=event
 location=34,25,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,34,25,177
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Treasure Chest
 type=event
 location=87,53,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,87,53,177
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Barrel
 type=event
 location=90,53,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,90,53,178
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Mine Cart
 type=event
 location=42,4,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_15.txt
+loot=loot/chest_level_15.txt
 mapmod=object,42,4,129
 repeat=false
 tooltip=Mine Cart

@@ -683,12 +683,12 @@ soundfx=soundfx/environment/stone_open.ogg,0,0
 unset_status=emp_mez_trap
 
 [event]
-# Supplies
+# Treasure Chest
 type=event
 location=74,74,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_8.txt
+loot=loot/chest_level_8.txt
 loot_count=4,5
 mapmod=object,74,74,748
 repeat=false
@@ -698,12 +698,12 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
-# Supplies
+# Treasure Chest
 type=event
 location=75,70,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_8.txt
+loot=loot/chest_level_8.txt
 loot_count=4,5
 mapmod=object,75,70,746
 repeat=false

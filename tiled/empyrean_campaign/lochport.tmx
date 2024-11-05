@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="isometric" renderorder="right-down" width="50" height="60" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextobjectid="38">
+<map version="1.11" tiledversion="1.11.0" orientation="isometric" renderorder="right-down" width="50" height="60" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="38">
  <properties>
   <property name="hero_pos" value="43,1"/>
   <property name="music" value="music/forest_theme.ogg"/>
@@ -31,7 +31,7 @@
   <tileoffset x="0" y="16"/>
   <image source="../grassland/tiled_grassland_2x2.png" width="512" height="512"/>
  </tileset>
- <layer name="background" width="50" height="60">
+ <layer id="1" name="background" width="50" height="60">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,17,18,19,16,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,21,22,23,20,0,0,0,0,0,
@@ -95,7 +95,7 @@
 184,185,186,187,184,185,186,187,184,185,186,187,184,185,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="50" height="60">
+ <layer id="2" name="object" width="50" height="60">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,93,93,93,93,50,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,249,0,0,0,50,0,0,0,0,
@@ -159,7 +159,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,66,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="50" height="60">
+ <layer id="3" name="collision" width="50" height="60">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,0,0,0,1,3,3,3,3,
@@ -223,7 +223,7 @@
 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event">
+ <objectgroup id="4" name="event">
   <object id="1" name="to Lochport Cemetery" type="event" x="1312" y="0" width="128" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
@@ -326,7 +326,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot" value="loot/chest_level_2.txt"/>
     <property name="mapmod" value="object,11,11,99"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -337,7 +337,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot" value="loot/chest_level_2.txt"/>
     <property name="mapmod" value="object,20,33,97"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -367,7 +367,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy">
+ <objectgroup id="5" name="enemy">
   <object id="19" type="enemy" x="768" y="1440" width="32" height="32">
    <properties>
     <property name="category" value="skeleton_archer"/>

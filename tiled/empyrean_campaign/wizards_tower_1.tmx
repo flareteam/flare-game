@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="68">
+<map version="1.11" tiledversion="1.11.0" orientation="isometric" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="68">
  <properties>
   <property name="hero_pos" value="35,48"/>
   <property name="music" value="music/dungeon_theme.ogg"/>
@@ -399,7 +399,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_11.txt"/>
+    <property name="loot" value="loot/chest_level_11.txt"/>
     <property name="loot_count" value="2,3"/>
     <property name="mapmod" value="object,9,51,162"/>
     <property name="repeat" value="false"/>
@@ -411,7 +411,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_11.txt"/>
+    <property name="loot" value="loot/chest_level_11.txt"/>
     <property name="loot_count" value="2,3"/>
     <property name="mapmod" value="object,16,8,163"/>
     <property name="repeat" value="false"/>
@@ -423,7 +423,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_12.txt"/>
+    <property name="loot" value="loot/chest_level_12.txt"/>
     <property name="loot_count" value="3,4"/>
     <property name="mapmod" value="object,68,81,160"/>
     <property name="repeat" value="false"/>
@@ -435,7 +435,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_12.txt"/>
+    <property name="loot" value="loot/chest_level_12.txt"/>
     <property name="loot_count" value="3,4"/>
     <property name="mapmod" value="object,82,22,160"/>
     <property name="repeat" value="false"/>

@@ -333,11 +333,12 @@ requires_not_status=emp_stmaria2_init
 set_status=emp_stmaria2_init
 
 [event]
+# Treasure Chest
 type=event
 location=39,60,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 loot_count=3,4
 mapmod=object,39,60,160
 repeat=false
@@ -345,11 +346,12 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Treasure Chest
 type=event
 location=39,57,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 loot_count=3,4
 mapmod=object,39,57,160
 repeat=false
@@ -357,44 +359,48 @@ soundfx=soundfx/wood_open.ogg
 tooltip=Treasure Chest
 
 [event]
+# Crate
 type=event
 location=51,39,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,51,39,163
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
+# Barrel
 type=event
 location=53,8,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,53,8,162
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Crate
 type=event
 location=19,39,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,19,39,163
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
 
 [event]
+# Barrel
 type=event
 location=4,26,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,4,26,162
 repeat=false
 soundfx=soundfx/wood_open.ogg
@@ -436,11 +442,12 @@ activate=on_load
 soundfx=soundfx/environment/cave_wind_loop.ogg
 
 [event]
+# Barrel
 type=event
 location=53,59,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,53,59,162
 repeat=false
 soundfx=soundfx/wood_open.ogg
@@ -572,22 +579,24 @@ power=178
 power_damage=70,80
 
 [event]
+# Barrel
 type=event
 location=63,26,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,63,26,162
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Barrel
 
 [event]
+# Crate
 type=event
 location=66,23,1,1
 activate=on_trigger
 hotspot=location
-loot=loot/level_3.txt
+loot=loot/chest_level_3.txt
 mapmod=object,66,23,163
 repeat=false
 soundfx=soundfx/wood_open.ogg

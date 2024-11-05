@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" renderorder="right-down" width="48" height="48" tilewidth="64" tileheight="32" backgroundcolor="#000000" nextobjectid="38">
+<map version="1.11" tiledversion="1.11.0" orientation="isometric" renderorder="right-down" width="48" height="48" tilewidth="64" tileheight="32" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="38">
  <properties>
   <property name="hero_pos" value="18,46"/>
   <property name="music" value="music/cave_theme.ogg"/>
@@ -19,7 +19,7 @@
   <tileoffset x="0" y="16"/>
   <image source="../cave/tiled_cave_2x2.png" width="256" height="64"/>
  </tileset>
- <layer name="background" width="48" height="48">
+ <layer id="1" name="background" width="48" height="48">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,19,16,17,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -71,7 +71,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,25,26,27,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="object" width="48" height="48">
+ <layer id="2" name="object" width="48" height="48">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,98,69,113,69,65,73,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -123,7 +123,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,241,241,241,241,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="collision" width="48" height="48">
+ <layer id="3" name="collision" width="48" height="48">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -175,7 +175,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,0,0,0,0,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="event">
+ <objectgroup id="4" name="event">
   <object id="1" name="to Goblin Camp" type="event" x="544" y="1504" width="128" height="32">
    <properties>
     <property name="activate" value="on_trigger"/>
@@ -236,7 +236,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_2.txt"/>
+    <property name="loot" value="loot/chest_level_2.txt"/>
     <property name="loot_count" value="3,4"/>
     <property name="mapmod" value="object,3,5,177"/>
     <property name="repeat" value="false"/>
@@ -248,7 +248,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_1.txt"/>
+    <property name="loot" value="loot/chest_level_1.txt"/>
     <property name="mapmod" value="object,11,12,178"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -259,7 +259,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_1.txt"/>
+    <property name="loot" value="loot/chest_level_1.txt"/>
     <property name="mapmod" value="object,29,4,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -270,7 +270,7 @@
    <properties>
     <property name="activate" value="on_trigger"/>
     <property name="hotspot" value="location"/>
-    <property name="loot" value="loot/level_1.txt"/>
+    <property name="loot" value="loot/chest_level_1.txt"/>
     <property name="mapmod" value="object,35,34,179"/>
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
@@ -278,7 +278,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy">
+ <objectgroup id="5" name="enemy">
   <object id="4" type="enemy" x="128" y="1152" width="160" height="192">
    <properties>
     <property name="category" value="goblin"/>
