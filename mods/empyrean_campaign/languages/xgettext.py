@@ -92,6 +92,8 @@ def extract(filename):
                     continue
                 if filename.endswith('cutscenes/credits.txt') and test_key not in allowed_credits_strings:
                     continue
+                elif filename.endswith('cutscenes/credits_empyrean.txt') and test_key not in allowed_credits_strings:
+                    continue
 
                 comment = filename + ':' + str(i)
                 comments.append(comment)
