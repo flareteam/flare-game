@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 13:46+\n"
+"POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Justin Jacobs <jajdorkster@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/flareorg/teams/84925/vi/)\n"
@@ -103,33 +103,41 @@ msgstr "Miễn Dịch"
 msgid "Haste"
 msgstr "Phi Tốc"
 
-#: ../powers/effects.txt:115
+#: ../powers/effects.txt:110
 msgid "Weakness to Fire"
 msgstr "Hỏa Nhược"
 
-#: ../powers/effects.txt:124
+#: ../powers/effects.txt:119
 msgid "Weakness to Ice"
 msgstr "Băng Nhược"
 
-#: ../powers/effects.txt:140
+#: ../powers/effects.txt:135
 msgid "Sacrifice"
 msgstr "Hiến Tế"
 
-#: ../powers/effects.txt:165
+#: ../powers/effects.txt:160
 msgid "Reflect"
 msgstr "Phản Đạn"
 
-#: ../powers/effects.txt:176
+#: ../powers/effects.txt:171
 msgid "Stamina Potion"
 msgstr "Bình Sức Khỏe"
 
-#: ../powers/effects.txt:182
+#: ../powers/effects.txt:177
 msgid "Treasure Potion"
 msgstr "Bình May Mắn"
 
-#: ../powers/effects.txt:188
+#: ../powers/effects.txt:183
 msgid "Elemental Potion"
 msgstr "Bình Nguyên Tố"
+
+#: ../powers/effects.txt:189
+msgid "Fireball Scroll"
+msgstr "Thuật Cầu Lửa"
+
+#: ../powers/effects.txt:195
+msgid "Ice Bolt Scroll"
+msgstr "Thuật Băng Đạn"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -338,6 +346,10 @@ msgstr "Kẻ Lưu Vong"
 #: ../engine/equip_flags.txt:5
 msgid "throwing axe"
 msgstr "Ném Rìu"
+
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -727,39 +739,39 @@ msgstr "Rồng Tundra"
 msgid "Your Summoned Zombie"
 msgstr "Âm Binh Cổ Đại"
 
-#: ../maps/abandoned_mines.txt:10
+#: ../maps/abandoned_mines.txt:11
 msgid "Abandoned Mines"
 msgstr "IV.3: Hoang Khoáng Động"
 
-#: ../maps/abandoned_mines.txt:337
+#: ../maps/abandoned_mines.txt:338
 msgid "Blackmire Mines"
 msgstr "IV.2: Mộc Khoáng Động"
 
-#: ../maps/abandoned_mines.txt:454
+#: ../maps/abandoned_mines.txt:455
 msgid "Treasure Chest"
 msgstr "Rương Báu"
 
-#: ../maps/abandoned_mines.txt:466
+#: ../maps/abandoned_mines.txt:467
 msgid "Crate"
 msgstr "Hộp"
 
-#: ../maps/abandoned_mines.txt:490
+#: ../maps/abandoned_mines.txt:491
 msgid "Barrel"
 msgstr "Thùng"
 
-#: ../maps/abandoned_mines.txt:523
+#: ../maps/abandoned_mines.txt:524
 msgid "The Breach"
 msgstr "V.1: Thái Cực Đạo"
 
-#: ../maps/abandoned_mines.txt:532
+#: ../maps/abandoned_mines.txt:533
 msgid "Grot Lagoon"
 msgstr "Đầm Phá Grot (#8)"
 
-#: ../maps/antlion_nest.txt:10
+#: ../maps/antlion_nest.txt:11
 msgid "Antlion Nest"
 msgstr "V.3: Kiến Sư Đạo"
 
-#: ../maps/antlion_nest.txt:390
+#: ../maps/antlion_nest.txt:391
 msgid "Temple of Mez: Basement"
 msgstr "VI.1: Đền Mez: Tầng Hầm (#10)"
 
@@ -871,7 +883,7 @@ msgstr "II.2: Nghĩa Trang Lạc Gia"
 msgid "Fort Amir"
 msgstr "Pháo Đài Amir (#7)"
 
-#: ../maps/fort_amir.txt:370
+#: ../maps/fort_amir.txt:376
 msgid ""
 "Opening the book reveals that it has been hollowed out. A gem is concealed "
 "inside."
@@ -879,11 +891,11 @@ msgstr ""
 "Mở Cuốn Sách Và Thấy Nó Đã Được Làm Rỗng. Một Viên Ngọc Được Che Giấu Bên "
 "Trong."
 
-#: ../maps/fort_amir.txt:374
+#: ../maps/fort_amir.txt:380
 msgid "Book"
 msgstr "Cuốn Sách"
 
-#: ../maps/fort_amir.txt:399
+#: ../maps/fort_amir.txt:405
 msgid ""
 "The statue is missing an eye. The sapphire fits securely in the statue's eye"
 " socket."
@@ -891,15 +903,15 @@ msgstr ""
 "Bức Tượng Bị Mất Một Mắt. Đá Ngọc Bích Phù Hợp Kì Lạ Với Ổ Mắt Của  Bức "
 "Tượng."
 
-#: ../maps/fort_amir.txt:405
+#: ../maps/fort_amir.txt:411
 msgid "Statue"
 msgstr "Bức Tượng"
 
-#: ../maps/fort_amir.txt:427
+#: ../maps/fort_amir.txt:433
 msgid "The statue is missing an eye."
 msgstr "Bức Tượng Bị Mất Một Mắt."
 
-#: ../maps/fort_amir.txt:459
+#: ../maps/fort_amir.txt:465
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Tủ Sách Trượt Và Lộ Ra Một Con Đường."
 
@@ -947,11 +959,11 @@ msgstr "Thạch Mộ"
 msgid "Halls of Infinity"
 msgstr "Hội Trường Vô Cực"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "Xe Thồ Khoáng"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Măng Thạch Trụ"
 
@@ -1111,7 +1123,7 @@ msgstr "Vương Khoáng Động (#1)"
 msgid "Krolan's Chest"
 msgstr "Rương Của Krolan"
 
-#: ../maps/st_maria_1.txt:349
+#: ../maps/st_maria_1.txt:355
 msgid "This door needs a key to be opened."
 msgstr "Cánh Cửa Này Cần Chìa Khóa Để Mở."
 
@@ -1119,7 +1131,7 @@ msgstr "Cánh Cửa Này Cần Chìa Khóa Để Mở."
 msgid "St. Maria: Catacombs waypoint discovered."
 msgstr "Khám Phá Điểm Tham Chiếu Của Thánh Maria: Hầm Mộ."
 
-#: ../maps/st_maria_2.txt:464
+#: ../maps/st_maria_2.txt:471
 msgid "St. Maria: Crypt"
 msgstr "III.3: Thánh Maria: Cổ Mộ (#6)"
 
@@ -2018,14 +2030,6 @@ msgstr "Thuật Hồi Thành"
 msgid "Shield Scroll"
 msgstr "Thuật Kết Giới"
 
-#: ../npcs/base/dev_tome/items.txt:102
-msgid "Fireball Scroll"
-msgstr "Thuật Cầu Lửa"
-
-#: ../npcs/base/dev_tome/items.txt:108
-msgid "Ice Bolt Scroll"
-msgstr "Thuật Băng Đạn"
-
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
 msgstr "Thuật Phi Tốc"
@@ -2674,23 +2678,23 @@ msgstr ""
 "Luôn Luôn Có Hi Vọng. Nhưng Không Phải Cho Tất Cả Mọi Người: Không Phải Cho "
 "Người. Không Phải Cho Kẻ Lưu Vong."
 
-#: ../cutscenes/credits.txt:7
+#: ../cutscenes/credits_empyrean.txt:5
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr ""
 
-#: ../cutscenes/credits.txt:10
+#: ../cutscenes/credits_empyrean.txt:8
 msgid "Lead Content Designers"
 msgstr ""
 
-#: ../cutscenes/credits.txt:16
+#: ../cutscenes/credits_empyrean.txt:14
 msgid "Visual Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits_empyrean.txt:25
 msgid "Foley Artists"
 msgstr ""
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits_empyrean.txt:31
 msgid "Translators"
 msgstr ""
 
@@ -3308,39 +3312,47 @@ msgstr "Nhẫn Bổng Lộc Tinh Hoa"
 msgid "Use: Summon a zombie to fight for you"
 msgstr "Tác Dụng: Chiêu Hồn Âm Binh Cổ Đại Để Chiến Đấu Cho Bạn"
 
-#: ../items/categories/scrolls.txt:20
+#: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
 msgstr "Tác Dụng: Dịch Chuyển Đến Vương Gia Trang"
 
-#: ../items/categories/scrolls.txt:32
+#: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
 msgstr "Tác Dụng: Tạo Ra Một Kết Giới Hấp Thụ Sát Thương"
 
-#: ../items/categories/scrolls.txt:44
+#: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
 msgstr "Tác Dụng: Chưởng Phép Thuật Hỏa Cầu Trong Một Khoảng Thời Gian Ngắn"
 
-#: ../items/categories/scrolls.txt:56
+#: ../items/categories/scrolls.txt:52
 msgid "Use: Shoot an ice bolt"
 msgstr "Tác Dụng: Chưởng Phép Thuật Băng Đạn Trong Một Khoảng Thời Gian Ngắn"
 
-#: ../items/categories/scrolls.txt:68
+#: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
 msgstr "Tác Dụng: Tăng Tốc Độ Di Chuyển Trong Một Khoảng Thời Gian Ngắn"
 
-#: ../items/categories/scrolls.txt:80
+#: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
 "Tác Dụng: Loại Bỏ Các Ảnh Hưởng Bất Lợi Và Trở Nên Miễn Dịch Trong Thời Gian"
 " Ngắn"
 
-#: ../items/categories/scrolls.txt:92
+#: ../items/categories/scrolls.txt:85
 msgid ""
 "Use: Creates a magical shield that reflects projectiles and damage for a "
 "limited time"
 msgstr ""
 "Tác Dụng: Tạo Ra Một Kết Giới Giúp Phản Xạ Lại Tất Cả Đạn Và Sát Thương "
 "Trong Thời Gian Ngắn"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3803,11 +3815,11 @@ msgid ""
 "Smooth to the touch. Upon wearing it, it tightens itself around the finger."
 msgstr "Mềm Mại Khi Chạm Vào. Khi Đeo Nó Sẽ Tự Siết Chặt Quanh Ngón Tay."
 
-#: ../items/categories/level_16_unique.txt:20
+#: ../items/categories/level_16_unique.txt:21
 msgid "Soulband"
 msgstr "Thần Hồn Thượng Giới #20"
 
-#: ../items/categories/level_16_unique.txt:22
+#: ../items/categories/level_16_unique.txt:23
 msgid ""
 "Glowing when worn, it clears the wearer's mind and allows them to deeply "
 "focus."
@@ -3815,39 +3827,39 @@ msgstr ""
 "Phát Sáng Khi Đeo, Nó Giúp Người Đeo Tỉnh Táo Và Cho Phép Họ Tập Trung Sâu "
 "Sắc."
 
-#: ../items/categories/level_16_unique.txt:36
+#: ../items/categories/level_16_unique.txt:38
 msgid "Underworld Cloak"
 msgstr "Huyền Thiết Phi Phong #21"
 
-#: ../items/categories/level_16_unique.txt:48
+#: ../items/categories/level_16_unique.txt:51
 msgid "Underworld Platemail"
 msgstr "Huyền Thiết Trọng Khải #22"
 
-#: ../items/categories/level_16_unique.txt:60
+#: ../items/categories/level_16_unique.txt:64
 msgid "Underworld Boots"
 msgstr "Huyền Thiết Hộ Ngoa #23"
 
-#: ../items/categories/level_16_unique.txt:72
+#: ../items/categories/level_16_unique.txt:77
 msgid "Underworld Armguards"
 msgstr "Huyền Thiết Hộ Uyển #24"
 
-#: ../items/categories/level_16_unique.txt:84
+#: ../items/categories/level_16_unique.txt:90
 msgid "Underworld Greaves"
 msgstr "Huyền Thiết Trọng Khố #25"
 
-#: ../items/categories/level_16_unique.txt:96
+#: ../items/categories/level_16_unique.txt:103
 msgid "Underworld Tome"
 msgstr "Vô Tự Thiên Thư #26"
 
-#: ../items/categories/level_16_unique.txt:107
+#: ../items/categories/level_16_unique.txt:115
 msgid "Underworld Blade"
 msgstr "Huyền Thiết Đại Đao #27"
 
-#: ../items/categories/level_16_unique.txt:119
+#: ../items/categories/level_16_unique.txt:128
 msgid "Underworld Bow"
 msgstr "Huyền Thiết Trọng Pháo #28"
 
-#: ../items/categories/level_16_unique.txt:131
+#: ../items/categories/level_16_unique.txt:141
 msgid "Underworld Sceptre"
 msgstr "Huyền Thiết Quyền Trượng #29"
 
@@ -4022,11 +4034,11 @@ msgid ""
 msgstr ""
 "Theo Lời Dược Sư, Chỉ Có Loại Mực Này Mới Có Thể Viết Lên Thiên Thư Được."
 
-#: ../items/categories/crafting.txt:39
+#: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Chiếc Cối Chày Đá"
 
-#: ../items/categories/crafting.txt:40
+#: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
 "Sử Dụng Chiếc Bình Rỗng Và Các Dược Liệu Khác Nhau Để Tạo Ra Bình Thuốc."
@@ -4039,43 +4051,43 @@ msgstr "Hoàng Kim Chùy #1"
 msgid "An essential tool for any blacksmith."
 msgstr "Một Công Cụ Thiết Yếu Cho Bất Kì Thợ Rèn."
 
-#: ../items/categories/level_4_unique.txt:18
+#: ../items/categories/level_4_unique.txt:19
 msgid "Goblin Branch"
 msgstr "Hắc Mộc Trượng #2"
 
-#: ../items/categories/level_4_unique.txt:19
+#: ../items/categories/level_4_unique.txt:20
 msgid "Mana flows inside its primitive exterior."
 msgstr "Năng Lượng Chảy Bên Trong Ngoại Thất Nguyên Thủy Của Nó."
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:36
 msgid "Ardwen's Gloves"
 msgstr "Nộ Uy Uyển #3"
 
-#: ../items/categories/level_4_unique.txt:35
+#: ../items/categories/level_4_unique.txt:37
 msgid "These hands built a village."
 msgstr "Những Bàn Tay Này Đã Xây Dựng Một Ngôi Làng."
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:53
 msgid "Blood Tunic"
 msgstr "Huyết Vũ Y #4"
 
-#: ../items/categories/level_4_unique.txt:51
+#: ../items/categories/level_4_unique.txt:54
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Khi Bị Mòn, Chiếc Áo Sơ-Mi Này Hiện Lên Các Tĩnh Mạch Của Người Đeo."
 
-#: ../items/categories/level_4_unique.txt:65
+#: ../items/categories/level_4_unique.txt:69
 msgid "Dark Steppers"
 msgstr "Hắc Ám Hài #5"
 
-#: ../items/categories/level_4_unique.txt:66
+#: ../items/categories/level_4_unique.txt:70
 msgid "Dancing through the shadows."
 msgstr "Vũ Điệu Xuyên Màn Đêm."
 
-#: ../items/categories/level_4_unique.txt:79
+#: ../items/categories/level_4_unique.txt:84
 msgid "Seagate's Tri-pants"
 msgstr "Hỏa Liên Khố #6"
 
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
 "These ragged trousers are covered in scorch marks, yet are cold to the "
 "touch."
@@ -4083,11 +4095,11 @@ msgstr ""
 "Những Chiếc Quần Bị Rách Nát Này Đầy Những Vết Cháy, Nhưng Thật Lạnh Lùng "
 "Khi Chạm Vào."
 
-#: ../items/categories/level_4_unique.txt:95
+#: ../items/categories/level_4_unique.txt:101
 msgid "Ardwen's Ring"
 msgstr "Sinh Thần Giới Chỉ #3*"
 
-#: ../items/categories/level_4_unique.txt:96
+#: ../items/categories/level_4_unique.txt:102
 msgid "Lochport's finest."
 msgstr "Thượng Phẩm Của Lạc Gia"
 
@@ -4723,43 +4735,43 @@ msgstr "Trấn Thành Kiếm #7"
 msgid "A remnant of those who guarded Fort Amir."
 msgstr "Một Phần Còn Lại Của Những Người Canh Giữ Pháo Đài Amir."
 
-#: ../items/categories/level_8_unique.txt:18
+#: ../items/categories/level_8_unique.txt:19
 msgid "Huntsman Bow"
 msgstr "Du Mục Cung #8"
 
-#: ../items/categories/level_8_unique.txt:19
+#: ../items/categories/level_8_unique.txt:20
 msgid "Compact enough to be deadly at all ranges of combat."
 msgstr "Nhỏ Gọn Đủ Để Gây Tử Vong Ở Tất Cả Các Phạm Vi Chiến Đấu."
 
-#: ../items/categories/level_8_unique.txt:34
+#: ../items/categories/level_8_unique.txt:36
 msgid "Greed Cowl"
 msgstr "Vương Phi Phong #9"
 
-#: ../items/categories/level_8_unique.txt:35
+#: ../items/categories/level_8_unique.txt:37
 msgid "Riches fit for a queen."
 msgstr "Giàu Sang Như Một Bà Hoàng."
 
-#: ../items/categories/level_8_unique.txt:49
+#: ../items/categories/level_8_unique.txt:52
 msgid "Battle Leathers"
 msgstr "Trường Chinh Khố #10"
 
-#: ../items/categories/level_8_unique.txt:50
+#: ../items/categories/level_8_unique.txt:53
 msgid "Designed to keep its wearer moving forward."
 msgstr "Được Thiết Kế Để Giữ Cho Người Mặc Nó Tiến Lên Phía Trước."
 
-#: ../items/categories/level_8_unique.txt:64
+#: ../items/categories/level_8_unique.txt:68
 msgid "Escape Boots"
 msgstr "Phi Hành Lý #11"
 
-#: ../items/categories/level_8_unique.txt:65
+#: ../items/categories/level_8_unique.txt:69
 msgid "Running away doesn't mean the battle is lost."
 msgstr "Chạy Ra Khỏi Trận Chiến Không Có Nghĩa Là Thua."
 
-#: ../items/categories/level_8_unique.txt:79
+#: ../items/categories/level_8_unique.txt:84
 msgid "Mez's Wraps"
 msgstr "Long Lân Trang #12"
 
-#: ../items/categories/level_8_unique.txt:80
+#: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr "Với Lớp Da Bò Sát, Không Nhiều Thứ Có Thể Xuyên Qua Lớp Áo Giáp Này."
 
@@ -4771,49 +4783,49 @@ msgstr "Kinh Tự Cổ Thư #13"
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr "Kinh Thánh Cổ Xưa Chứa Đựng Dường Như Là Một Loại Phép Thuật."
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Mog's Axe"
 msgstr "Phi Đao Phủ #14"
 
-#: ../items/categories/level_12_unique.txt:22
+#: ../items/categories/level_12_unique.txt:23
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr "Không Phải Là Kiểu Dáng Đẹp Như Một Mũi Tên, Nhưng Cũng Hiệu Quả."
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:38
 msgid "Guardsman Cuirass"
 msgstr "Hoàng Gia Bào #15"
 
-#: ../items/categories/level_12_unique.txt:37
+#: ../items/categories/level_12_unique.txt:39
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr "Một Áo Giáp Thư Hoàng Gia Có Chữ ‘K’ Khắc Trên Ngực."
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:56
 msgid "Inferno Pendant"
 msgstr "Địa Hỏa Hạng Liên #16"
 
-#: ../items/categories/level_12_unique.txt:54
+#: ../items/categories/level_12_unique.txt:57
 msgid "Hot. Hot. Hot."
 msgstr "Nóng. Nóng. Nóng."
 
-#: ../items/categories/level_12_unique.txt:69
+#: ../items/categories/level_12_unique.txt:73
 msgid "Alchemist's Skirt"
 msgstr "Giả Kim Đái #17"
 
-#: ../items/categories/level_12_unique.txt:70
+#: ../items/categories/level_12_unique.txt:74
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 "Mang Lại Sự Hiểu Biết Về Rất Nhiều Công Thức Pha Chế Thuốc Cho Người Mặc."
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:91
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 "Khi Uống Hai Bình Thuốc Cùng Loại Sẽ Tạo Ra Bình Thuốc Cùng Loại Khác."
 
-#: ../items/categories/level_12_unique.txt:96
+#: ../items/categories/level_12_unique.txt:101
 msgid "Metzger's Battlemace"
 msgstr "Chưởng Pháp Chùy #18"
 
-#: ../items/categories/level_12_unique.txt:97
+#: ../items/categories/level_12_unique.txt:102
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Vung Cây Chùy Qua Lại Đã Để Lại Một Dải Khói Đen."
 
@@ -4821,39 +4833,39 @@ msgstr "Vung Cây Chùy Qua Lại Đã Để Lại Một Dải Khói Đen."
 msgid "Restore 25% of maximum HP"
 msgstr "Phục Hồi 25% Sinh Lực Cực Đại"
 
-#: ../items/categories/potions.txt:20
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Phục Hồi 25% Nội Lực Cực Đại"
 
-#: ../items/categories/potions.txt:33
+#: ../items/categories/potions.txt:31
 msgid "Temporarily increase regeneration and movement speed"
 msgstr "Tăng Tạm Thời Tốc Độ Phục Hồi Và Di Chuyển"
 
-#: ../items/categories/potions.txt:46
+#: ../items/categories/potions.txt:43
 msgid "Restore 25% of both HP and MP"
 msgstr "Phục Hồi 25% Sinh Lực Và Nội Lực Cực Đại"
 
-#: ../items/categories/potions.txt:59
+#: ../items/categories/potions.txt:55
 msgid "Temporarily increases the ability to find items and gold"
 msgstr "Tăng Tạm Thời Cơ Hội Tìm Thấy Vật Phẩm Và Vàng"
 
-#: ../items/categories/potions.txt:72
+#: ../items/categories/potions.txt:67
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr "Tăng Tạm Thời Khả Năng Kháng Tất Cả Phép Thuật Thêm 50%"
 
-#: ../items/categories/potions.txt:85
+#: ../items/categories/potions.txt:79
 msgid "Restore 50% of maximum HP"
 msgstr "Phục Hồi 50% Sinh Lực Cực Đại"
 
-#: ../items/categories/potions.txt:98
+#: ../items/categories/potions.txt:91
 msgid "Restore 75% of maximum HP"
 msgstr "Phục Hồi 75% Sinh Lực Cực Đại"
 
-#: ../items/categories/potions.txt:111
+#: ../items/categories/potions.txt:103
 msgid "Restore 50% of maximum MP"
 msgstr "Phục Hồi 50% Nội Lực Cực Đại"
 
-#: ../items/categories/potions.txt:124
+#: ../items/categories/potions.txt:115
 msgid "Restore 75% of maximum MP"
 msgstr "Phục Hồi 75% Nội Lực Cực Đại"
 
@@ -4978,8 +4990,10 @@ msgid "Burn"
 msgstr "Hỏa Diệm"
 
 #: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Tạo Ra Một Vùng Hỏa Diệm Thiêu Đốt Nhiều Đối Thủ Cùng Lúc."
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -5004,10 +5018,9 @@ msgstr "Lôi Điện"
 #: ../powers/base/magician/thunderstrike.txt:4
 msgid ""
 "Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
 msgstr ""
-"Giáng Một Tia Sét Từ Trời Xuống Đầu Đối Thủ Với Cơ Hội Cao Gây Bạo Kích Và "
-"Làm Choáng."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -5038,8 +5051,11 @@ msgid "Freeze"
 msgstr "Băng Hình"
 
 #: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr "Tạo Ra Một Cột Băng Làm Chậm Đối Thủ."
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -5062,8 +5078,10 @@ msgid "Throw Knife"
 msgstr "Phi Đao"
 
 #: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Ném Phi Đao Gây Ít Sát Thương Hơn Vũ Khí Cận Chiến Đang Mang."
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -5113,18 +5131,18 @@ msgid "Bear Trap"
 msgstr "Hùng Hộ"
 
 #: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
 msgstr ""
-"Đặt Cạm Bẫy Gây Nhiều Sát Thương Hơn Vũ Khí Xa Chiến Đang Mang Và Làm Bất "
-"Động Mục Tiêu."
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
 msgstr "Đạn Phân Tách"
 
 #: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Bắn Ba Viên Đạn Năng Lượng Thấp Cùng Một Lúc."
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -5161,20 +5179,18 @@ msgstr "Hỏa Liên"
 #: ../powers/base/ranger/ember_shot.txt:2
 msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
-"Tạo Một Bức Màn Lửa Ở Cự Li Gần. Hiệu Quả Khi Chống Lại Địch Thủ Được Trang "
-"Bị Giáp Mạnh."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
 msgstr "Thiết Đinh"
 
 #: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
 msgstr ""
-"Đặt Cạm Bẫy Gây Ít Sát Thương Hơn Vũ Khí Xa Chiến Đang Mang Và Làm Chậm Mục "
-"Tiêu."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5191,6 +5207,18 @@ msgstr "Chưởng"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Pháp Thuật Cơ Bản."
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
+msgstr ""
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5229,3 +5257,7 @@ msgstr "Bạn Cố Mở Chiếc Rương Nhưng Nó Bị Phong Ấn Bởi Một N
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Yêu Tinh Cướp Bóc Đã Đánh Cắp Một Bình Thuốc!"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr ""

@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 13:46+\n"
+"POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Sergiy Borodych, 2021\n"
-"Language-Team: Ukrainian (https://www.transifex.com/flareorg/teams/84925/uk/)\n"
+"Language-Team: Ukrainian (https://app.transifex.com/flareorg/teams/84925/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,33 +106,41 @@ msgstr "Імунітет"
 msgid "Haste"
 msgstr "Поспіх"
 
-#: ../powers/effects.txt:115
+#: ../powers/effects.txt:110
 msgid "Weakness to Fire"
 msgstr "Уразливість до Вогню"
 
-#: ../powers/effects.txt:124
+#: ../powers/effects.txt:119
 msgid "Weakness to Ice"
 msgstr "Уразливість до Льоду"
 
-#: ../powers/effects.txt:140
+#: ../powers/effects.txt:135
 msgid "Sacrifice"
 msgstr "Жертвоприношення"
 
-#: ../powers/effects.txt:165
+#: ../powers/effects.txt:160
 msgid "Reflect"
 msgstr "Відбиття"
 
-#: ../powers/effects.txt:176
+#: ../powers/effects.txt:171
 msgid "Stamina Potion"
 msgstr ""
 
-#: ../powers/effects.txt:182
+#: ../powers/effects.txt:177
 msgid "Treasure Potion"
 msgstr ""
 
-#: ../powers/effects.txt:188
+#: ../powers/effects.txt:183
 msgid "Elemental Potion"
 msgstr ""
+
+#: ../powers/effects.txt:189
+msgid "Fireball Scroll"
+msgstr "Згорток вогняної кулі"
+
+#: ../powers/effects.txt:195
+msgid "Ice Bolt Scroll"
+msgstr "Згорток удару льодом"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -341,6 +349,10 @@ msgstr "Вигнанець"
 #: ../engine/equip_flags.txt:5
 msgid "throwing axe"
 msgstr "метальна сокира"
+
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -730,39 +742,39 @@ msgstr "Тундрова виверна"
 msgid "Your Summoned Zombie"
 msgstr "Викликаний вами зомбі"
 
-#: ../maps/abandoned_mines.txt:10
+#: ../maps/abandoned_mines.txt:11
 msgid "Abandoned Mines"
 msgstr "Покинуті Шахти"
 
-#: ../maps/abandoned_mines.txt:337
+#: ../maps/abandoned_mines.txt:338
 msgid "Blackmire Mines"
 msgstr "Шахти Блекмайр"
 
-#: ../maps/abandoned_mines.txt:454
+#: ../maps/abandoned_mines.txt:455
 msgid "Treasure Chest"
 msgstr "Скриня зі скарбами"
 
-#: ../maps/abandoned_mines.txt:466
+#: ../maps/abandoned_mines.txt:467
 msgid "Crate"
 msgstr "Ящик"
 
-#: ../maps/abandoned_mines.txt:490
+#: ../maps/abandoned_mines.txt:491
 msgid "Barrel"
 msgstr "Бочка"
 
-#: ../maps/abandoned_mines.txt:523
+#: ../maps/abandoned_mines.txt:524
 msgid "The Breach"
 msgstr "Розлом"
 
-#: ../maps/abandoned_mines.txt:532
+#: ../maps/abandoned_mines.txt:533
 msgid "Grot Lagoon"
 msgstr "Лагуна серед скал"
 
-#: ../maps/antlion_nest.txt:10
+#: ../maps/antlion_nest.txt:11
 msgid "Antlion Nest"
 msgstr "Гніздо мурашиних левів"
 
-#: ../maps/antlion_nest.txt:390
+#: ../maps/antlion_nest.txt:391
 msgid "Temple of Mez: Basement"
 msgstr "Храм Мези: Підвал"
 
@@ -874,33 +886,33 @@ msgstr "Кладовище Лочпорту"
 msgid "Fort Amir"
 msgstr "Форт Аміра"
 
-#: ../maps/fort_amir.txt:370
+#: ../maps/fort_amir.txt:376
 msgid ""
 "Opening the book reveals that it has been hollowed out. A gem is concealed "
 "inside."
 msgstr ""
 "Відкриття книги показує, що це тайник. Всередині знаходиться самоцвіт."
 
-#: ../maps/fort_amir.txt:374
+#: ../maps/fort_amir.txt:380
 msgid "Book"
 msgstr "Книга"
 
-#: ../maps/fort_amir.txt:399
+#: ../maps/fort_amir.txt:405
 msgid ""
 "The statue is missing an eye. The sapphire fits securely in the statue's eye"
 " socket."
 msgstr ""
 "Статуї не вистачає ока. Сапфір надійно закріплюється в отворі для ока."
 
-#: ../maps/fort_amir.txt:405
+#: ../maps/fort_amir.txt:411
 msgid "Statue"
 msgstr "Статуя"
 
-#: ../maps/fort_amir.txt:427
+#: ../maps/fort_amir.txt:433
 msgid "The statue is missing an eye."
 msgstr "Статуї не вистачає ока."
 
-#: ../maps/fort_amir.txt:459
+#: ../maps/fort_amir.txt:465
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Книжкова шафа відсувається та відкриває прихований прохід."
 
@@ -948,11 +960,11 @@ msgstr "Надгробок"
 msgid "Halls of Infinity"
 msgstr "Зали Бескінечності"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "Вагонетка"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Сталагмітовий Стовп"
 
@@ -1112,7 +1124,7 @@ msgstr "Шахти смерті"
 msgid "Krolan's Chest"
 msgstr "Скриня Клорана"
 
-#: ../maps/st_maria_1.txt:349
+#: ../maps/st_maria_1.txt:355
 msgid "This door needs a key to be opened."
 msgstr "Ці двері неможливо відкрити без ключа."
 
@@ -1120,7 +1132,7 @@ msgstr "Ці двері неможливо відкрити без ключа."
 msgid "St. Maria: Catacombs waypoint discovered."
 msgstr "Св. Марія: виявлено телепорт до Катакомб."
 
-#: ../maps/st_maria_2.txt:464
+#: ../maps/st_maria_2.txt:471
 msgid "St. Maria: Crypt"
 msgstr "Склеп Св. Марії"
 
@@ -1998,14 +2010,6 @@ msgstr "Згорток смерті"
 msgid "Shield Scroll"
 msgstr "Згорток щита"
 
-#: ../npcs/base/dev_tome/items.txt:102
-msgid "Fireball Scroll"
-msgstr "Згорток вогняної кулі"
-
-#: ../npcs/base/dev_tome/items.txt:108
-msgid "Ice Bolt Scroll"
-msgstr "Згорток удару льодом"
-
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
 msgstr "Згорток поспіху"
@@ -2620,23 +2624,23 @@ msgid ""
 msgstr ""
 "Завжди є надія. Але не для всіх: не для таких як ви. Не для Вигнанців."
 
-#: ../cutscenes/credits.txt:7
+#: ../cutscenes/credits_empyrean.txt:5
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr "Автори гри Flare - empyrean_campaign"
 
-#: ../cutscenes/credits.txt:10
+#: ../cutscenes/credits_empyrean.txt:8
 msgid "Lead Content Designers"
 msgstr "Провідні дизайнери наповнення"
 
-#: ../cutscenes/credits.txt:16
+#: ../cutscenes/credits_empyrean.txt:14
 msgid "Visual Artists"
 msgstr "Художники"
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits_empyrean.txt:25
 msgid "Foley Artists"
 msgstr "Звукові ефекти"
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits_empyrean.txt:31
 msgid "Translators"
 msgstr "Перекладачі"
 
@@ -3242,39 +3246,47 @@ msgstr "Перстень здобичі магістра"
 msgid "Use: Summon a zombie to fight for you"
 msgstr "Дія: Викликає союзного зомбі"
 
-#: ../items/categories/scrolls.txt:20
+#: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
 msgstr "Дія: Телепортує до Притулку смерті"
 
-#: ../items/categories/scrolls.txt:32
+#: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
 msgstr "Дія: Створіть магічний щит, що поглинає шкоду"
 
-#: ../items/categories/scrolls.txt:44
+#: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
 msgstr "Дія: Вистреліть вогняну кулю"
 
-#: ../items/categories/scrolls.txt:56
+#: ../items/categories/scrolls.txt:52
 msgid "Use: Shoot an ice bolt"
 msgstr "Дія: Вистреліть снаряд з льоду"
 
-#: ../items/categories/scrolls.txt:68
+#: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
 msgstr "Дія: Рухайтесь із збільшеною швидкістю на обмежений час."
 
-#: ../items/categories/scrolls.txt:80
+#: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
 "Дія: Усуває всі негативні ефекти і робить до них невразливим на обмежений "
 "час."
 
-#: ../items/categories/scrolls.txt:92
+#: ../items/categories/scrolls.txt:85
 msgid ""
 "Use: Creates a magical shield that reflects projectiles and damage for a "
 "limited time"
 msgstr ""
 "Дія: Створює магічний щит, що відбиває снаряди і шкоду протягом обмеженого "
 "часу"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3738,11 +3750,11 @@ msgid ""
 msgstr ""
 "Гладке на дотик. Після одягання воно міцно затягується навколо пальця."
 
-#: ../items/categories/level_16_unique.txt:20
+#: ../items/categories/level_16_unique.txt:21
 msgid "Soulband"
 msgstr "Кільце душі"
 
-#: ../items/categories/level_16_unique.txt:22
+#: ../items/categories/level_16_unique.txt:23
 msgid ""
 "Glowing when worn, it clears the wearer's mind and allows them to deeply "
 "focus."
@@ -3750,39 +3762,39 @@ msgstr ""
 "Розпечене при носінні, воно очищає розум носія і дозволяє йому глибоко "
 "сфокусуватися."
 
-#: ../items/categories/level_16_unique.txt:36
+#: ../items/categories/level_16_unique.txt:38
 msgid "Underworld Cloak"
 msgstr "Мантія з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:48
+#: ../items/categories/level_16_unique.txt:51
 msgid "Underworld Platemail"
 msgstr "Броня з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:60
+#: ../items/categories/level_16_unique.txt:64
 msgid "Underworld Boots"
 msgstr "Черевики з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:72
+#: ../items/categories/level_16_unique.txt:77
 msgid "Underworld Armguards"
 msgstr "Рукави з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:84
+#: ../items/categories/level_16_unique.txt:90
 msgid "Underworld Greaves"
 msgstr "Наножники з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:96
+#: ../items/categories/level_16_unique.txt:103
 msgid "Underworld Tome"
 msgstr "Фоліант з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:107
+#: ../items/categories/level_16_unique.txt:115
 msgid "Underworld Blade"
 msgstr "Кинджал з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:119
+#: ../items/categories/level_16_unique.txt:128
 msgid "Underworld Bow"
 msgstr "Лук з Підземелля"
 
-#: ../items/categories/level_16_unique.txt:131
+#: ../items/categories/level_16_unique.txt:141
 msgid "Underworld Sceptre"
 msgstr "Скіпетр з Підземелля"
 
@@ -3958,11 +3970,11 @@ msgstr ""
 "За словами Флоріна, це єдине чорнило, яке може бути використане для письма в"
 " Книзі Мертвих."
 
-#: ../items/categories/crafting.txt:39
+#: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Ступка і Товкач"
 
-#: ../items/categories/crafting.txt:40
+#: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
 "Використовуй пусті пляшки та різноманітні інгредієнти для створення зілля."
@@ -3975,54 +3987,54 @@ msgstr "Молот Клорана"
 msgid "An essential tool for any blacksmith."
 msgstr "Важливий інструмент для будь-якого коваля."
 
-#: ../items/categories/level_4_unique.txt:18
+#: ../items/categories/level_4_unique.txt:19
 msgid "Goblin Branch"
 msgstr "Палка гобліна"
 
-#: ../items/categories/level_4_unique.txt:19
+#: ../items/categories/level_4_unique.txt:20
 msgid "Mana flows inside its primitive exterior."
 msgstr "Мана тече всередині цієї примітивної оболонки."
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:36
 msgid "Ardwen's Gloves"
 msgstr "Рукавиці Ардвена"
 
-#: ../items/categories/level_4_unique.txt:35
+#: ../items/categories/level_4_unique.txt:37
 msgid "These hands built a village."
 msgstr "Ці руки збудували село."
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:53
 msgid "Blood Tunic"
 msgstr "Закривавлена туніка"
 
-#: ../items/categories/level_4_unique.txt:51
+#: ../items/categories/level_4_unique.txt:54
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Коли одягнена, ця сорочка нагріває жили носія."
 
-#: ../items/categories/level_4_unique.txt:65
+#: ../items/categories/level_4_unique.txt:69
 msgid "Dark Steppers"
 msgstr "Темні крокуни"
 
-#: ../items/categories/level_4_unique.txt:66
+#: ../items/categories/level_4_unique.txt:70
 msgid "Dancing through the shadows."
 msgstr "Танцюючи з тінями."
 
-#: ../items/categories/level_4_unique.txt:79
+#: ../items/categories/level_4_unique.txt:84
 msgid "Seagate's Tri-pants"
 msgstr "Потрійні штани Сігейта"
 
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
 "These ragged trousers are covered in scorch marks, yet are cold to the "
 "touch."
 msgstr ""
 "Ці рвані штани мають на собі знаки горіння, але вони холодні на дотик."
 
-#: ../items/categories/level_4_unique.txt:95
+#: ../items/categories/level_4_unique.txt:101
 msgid "Ardwen's Ring"
 msgstr "Перстень Ардвена"
 
-#: ../items/categories/level_4_unique.txt:96
+#: ../items/categories/level_4_unique.txt:102
 msgid "Lochport's finest."
 msgstr ""
 
@@ -4658,43 +4670,43 @@ msgstr "Кинджал Аміра"
 msgid "A remnant of those who guarded Fort Amir."
 msgstr "Залишки тих, хто охороняв Форт Аміра."
 
-#: ../items/categories/level_8_unique.txt:18
+#: ../items/categories/level_8_unique.txt:19
 msgid "Huntsman Bow"
 msgstr "Лук мисливця"
 
-#: ../items/categories/level_8_unique.txt:19
+#: ../items/categories/level_8_unique.txt:20
 msgid "Compact enough to be deadly at all ranges of combat."
 msgstr "Досить компактний, щоб бути смертоносним у всіх боях."
 
-#: ../items/categories/level_8_unique.txt:34
+#: ../items/categories/level_8_unique.txt:36
 msgid "Greed Cowl"
 msgstr "Капюшон жадібності"
 
-#: ../items/categories/level_8_unique.txt:35
+#: ../items/categories/level_8_unique.txt:37
 msgid "Riches fit for a queen."
 msgstr "Багатство личить королеві."
 
-#: ../items/categories/level_8_unique.txt:49
+#: ../items/categories/level_8_unique.txt:52
 msgid "Battle Leathers"
 msgstr "Бойові шкіряні штани"
 
-#: ../items/categories/level_8_unique.txt:50
+#: ../items/categories/level_8_unique.txt:53
 msgid "Designed to keep its wearer moving forward."
 msgstr "Створені для того щоб носій ішов вперед."
 
-#: ../items/categories/level_8_unique.txt:64
+#: ../items/categories/level_8_unique.txt:68
 msgid "Escape Boots"
 msgstr "Черевики втечі"
 
-#: ../items/categories/level_8_unique.txt:65
+#: ../items/categories/level_8_unique.txt:69
 msgid "Running away doesn't mean the battle is lost."
 msgstr "Втеча не означає, що битву програно."
 
-#: ../items/categories/level_8_unique.txt:79
+#: ../items/categories/level_8_unique.txt:84
 msgid "Mez's Wraps"
 msgstr "Вбрання Мези"
 
-#: ../items/categories/level_8_unique.txt:80
+#: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "З багатьох шарів зі шкіри рептилії, небагато чим можна проколоти цю броню."
@@ -4707,47 +4719,47 @@ msgstr "Загублений тотем"
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr "Виглядає цей древній рукопис містить якусь магію."
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Mog's Axe"
 msgstr "Сокира Мога"
 
-#: ../items/categories/level_12_unique.txt:22
+#: ../items/categories/level_12_unique.txt:23
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr "Не така гладка як стріла, але настільки ж ефективна."
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:38
 msgid "Guardsman Cuirass"
 msgstr "Кираса гвардійця"
 
-#: ../items/categories/level_12_unique.txt:37
+#: ../items/categories/level_12_unique.txt:39
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr "На грудях викарбувана велика літера \"К\"."
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:56
 msgid "Inferno Pendant"
 msgstr "Пекельний кулон"
 
-#: ../items/categories/level_12_unique.txt:54
+#: ../items/categories/level_12_unique.txt:57
 msgid "Hot. Hot. Hot."
 msgstr "Пече. Пече. Пече."
 
-#: ../items/categories/level_12_unique.txt:69
+#: ../items/categories/level_12_unique.txt:73
 msgid "Alchemist's Skirt"
 msgstr "Спідниця алхіміка"
 
-#: ../items/categories/level_12_unique.txt:70
+#: ../items/categories/level_12_unique.txt:74
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr "Носієві приходить знання формул багатьох концентратів."
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:91
 msgid "Drinking potions may create another potion of the same type."
 msgstr "Пиття зілля може створити ще одне зілля того ж типу."
 
-#: ../items/categories/level_12_unique.txt:96
+#: ../items/categories/level_12_unique.txt:101
 msgid "Metzger's Battlemace"
 msgstr "Бойова булава Метзгера"
 
-#: ../items/categories/level_12_unique.txt:97
+#: ../items/categories/level_12_unique.txt:102
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Розмахи цією булавою залишають за собою похмурий слід з темного диму."
 
@@ -4755,39 +4767,39 @@ msgstr "Розмахи цією булавою залишають за собо�
 msgid "Restore 25% of maximum HP"
 msgstr "Відновлює 25% максимального Здоров'я"
 
-#: ../items/categories/potions.txt:20
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Відновлює 25% максимальної Мани"
 
-#: ../items/categories/potions.txt:33
+#: ../items/categories/potions.txt:31
 msgid "Temporarily increase regeneration and movement speed"
 msgstr ""
 
-#: ../items/categories/potions.txt:46
+#: ../items/categories/potions.txt:43
 msgid "Restore 25% of both HP and MP"
 msgstr ""
 
-#: ../items/categories/potions.txt:59
+#: ../items/categories/potions.txt:55
 msgid "Temporarily increases the ability to find items and gold"
 msgstr ""
 
-#: ../items/categories/potions.txt:72
+#: ../items/categories/potions.txt:67
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr ""
 
-#: ../items/categories/potions.txt:85
+#: ../items/categories/potions.txt:79
 msgid "Restore 50% of maximum HP"
 msgstr ""
 
-#: ../items/categories/potions.txt:98
+#: ../items/categories/potions.txt:91
 msgid "Restore 75% of maximum HP"
 msgstr ""
 
-#: ../items/categories/potions.txt:111
+#: ../items/categories/potions.txt:103
 msgid "Restore 50% of maximum MP"
 msgstr ""
 
-#: ../items/categories/potions.txt:124
+#: ../items/categories/potions.txt:115
 msgid "Restore 75% of maximum MP"
 msgstr ""
 
@@ -4912,8 +4924,10 @@ msgid "Burn"
 msgstr "Підпал"
 
 #: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Підпаліть кількох ворогів у віддаленій області."
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -4938,10 +4952,9 @@ msgstr "Гроза"
 #: ../powers/base/magician/thunderstrike.txt:4
 msgid ""
 "Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
 msgstr ""
-"З неба вражає блискавка з великою ймовірністю критично пошкодити "
-"уповільнених ворогів."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -4972,10 +4985,11 @@ msgid "Freeze"
 msgstr "Заморозка"
 
 #: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
 msgstr ""
-"Створіть потік з кількох пронизливих льодових уламків, які уповільнюють "
-"ворогів."
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -4998,8 +5012,10 @@ msgid "Throw Knife"
 msgstr "Кидок ножа"
 
 #: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Киньте ніж щоб завдати частину шкоди ближньої зброї."
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -5047,16 +5063,18 @@ msgid "Bear Trap"
 msgstr "Ведмежа пастка"
 
 #: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr "Ця пастка завдає додаткової дальної шкоди і знерухомлює ціль."
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr ""
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
 msgstr "Мультипостріл"
 
 #: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Вистреліть три снаряди одночасно."
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -5093,18 +5111,18 @@ msgstr "Постріл тліючим вугіллям"
 #: ../powers/base/ranger/ember_shot.txt:2
 msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
-"Вистреліть пачку палаючого вугілля на близькій відстані. Ефективно проти "
-"ворогів в броні."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
 msgstr "Капкан"
 
 #: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
-msgstr "Ця пастка завдає частину дальної шкоди і уповільнює ціль."
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
+msgstr ""
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5122,6 +5140,18 @@ msgstr "Розряд"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Базова магічна атака."
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
+msgstr ""
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5159,3 +5189,7 @@ msgstr ""
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Гоблін злодій вкрав зілля!"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr ""

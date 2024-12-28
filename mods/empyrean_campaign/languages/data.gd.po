@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 13:46+\n"
+"POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: GunChleoc, 2022\n"
-"Language-Team: Gaelic, Scottish (https://www.transifex.com/flareorg/teams/84925/gd/)\n"
+"Language-Team: Gaelic, Scottish (https://app.transifex.com/flareorg/teams/84925/gd/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,33 +104,41 @@ msgstr "Dìonachd"
 msgid "Haste"
 msgstr "Cabhag"
 
-#: ../powers/effects.txt:115
+#: ../powers/effects.txt:110
 msgid "Weakness to Fire"
 msgstr "Fannachadh an aghaidh teine"
 
-#: ../powers/effects.txt:124
+#: ../powers/effects.txt:119
 msgid "Weakness to Ice"
 msgstr "Fannachadh an aghaidh deighe"
 
-#: ../powers/effects.txt:140
+#: ../powers/effects.txt:135
 msgid "Sacrifice"
 msgstr "Ìobairt"
 
-#: ../powers/effects.txt:165
+#: ../powers/effects.txt:160
 msgid "Reflect"
 msgstr "Ath-thilgeil"
 
-#: ../powers/effects.txt:176
+#: ../powers/effects.txt:171
 msgid "Stamina Potion"
 msgstr "Deoch smiodaim"
 
-#: ../powers/effects.txt:182
+#: ../powers/effects.txt:177
 msgid "Treasure Potion"
 msgstr "Deoch ulaidh"
 
-#: ../powers/effects.txt:188
+#: ../powers/effects.txt:183
 msgid "Elemental Potion"
 msgstr "Deoch dùilich"
+
+#: ../powers/effects.txt:189
+msgid "Fireball Scroll"
+msgstr "Sgrola bàla teine"
+
+#: ../powers/effects.txt:195
+msgid "Ice Bolt Scroll"
+msgstr "Sgrola peileir deighe"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -339,6 +347,10 @@ msgstr "Fògrach"
 #: ../engine/equip_flags.txt:5
 msgid "throwing axe"
 msgstr "tilgeil tuaighe"
+
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -728,39 +740,39 @@ msgstr "Nathair sgiathach tundra"
 msgid "Your Summoned Zombie"
 msgstr "Corp coisiche a ghairm thu"
 
-#: ../maps/abandoned_mines.txt:10
+#: ../maps/abandoned_mines.txt:11
 msgid "Abandoned Mines"
 msgstr "A’ mhèinn thrèigte"
 
-#: ../maps/abandoned_mines.txt:337
+#: ../maps/abandoned_mines.txt:338
 msgid "Blackmire Mines"
 msgstr "A’ mhèinn chòsagach"
 
-#: ../maps/abandoned_mines.txt:454
+#: ../maps/abandoned_mines.txt:455
 msgid "Treasure Chest"
 msgstr "Ciste ulaidh"
 
-#: ../maps/abandoned_mines.txt:466
+#: ../maps/abandoned_mines.txt:467
 msgid "Crate"
 msgstr "Creat"
 
-#: ../maps/abandoned_mines.txt:490
+#: ../maps/abandoned_mines.txt:491
 msgid "Barrel"
 msgstr "Tunna"
 
-#: ../maps/abandoned_mines.txt:523
+#: ../maps/abandoned_mines.txt:524
 msgid "The Breach"
 msgstr "A’ bheàrn dhorcha"
 
-#: ../maps/abandoned_mines.txt:532
+#: ../maps/abandoned_mines.txt:533
 msgid "Grot Lagoon"
 msgstr "A’ chrannag ghrod"
 
-#: ../maps/antlion_nest.txt:10
+#: ../maps/antlion_nest.txt:11
 msgid "Antlion Nest"
 msgstr "Nead nam biastag"
 
-#: ../maps/antlion_nest.txt:390
+#: ../maps/antlion_nest.txt:391
 msgid "Temple of Mez: Basement"
 msgstr "Ìoslach teampaill Mheis"
 
@@ -873,7 +885,7 @@ msgstr "Cladh Phort an Locha"
 msgid "Fort Amir"
 msgstr "Gearastan Aimir"
 
-#: ../maps/fort_amir.txt:370
+#: ../maps/fort_amir.txt:376
 msgid ""
 "Opening the book reveals that it has been hollowed out. A gem is concealed "
 "inside."
@@ -881,26 +893,26 @@ msgstr ""
 "Às dèidh an leabhar fosgladh, mothaichidh tu gu beil toll ’na bhroinn. Tha "
 "seudag falaichte ann."
 
-#: ../maps/fort_amir.txt:374
+#: ../maps/fort_amir.txt:380
 msgid "Book"
 msgstr "Leabhar"
 
-#: ../maps/fort_amir.txt:399
+#: ../maps/fort_amir.txt:405
 msgid ""
 "The statue is missing an eye. The sapphire fits securely in the statue's eye"
 " socket."
 msgstr ""
 "Tha sùil a dhìth air an ìomhaigh. Fhreagair saifear ri gluc na h-ìomhaighe."
 
-#: ../maps/fort_amir.txt:405
+#: ../maps/fort_amir.txt:411
 msgid "Statue"
 msgstr "Ìomhaigh"
 
-#: ../maps/fort_amir.txt:427
+#: ../maps/fort_amir.txt:433
 msgid "The statue is missing an eye."
 msgstr "Tha sùil a dhìth air an ìomhaigh."
 
-#: ../maps/fort_amir.txt:459
+#: ../maps/fort_amir.txt:465
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr ""
 "Dh’fhosgail am preas-leabhraichean, a’ toirt slighe dhìomhair am follais."
@@ -949,11 +961,11 @@ msgstr "Leac-uaighe"
 msgid "Halls of Infinity"
 msgstr "Tallachan na neo-chrìochnachd"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "Cart-mèinneir"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Colbh aol-charraigh"
 
@@ -1113,7 +1125,7 @@ msgstr "Mèinn an Dubh-chaill"
 msgid "Krolan's Chest"
 msgstr "Ciste Chròlain"
 
-#: ../maps/st_maria_1.txt:349
+#: ../maps/st_maria_1.txt:355
 msgid "This door needs a key to be opened."
 msgstr "Feumaidh tu iuchair gus an doras seo fhosgladh."
 
@@ -1121,7 +1133,7 @@ msgstr "Feumaidh tu iuchair gus an doras seo fhosgladh."
 msgid "St. Maria: Catacombs waypoint discovered."
 msgstr "Lorg thu puing-thurais chatacoman na Cille Mhoire."
 
-#: ../maps/st_maria_2.txt:464
+#: ../maps/st_maria_2.txt:471
 msgid "St. Maria: Crypt"
 msgstr "Rèilig na Cille Mhoire"
 
@@ -2029,14 +2041,6 @@ msgstr "Sgrola an Dubh-chaill"
 msgid "Shield Scroll"
 msgstr "Sgrola sgèithe"
 
-#: ../npcs/base/dev_tome/items.txt:102
-msgid "Fireball Scroll"
-msgstr "Sgrola bàla teine"
-
-#: ../npcs/base/dev_tome/items.txt:108
-msgid "Ice Bolt Scroll"
-msgstr "Sgrola peileir deighe"
-
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
 msgstr "Sgrola na cabhaige"
@@ -2689,23 +2693,23 @@ msgstr ""
 "Tha dòchas ann an-còmhnaidh. Ach chan ann aig a h-uile duine: chan ann "
 "agadsa. Chan ann aig na fògraich."
 
-#: ../cutscenes/credits.txt:7
+#: ../cutscenes/credits_empyrean.txt:5
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr "Urram Geama Flare – empyrean_campaign"
 
-#: ../cutscenes/credits.txt:10
+#: ../cutscenes/credits_empyrean.txt:8
 msgid "Lead Content Designers"
 msgstr "Prìomh-dhealbhaichean na susbainte"
 
-#: ../cutscenes/credits.txt:16
+#: ../cutscenes/credits_empyrean.txt:14
 msgid "Visual Artists"
 msgstr "Luchd-ealain lèirsinneach"
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits_empyrean.txt:25
 msgid "Foley Artists"
 msgstr "Èifeachdan fuaime"
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits_empyrean.txt:31
 msgid "Translators"
 msgstr "Eadar-theangadairean"
 
@@ -3325,38 +3329,46 @@ msgstr "Fàinne na spùinne do mhaighstir"
 msgid "Use: Summon a zombie to fight for you"
 msgstr "Feum: gairm corp coisiche a nì sabaid às do leth"
 
-#: ../items/categories/scrolls.txt:20
+#: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
 msgstr "Feum: tele-phortadh gu port an Dubh-chaill"
 
-#: ../items/categories/scrolls.txt:32
+#: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
 msgstr "Feum: cruthaich sgiath draoidheach a cheapas dochann"
 
-#: ../items/categories/scrolls.txt:44
+#: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
 msgstr "Feum: tilg bàla teine"
 
-#: ../items/categories/scrolls.txt:56
+#: ../items/categories/scrolls.txt:52
 msgid "Use: Shoot an ice bolt"
 msgstr "Feum: tilg peilear deighe"
 
-#: ../items/categories/scrolls.txt:68
+#: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
 msgstr "Feum: gluais nas luaithe greis"
 
-#: ../items/categories/scrolls.txt:80
+#: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
 "Feum: thoir gach easbhaidh air falbh is faigh dìon an aghaidh easbhaidhean "
 "greis"
 
-#: ../items/categories/scrolls.txt:92
+#: ../items/categories/scrolls.txt:85
 msgid ""
 "Use: Creates a magical shield that reflects projectiles and damage for a "
 "limited time"
 msgstr ""
 "Feum: cruthaich sgiath draoidheach thilgeas air ais astasan is dochann greis"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3819,50 +3831,50 @@ msgid ""
 "Smooth to the touch. Upon wearing it, it tightens itself around the finger."
 msgstr "Bann tlàth. Teannaichidh e nuair a chuireas tu air do chorrag e."
 
-#: ../items/categories/level_16_unique.txt:20
+#: ../items/categories/level_16_unique.txt:21
 msgid "Soulband"
 msgstr "Bann anama"
 
-#: ../items/categories/level_16_unique.txt:22
+#: ../items/categories/level_16_unique.txt:23
 msgid ""
 "Glowing when worn, it clears the wearer's mind and allows them to deeply "
 "focus."
 msgstr ""
 "Thig luisneachadh air nuair a chuireas tu ort e. Cuidichidh e le dùr-aire."
 
-#: ../items/categories/level_16_unique.txt:36
+#: ../items/categories/level_16_unique.txt:38
 msgid "Underworld Cloak"
 msgstr "Clòca ifrinne"
 
-#: ../items/categories/level_16_unique.txt:48
+#: ../items/categories/level_16_unique.txt:51
 msgid "Underworld Platemail"
 msgstr "Lùireach meatailt ifrinne"
 
-#: ../items/categories/level_16_unique.txt:60
+#: ../items/categories/level_16_unique.txt:64
 msgid "Underworld Boots"
 msgstr "Bòtannan ifrinne"
 
-#: ../items/categories/level_16_unique.txt:72
+#: ../items/categories/level_16_unique.txt:77
 msgid "Underworld Armguards"
 msgstr "Èideadh gàirdein ifrinne"
 
-#: ../items/categories/level_16_unique.txt:84
+#: ../items/categories/level_16_unique.txt:90
 msgid "Underworld Greaves"
 msgstr "Èideadh calpa ifrinne"
 
-#: ../items/categories/level_16_unique.txt:96
+#: ../items/categories/level_16_unique.txt:103
 msgid "Underworld Tome"
 msgstr "Leabhar ifrinne"
 
-#: ../items/categories/level_16_unique.txt:107
+#: ../items/categories/level_16_unique.txt:115
 msgid "Underworld Blade"
 msgstr "Lann ifrinne"
 
-#: ../items/categories/level_16_unique.txt:119
+#: ../items/categories/level_16_unique.txt:128
 msgid "Underworld Bow"
 msgstr "Bogha ifrinne"
 
-#: ../items/categories/level_16_unique.txt:131
+#: ../items/categories/level_16_unique.txt:141
 msgid "Underworld Sceptre"
 msgstr "Slat-rìoghail ifrinne"
 
@@ -4038,11 +4050,11 @@ msgid ""
 msgstr ""
 "A-rèir Fhlòrain, seo an aon inc a ghabhas cleachdadh air Leabhar nam Marbh."
 
-#: ../items/categories/crafting.txt:39
+#: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Pronnadair ’s brùthadair"
 
-#: ../items/categories/crafting.txt:40
+#: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
 "Cleachd botalan falamh is caochladh stuthan airson deochan a dhèanamh."
@@ -4055,43 +4067,43 @@ msgstr "Òrd Chròlain"
 msgid "An essential tool for any blacksmith."
 msgstr "Acainn cudromach do ghobha sam bith."
 
-#: ../items/categories/level_4_unique.txt:18
+#: ../items/categories/level_4_unique.txt:19
 msgid "Goblin Branch"
 msgstr "Meur bòcain"
 
-#: ../items/categories/level_4_unique.txt:19
+#: ../items/categories/level_4_unique.txt:20
 msgid "Mana flows inside its primitive exterior."
 msgstr "Tha mana a ruith ann ged a tha coltas primideach air."
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:36
 msgid "Ardwen's Gloves"
 msgstr "Miotagan Àrdair"
 
-#: ../items/categories/level_4_unique.txt:35
+#: ../items/categories/level_4_unique.txt:37
 msgid "These hands built a village."
 msgstr "Thog na làmhan seo baile."
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:53
 msgid "Blood Tunic"
 msgstr "Lèine fala"
 
-#: ../items/categories/level_4_unique.txt:51
+#: ../items/categories/level_4_unique.txt:54
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Nuair a chuireas tu ort i, thèid do chuislean a bhlàthachadh."
 
-#: ../items/categories/level_4_unique.txt:65
+#: ../items/categories/level_4_unique.txt:69
 msgid "Dark Steppers"
 msgstr "Dubh-bhrògan"
 
-#: ../items/categories/level_4_unique.txt:66
+#: ../items/categories/level_4_unique.txt:70
 msgid "Dancing through the shadows."
 msgstr "Dannsadh tro na sgàilean."
 
-#: ../items/categories/level_4_unique.txt:79
+#: ../items/categories/level_4_unique.txt:84
 msgid "Seagate's Tri-pants"
 msgstr "Trì-bhriogais Mhic na Mara"
 
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
 "These ragged trousers are covered in scorch marks, yet are cold to the "
 "touch."
@@ -4099,11 +4111,11 @@ msgstr ""
 "Tha coltas air a’ bhriogais robaich seo gun deach a losgadh ach tha iad fuar"
 " ’nad làimh."
 
-#: ../items/categories/level_4_unique.txt:95
+#: ../items/categories/level_4_unique.txt:101
 msgid "Ardwen's Ring"
 msgstr "Fàinne Àrdair"
 
-#: ../items/categories/level_4_unique.txt:96
+#: ../items/categories/level_4_unique.txt:102
 msgid "Lochport's finest."
 msgstr "Polcan-fainge Phort an Locha."
 
@@ -4739,44 +4751,44 @@ msgstr "Lann Aimir"
 msgid "A remnant of those who guarded Fort Amir."
 msgstr "Iarmad dhen fheadhainn a dhìon Gearastan Aimir."
 
-#: ../items/categories/level_8_unique.txt:18
+#: ../items/categories/level_8_unique.txt:19
 msgid "Huntsman Bow"
 msgstr "Bogha sealgair"
 
-#: ../items/categories/level_8_unique.txt:19
+#: ../items/categories/level_8_unique.txt:20
 msgid "Compact enough to be deadly at all ranges of combat."
 msgstr ""
 "Tha e teann gu leòr gus a bhith marbhtach aig astar còmhraige sam bith."
 
-#: ../items/categories/level_8_unique.txt:34
+#: ../items/categories/level_8_unique.txt:36
 msgid "Greed Cowl"
 msgstr "Abaid an sannta"
 
-#: ../items/categories/level_8_unique.txt:35
+#: ../items/categories/level_8_unique.txt:37
 msgid "Riches fit for a queen."
 msgstr "Beartas iomchaidh do bhànrigh."
 
-#: ../items/categories/level_8_unique.txt:49
+#: ../items/categories/level_8_unique.txt:52
 msgid "Battle Leathers"
 msgstr "Leathair còmhraige"
 
-#: ../items/categories/level_8_unique.txt:50
+#: ../items/categories/level_8_unique.txt:53
 msgid "Designed to keep its wearer moving forward."
 msgstr "Chaidh a dhealbhadh ach an seas thu."
 
-#: ../items/categories/level_8_unique.txt:64
+#: ../items/categories/level_8_unique.txt:68
 msgid "Escape Boots"
 msgstr "Bòtannan teichidh"
 
-#: ../items/categories/level_8_unique.txt:65
+#: ../items/categories/level_8_unique.txt:69
 msgid "Running away doesn't mean the battle is lost."
 msgstr "Ma theicheas tu, cha chiall dha sin gun do chaill thu am blàr."
 
-#: ../items/categories/level_8_unique.txt:79
+#: ../items/categories/level_8_unique.txt:84
 msgid "Mez's Wraps"
 msgstr "Còmhdach Mheis"
 
-#: ../items/categories/level_8_unique.txt:80
+#: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "On a tha iomadh breath de chraiceann laghairt aice, cha mhòr nach bris dad "
@@ -4790,52 +4802,52 @@ msgstr "Tòtam caillte"
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr "Tha coltas na draoidheachd air an sgrìobhadh àrsaidh ’na bhroinn."
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Mog's Axe"
 msgstr "Tuagh Mhoig"
 
-#: ../items/categories/level_12_unique.txt:22
+#: ../items/categories/level_12_unique.txt:23
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr ""
 "Chan eil e cho sgiobalta ’s a tha saighead ach tha e a cheart cho "
 "èifeachdach."
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:38
 msgid "Guardsman Cuirass"
 msgstr "Màilleach geàird"
 
-#: ../items/categories/level_12_unique.txt:37
+#: ../items/categories/level_12_unique.txt:39
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr "Màilleach rìoghail le “K” gràbhailte air a’ bhroilleach."
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:56
 msgid "Inferno Pendant"
 msgstr "Crochag na h-ifrinne"
 
-#: ../items/categories/level_12_unique.txt:54
+#: ../items/categories/level_12_unique.txt:57
 msgid "Hot. Hot. Hot."
 msgstr "Cho teth ri èibhleag."
 
-#: ../items/categories/level_12_unique.txt:69
+#: ../items/categories/level_12_unique.txt:73
 msgid "Alchemist's Skirt"
 msgstr "Fèileadh cumasgair"
 
-#: ../items/categories/level_12_unique.txt:70
+#: ../items/categories/level_12_unique.txt:74
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 "Ma chuireas tu seo ort, gheibh thu eòlas air mar a nì thu iomadh galamas."
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:91
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 "Nuair a dh’òlas tu deoch, dh’fhaoidte gun dèid deoch eile dhen aon seòrsa a "
 "chruthachadh."
 
-#: ../items/categories/level_12_unique.txt:96
+#: ../items/categories/level_12_unique.txt:101
 msgid "Metzger's Battlemace"
 msgstr "Màs-cogaidh a’ Bhùidseir"
 
-#: ../items/categories/level_12_unique.txt:97
+#: ../items/categories/level_12_unique.txt:102
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 "Nuair a nì thu sabaid leis a’ mhàs seo, cruthaichidh e lorgan de smùid "
@@ -4845,41 +4857,41 @@ msgstr ""
 msgid "Restore 25% of maximum HP"
 msgstr "Leighis 25% dhe na puingean-beatha as motha"
 
-#: ../items/categories/potions.txt:20
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Leighis 25% dhe na puingean-gluasaid as motha"
 
-#: ../items/categories/potions.txt:33
+#: ../items/categories/potions.txt:31
 msgid "Temporarily increase regeneration and movement speed"
 msgstr "Dèan ath-ghintinn ’s gluasad nas luaithe greis"
 
-#: ../items/categories/potions.txt:46
+#: ../items/categories/potions.txt:43
 msgid "Restore 25% of both HP and MP"
 msgstr "Leighis 25% dhe a dà chuid na puingean-beatha ’s -gluasaid as motha"
 
-#: ../items/categories/potions.txt:59
+#: ../items/categories/potions.txt:55
 msgid "Temporarily increases the ability to find items and gold"
 msgstr "Cuir ris an comas gus nithean is òr a lorg greis"
 
-#: ../items/categories/potions.txt:72
+#: ../items/categories/potions.txt:67
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr ""
 "Meudaich an comas-seasaimh an aghaidh gach seòrsa de dhraoidheachd le 50% "
 "greis"
 
-#: ../items/categories/potions.txt:85
+#: ../items/categories/potions.txt:79
 msgid "Restore 50% of maximum HP"
 msgstr "Aisig 50% dhe na puingean-beatha as motha"
 
-#: ../items/categories/potions.txt:98
+#: ../items/categories/potions.txt:91
 msgid "Restore 75% of maximum HP"
 msgstr "Aisig 75% dhe na puingean-beatha as motha"
 
-#: ../items/categories/potions.txt:111
+#: ../items/categories/potions.txt:103
 msgid "Restore 50% of maximum MP"
 msgstr "Aisig 50% dhe na puingean-gluasaid as motha"
 
-#: ../items/categories/potions.txt:124
+#: ../items/categories/potions.txt:115
 msgid "Restore 75% of maximum MP"
 msgstr "Aisig 75% dhe na puingean-gluasaid as motha"
 
@@ -5004,8 +5016,10 @@ msgid "Burn"
 msgstr "Losgadh"
 
 #: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Gread iomadh nàmhaid air raon fad air falbh le teine."
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -5032,10 +5046,9 @@ msgstr "Buille tàirneanach"
 #: ../powers/base/magician/thunderstrike.txt:4
 msgid ""
 "Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
 msgstr ""
-"Boillsgidh dealan o na speuran aig astar le teans math gun dèan e dochann "
-"èiginneach air nàimhdean air a bheil cion-gluasaid."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -5066,10 +5079,11 @@ msgid "Freeze"
 msgstr "Eighreachadh"
 
 #: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
 msgstr ""
-"Cruthaich leus le iomadh pristeal fuachd uabhasaich a chuireas maille air "
-"nàimhdean."
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -5094,8 +5108,10 @@ msgid "Throw Knife"
 msgstr "Tilgeil sgeine"
 
 #: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Tilg sgian gus dochann airm dhlùth lùghdaichte a dhèanamh."
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -5144,18 +5160,18 @@ msgid "Bear Trap"
 msgstr "Ribe mathain"
 
 #: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
 msgstr ""
-"Nì an ribe seo dochann airm astair a bharrachd is chan urrainn dhan nàmhaid "
-"gluasad tuilleadh."
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
 msgstr "Ioma-losgadh"
 
 #: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Loisg trì saighdean aig an aon àm."
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -5193,20 +5209,18 @@ msgstr "Losgadh èibhleagan"
 #: ../powers/base/ranger/ember_shot.txt:2
 msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
-"Seall èibhleagan losgach air astar beag. Èifeachdach an aghaidh nàimhdean "
-"armaichte."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
 msgstr "Cas-ribean"
 
 #: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
 msgstr ""
-"Nì an ribe seo cuid a dhochann airm astair is cuiridh e maille air an "
-"nàmhaid."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5224,6 +5238,18 @@ msgstr "Geas"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Ionnsaigh dhraoidheach bhunasach."
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
+msgstr ""
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5264,3 +5290,7 @@ msgstr ""
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Ghoid mèirleach bòcain deoch!"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr ""

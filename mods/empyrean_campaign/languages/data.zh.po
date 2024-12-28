@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 13:46+\n"
+"POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Isaac Zhang, 2022\n"
-"Language-Team: Chinese (https://www.transifex.com/flareorg/teams/84925/zh/)\n"
+"Language-Team: Chinese (https://app.transifex.com/flareorg/teams/84925/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -105,33 +105,41 @@ msgstr "免疫"
 msgid "Haste"
 msgstr "增速"
 
-#: ../powers/effects.txt:115
+#: ../powers/effects.txt:110
 msgid "Weakness to Fire"
 msgstr "畏火"
 
-#: ../powers/effects.txt:124
+#: ../powers/effects.txt:119
 msgid "Weakness to Ice"
 msgstr "畏冰"
 
-#: ../powers/effects.txt:140
+#: ../powers/effects.txt:135
 msgid "Sacrifice"
 msgstr "祈福"
 
-#: ../powers/effects.txt:165
+#: ../powers/effects.txt:160
 msgid "Reflect"
 msgstr "反弹"
 
-#: ../powers/effects.txt:176
+#: ../powers/effects.txt:171
 msgid "Stamina Potion"
 msgstr "耐力药水"
 
-#: ../powers/effects.txt:182
+#: ../powers/effects.txt:177
 msgid "Treasure Potion"
 msgstr "幸运药水"
 
-#: ../powers/effects.txt:188
+#: ../powers/effects.txt:183
 msgid "Elemental Potion"
 msgstr "元素药水"
+
+#: ../powers/effects.txt:189
+msgid "Fireball Scroll"
+msgstr "火球卷轴"
+
+#: ../powers/effects.txt:195
+msgid "Ice Bolt Scroll"
+msgstr "冰弹卷轴"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -334,6 +342,10 @@ msgstr "亡命徒"
 #: ../engine/equip_flags.txt:5
 msgid "throwing axe"
 msgstr "投掷斧头"
+
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -723,39 +735,39 @@ msgstr "苔原飞龙"
 msgid "Your Summoned Zombie"
 msgstr "你召唤的僵尸"
 
-#: ../maps/abandoned_mines.txt:10
+#: ../maps/abandoned_mines.txt:11
 msgid "Abandoned Mines"
 msgstr "遗忘矿场"
 
-#: ../maps/abandoned_mines.txt:337
+#: ../maps/abandoned_mines.txt:338
 msgid "Blackmire Mines"
 msgstr "黑泥矿洞"
 
-#: ../maps/abandoned_mines.txt:454
+#: ../maps/abandoned_mines.txt:455
 msgid "Treasure Chest"
 msgstr "宝箱"
 
-#: ../maps/abandoned_mines.txt:466
+#: ../maps/abandoned_mines.txt:467
 msgid "Crate"
 msgstr "箱子"
 
-#: ../maps/abandoned_mines.txt:490
+#: ../maps/abandoned_mines.txt:491
 msgid "Barrel"
 msgstr "酒桶"
 
-#: ../maps/abandoned_mines.txt:523
+#: ../maps/abandoned_mines.txt:524
 msgid "The Breach"
 msgstr "蚁巢洞口"
 
-#: ../maps/abandoned_mines.txt:532
+#: ../maps/abandoned_mines.txt:533
 msgid "Grot Lagoon"
 msgstr "格劳特湖"
 
-#: ../maps/antlion_nest.txt:10
+#: ../maps/antlion_nest.txt:11
 msgid "Antlion Nest"
 msgstr "蚁狮大本营"
 
-#: ../maps/antlion_nest.txt:390
+#: ../maps/antlion_nest.txt:391
 msgid "Temple of Mez: Basement"
 msgstr "梅兹神庙地窖"
 
@@ -865,31 +877,31 @@ msgstr "隆港公墓"
 msgid "Fort Amir"
 msgstr "阿米要塞"
 
-#: ../maps/fort_amir.txt:370
+#: ../maps/fort_amir.txt:376
 msgid ""
 "Opening the book reveals that it has been hollowed out. A gem is concealed "
 "inside."
 msgstr "当你在书中发现了宝石时，你明白了它是被人故意掏出的。"
 
-#: ../maps/fort_amir.txt:374
+#: ../maps/fort_amir.txt:380
 msgid "Book"
 msgstr "书"
 
-#: ../maps/fort_amir.txt:399
+#: ../maps/fort_amir.txt:405
 msgid ""
 "The statue is missing an eye. The sapphire fits securely in the statue's eye"
 " socket."
 msgstr "这个雕塑的一只眼睛不见了。这个蓝宝石能完好地安在这上面。"
 
-#: ../maps/fort_amir.txt:405
+#: ../maps/fort_amir.txt:411
 msgid "Statue"
 msgstr "雕塑"
 
-#: ../maps/fort_amir.txt:427
+#: ../maps/fort_amir.txt:433
 msgid "The statue is missing an eye."
 msgstr "这个雕塑有一只眼被挖下了。"
 
-#: ../maps/fort_amir.txt:459
+#: ../maps/fort_amir.txt:465
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "书柜开始移动，一个秘密通道显露在其后。"
 
@@ -935,11 +947,11 @@ msgstr "墓碑"
 msgid "Halls of Infinity"
 msgstr "无尽之旅"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "矿车"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "石笋柱"
 
@@ -1099,7 +1111,7 @@ msgstr "毁灭之矿"
 msgid "Krolan's Chest"
 msgstr "克罗兰的宝箱"
 
-#: ../maps/st_maria_1.txt:349
+#: ../maps/st_maria_1.txt:355
 msgid "This door needs a key to be opened."
 msgstr "这个门已上锁，需要钥匙打开。"
 
@@ -1107,7 +1119,7 @@ msgstr "这个门已上锁，需要钥匙打开。"
 msgid "St. Maria: Catacombs waypoint discovered."
 msgstr "玛丽亚墓穴传送门已解锁。"
 
-#: ../maps/st_maria_2.txt:464
+#: ../maps/st_maria_2.txt:471
 msgid "St. Maria: Crypt"
 msgstr "圣玛丽亚地窖"
 
@@ -1921,14 +1933,6 @@ msgstr "庇护卷轴"
 msgid "Shield Scroll"
 msgstr "护盾卷轴"
 
-#: ../npcs/base/dev_tome/items.txt:102
-msgid "Fireball Scroll"
-msgstr "火球卷轴"
-
-#: ../npcs/base/dev_tome/items.txt:108
-msgid "Ice Bolt Scroll"
-msgstr "冰弹卷轴"
-
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
 msgstr "疾跑卷轴"
@@ -2480,23 +2484,23 @@ msgid ""
 "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr "世间希望尚存，并非凡人所有：不属于你，也不属于这些流放之人。"
 
-#: ../cutscenes/credits.txt:7
+#: ../cutscenes/credits_empyrean.txt:5
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr ""
 
-#: ../cutscenes/credits.txt:10
+#: ../cutscenes/credits_empyrean.txt:8
 msgid "Lead Content Designers"
 msgstr ""
 
-#: ../cutscenes/credits.txt:16
+#: ../cutscenes/credits_empyrean.txt:14
 msgid "Visual Artists"
 msgstr "画师"
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits_empyrean.txt:25
 msgid "Foley Artists"
 msgstr "音效师"
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits_empyrean.txt:31
 msgid "Translators"
 msgstr "译者"
 
@@ -3094,34 +3098,42 @@ msgstr ""
 msgid "Use: Summon a zombie to fight for you"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:20
+#: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:32
+#: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:44
+#: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:56
+#: ../items/categories/scrolls.txt:52
 msgid "Use: Shoot an ice bolt"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:68
+#: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:80
+#: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
 
-#: ../items/categories/scrolls.txt:92
+#: ../items/categories/scrolls.txt:85
 msgid ""
 "Use: Creates a magical shield that reflects projectiles and damage for a "
 "limited time"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
 msgstr ""
 
 #: ../items/categories/level_2.txt:5
@@ -3585,49 +3597,49 @@ msgid ""
 "Smooth to the touch. Upon wearing it, it tightens itself around the finger."
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:20
+#: ../items/categories/level_16_unique.txt:21
 msgid "Soulband"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:22
+#: ../items/categories/level_16_unique.txt:23
 msgid ""
 "Glowing when worn, it clears the wearer's mind and allows them to deeply "
 "focus."
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:36
+#: ../items/categories/level_16_unique.txt:38
 msgid "Underworld Cloak"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:48
+#: ../items/categories/level_16_unique.txt:51
 msgid "Underworld Platemail"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:60
+#: ../items/categories/level_16_unique.txt:64
 msgid "Underworld Boots"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:72
+#: ../items/categories/level_16_unique.txt:77
 msgid "Underworld Armguards"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:84
+#: ../items/categories/level_16_unique.txt:90
 msgid "Underworld Greaves"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:96
+#: ../items/categories/level_16_unique.txt:103
 msgid "Underworld Tome"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:107
+#: ../items/categories/level_16_unique.txt:115
 msgid "Underworld Blade"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:119
+#: ../items/categories/level_16_unique.txt:128
 msgid "Underworld Bow"
 msgstr ""
 
-#: ../items/categories/level_16_unique.txt:131
+#: ../items/categories/level_16_unique.txt:141
 msgid "Underworld Sceptre"
 msgstr ""
 
@@ -3797,11 +3809,11 @@ msgid ""
 "of the Dead."
 msgstr ""
 
-#: ../items/categories/crafting.txt:39
+#: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "杵臼"
 
-#: ../items/categories/crafting.txt:40
+#: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
 
@@ -3813,53 +3825,53 @@ msgstr "克罗兰的大锤"
 msgid "An essential tool for any blacksmith."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:18
+#: ../items/categories/level_4_unique.txt:19
 msgid "Goblin Branch"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:19
+#: ../items/categories/level_4_unique.txt:20
 msgid "Mana flows inside its primitive exterior."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:36
 msgid "Ardwen's Gloves"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:35
+#: ../items/categories/level_4_unique.txt:37
 msgid "These hands built a village."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:53
 msgid "Blood Tunic"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:51
+#: ../items/categories/level_4_unique.txt:54
 msgid "When worn, this shirt heats the wearers veins."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:65
+#: ../items/categories/level_4_unique.txt:69
 msgid "Dark Steppers"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:66
+#: ../items/categories/level_4_unique.txt:70
 msgid "Dancing through the shadows."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:79
+#: ../items/categories/level_4_unique.txt:84
 msgid "Seagate's Tri-pants"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
 "These ragged trousers are covered in scorch marks, yet are cold to the "
 "touch."
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:95
+#: ../items/categories/level_4_unique.txt:101
 msgid "Ardwen's Ring"
 msgstr ""
 
-#: ../items/categories/level_4_unique.txt:96
+#: ../items/categories/level_4_unique.txt:102
 msgid "Lochport's finest."
 msgstr ""
 
@@ -4495,43 +4507,43 @@ msgstr ""
 msgid "A remnant of those who guarded Fort Amir."
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:18
+#: ../items/categories/level_8_unique.txt:19
 msgid "Huntsman Bow"
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:19
+#: ../items/categories/level_8_unique.txt:20
 msgid "Compact enough to be deadly at all ranges of combat."
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:34
+#: ../items/categories/level_8_unique.txt:36
 msgid "Greed Cowl"
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:35
+#: ../items/categories/level_8_unique.txt:37
 msgid "Riches fit for a queen."
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:49
+#: ../items/categories/level_8_unique.txt:52
 msgid "Battle Leathers"
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:50
+#: ../items/categories/level_8_unique.txt:53
 msgid "Designed to keep its wearer moving forward."
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:64
+#: ../items/categories/level_8_unique.txt:68
 msgid "Escape Boots"
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:65
+#: ../items/categories/level_8_unique.txt:69
 msgid "Running away doesn't mean the battle is lost."
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:79
+#: ../items/categories/level_8_unique.txt:84
 msgid "Mez's Wraps"
 msgstr ""
 
-#: ../items/categories/level_8_unique.txt:80
+#: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 
@@ -4543,47 +4555,47 @@ msgstr ""
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Mog's Axe"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:22
+#: ../items/categories/level_12_unique.txt:23
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:38
 msgid "Guardsman Cuirass"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:37
+#: ../items/categories/level_12_unique.txt:39
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:56
 msgid "Inferno Pendant"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:54
+#: ../items/categories/level_12_unique.txt:57
 msgid "Hot. Hot. Hot."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:69
+#: ../items/categories/level_12_unique.txt:73
 msgid "Alchemist's Skirt"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:70
+#: ../items/categories/level_12_unique.txt:74
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:91
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:96
+#: ../items/categories/level_12_unique.txt:101
 msgid "Metzger's Battlemace"
 msgstr ""
 
-#: ../items/categories/level_12_unique.txt:97
+#: ../items/categories/level_12_unique.txt:102
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 
@@ -4591,39 +4603,39 @@ msgstr ""
 msgid "Restore 25% of maximum HP"
 msgstr ""
 
-#: ../items/categories/potions.txt:20
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr ""
 
-#: ../items/categories/potions.txt:33
+#: ../items/categories/potions.txt:31
 msgid "Temporarily increase regeneration and movement speed"
 msgstr ""
 
-#: ../items/categories/potions.txt:46
+#: ../items/categories/potions.txt:43
 msgid "Restore 25% of both HP and MP"
 msgstr ""
 
-#: ../items/categories/potions.txt:59
+#: ../items/categories/potions.txt:55
 msgid "Temporarily increases the ability to find items and gold"
 msgstr ""
 
-#: ../items/categories/potions.txt:72
+#: ../items/categories/potions.txt:67
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr ""
 
-#: ../items/categories/potions.txt:85
+#: ../items/categories/potions.txt:79
 msgid "Restore 50% of maximum HP"
 msgstr ""
 
-#: ../items/categories/potions.txt:98
+#: ../items/categories/potions.txt:91
 msgid "Restore 75% of maximum HP"
 msgstr ""
 
-#: ../items/categories/potions.txt:111
+#: ../items/categories/potions.txt:103
 msgid "Restore 50% of maximum MP"
 msgstr ""
 
-#: ../items/categories/potions.txt:124
+#: ../items/categories/potions.txt:115
 msgid "Restore 75% of maximum MP"
 msgstr ""
 
@@ -4748,7 +4760,9 @@ msgid "Burn"
 msgstr "火龙吐息"
 
 #: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
 msgstr ""
 
 #: ../powers/base/magician/energy_flow.txt:1
@@ -4774,7 +4788,8 @@ msgstr "电闪雷鸣"
 #: ../powers/base/magician/thunderstrike.txt:4
 msgid ""
 "Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
 msgstr ""
 
 #: ../powers/base/magician/shield.txt:4
@@ -4804,7 +4819,10 @@ msgid "Freeze"
 msgstr "千里冰封"
 
 #: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
 msgstr ""
 
 #: ../powers/base/warrior/quake.txt:1
@@ -4828,7 +4846,9 @@ msgid "Throw Knife"
 msgstr "飞刀"
 
 #: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
 msgstr ""
 
 #: ../powers/base/warrior/stone_wall.txt:1
@@ -4876,7 +4896,9 @@ msgid "Bear Trap"
 msgstr "张机设阱"
 
 #: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
 msgstr ""
 
 #: ../powers/base/ranger/multishot.txt:1
@@ -4884,7 +4906,7 @@ msgid "Multishot"
 msgstr "三箭齐发"
 
 #: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
+msgid "Shoot multiple projectiles in an arc simultaneously."
 msgstr ""
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
@@ -4922,7 +4944,7 @@ msgstr "火箭"
 #: ../powers/base/ranger/ember_shot.txt:2
 msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
 
 #: ../powers/base/ranger/caltrops.txt:1
@@ -4930,7 +4952,9 @@ msgid "Caltrops"
 msgstr "暗器"
 
 #: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
 msgstr ""
 
 #: ../powers/base/ranger/piercing_shot.txt:1
@@ -4947,6 +4971,18 @@ msgstr "魔攻"
 
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
 msgstr ""
 
 #: ../powers/categories/quest.txt:4
@@ -4985,3 +5021,7 @@ msgstr ""
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "哥布林偷了你的药水！"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr ""

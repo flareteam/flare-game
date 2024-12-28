@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 13:46+\n"
+"POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Iwan Gabovitch, 2023\n"
 "Language-Team: German (https://app.transifex.com/flareorg/teams/84925/de/)\n"
@@ -106,33 +106,41 @@ msgstr "Immunität"
 msgid "Haste"
 msgstr "Hast"
 
-#: ../powers/effects.txt:115
+#: ../powers/effects.txt:110
 msgid "Weakness to Fire"
 msgstr "Feuerschwäche"
 
-#: ../powers/effects.txt:124
+#: ../powers/effects.txt:119
 msgid "Weakness to Ice"
 msgstr "Eisschwäche"
 
-#: ../powers/effects.txt:140
+#: ../powers/effects.txt:135
 msgid "Sacrifice"
 msgstr "Opferung"
 
-#: ../powers/effects.txt:165
+#: ../powers/effects.txt:160
 msgid "Reflect"
 msgstr "Zurückwerfen"
 
-#: ../powers/effects.txt:176
+#: ../powers/effects.txt:171
 msgid "Stamina Potion"
 msgstr "Ausdauertrank"
 
-#: ../powers/effects.txt:182
+#: ../powers/effects.txt:177
 msgid "Treasure Potion"
 msgstr "Schatztrank"
 
-#: ../powers/effects.txt:188
+#: ../powers/effects.txt:183
 msgid "Elemental Potion"
 msgstr "Elementartrank"
+
+#: ../powers/effects.txt:189
+msgid "Fireball Scroll"
+msgstr "Rolle der Feuerkugel"
+
+#: ../powers/effects.txt:195
+msgid "Ice Bolt Scroll"
+msgstr "Rolle des Eisblitzes"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -341,6 +349,10 @@ msgstr "Verbannt"
 #: ../engine/equip_flags.txt:5
 msgid "throwing axe"
 msgstr "Axt werfen"
+
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -730,39 +742,39 @@ msgstr "Tundra-Lindwurm"
 msgid "Your Summoned Zombie"
 msgstr "Dein beschworener Zombie"
 
-#: ../maps/abandoned_mines.txt:10
+#: ../maps/abandoned_mines.txt:11
 msgid "Abandoned Mines"
 msgstr "Verlassene Minen"
 
-#: ../maps/abandoned_mines.txt:337
+#: ../maps/abandoned_mines.txt:338
 msgid "Blackmire Mines"
 msgstr "Schwarzbruchminen"
 
-#: ../maps/abandoned_mines.txt:454
+#: ../maps/abandoned_mines.txt:455
 msgid "Treasure Chest"
 msgstr "Schatztruhe"
 
-#: ../maps/abandoned_mines.txt:466
+#: ../maps/abandoned_mines.txt:467
 msgid "Crate"
 msgstr "Kiste"
 
-#: ../maps/abandoned_mines.txt:490
+#: ../maps/abandoned_mines.txt:491
 msgid "Barrel"
 msgstr "Fass"
 
-#: ../maps/abandoned_mines.txt:523
+#: ../maps/abandoned_mines.txt:524
 msgid "The Breach"
 msgstr "Die Bruchzone"
 
-#: ../maps/abandoned_mines.txt:532
+#: ../maps/abandoned_mines.txt:533
 msgid "Grot Lagoon"
 msgstr "Grottenlagune"
 
-#: ../maps/antlion_nest.txt:10
+#: ../maps/antlion_nest.txt:11
 msgid "Antlion Nest"
 msgstr "Hundsameisen-Nest"
 
-#: ../maps/antlion_nest.txt:390
+#: ../maps/antlion_nest.txt:391
 msgid "Temple of Mez: Basement"
 msgstr "Tempel von Mez: Kellergeschoß"
 
@@ -875,7 +887,7 @@ msgstr "Lochport-Friedhof"
 msgid "Fort Amir"
 msgstr "Festung Amir"
 
-#: ../maps/fort_amir.txt:370
+#: ../maps/fort_amir.txt:376
 msgid ""
 "Opening the book reveals that it has been hollowed out. A gem is concealed "
 "inside."
@@ -883,11 +895,11 @@ msgstr ""
 "Beim Öffnen des Buches zeigt sich, dass es ausgehöhlt ist. Ein Juwel ist "
 "darin verborgen."
 
-#: ../maps/fort_amir.txt:374
+#: ../maps/fort_amir.txt:380
 msgid "Book"
 msgstr "Buch"
 
-#: ../maps/fort_amir.txt:399
+#: ../maps/fort_amir.txt:405
 msgid ""
 "The statue is missing an eye. The sapphire fits securely in the statue's eye"
 " socket."
@@ -895,15 +907,15 @@ msgstr ""
 "Bei der Statue fehlt ein Auge. Der Saphir paßt genau in die leere "
 "Augenhöhle."
 
-#: ../maps/fort_amir.txt:405
+#: ../maps/fort_amir.txt:411
 msgid "Statue"
 msgstr "Statue"
 
-#: ../maps/fort_amir.txt:427
+#: ../maps/fort_amir.txt:433
 msgid "The statue is missing an eye."
 msgstr "Bei der Statue fehlt ein Auge."
 
-#: ../maps/fort_amir.txt:459
+#: ../maps/fort_amir.txt:465
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Der Bücherschrank gleitet zurück und eröffnet einen versteckten Weg."
 
@@ -951,11 +963,11 @@ msgstr "Grabstein"
 msgid "Halls of Infinity"
 msgstr "Hallen der Unendlichkeit"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "Lore"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Stalagmitensäule"
 
@@ -1117,7 +1129,7 @@ msgstr "Minen der Verdammnis"
 msgid "Krolan's Chest"
 msgstr "Krolans Truhe"
 
-#: ../maps/st_maria_1.txt:349
+#: ../maps/st_maria_1.txt:355
 msgid "This door needs a key to be opened."
 msgstr "Diese Türe kann nur mit einem Schlüssel geöffnet werden."
 
@@ -1125,7 +1137,7 @@ msgstr "Diese Türe kann nur mit einem Schlüssel geöffnet werden."
 msgid "St. Maria: Catacombs waypoint discovered."
 msgstr "Sprungtor entdeckt: Hl. Maria: Katakomben."
 
-#: ../maps/st_maria_2.txt:464
+#: ../maps/st_maria_2.txt:471
 msgid "St. Maria: Crypt"
 msgstr "Hl. Maria: Gruft"
 
@@ -2035,14 +2047,6 @@ msgstr "Rolle der Verdammnis"
 msgid "Shield Scroll"
 msgstr "Rolle des Schildes"
 
-#: ../npcs/base/dev_tome/items.txt:102
-msgid "Fireball Scroll"
-msgstr "Rolle der Feuerkugel"
-
-#: ../npcs/base/dev_tome/items.txt:108
-msgid "Ice Bolt Scroll"
-msgstr "Rolle des Eisblitzes"
-
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
 msgstr "Rolle der Hast"
@@ -2711,23 +2715,23 @@ msgstr ""
 "Hoffnung gibt es immer. Aber nicht für alle: Nicht für dich, und nicht für "
 "einen Verbannten!"
 
-#: ../cutscenes/credits.txt:7
+#: ../cutscenes/credits_empyrean.txt:5
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr "Mitwirkende in Flare – empyrean_campaign"
 
-#: ../cutscenes/credits.txt:10
+#: ../cutscenes/credits_empyrean.txt:8
 msgid "Lead Content Designers"
 msgstr "Hauptinhaltegestalter"
 
-#: ../cutscenes/credits.txt:16
+#: ../cutscenes/credits_empyrean.txt:14
 msgid "Visual Artists"
 msgstr "Grafiker"
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits_empyrean.txt:25
 msgid "Foley Artists"
 msgstr "Foley Artists"
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits_empyrean.txt:31
 msgid "Translators"
 msgstr "Übersetzer"
 
@@ -3346,39 +3350,47 @@ msgstr "Meisterbeutering"
 msgid "Use: Summon a zombie to fight for you"
 msgstr "Benutzen: Beschwöre einen Zombie, um für dich zu kämpfen"
 
-#: ../items/categories/scrolls.txt:20
+#: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
 msgstr "Benutzen: Teleportiere zum Hafen der Verdammnis"
 
-#: ../items/categories/scrolls.txt:32
+#: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
 msgstr "Benutzen: Erzeuge einen magischen Schild, der Schaden aufnimmt"
 
-#: ../items/categories/scrolls.txt:44
+#: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
 msgstr "Benutzen: Verschieße eine Feuerkugel"
 
-#: ../items/categories/scrolls.txt:56
+#: ../items/categories/scrolls.txt:52
 msgid "Use: Shoot an ice bolt"
 msgstr "Benutzen: Verschieße einen Eisblitz"
 
-#: ../items/categories/scrolls.txt:68
+#: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
 msgstr "Benutzen: Bewege dich für kurze Zeit mit erhöhter Geschwindigkeit"
 
-#: ../items/categories/scrolls.txt:80
+#: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
 "Benutzen: Entferne Schwächungen und werde für kurze Zeit immun gegen "
 "Schwächungen"
 
-#: ../items/categories/scrolls.txt:92
+#: ../items/categories/scrolls.txt:85
 msgid ""
 "Use: Creates a magical shield that reflects projectiles and damage for a "
 "limited time"
 msgstr ""
 "Benutzen: Erzeugt einen magischen Schild, der für kurze Zeit Geschosse und "
 "Schaden zurückwirft"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3843,11 +3855,11 @@ msgstr ""
 "Biegsam in der Berührung. Wenn es getragen wird, legt es sich dicht um den "
 "Finger."
 
-#: ../items/categories/level_16_unique.txt:20
+#: ../items/categories/level_16_unique.txt:21
 msgid "Soulband"
 msgstr "Seelenband"
 
-#: ../items/categories/level_16_unique.txt:22
+#: ../items/categories/level_16_unique.txt:23
 msgid ""
 "Glowing when worn, it clears the wearer's mind and allows them to deeply "
 "focus."
@@ -3855,39 +3867,39 @@ msgstr ""
 "Beim Tragen leuchtend, so reinigt es den Geist des Besitzers und erlaubt ihm"
 " tiefe Konzentration."
 
-#: ../items/categories/level_16_unique.txt:36
+#: ../items/categories/level_16_unique.txt:38
 msgid "Underworld Cloak"
 msgstr "Untergrundmantel"
 
-#: ../items/categories/level_16_unique.txt:48
+#: ../items/categories/level_16_unique.txt:51
 msgid "Underworld Platemail"
 msgstr "Untergrundplattenpanzer"
 
-#: ../items/categories/level_16_unique.txt:60
+#: ../items/categories/level_16_unique.txt:64
 msgid "Underworld Boots"
 msgstr "Untergrundstiefel"
 
-#: ../items/categories/level_16_unique.txt:72
+#: ../items/categories/level_16_unique.txt:77
 msgid "Underworld Armguards"
 msgstr "Untergrundarmschützer"
 
-#: ../items/categories/level_16_unique.txt:84
+#: ../items/categories/level_16_unique.txt:90
 msgid "Underworld Greaves"
 msgstr "Untergrundbeinschienen"
 
-#: ../items/categories/level_16_unique.txt:96
+#: ../items/categories/level_16_unique.txt:103
 msgid "Underworld Tome"
 msgstr "Untergrundwälzer"
 
-#: ../items/categories/level_16_unique.txt:107
+#: ../items/categories/level_16_unique.txt:115
 msgid "Underworld Blade"
 msgstr "Untergrundklinge"
 
-#: ../items/categories/level_16_unique.txt:119
+#: ../items/categories/level_16_unique.txt:128
 msgid "Underworld Bow"
 msgstr "Untergrundbogen"
 
-#: ../items/categories/level_16_unique.txt:131
+#: ../items/categories/level_16_unique.txt:141
 msgid "Underworld Sceptre"
 msgstr "Zepter des Untergrunds"
 
@@ -4065,11 +4077,11 @@ msgstr ""
 "Nach Angabe Florins ist dies die einzige Tinte, mit der in das Totenbuch "
 "geschrieben werden kann."
 
-#: ../items/categories/crafting.txt:39
+#: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Mörser und Stößel"
 
-#: ../items/categories/crafting.txt:40
+#: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
 "Benutze eine leere Flasche und verschiedene Zutaten um Tränke zu brauen."
@@ -4082,43 +4094,43 @@ msgstr "Krolans Hammer"
 msgid "An essential tool for any blacksmith."
 msgstr "Ein wesentliches Werkzeug für jeden Schmied."
 
-#: ../items/categories/level_4_unique.txt:18
+#: ../items/categories/level_4_unique.txt:19
 msgid "Goblin Branch"
 msgstr "Goblin-Ast"
 
-#: ../items/categories/level_4_unique.txt:19
+#: ../items/categories/level_4_unique.txt:20
 msgid "Mana flows inside its primitive exterior."
 msgstr "Mana fließt innerhalb seines schlichten Äußeren."
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:36
 msgid "Ardwen's Gloves"
 msgstr "Handschuhe des Ardwen"
 
-#: ../items/categories/level_4_unique.txt:35
+#: ../items/categories/level_4_unique.txt:37
 msgid "These hands built a village."
 msgstr "Diese Hände haben ein Dorf erbaut."
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:53
 msgid "Blood Tunic"
 msgstr "Blutiger Waffenrock"
 
-#: ../items/categories/level_4_unique.txt:51
+#: ../items/categories/level_4_unique.txt:54
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Wird er getragen, erhitzt dieses Hemd die Venen des Trägers."
 
-#: ../items/categories/level_4_unique.txt:65
+#: ../items/categories/level_4_unique.txt:69
 msgid "Dark Steppers"
 msgstr "Dunkle Tänzer"
 
-#: ../items/categories/level_4_unique.txt:66
+#: ../items/categories/level_4_unique.txt:70
 msgid "Dancing through the shadows."
 msgstr "Der durch die Schatten tanzt."
 
-#: ../items/categories/level_4_unique.txt:79
+#: ../items/categories/level_4_unique.txt:84
 msgid "Seagate's Tri-pants"
 msgstr "Meertors Dreihose"
 
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
 "These ragged trousers are covered in scorch marks, yet are cold to the "
 "touch."
@@ -4126,11 +4138,11 @@ msgstr ""
 "Diese zerlumpte Hose ist mit Brandspuren überzogen, jedoch fühlt sie sich "
 "beim Anfassen eiskalt an."
 
-#: ../items/categories/level_4_unique.txt:95
+#: ../items/categories/level_4_unique.txt:101
 msgid "Ardwen's Ring"
 msgstr "Ardwens Ring"
 
-#: ../items/categories/level_4_unique.txt:96
+#: ../items/categories/level_4_unique.txt:102
 msgid "Lochport's finest."
 msgstr "Lochports Feinster."
 
@@ -4766,43 +4778,43 @@ msgstr "Amir-Klinge"
 msgid "A remnant of those who guarded Fort Amir."
 msgstr "Ein Überbleibsel derer, die die Festung Amir beschützten."
 
-#: ../items/categories/level_8_unique.txt:18
+#: ../items/categories/level_8_unique.txt:19
 msgid "Huntsman Bow"
 msgstr "Jagdbogen"
 
-#: ../items/categories/level_8_unique.txt:19
+#: ../items/categories/level_8_unique.txt:20
 msgid "Compact enough to be deadly at all ranges of combat."
 msgstr "Fest genug, um auf jede Kampfdistanz tödlich zu wirken."
 
-#: ../items/categories/level_8_unique.txt:34
+#: ../items/categories/level_8_unique.txt:36
 msgid "Greed Cowl"
 msgstr "Kutte der Gier"
 
-#: ../items/categories/level_8_unique.txt:35
+#: ../items/categories/level_8_unique.txt:37
 msgid "Riches fit for a queen."
 msgstr "Reichtümer, einer Königin würdig."
 
-#: ../items/categories/level_8_unique.txt:49
+#: ../items/categories/level_8_unique.txt:52
 msgid "Battle Leathers"
 msgstr "Schlachtenleder"
 
-#: ../items/categories/level_8_unique.txt:50
+#: ../items/categories/level_8_unique.txt:53
 msgid "Designed to keep its wearer moving forward."
 msgstr "Hergestellt, um den Träger in Bewegung zu halten."
 
-#: ../items/categories/level_8_unique.txt:64
+#: ../items/categories/level_8_unique.txt:68
 msgid "Escape Boots"
 msgstr "Fluchtstiefel"
 
-#: ../items/categories/level_8_unique.txt:65
+#: ../items/categories/level_8_unique.txt:69
 msgid "Running away doesn't mean the battle is lost."
 msgstr "Wegzurennen heißt nicht, daß die Schlacht verloren ist. "
 
-#: ../items/categories/level_8_unique.txt:79
+#: ../items/categories/level_8_unique.txt:84
 msgid "Mez's Wraps"
 msgstr "Überwurf des Mez"
 
-#: ../items/categories/level_8_unique.txt:80
+#: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "Mit seinen Schichten von Reptilienhaut kann nicht viel die Panzerung "
@@ -4816,52 +4828,52 @@ msgstr "Verlorenes Totem"
 msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr "Die enthaltene alte Schrift scheint eine Art von Magie zu sein."
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Mog's Axe"
 msgstr "Mogs Axt"
 
-#: ../items/categories/level_12_unique.txt:22
+#: ../items/categories/level_12_unique.txt:23
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr "Nicht so glatt wie ein Pfeil, aber genauso wirksam."
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:38
 msgid "Guardsman Cuirass"
 msgstr "Gardistenharnisch"
 
-#: ../items/categories/level_12_unique.txt:37
+#: ../items/categories/level_12_unique.txt:39
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr ""
 "Ein königlicher Kettenpanser, auf dem ein „K“ auf der Brust eingraviert "
 "wurde."
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:56
 msgid "Inferno Pendant"
 msgstr "Anhänger des Infernos"
 
-#: ../items/categories/level_12_unique.txt:54
+#: ../items/categories/level_12_unique.txt:57
 msgid "Hot. Hot. Hot."
 msgstr "Heiß. Heiß. Heiß."
 
-#: ../items/categories/level_12_unique.txt:69
+#: ../items/categories/level_12_unique.txt:73
 msgid "Alchemist's Skirt"
 msgstr "Alchemistenumhang"
 
-#: ../items/categories/level_12_unique.txt:70
+#: ../items/categories/level_12_unique.txt:74
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr ""
 "Dem Träger wird das Wissen um die Herstellung vieler Tränke verliehen."
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:91
 msgid "Drinking potions may create another potion of the same type."
 msgstr ""
 "Einen Trank zu trinken, kann auch einen weiteren Trank der selben Art "
 "erzeugen."
 
-#: ../items/categories/level_12_unique.txt:96
+#: ../items/categories/level_12_unique.txt:101
 msgid "Metzger's Battlemace"
 msgstr "Metzgers Schlachtenkeule"
 
-#: ../items/categories/level_12_unique.txt:97
+#: ../items/categories/level_12_unique.txt:102
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 "Das Schwingen dieser Keule hinterlässt eine von dunklem Rauch vernebelte "
@@ -4871,40 +4883,40 @@ msgstr ""
 msgid "Restore 25% of maximum HP"
 msgstr "Stellt 25% der maximalen TP wieder her"
 
-#: ../items/categories/potions.txt:20
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Stellt 25% der maximalen MP wieder her"
 
-#: ../items/categories/potions.txt:33
+#: ../items/categories/potions.txt:31
 msgid "Temporarily increase regeneration and movement speed"
 msgstr "Erhöht vorübergehend die Regenerations- und Bewegungsgeschwindigkeit"
 
-#: ../items/categories/potions.txt:46
+#: ../items/categories/potions.txt:43
 msgid "Restore 25% of both HP and MP"
 msgstr "Stellt 25% der TP und MP wieder her"
 
-#: ../items/categories/potions.txt:59
+#: ../items/categories/potions.txt:55
 msgid "Temporarily increases the ability to find items and gold"
 msgstr "Erhöht vorübergehend die Fähigkeit, Gegenstände und Gold zu finden"
 
-#: ../items/categories/potions.txt:72
+#: ../items/categories/potions.txt:67
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr ""
 "Erhöht vorübergehend den Widerstand gegen alle Arten von Magie um 50%."
 
-#: ../items/categories/potions.txt:85
+#: ../items/categories/potions.txt:79
 msgid "Restore 50% of maximum HP"
 msgstr "Stellt 50% der maximalen TP wieder her"
 
-#: ../items/categories/potions.txt:98
+#: ../items/categories/potions.txt:91
 msgid "Restore 75% of maximum HP"
 msgstr "Stellt 75% der maximalen TP wieder her"
 
-#: ../items/categories/potions.txt:111
+#: ../items/categories/potions.txt:103
 msgid "Restore 50% of maximum MP"
 msgstr "Stellt 50% der maximalen MP wieder her"
 
-#: ../items/categories/potions.txt:124
+#: ../items/categories/potions.txt:115
 msgid "Restore 75% of maximum MP"
 msgstr "Stellt 75% der maximalen MP wieder her"
 
@@ -5029,8 +5041,10 @@ msgid "Burn"
 msgstr "Verbrennen"
 
 #: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Richte deine Feinde in einem entfernten Gebiet mit Feuer zugrunde."
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -5055,11 +5069,9 @@ msgstr "Donnerschlag"
 #: ../powers/base/magician/thunderstrike.txt:4
 msgid ""
 "Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
 msgstr ""
-"Ein Blitz schlägt vom Himmel ein mit einer hohen Wahrscheinlichkeit, "
-"kritischen Schaden auf Gegner, die in ihrer Bewegung eingeschränkt sind, "
-"auszuüben."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -5090,8 +5102,11 @@ msgid "Freeze"
 msgstr "Gefrieren"
 
 #: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
-msgstr "Erzeuge einen Strahl von Kälteschauern, der jeden Gegner verlangsamt."
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -5116,8 +5131,10 @@ msgid "Throw Knife"
 msgstr "Messerwurf"
 
 #: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Wirf ein Messer, um einen Nahkampfschaden auf Abstand zu verursachen."
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -5166,18 +5183,18 @@ msgid "Bear Trap"
 msgstr "Bärenfalle"
 
 #: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
 msgstr ""
-"Diese Falle erhöht den Fernwaffenschaden und macht das Ziel zeitweilig "
-"unbeweglich."
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
 msgstr "Mehrfachschuss"
 
 #: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Verschieße drei Projektile gleichzeitig."
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -5216,19 +5233,18 @@ msgstr "Glutwurf"
 #: ../powers/base/ranger/ember_shot.txt:2
 msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
-"Verschieße brennende Glutstücke im Nahbereich. Sehr wirksam gegen gepanzerte"
-" Gegner."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
 msgstr "Krähenfüße"
 
 #: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
 msgstr ""
-"Diese Falle verursacht einigen Fernkampfschaden und verlangsamt das Ziel."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5247,6 +5263,18 @@ msgstr "Kanalisieren"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Grundlegender magischer Angriff"
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
+msgstr ""
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5286,3 +5314,7 @@ msgstr ""
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Der Diebesgoblin hat einen Trank gestohlen!"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr ""

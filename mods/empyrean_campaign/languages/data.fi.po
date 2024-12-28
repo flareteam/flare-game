@@ -3,15 +3,15 @@
 # 
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Translators:
-# Jaakko Muilu, 2023
+# Jaakko Muilu, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 13:46+\n"
+"POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
-"Last-Translator: Jaakko Muilu, 2023\n"
+"Last-Translator: Jaakko Muilu, 2024\n"
 "Language-Team: Finnish (https://app.transifex.com/flareorg/teams/84925/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,33 +103,41 @@ msgstr "Immuniteetti"
 msgid "Haste"
 msgstr "Nopeutus"
 
-#: ../powers/effects.txt:115
+#: ../powers/effects.txt:110
 msgid "Weakness to Fire"
 msgstr "Heikotus tulelle"
 
-#: ../powers/effects.txt:124
+#: ../powers/effects.txt:119
 msgid "Weakness to Ice"
 msgstr "Heikotus jäälle"
 
-#: ../powers/effects.txt:140
+#: ../powers/effects.txt:135
 msgid "Sacrifice"
 msgstr "Uhraus"
 
-#: ../powers/effects.txt:165
+#: ../powers/effects.txt:160
 msgid "Reflect"
 msgstr "Heijastus"
 
-#: ../powers/effects.txt:176
+#: ../powers/effects.txt:171
 msgid "Stamina Potion"
 msgstr "Kuntojuoma"
 
-#: ../powers/effects.txt:182
+#: ../powers/effects.txt:177
 msgid "Treasure Potion"
 msgstr "Aarrejuoma"
 
-#: ../powers/effects.txt:188
+#: ../powers/effects.txt:183
 msgid "Elemental Potion"
 msgstr "Elementtijuoma"
+
+#: ../powers/effects.txt:189
+msgid "Fireball Scroll"
+msgstr "Tulipallokäärö"
+
+#: ../powers/effects.txt:195
+msgid "Ice Bolt Scroll"
+msgstr "Jäänuolikäärö"
 
 #: ../powers/powers.txt:25
 msgid "Teleport"
@@ -339,6 +347,10 @@ msgstr "Karkotettu"
 msgid "throwing axe"
 msgstr "heittokirves"
 
+#: ../engine/damage_types.txt:5
+msgid "Scroll Damage"
+msgstr ""
+
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
 msgstr ""
@@ -365,7 +377,7 @@ msgstr ""
 
 #: ../enemies/lvl10_skeleton_minion.txt:3
 msgid "Skeleton Minion"
-msgstr "Luurankokäskyläinen"
+msgstr "Luurankokätyri"
 
 #: ../enemies/lvl10_skeleton_sharpshooter.txt:3
 msgid "Skeleton Sharpshooter"
@@ -727,39 +739,39 @@ msgstr "Tundratraakki"
 msgid "Your Summoned Zombie"
 msgstr "Oma kutsuttu zombi"
 
-#: ../maps/abandoned_mines.txt:10
+#: ../maps/abandoned_mines.txt:11
 msgid "Abandoned Mines"
 msgstr "Hylätty kaivos"
 
-#: ../maps/abandoned_mines.txt:337
+#: ../maps/abandoned_mines.txt:338
 msgid "Blackmire Mines"
 msgstr "Mustasuon kaivos"
 
-#: ../maps/abandoned_mines.txt:454
+#: ../maps/abandoned_mines.txt:455
 msgid "Treasure Chest"
 msgstr "Aarrearkku"
 
-#: ../maps/abandoned_mines.txt:466
+#: ../maps/abandoned_mines.txt:467
 msgid "Crate"
 msgstr "Laatikko"
 
-#: ../maps/abandoned_mines.txt:490
+#: ../maps/abandoned_mines.txt:491
 msgid "Barrel"
 msgstr "Tynnyri"
 
-#: ../maps/abandoned_mines.txt:523
+#: ../maps/abandoned_mines.txt:524
 msgid "The Breach"
 msgstr "Murtuma"
 
-#: ../maps/abandoned_mines.txt:532
+#: ../maps/abandoned_mines.txt:533
 msgid "Grot Lagoon"
 msgstr "Grotin laguuni"
 
-#: ../maps/antlion_nest.txt:10
+#: ../maps/antlion_nest.txt:11
 msgid "Antlion Nest"
 msgstr "Muurahaisleijonien pesä"
 
-#: ../maps/antlion_nest.txt:390
+#: ../maps/antlion_nest.txt:391
 msgid "Temple of Mez: Basement"
 msgstr "Mezin temppeli: kellarikerros"
 
@@ -871,7 +883,7 @@ msgstr "Lochportin hautausmaa"
 msgid "Fort Amir"
 msgstr "Amirin linnake"
 
-#: ../maps/fort_amir.txt:370
+#: ../maps/fort_amir.txt:376
 msgid ""
 "Opening the book reveals that it has been hollowed out. A gem is concealed "
 "inside."
@@ -879,26 +891,26 @@ msgstr ""
 "Kirjan avaaminen paljastaa, että se on ontto. Jalokivi on piilotettu "
 "sisälle."
 
-#: ../maps/fort_amir.txt:374
+#: ../maps/fort_amir.txt:380
 msgid "Book"
 msgstr "Kirja"
 
-#: ../maps/fort_amir.txt:399
+#: ../maps/fort_amir.txt:405
 msgid ""
 "The statue is missing an eye. The sapphire fits securely in the statue's eye"
 " socket."
 msgstr ""
 "Patsaalta puuttuu silmä. Safiiri sopii patsaan silmäkuoppaan pitävästi."
 
-#: ../maps/fort_amir.txt:405
+#: ../maps/fort_amir.txt:411
 msgid "Statue"
 msgstr "Patsas"
 
-#: ../maps/fort_amir.txt:427
+#: ../maps/fort_amir.txt:433
 msgid "The statue is missing an eye."
 msgstr "Patsaalta puuttuu silmä."
 
-#: ../maps/fort_amir.txt:459
+#: ../maps/fort_amir.txt:465
 msgid "The bookcase slides back and reveals a hidden path."
 msgstr "Kirjahylly liukuu taakse ja paljastaa piilotetun reitin."
 
@@ -946,11 +958,11 @@ msgstr "Hautakivi"
 msgid "Halls of Infinity"
 msgstr "Äärettömyyden hallit"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:340
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "Kaivoskärry"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:551
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Stalagmiittipylväs"
 
@@ -1110,7 +1122,7 @@ msgstr "Kadotuksen kaivokset"
 msgid "Krolan's Chest"
 msgstr "Krolanin arkku"
 
-#: ../maps/st_maria_1.txt:349
+#: ../maps/st_maria_1.txt:355
 msgid "This door needs a key to be opened."
 msgstr "Tämä ovi tarvitsee avaimen auetakseen."
 
@@ -1118,7 +1130,7 @@ msgstr "Tämä ovi tarvitsee avaimen auetakseen."
 msgid "St. Maria: Catacombs waypoint discovered."
 msgstr "Pyhä Maria: katakombien reittipiste löydetty."
 
-#: ../maps/st_maria_2.txt:464
+#: ../maps/st_maria_2.txt:471
 msgid "St. Maria: Crypt"
 msgstr "Pyhä Maria: krypta"
 
@@ -1173,7 +1185,7 @@ msgstr ""
 "Leikkaat kättäsi Uhrausveitsellä. Kipu on sietämätön. Onnistut vapisten "
 "keräämään vähän vertasi pieneen pulloon. Pian veitsen lämpötila nousee "
 "kunnes se hajoaa. Sitten haavasi alkaa sulkeutua itsekseen, eikä siitä jää "
-"jälkeäkään paitsi lämmin tunne koko kehossasi."
+"jälkeäkään, paitsi lämmin tunne koko kehossasi."
 
 #: ../maps/temple_of_mez_2.txt:564
 msgid "Red Altar"
@@ -1489,7 +1501,7 @@ msgid ""
 " hidden somewhere in the camp south of Stonewood."
 msgstr ""
 "Aldwulf haluaa, että haet avaimen, jolla pääsee Myrskykallion raunioille. "
-"Sen pitäisi olla piilossa jossainpäin leiriä Kivimetsän eteläpuolella."
+"Sen pitäisi olla piilossa jossain päin leiriä Kivimetsän eteläpuolella."
 
 #: ../quests/0060_stormrock.txt:17
 msgid ""
@@ -1659,9 +1671,9 @@ msgid ""
 "key from him and bring it to me. Do that, and I'll split whatever we find in"
 " these ruins with you."
 msgstr ""
-"Jos törmäät kumppaniini matkallasi, tee mitä täytyykin, jotta saat sen "
-"avaimen häneltä, ja tuo se minulle. Tee se, niin minä jaan kanssasi sen, "
-"minkä löydämmekin näistä raunioista."
+"Jos törmäät kumppaniini matkallasi, tee mitä täytyy, jotta saat sen avaimen "
+"häneltä, ja tuo se minulle. Tee se, niin minä jaan kanssasi sen, mitä "
+"löydämmekin näistä raunioista."
 
 #: ../npcs/aldwulf.txt:23
 msgid ""
@@ -1681,7 +1693,7 @@ msgstr ""
 
 #: ../npcs/ardwens_coffin.txt:17
 msgid "Place the Gold Family Ring on the coffin"
-msgstr "Laita kultainen sukusormus arkkun päälle"
+msgstr "Laita kultainen sukusormus arkun päälle"
 
 #: ../npcs/ardwens_coffin.txt:22
 msgid "The ring dissolved into nothing!"
@@ -1713,7 +1725,7 @@ msgstr "(Näytät Bakatille rubiinia, jonka olet saanut Ortilta.)"
 
 #: ../npcs/bakat.txt:32
 msgid "(Bakat snatches the jewel from your grasp.)"
-msgstr "(Bakat nappaa jalokiven otteestasi.\")"
+msgstr "(Bakat nappaa jalokiven otteestasi.)"
 
 #: ../npcs/bakat.txt:33
 msgid "(He holds the ruby up into the light and examines it closely.)"
@@ -1808,8 +1820,8 @@ msgid ""
 "Judging from your appearance, you're no stranger to a long journey. For that"
 " reason, I ask that you keep an eye out for my missing journal."
 msgstr ""
-"Ulkonäöstäsi päätellen et vierasta pitkiä matkoja. Siitä syystä minä pyydän,"
-" että pidät silmällä minun kadonnutta lokikirjaani."
+"Ulkonäöstäsi päätellen et vierasta pitkiä matkoja. Siksi minä pyydän, että "
+"pidät silmällä minun kadonnutta lokikirjaani."
 
 #: ../npcs/base/abasi/quest_intro2.txt:7
 msgid ""
@@ -2006,14 +2018,6 @@ msgstr "Kadotuksen käärö"
 #: ../npcs/base/dev_tome/items.txt:96
 msgid "Shield Scroll"
 msgstr "Suojakäärö"
-
-#: ../npcs/base/dev_tome/items.txt:102
-msgid "Fireball Scroll"
-msgstr "Tulipallokäärö"
-
-#: ../npcs/base/dev_tome/items.txt:108
-msgid "Ice Bolt Scroll"
-msgstr "Jäänuolikäärö"
 
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
@@ -2646,31 +2650,32 @@ msgid ""
 "Surface dwellers cling to hope. Hope that they'll return to Empyrean some "
 "day. Hope that a hero will fight back against the darkness."
 msgstr ""
-"Maanpinnan asukkaat elättävät toivoa. Toivoa, että he vielä palaavat "
-"Empyreaniin jonain päivänä. Toivoa, että sankari taistelee pimeyttä vastaan."
+"Maanpinnan asukkaat elättävät toivoa. Toivoa, että he vielä palaisivat "
+"Empyreaniin jonain päivänä. Toivoa, että sankari taistelisi pimeyttä "
+"vastaan."
 
 #: ../cutscenes/backstory.txt:22
 msgid ""
 "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr "Aina on toivoa. Mutta ei kaikille: ei sinulle. Ei karkotetulle."
 
-#: ../cutscenes/credits.txt:7
+#: ../cutscenes/credits_empyrean.txt:5
 msgid "Flare Game Credits - empyrean_campaign"
 msgstr "Flare Game -tekijät - empyrean_campaign"
 
-#: ../cutscenes/credits.txt:10
+#: ../cutscenes/credits_empyrean.txt:8
 msgid "Lead Content Designers"
 msgstr "Johtavat sisällönsuunnittelijat"
 
-#: ../cutscenes/credits.txt:16
+#: ../cutscenes/credits_empyrean.txt:14
 msgid "Visual Artists"
 msgstr "Visuaaliset artistit"
 
-#: ../cutscenes/credits.txt:27
+#: ../cutscenes/credits_empyrean.txt:25
 msgid "Foley Artists"
 msgstr "Foley-artistit"
 
-#: ../cutscenes/credits.txt:33
+#: ../cutscenes/credits_empyrean.txt:31
 msgid "Translators"
 msgstr "Kääntäjät"
 
@@ -3285,39 +3290,47 @@ msgstr "Mestarin saalissormus"
 msgid "Use: Summon a zombie to fight for you"
 msgstr "Käyttö: kutsu zombi taistelemaan puolestasi"
 
-#: ../items/categories/scrolls.txt:20
+#: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
 msgstr "Käyttö: kaukosiirry Kadotuksen satamaan"
 
-#: ../items/categories/scrolls.txt:32
+#: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
 msgstr "Käyttö: luo maaginen suojus, joka vaimentaa vahinkoa"
 
-#: ../items/categories/scrolls.txt:44
+#: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
 msgstr "Käyttö: ammu tulipallo"
 
-#: ../items/categories/scrolls.txt:56
+#: ../items/categories/scrolls.txt:52
 msgid "Use: Shoot an ice bolt"
 msgstr "Käyttö: ammu jäänuoli"
 
-#: ../items/categories/scrolls.txt:68
+#: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
 msgstr "Käyttö: liiku nopeammin rajoitetun ajan"
 
-#: ../items/categories/scrolls.txt:80
+#: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
 "Käyttö: poista heikennykset ja muutu immuuniksi heikennyksille rajoitetun "
 "ajan"
 
-#: ../items/categories/scrolls.txt:92
+#: ../items/categories/scrolls.txt:85
 msgid ""
 "Use: Creates a magical shield that reflects projectiles and damage for a "
 "limited time"
 msgstr ""
 "Käyttö: luo maagisen suojus, joka heijastaa ammuksia ja vahinkoa rajoitetun "
 "ajan"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3780,49 +3793,49 @@ msgid ""
 "Smooth to the touch. Upon wearing it, it tightens itself around the finger."
 msgstr "Sileä koskettaa. Puettuna se kiristyy itsekseen sormen ympärille."
 
-#: ../items/categories/level_16_unique.txt:20
+#: ../items/categories/level_16_unique.txt:21
 msgid "Soulband"
 msgstr "Sielunauha"
 
-#: ../items/categories/level_16_unique.txt:22
+#: ../items/categories/level_16_unique.txt:23
 msgid ""
 "Glowing when worn, it clears the wearer's mind and allows them to deeply "
 "focus."
 msgstr "Hohtaa puettuna. Selkeyttää pukijan mielen ja antaa keskittyä täysin."
 
-#: ../items/categories/level_16_unique.txt:36
+#: ../items/categories/level_16_unique.txt:38
 msgid "Underworld Cloak"
 msgstr "Alamaailman viitta"
 
-#: ../items/categories/level_16_unique.txt:48
+#: ../items/categories/level_16_unique.txt:51
 msgid "Underworld Platemail"
 msgstr "Alamaailman levyhaarniska"
 
-#: ../items/categories/level_16_unique.txt:60
+#: ../items/categories/level_16_unique.txt:64
 msgid "Underworld Boots"
 msgstr "Alamaailman saappaat"
 
-#: ../items/categories/level_16_unique.txt:72
+#: ../items/categories/level_16_unique.txt:77
 msgid "Underworld Armguards"
 msgstr "Alamaailman käsivarsisuojat"
 
-#: ../items/categories/level_16_unique.txt:84
+#: ../items/categories/level_16_unique.txt:90
 msgid "Underworld Greaves"
 msgstr "Alamaailman säärystimet"
 
-#: ../items/categories/level_16_unique.txt:96
+#: ../items/categories/level_16_unique.txt:103
 msgid "Underworld Tome"
 msgstr "Alamaailman opus"
 
-#: ../items/categories/level_16_unique.txt:107
+#: ../items/categories/level_16_unique.txt:115
 msgid "Underworld Blade"
 msgstr "Alamaailman miekka"
 
-#: ../items/categories/level_16_unique.txt:119
+#: ../items/categories/level_16_unique.txt:128
 msgid "Underworld Bow"
 msgstr "Alamaailman jousi"
 
-#: ../items/categories/level_16_unique.txt:131
+#: ../items/categories/level_16_unique.txt:141
 msgid "Underworld Sceptre"
 msgstr "Alamaailman valtikka"
 
@@ -3997,11 +4010,11 @@ msgid ""
 msgstr ""
 "Florinin mukaan tämä on ainoa muste, jota voi käyttää Kuolleiden kirjaan."
 
-#: ../items/categories/crafting.txt:39
+#: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Mortteli ja survin"
 
-#: ../items/categories/crafting.txt:40
+#: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr "Luo taikajuomia tyhjillä pulloilla ja erilaisilla ainesosilla."
 
@@ -4013,43 +4026,43 @@ msgstr "Krolanin vasara"
 msgid "An essential tool for any blacksmith."
 msgstr "Ensiarvoinen työkalu kenelle tahansa sepälle."
 
-#: ../items/categories/level_4_unique.txt:18
+#: ../items/categories/level_4_unique.txt:19
 msgid "Goblin Branch"
 msgstr "Hiiden oksa"
 
-#: ../items/categories/level_4_unique.txt:19
+#: ../items/categories/level_4_unique.txt:20
 msgid "Mana flows inside its primitive exterior."
 msgstr "Mana virtaa sen alkukantaisen ulkokuoren sisällä."
 
-#: ../items/categories/level_4_unique.txt:34
+#: ../items/categories/level_4_unique.txt:36
 msgid "Ardwen's Gloves"
 msgstr "Ardwenin käsineet"
 
-#: ../items/categories/level_4_unique.txt:35
+#: ../items/categories/level_4_unique.txt:37
 msgid "These hands built a village."
 msgstr "Nämä kädet rakensivat kylän."
 
-#: ../items/categories/level_4_unique.txt:50
+#: ../items/categories/level_4_unique.txt:53
 msgid "Blood Tunic"
 msgstr "Veritunika"
 
-#: ../items/categories/level_4_unique.txt:51
+#: ../items/categories/level_4_unique.txt:54
 msgid "When worn, this shirt heats the wearers veins."
 msgstr "Tämä paita kuumentaa käyttäjän suonet päälle puettuna."
 
-#: ../items/categories/level_4_unique.txt:65
+#: ../items/categories/level_4_unique.txt:69
 msgid "Dark Steppers"
 msgstr "Synkät askeleet"
 
-#: ../items/categories/level_4_unique.txt:66
+#: ../items/categories/level_4_unique.txt:70
 msgid "Dancing through the shadows."
 msgstr "Tanssien läpi varjojen."
 
-#: ../items/categories/level_4_unique.txt:79
+#: ../items/categories/level_4_unique.txt:84
 msgid "Seagate's Tri-pants"
 msgstr "Seagaten kolmihousut"
 
-#: ../items/categories/level_4_unique.txt:80
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
 "These ragged trousers are covered in scorch marks, yet are cold to the "
 "touch."
@@ -4057,11 +4070,11 @@ msgstr ""
 "Näissä repaleisissa housuissa on palamisjälkiä, mutta ne ovat silti kylmiä "
 "koskettaa."
 
-#: ../items/categories/level_4_unique.txt:95
+#: ../items/categories/level_4_unique.txt:101
 msgid "Ardwen's Ring"
 msgstr "Ardwenin sormus"
 
-#: ../items/categories/level_4_unique.txt:96
+#: ../items/categories/level_4_unique.txt:102
 msgid "Lochport's finest."
 msgstr "Lochportin hienoin."
 
@@ -4697,43 +4710,43 @@ msgstr "Amirin miekka"
 msgid "A remnant of those who guarded Fort Amir."
 msgstr "Jäänne heistä, jotka vartioivat Amirin linnaketta."
 
-#: ../items/categories/level_8_unique.txt:18
+#: ../items/categories/level_8_unique.txt:19
 msgid "Huntsman Bow"
 msgstr "Jahtimiehen jousi"
 
-#: ../items/categories/level_8_unique.txt:19
+#: ../items/categories/level_8_unique.txt:20
 msgid "Compact enough to be deadly at all ranges of combat."
 msgstr "Tarpeeksi kompakti ollakseen tappava kaikenlaiseen taisteluun."
 
-#: ../items/categories/level_8_unique.txt:34
+#: ../items/categories/level_8_unique.txt:36
 msgid "Greed Cowl"
 msgstr "Ahneuden huppu"
 
-#: ../items/categories/level_8_unique.txt:35
+#: ../items/categories/level_8_unique.txt:37
 msgid "Riches fit for a queen."
 msgstr "Kuningattarelle sopivia rikkauksia."
 
-#: ../items/categories/level_8_unique.txt:49
+#: ../items/categories/level_8_unique.txt:52
 msgid "Battle Leathers"
 msgstr "Taistelunahat"
 
-#: ../items/categories/level_8_unique.txt:50
+#: ../items/categories/level_8_unique.txt:53
 msgid "Designed to keep its wearer moving forward."
 msgstr "Suunniteltu pitämään käyttäjänsä liikkeessä."
 
-#: ../items/categories/level_8_unique.txt:64
+#: ../items/categories/level_8_unique.txt:68
 msgid "Escape Boots"
 msgstr "Pakosaappaat"
 
-#: ../items/categories/level_8_unique.txt:65
+#: ../items/categories/level_8_unique.txt:69
 msgid "Running away doesn't mean the battle is lost."
 msgstr "Karkuun juokseminen ei tarkoita, että taistelu on menetetty."
 
-#: ../items/categories/level_8_unique.txt:79
+#: ../items/categories/level_8_unique.txt:84
 msgid "Mez's Wraps"
 msgstr "Mezin kääreet"
 
-#: ../items/categories/level_8_unique.txt:80
+#: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "Sen matelijanahkakerrosten ansiosta tätä panssaria ei läpäise juuri mikään."
@@ -4747,47 +4760,47 @@ msgid "The ancient scripture contained appears to be some sort of magic."
 msgstr ""
 "Muinainen sisällytetty kirjoitus vaikuttaa olevan jonkinlaista taikuutta."
 
-#: ../items/categories/level_12_unique.txt:21
+#: ../items/categories/level_12_unique.txt:22
 msgid "Mog's Axe"
 msgstr "Mogin kirves"
 
-#: ../items/categories/level_12_unique.txt:22
+#: ../items/categories/level_12_unique.txt:23
 msgid "Not as sleek as an arrow, but just as effective."
 msgstr "Ei yhtä sulavalinjeinen kuin nuoli, mutta ihan yhtä tehokas."
 
-#: ../items/categories/level_12_unique.txt:36
+#: ../items/categories/level_12_unique.txt:38
 msgid "Guardsman Cuirass"
 msgstr "Vartijan kyrassi"
 
-#: ../items/categories/level_12_unique.txt:37
+#: ../items/categories/level_12_unique.txt:39
 msgid "A royal mail with a 'K' engraved on the breast."
 msgstr "Ylväs panssari, jossa on 'K' kaiverrettuna rintaan."
 
-#: ../items/categories/level_12_unique.txt:53
+#: ../items/categories/level_12_unique.txt:56
 msgid "Inferno Pendant"
 msgstr "Hornariipus"
 
-#: ../items/categories/level_12_unique.txt:54
+#: ../items/categories/level_12_unique.txt:57
 msgid "Hot. Hot. Hot."
 msgstr "Kuuma. Kuuma. Kuuma."
 
-#: ../items/categories/level_12_unique.txt:69
+#: ../items/categories/level_12_unique.txt:73
 msgid "Alchemist's Skirt"
 msgstr "Alkemistin paita"
 
-#: ../items/categories/level_12_unique.txt:70
+#: ../items/categories/level_12_unique.txt:74
 msgid "Knowledge of formulating many concoctions bestows its wearer."
 msgstr "Sen käyttäjä saa tiedon monien seosten laatimisesta."
 
-#: ../items/categories/level_12_unique.txt:87
+#: ../items/categories/level_12_unique.txt:91
 msgid "Drinking potions may create another potion of the same type."
 msgstr "Taikajuomien nauttiminen voi luoda toisen samantyyppisen juoman."
 
-#: ../items/categories/level_12_unique.txt:96
+#: ../items/categories/level_12_unique.txt:101
 msgid "Metzger's Battlemace"
 msgstr "Metzgerin taistelunuija"
 
-#: ../items/categories/level_12_unique.txt:97
+#: ../items/categories/level_12_unique.txt:102
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Tämän nuijan heiluttelu jättää tumman ja sumean savujäljen."
 
@@ -4795,39 +4808,39 @@ msgstr "Tämän nuijan heiluttelu jättää tumman ja sumean savujäljen."
 msgid "Restore 25% of maximum HP"
 msgstr "Palauttaa maksimi OP:tä 25%"
 
-#: ../items/categories/potions.txt:20
+#: ../items/categories/potions.txt:19
 msgid "Restore 25% of maximum MP"
 msgstr "Palauttaa maksimi MP:tä 25%"
 
-#: ../items/categories/potions.txt:33
+#: ../items/categories/potions.txt:31
 msgid "Temporarily increase regeneration and movement speed"
 msgstr "Lisää palautumista ja liikkumisnopeutta väliaikaisesti"
 
-#: ../items/categories/potions.txt:46
+#: ../items/categories/potions.txt:43
 msgid "Restore 25% of both HP and MP"
 msgstr "Palauttaa sekä OP:tä että MP:tä 25%"
 
-#: ../items/categories/potions.txt:59
+#: ../items/categories/potions.txt:55
 msgid "Temporarily increases the ability to find items and gold"
 msgstr "Lisää kykyä löytää esineitä ja kultaa väliaikaisesti"
 
-#: ../items/categories/potions.txt:72
+#: ../items/categories/potions.txt:67
 msgid "Temporarily increases the resistance to all forms of magic by 50%"
 msgstr "Lisää kaikenlaisen taikuuden vastustusta 50%:lla väliaikaisesti"
 
-#: ../items/categories/potions.txt:85
+#: ../items/categories/potions.txt:79
 msgid "Restore 50% of maximum HP"
 msgstr "Palauttaa maksimi OP:tä 50%"
 
-#: ../items/categories/potions.txt:98
+#: ../items/categories/potions.txt:91
 msgid "Restore 75% of maximum HP"
 msgstr "Palauttaa maksimi MP:tä 75%"
 
-#: ../items/categories/potions.txt:111
+#: ../items/categories/potions.txt:103
 msgid "Restore 50% of maximum MP"
 msgstr "Palauttaa maksimi MP:tä 50%"
 
-#: ../items/categories/potions.txt:124
+#: ../items/categories/potions.txt:115
 msgid "Restore 75% of maximum MP"
 msgstr "Palauttaa maksimi MP:tä 75%"
 
@@ -4952,8 +4965,10 @@ msgid "Burn"
 msgstr "Polte"
 
 #: ../powers/base/magician/burn.txt:4
-msgid "Blast multiple enemies in a distant area with fire."
-msgstr "Räjäytä useita vihollisia tulella etäältä."
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -4978,10 +4993,9 @@ msgstr "Ukkosisku"
 #: ../powers/base/magician/thunderstrike.txt:4
 msgid ""
 "Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies."
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
 msgstr ""
-"Salama iskee taivaalta suurella mahdollisuudella vahingoittaa "
-"liikuntarajoitteisia vihollisia kriittisesti."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -5012,9 +5026,11 @@ msgid "Freeze"
 msgstr "Jäädytys"
 
 #: ../powers/base/magician/freeze.txt:4
-msgid "Create a ray of several piercing cold shards that slow enemies."
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
 msgstr ""
-"Luo useiden läpäisevien kylmäsirpaleiden säde, joka hidastaa vihollisia."
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -5037,8 +5053,10 @@ msgid "Throw Knife"
 msgstr "Heitä veitsi"
 
 #: ../powers/base/warrior/throw_knife.txt:2
-msgid "Throw a knife to deal reduced melee weapon damage."
-msgstr "Heitä veitsi ja tee vähennettyä lyömäaseen vahinkoa."
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -5087,16 +5105,18 @@ msgid "Bear Trap"
 msgstr "Karhuansa"
 
 #: ../powers/base/ranger/bear_trap.txt:2
-msgid "This trap deals extra ranged weapon damage and immobilizes the target."
-msgstr "Tämä ansa tekee lisättyä kantama-aseen vahinkoa ja pysäyttää kohteen."
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr ""
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
 msgstr "Monilaukaus"
 
 #: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot three projectiles simultaneously."
-msgstr "Ammu kolme ammusta samanaikaisesti."
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -5133,19 +5153,18 @@ msgstr "Kekälelaukaus"
 #: ../powers/base/ranger/ember_shot.txt:2
 msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
-"enemies."
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
-"Ammu polttavien kekäleiden roiske lähietäisyydeltä. Tehokas panssaroituja "
-"vihollisia vastaan."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
 msgstr "Jalkapiikit"
 
 #: ../powers/base/ranger/caltrops.txt:2
-msgid "This trap deals reduced ranged weapon damage and slows the target."
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
 msgstr ""
-"Tämä ansa tekee vähennettyä kantama-aseen vahinkoa ja hidastaa kohteen."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5163,6 +5182,18 @@ msgstr "Kanavoi"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Maaginen perushyökkäys"
+
+#: ../powers/categories/items.txt:67
+msgid ""
+"Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
+" performing a basic attack."
+msgstr ""
+
+#: ../powers/categories/items.txt:76
+msgid ""
+"Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
+"by performing a basic attack."
+msgstr ""
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5202,3 +5233,7 @@ msgstr "Yrität avata arkun, mutta se on suljettu tuntemattomalla voimalla."
 #: ../scripts/powers/goblin_steal.txt:107
 msgid "Goblin Thief stole a potion!"
 msgstr "Hiisivaras vei juoman!"
+
+#: ../scripts/powers/respec_tome.txt:7
+msgid "All stat and power points have been reset."
+msgstr ""
