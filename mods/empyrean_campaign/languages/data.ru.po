@@ -7,7 +7,7 @@
 # Justin Jacobs <jajdorkster@gmail.com>, 2019
 # David Bell <ooliterplus@gmail.com>, 2021
 # hotorcelexo <igorpolyakov@protonmail.com>, 2023
-# Blueberryy <igory.ygr200@gmail.com>, 2023
+# Blueberryy <igory.ygr200@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-28 10:49+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
-"Last-Translator: Blueberryy <igory.ygr200@gmail.com>, 2023\n"
+"Last-Translator: Blueberryy <igory.ygr200@gmail.com>, 2024\n"
 "Language-Team: Russian (https://app.transifex.com/flareorg/teams/84925/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "Сапоги невидимости разработчика"
 
 #: ../items/items.txt:72
 msgid "Use: Turn Invisible"
-msgstr "Использование: Стать невидимым"
+msgstr "Использование: Невидимость"
 
 #: ../items/items.txt:76
 msgid "DEV Tome"
@@ -353,7 +353,7 @@ msgstr "метательный топор"
 
 #: ../engine/damage_types.txt:5
 msgid "Scroll Damage"
-msgstr ""
+msgstr "Урон свитков"
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -1845,7 +1845,7 @@ msgstr "Сбросить очки способностей"
 
 #: ../npcs/base/dev_tome/respec.txt:18
 msgid "Reset stat points"
-msgstr "Сбросить очки статистики"
+msgstr "Сбросить очки атрибутов"
 
 #: ../npcs/base/dev_tome/respec.txt:24
 msgid "Reset level"
@@ -2017,15 +2017,15 @@ msgstr "Свиток призыва зомби"
 
 #: ../npcs/base/dev_tome/items.txt:90
 msgid "Perdition Scroll"
-msgstr "Свиток - Погибель"
+msgstr "Свиток погибели"
 
 #: ../npcs/base/dev_tome/items.txt:96
 msgid "Shield Scroll"
-msgstr "Свиток - Щит"
+msgstr "Свиток щита"
 
 #: ../npcs/base/dev_tome/items.txt:114
 msgid "Haste Scroll"
-msgstr "Свиток - Спешка"
+msgstr "Свиток спешки"
 
 #: ../npcs/base/dev_tome/items.txt:120
 msgid "Immunity Scroll"
@@ -2033,7 +2033,7 @@ msgstr "Свиток устойчивости"
 
 #: ../npcs/base/dev_tome/items.txt:126
 msgid "Reflection Scroll"
-msgstr "Свиток - Отражение"
+msgstr "Свиток отражения"
 
 #: ../npcs/base/dev_tome/items.txt:132
 msgid "Underworld Set (with rings)"
@@ -2109,7 +2109,7 @@ msgstr "Кампания "
 
 #: ../npcs/dev_tome.txt:49
 msgid "Restore HP/MP/status"
-msgstr "Восстанавливает здоровье/ману и убирает негативные эффекты"
+msgstr "Восстанавливает здоровье, ману и убирает негативные эффекты"
 
 #: ../npcs/dev_tome.txt:56
 msgid "Save game at current position"
@@ -3295,7 +3295,7 @@ msgstr "Кольцо трофеев магистра"
 
 #: ../items/categories/scrolls.txt:8
 msgid "Use: Summon a zombie to fight for you"
-msgstr "Использование: Призовите зомби, чтобы он сражался за вас"
+msgstr "Использование: Призыв зомби, чтобы он сражался за вас"
 
 #: ../items/categories/scrolls.txt:19
 msgid "Use: Teleport to Perdition Harbor"
@@ -3303,7 +3303,7 @@ msgstr "Использование: Телепортирует на Приста
 
 #: ../items/categories/scrolls.txt:30
 msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Использование: Создаёт магический щит, который поглощает урон"
+msgstr "Использование: Создаёт магический щит, поглощающий урон"
 
 #: ../items/categories/scrolls.txt:41
 msgid "Use: Shoot a fireball"
@@ -3315,12 +3315,13 @@ msgstr "Использование: Стреляет ледяной стрело
 
 #: ../items/categories/scrolls.txt:63
 msgid "Use: Move at an increased speed for a limited time"
-msgstr "Использование: Ваше передвижение ускорено на ограниченное время"
+msgstr ""
+"Использование: Ваша скорость передвижения ускорена на ограниченное время"
 
 #: ../items/categories/scrolls.txt:74
 msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
 msgstr ""
-"Использование: Снять ослабления и защититься от последующих негативных "
+"Использование: Снимает ослабления и защищает от последующих негативных "
 "эффектов в течение некоторого времени"
 
 #: ../items/categories/scrolls.txt:85
@@ -3333,11 +3334,11 @@ msgstr ""
 
 #: ../items/categories/scrolls.txt:93
 msgid "Tome of Second Chances"
-msgstr ""
+msgstr "Том второго шанса"
 
 #: ../items/categories/scrolls.txt:95
 msgid "Use: Resets all stat and power points"
-msgstr ""
+msgstr "Использование: Сбрасывает все очки атрибутов и способностей"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -4978,6 +4979,8 @@ msgid ""
 "Blast multiple enemies in a distant area with fire. Has a chance to inflict "
 "a severe burn that makes enemies very weak to fire damage."
 msgstr ""
+"Обрушение огня на нескольких врагов на расстоянии. Имеет шанс нанести "
+"сильный ожог, делающий врагов очень слабыми к огненному урону."
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -5005,6 +5008,9 @@ msgid ""
 "movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
 " that has a chance of stunning other enemies."
 msgstr ""
+"Молния бьёт с неба с высоким шансом нанести критический урон обездвиженным "
+"врагам. При попадании во врага выпускает волну энергии, имеющую шанс "
+"оглушить других врагов."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -5040,6 +5046,9 @@ msgid ""
 "a chance of shattering into a cloud of frost that makes enemies weak to ice "
 "damage."
 msgstr ""
+"Создание луча из нескольких пронзительных ледяных осколков, замедляющих "
+"врагов. Осколки имеют шанс рассыпаться в облако инея, которое делает врагов "
+"слабыми к ледяному урону."
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -5066,6 +5075,8 @@ msgid ""
 "Throw a knife to deal reduced melee weapon damage. High accuracy and "
 "critical rate."
 msgstr ""
+"Бросок ножа, наносящего сниженный урон оружия ближнего боя. Высокая точность"
+" и шанс критического попадания."
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -5097,7 +5108,7 @@ msgstr "Бросок топора"
 
 #: ../powers/base/warrior/throw_axe.txt:2
 msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Бросок топора, наносящий урон, больше чем у оружия ближнего боя."
+msgstr "Бросок топора, наносящий дополнительный урон оружия ближнего боя."
 
 #: ../powers/base/warrior/warcry.txt:1
 msgid "Warcry"
@@ -5118,6 +5129,8 @@ msgid ""
 "This trap deals extra ranged weapon damage and immobilizes the target. Has a"
 " chance to inflict bleeding."
 msgstr ""
+"Эта ловушка наносит дополнительный урон оружием дальнего боя и обездвиживает"
+" цель. Имеет шанс вызвать кровотечение."
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
@@ -5125,7 +5138,7 @@ msgstr "Мультивыстрел"
 
 #: ../powers/base/ranger/multishot.txt:2
 msgid "Shoot multiple projectiles in an arc simultaneously."
-msgstr ""
+msgstr "Выстрел одновременно несколькими снарядами по дуге."
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -5165,6 +5178,9 @@ msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
 "enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
+"Выстрел струёй горящих углей с близкого расстояния. Эффективно против "
+"бронированных врагов. Накладывает горение, делающее врагов слабее к "
+"огненному урону."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -5175,6 +5191,8 @@ msgid ""
 "This trap deals reduced ranged weapon damage and slows the target. Can "
 "affect multiple targets."
 msgstr ""
+"Эта ловушка наносит сниженный урон оружия дальнего боя и замедляет цель. "
+"Может воздействовать на несколько целей."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5198,12 +5216,16 @@ msgid ""
 "Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
 " performing a basic attack."
 msgstr ""
+"Использование: Выстреливает огненным шаром. В течение короткого времени "
+"можно стрелять дополнительными огненными шарами, выполняя основную атаку."
 
 #: ../powers/categories/items.txt:76
 msgid ""
 "Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
 "by performing a basic attack."
 msgstr ""
+"Использование: Выстреливает ледяным выстрелом. В течение короткого времени "
+"можно стрелять дополнительными ледяными выстрелами, выполняя основную атаку."
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5246,4 +5268,4 @@ msgstr "Гоблин-вор украл зелье!"
 
 #: ../scripts/powers/respec_tome.txt:7
 msgid "All stat and power points have been reset."
-msgstr ""
+msgstr "Все очки атрибутов и способностей были сброшены."
