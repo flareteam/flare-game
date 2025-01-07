@@ -11,3 +11,39 @@ id=mage_shield
 min=mage_shield_min
 max=mage_shield_max
 
+[damage_type]
+id=fire
+name=Fire Damage
+name_short=Fire
+description=Adds elemental fire damage to non-elemental attacks.
+min=dmg_fire_min
+max=dmg_fire_max
+elemental=true
+
+[damage_type]
+id=ice
+name=Ice Damage
+name_short=Ice
+description=Adds elemental ice damage to non-elemental attacks.
+min=dmg_ice_min
+max=dmg_ice_max
+elemental=true
+
+[damage_type]
+id=lightning
+name=Lightning Damage
+name_short=Lightning
+description=Adds elemental lightning damage to non-elemental attacks.
+min=dmg_lightning_min
+max=dmg_lightning_max
+elemental=true
+
+[damage_type]
+id=dark
+name=Dark Damage
+name_short=Dark
+description=Adds elemental dark damage to non-elemental attacks.
+min=dmg_dark_min
+max=dmg_dark_max
+elemental=true
+
