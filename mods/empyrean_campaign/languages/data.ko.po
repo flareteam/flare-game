@@ -4,15 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Translators:
 # kang <actgong@gmail.com>, 2020
-# ks k, 2022
+# ks k, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 10:49+\n"
+"POT-Creation-Date: 2025-01-07 15:38+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
-"Last-Translator: ks k, 2022\n"
+"Last-Translator: ks k, 2025\n"
 "Language-Team: Korean (https://app.transifex.com/flareorg/teams/84925/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,22 +151,6 @@ msgstr "보이지 않게 된다"
 #: ../powers/powers.txt:54
 msgid "Remove Invisibility"
 msgstr "투명성을 제거하다"
-
-#: ../engine/elements.txt:3
-msgid "Fire"
-msgstr "불"
-
-#: ../engine/elements.txt:7
-msgid "Ice"
-msgstr "물"
-
-#: ../engine/elements.txt:11
-msgid "Lightning"
-msgstr "빛"
-
-#: ../engine/elements.txt:15
-msgid "Dark"
-msgstr "어둠"
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -344,7 +328,55 @@ msgstr "도끼를 던지다"
 
 #: ../engine/damage_types.txt:5
 msgid "Scroll Damage"
-msgstr ""
+msgstr "두루마리 피해"
+
+#: ../engine/damage_types.txt:16
+msgid "Fire Damage"
+msgstr "화염 피해"
+
+#: ../engine/damage_types.txt:17
+msgid "Fire"
+msgstr "불"
+
+#: ../engine/damage_types.txt:18
+msgid "Adds elemental fire damage to non-elemental attacks."
+msgstr "비원소 공격에 원소 화염 피해를 추가한다."
+
+#: ../engine/damage_types.txt:25
+msgid "Ice Damage"
+msgstr "얼음 피해"
+
+#: ../engine/damage_types.txt:26
+msgid "Ice"
+msgstr "물"
+
+#: ../engine/damage_types.txt:27
+msgid "Adds elemental ice damage to non-elemental attacks."
+msgstr "비원소 공격에 원소 얼음 피해를 추가한다."
+
+#: ../engine/damage_types.txt:34
+msgid "Lightning Damage"
+msgstr "번개 피해"
+
+#: ../engine/damage_types.txt:35
+msgid "Lightning"
+msgstr "빛"
+
+#: ../engine/damage_types.txt:36
+msgid "Adds elemental lightning damage to non-elemental attacks."
+msgstr "비원소 공격에 원소 번개 피해를 추가한다."
+
+#: ../engine/damage_types.txt:43
+msgid "Dark Damage"
+msgstr "어둠 피해"
+
+#: ../engine/damage_types.txt:44
+msgid "Dark"
+msgstr "어둠"
+
+#: ../engine/damage_types.txt:45
+msgid "Adds elemental dark damage to non-elemental attacks."
+msgstr "비원소 공격에 원소 어둠 피해를 추가한다."
 
 #: ../enemies/base/ardwen.txt:3
 msgid "Ardwen"
@@ -1144,7 +1176,7 @@ msgstr "스톤 우드로 가는 길이 발견되었다."
 
 #: ../maps/stormrock_pass.txt:895
 msgid "Stormrock Pass waypoint discovered."
-msgstr "스톰록 패스 웨이 포인트로 가는 길을 발견했습니다."
+msgstr "스톰록 패스 웨이 포인트로 가는 길을 발견했다."
 
 #: ../maps/stormrock_pass.txt:1053
 msgid "Stormrock Ruins"
@@ -1172,7 +1204,7 @@ msgid ""
 msgstr ""
 "당신은 희생의 칼로 당신의 팔을 밴다. 고통은 점점 괴로워지고있다. 떨면서, 작은 유리병에 당신의 피를 조금씩 모으려고 애를 쓴다. 칼은"
 " 분해될 때까지 빠르게 온도가 올라간다. 그러면 당신의 상처는 저절로 흉터도 없이 아물기 시작하여 몸 전체에 따뜻한 기운을 제외하고는, "
-"흔적이 전혀 남지 않습니다."
+"흔적이 전혀 남지 않는다."
 
 #: ../maps/temple_of_mez_2.txt:564
 msgid "Red Altar"
@@ -3166,11 +3198,11 @@ msgstr "사용 효과: 제한된 시간 동안 발사체와 피해를 반사하�
 
 #: ../items/categories/scrolls.txt:93
 msgid "Tome of Second Chances"
-msgstr ""
+msgstr "두 번째 기회의 두꺼운책"
 
 #: ../items/categories/scrolls.txt:95
 msgid "Use: Resets all stat and power points"
-msgstr ""
+msgstr "사용: 모든 능력치와 기술 점수를 초기화"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -4799,7 +4831,7 @@ msgstr "태움"
 msgid ""
 "Blast multiple enemies in a distant area with fire. Has a chance to inflict "
 "a severe burn that makes enemies very weak to fire damage."
-msgstr ""
+msgstr "먼 지역에서 여러 적을 화염으로 폭파하세요. 심각한 화상을 입힐 기회가 있어 적들이 화염 피해에 매우 약해집니다."
 
 #: ../powers/base/magician/energy_flow.txt:1
 msgid "Energy Flow"
@@ -4827,6 +4859,8 @@ msgid ""
 "movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
 " that has a chance of stunning other enemies."
 msgstr ""
+"번개는 하늘에서 내리쳐 움직임에 장애가 있는 적들에게 치명적인 피해를 줄 가능성이 높습니다. 적을 공격하면 다른 적들을 놀라게 할 "
+"가능성이 있는 에너지 파동을 방출합니다."
 
 #: ../powers/base/magician/shield.txt:4
 msgid "Create a force field that absorbs damage."
@@ -4860,6 +4894,7 @@ msgid ""
 "a chance of shattering into a cloud of frost that makes enemies weak to ice "
 "damage."
 msgstr ""
+"적을 느리게 하는 여러 개의 날카로운 차가운 파편을 만듭니다. 파편이 서리 구름에 부서져 적이 얼음 피해에 약해질 가능성이 있습니다."
 
 #: ../powers/base/warrior/quake.txt:1
 msgid "Quake"
@@ -4885,7 +4920,7 @@ msgstr "나이프 던지기"
 msgid ""
 "Throw a knife to deal reduced melee weapon damage. High accuracy and "
 "critical rate."
-msgstr ""
+msgstr "단검을 던져 근접 무기 대비 감소된 데미지를 줍니다. 높은 명중률과 치명타율을 가집니다."
 
 #: ../powers/base/warrior/stone_wall.txt:1
 msgid "Stone Wall"
@@ -4909,7 +4944,7 @@ msgstr "쪼개기"
 
 #: ../powers/base/warrior/cleave.txt:2
 msgid "Attack all enemies in a wide arc."
-msgstr "넓은 호를 그리며 모든 적을 공격한다."
+msgstr "넓은 부채꼴을 그리며 모든 적을 공격한다."
 
 #: ../powers/base/warrior/throw_axe.txt:1
 msgid "Throw Axe"
@@ -4935,7 +4970,7 @@ msgstr "곰 덫"
 msgid ""
 "This trap deals extra ranged weapon damage and immobilizes the target. Has a"
 " chance to inflict bleeding."
-msgstr ""
+msgstr "이 함정은 추가 원거리 무기 데미지를 주고 대상을 움직이지 못하게 만든다. 출혈 효과를 줄 확률이 있다."
 
 #: ../powers/base/ranger/multishot.txt:1
 msgid "Multishot"
@@ -4943,7 +4978,7 @@ msgstr "다발 사격"
 
 #: ../powers/base/ranger/multishot.txt:2
 msgid "Shoot multiple projectiles in an arc simultaneously."
-msgstr ""
+msgstr "여러 발사체를 부채꼴을 그리며 동시에 발사한다."
 
 #: ../powers/base/ranger/wolfs_eye.txt:1
 msgid "Wolf's Eye"
@@ -4982,6 +5017,7 @@ msgid ""
 "Fire a spray of burning embers at close range. Effective against armored "
 "enemies. Inflicts a burn that makes enemies weaker to fire damage."
 msgstr ""
+"가까운 거리에서 타오르는 불씨를 뿌린다. 방어구를 입은 적에게 효과적이다. 적에게 화상을 입혀 화염 데미지에 더 취약해지게 만든다."
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -4991,7 +5027,7 @@ msgstr "마름쇠"
 msgid ""
 "This trap deals reduced ranged weapon damage and slows the target. Can "
 "affect multiple targets."
-msgstr ""
+msgstr "이 함정은 감소된 원거리 무기 데미지를 주고 대상의 이동속도를 감소시킨다. 여러 대상에게 영향을 줄 수 있다."
 
 #: ../powers/base/ranger/piercing_shot.txt:1
 msgid "Piercing Shot"
@@ -5013,13 +5049,13 @@ msgstr "기본 마법 공격이다."
 msgid ""
 "Use: Shoot a fireball. For a brief time, additional fireballs can be shot by"
 " performing a basic attack."
-msgstr ""
+msgstr "사용: 화염공을 발사한다. 잠시 동안 기본 공격으로 추가 화염공을 발사할 수 있다."
 
 #: ../powers/categories/items.txt:76
 msgid ""
 "Use: Shoot an ice bolt. For a brief time, additional ice bolts can be shot "
 "by performing a basic attack."
-msgstr ""
+msgstr "사용: 얼음 화살을 발사한다. 잠시 동안 기본 공격으로 추가 얼음 화살을 발사할 수 있다."
 
 #: ../powers/categories/quest.txt:4
 msgid ""
@@ -5060,4 +5096,4 @@ msgstr "도둑 고블린이 물약을 훔쳤다!"
 
 #: ../scripts/powers/respec_tome.txt:7
 msgid "All stat and power points have been reset."
-msgstr ""
+msgstr "모든 능력치 및 기술 점수를 초기화 완료"
