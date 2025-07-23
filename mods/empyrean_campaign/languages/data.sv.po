@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 10:49+\n"
+"POT-Creation-Date: 2025-07-23 08:38+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Kevin Setterborn, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/flareorg/teams/84925/sv/)\n"
@@ -150,22 +150,6 @@ msgstr "Bli osynlig"
 #: ../powers/powers.txt:54
 msgid "Remove Invisibility"
 msgstr "Ta bort osynlighet"
-
-#: ../engine/elements.txt:3
-msgid "Fire"
-msgstr "Eld"
-
-#: ../engine/elements.txt:7
-msgid "Ice"
-msgstr "Is"
-
-#: ../engine/elements.txt:11
-msgid "Lightning"
-msgstr "Blixt"
-
-#: ../engine/elements.txt:15
-msgid "Dark"
-msgstr "Mörk"
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -349,6 +333,54 @@ msgstr "kastbar yxa"
 
 #: ../engine/damage_types.txt:5
 msgid "Scroll Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:16
+msgid "Fire Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:17
+msgid "Fire"
+msgstr "Eld"
+
+#: ../engine/damage_types.txt:18
+msgid "Adds elemental fire damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:25
+msgid "Ice Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:26
+msgid "Ice"
+msgstr "Is"
+
+#: ../engine/damage_types.txt:27
+msgid "Adds elemental ice damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:34
+msgid "Lightning Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:35
+msgid "Lightning"
+msgstr "Blixt"
+
+#: ../engine/damage_types.txt:36
+msgid "Adds elemental lightning damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:43
+msgid "Dark Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:44
+msgid "Dark"
+msgstr "Mörk"
+
+#: ../engine/damage_types.txt:45
+msgid "Adds elemental dark damage to non-elemental attacks."
 msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
@@ -953,17 +985,17 @@ msgstr "Trollgrotta"
 msgid "Gravestone"
 msgstr "Gravsten"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
 msgid "Halls of Infinity"
 msgstr "Oändlighetens Hallar"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
-msgid "Mine Cart"
-msgstr "Malmhund"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Stalagmite-Pelare"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
+msgid "Mine Cart"
+msgstr "Malmhund"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1759,81 +1791,61 @@ msgstr "Fortsätt genom Oändlighetens Hallar"
 msgid "Return to Underworld Stronghold"
 msgstr "Återvänd till Undre världen Fästet"
 
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "Abasi, Resande Handlare"
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
+msgstr "Återställ uppdrag"
 
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "Journal"
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Återställ uppdrag: \"Återvänd till Empyrean\""
 
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "Lyckades du hitta min journal?"
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Återställ uppdrag: \"Krolan Saknas\""
 
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "Inte ännu."
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
+msgstr "Återställ uppdrag: \"Alkemi\""
 
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "Här är din journal."
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Återställ uppdrag: \"Handlarens journal\""
 
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "Underbart! Jag trodde den var försvunnen för alltid vid detta läget."
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "Återställ uppdrag: \"Fast i kryptan\""
 
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr "Jag står i din skuld. Snälla, ta detta som en belöning för din hjälp."
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Återställ uppdrag: \"Enögda väktare\""
 
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "Visa ingen nåd till dessa tjuvaktiga troll."
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr "Återställ uppdrag: \"Bror?\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr "Försiktigt på dessa vägar. Dessa troll är inget om inte problem."
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr "Återställ uppdrag: \"Utelåst\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "Tack för varningen."
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
+msgstr "Återställ uppdrag: \"Nedgrävda fästningen\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "Minst jag kunde göra."
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Återställ uppdrag: \"Mog-Grottornas Borttappade Själ\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
-msgstr ""
-"När jag vaknade i morse så saknades min journal. Ingen tvekan på att en av "
-"dessa vidriga gröna varelserna stal den från mig."
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Återställ uppdrag: \"Ett ovanligt namn...\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr "Om du hittar min journal på din väg, snälla återvänd den till mig."
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Återställ uppdrag: \"Vaktmästarens Anteckningar\""
 
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "Väl bemött, vandrare."
-
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
-msgstr ""
-"Att döma på ditt utseende så är du ingen främling till en längre resa. Tack "
-"vare det så ber jag dig att hålla ett öga öppet efter min saknade journal."
-
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
-msgstr ""
-"Jag märkte att den saknades efter en natt jag campade nära Trollgrottan. Jag"
-" sökte ett tag men bestämde att det var bäst att fortsätta fram."
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Återställ uppdrag: \"Fallna kamrater\""
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1931,114 +1943,6 @@ msgstr "Nivå 19"
 msgid "Level 20"
 msgstr "Nivå 20"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
-msgstr "Återställ uppdrag"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr "Återställ uppdrag: \"Återvänd till Empyrean\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr "Återställ uppdrag: \"Krolan Saknas\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
-msgstr "Återställ uppdrag: \"Alkemi\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr "Återställ uppdrag: \"Handlarens journal\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr "Återställ uppdrag: \"Fast i kryptan\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr "Återställ uppdrag: \"Enögda väktare\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr "Återställ uppdrag: \"Bror?\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr "Återställ uppdrag: \"Utelåst\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
-msgstr "Återställ uppdrag: \"Nedgrävda fästningen\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr "Återställ uppdrag: \"Mog-Grottornas Borttappade Själ\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr "Återställ uppdrag: \"Ett ovanligt namn...\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr "Återställ uppdrag: \"Vaktmästarens Anteckningar\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
-msgstr "Återställ uppdrag: \"Fallna kamrater\""
-
-#: ../npcs/base/dev_tome/items.txt:2
-msgid "Give items"
-msgstr "Ge föremål"
-
-#: ../npcs/base/dev_tome/items.txt:20
-msgid "Potions"
-msgstr "Drycker"
-
-#: ../npcs/base/dev_tome/items.txt:33
-msgid "Health Potion"
-msgstr "Livsdryck"
-
-#: ../npcs/base/dev_tome/items.txt:39
-msgid "Mana Potion"
-msgstr "Mana-dryck"
-
-#: ../npcs/base/dev_tome/items.txt:51
-msgid "Restoration Potion"
-msgstr "Återsällningsdryck"
-
-#: ../npcs/base/dev_tome/items.txt:69
-msgid "Scrolls"
-msgstr "Bokrullar"
-
-#: ../npcs/base/dev_tome/items.txt:84
-msgid "Summon Zombie Scroll"
-msgstr "Kalla Zombie-bokrulle"
-
-#: ../npcs/base/dev_tome/items.txt:90
-msgid "Perdition Scroll"
-msgstr "Fördärv bokrulle"
-
-#: ../npcs/base/dev_tome/items.txt:96
-msgid "Shield Scroll"
-msgstr "Sköld bokrulle"
-
-#: ../npcs/base/dev_tome/items.txt:114
-msgid "Haste Scroll"
-msgstr "Snabbhet bokrulle"
-
-#: ../npcs/base/dev_tome/items.txt:120
-msgid "Immunity Scroll"
-msgstr "Immunitet bokrulle"
-
-#: ../npcs/base/dev_tome/items.txt:126
-msgid "Reflection Scroll"
-msgstr "Reflektion bokrulle"
-
-#: ../npcs/base/dev_tome/items.txt:132
-msgid "Underworld Set (with rings)"
-msgstr "Undre världen samling (med ringar)"
-
 #: ../npcs/base/dev_tome/teleport.txt:17
 msgid "Introduction"
 msgstr "Introduktion"
@@ -2098,6 +2002,134 @@ msgstr "Oändligheternas Hallar: 9"
 #: ../npcs/base/dev_tome/teleport.txt:473
 msgid "Halls of Infinity: 10"
 msgstr "Oändligheternas Hallar: 10"
+
+#: ../npcs/base/dev_tome/items.txt:2
+msgid "Give items"
+msgstr "Ge föremål"
+
+#: ../npcs/base/dev_tome/items.txt:20
+msgid "Potions"
+msgstr "Drycker"
+
+#: ../npcs/base/dev_tome/items.txt:33
+msgid "Health Potion"
+msgstr "Livsdryck"
+
+#: ../npcs/base/dev_tome/items.txt:39
+msgid "Mana Potion"
+msgstr "Mana-dryck"
+
+#: ../npcs/base/dev_tome/items.txt:51
+msgid "Restoration Potion"
+msgstr "Återsällningsdryck"
+
+#: ../npcs/base/dev_tome/items.txt:69
+msgid "Scrolls"
+msgstr "Bokrullar"
+
+#: ../npcs/base/dev_tome/items.txt:84
+msgid "Summon Zombie Scroll"
+msgstr "Kalla Zombie-bokrulle"
+
+#: ../npcs/base/dev_tome/items.txt:90
+msgid "Perdition Scroll"
+msgstr "Fördärv bokrulle"
+
+#: ../npcs/base/dev_tome/items.txt:96
+msgid "Shield Scroll"
+msgstr "Sköld bokrulle"
+
+#: ../npcs/base/dev_tome/items.txt:114
+msgid "Haste Scroll"
+msgstr "Snabbhet bokrulle"
+
+#: ../npcs/base/dev_tome/items.txt:120
+msgid "Immunity Scroll"
+msgstr "Immunitet bokrulle"
+
+#: ../npcs/base/dev_tome/items.txt:126
+msgid "Reflection Scroll"
+msgstr "Reflektion bokrulle"
+
+#: ../npcs/base/dev_tome/items.txt:132
+msgid "Underworld Set (with rings)"
+msgstr "Undre världen samling (med ringar)"
+
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "Försiktigt på dessa vägar. Dessa troll är inget om inte problem."
+
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "Tack för varningen."
+
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "Minst jag kunde göra."
+
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr ""
+"När jag vaknade i morse så saknades min journal. Ingen tvekan på att en av "
+"dessa vidriga gröna varelserna stal den från mig."
+
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr "Om du hittar min journal på din väg, snälla återvänd den till mig."
+
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, Resande Handlare"
+
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "Journal"
+
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "Lyckades du hitta min journal?"
+
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "Inte ännu."
+
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "Här är din journal."
+
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Underbart! Jag trodde den var försvunnen för alltid vid detta läget."
+
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr "Jag står i din skuld. Snälla, ta detta som en belöning för din hjälp."
+
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "Visa ingen nåd till dessa tjuvaktiga troll."
+
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "Väl bemött, vandrare."
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+"Att döma på ditt utseende så är du ingen främling till en längre resa. Tack "
+"vare det så ber jag dig att hålla ett öga öppet efter min saknade journal."
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"Jag märkte att den saknades efter en natt jag campade nära Trollgrottan. Jag"
+" sökte ett tag men bestämde att det var bäst att fortsätta fram."
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2936,109 +2968,121 @@ msgstr "1468/7/10"
 msgid "No subjects asked to take the test today."
 msgstr "Inga utsatta bad om att ta testet idag."
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Krigschef Tyg Skjorta"
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "Stridande Plåthjälm"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Krypskytt Tyg Skjorta"
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "Spanare Plåthjälm"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Stor trollkarl Tyg Skjorta"
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "Svartkonstnär Sammetshuva"
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Krigschef Tyg Byxor"
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "Stridande Plåt Harnesk"
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Krypskytt Tyg Byxor"
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "Spanare Plåt Harnest"
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Stor trollkarl Tyg Byxor"
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "Svartkonstnär Sammetsväst"
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Krigschef Tyg Sandaler"
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "Stridande Plåtgrevar"
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Krypskytt Tyg Sandaler"
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "Spanare Plåtgrevar"
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Stor tollkarl Tyg Sandaler"
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "Svartkonstnär Sammetskjorta"
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Krigschef Tyghandskar"
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "Stridande Plåtskor"
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Krypskytt Tyghandskar"
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "Spanare Plåtskor"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Stor Tollkarl Tyghandskar"
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "Svartkonstnär Sammetskor"
 
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Mästare Läderbälte"
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "Stridande Plåthandskar"
 
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Mästare Hängsmycke"
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "Spanare Plåtgrevar"
 
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Mästare Trolldomsbok"
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "Svartkonstnär Sammetärmar"
 
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Krigschef Dolk"
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "Vandrande Krigschef Läderbälte"
 
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Krypskytt Slangbella"
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "Vandrande Krypskytt Hängsmycke"
 
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Stor trollkarl stav"
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "Vandrande Stor Trollkarl Trolldomsbok"
 
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Templar-Bucklare i träd"
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "Stridande Storsvärd"
 
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Mästare Eldring"
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "Spanare Stor båge"
 
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Mästare Isring"
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "Svartkonstnärens Stora trollstav"
 
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Mästare Blixt ring"
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Vårdare Tornsköld"
 
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Mästare Mörk Ring"
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "Vandrande Inferno-Ring"
 
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Mästare Erfarenhet ring"
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "Vandrande Glacial-Ring"
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Mästare Rikedom ring"
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "Vandrande Volt Ring"
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "Mästare Skattring"
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "Vandrande Void-Ring"
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "Vandrande Forskningsring"
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "Vandrande Välståndsring"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "Vandrande Gammal Ring"
 
 #: ../items/categories/level_5.txt:5
 msgid "Leather Hood"
@@ -3096,6 +3140,122 @@ msgstr "Stång"
 msgid "Iron Buckler"
 msgstr "Buckler av järn"
 
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Krigschef Plåthjälm"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Krypskytt Plåthjälm"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Stor trollkarl Sammetshuva"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Krigschef Plåt Harnest"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Krypskytt Plåt Harnest"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Stor trollkarl Sammetsväst"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Krigschef Plåtgrevar"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Krypskytt Plåtgrevar"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Stor tollkarl Sammetskjorta"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Krigschef Plåtskor"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Krypskytt Plåtskor"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Stor trollkarl Sammetskor"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Krigschef Plåthandskar"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Krypskytt Plåthandskar"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Stor trollkarl Sammetsärmar"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Mästare Krigschef Läderbälte"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Mästare Krypskytt Hängsmycke"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Mästare Stor Trollkarl Trolldomsbok"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Krigschef Stort svärd"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Krypskytt Stor båge"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Stora Trollkarlens Stora trollstav"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Templar Tornsköld"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Mästare Inferno-Ring"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Mästare Glacial-Ring"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Mästare Volt Ring"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Mästare Void-Ring"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Mästare Forskningsring"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Mästare Välståndsring"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Mästare Gammal Ring"
+
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "Plåthjälm"
@@ -3152,198 +3312,296 @@ msgstr "Stor stav"
 msgid "Tower Shield"
 msgstr "Tornsköld"
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Tyg skjorta"
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Krigschef Kedjehuva"
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Tyg byxor"
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Krypskytt Kedjehuva"
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Tyg sandaler"
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Stor trollkarl Sidenhuva"
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Tyghandskar"
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Krigschef Kedja Harnesk"
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Dolk"
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Krypskytt Kedja Harnesk"
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Slangbella"
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Stor trollkarl Sidenväst"
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Trollstav"
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Krigschef Kedjegrevar"
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Buckler i träd"
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Krypskytt Kedjegrevar"
 
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Krigschef Läderhuva"
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Stor trollkarl Sidenskjorta"
 
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Krypskytt Läderhuva"
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Krigschef Kedjeskor"
 
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Stor trollkarl ullhuva"
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Krypskytt Kedjeskor"
 
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Krigschef Tunika av läder"
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Stor trollkarl Sidenskor"
 
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Krypskytt Tunika av läder"
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Krigschef Kedjehandskar"
 
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Stor tollkarl ullväst"
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Krypskytt Kedjehandskar"
 
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Krigschef Läderbyxor"
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Stor trollkarl Sidenärmar"
 
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Krypskytt Läderbyxor"
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Mästare Krigare Läderbälte"
 
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "Stor trollkarl ullskjorta"
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Mästare Ranger Hängsmycke"
 
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Krigschef Läderskor"
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Mästare Trollkarl Trolldomsbok"
 
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Krypskytt Läderskor"
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Krigschef Långt svärd"
 
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Stor trollkarl ullskor"
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Krypskytt Lång båge"
 
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Krigschef Läderhandskar"
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Stora trollkarlens Trollstav"
 
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Krypskytt Läderhandskar"
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Templar Vapensköld"
 
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Stor trollkarl ullärmar"
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Mästare Brandring"
 
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "Mästarstridare Läderbälte"
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Mästare Frysring"
 
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Mästare Spanare Hängsmycke"
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Mästare Stötring"
 
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Mästare Svartkonstnär Trolldomsbok"
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Mästare Dysterhet Ring"
 
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Krigschef Kort svärd"
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Mästare Intellektuell Ring"
 
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Krypskytt Kort båge"
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Mästare Lukrativ Ring"
 
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Stor trollkarl stång"
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Mästare Artefakt Ring"
 
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Templar Buckler av järn"
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Krolans Hammare"
 
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Mästare Brännring"
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Ett nödvändigt redskap för alla smeder."
 
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Mästare Frostring"
+#: ../items/categories/level_4_unique.txt:19
+msgid "Goblin Branch"
+msgstr "Troll Gren"
 
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Mästare Elektrisk ring"
+#: ../items/categories/level_4_unique.txt:20
+msgid "Mana flows inside its primitive exterior."
+msgstr "Mana strömmar inne i dess primitiva utsida."
 
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Mästare Skuggring"
+#: ../items/categories/level_4_unique.txt:36
+msgid "Ardwen's Gloves"
+msgstr "Ardwens Handskar"
 
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Mästare Kunskapsring"
+#: ../items/categories/level_4_unique.txt:37
+msgid "These hands built a village."
+msgstr "Dessa händer byggde en by."
 
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Mästare Välståndsring"
+#: ../items/categories/level_4_unique.txt:53
+msgid "Blood Tunic"
+msgstr "Blod Tunika"
 
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Mästare Plunder ring"
+#: ../items/categories/level_4_unique.txt:54
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "När den bärs så värmer denna skjorta bärarens ådor."
 
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Använd: Kalla en zombie att strida för dig"
+#: ../items/categories/level_4_unique.txt:69
+msgid "Dark Steppers"
+msgstr "Mörka Stigare"
 
-#: ../items/categories/scrolls.txt:19
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Använd: Teleportera till Perdition-hamnen"
+#: ../items/categories/level_4_unique.txt:70
+msgid "Dancing through the shadows."
+msgstr "Dansar igenom skuggorna."
 
-#: ../items/categories/scrolls.txt:30
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Använd: Skapa en magisk sköld som absorberar skada"
+#: ../items/categories/level_4_unique.txt:84
+msgid "Seagate's Tri-pants"
+msgstr "Seagates Tri-byxor"
 
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr "Använd: Skjut en eldboll"
-
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr "Använd: Skjut en ispil"
-
-#: ../items/categories/scrolls.txt:63
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Använd: Förflytta dig snabbare under begränsad tid"
-
-#: ../items/categories/scrolls.txt:74
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr ""
-"Använd: Ta bort debuffs och bli immun mot debuffs under en begränsad tid"
-
-#: ../items/categories/scrolls.txt:85
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
 msgstr ""
-"Använd: Skapar en magisk sköld som reflekterar projektiler och skada under "
-"begränsad tid"
+"Dessa ojämna byxor är täckta i brännmärken men är ändå kall till känno."
 
-#: ../items/categories/scrolls.txt:93
-msgid "Tome of Second Chances"
-msgstr ""
+#: ../items/categories/level_4_unique.txt:101
+msgid "Ardwen's Ring"
+msgstr "Ardwens Ring"
 
-#: ../items/categories/scrolls.txt:95
-msgid "Use: Resets all stat and power points"
-msgstr ""
+#: ../items/categories/level_4_unique.txt:102
+msgid "Lochport's finest."
+msgstr "Lochports finaste."
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Krigare Kedjehuva"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Ranger Kedjehuva"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Trollkarl Sidenhuva"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "Krigare Kedja Harnesk"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "Ranger Kedja Harnesk"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Trollkarl Sidenväst"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Krigare Kedjegrevar"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Ranger Kedjegrevar"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Trollkarl Sidenskjorta"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Krigare Kedjeskor"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Ranger Kedjeskor"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Trollkarl Sidenskor"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Krigare Kedjehandskar"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Ranger Kedjehandskar"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Trollkarl Sidenärmar"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Äventyrande Krigare Läderbälte"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "Äventyrande Ranger Hängsmycke"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "Äventyrande Trollkarl Trolldomsbok"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Krigare Långt svärd"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Ranger Lång båge"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Trollkarlens Trollstav"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Paladin Vapensköld"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Äventyrande Brandring"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Äventyrande Frysring"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "Äventyrande Stötring"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Äventyrande Dysterhet Ring"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Äventyrande Intellektuell Ring"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Äventyrande Lukrativ Ring"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Äventyrande Artefakt Ring"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3448,238 +3706,6 @@ msgstr "Vandrande Rikedom Ring"
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
 msgstr "Vandrande Skattring"
-
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Krigare Plåthjälm"
-
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Ranger Plåthjälm"
-
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Trollkarl Sammetshuva"
-
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Krigare Plåt Harnest"
-
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Ranger Plåt Harnest"
-
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Trollkarl Sammetsväst"
-
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Krigare Plåtgrevar"
-
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Ranger Plåtgrevar"
-
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Trollkarl Sammetskjorta"
-
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Krigare Plåtskor"
-
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Ranger Plåtskor"
-
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Trollkarl Sammetskor"
-
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Krigare Plåthandskar"
-
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Ranger Plåthandskar"
-
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Trollkarl Sammetsärmar"
-
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Äventyrande Krigschef Läderbälte"
-
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "Äventyrande Krypskytt Hängsmycke"
-
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "Äventyrande Stor Trollkarl Trolldomsbok"
-
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Krigare Stort svärd"
-
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Ranger Stor båge"
-
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Trollkarlens Stora trollstav"
-
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Paladin Tornsköld"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Äventyrande Inferno Ring"
-
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Äventyrande Glacial-Ring"
-
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "Äventyrande Volt Ring"
-
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Äventyrande Void-Ring"
-
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Äventyrande Forskningsring"
-
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Äventyrande Välståndsring"
-
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Äventyrande Gammal Ring"
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "Krigare Läderhuva"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "Ranger Läderhuva"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr "Trollkarl Ullhuva"
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "Krigare Tunika av läder"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "Ranger Tunika av läder"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr "Trollkarl Ullväst"
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "Krigare Läderbyxor"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "Ranger Läderbyxor"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr "Trollkarl Ullskjorta"
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "Krigare Läderskor"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "Ranger Läderskor"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr "Trollkarl Ullskor"
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "Krigare Läderhandskar"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "Ranger Läderhandskar"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr "Trollkarl Ullärmar"
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "Äventyrande Stridare Läderbälte"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "Äventyrande Spanare Hängsmycke"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "Äventyrande Svartkonstnär Trolldomsbok"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "Krigare Kort svärd"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "Ranger Kort båge"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "Trollkarl Stång"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "Paladin Buckler av järn"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr "Äventyrande Brännring"
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr "Äventyrande Frostring"
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr "Äventyrande Elektrisk Ring"
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr "Äventyrande Skuggring"
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr "Äventyrande Kunskapsring"
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr "Äventyrande Välståndsring"
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr "Äventyrande Plunder Ring"
 
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
@@ -3796,63 +3822,6 @@ msgstr "Vandrande Lukrativ Ring"
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "Vandrande Artefakt Ring"
-
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Fleshband"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "Slät vid beröring. När den bärs så gör den sig mer tajt runt fingret."
-
-#: ../items/categories/level_16_unique.txt:21
-msgid "Soulband"
-msgstr "Själband"
-
-#: ../items/categories/level_16_unique.txt:23
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr ""
-"Lyser när den bärs, den rensar bärarens huvud och tillåter dem att fokusera "
-"djupt."
-
-#: ../items/categories/level_16_unique.txt:38
-msgid "Underworld Cloak"
-msgstr "Undre världen Mantel"
-
-#: ../items/categories/level_16_unique.txt:51
-msgid "Underworld Platemail"
-msgstr "Undre världen Plåtväst"
-
-#: ../items/categories/level_16_unique.txt:64
-msgid "Underworld Boots"
-msgstr "Undre världen Skor"
-
-#: ../items/categories/level_16_unique.txt:77
-msgid "Underworld Armguards"
-msgstr "Undre världen Armskydd"
-
-#: ../items/categories/level_16_unique.txt:90
-msgid "Underworld Greaves"
-msgstr "Undre världen Grevar"
-
-#: ../items/categories/level_16_unique.txt:103
-msgid "Underworld Tome"
-msgstr "Undre världen Lunta"
-
-#: ../items/categories/level_16_unique.txt:115
-msgid "Underworld Blade"
-msgstr "Undre världen Blad"
-
-#: ../items/categories/level_16_unique.txt:128
-msgid "Underworld Bow"
-msgstr "Undre världen Båge"
-
-#: ../items/categories/level_16_unique.txt:141
-msgid "Underworld Sceptre"
-msgstr "Undre världen Spira"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -4025,6 +3994,271 @@ msgid ""
 msgstr ""
 "Enligt Florin så är detta det ända bläcket som kan användas i De Dödas Bok."
 
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Krigare Tyg skjorta"
+
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Ranger Tyg skjorta"
+
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Trollkarl Tyg skjorta"
+
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Krigare Tyg byxor"
+
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Ranger Tyg byxor"
+
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Trollkarl Tyg byxor"
+
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Krigare Tyg sandaler"
+
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Ranger Tyg sandaler"
+
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Trollkarl Tyg sandaler"
+
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Krigare Tyghandskar"
+
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Krigare Tyghandskar"
+
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Trollkarl Tyghandskar"
+
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Äventyrande Läderbälte"
+
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Äventyrande Hängsmycke"
+
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Äventyrande Trolldomsbok"
+
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Krigare Dolk"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Ranger Slangbella"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Trollkarlens Stav"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Paladin Buckler av träd"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Äventyrande Eldring"
+
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Äventyrande Isring"
+
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Äventyrande Blixt ring"
+
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Äventyrande Mörk Ring"
+
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Äventyrande Erfarenhetsring"
+
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Äventyrande Rikedomsring"
+
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Äventyrande Skattring"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Krigare Läderhuva"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Ranger Läderhuva"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "Trollkarl Ullhuva"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Krigare Tunika av läder"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Ranger Tunika av läder"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "Trollkarl Ullväst"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Krigare Läderbyxor"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Ranger Läderbyxor"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "Trollkarl Ullskjorta"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Krigare Läderskor"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Ranger Läderskor"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "Trollkarl Ullskor"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Krigare Läderhandskar"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Ranger Läderhandskar"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "Trollkarl Ullärmar"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Äventyrande Stridare Läderbälte"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Äventyrande Spanare Hängsmycke"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Äventyrande Svartkonstnär Trolldomsbok"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Krigare Kort svärd"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Ranger Kort båge"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "Trollkarl Stång"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Paladin Buckler av järn"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "Äventyrande Brännring"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "Äventyrande Frostring"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "Äventyrande Elektrisk Ring"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "Äventyrande Skuggring"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "Äventyrande Kunskapsring"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "Äventyrande Välståndsring"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "Äventyrande Plunder Ring"
+
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Använd: Kalla en zombie att strida för dig"
+
+#: ../items/categories/scrolls.txt:19
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Använd: Teleportera till Perdition-hamnen"
+
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Använd: Skapa en magisk sköld som absorberar skada"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr "Använd: Skjut en eldboll"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr "Använd: Skjut en ispil"
+
+#: ../items/categories/scrolls.txt:63
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Använd: Förflytta dig snabbare under begränsad tid"
+
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Använd: Ta bort debuffs och bli immun mot debuffs under en begränsad tid"
+
+#: ../items/categories/scrolls.txt:85
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Använd: Skapar en magisk sköld som reflekterar projektiler och skada under "
+"begränsad tid"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
+
 #: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Mortel och mortelstöt"
@@ -4032,297 +4266,6 @@ msgstr "Mortel och mortelstöt"
 #: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr "Använd tomma flaskor och diverse ingredienser för att skapa drycker."
-
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Krolans Hammare"
-
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Ett nödvändigt redskap för alla smeder."
-
-#: ../items/categories/level_4_unique.txt:19
-msgid "Goblin Branch"
-msgstr "Troll Gren"
-
-#: ../items/categories/level_4_unique.txt:20
-msgid "Mana flows inside its primitive exterior."
-msgstr "Mana strömmar inne i dess primitiva utsida."
-
-#: ../items/categories/level_4_unique.txt:36
-msgid "Ardwen's Gloves"
-msgstr "Ardwens Handskar"
-
-#: ../items/categories/level_4_unique.txt:37
-msgid "These hands built a village."
-msgstr "Dessa händer byggde en by."
-
-#: ../items/categories/level_4_unique.txt:53
-msgid "Blood Tunic"
-msgstr "Blod Tunika"
-
-#: ../items/categories/level_4_unique.txt:54
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "När den bärs så värmer denna skjorta bärarens ådor."
-
-#: ../items/categories/level_4_unique.txt:69
-msgid "Dark Steppers"
-msgstr "Mörka Stigare"
-
-#: ../items/categories/level_4_unique.txt:70
-msgid "Dancing through the shadows."
-msgstr "Dansar igenom skuggorna."
-
-#: ../items/categories/level_4_unique.txt:84
-msgid "Seagate's Tri-pants"
-msgstr "Seagates Tri-byxor"
-
-#: ../items/categories/level_4_unique.txt:85
-msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
-msgstr ""
-"Dessa ojämna byxor är täckta i brännmärken men är ändå kall till känno."
-
-#: ../items/categories/level_4_unique.txt:101
-msgid "Ardwen's Ring"
-msgstr "Ardwens Ring"
-
-#: ../items/categories/level_4_unique.txt:102
-msgid "Lochport's finest."
-msgstr "Lochports finaste."
-
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Krigschef Plåthjälm"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Krypskytt Plåthjälm"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Stor trollkarl Sammetshuva"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Krigschef Plåt Harnest"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Krypskytt Plåt Harnest"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Stor trollkarl Sammetsväst"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Krigschef Plåtgrevar"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Krypskytt Plåtgrevar"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Stor tollkarl Sammetskjorta"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Krigschef Plåtskor"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Krypskytt Plåtskor"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Stor trollkarl Sammetskor"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Krigschef Plåthandskar"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Krypskytt Plåthandskar"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Stor trollkarl Sammetsärmar"
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "Mästare Krigschef Läderbälte"
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "Mästare Krypskytt Hängsmycke"
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "Mästare Stor Trollkarl Trolldomsbok"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Krigschef Stort svärd"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Krypskytt Stor båge"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Stora Trollkarlens Stora trollstav"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Templar Tornsköld"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Mästare Inferno-Ring"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Mästare Glacial-Ring"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Mästare Volt Ring"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Mästare Void-Ring"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Mästare Forskningsring"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Mästare Välståndsring"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Mästare Gammal Ring"
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Krigare Kedjehuva"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Ranger Kedjehuva"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "Trollkarl Sidenhuva"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr "Krigare Kedja Harnesk"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr "Ranger Kedja Harnesk"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "Trollkarl Sidenväst"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Krigare Kedjegrevar"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Ranger Kedjegrevar"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "Trollkarl Sidenskjorta"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Krigare Kedjeskor"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Ranger Kedjeskor"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "Trollkarl Sidenskor"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Krigare Kedjehandskar"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Ranger Kedjehandskar"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "Trollkarl Sidenärmar"
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr "Äventyrande Krigare Läderbälte"
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr "Äventyrande Ranger Hängsmycke"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr "Äventyrande Trollkarl Trolldomsbok"
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Krigare Långt svärd"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Ranger Lång båge"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "Trollkarlens Trollstav"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "Paladin Vapensköld"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "Äventyrande Brandring"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "Äventyrande Frysring"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "Äventyrande Stötring"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "Äventyrande Dysterhet Ring"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "Äventyrande Intellektuell Ring"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "Äventyrande Lukrativ Ring"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "Äventyrande Artefakt Ring"
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4379,6 +4322,122 @@ msgstr "Trollstav"
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
 msgstr "Vapensköld"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Krigschef Läderhuva"
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Krypskytt Läderhuva"
+
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Stor trollkarl ullhuva"
+
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Krigschef Tunika av läder"
+
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Krypskytt Tunika av läder"
+
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Stor tollkarl ullväst"
+
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Krigschef Läderbyxor"
+
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Krypskytt Läderbyxor"
+
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Stor trollkarl ullskjorta"
+
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Krigschef Läderskor"
+
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Krypskytt Läderskor"
+
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Stor trollkarl ullskor"
+
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Krigschef Läderhandskar"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Krypskytt Läderhandskar"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Stor trollkarl ullärmar"
+
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Mästarstridare Läderbälte"
+
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Mästare Spanare Hängsmycke"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Mästare Svartkonstnär Trolldomsbok"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Krigschef Kort svärd"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Krypskytt Kort båge"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Stor trollkarl stång"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Templar Buckler av järn"
+
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Mästare Brännring"
+
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Mästare Frostring"
+
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Mästare Elektrisk ring"
+
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Mästare Skuggring"
+
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Mästare Kunskapsring"
+
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Mästare Välståndsring"
+
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Mästare Plunder ring"
 
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
@@ -4496,225 +4555,153 @@ msgstr "Vandrande Välståndsring"
 msgid "Wandering Loot Ring"
 msgstr "Vandrande Plunder Ring"
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Krigare Tyg skjorta"
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Krigare Plåthjälm"
 
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Ranger Tyg skjorta"
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Ranger Plåthjälm"
 
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Trollkarl Tyg skjorta"
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Trollkarl Sammetshuva"
 
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Krigare Tyg byxor"
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Krigare Plåt Harnest"
 
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Ranger Tyg byxor"
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Ranger Plåt Harnest"
 
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Trollkarl Tyg byxor"
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Trollkarl Sammetsväst"
 
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Krigare Tyg sandaler"
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Krigare Plåtgrevar"
 
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Ranger Tyg sandaler"
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Ranger Plåtgrevar"
 
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Trollkarl Tyg sandaler"
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Trollkarl Sammetskjorta"
 
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Krigare Tyghandskar"
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Krigare Plåtskor"
 
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Krigare Tyghandskar"
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Ranger Plåtskor"
 
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Trollkarl Tyghandskar"
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Trollkarl Sammetskor"
 
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "Äventyrande Läderbälte"
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Krigare Plåthandskar"
 
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "Äventyrande Hängsmycke"
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Ranger Plåthandskar"
 
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "Äventyrande Trolldomsbok"
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Trollkarl Sammetsärmar"
 
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Krigare Dolk"
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Äventyrande Krigschef Läderbälte"
 
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Ranger Slangbella"
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Äventyrande Krypskytt Hängsmycke"
 
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Trollkarlens Stav"
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Äventyrande Stor Trollkarl Trolldomsbok"
 
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Paladin Buckler av träd"
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Krigare Stort svärd"
 
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Äventyrande Eldring"
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Ranger Stor båge"
 
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Äventyrande Isring"
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Trollkarlens Stora trollstav"
 
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Äventyrande Blixt ring"
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Paladin Tornsköld"
 
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Äventyrande Mörk Ring"
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Äventyrande Inferno Ring"
 
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Äventyrande Erfarenhetsring"
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Äventyrande Glacial-Ring"
 
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Äventyrande Rikedomsring"
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Äventyrande Volt Ring"
 
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Äventyrande Skattring"
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Äventyrande Void-Ring"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Krigschef Kedjehuva"
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Äventyrande Forskningsring"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Krypskytt Kedjehuva"
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Äventyrande Välståndsring"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Stor trollkarl Sidenhuva"
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Äventyrande Gammal Ring"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Krigschef Kedja Harnesk"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Tyg skjorta"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Krypskytt Kedja Harnesk"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Tyg byxor"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Stor trollkarl Sidenväst"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Tyg sandaler"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Krigschef Kedjegrevar"
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Tyghandskar"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Krypskytt Kedjegrevar"
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Dolk"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Stor trollkarl Sidenskjorta"
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Slangbella"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Krigschef Kedjeskor"
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Trollstav"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Krypskytt Kedjeskor"
-
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Stor trollkarl Sidenskor"
-
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Krigschef Kedjehandskar"
-
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Krypskytt Kedjehandskar"
-
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Stor trollkarl Sidenärmar"
-
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Mästare Krigare Läderbälte"
-
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Mästare Ranger Hängsmycke"
-
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Mästare Trollkarl Trolldomsbok"
-
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Krigschef Långt svärd"
-
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Krypskytt Lång båge"
-
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Stora trollkarlens Trollstav"
-
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Templar Vapensköld"
-
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Mästare Brandring"
-
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Mästare Frysring"
-
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Mästare Stötring"
-
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Mästare Dysterhet Ring"
-
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Mästare Intellektuell Ring"
-
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Mästare Lukrativ Ring"
-
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Mästare Artefakt Ring"
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Buckler i träd"
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4764,6 +4751,103 @@ msgstr "Mezs Handinledningar"
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "Med dess lager av reptilskinn så kan inte mycket penetrera denna rustning."
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Fleshband"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "Slät vid beröring. När den bärs så gör den sig mer tajt runt fingret."
+
+#: ../items/categories/level_16_unique.txt:21
+msgid "Soulband"
+msgstr "Själband"
+
+#: ../items/categories/level_16_unique.txt:23
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Lyser när den bärs, den rensar bärarens huvud och tillåter dem att fokusera "
+"djupt."
+
+#: ../items/categories/level_16_unique.txt:38
+msgid "Underworld Cloak"
+msgstr "Undre världen Mantel"
+
+#: ../items/categories/level_16_unique.txt:51
+msgid "Underworld Platemail"
+msgstr "Undre världen Plåtväst"
+
+#: ../items/categories/level_16_unique.txt:64
+msgid "Underworld Boots"
+msgstr "Undre världen Skor"
+
+#: ../items/categories/level_16_unique.txt:77
+msgid "Underworld Armguards"
+msgstr "Undre världen Armskydd"
+
+#: ../items/categories/level_16_unique.txt:90
+msgid "Underworld Greaves"
+msgstr "Undre världen Grevar"
+
+#: ../items/categories/level_16_unique.txt:103
+msgid "Underworld Tome"
+msgstr "Undre världen Lunta"
+
+#: ../items/categories/level_16_unique.txt:115
+msgid "Underworld Blade"
+msgstr "Undre världen Blad"
+
+#: ../items/categories/level_16_unique.txt:128
+msgid "Underworld Bow"
+msgstr "Undre världen Båge"
+
+#: ../items/categories/level_16_unique.txt:141
+msgid "Underworld Sceptre"
+msgstr "Undre världen Spira"
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Återställ 25% av maximal LP"
+
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "Återställ 25% av maximal MP"
+
+#: ../items/categories/potions.txt:31
+msgid "Temporarily increase regeneration and movement speed"
+msgstr "Ökar temporärligt regeneration och rörelsehastighet"
+
+#: ../items/categories/potions.txt:43
+msgid "Restore 25% of both HP and MP"
+msgstr "Återställ 25% av både LP och MP"
+
+#: ../items/categories/potions.txt:55
+msgid "Temporarily increases the ability to find items and gold"
+msgstr "Ökar temprärligt förmågan att hitta föremål och guld"
+
+#: ../items/categories/potions.txt:67
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr "Ökar temporärligt motståndet mot all sorts magi med 50%"
+
+#: ../items/categories/potions.txt:79
+msgid "Restore 50% of maximum HP"
+msgstr "Återställ 50% av maximal LP"
+
+#: ../items/categories/potions.txt:91
+msgid "Restore 75% of maximum HP"
+msgstr "Återställ 75% av maximal LP"
+
+#: ../items/categories/potions.txt:103
+msgid "Restore 50% of maximum MP"
+msgstr "Återställ 50% av maximal MP"
+
+#: ../items/categories/potions.txt:115
+msgid "Restore 75% of maximum MP"
+msgstr "Återställ 75% av maximal MP"
 
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
@@ -4818,354 +4902,109 @@ msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr ""
 "När denna klubba svingas runt så lämnas ett moln av mörk rök bakom den."
 
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Återställ 25% av maximal LP"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "Återställ 25% av maximal MP"
-
-#: ../items/categories/potions.txt:31
-msgid "Temporarily increase regeneration and movement speed"
-msgstr "Ökar temporärligt regeneration och rörelsehastighet"
-
-#: ../items/categories/potions.txt:43
-msgid "Restore 25% of both HP and MP"
-msgstr "Återställ 25% av både LP och MP"
-
-#: ../items/categories/potions.txt:55
-msgid "Temporarily increases the ability to find items and gold"
-msgstr "Ökar temprärligt förmågan att hitta föremål och guld"
-
-#: ../items/categories/potions.txt:67
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr "Ökar temporärligt motståndet mot all sorts magi med 50%"
-
-#: ../items/categories/potions.txt:79
-msgid "Restore 50% of maximum HP"
-msgstr "Återställ 50% av maximal LP"
-
-#: ../items/categories/potions.txt:91
-msgid "Restore 75% of maximum HP"
-msgstr "Återställ 75% av maximal LP"
-
-#: ../items/categories/potions.txt:103
-msgid "Restore 50% of maximum MP"
-msgstr "Återställ 50% av maximal MP"
-
-#: ../items/categories/potions.txt:115
-msgid "Restore 75% of maximum MP"
-msgstr "Återställ 75% av maximal MP"
-
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
-msgstr "Stridande Plåthjälm"
-
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
-msgstr "Spanare Plåthjälm"
-
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr "Svartkonstnär Sammetshuva"
-
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "Stridande Plåt Harnesk"
-
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "Spanare Plåt Harnest"
-
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr "Svartkonstnär Sammetsväst"
-
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "Stridande Plåtgrevar"
-
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "Spanare Plåtgrevar"
-
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr "Svartkonstnär Sammetskjorta"
-
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "Stridande Plåtskor"
-
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "Spanare Plåtskor"
-
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr "Svartkonstnär Sammetskor"
-
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "Stridande Plåthandskar"
-
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "Spanare Plåtgrevar"
-
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr "Svartkonstnär Sammetärmar"
-
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr "Vandrande Krigschef Läderbälte"
-
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr "Vandrande Krypskytt Hängsmycke"
-
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr "Vandrande Stor Trollkarl Trolldomsbok"
-
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "Stridande Storsvärd"
-
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "Spanare Stor båge"
-
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr "Svartkonstnärens Stora trollstav"
-
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "Vårdare Tornsköld"
-
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr "Vandrande Inferno-Ring"
-
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr "Vandrande Glacial-Ring"
-
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr "Vandrande Volt Ring"
-
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr "Vandrande Void-Ring"
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr "Vandrande Forskningsring"
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr "Vandrande Välståndsring"
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
-msgstr "Vandrande Gammal Ring"
-
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Bränn"
-
-#: ../powers/base/magician/burn.txt:4
-msgid ""
-"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
-"a severe burn that makes enemies very weak to fire damage."
-msgstr ""
-
-#: ../powers/base/magician/energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Energiflöde"
-
-#: ../powers/base/magician/energy_flow.txt:2
-msgid "Mana reserves are increased and regenerate faster."
-msgstr "Mana-reserver ökas och regenererar snabbare."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Brandboll"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Skjut iväg en boll av eld som gör extra mental skada."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Blixtnedslag"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
-" that has a chance of stunning other enemies."
-msgstr ""
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Skapa ett kraftfält som absorberar skada."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Shock"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr ""
-"Skjut iväg en boll av el som är extra effektiv mot rörelsehindrade fiender."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Ispil"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Skjuter iväg en bit is som saktar ner fiender."
-
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Frys"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid ""
-"Create a ray of several piercing cold shards that slow enemies. Shards have "
-"a chance of shattering into a cloud of frost that makes enemies weak to ice "
-"damage."
-msgstr ""
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Skak"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Knuffa tillbaka nära fiender med en chans att shocka dem."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Blodattack"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Dela ut en kraftfull smäll som skapare ett blödande sår."
-
-#: ../powers/base/warrior/throw_knife.txt:1
-msgid "Throw Knife"
-msgstr "Kastbar Kniv"
-
-#: ../powers/base/warrior/throw_knife.txt:2
-msgid ""
-"Throw a knife to deal reduced melee weapon damage. High accuracy and "
-"critical rate."
-msgstr ""
-
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Stenvägg"
-
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr "Motstå starkare attacker med mer liv och absorbtion."
-
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Sköldattack"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Rusa in i fienden och krossa dem med ren styrka."
-
-#: ../powers/base/warrior/cleave.txt:1
-msgid "Cleave"
-msgstr "Klyv"
-
-#: ../powers/base/warrior/cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Attackera alla fiender i en bred båge."
-
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Kastbar Yxa"
-
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Kasta en yxa för att göra ökad närdistansvapen skada."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Krigsvrål"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr "Tar bort debuffs och blir immun mot debuffs under en begränsad tid."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Björnfälla"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid ""
-"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
-" chance to inflict bleeding."
-msgstr ""
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Multi-skott"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot multiple projectiles in an arc simultaneously."
-msgstr ""
-
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Vargens Öga"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "Förbättrar förmågan att träffa och kritiskt skada fiender."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Snabbeld"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Skjut snabbt fem missiler med lägre effekt."
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Skjut"
-
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Simpel distansattack."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Förflytta dig snabbare under begränsad tid."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Glödskott"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies. Inflicts a burn that makes enemies weaker to fire damage."
-msgstr ""
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Krigschef Tyg Skjorta"
+
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Krypskytt Tyg Skjorta"
+
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Stor trollkarl Tyg Skjorta"
+
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Krigschef Tyg Byxor"
+
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Krypskytt Tyg Byxor"
+
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Stor trollkarl Tyg Byxor"
+
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Krigschef Tyg Sandaler"
+
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Krypskytt Tyg Sandaler"
+
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Stor tollkarl Tyg Sandaler"
+
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Krigschef Tyghandskar"
+
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Krypskytt Tyghandskar"
+
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Stor Tollkarl Tyghandskar"
+
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Mästare Läderbälte"
+
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Mästare Hängsmycke"
+
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Mästare Trolldomsbok"
+
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Krigschef Dolk"
+
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Krypskytt Slangbella"
+
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Stor trollkarl stav"
+
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Templar-Bucklare i träd"
+
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Mästare Eldring"
+
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Mästare Isring"
+
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Mästare Blixt ring"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Mästare Mörk Ring"
+
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Mästare Erfarenhet ring"
+
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Mästare Rikedom ring"
+
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Mästare Skattring"
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -5186,6 +5025,199 @@ msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr ""
 "Skjuter ett skott som ignorerar rustning och går igenom flertal fiender."
 
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Skjut"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Simpel distansattack."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Vargens Öga"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "Förbättrar förmågan att träffa och kritiskt skada fiender."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Förflytta dig snabbare under begränsad tid."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Multi-skott"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Björnfälla"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr ""
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Glödskott"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
+msgstr ""
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Snabbeld"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Skjut snabbt fem missiler med lägre effekt."
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Bränn"
+
+#: ../powers/base/magician/burn.txt:4
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Energiflöde"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
+msgstr "Mana-reserver ökas och regenererar snabbare."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Skapa ett kraftfält som absorberar skada."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Shock"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Skjut iväg en boll av el som är extra effektiv mot rörelsehindrade fiender."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Frys"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Ispil"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Skjuter iväg en bit is som saktar ner fiender."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Blixtnedslag"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
+msgstr ""
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Brandboll"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Skjut iväg en boll av eld som gör extra mental skada."
+
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Kastbar Kniv"
+
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Blodattack"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Dela ut en kraftfull smäll som skapare ett blödande sår."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Krigsvrål"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "Tar bort debuffs och blir immun mot debuffs under en begränsad tid."
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Klyv"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Attackera alla fiender i en bred båge."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Kastbar Yxa"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Kasta en yxa för att göra ökad närdistansvapen skada."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Sköldattack"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Rusa in i fienden och krossa dem med ren styrka."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Skak"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Knuffa tillbaka nära fiender med en chans att shocka dem."
+
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Stenvägg"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr "Motstå starkare attacker med mer liv och absorbtion."
+
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
 msgstr "Kanal"
@@ -5193,6 +5225,13 @@ msgstr "Kanal"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Simpel magisk attack."
+
+#: ../powers/categories/quest.txt:4
+msgid ""
+"Performing the ritual at the Red Altar has granted you faster regeneration."
+msgstr ""
+"Utförandet av ritualen vid den Röda Altaren har gett dig snabbare "
+"regneration."
 
 #: ../powers/categories/items.txt:67
 msgid ""
@@ -5206,13 +5245,6 @@ msgid ""
 "by performing a basic attack."
 msgstr ""
 
-#: ../powers/categories/quest.txt:4
-msgid ""
-"Performing the ritual at the Red Altar has granted you faster regeneration."
-msgstr ""
-"Utförandet av ritualen vid den Röda Altaren har gett dig snabbare "
-"regneration."
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Svinga"
@@ -5225,13 +5257,13 @@ msgstr "Simpel närdistansattack."
 msgid "Magician"
 msgstr "Magisk"
 
-#: ../scripts/dev/waypoints_unlock.txt:14
-msgid "Unlocked all waypoints"
-msgstr "Låste upp alla vägpunkter"
-
 #: ../scripts/dev/waypoints_lock.txt:14
 msgid "Locked all waypoints"
 msgstr "Låste alla vägpunkter"
+
+#: ../scripts/dev/waypoints_unlock.txt:14
+msgid "Unlocked all waypoints"
+msgstr "Låste upp alla vägpunkter"
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
 msgid "It's locked."

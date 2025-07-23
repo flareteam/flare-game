@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 10:49+\n"
+"POT-Creation-Date: 2025-07-23 08:38+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Justin Jacobs <jajdorkster@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/flareorg/teams/84925/vi/)\n"
@@ -150,22 +150,6 @@ msgstr "Tàng Hình"
 #: ../powers/powers.txt:54
 msgid "Remove Invisibility"
 msgstr "Hữu Hình"
-
-#: ../engine/elements.txt:3
-msgid "Fire"
-msgstr "Hỏa"
-
-#: ../engine/elements.txt:7
-msgid "Ice"
-msgstr "Băng"
-
-#: ../engine/elements.txt:11
-msgid "Lightning"
-msgstr "Lôi"
-
-#: ../engine/elements.txt:15
-msgid "Dark"
-msgstr "Hắc"
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -349,6 +333,54 @@ msgstr "Ném Rìu"
 
 #: ../engine/damage_types.txt:5
 msgid "Scroll Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:16
+msgid "Fire Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:17
+msgid "Fire"
+msgstr "Hỏa"
+
+#: ../engine/damage_types.txt:18
+msgid "Adds elemental fire damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:25
+msgid "Ice Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:26
+msgid "Ice"
+msgstr "Băng"
+
+#: ../engine/damage_types.txt:27
+msgid "Adds elemental ice damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:34
+msgid "Lightning Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:35
+msgid "Lightning"
+msgstr "Lôi"
+
+#: ../engine/damage_types.txt:36
+msgid "Adds elemental lightning damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:43
+msgid "Dark Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:44
+msgid "Dark"
+msgstr "Hắc"
+
+#: ../engine/damage_types.txt:45
+msgid "Adds elemental dark damage to non-elemental attacks."
 msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
@@ -955,17 +987,17 @@ msgstr "Tiểu Yêu Động (#2)"
 msgid "Gravestone"
 msgstr "Thạch Mộ"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
 msgid "Halls of Infinity"
 msgstr "Hội Trường Vô Cực"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
-msgid "Mine Cart"
-msgstr "Xe Thồ Khoáng"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Măng Thạch Trụ"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
+msgid "Mine Cart"
+msgstr "Xe Thồ Khoáng"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1761,86 +1793,61 @@ msgstr "Tiếp Tục Đi Qua Hội Trường Vô Cực"
 msgid "Return to Underworld Stronghold"
 msgstr "Trở Lại Pháo Đài Hàn Ma Giới"
 
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "Abasi, Thương Gia"
-
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "Nhật Kí"
-
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "Có Tin Vui Về Nhật Kí Của Ta?"
-
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "Vẫn Chưa."
-
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "Đây Là Nhật Kí Của Người."
-
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "Tuyệt Vời! Ta Đã Coi Nó Mãi Mãi Bị Mất Vào Thời Điểm Này."
-
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
 msgstr ""
-"Ta Đang Nợ Người. Xin Vui Lòng Lấy Món Đồ Này Như Một Phần Thưởng Cho Người."
 
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "Không Có Lòng Thương Xót Nào Đối Với Những Tên Lùn Ăn Cắp."
-
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
 msgstr ""
-"Hãy Cẩn Thận Trên Những Con Đường Này. Những Con Yêu Tinh Không Chỉ Mang Lại"
-" Rắc Rối."
 
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "Cám Ơn Đã Cảnh Báo."
-
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "Đó Là Điều Duy Nhất Ta Có Thể Làm."
-
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
 msgstr ""
-"Khi Ta Thức Dậy Sáng Nay, Nhật Kí Của Ta Đã Biến Mất. Chắc Chắn Một Trong "
-"Những Sinh Vật Màu Xanh Bẩn Thỉu Đó Đã Lấy Nó Từ Ta."
 
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
 msgstr ""
-"Nếu Người Thấy Nhật Kí Của Ta Trong Chuyến Đi Của Người, Vui Lòng Trả Lại "
-"Cho Ta."
 
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "Chúc Mừng, Lãng Khách."
-
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
 msgstr ""
-"Đánh Giá Từ Sự Xuất Hiện Của Người, Người Đã Không Còn Lạ Gì Với Một Hành "
-"Trình Dài. Vì Lý Do Đó, Ta Mong Người Chú Ý Tới Nhật Kí Mất Tích Của Ta."
 
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
 msgstr ""
-"Lần Đầu Tiên Ta Nhận Thấy Nó Đã Mất Tích Sau Một Đêm Cắm Trại Gần Tiểu Yêu "
-"Động. Ta Tìm Kiếm Một Thời Gian, Nhưng Cuối Cùng Quyết Định Rời Khỏi."
+
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr ""
+
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr ""
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1938,114 +1945,6 @@ msgstr ""
 msgid "Level 20"
 msgstr ""
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
-msgstr ""
-
-#: ../npcs/base/dev_tome/items.txt:2
-msgid "Give items"
-msgstr "Tặng Vật Phẩm"
-
-#: ../npcs/base/dev_tome/items.txt:20
-msgid "Potions"
-msgstr "Bình Thuốc"
-
-#: ../npcs/base/dev_tome/items.txt:33
-msgid "Health Potion"
-msgstr "Bình Sinh Lực (Tiểu)"
-
-#: ../npcs/base/dev_tome/items.txt:39
-msgid "Mana Potion"
-msgstr "Bình Nội Lực (Tiểu)"
-
-#: ../npcs/base/dev_tome/items.txt:51
-msgid "Restoration Potion"
-msgstr "Bình Phục Hồi"
-
-#: ../npcs/base/dev_tome/items.txt:69
-msgid "Scrolls"
-msgstr "Bùa Phép"
-
-#: ../npcs/base/dev_tome/items.txt:84
-msgid "Summon Zombie Scroll"
-msgstr "Thuật Chiêu Hồn"
-
-#: ../npcs/base/dev_tome/items.txt:90
-msgid "Perdition Scroll"
-msgstr "Thuật Hồi Thành"
-
-#: ../npcs/base/dev_tome/items.txt:96
-msgid "Shield Scroll"
-msgstr "Thuật Kết Giới"
-
-#: ../npcs/base/dev_tome/items.txt:114
-msgid "Haste Scroll"
-msgstr "Thuật Phi Tốc"
-
-#: ../npcs/base/dev_tome/items.txt:120
-msgid "Immunity Scroll"
-msgstr "Thuật Miễn Dịch"
-
-#: ../npcs/base/dev_tome/items.txt:126
-msgid "Reflection Scroll"
-msgstr "Thuật Phản Đạn"
-
-#: ../npcs/base/dev_tome/items.txt:132
-msgid "Underworld Set (with rings)"
-msgstr "Hoàng Kim Cửu Đỉnh (Kèm Nhẫn)"
-
 #: ../npcs/base/dev_tome/teleport.txt:17
 msgid "Introduction"
 msgstr ""
@@ -2105,6 +2004,139 @@ msgstr ""
 #: ../npcs/base/dev_tome/teleport.txt:473
 msgid "Halls of Infinity: 10"
 msgstr ""
+
+#: ../npcs/base/dev_tome/items.txt:2
+msgid "Give items"
+msgstr "Tặng Vật Phẩm"
+
+#: ../npcs/base/dev_tome/items.txt:20
+msgid "Potions"
+msgstr "Bình Thuốc"
+
+#: ../npcs/base/dev_tome/items.txt:33
+msgid "Health Potion"
+msgstr "Bình Sinh Lực (Tiểu)"
+
+#: ../npcs/base/dev_tome/items.txt:39
+msgid "Mana Potion"
+msgstr "Bình Nội Lực (Tiểu)"
+
+#: ../npcs/base/dev_tome/items.txt:51
+msgid "Restoration Potion"
+msgstr "Bình Phục Hồi"
+
+#: ../npcs/base/dev_tome/items.txt:69
+msgid "Scrolls"
+msgstr "Bùa Phép"
+
+#: ../npcs/base/dev_tome/items.txt:84
+msgid "Summon Zombie Scroll"
+msgstr "Thuật Chiêu Hồn"
+
+#: ../npcs/base/dev_tome/items.txt:90
+msgid "Perdition Scroll"
+msgstr "Thuật Hồi Thành"
+
+#: ../npcs/base/dev_tome/items.txt:96
+msgid "Shield Scroll"
+msgstr "Thuật Kết Giới"
+
+#: ../npcs/base/dev_tome/items.txt:114
+msgid "Haste Scroll"
+msgstr "Thuật Phi Tốc"
+
+#: ../npcs/base/dev_tome/items.txt:120
+msgid "Immunity Scroll"
+msgstr "Thuật Miễn Dịch"
+
+#: ../npcs/base/dev_tome/items.txt:126
+msgid "Reflection Scroll"
+msgstr "Thuật Phản Đạn"
+
+#: ../npcs/base/dev_tome/items.txt:132
+msgid "Underworld Set (with rings)"
+msgstr "Hoàng Kim Cửu Đỉnh (Kèm Nhẫn)"
+
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr ""
+"Hãy Cẩn Thận Trên Những Con Đường Này. Những Con Yêu Tinh Không Chỉ Mang Lại"
+" Rắc Rối."
+
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "Cám Ơn Đã Cảnh Báo."
+
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "Đó Là Điều Duy Nhất Ta Có Thể Làm."
+
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr ""
+"Khi Ta Thức Dậy Sáng Nay, Nhật Kí Của Ta Đã Biến Mất. Chắc Chắn Một Trong "
+"Những Sinh Vật Màu Xanh Bẩn Thỉu Đó Đã Lấy Nó Từ Ta."
+
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr ""
+"Nếu Người Thấy Nhật Kí Của Ta Trong Chuyến Đi Của Người, Vui Lòng Trả Lại "
+"Cho Ta."
+
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, Thương Gia"
+
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "Nhật Kí"
+
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "Có Tin Vui Về Nhật Kí Của Ta?"
+
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "Vẫn Chưa."
+
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "Đây Là Nhật Kí Của Người."
+
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Tuyệt Vời! Ta Đã Coi Nó Mãi Mãi Bị Mất Vào Thời Điểm Này."
+
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr ""
+"Ta Đang Nợ Người. Xin Vui Lòng Lấy Món Đồ Này Như Một Phần Thưởng Cho Người."
+
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "Không Có Lòng Thương Xót Nào Đối Với Những Tên Lùn Ăn Cắp."
+
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "Chúc Mừng, Lãng Khách."
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+"Đánh Giá Từ Sự Xuất Hiện Của Người, Người Đã Không Còn Lạ Gì Với Một Hành "
+"Trình Dài. Vì Lý Do Đó, Ta Mong Người Chú Ý Tới Nhật Kí Mất Tích Của Ta."
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"Lần Đầu Tiên Ta Nhận Thấy Nó Đã Mất Tích Sau Một Đêm Cắm Trại Gần Tiểu Yêu "
+"Động. Ta Tìm Kiếm Một Thời Gian, Nhưng Cuối Cùng Quyết Định Rời Khỏi."
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2944,109 +2976,121 @@ msgstr ""
 msgid "No subjects asked to take the test today."
 msgstr "Hôm Nay Chẳng Có Cá Nhân Nào Yêu Cầu Được Thử Thách."
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải Tể Tướng"
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "Mũ Cát Thiết Chiến Đấu"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải Xạ Thủ"
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "Mũ Cát Thiết Trinh Sát"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải Pháp Sư"
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "Mũ Trùm Nhung Phù Thủy"
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Quần Tây Vải Tể Tướng"
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "Áo Giáp Thiết Chiến Đấu"
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Quần Tây Vải Xạ Thủ"
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "Áo Giáp Thiết Trinh Sát"
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Quần Tây Vải Pháp Sư"
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "Áo Gi-Lê Nhung Phù Thủy"
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Dép Râu Vải Tể Tướng"
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "Xà Cạp Thiết Chiến Đấu"
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Dép Râu Vải Xạ Thủ"
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "Xà Cạp Thiết Trinh Sát"
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Dép Râu Vải Pháp Sư"
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "Váy Nhung Phù Thủy"
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Găng Tay Vải Tể Tướng"
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "Ủng Thiết Chiến Đấu"
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Găng Tay Vải Xạ Thủ"
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "Ủng Thiết Trinh Sát"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Găng Tay Vải Pháp Sư"
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "Ủng Nhung Phù Thủy"
 
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Đai Lưng Lông Tinh Hoa"
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "Bao Tay Thiết Chiến Đấu"
 
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Dây Chuyền Tinh Hoa"
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "Bao Tay Thiết Trinh Sát"
 
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Sách Phép Tinh Hoa"
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "Ống Tay Nhung Phù Thủy"
 
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Dao Găm Tể Tướng"
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "Đai Lưng Lông Tể Tướng Du Mục"
 
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Chạc Ná Xạ Thủ"
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "Dây Chuyền Xạ Thủ Du Mục"
 
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Đũa Phép Pháp Sư"
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "Sách Phép Pháp Sư Du Mục"
 
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Thuẫn Mộc Đền Thánh"
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "Đại Đao Chiến Đấu"
 
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Nhẫn Hỏa Tốc Tinh Hoa"
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "Trọng Pháo Trinh Sát"
 
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Nhẫn Băng Tuyết Tinh Hoa"
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "Quyền Trượng Phù Thủy"
 
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Nhẫn Lôi Lạc Tinh Hoa"
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Khiên Tháp Giám Thị"
 
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Nhẫn Hắc Ám Tinh Hoa"
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "Nhẫn Hỏa Diệm Du Mục"
 
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Nhẫn Kinh Nghiệm Tinh Hoa"
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "Nhẫn Băng Hà Du Mục"
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Nhẫn Giàu Sang Tinh Hoa"
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "Nhẫn Lôi Chấn Du Mục"
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "Nhẫn Châu Báu Tinh Hoa"
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "Nhẫn Tịch Tà Du Mục"
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "Nhẫn Học Giả Du Mục"
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "Nhẫn Thịnh Vượng Du Mục"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "Nhẫn Thánh Tích Du Mục"
 
 #: ../items/categories/level_5.txt:5
 msgid "Leather Hood"
@@ -3104,6 +3148,122 @@ msgstr "Gậy Phép"
 msgid "Iron Buckler"
 msgstr "Thuẫn Thiết"
 
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Mũ Cát Thiết Tể Tướng"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Mũ Cát Thiết Xạ Thủ"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Mũ Trùm Nhung Pháp Sư"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Áo Giáp Thiết Tể Tướng"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Áo Giáp Thiết Xạ Thủ"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Áo Gi-Lê Nhung Pháp Sư"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Xà Cạp Thiết Tể Tướng"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Xà Cạp Thiết Xạ Thủ"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Váy Nhung Pháp Sư"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Ủng Thiết Tể Tướng"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Ủng Thiết Xạ Thủ"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Ủng Nhung Pháp Sư"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Bao Tay Thiết Tể Tướng"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Bao Tay Thiết Xạ Thủ"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Ống Tay Nhung Pháp Sư"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Đai Lưng Lông Tể Tướng Tinh Hoa"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Dây Chuyền Xạ Thủ Tinh Hoa"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Sách Phép Pháp Sư Tinh Hoa"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Đại Đao Tể Tướng"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Trọng Pháo Xạ Thủ"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Quyền Trượng Pháp Sư"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Khiên Tháp Đền Thánh"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Nhẫn Hỏa Diệm Tinh Hoa"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Nhẫn Băng Hà Tinh Hoa"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Nhẫn Lôi Chấn Tinh Hoa"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Nhẫn Tịch Tà Tinh Hoa"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Nhẫn Học Giả Tinh Hoa"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Nhẫn Thịnh Vượng Tinh Hoa"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Nhẫn Thánh Tích Tinh Hoa"
+
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "Mũ Cát Thiết"
@@ -3160,199 +3320,297 @@ msgstr "Quyền Trượng"
 msgid "Tower Shield"
 msgstr "Khiên Tháp"
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải"
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Mũ Ni Xích Tể Tướng"
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Quần Tây Vải"
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Mũ Ni Xích Xạ Thủ"
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Dép Râu Vải"
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Mũ Trùm Lụa Pháp Sư"
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Găng Tay Vải"
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Áo Giáp Xích Tể Tướng"
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Dao Găm"
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Áo Giáp Xích Xạ Thủ"
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Chạc Ná"
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Áo Gi-Lê Lụa Pháp Sư"
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Đũa Phép"
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Xà Cạp Xích Tể Tướng"
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Thuẫn Mộc"
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Xà Cạp Xích Xạ Thủ"
 
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Mũ Trùm Lông Tể Tướng"
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "Váy Lụa Pháp Sư"
 
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Mũ Trùm Lông Xạ Thủ"
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Ủng Xích Tể Tướng"
 
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Mũ Trùm Len Pháp Sư"
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Ủng Xích Xạ Thủ"
 
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Áo Dài Lông Tể Tướng"
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Ủng Lụa Pháp Sư"
 
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Áo Dài Lông Xạ Thủ"
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Găng Tay Xích Tể Tướng"
 
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Áo Gi-Lê Len Pháp Sư"
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Găng Tay Xích Xạ Thủ"
 
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Quần Tây Lông Tể Tướng"
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Ống Tay Lụa Pháp Sư"
 
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Quần Tây Lông Xạ Thủ"
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Đai Lưng Lông Chiến Binh Tinh Hoa"
 
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "Váy Len Pháp Sư"
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Dây Chuyền Cơ Động Tinh Hoa"
 
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Ủng Lông Tể Tướng"
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Sách Phép Thuật Sĩ Tinh Hoa"
 
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Ủng Lông Xạ Thủ"
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Trường Kiếm Tể Tướng"
 
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Ủng Len Pháp Sư"
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Trường Cung Xạ Thủ"
 
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Găng Tay Lông Tể Tướng"
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Thiền Trượng Pháp Sư"
 
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Găng Tay Lông Xạ Thủ"
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Khiên Diều Đền Thánh"
 
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Ống Tay Len Pháp Sư"
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Nhẫn Thăng Hoa Tinh Hoa"
 
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "Đai Lưng Lông Chiến Đấu Tinh Hoa"
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Nhẫn Đông Kết Tinh Hoa"
 
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Dây Chuyền Trinh Sát Tinh Hoa"
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Nhẫn Chấn Động Tinh Hoa"
 
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Sách Phép Phù Thủy Tinh Hoa"
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Nhẫn U Minh Tinh Hoa"
 
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Đoản Kiếm Tể Tướng"
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Nhẫn Trí Tuệ Tinh Hoa"
 
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Đoản Cung Xạ Thủ"
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Nhẫn Phát Tài Tinh Hoa"
 
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Gậy Phép Pháp Sư"
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Nhẫn Cổ Vật Tinh Hoa"
 
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Thuẫn Thiết Đền Thánh"
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Hoàng Kim Chùy #1"
 
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Nhẫn Hỏa Thiêu Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Một Công Cụ Thiết Yếu Cho Bất Kì Thợ Rèn."
 
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Nhẫn Băng Giá Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:19
+msgid "Goblin Branch"
+msgstr "Hắc Mộc Trượng #2"
 
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Nhẫn Lôi Điện Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:20
+msgid "Mana flows inside its primitive exterior."
+msgstr "Năng Lượng Chảy Bên Trong Ngoại Thất Nguyên Thủy Của Nó."
 
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Nhẫn Ảo Ảnh Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:36
+msgid "Ardwen's Gloves"
+msgstr "Nộ Uy Uyển #3"
 
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Nhẫn Kiến Thức Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:37
+msgid "These hands built a village."
+msgstr "Những Bàn Tay Này Đã Xây Dựng Một Ngôi Làng."
 
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Nhẫn Phồn Vinh Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:53
+msgid "Blood Tunic"
+msgstr "Huyết Vũ Y #4"
 
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Nhẫn Bổng Lộc Tinh Hoa"
+#: ../items/categories/level_4_unique.txt:54
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Khi Bị Mòn, Chiếc Áo Sơ-Mi Này Hiện Lên Các Tĩnh Mạch Của Người Đeo."
 
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Tác Dụng: Chiêu Hồn Âm Binh Cổ Đại Để Chiến Đấu Cho Bạn"
+#: ../items/categories/level_4_unique.txt:69
+msgid "Dark Steppers"
+msgstr "Hắc Ám Hài #5"
 
-#: ../items/categories/scrolls.txt:19
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Tác Dụng: Dịch Chuyển Đến Vương Gia Trang"
+#: ../items/categories/level_4_unique.txt:70
+msgid "Dancing through the shadows."
+msgstr "Vũ Điệu Xuyên Màn Đêm."
 
-#: ../items/categories/scrolls.txt:30
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Tác Dụng: Tạo Ra Một Kết Giới Hấp Thụ Sát Thương"
+#: ../items/categories/level_4_unique.txt:84
+msgid "Seagate's Tri-pants"
+msgstr "Hỏa Liên Khố #6"
 
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr "Tác Dụng: Chưởng Phép Thuật Hỏa Cầu Trong Một Khoảng Thời Gian Ngắn"
-
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr "Tác Dụng: Chưởng Phép Thuật Băng Đạn Trong Một Khoảng Thời Gian Ngắn"
-
-#: ../items/categories/scrolls.txt:63
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Tác Dụng: Tăng Tốc Độ Di Chuyển Trong Một Khoảng Thời Gian Ngắn"
-
-#: ../items/categories/scrolls.txt:74
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr ""
-"Tác Dụng: Loại Bỏ Các Ảnh Hưởng Bất Lợi Và Trở Nên Miễn Dịch Trong Thời Gian"
-" Ngắn"
-
-#: ../items/categories/scrolls.txt:85
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
 msgstr ""
-"Tác Dụng: Tạo Ra Một Kết Giới Giúp Phản Xạ Lại Tất Cả Đạn Và Sát Thương "
-"Trong Thời Gian Ngắn"
+"Những Chiếc Quần Bị Rách Nát Này Đầy Những Vết Cháy, Nhưng Thật Lạnh Lùng "
+"Khi Chạm Vào."
 
-#: ../items/categories/scrolls.txt:93
-msgid "Tome of Second Chances"
-msgstr ""
+#: ../items/categories/level_4_unique.txt:101
+msgid "Ardwen's Ring"
+msgstr "Sinh Thần Giới Chỉ #3*"
 
-#: ../items/categories/scrolls.txt:95
-msgid "Use: Resets all stat and power points"
-msgstr ""
+#: ../items/categories/level_4_unique.txt:102
+msgid "Lochport's finest."
+msgstr "Thượng Phẩm Của Lạc Gia"
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Mũ Ni Xích Chiến Binh"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Mũ Ni Xích Cơ Động"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Mũ Trùm Lụa Thuật Sĩ"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "Áo Giáp Xích Chiến Binh"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "Áo Giáp Xích Cơ Động"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Áo Gi-Lê Lụa Thuật Sĩ"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Xà Cạp Xích Chiến Binh"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Xà Cạp Xích Cơ Động"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Váy Lụa Thuật Sĩ"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Ủng Xích Chiến Binh"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Ủng Xích Cơ Động"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Ủng Lụa Thuật Sĩ"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Găng Tay Xích Chiến Binh"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Găng Tay Xích Cơ Động"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Ống Tay Lụa Thuật Sĩ"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Đai Lưng Lông Chiến Binh Thám Hiểm"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "Dây Chuyền Cơ Động Thám Hiểm"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "Sách Phép Thuật Sĩ Thám Hiểm"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Trường Kiếm Chiến Binh"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Trường Cung Cơ Động"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Thiền Trượng Thuật Sĩ"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Khiên Diều Hiệp Sĩ"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Nhẫn Thăng Hoa Thám Hiểm"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Nhẫn Đông Kết Thám Hiểm"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "Nhẫn Chấn Động Thám Hiểm"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Nhẫn U Minh Thám Hiểm"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Nhẫn Trí Tuệ Thám Hiểm"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Nhẫn Phát Tài Thám Hiểm"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Nhẫn Cổ Vật Thám Hiểm"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3457,238 +3715,6 @@ msgstr "Nhẫn Giàu Sang Du Mục"
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
 msgstr "Nhẫn Châu Báu Du Mục"
-
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Mũ Cát Thiết Chiến Binh"
-
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Mũ Cát Thiết Cơ Động"
-
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Mũ Trùm Nhung Thuật Sĩ"
-
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Áo Giáp Thiết Chiến Binh"
-
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Áo Giáp Thiết Cơ Động"
-
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Áo Gi-Lê Nhung Thuật Sĩ"
-
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Xà Cạp Thiết Chiến Binh"
-
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Xà Cạp Thiết Cơ Động"
-
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Váy Nhung Thuật Sĩ"
-
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Ủng Thiết Chiến Binh"
-
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Ủng Thiết Cơ Động"
-
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Ủng Nhung Thuật Sĩ"
-
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Bao Tay Thiết Chiến Binh"
-
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Bao Tay Thiết Cơ Động"
-
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Ống Tay Nhung Thuật Sĩ"
-
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Đai Lưng Lông Tể Tướng Thám Hiểm"
-
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "Dây Chuyền Xạ Thủ Thám Hiểm"
-
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "Sách Phép Pháp Sư Thám Hiểm"
-
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Đại Đao Chiến Binh"
-
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Trọng Pháo Cơ Động"
-
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Quyền Trượng Thuật Sĩ"
-
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Khiên Tháp Hiệp Sĩ"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Nhẫn Hỏa Diệm Thám Hiểm"
-
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Nhẫn Băng Hà Thám Hiểm"
-
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "Nhẫn Lôi Chấn Thám Hiểm"
-
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Nhẫn Tịch Tà Thám Hiểm"
-
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Nhẫn Học Giả Thám Hiểm"
-
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Nhẫn Thịnh Vượng Thám Hiểm"
-
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Nhẫn Thánh Tích Thám Hiểm"
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "Mũ Trùm Lông Chiến Binh"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "Mũ Trùm Lông Cơ Động"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr "Mũ Trùm Len Thuật Sĩ"
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "Áo Dài Lông Chiến Binh"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "Áo Dài Lông Cơ Động"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr "Áo Gi-Lê Len Thuật Sĩ"
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "Quần Tây Lông Chiến Binh"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "Quần Tây Lông Cơ Động"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr "Váy Len Thuật Sĩ"
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "Ủng Lông Chiến Binh"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "Ủng Lông Cơ Động"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr "Ủng Len Thuật Sĩ"
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "Găng Tay Lông Chiến Binh"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "Găng Tay Lông Cơ Động"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr "Ống Tay Len Thuật Sĩ"
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "Đai Lưng Lông Chiến Đấu Thám Hiểm"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "Dây Chuyền Trinh Sát Thám Hiểm"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "Sách Phép Phù Thủy Thám Hiểm"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "Đoản Kiếm Chiến Binh"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "Đoản Cung Cơ Động"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "Gậy Phép Thuật Sĩ"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "Thuẫn Thiết Hiệp Sĩ"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr "Nhẫn Hỏa Thiêu Thám Hiểm"
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr "Nhẫn Băng Giá Thám Hiểm"
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr "Nhẫn Lôi Điện Thám Hiểm"
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr "Nhẫn Ảo Ảnh Thám Hiểm"
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr "Nhẫn Kiến Thức Thám Hiểm"
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr "Nhẫn Phồn Vinh Thám Hiểm"
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr "Nhẫn Bổng Lộc Thám Hiểm"
 
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
@@ -3805,63 +3831,6 @@ msgstr "Nhẫn Phát Tài Du Mục"
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "Nhẫn Cổ Vật Du Mục"
-
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Cơ Nhục Hạ Giới #19"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "Mềm Mại Khi Chạm Vào. Khi Đeo Nó Sẽ Tự Siết Chặt Quanh Ngón Tay."
-
-#: ../items/categories/level_16_unique.txt:21
-msgid "Soulband"
-msgstr "Thần Hồn Thượng Giới #20"
-
-#: ../items/categories/level_16_unique.txt:23
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr ""
-"Phát Sáng Khi Đeo, Nó Giúp Người Đeo Tỉnh Táo Và Cho Phép Họ Tập Trung Sâu "
-"Sắc."
-
-#: ../items/categories/level_16_unique.txt:38
-msgid "Underworld Cloak"
-msgstr "Huyền Thiết Phi Phong #21"
-
-#: ../items/categories/level_16_unique.txt:51
-msgid "Underworld Platemail"
-msgstr "Huyền Thiết Trọng Khải #22"
-
-#: ../items/categories/level_16_unique.txt:64
-msgid "Underworld Boots"
-msgstr "Huyền Thiết Hộ Ngoa #23"
-
-#: ../items/categories/level_16_unique.txt:77
-msgid "Underworld Armguards"
-msgstr "Huyền Thiết Hộ Uyển #24"
-
-#: ../items/categories/level_16_unique.txt:90
-msgid "Underworld Greaves"
-msgstr "Huyền Thiết Trọng Khố #25"
-
-#: ../items/categories/level_16_unique.txt:103
-msgid "Underworld Tome"
-msgstr "Vô Tự Thiên Thư #26"
-
-#: ../items/categories/level_16_unique.txt:115
-msgid "Underworld Blade"
-msgstr "Huyền Thiết Đại Đao #27"
-
-#: ../items/categories/level_16_unique.txt:128
-msgid "Underworld Bow"
-msgstr "Huyền Thiết Trọng Pháo #28"
-
-#: ../items/categories/level_16_unique.txt:141
-msgid "Underworld Sceptre"
-msgstr "Huyền Thiết Quyền Trượng #29"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -4034,6 +4003,272 @@ msgid ""
 msgstr ""
 "Theo Lời Dược Sư, Chỉ Có Loại Mực Này Mới Có Thể Viết Lên Thiên Thư Được."
 
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải Chiến Binh"
+
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải Cơ Động"
+
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải Thuật Sĩ"
+
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Quần Tây Vải Chiến Binh"
+
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Quần Tây Vải Cơ Động"
+
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Quần Tây Vải Thuật Sĩ"
+
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Dép Râu Vải Chiến Binh"
+
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Dép Râu Vải Cơ Động"
+
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Dép Râu Vải Thuật Sĩ"
+
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Găng Tay Vải Chiến Binh"
+
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Găng Tay Vải Cơ Động"
+
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Găng Tay Vải Thuật Sĩ"
+
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Đai Lưng Lông Thám Hiểm"
+
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Dây Chuyền Thám Hiểm"
+
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Sách Phép Thám Hiểm"
+
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Dao Găm Chiến Binh"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Chạc Ná Cơ Động"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Đũa Phép Thuật Sĩ"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Thuẫn Mộc Hiệp Sĩ"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Nhẫn Hỏa Tốc Thám Hiểm"
+
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Nhẫn Băng Tuyết Thám Hiểm"
+
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Nhẫn Lôi Lạc Thám Hiểm"
+
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Nhẫn Hắc Ám Thám Hiểm"
+
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Nhẫn Kinh Nghiệm Thám Hiểm"
+
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Nhẫn Giàu Sang Thám Hiểm"
+
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Nhẫn Châu Báu Thám Hiểm"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Mũ Trùm Lông Chiến Binh"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Mũ Trùm Lông Cơ Động"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "Mũ Trùm Len Thuật Sĩ"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Áo Dài Lông Chiến Binh"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Áo Dài Lông Cơ Động"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "Áo Gi-Lê Len Thuật Sĩ"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Quần Tây Lông Chiến Binh"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Quần Tây Lông Cơ Động"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "Váy Len Thuật Sĩ"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Ủng Lông Chiến Binh"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Ủng Lông Cơ Động"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "Ủng Len Thuật Sĩ"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Găng Tay Lông Chiến Binh"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Găng Tay Lông Cơ Động"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "Ống Tay Len Thuật Sĩ"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Đai Lưng Lông Chiến Đấu Thám Hiểm"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Dây Chuyền Trinh Sát Thám Hiểm"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Sách Phép Phù Thủy Thám Hiểm"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Đoản Kiếm Chiến Binh"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Đoản Cung Cơ Động"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "Gậy Phép Thuật Sĩ"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Thuẫn Thiết Hiệp Sĩ"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "Nhẫn Hỏa Thiêu Thám Hiểm"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "Nhẫn Băng Giá Thám Hiểm"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "Nhẫn Lôi Điện Thám Hiểm"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "Nhẫn Ảo Ảnh Thám Hiểm"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "Nhẫn Kiến Thức Thám Hiểm"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "Nhẫn Phồn Vinh Thám Hiểm"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "Nhẫn Bổng Lộc Thám Hiểm"
+
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Tác Dụng: Chiêu Hồn Âm Binh Cổ Đại Để Chiến Đấu Cho Bạn"
+
+#: ../items/categories/scrolls.txt:19
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Tác Dụng: Dịch Chuyển Đến Vương Gia Trang"
+
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Tác Dụng: Tạo Ra Một Kết Giới Hấp Thụ Sát Thương"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr "Tác Dụng: Chưởng Phép Thuật Hỏa Cầu Trong Một Khoảng Thời Gian Ngắn"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr "Tác Dụng: Chưởng Phép Thuật Băng Đạn Trong Một Khoảng Thời Gian Ngắn"
+
+#: ../items/categories/scrolls.txt:63
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Tác Dụng: Tăng Tốc Độ Di Chuyển Trong Một Khoảng Thời Gian Ngắn"
+
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Tác Dụng: Loại Bỏ Các Ảnh Hưởng Bất Lợi Và Trở Nên Miễn Dịch Trong Thời Gian"
+" Ngắn"
+
+#: ../items/categories/scrolls.txt:85
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Tác Dụng: Tạo Ra Một Kết Giới Giúp Phản Xạ Lại Tất Cả Đạn Và Sát Thương "
+"Trong Thời Gian Ngắn"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
+
 #: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Chiếc Cối Chày Đá"
@@ -4042,298 +4277,6 @@ msgstr "Chiếc Cối Chày Đá"
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr ""
 "Sử Dụng Chiếc Bình Rỗng Và Các Dược Liệu Khác Nhau Để Tạo Ra Bình Thuốc."
-
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Hoàng Kim Chùy #1"
-
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Một Công Cụ Thiết Yếu Cho Bất Kì Thợ Rèn."
-
-#: ../items/categories/level_4_unique.txt:19
-msgid "Goblin Branch"
-msgstr "Hắc Mộc Trượng #2"
-
-#: ../items/categories/level_4_unique.txt:20
-msgid "Mana flows inside its primitive exterior."
-msgstr "Năng Lượng Chảy Bên Trong Ngoại Thất Nguyên Thủy Của Nó."
-
-#: ../items/categories/level_4_unique.txt:36
-msgid "Ardwen's Gloves"
-msgstr "Nộ Uy Uyển #3"
-
-#: ../items/categories/level_4_unique.txt:37
-msgid "These hands built a village."
-msgstr "Những Bàn Tay Này Đã Xây Dựng Một Ngôi Làng."
-
-#: ../items/categories/level_4_unique.txt:53
-msgid "Blood Tunic"
-msgstr "Huyết Vũ Y #4"
-
-#: ../items/categories/level_4_unique.txt:54
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Khi Bị Mòn, Chiếc Áo Sơ-Mi Này Hiện Lên Các Tĩnh Mạch Của Người Đeo."
-
-#: ../items/categories/level_4_unique.txt:69
-msgid "Dark Steppers"
-msgstr "Hắc Ám Hài #5"
-
-#: ../items/categories/level_4_unique.txt:70
-msgid "Dancing through the shadows."
-msgstr "Vũ Điệu Xuyên Màn Đêm."
-
-#: ../items/categories/level_4_unique.txt:84
-msgid "Seagate's Tri-pants"
-msgstr "Hỏa Liên Khố #6"
-
-#: ../items/categories/level_4_unique.txt:85
-msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
-msgstr ""
-"Những Chiếc Quần Bị Rách Nát Này Đầy Những Vết Cháy, Nhưng Thật Lạnh Lùng "
-"Khi Chạm Vào."
-
-#: ../items/categories/level_4_unique.txt:101
-msgid "Ardwen's Ring"
-msgstr "Sinh Thần Giới Chỉ #3*"
-
-#: ../items/categories/level_4_unique.txt:102
-msgid "Lochport's finest."
-msgstr "Thượng Phẩm Của Lạc Gia"
-
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Mũ Cát Thiết Tể Tướng"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Mũ Cát Thiết Xạ Thủ"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Mũ Trùm Nhung Pháp Sư"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Áo Giáp Thiết Tể Tướng"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Áo Giáp Thiết Xạ Thủ"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Áo Gi-Lê Nhung Pháp Sư"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Xà Cạp Thiết Tể Tướng"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Xà Cạp Thiết Xạ Thủ"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Váy Nhung Pháp Sư"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Ủng Thiết Tể Tướng"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Ủng Thiết Xạ Thủ"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Ủng Nhung Pháp Sư"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Bao Tay Thiết Tể Tướng"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Bao Tay Thiết Xạ Thủ"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Ống Tay Nhung Pháp Sư"
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "Đai Lưng Lông Tể Tướng Tinh Hoa"
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "Dây Chuyền Xạ Thủ Tinh Hoa"
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "Sách Phép Pháp Sư Tinh Hoa"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Đại Đao Tể Tướng"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Trọng Pháo Xạ Thủ"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Quyền Trượng Pháp Sư"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Khiên Tháp Đền Thánh"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Nhẫn Hỏa Diệm Tinh Hoa"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Nhẫn Băng Hà Tinh Hoa"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Nhẫn Lôi Chấn Tinh Hoa"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Nhẫn Tịch Tà Tinh Hoa"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Nhẫn Học Giả Tinh Hoa"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Nhẫn Thịnh Vượng Tinh Hoa"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Nhẫn Thánh Tích Tinh Hoa"
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Mũ Ni Xích Chiến Binh"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Mũ Ni Xích Cơ Động"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "Mũ Trùm Lụa Thuật Sĩ"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr "Áo Giáp Xích Chiến Binh"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr "Áo Giáp Xích Cơ Động"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "Áo Gi-Lê Lụa Thuật Sĩ"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Xà Cạp Xích Chiến Binh"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Xà Cạp Xích Cơ Động"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "Váy Lụa Thuật Sĩ"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Ủng Xích Chiến Binh"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Ủng Xích Cơ Động"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "Ủng Lụa Thuật Sĩ"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Găng Tay Xích Chiến Binh"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Găng Tay Xích Cơ Động"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "Ống Tay Lụa Thuật Sĩ"
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr "Đai Lưng Lông Chiến Binh Thám Hiểm"
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr "Dây Chuyền Cơ Động Thám Hiểm"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr "Sách Phép Thuật Sĩ Thám Hiểm"
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Trường Kiếm Chiến Binh"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Trường Cung Cơ Động"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "Thiền Trượng Thuật Sĩ"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "Khiên Diều Hiệp Sĩ"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "Nhẫn Thăng Hoa Thám Hiểm"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "Nhẫn Đông Kết Thám Hiểm"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "Nhẫn Chấn Động Thám Hiểm"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "Nhẫn U Minh Thám Hiểm"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "Nhẫn Trí Tuệ Thám Hiểm"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "Nhẫn Phát Tài Thám Hiểm"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "Nhẫn Cổ Vật Thám Hiểm"
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4390,6 +4333,122 @@ msgstr "Thiền Trượng"
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
 msgstr "Khiên Diều"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Mũ Trùm Lông Tể Tướng"
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Mũ Trùm Lông Xạ Thủ"
+
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Mũ Trùm Len Pháp Sư"
+
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Áo Dài Lông Tể Tướng"
+
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Áo Dài Lông Xạ Thủ"
+
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Áo Gi-Lê Len Pháp Sư"
+
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Quần Tây Lông Tể Tướng"
+
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Quần Tây Lông Xạ Thủ"
+
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Váy Len Pháp Sư"
+
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Ủng Lông Tể Tướng"
+
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Ủng Lông Xạ Thủ"
+
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Ủng Len Pháp Sư"
+
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Găng Tay Lông Tể Tướng"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Găng Tay Lông Xạ Thủ"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Ống Tay Len Pháp Sư"
+
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Đai Lưng Lông Chiến Đấu Tinh Hoa"
+
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Dây Chuyền Trinh Sát Tinh Hoa"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Sách Phép Phù Thủy Tinh Hoa"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Đoản Kiếm Tể Tướng"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Đoản Cung Xạ Thủ"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Gậy Phép Pháp Sư"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Thuẫn Thiết Đền Thánh"
+
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Nhẫn Hỏa Thiêu Tinh Hoa"
+
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Nhẫn Băng Giá Tinh Hoa"
+
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Nhẫn Lôi Điện Tinh Hoa"
+
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Nhẫn Ảo Ảnh Tinh Hoa"
+
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Nhẫn Kiến Thức Tinh Hoa"
+
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Nhẫn Phồn Vinh Tinh Hoa"
+
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Nhẫn Bổng Lộc Tinh Hoa"
 
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
@@ -4507,225 +4566,153 @@ msgstr "Nhẫn Phồn Vinh Du Mục"
 msgid "Wandering Loot Ring"
 msgstr "Nhẫn Bổng Lộc Du Mục"
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải Chiến Binh"
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Mũ Cát Thiết Chiến Binh"
 
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải Cơ Động"
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Mũ Cát Thiết Cơ Động"
 
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Áo Sơ-Mi Vải Thuật Sĩ"
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Mũ Trùm Nhung Thuật Sĩ"
 
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Quần Tây Vải Chiến Binh"
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Áo Giáp Thiết Chiến Binh"
 
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Quần Tây Vải Cơ Động"
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Áo Giáp Thiết Cơ Động"
 
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Quần Tây Vải Thuật Sĩ"
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Áo Gi-Lê Nhung Thuật Sĩ"
 
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Dép Râu Vải Chiến Binh"
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Xà Cạp Thiết Chiến Binh"
 
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Dép Râu Vải Cơ Động"
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Xà Cạp Thiết Cơ Động"
 
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Dép Râu Vải Thuật Sĩ"
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Váy Nhung Thuật Sĩ"
 
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Găng Tay Vải Chiến Binh"
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Ủng Thiết Chiến Binh"
 
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Găng Tay Vải Cơ Động"
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Ủng Thiết Cơ Động"
 
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Găng Tay Vải Thuật Sĩ"
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Ủng Nhung Thuật Sĩ"
 
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "Đai Lưng Lông Thám Hiểm"
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Bao Tay Thiết Chiến Binh"
 
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "Dây Chuyền Thám Hiểm"
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Bao Tay Thiết Cơ Động"
 
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "Sách Phép Thám Hiểm"
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Ống Tay Nhung Thuật Sĩ"
 
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Dao Găm Chiến Binh"
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Đai Lưng Lông Tể Tướng Thám Hiểm"
 
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Chạc Ná Cơ Động"
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Dây Chuyền Xạ Thủ Thám Hiểm"
 
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Đũa Phép Thuật Sĩ"
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Sách Phép Pháp Sư Thám Hiểm"
 
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Thuẫn Mộc Hiệp Sĩ"
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Đại Đao Chiến Binh"
 
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Nhẫn Hỏa Tốc Thám Hiểm"
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Trọng Pháo Cơ Động"
 
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Nhẫn Băng Tuyết Thám Hiểm"
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Quyền Trượng Thuật Sĩ"
 
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Nhẫn Lôi Lạc Thám Hiểm"
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Khiên Tháp Hiệp Sĩ"
 
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Nhẫn Hắc Ám Thám Hiểm"
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Nhẫn Hỏa Diệm Thám Hiểm"
 
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Nhẫn Kinh Nghiệm Thám Hiểm"
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Nhẫn Băng Hà Thám Hiểm"
 
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Nhẫn Giàu Sang Thám Hiểm"
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Nhẫn Lôi Chấn Thám Hiểm"
 
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Nhẫn Châu Báu Thám Hiểm"
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Nhẫn Tịch Tà Thám Hiểm"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Mũ Ni Xích Tể Tướng"
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Nhẫn Học Giả Thám Hiểm"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Mũ Ni Xích Xạ Thủ"
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Nhẫn Thịnh Vượng Thám Hiểm"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Mũ Trùm Lụa Pháp Sư"
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Nhẫn Thánh Tích Thám Hiểm"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Áo Giáp Xích Tể Tướng"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Áo Giáp Xích Xạ Thủ"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Quần Tây Vải"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Áo Gi-Lê Lụa Pháp Sư"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Dép Râu Vải"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Xà Cạp Xích Tể Tướng"
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Găng Tay Vải"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Xà Cạp Xích Xạ Thủ"
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Dao Găm"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Váy Lụa Pháp Sư"
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Chạc Ná"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Ủng Xích Tể Tướng"
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Đũa Phép"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Ủng Xích Xạ Thủ"
-
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Ủng Lụa Pháp Sư"
-
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Găng Tay Xích Tể Tướng"
-
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Găng Tay Xích Xạ Thủ"
-
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Ống Tay Lụa Pháp Sư"
-
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Đai Lưng Lông Chiến Binh Tinh Hoa"
-
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Dây Chuyền Cơ Động Tinh Hoa"
-
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Sách Phép Thuật Sĩ Tinh Hoa"
-
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Trường Kiếm Tể Tướng"
-
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Trường Cung Xạ Thủ"
-
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Thiền Trượng Pháp Sư"
-
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Khiên Diều Đền Thánh"
-
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Nhẫn Thăng Hoa Tinh Hoa"
-
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Nhẫn Đông Kết Tinh Hoa"
-
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Nhẫn Chấn Động Tinh Hoa"
-
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Nhẫn U Minh Tinh Hoa"
-
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Nhẫn Trí Tuệ Tinh Hoa"
-
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Nhẫn Phát Tài Tinh Hoa"
-
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Nhẫn Cổ Vật Tinh Hoa"
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Thuẫn Mộc"
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4774,6 +4761,103 @@ msgstr "Long Lân Trang #12"
 #: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr "Với Lớp Da Bò Sát, Không Nhiều Thứ Có Thể Xuyên Qua Lớp Áo Giáp Này."
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Cơ Nhục Hạ Giới #19"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "Mềm Mại Khi Chạm Vào. Khi Đeo Nó Sẽ Tự Siết Chặt Quanh Ngón Tay."
+
+#: ../items/categories/level_16_unique.txt:21
+msgid "Soulband"
+msgstr "Thần Hồn Thượng Giới #20"
+
+#: ../items/categories/level_16_unique.txt:23
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Phát Sáng Khi Đeo, Nó Giúp Người Đeo Tỉnh Táo Và Cho Phép Họ Tập Trung Sâu "
+"Sắc."
+
+#: ../items/categories/level_16_unique.txt:38
+msgid "Underworld Cloak"
+msgstr "Huyền Thiết Phi Phong #21"
+
+#: ../items/categories/level_16_unique.txt:51
+msgid "Underworld Platemail"
+msgstr "Huyền Thiết Trọng Khải #22"
+
+#: ../items/categories/level_16_unique.txt:64
+msgid "Underworld Boots"
+msgstr "Huyền Thiết Hộ Ngoa #23"
+
+#: ../items/categories/level_16_unique.txt:77
+msgid "Underworld Armguards"
+msgstr "Huyền Thiết Hộ Uyển #24"
+
+#: ../items/categories/level_16_unique.txt:90
+msgid "Underworld Greaves"
+msgstr "Huyền Thiết Trọng Khố #25"
+
+#: ../items/categories/level_16_unique.txt:103
+msgid "Underworld Tome"
+msgstr "Vô Tự Thiên Thư #26"
+
+#: ../items/categories/level_16_unique.txt:115
+msgid "Underworld Blade"
+msgstr "Huyền Thiết Đại Đao #27"
+
+#: ../items/categories/level_16_unique.txt:128
+msgid "Underworld Bow"
+msgstr "Huyền Thiết Trọng Pháo #28"
+
+#: ../items/categories/level_16_unique.txt:141
+msgid "Underworld Sceptre"
+msgstr "Huyền Thiết Quyền Trượng #29"
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Phục Hồi 25% Sinh Lực Cực Đại"
+
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "Phục Hồi 25% Nội Lực Cực Đại"
+
+#: ../items/categories/potions.txt:31
+msgid "Temporarily increase regeneration and movement speed"
+msgstr "Tăng Tạm Thời Tốc Độ Phục Hồi Và Di Chuyển"
+
+#: ../items/categories/potions.txt:43
+msgid "Restore 25% of both HP and MP"
+msgstr "Phục Hồi 25% Sinh Lực Và Nội Lực Cực Đại"
+
+#: ../items/categories/potions.txt:55
+msgid "Temporarily increases the ability to find items and gold"
+msgstr "Tăng Tạm Thời Cơ Hội Tìm Thấy Vật Phẩm Và Vàng"
+
+#: ../items/categories/potions.txt:67
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr "Tăng Tạm Thời Khả Năng Kháng Tất Cả Phép Thuật Thêm 50%"
+
+#: ../items/categories/potions.txt:79
+msgid "Restore 50% of maximum HP"
+msgstr "Phục Hồi 50% Sinh Lực Cực Đại"
+
+#: ../items/categories/potions.txt:91
+msgid "Restore 75% of maximum HP"
+msgstr "Phục Hồi 75% Sinh Lực Cực Đại"
+
+#: ../items/categories/potions.txt:103
+msgid "Restore 50% of maximum MP"
+msgstr "Phục Hồi 50% Nội Lực Cực Đại"
+
+#: ../items/categories/potions.txt:115
+msgid "Restore 75% of maximum MP"
+msgstr "Phục Hồi 75% Nội Lực Cực Đại"
 
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
@@ -4829,358 +4913,109 @@ msgstr "Chưởng Pháp Chùy #18"
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Vung Cây Chùy Qua Lại Đã Để Lại Một Dải Khói Đen."
 
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Phục Hồi 25% Sinh Lực Cực Đại"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "Phục Hồi 25% Nội Lực Cực Đại"
-
-#: ../items/categories/potions.txt:31
-msgid "Temporarily increase regeneration and movement speed"
-msgstr "Tăng Tạm Thời Tốc Độ Phục Hồi Và Di Chuyển"
-
-#: ../items/categories/potions.txt:43
-msgid "Restore 25% of both HP and MP"
-msgstr "Phục Hồi 25% Sinh Lực Và Nội Lực Cực Đại"
-
-#: ../items/categories/potions.txt:55
-msgid "Temporarily increases the ability to find items and gold"
-msgstr "Tăng Tạm Thời Cơ Hội Tìm Thấy Vật Phẩm Và Vàng"
-
-#: ../items/categories/potions.txt:67
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr "Tăng Tạm Thời Khả Năng Kháng Tất Cả Phép Thuật Thêm 50%"
-
-#: ../items/categories/potions.txt:79
-msgid "Restore 50% of maximum HP"
-msgstr "Phục Hồi 50% Sinh Lực Cực Đại"
-
-#: ../items/categories/potions.txt:91
-msgid "Restore 75% of maximum HP"
-msgstr "Phục Hồi 75% Sinh Lực Cực Đại"
-
-#: ../items/categories/potions.txt:103
-msgid "Restore 50% of maximum MP"
-msgstr "Phục Hồi 50% Nội Lực Cực Đại"
-
-#: ../items/categories/potions.txt:115
-msgid "Restore 75% of maximum MP"
-msgstr "Phục Hồi 75% Nội Lực Cực Đại"
-
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
-msgstr "Mũ Cát Thiết Chiến Đấu"
-
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
-msgstr "Mũ Cát Thiết Trinh Sát"
-
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr "Mũ Trùm Nhung Phù Thủy"
-
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "Áo Giáp Thiết Chiến Đấu"
-
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "Áo Giáp Thiết Trinh Sát"
-
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr "Áo Gi-Lê Nhung Phù Thủy"
-
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "Xà Cạp Thiết Chiến Đấu"
-
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "Xà Cạp Thiết Trinh Sát"
-
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr "Váy Nhung Phù Thủy"
-
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "Ủng Thiết Chiến Đấu"
-
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "Ủng Thiết Trinh Sát"
-
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr "Ủng Nhung Phù Thủy"
-
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "Bao Tay Thiết Chiến Đấu"
-
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "Bao Tay Thiết Trinh Sát"
-
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr "Ống Tay Nhung Phù Thủy"
-
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr "Đai Lưng Lông Tể Tướng Du Mục"
-
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr "Dây Chuyền Xạ Thủ Du Mục"
-
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr "Sách Phép Pháp Sư Du Mục"
-
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "Đại Đao Chiến Đấu"
-
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "Trọng Pháo Trinh Sát"
-
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr "Quyền Trượng Phù Thủy"
-
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "Khiên Tháp Giám Thị"
-
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr "Nhẫn Hỏa Diệm Du Mục"
-
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr "Nhẫn Băng Hà Du Mục"
-
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr "Nhẫn Lôi Chấn Du Mục"
-
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr "Nhẫn Tịch Tà Du Mục"
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr "Nhẫn Học Giả Du Mục"
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr "Nhẫn Thịnh Vượng Du Mục"
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
-msgstr "Nhẫn Thánh Tích Du Mục"
-
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Hỏa Diệm"
-
-#: ../powers/base/magician/burn.txt:4
-msgid ""
-"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
-"a severe burn that makes enemies very weak to fire damage."
-msgstr ""
-
-#: ../powers/base/magician/energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Tụ Năng"
-
-#: ../powers/base/magician/energy_flow.txt:2
-msgid "Mana reserves are increased and regenerate faster."
-msgstr "Tăng Nội Lực Và Phục Hồi Nội Lực Nhanh Hơn."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Cầu Lửa"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Bắn Ra Một Hỏa Cầu Với Sức Công Phá Lớn."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Lôi Điện"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
-" that has a chance of stunning other enemies."
-msgstr ""
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Tạo Ra Một Kết Giới Hấp Thụ Sát Thương."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Lôi Quang"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr ""
-"Bắn Ra Một Chùm Sét Năng Lượng Cao. Hữu Dụng Khi Chống Lại Đối Tượng Hay Di "
-"Chuyển."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Băng Đạn"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Bắn Ra Một Mảnh Băng Có Khả Năng Làm Chậm Đối Thủ."
-
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Băng Hình"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid ""
-"Create a ray of several piercing cold shards that slow enemies. Shards have "
-"a chance of shattering into a cloud of frost that makes enemies weak to ice "
-"damage."
-msgstr ""
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Địa Chấn"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Đánh Bật Đối Thủ Với Cơ Hội Làm Choáng."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Huyết Vũ"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Tung Một Đòn Mạnh Mẽ Gây Ra Một Vết Thương Lớn Chảy Máu."
-
-#: ../powers/base/warrior/throw_knife.txt:1
-msgid "Throw Knife"
-msgstr "Phi Đao"
-
-#: ../powers/base/warrior/throw_knife.txt:2
-msgid ""
-"Throw a knife to deal reduced melee weapon damage. High accuracy and "
-"critical rate."
-msgstr ""
-
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Nộ Giáp"
-
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr ""
-"Chịu Được Các Cuộc Tấn Công Mạnh Mẽ Hơn Với Tăng Sinh Lực Và Khả Năng Hấp "
-"Thụ."
-
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Khiên Vũ"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Đâm Thẳng Vào Kẻ Thù, Nghiền Nát Chúng Với Sức Mạnh Tuyệt Đối."
-
-#: ../powers/base/warrior/cleave.txt:1
-msgid "Cleave"
-msgstr "Thảo Phạt"
-
-#: ../powers/base/warrior/cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Tấn Công Tất Cả Địch Thủ Trong Một Vòng Cung Rộng."
-
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Phao Phủ"
-
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Ném Rìu Gây Nhiều Sát Thương Hơn Vũ Khí Cận Chiến Đang Mang."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Sư Tử Hống"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr ""
-"Loại Bỏ Các Ảnh Hưởng Bất Lợi Và Trở Nên Miễn Dịch Trong Thời Gian Ngắn."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Hùng Hộ"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid ""
-"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
-" chance to inflict bleeding."
-msgstr ""
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Đạn Phân Tách"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot multiple projectiles in an arc simultaneously."
-msgstr ""
-
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Lang Nhãn"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "Tăng Khả Năng Chính Xác Và Cơ Hội Bạo Sát."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Hỏa Tốc"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Bắn Liên Tiếp Năm Viên Đạn Năng Lượng Thấp."
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Xạ"
-
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Xa Chiến Cơ Bản."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Tăng Tốc Độ Di Chuyển Trong Một Khoảng Thời Gian Ngắn."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Hỏa Liên"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies. Inflicts a burn that makes enemies weaker to fire damage."
-msgstr ""
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải Tể Tướng"
+
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải Xạ Thủ"
+
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Áo Sơ-Mi Vải Pháp Sư"
+
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Quần Tây Vải Tể Tướng"
+
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Quần Tây Vải Xạ Thủ"
+
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Quần Tây Vải Pháp Sư"
+
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Dép Râu Vải Tể Tướng"
+
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Dép Râu Vải Xạ Thủ"
+
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Dép Râu Vải Pháp Sư"
+
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Găng Tay Vải Tể Tướng"
+
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Găng Tay Vải Xạ Thủ"
+
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Găng Tay Vải Pháp Sư"
+
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Đai Lưng Lông Tinh Hoa"
+
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Dây Chuyền Tinh Hoa"
+
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Sách Phép Tinh Hoa"
+
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Dao Găm Tể Tướng"
+
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Chạc Ná Xạ Thủ"
+
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Đũa Phép Pháp Sư"
+
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Thuẫn Mộc Đền Thánh"
+
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Nhẫn Hỏa Tốc Tinh Hoa"
+
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Nhẫn Băng Tuyết Tinh Hoa"
+
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Nhẫn Lôi Lạc Tinh Hoa"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Nhẫn Hắc Ám Tinh Hoa"
+
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Nhẫn Kinh Nghiệm Tinh Hoa"
+
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Nhẫn Giàu Sang Tinh Hoa"
+
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Nhẫn Châu Báu Tinh Hoa"
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -5200,6 +5035,203 @@ msgstr "Phá Giáp Hỏa"
 msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr "Bắn Ra Ngọn Lửa Xuyên Giáp Và Xuyên Qua Nhiều Địch Thủ."
 
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Xạ"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Xa Chiến Cơ Bản."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Lang Nhãn"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "Tăng Khả Năng Chính Xác Và Cơ Hội Bạo Sát."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Tăng Tốc Độ Di Chuyển Trong Một Khoảng Thời Gian Ngắn."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Đạn Phân Tách"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Hùng Hộ"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr ""
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Hỏa Liên"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
+msgstr ""
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Hỏa Tốc"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Bắn Liên Tiếp Năm Viên Đạn Năng Lượng Thấp."
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Hỏa Diệm"
+
+#: ../powers/base/magician/burn.txt:4
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Tụ Năng"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
+msgstr "Tăng Nội Lực Và Phục Hồi Nội Lực Nhanh Hơn."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Tạo Ra Một Kết Giới Hấp Thụ Sát Thương."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Lôi Quang"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Bắn Ra Một Chùm Sét Năng Lượng Cao. Hữu Dụng Khi Chống Lại Đối Tượng Hay Di "
+"Chuyển."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Băng Hình"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Băng Đạn"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Bắn Ra Một Mảnh Băng Có Khả Năng Làm Chậm Đối Thủ."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Lôi Điện"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
+msgstr ""
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Cầu Lửa"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Bắn Ra Một Hỏa Cầu Với Sức Công Phá Lớn."
+
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Phi Đao"
+
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Huyết Vũ"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Tung Một Đòn Mạnh Mẽ Gây Ra Một Vết Thương Lớn Chảy Máu."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Sư Tử Hống"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr ""
+"Loại Bỏ Các Ảnh Hưởng Bất Lợi Và Trở Nên Miễn Dịch Trong Thời Gian Ngắn."
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Thảo Phạt"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Tấn Công Tất Cả Địch Thủ Trong Một Vòng Cung Rộng."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Phao Phủ"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Ném Rìu Gây Nhiều Sát Thương Hơn Vũ Khí Cận Chiến Đang Mang."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Khiên Vũ"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Đâm Thẳng Vào Kẻ Thù, Nghiền Nát Chúng Với Sức Mạnh Tuyệt Đối."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Địa Chấn"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Đánh Bật Đối Thủ Với Cơ Hội Làm Choáng."
+
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Nộ Giáp"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr ""
+"Chịu Được Các Cuộc Tấn Công Mạnh Mẽ Hơn Với Tăng Sinh Lực Và Khả Năng Hấp "
+"Thụ."
+
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
 msgstr "Chưởng"
@@ -5207,6 +5239,12 @@ msgstr "Chưởng"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Pháp Thuật Cơ Bản."
+
+#: ../powers/categories/quest.txt:4
+msgid ""
+"Performing the ritual at the Red Altar has granted you faster regeneration."
+msgstr ""
+"Thực Hiện Nghi Lễ Tại Huyết Tế Đàn Đã Cho Phép Bạn Phục Hồi Nhanh Hơn."
 
 #: ../powers/categories/items.txt:67
 msgid ""
@@ -5220,12 +5258,6 @@ msgid ""
 "by performing a basic attack."
 msgstr ""
 
-#: ../powers/categories/quest.txt:4
-msgid ""
-"Performing the ritual at the Red Altar has granted you faster regeneration."
-msgstr ""
-"Thực Hiện Nghi Lễ Tại Huyết Tế Đàn Đã Cho Phép Bạn Phục Hồi Nhanh Hơn."
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Phạt"
@@ -5238,12 +5270,12 @@ msgstr "Cận Chiến Cơ Bản."
 msgid "Magician"
 msgstr "Phép Thuật"
 
-#: ../scripts/dev/waypoints_unlock.txt:14
-msgid "Unlocked all waypoints"
-msgstr ""
-
 #: ../scripts/dev/waypoints_lock.txt:14
 msgid "Locked all waypoints"
+msgstr ""
+
+#: ../scripts/dev/waypoints_unlock.txt:14
+msgid "Unlocked all waypoints"
 msgstr ""
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4

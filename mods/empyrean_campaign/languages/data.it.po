@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-28 10:49+\n"
+"POT-Creation-Date: 2025-07-23 08:38+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Riccardi Unix, 2022\n"
 "Language-Team: Italian (https://app.transifex.com/flareorg/teams/84925/it/)\n"
@@ -152,22 +152,6 @@ msgstr "Rende Invisibile"
 #: ../powers/powers.txt:54
 msgid "Remove Invisibility"
 msgstr "Rimuove l'Invisibilità"
-
-#: ../engine/elements.txt:3
-msgid "Fire"
-msgstr "Fuoco"
-
-#: ../engine/elements.txt:7
-msgid "Ice"
-msgstr "Ghiaccio"
-
-#: ../engine/elements.txt:11
-msgid "Lightning"
-msgstr "Fulmine"
-
-#: ../engine/elements.txt:15
-msgid "Dark"
-msgstr "Oscurità"
 
 #: ../engine/classes.txt:6
 msgid "Brute"
@@ -351,6 +335,54 @@ msgstr "ascia da lancio"
 
 #: ../engine/damage_types.txt:5
 msgid "Scroll Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:16
+msgid "Fire Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:17
+msgid "Fire"
+msgstr "Fuoco"
+
+#: ../engine/damage_types.txt:18
+msgid "Adds elemental fire damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:25
+msgid "Ice Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:26
+msgid "Ice"
+msgstr "Ghiaccio"
+
+#: ../engine/damage_types.txt:27
+msgid "Adds elemental ice damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:34
+msgid "Lightning Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:35
+msgid "Lightning"
+msgstr "Fulmine"
+
+#: ../engine/damage_types.txt:36
+msgid "Adds elemental lightning damage to non-elemental attacks."
+msgstr ""
+
+#: ../engine/damage_types.txt:43
+msgid "Dark Damage"
+msgstr ""
+
+#: ../engine/damage_types.txt:44
+msgid "Dark"
+msgstr "Oscurità"
+
+#: ../engine/damage_types.txt:45
+msgid "Adds elemental dark damage to non-elemental attacks."
 msgstr ""
 
 #: ../enemies/base/ardwen.txt:3
@@ -957,17 +989,17 @@ msgstr "Grotta dei Goblin"
 msgid "Gravestone"
 msgstr "Pietra Tombale"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
 msgid "Halls of Infinity"
 msgstr "Sale dell'Infinito"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
-msgid "Mine Cart"
-msgstr "Carretto da Miniera"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
 msgid "Stalagmite Pillar"
 msgstr "Pilastro di Stalagmite"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
+msgid "Mine Cart"
+msgstr "Carretto da Miniera"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1774,87 +1806,61 @@ msgstr "Continua attraverso le Sale dell'Infinito"
 msgid "Return to Underworld Stronghold"
 msgstr "Ritorna alla Fortezza del Mondo Sotterraneo"
 
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "Abasi, Mercante Viaggiatore"
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
+msgstr "Resetta Missioni"
 
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "Diario"
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "Resetta la missione: \"Ritorno a Empyrean\""
 
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "Nessuna fortuna nella ricerca del mio diario?"
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "Resetta la missione: \"La Scomparsa di Krolan\""
 
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "Non ancora."
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
+msgstr "Resetta missione: \"Alchimia\""
 
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "Ecco il tuo diario."
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "Resetta la missione: \"Il Diario del Mercante\""
 
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "Meraviglioso! Ormai l'avevo considerato perso per sempre."
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "Resettare la missione: \"In trappola nella Cripta\""
 
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr ""
-"Sono in debito con te. Ti prego di prendere questo come ricompensa per il "
-"tuo disturbo."
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "Resetta la missione: \"I guardiani da un solo occhio\""
 
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "Non mostrare alcuna misericordia per quei luridi ladri."
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr "Resetta la missione: \"Fratello?\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr ""
-"Fai attenzione su queste strade. Questi goblin non danno altro che problemi."
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr "Resetta la missione: \"Chiusi Fuori\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "Grazie per l'avvertimento."
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
+msgstr "Resetta missione: \"La Fortezza Sepolta\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "È il minimo che possa fare."
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "Resetta la missione: \"L'Anima Persa delle Caverne di Mog\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
-msgstr ""
-"Quando mi sono svegliato questa mattina, il mio diario era scomparso. Senza "
-"dubbio l'ha rubato una di quelle luride creature."
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "Resetta la missione: \"Un nome insolito...\""
 
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr ""
-"Se trovi il mio diario durante i tuoi viaggi, ti prego di riportarmelo."
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "Resetta la missione: \"Le Note del Guardiano\""
 
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "Salve, vedo che ti piace andare in giro."
-
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
-msgstr ""
-"Giudicando dalle apparenze, non ti dispiacciono i lunghi viaggi. Perciò ti "
-"chiederei di dare un'occhiata in giro, se riesci a trovare il mio diario, "
-"che è scomparso."
-
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
-msgstr ""
-"Mi sono accorto della sua scomparsa dopo aver passato una notte accampato "
-"vicino alla Grotta dei Goblin. L'ho cercato per un po', ma poi ho deciso che"
-" era meglio andarmene."
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "Resetta la missione: \"Compagni Caduti\""
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1952,114 +1958,6 @@ msgstr "Livello 19"
 msgid "Level 20"
 msgstr "Livello 20"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
-msgstr "Resetta Missioni"
-
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr "Resetta la missione: \"Ritorno a Empyrean\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr "Resetta la missione: \"La Scomparsa di Krolan\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
-msgstr "Resetta missione: \"Alchimia\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr "Resetta la missione: \"Il Diario del Mercante\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr "Resettare la missione: \"In trappola nella Cripta\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr "Resetta la missione: \"I guardiani da un solo occhio\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr "Resetta la missione: \"Fratello?\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr "Resetta la missione: \"Chiusi Fuori\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
-msgstr "Resetta missione: \"La Fortezza Sepolta\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr "Resetta la missione: \"L'Anima Persa delle Caverne di Mog\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr "Resetta la missione: \"Un nome insolito...\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr "Resetta la missione: \"Le Note del Guardiano\""
-
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
-msgstr "Resetta la missione: \"Compagni Caduti\""
-
-#: ../npcs/base/dev_tome/items.txt:2
-msgid "Give items"
-msgstr "Dare oggetti"
-
-#: ../npcs/base/dev_tome/items.txt:20
-msgid "Potions"
-msgstr "Pozioni"
-
-#: ../npcs/base/dev_tome/items.txt:33
-msgid "Health Potion"
-msgstr "Pozione di Guarigione"
-
-#: ../npcs/base/dev_tome/items.txt:39
-msgid "Mana Potion"
-msgstr "Pozione del Mana"
-
-#: ../npcs/base/dev_tome/items.txt:51
-msgid "Restoration Potion"
-msgstr "Pozione di ripristino "
-
-#: ../npcs/base/dev_tome/items.txt:69
-msgid "Scrolls"
-msgstr "Pergamene"
-
-#: ../npcs/base/dev_tome/items.txt:84
-msgid "Summon Zombie Scroll"
-msgstr "Pergamena Evoca Zombie"
-
-#: ../npcs/base/dev_tome/items.txt:90
-msgid "Perdition Scroll"
-msgstr "Pergamena della Perdizione"
-
-#: ../npcs/base/dev_tome/items.txt:96
-msgid "Shield Scroll"
-msgstr "Pergamena di Scudo"
-
-#: ../npcs/base/dev_tome/items.txt:114
-msgid "Haste Scroll"
-msgstr "Pergamena della Fretta"
-
-#: ../npcs/base/dev_tome/items.txt:120
-msgid "Immunity Scroll"
-msgstr "Pergamena d'Immunità"
-
-#: ../npcs/base/dev_tome/items.txt:126
-msgid "Reflection Scroll"
-msgstr "Pergamena di Riflesso"
-
-#: ../npcs/base/dev_tome/items.txt:132
-msgid "Underworld Set (with rings)"
-msgstr "Set Underworld (con anelli)"
-
 #: ../npcs/base/dev_tome/teleport.txt:17
 msgid "Introduction"
 msgstr "Introduzione"
@@ -2119,6 +2017,140 @@ msgstr "Sale dell'Infinito: 9"
 #: ../npcs/base/dev_tome/teleport.txt:473
 msgid "Halls of Infinity: 10"
 msgstr "Sale dell'Infinito: 10"
+
+#: ../npcs/base/dev_tome/items.txt:2
+msgid "Give items"
+msgstr "Dare oggetti"
+
+#: ../npcs/base/dev_tome/items.txt:20
+msgid "Potions"
+msgstr "Pozioni"
+
+#: ../npcs/base/dev_tome/items.txt:33
+msgid "Health Potion"
+msgstr "Pozione di Guarigione"
+
+#: ../npcs/base/dev_tome/items.txt:39
+msgid "Mana Potion"
+msgstr "Pozione del Mana"
+
+#: ../npcs/base/dev_tome/items.txt:51
+msgid "Restoration Potion"
+msgstr "Pozione di ripristino "
+
+#: ../npcs/base/dev_tome/items.txt:69
+msgid "Scrolls"
+msgstr "Pergamene"
+
+#: ../npcs/base/dev_tome/items.txt:84
+msgid "Summon Zombie Scroll"
+msgstr "Pergamena Evoca Zombie"
+
+#: ../npcs/base/dev_tome/items.txt:90
+msgid "Perdition Scroll"
+msgstr "Pergamena della Perdizione"
+
+#: ../npcs/base/dev_tome/items.txt:96
+msgid "Shield Scroll"
+msgstr "Pergamena di Scudo"
+
+#: ../npcs/base/dev_tome/items.txt:114
+msgid "Haste Scroll"
+msgstr "Pergamena della Fretta"
+
+#: ../npcs/base/dev_tome/items.txt:120
+msgid "Immunity Scroll"
+msgstr "Pergamena d'Immunità"
+
+#: ../npcs/base/dev_tome/items.txt:126
+msgid "Reflection Scroll"
+msgstr "Pergamena di Riflesso"
+
+#: ../npcs/base/dev_tome/items.txt:132
+msgid "Underworld Set (with rings)"
+msgstr "Set Underworld (con anelli)"
+
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr ""
+"Fai attenzione su queste strade. Questi goblin non danno altro che problemi."
+
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "Grazie per l'avvertimento."
+
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "È il minimo che possa fare."
+
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr ""
+"Quando mi sono svegliato questa mattina, il mio diario era scomparso. Senza "
+"dubbio l'ha rubato una di quelle luride creature."
+
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr ""
+"Se trovi il mio diario durante i tuoi viaggi, ti prego di riportarmelo."
+
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "Abasi, Mercante Viaggiatore"
+
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "Diario"
+
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "Nessuna fortuna nella ricerca del mio diario?"
+
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "Non ancora."
+
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "Ecco il tuo diario."
+
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "Meraviglioso! Ormai l'avevo considerato perso per sempre."
+
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr ""
+"Sono in debito con te. Ti prego di prendere questo come ricompensa per il "
+"tuo disturbo."
+
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "Non mostrare alcuna misericordia per quei luridi ladri."
+
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "Salve, vedo che ti piace andare in giro."
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr ""
+"Giudicando dalle apparenze, non ti dispiacciono i lunghi viaggi. Perciò ti "
+"chiederei di dare un'occhiata in giro, se riesci a trovare il mio diario, "
+"che è scomparso."
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"Mi sono accorto della sua scomparsa dopo aver passato una notte accampato "
+"vicino alla Grotta dei Goblin. L'ho cercato per un po', ma poi ho deciso che"
+" era meglio andarmene."
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2961,109 +2993,121 @@ msgstr "10/07/1468"
 msgid "No subjects asked to take the test today."
 msgstr "Nessun soggetto ha chiesto di fare il test oggi."
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "Camicia di stoffa del Condottiero"
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "Elmo di placche del Combattente"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "Camicia di stoffa del Cecchino"
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "Elmo di placche del Ricognitore"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "Camicia di stoffa dell'Arcimago"
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "Cappuccio di velluto del Mago"
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "Pantaloni di stoffa del Condottiero"
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "Corazza di placche del Guerriero"
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "Pantaloni di stoffa del Cecchino"
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "Corazza di placche del Ricognitore"
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "Pantaloni di stoffa dell'Arcimago"
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "Veste di velluto del Mago"
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "Sandali di stoffa del Condottiero"
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "Gambali di placche del Combattente"
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "Sandali di stoffa del Cecchino"
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "Gambali di placche del Ricognitore"
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "Sandali di stoffa dell'Arcimago"
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "Gonna di velluto del Mago"
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "Guanti di stoffa del Condottiero"
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "Stivali di placche del Combattente"
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "Guanti di stoffa del Cecchino"
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "Stivali di placche del Ricognitore"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "Guanti di stoffa dell'Arcimago"
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "Stivali di velluto del Mago"
 
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "Cintura di cuoio del Maestro"
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "Guanti di placche del Combattente"
 
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "Pendente del Maestro"
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "Guanti di placche del Ricognitore"
 
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "Libro degli Incantesimi del Maestro"
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "Bracciali di velluto del Mago"
 
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "Pugnale del Condottiero"
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "Cintura di cuoio del Condottiero Vagante"
 
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "Fionda del Cecchino"
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "Pendente del Cecchino Vagante"
 
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "Bacchetta dell'Arcimago"
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "Libro degli Incantesimi dell'Arcimago Vagabondo"
 
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "Scudo di legno del Templare"
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "Spadone del Combattente"
 
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "Anello del Fuoco del Maestro"
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "Grande Arco del Ricognitore"
 
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "Anello del Ghiaccio del Maestro"
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "Grande Bastone del Mago"
 
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "Anello del Fulmine del Maestro"
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "Scudo a torre del Custode"
 
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "Anello Oscuro del Maestro"
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "Anello Infernale Vagante"
 
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "Anello di Esperienza del Maestro"
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "Anello Glaciale Vagante"
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "Anello di Salute del Maestro"
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "Anello Elettrico Vagante"
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "Anello del Tesoro del Maestro"
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "Anello del Vuoto Vagante"
+
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "Anello dello Studioso Vagante"
+
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "Anello della Prosperità Vagante"
+
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "Anello delle Relique Vaganti"
 
 #: ../items/categories/level_5.txt:5
 msgid "Leather Hood"
@@ -3121,6 +3165,122 @@ msgstr "Verga"
 msgid "Iron Buckler"
 msgstr "Scudo di ferro"
 
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "Elmo di placche del Condottiero"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "Elmo di placche del Cecchino"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "Cappuccio di velluto dell'Arcimago"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "Corazza di placche del Condottiero"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "Corazza di placche del Cecchino"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "Veste di velluto dell'Arcimago"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "Gambali di placche del Condottiero"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "Gambali di placche del Cecchino"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "Gonna di velluto dell'Arcimago"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "Stivali di placche del Condottiero"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "Stivali di placche del Cecchino"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "Stivali di velluto dell'Arcimago"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "Guanti di placche del Condottiero"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "Guanti di placche del Cecchino"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "Bracciali di velluto dell'Arcimago"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "Cintura di cuoio del Maestro Condottiero"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "Pendente del Maestro Cecchino"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "Libro degli Incantesimi del Maestro Arcimago"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "Spadone del Condottiero"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "Grande Arco del Cecchino"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "Grande Bastone dell' Arcimago"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "Scudo a torre del Templare"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "Anello Infernale del Maestro"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "Anello Glaciale del Maestro"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "Anello Elettrico del Maestro"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "Anello Magistrale del Vuoto"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "Anello Magistrale dello Studioso"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "Anello Magistrale dell'Abbondanza"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "Anello Magistrale del Cercatore di Reliquie"
+
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "Elmo di placche"
@@ -3177,198 +3337,297 @@ msgstr "Grande Bastone"
 msgid "Tower Shield"
 msgstr "Scudo a torre"
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "Camicia di stoffa"
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "Elmo di maglia del Condottiero"
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "Pantaloni di stoffa"
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "Elmo di maglia del Cecchino"
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "Sandali di stoffa"
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "Cappuccio di seta dell'Arcimago"
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "Guanti di stoffa"
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "Corazza di maglia del Condottiero"
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "Pugnale"
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "Corazza di maglia del Cecchino"
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "Fionda"
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "Veste di seta dell'Arcimago"
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "Bacchetta"
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "Gambali di maglia del Condottiero"
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "Scudo di legno"
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "Gambali di maglia del Cecchino"
 
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "Cappuccio di cuoio del Condottiero"
-
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "Cappuccio di cuoio del Cecchino"
-
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "Cappuccio di lana dell'Arcimago"
-
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "Tunica di pelle del Condottiero"
-
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "Tunica di pelle del Cecchino"
-
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "Veste di lana dell'Arcimago"
-
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "Pantaloni di cuoio del Condottiero"
-
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "Pantaloni di cuoio del Cecchino"
-
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
 msgstr "Gonna di seta dell'Arcimago"
 
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "Stivali di cuoio del Guerriero"
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "Stivali di maglia del Condottiero"
 
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "Stivali di cuoio del Cecchino"
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "Stivali di maglia del Cecchino"
 
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "Stivali di lana dell'Arcimago"
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "Stivali di seta dell'Arcimago"
 
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "Guanti di cuoio del Condottiero"
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "Guanti di maglia del Condottiero"
 
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "Guanti di cuoio del Cecchino"
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "Guanti di maglia del Cecchino"
 
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "Bracciali di lana dell'Arcimago"
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "Bracciali di seta dell'Arcimago"
 
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "Cintura di cuoio del Maestro Combattente"
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "Cintura di cuoio del Maestro Guerriero"
 
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "Pendente del Maestro Ricognitore"
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "Pendente del Maestro Ranger"
 
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "Libro degli Incantesimi del Maestro Stregone"
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "Libro degli Incantesimi del Maestro"
 
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "Spada corta del Condottiero"
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "Spada lunga del Condottiero"
 
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "Arco corto del Cecchino"
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "Arco lungo del Cecchino"
 
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "Verga dell'Arcimago"
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "Bastone dell'Arcimago"
 
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "Scudo di ferro del Templare"
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "Scudo a cresta del Templare"
 
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "Anello Bruciante del Maestro"
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "Anello di Fuoco del Maestro"
 
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "Anello Congelante del Maestro"
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "Anello di Gelo del Maestro"
 
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "Anello Elettrico del Maestro"
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "Anello dello Shock del Maestro"
 
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "Anello delle Ombre del Maestro"
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "Anello Splendente del Maestro"
 
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "Anello della Conoscenza del Maestro"
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "Anello Intellettuale del Maestro"
 
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "Anello della Prosperità del Maestro"
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "Anello d'Abbondanza del Maestro"
 
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "Anello del Bottino del Maestro"
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "Anello degli Artefatti del Maestro"
 
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "Uso: Evoca uno zombie che combatte per te"
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "Martello di Krolan"
 
-#: ../items/categories/scrolls.txt:19
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "Uso: Teletrasporto al Porto della Perdizione"
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "Uno strumento essenziale per ogni fabbro."
 
-#: ../items/categories/scrolls.txt:30
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "Uso: Crea uno scudo magico che assorbe il danno"
+#: ../items/categories/level_4_unique.txt:19
+msgid "Goblin Branch"
+msgstr "Dedali Goblin"
 
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr "Uso: Lancia una palla di fuoco"
+#: ../items/categories/level_4_unique.txt:20
+msgid "Mana flows inside its primitive exterior."
+msgstr "Il mana scorre dentro il suo aspetto esteriore primitivo."
 
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr "Uso: Lancia un Dardo di Ghiaccio"
+#: ../items/categories/level_4_unique.txt:36
+msgid "Ardwen's Gloves"
+msgstr "Guanti di Ardwen"
 
-#: ../items/categories/scrolls.txt:63
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "Uso: Ti muovi a velocità aumentata per un tempo limitato"
+#: ../items/categories/level_4_unique.txt:37
+msgid "These hands built a village."
+msgstr "Queste mani hanno costruito un villaggio."
 
-#: ../items/categories/scrolls.txt:74
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr ""
-"Uso: Rimuove l'aura e rende immune per un tempo limitato dall'aura altrui"
+#: ../items/categories/level_4_unique.txt:53
+msgid "Blood Tunic"
+msgstr "Tunica di Sangue"
 
-#: ../items/categories/scrolls.txt:85
+#: ../items/categories/level_4_unique.txt:54
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "Se indossata, questa tunica riscalda le vene di chi la porta."
+
+#: ../items/categories/level_4_unique.txt:69
+msgid "Dark Steppers"
+msgstr "Camminatori Oscuri"
+
+#: ../items/categories/level_4_unique.txt:70
+msgid "Dancing through the shadows."
+msgstr "Danzando attraverso le ombre."
+
+#: ../items/categories/level_4_unique.txt:84
+msgid "Seagate's Tri-pants"
+msgstr "Pantaloni della Porta del Mare"
+
+#: ../items/categories/level_4_unique.txt:85
 msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
 msgstr ""
-"Uso: Crea uno scudo magico che riflette i colpi e il danno per un tempo "
-"limitato"
+"Questi pantaloni stracciati sono coperti di segni di bruciature, ma sono "
+"freddi al tatto."
 
-#: ../items/categories/scrolls.txt:93
-msgid "Tome of Second Chances"
-msgstr ""
+#: ../items/categories/level_4_unique.txt:101
+msgid "Ardwen's Ring"
+msgstr "Anello di Ardwen"
 
-#: ../items/categories/scrolls.txt:95
-msgid "Use: Resets all stat and power points"
-msgstr ""
+#: ../items/categories/level_4_unique.txt:102
+msgid "Lochport's finest."
+msgstr "Il meglio di Lochport."
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "Elmo di maglia del Guerriero"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "Elmo di maglia del Ranger"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "Cappuccio di seta del Mago"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "Corazza di maglia del Condottiero"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "Corazza di maglia del Ranger"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "Veste di seta del Mago"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "Gambali di maglia del Guerriero"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "Gambali di maglia del Ranger"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "Gonna di seta del Mago"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "Stivali di maglia del Guerriero"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "Stivali di maglia del Ranger"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "Stivali di seta del Mago"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "Guanti di maglia del Guerriero"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "Guanti di maglia del Ranger"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "Bracciali di seta del Mago"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "Cintura di cuoio del Guerriero Avventuroso"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "Pendente del Ranger Avventuroso"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "Libro degli Incantesimi del Mago Avventuroso"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "Spada lunga del Guerriero"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "Arco lungo del Ranger"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "Bastone da Mago"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "Scudo a cresta del Paladino"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "Anello Infernale dell'Avventuriero"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "Anello Glaciale dell'Avventuriero"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "Anello Elettrico dell'Avventuriero"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "Anello Splendente dell'Avventuriero"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "Anello Intellettuale dell'Avventuriero"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "Anello Avventuroso dell'Abbondanza"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "Anello Avventuroso degli Artefatti"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3473,238 +3732,6 @@ msgstr "Anello della Ricchezza Vagante"
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
 msgstr "Anello del Tesoro Vagante"
-
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "Elmo di placche del Guerriero"
-
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "Elmo di placche del Ranger"
-
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "Cappuccio di cuoio del Mago"
-
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "Corazza di placche del Guerriero"
-
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "Corazza di placche del Ranger"
-
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "Veste di velluto del Mago"
-
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "Gambali di placche del Guerriero"
-
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "Gambali di placche del Ranger"
-
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "Gonna di velluto del Mago"
-
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "Stivali di placche del Guerriero"
-
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "Stivali di placche del Ranger"
-
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "Stivali di velluto del Mago"
-
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "Guanti di placche del Guerriero"
-
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "Guanti di placche del Ranger"
-
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "Bracciali di velluto del Mago"
-
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "Cintura di cuoio del Condottiero Avventuroso"
-
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "Pendente del Cecchino Avventuroso"
-
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "Libro degli Incantesimi dell'Arcimago Avventuroso"
-
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "Spadone del Guerriero"
-
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "Grande Arco del Ranger"
-
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "Grande Bastone del Mago"
-
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "Scudo a torre del Paladino"
-
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "Anello Infernale dell'Avventuriero"
-
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "Anello Glaciale dell'Avventuriero"
-
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "Anello Elettrico dell'Avventuriero"
-
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "Anello Vuoto dell'Avventuriero"
-
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "Anello da Studioso dell'Avventuriero"
-
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "Anello dell'Abbondanza dell'Avventuriero"
-
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "Anello del Cercatore di Relique"
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "Cappuccio di cuoio del Guerriero"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "Cappuccio di cuoio del Ranger"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr "Cappuccio di lana del Mago"
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "Tunica di pelle del Guerriero"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "Tunica di cuoio del Ranger"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr "Veste di lana del Mago"
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "Pantaloni di cuoio del Guerriero"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "Pantaloni di cuoio del Ranger"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr "Gonna di lana del Mago"
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "Stivali di cuoio del Guerriero"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "Stivali di cuoio del Ranger"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr "Stivali di lana del Mago"
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "Guanti di cuoio del Guerriero"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "Guanti di cuoio del Ranger"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr "Bracciali di lana del Mago"
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "Cintura di cuoio del Combattente Avventuroso"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "Pendente del Ricognitore Avventuroso"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "Libro di Incantesimi dello Stregone Avventuroso"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "Spada corta del Guerriero"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "Arco corto del Ranger"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "Verga del Mago"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "Scudo di ferro del Paladino"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr "Anello Bruciante dell'Avventuriero"
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr "Anello Gelante dell'Avventuriero"
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr "Anello Elettrico dell'Avventuriero"
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr "Anello d'Ombra dell'Avventuriero"
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr "Anello di Conoscenza dell'Avventuriero"
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr "Anello di Prosperità dell'Avventuriero"
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr "Anello del Bottino dell'Avventuriero"
 
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
@@ -3821,64 +3848,6 @@ msgstr "Anello dell'Abbondanza del Vagabondo"
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "Anello degli Artefatti del Vagabondo"
-
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "Fascia di Carne"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr ""
-"Liscia al tatto. Quando viene indossata, si stringe intorno alle dita."
-
-#: ../items/categories/level_16_unique.txt:21
-msgid "Soulband"
-msgstr "Fascia dell'Anima"
-
-#: ../items/categories/level_16_unique.txt:23
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr ""
-"Luminosa quando è indossata, schiarisce la mente di chi la porta e permette "
-"una profonda messa a fuoco."
-
-#: ../items/categories/level_16_unique.txt:38
-msgid "Underworld Cloak"
-msgstr "Mantello del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:51
-msgid "Underworld Platemail"
-msgstr "Maglia di placche del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:64
-msgid "Underworld Boots"
-msgstr "Stivali del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:77
-msgid "Underworld Armguards"
-msgstr "Protezioni del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:90
-msgid "Underworld Greaves"
-msgstr "Gambali del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:103
-msgid "Underworld Tome"
-msgstr "Tomo del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:115
-msgid "Underworld Blade"
-msgstr "Lama del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:128
-msgid "Underworld Bow"
-msgstr "Arco del Mondo Sotterraneo"
-
-#: ../items/categories/level_16_unique.txt:141
-msgid "Underworld Sceptre"
-msgstr "Scettro del Mondo Sotterraneo"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -4054,6 +4023,271 @@ msgstr ""
 "Secondo Florin questo è l'unico inchiostro utilizzabile per scrivere nel "
 "Libro dei Morti."
 
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "Camicia di stoffa del Guerriero"
+
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "Camicia di stoffa del Ranger"
+
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "Camicia di stoffa del Mago"
+
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "Pantaloni di stoffa del Guerriero"
+
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "Pantaloni di stoffa del Ranger"
+
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "Pantaloni di stoffa del Mago"
+
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "Sandali di stoffa del Guerriero"
+
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "Sandali di stoffa del Ranger"
+
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "Sandali di stoffa del Mago"
+
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "Guanti di stoffa del Guerriero"
+
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "Guanti di stoffa del Ranger"
+
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "Guanti di stoffa del Mago"
+
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "Cintura di cuoio dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "Pendente dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "Libro degli Incantesimi dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "Pugnale del Guerriero"
+
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "Fionda del Ranger"
+
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "Bacchetta del Mago"
+
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "Scudo di legno del Paladino"
+
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "Anello di Fuoco dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "Anello di Ghiaccio dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "Anello del Fulmine dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "Anello Oscuro dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "Anello di Esperienza dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "Anello della Ricchezza dell'Avventuriero"
+
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "Anello del Tesoro dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "Cappuccio di cuoio del Guerriero"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "Cappuccio di cuoio del Ranger"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "Cappuccio di lana del Mago"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "Tunica di pelle del Guerriero"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "Tunica di cuoio del Ranger"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "Veste di lana del Mago"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "Pantaloni di cuoio del Guerriero"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "Pantaloni di cuoio del Ranger"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "Gonna di lana del Mago"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "Stivali di cuoio del Guerriero"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "Stivali di cuoio del Ranger"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "Stivali di lana del Mago"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "Guanti di cuoio del Guerriero"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "Guanti di cuoio del Ranger"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "Bracciali di lana del Mago"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "Cintura di cuoio del Combattente Avventuroso"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "Pendente del Ricognitore Avventuroso"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "Libro di Incantesimi dello Stregone Avventuroso"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "Spada corta del Guerriero"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "Arco corto del Ranger"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "Verga del Mago"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "Scudo di ferro del Paladino"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "Anello Bruciante dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "Anello Gelante dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "Anello Elettrico dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "Anello d'Ombra dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "Anello di Conoscenza dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "Anello di Prosperità dell'Avventuriero"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "Anello del Bottino dell'Avventuriero"
+
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "Uso: Evoca uno zombie che combatte per te"
+
+#: ../items/categories/scrolls.txt:19
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "Uso: Teletrasporto al Porto della Perdizione"
+
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "Uso: Crea uno scudo magico che assorbe il danno"
+
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr "Uso: Lancia una palla di fuoco"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr "Uso: Lancia un Dardo di Ghiaccio"
+
+#: ../items/categories/scrolls.txt:63
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "Uso: Ti muovi a velocità aumentata per un tempo limitato"
+
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr ""
+"Uso: Rimuove l'aura e rende immune per un tempo limitato dall'aura altrui"
+
+#: ../items/categories/scrolls.txt:85
+msgid ""
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr ""
+"Uso: Crea uno scudo magico che riflette i colpi e il danno per un tempo "
+"limitato"
+
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr ""
+
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr ""
+
 #: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
 msgstr "Mortaio e pestello"
@@ -4061,298 +4295,6 @@ msgstr "Mortaio e pestello"
 #: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr "Usa bottiglie vuote e vari ingredienti per creare pozioni."
-
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "Martello di Krolan"
-
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "Uno strumento essenziale per ogni fabbro."
-
-#: ../items/categories/level_4_unique.txt:19
-msgid "Goblin Branch"
-msgstr "Dedali Goblin"
-
-#: ../items/categories/level_4_unique.txt:20
-msgid "Mana flows inside its primitive exterior."
-msgstr "Il mana scorre dentro il suo aspetto esteriore primitivo."
-
-#: ../items/categories/level_4_unique.txt:36
-msgid "Ardwen's Gloves"
-msgstr "Guanti di Ardwen"
-
-#: ../items/categories/level_4_unique.txt:37
-msgid "These hands built a village."
-msgstr "Queste mani hanno costruito un villaggio."
-
-#: ../items/categories/level_4_unique.txt:53
-msgid "Blood Tunic"
-msgstr "Tunica di Sangue"
-
-#: ../items/categories/level_4_unique.txt:54
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "Se indossata, questa tunica riscalda le vene di chi la porta."
-
-#: ../items/categories/level_4_unique.txt:69
-msgid "Dark Steppers"
-msgstr "Camminatori Oscuri"
-
-#: ../items/categories/level_4_unique.txt:70
-msgid "Dancing through the shadows."
-msgstr "Danzando attraverso le ombre."
-
-#: ../items/categories/level_4_unique.txt:84
-msgid "Seagate's Tri-pants"
-msgstr "Pantaloni della Porta del Mare"
-
-#: ../items/categories/level_4_unique.txt:85
-msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
-msgstr ""
-"Questi pantaloni stracciati sono coperti di segni di bruciature, ma sono "
-"freddi al tatto."
-
-#: ../items/categories/level_4_unique.txt:101
-msgid "Ardwen's Ring"
-msgstr "Anello di Ardwen"
-
-#: ../items/categories/level_4_unique.txt:102
-msgid "Lochport's finest."
-msgstr "Il meglio di Lochport."
-
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "Elmo di placche del Condottiero"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "Elmo di placche del Cecchino"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "Cappuccio di velluto dell'Arcimago"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "Corazza di placche del Condottiero"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "Corazza di placche del Cecchino"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "Veste di velluto dell'Arcimago"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "Gambali di placche del Condottiero"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "Gambali di placche del Cecchino"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "Gonna di velluto dell'Arcimago"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "Stivali di placche del Condottiero"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "Stivali di placche del Cecchino"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "Stivali di velluto dell'Arcimago"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "Guanti di placche del Condottiero"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "Guanti di placche del Cecchino"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "Bracciali di velluto dell'Arcimago"
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "Cintura di cuoio del Maestro Condottiero"
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "Pendente del Maestro Cecchino"
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "Libro degli Incantesimi del Maestro Arcimago"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "Spadone del Condottiero"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "Grande Arco del Cecchino"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "Grande Bastone dell' Arcimago"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "Scudo a torre del Templare"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "Anello Infernale del Maestro"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "Anello Glaciale del Maestro"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "Anello Elettrico del Maestro"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "Anello Magistrale del Vuoto"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "Anello Magistrale dello Studioso"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "Anello Magistrale dell'Abbondanza"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "Anello Magistrale del Cercatore di Reliquie"
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "Elmo di maglia del Guerriero"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "Elmo di maglia del Ranger"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "Cappuccio di seta del Mago"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr "Corazza di maglia del Condottiero"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr "Corazza di maglia del Ranger"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "Veste di seta del Mago"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "Gambali di maglia del Guerriero"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "Gambali di maglia del Ranger"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "Gonna di seta del Mago"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "Stivali di maglia del Guerriero"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "Stivali di maglia del Ranger"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "Stivali di seta del Mago"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "Guanti di maglia del Guerriero"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "Guanti di maglia del Ranger"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "Bracciali di seta del Mago"
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr "Cintura di cuoio del Guerriero Avventuroso"
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr "Pendente del Ranger Avventuroso"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr "Libro degli Incantesimi del Mago Avventuroso"
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "Spada lunga del Guerriero"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "Arco lungo del Ranger"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "Bastone da Mago"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "Scudo a cresta del Paladino"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "Anello Infernale dell'Avventuriero"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "Anello Glaciale dell'Avventuriero"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "Anello Elettrico dell'Avventuriero"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "Anello Splendente dell'Avventuriero"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "Anello Intellettuale dell'Avventuriero"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "Anello Avventuroso dell'Abbondanza"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "Anello Avventuroso degli Artefatti"
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4409,6 +4351,122 @@ msgstr "Bastone"
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
 msgstr "Scudo a cresta"
+
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "Cappuccio di cuoio del Condottiero"
+
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "Cappuccio di cuoio del Cecchino"
+
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "Cappuccio di lana dell'Arcimago"
+
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "Tunica di pelle del Condottiero"
+
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "Tunica di pelle del Cecchino"
+
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "Veste di lana dell'Arcimago"
+
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "Pantaloni di cuoio del Condottiero"
+
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "Pantaloni di cuoio del Cecchino"
+
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "Gonna di seta dell'Arcimago"
+
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "Stivali di cuoio del Guerriero"
+
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "Stivali di cuoio del Cecchino"
+
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "Stivali di lana dell'Arcimago"
+
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "Guanti di cuoio del Condottiero"
+
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "Guanti di cuoio del Cecchino"
+
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "Bracciali di lana dell'Arcimago"
+
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "Cintura di cuoio del Maestro Combattente"
+
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "Pendente del Maestro Ricognitore"
+
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "Libro degli Incantesimi del Maestro Stregone"
+
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "Spada corta del Condottiero"
+
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "Arco corto del Cecchino"
+
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "Verga dell'Arcimago"
+
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "Scudo di ferro del Templare"
+
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "Anello Bruciante del Maestro"
+
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "Anello Congelante del Maestro"
+
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "Anello Elettrico del Maestro"
+
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "Anello delle Ombre del Maestro"
+
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "Anello della Conoscenza del Maestro"
+
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "Anello della Prosperità del Maestro"
+
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "Anello del Bottino del Maestro"
 
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
@@ -4526,225 +4584,153 @@ msgstr "Anello della Prosperità Vagante"
 msgid "Wandering Loot Ring"
 msgstr "Anello del Bottino Vagante"
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "Camicia di stoffa del Guerriero"
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "Elmo di placche del Guerriero"
 
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "Camicia di stoffa del Ranger"
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "Elmo di placche del Ranger"
 
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "Camicia di stoffa del Mago"
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "Cappuccio di cuoio del Mago"
 
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "Pantaloni di stoffa del Guerriero"
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "Corazza di placche del Guerriero"
 
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "Pantaloni di stoffa del Ranger"
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "Corazza di placche del Ranger"
 
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "Pantaloni di stoffa del Mago"
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "Veste di velluto del Mago"
 
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "Sandali di stoffa del Guerriero"
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "Gambali di placche del Guerriero"
 
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "Sandali di stoffa del Ranger"
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "Gambali di placche del Ranger"
 
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "Sandali di stoffa del Mago"
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "Gonna di velluto del Mago"
 
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "Guanti di stoffa del Guerriero"
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "Stivali di placche del Guerriero"
 
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "Guanti di stoffa del Ranger"
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "Stivali di placche del Ranger"
 
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "Guanti di stoffa del Mago"
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "Stivali di velluto del Mago"
 
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "Cintura di cuoio dell'Avventuriero"
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "Guanti di placche del Guerriero"
 
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "Pendente dell'Avventuriero"
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "Guanti di placche del Ranger"
 
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "Libro degli Incantesimi dell'Avventuriero"
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "Bracciali di velluto del Mago"
 
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "Pugnale del Guerriero"
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "Cintura di cuoio del Condottiero Avventuroso"
 
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "Fionda del Ranger"
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "Pendente del Cecchino Avventuroso"
 
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "Bacchetta del Mago"
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "Libro degli Incantesimi dell'Arcimago Avventuroso"
 
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "Scudo di legno del Paladino"
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "Spadone del Guerriero"
 
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "Anello di Fuoco dell'Avventuriero"
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "Grande Arco del Ranger"
 
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "Anello di Ghiaccio dell'Avventuriero"
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "Grande Bastone del Mago"
 
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "Anello del Fulmine dell'Avventuriero"
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "Scudo a torre del Paladino"
 
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "Anello Oscuro dell'Avventuriero"
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "Anello Infernale dell'Avventuriero"
 
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "Anello di Esperienza dell'Avventuriero"
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "Anello Glaciale dell'Avventuriero"
 
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "Anello della Ricchezza dell'Avventuriero"
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "Anello Elettrico dell'Avventuriero"
 
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "Anello del Tesoro dell'Avventuriero"
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "Anello Vuoto dell'Avventuriero"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "Elmo di maglia del Condottiero"
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "Anello da Studioso dell'Avventuriero"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "Elmo di maglia del Cecchino"
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "Anello dell'Abbondanza dell'Avventuriero"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "Cappuccio di seta dell'Arcimago"
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "Anello del Cercatore di Relique"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "Corazza di maglia del Condottiero"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "Camicia di stoffa"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "Corazza di maglia del Cecchino"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "Pantaloni di stoffa"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "Veste di seta dell'Arcimago"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "Sandali di stoffa"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "Gambali di maglia del Condottiero"
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "Guanti di stoffa"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "Gambali di maglia del Cecchino"
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "Pugnale"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "Gonna di seta dell'Arcimago"
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "Fionda"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "Stivali di maglia del Condottiero"
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "Bacchetta"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "Stivali di maglia del Cecchino"
-
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "Stivali di seta dell'Arcimago"
-
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "Guanti di maglia del Condottiero"
-
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "Guanti di maglia del Cecchino"
-
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "Bracciali di seta dell'Arcimago"
-
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "Cintura di cuoio del Maestro Guerriero"
-
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "Pendente del Maestro Ranger"
-
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "Libro degli Incantesimi del Maestro"
-
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "Spada lunga del Condottiero"
-
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "Arco lungo del Cecchino"
-
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "Bastone dell'Arcimago"
-
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "Scudo a cresta del Templare"
-
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "Anello di Fuoco del Maestro"
-
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "Anello di Gelo del Maestro"
-
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "Anello dello Shock del Maestro"
-
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "Anello Splendente del Maestro"
-
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "Anello Intellettuale del Maestro"
-
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "Anello d'Abbondanza del Maestro"
-
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "Anello degli Artefatti del Maestro"
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "Scudo di legno"
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4795,6 +4781,105 @@ msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr ""
 "Con i suoi strati di pelle di rettile, quasi nulla può penetrare questa "
 "armatura."
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "Fascia di Carne"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr ""
+"Liscia al tatto. Quando viene indossata, si stringe intorno alle dita."
+
+#: ../items/categories/level_16_unique.txt:21
+msgid "Soulband"
+msgstr "Fascia dell'Anima"
+
+#: ../items/categories/level_16_unique.txt:23
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr ""
+"Luminosa quando è indossata, schiarisce la mente di chi la porta e permette "
+"una profonda messa a fuoco."
+
+#: ../items/categories/level_16_unique.txt:38
+msgid "Underworld Cloak"
+msgstr "Mantello del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:51
+msgid "Underworld Platemail"
+msgstr "Maglia di placche del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:64
+msgid "Underworld Boots"
+msgstr "Stivali del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:77
+msgid "Underworld Armguards"
+msgstr "Protezioni del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:90
+msgid "Underworld Greaves"
+msgstr "Gambali del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:103
+msgid "Underworld Tome"
+msgstr "Tomo del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:115
+msgid "Underworld Blade"
+msgstr "Lama del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:128
+msgid "Underworld Bow"
+msgstr "Arco del Mondo Sotterraneo"
+
+#: ../items/categories/level_16_unique.txt:141
+msgid "Underworld Sceptre"
+msgstr "Scettro del Mondo Sotterraneo"
+
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "Recuperi 25% del massimo di HP"
+
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "Recuperi 25% del massimo di MP"
+
+#: ../items/categories/potions.txt:31
+msgid "Temporarily increase regeneration and movement speed"
+msgstr "Aumenta temporaneamente a rigenerazione e la velocità di movimento"
+
+#: ../items/categories/potions.txt:43
+msgid "Restore 25% of both HP and MP"
+msgstr "Recupera 25% dei MP e HP massimi"
+
+#: ../items/categories/potions.txt:55
+msgid "Temporarily increases the ability to find items and gold"
+msgstr "Aumenta temporaneamente la capacità di trovare oggetti e oro"
+
+#: ../items/categories/potions.txt:67
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr ""
+"Aumenta temporaneamente la resistenza a tutte le forme di magia del 50%"
+
+#: ../items/categories/potions.txt:79
+msgid "Restore 50% of maximum HP"
+msgstr "Recuperi 50% degli HP massimi"
+
+#: ../items/categories/potions.txt:91
+msgid "Restore 75% of maximum HP"
+msgstr "Recuperi 75% degli HP massimi"
+
+#: ../items/categories/potions.txt:103
+msgid "Restore 50% of maximum MP"
+msgstr "Recuperi 50% degli MP massimi"
+
+#: ../items/categories/potions.txt:115
+msgid "Restore 75% of maximum MP"
+msgstr "Recuperi 75% degli MP massimi"
 
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
@@ -4850,357 +4935,109 @@ msgstr "Mazza da battaglia di Metzger"
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "Agitando questa mazza si ottiene una nuvola di fumo nero."
 
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "Recuperi 25% del massimo di HP"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "Recuperi 25% del massimo di MP"
-
-#: ../items/categories/potions.txt:31
-msgid "Temporarily increase regeneration and movement speed"
-msgstr "Aumenta temporaneamente a rigenerazione e la velocità di movimento"
-
-#: ../items/categories/potions.txt:43
-msgid "Restore 25% of both HP and MP"
-msgstr "Recupera 25% dei MP e HP massimi"
-
-#: ../items/categories/potions.txt:55
-msgid "Temporarily increases the ability to find items and gold"
-msgstr "Aumenta temporaneamente la capacità di trovare oggetti e oro"
-
-#: ../items/categories/potions.txt:67
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr ""
-"Aumenta temporaneamente la resistenza a tutte le forme di magia del 50%"
-
-#: ../items/categories/potions.txt:79
-msgid "Restore 50% of maximum HP"
-msgstr "Recuperi 50% degli HP massimi"
-
-#: ../items/categories/potions.txt:91
-msgid "Restore 75% of maximum HP"
-msgstr "Recuperi 75% degli HP massimi"
-
-#: ../items/categories/potions.txt:103
-msgid "Restore 50% of maximum MP"
-msgstr "Recuperi 50% degli MP massimi"
-
-#: ../items/categories/potions.txt:115
-msgid "Restore 75% of maximum MP"
-msgstr "Recuperi 75% degli MP massimi"
-
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
-msgstr "Elmo di placche del Combattente"
-
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
-msgstr "Elmo di placche del Ricognitore"
-
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr "Cappuccio di velluto del Mago"
-
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "Corazza di placche del Guerriero"
-
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "Corazza di placche del Ricognitore"
-
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr "Veste di velluto del Mago"
-
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "Gambali di placche del Combattente"
-
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "Gambali di placche del Ricognitore"
-
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr "Gonna di velluto del Mago"
-
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "Stivali di placche del Combattente"
-
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "Stivali di placche del Ricognitore"
-
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr "Stivali di velluto del Mago"
-
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "Guanti di placche del Combattente"
-
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "Guanti di placche del Ricognitore"
-
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr "Bracciali di velluto del Mago"
-
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr "Cintura di cuoio del Condottiero Vagante"
-
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr "Pendente del Cecchino Vagante"
-
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr "Libro degli Incantesimi dell'Arcimago Vagabondo"
-
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "Spadone del Combattente"
-
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "Grande Arco del Ricognitore"
-
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr "Grande Bastone del Mago"
-
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "Scudo a torre del Custode"
-
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr "Anello Infernale Vagante"
-
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr "Anello Glaciale Vagante"
-
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr "Anello Elettrico Vagante"
-
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr "Anello del Vuoto Vagante"
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr "Anello dello Studioso Vagante"
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr "Anello della Prosperità Vagante"
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
-msgstr "Anello delle Relique Vaganti"
-
-#: ../powers/base/magician/burn.txt:1
-msgid "Burn"
-msgstr "Bruciare"
-
-#: ../powers/base/magician/burn.txt:4
-msgid ""
-"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
-"a severe burn that makes enemies very weak to fire damage."
-msgstr ""
-
-#: ../powers/base/magician/energy_flow.txt:1
-msgid "Energy Flow"
-msgstr "Flusso di Energia"
-
-#: ../powers/base/magician/energy_flow.txt:2
-msgid "Mana reserves are increased and regenerate faster."
-msgstr "La riserva di Mana viene aumentata e si rigenera più rapidamente."
-
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "Palla di Fuoco"
-
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "Lancia una palla di fuoco che provoca un danno magico extra."
-
-#: ../powers/base/magician/thunderstrike.txt:1
-msgid "Thunderstrike"
-msgstr "Fulmine"
-
-#: ../powers/base/magician/thunderstrike.txt:4
-msgid ""
-"Lightning strikes from the sky with a high chance to critically damage "
-"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
-" that has a chance of stunning other enemies."
-msgstr ""
-
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "Crea un campo di forza che assorbe i danni."
-
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "Shock"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr ""
-"Lancia una sfera di elettricità che è super efficace contro i nemici "
-"rallentati."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "Dardo di Ghiaccio"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "Lancia un pezzo di ghiaccio che rallenta i nemici."
-
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "Congelare"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid ""
-"Create a ray of several piercing cold shards that slow enemies. Shards have "
-"a chance of shattering into a cloud of frost that makes enemies weak to ice "
-"damage."
-msgstr ""
-
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "Scossa"
-
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "Respinge i nemici vicini con la possibilità di stordirli."
-
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "Colpo sanguigno"
-
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "Un colpo potente che infligge una ferita sanguinante."
-
-#: ../powers/base/warrior/throw_knife.txt:1
-msgid "Throw Knife"
-msgstr "Coltello da lancio"
-
-#: ../powers/base/warrior/throw_knife.txt:2
-msgid ""
-"Throw a knife to deal reduced melee weapon damage. High accuracy and "
-"critical rate."
-msgstr ""
-
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "Muro di Pietra"
-
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr ""
-"Resiste agli attacchi più forti aumentando la salute e l'assorbimento."
-
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "Colpo di Scudo"
-
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "Piomba sui nemici, schiacciandoli con grande forza."
-
-#: ../powers/base/warrior/cleave.txt:1
-msgid "Cleave"
-msgstr "Fendere"
-
-#: ../powers/base/warrior/cleave.txt:2
-msgid "Attack all enemies in a wide arc."
-msgstr "Attacca tutti i nemici in un ampio raggio."
-
-#: ../powers/base/warrior/throw_axe.txt:1
-msgid "Throw Axe"
-msgstr "Ascia da lancio"
-
-#: ../powers/base/warrior/throw_axe.txt:2
-msgid "Throw an axe to deal extra melee weapon damage."
-msgstr "Lancia un'ascia provocando un danno extra da mischia."
-
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "Grido di Guerra"
-
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr "Rimuove l'aura e rende immune per un tempo limitato dall'aura altrui."
-
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "Trappola per Orsi"
-
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid ""
-"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
-" chance to inflict bleeding."
-msgstr ""
-
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "Tiro multiplo"
-
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot multiple projectiles in an arc simultaneously."
-msgstr ""
-
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "Occhio di Lupo"
-
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "Migliora la capacità di colpire a ferire in modo critico i nemici."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "Fuoco Rapido"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "Cinque proiettili di fuoco a bassa potenza in rapida sucessione."
-
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "Tiro"
-
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "Attacco base a distanza."
-
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "Ti muovi a velocità aumentata per un tempo limitato."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "Colpo Penetrante"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies. Inflicts a burn that makes enemies weaker to fire damage."
-msgstr ""
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "Camicia di stoffa del Condottiero"
+
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "Camicia di stoffa del Cecchino"
+
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "Camicia di stoffa dell'Arcimago"
+
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "Pantaloni di stoffa del Condottiero"
+
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "Pantaloni di stoffa del Cecchino"
+
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "Pantaloni di stoffa dell'Arcimago"
+
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "Sandali di stoffa del Condottiero"
+
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "Sandali di stoffa del Cecchino"
+
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "Sandali di stoffa dell'Arcimago"
+
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "Guanti di stoffa del Condottiero"
+
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "Guanti di stoffa del Cecchino"
+
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "Guanti di stoffa dell'Arcimago"
+
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "Cintura di cuoio del Maestro"
+
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "Pendente del Maestro"
+
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "Libro degli Incantesimi del Maestro"
+
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "Pugnale del Condottiero"
+
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "Fionda del Cecchino"
+
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "Bacchetta dell'Arcimago"
+
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "Scudo di legno del Templare"
+
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "Anello del Fuoco del Maestro"
+
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "Anello del Ghiaccio del Maestro"
+
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "Anello del Fulmine del Maestro"
+
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "Anello Oscuro del Maestro"
+
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "Anello di Esperienza del Maestro"
+
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "Anello di Salute del Maestro"
+
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "Anello del Tesoro del Maestro"
 
 #: ../powers/base/ranger/caltrops.txt:1
 msgid "Caltrops"
@@ -5221,6 +5058,201 @@ msgid "Fire a shot that ignores armor and goes through multiple enemies."
 msgstr ""
 "Spara un colpo che ignora le armature e passa attraverso diversi nemici."
 
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "Tiro"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "Attacco base a distanza."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "Occhio di Lupo"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "Migliora la capacità di colpire a ferire in modo critico i nemici."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "Ti muovi a velocità aumentata per un tempo limitato."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "Tiro multiplo"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr ""
+
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "Trappola per Orsi"
+
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr ""
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "Colpo Penetrante"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
+msgstr ""
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "Fuoco Rapido"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "Cinque proiettili di fuoco a bassa potenza in rapida sucessione."
+
+#: ../powers/base/magician/burn.txt:1
+msgid "Burn"
+msgstr "Bruciare"
+
+#: ../powers/base/magician/burn.txt:4
+msgid ""
+"Blast multiple enemies in a distant area with fire. Has a chance to inflict "
+"a severe burn that makes enemies very weak to fire damage."
+msgstr ""
+
+#: ../powers/base/magician/energy_flow.txt:1
+msgid "Energy Flow"
+msgstr "Flusso di Energia"
+
+#: ../powers/base/magician/energy_flow.txt:2
+msgid "Mana reserves are increased and regenerate faster."
+msgstr "La riserva di Mana viene aumentata e si rigenera più rapidamente."
+
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "Crea un campo di forza che assorbe i danni."
+
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "Shock"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr ""
+"Lancia una sfera di elettricità che è super efficace contro i nemici "
+"rallentati."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "Congelare"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "Dardo di Ghiaccio"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "Lancia un pezzo di ghiaccio che rallenta i nemici."
+
+#: ../powers/base/magician/thunderstrike.txt:1
+msgid "Thunderstrike"
+msgstr "Fulmine"
+
+#: ../powers/base/magician/thunderstrike.txt:4
+msgid ""
+"Lightning strikes from the sky with a high chance to critically damage "
+"movement-impaired enemies. Upon striking an enemy, releases a wave of energy"
+" that has a chance of stunning other enemies."
+msgstr ""
+
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "Palla di Fuoco"
+
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "Lancia una palla di fuoco che provoca un danno magico extra."
+
+#: ../powers/base/warrior/throw_knife.txt:1
+msgid "Throw Knife"
+msgstr "Coltello da lancio"
+
+#: ../powers/base/warrior/throw_knife.txt:2
+msgid ""
+"Throw a knife to deal reduced melee weapon damage. High accuracy and "
+"critical rate."
+msgstr ""
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "Colpo sanguigno"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "Un colpo potente che infligge una ferita sanguinante."
+
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "Grido di Guerra"
+
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "Rimuove l'aura e rende immune per un tempo limitato dall'aura altrui."
+
+#: ../powers/base/warrior/cleave.txt:1
+msgid "Cleave"
+msgstr "Fendere"
+
+#: ../powers/base/warrior/cleave.txt:2
+msgid "Attack all enemies in a wide arc."
+msgstr "Attacca tutti i nemici in un ampio raggio."
+
+#: ../powers/base/warrior/throw_axe.txt:1
+msgid "Throw Axe"
+msgstr "Ascia da lancio"
+
+#: ../powers/base/warrior/throw_axe.txt:2
+msgid "Throw an axe to deal extra melee weapon damage."
+msgstr "Lancia un'ascia provocando un danno extra da mischia."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "Colpo di Scudo"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "Piomba sui nemici, schiacciandoli con grande forza."
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "Scossa"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "Respinge i nemici vicini con la possibilità di stordirli."
+
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "Muro di Pietra"
+
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr ""
+"Resiste agli attacchi più forti aumentando la salute e l'assorbimento."
+
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
 msgstr "Incanalamento"
@@ -5228,6 +5260,13 @@ msgstr "Incanalamento"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "Attacco magico base."
+
+#: ../powers/categories/quest.txt:4
+msgid ""
+"Performing the ritual at the Red Altar has granted you faster regeneration."
+msgstr ""
+"Compiendo il rituale all'Altare Rosso hai ottenuto una rigenerazione più "
+"veloce."
 
 #: ../powers/categories/items.txt:67
 msgid ""
@@ -5241,13 +5280,6 @@ msgid ""
 "by performing a basic attack."
 msgstr ""
 
-#: ../powers/categories/quest.txt:4
-msgid ""
-"Performing the ritual at the Red Altar has granted you faster regeneration."
-msgstr ""
-"Compiendo il rituale all'Altare Rosso hai ottenuto una rigenerazione più "
-"veloce."
-
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "Fendente"
@@ -5260,13 +5292,13 @@ msgstr "Attacco da mischia base."
 msgid "Magician"
 msgstr "Mago"
 
-#: ../scripts/dev/waypoints_unlock.txt:14
-msgid "Unlocked all waypoints"
-msgstr "Sbloccati tutti i teletrasporti"
-
 #: ../scripts/dev/waypoints_lock.txt:14
 msgid "Locked all waypoints"
 msgstr "Blocca tutti i teletrasporti"
+
+#: ../scripts/dev/waypoints_unlock.txt:14
+msgid "Unlocked all waypoints"
+msgstr "Sbloccati tutti i teletrasporti"
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
 msgid "It's locked."
