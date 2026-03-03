@@ -1,25 +1,30 @@
 # Settings for the GameNew menu
 # the first two values are x,y positions
 # some items have two more values, width and height
-button_exit=0,0,bottom
-button_create=0,-48,bottom
+button_exit=384,440,center
+button_create=-384,440,center
 
 portrait_label=418,168,center,top
 portrait=258,208,320,320
 button_prev=202,344
 button_next=578,344
 
-name_label=837,544,center,top
-name_input=709,576
+name_label=418,544,center,top
+name_input=290,576
 
 classlist_label=1255,168,center,top
 class_list=951,208
-show_classlist=1
+show_classlist=true
 classlist_height=5
 
-permadeath_label=1207,416,left,center
-button_permadeath=1159,400
+class_tip=983,400
+show_class_tip=true
 
-button_randomize=1063,464
+permadeath_label=1207,688,left,center
+button_permadeath=1159,672
+
+button_randomize=226,672
 random_option=true
 random_class=true
+
+show_frame_background=true

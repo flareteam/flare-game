@@ -2,10 +2,10 @@
 # the first two values are x,y positions
 # some items have two more values, width and height
 
-button_exit=0,0,bottom
+button_exit=384,440,center
 
 
-gameslot=0,16,864,288
+gameslot=16,16,864,288
 name=24,24,left,top
 level=40,56,left,top
 class=40,88,left,top
@@ -15,9 +15,11 @@ sprite=720,222
 text_trim_boundary=534
 visible_slots=3
 
-button_new=1050,736
+button_new=-384,440,center
 portrait=1082,128,320,320
 button_load=1050,480
-button_delete=1050,528
+button_delete=1050,544
 
 loading_label=1242,592,center,top
+
+show_frame_background=true
