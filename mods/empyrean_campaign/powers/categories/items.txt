@@ -7,16 +7,6 @@ id=163
 INCLUDE powers/base/items/mana_potion.txt
 
 [power]
-id=234
-INCLUDE powers/base/items/health_potion.txt
-script=on_cast,scripts/powers/alchemist_skirt/hp.txt
-
-[power]
-id=235
-INCLUDE powers/base/items/mana_potion.txt
-script=on_cast,scripts/powers/alchemist_skirt/mp.txt
-
-[power]
 id=181
 type=spawn
 icon=73
@@ -30,6 +20,16 @@ spawn_limit=fixed,1
 spawn_level=level,1,1
 requires_los=true
 requires_empty_target=true
+
+[power]
+id=234
+INCLUDE powers/base/items/health_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/hp.txt
+
+[power]
+id=235
+INCLUDE powers/base/items/mana_potion.txt
+script=on_cast,scripts/powers/alchemist_skirt/mp.txt
 
 [power]
 id=246

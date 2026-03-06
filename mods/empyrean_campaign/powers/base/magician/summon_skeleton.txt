@@ -1,0 +1,13 @@
+type=spawn
+icon=12
+name=Summon Skeleton
+description=Raise an undead to battle alongside you. Each summoned skeleton reduces your maximum MP.
+new_state=cast
+cooldown=2s
+soundfx=soundfx/powers/teleport.ogg
+spawn_type=summon_skeleton
+spawn_level=hero_level,1,1
+starting_pos=source
+target_neighbor=1
+use_hazard=true
+no_attack=true

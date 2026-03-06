@@ -337,3 +337,131 @@ post_effect=hp,125,0
 post_effect=absorb_min,15,0
 post_effect=absorb_max,15,0
 
+
+
+####
+### Vampirism
+####
+[power]
+id=295
+INCLUDE powers/base/warrior/vampirism.txt
+requires_mp=18
+post_effect=hp_steal,15,20s
+
+[power]
+id=296
+INCLUDE powers/base/warrior/vampirism.txt
+requires_mp=23
+post_effect=hp_steal,30,20s
+
+[power]
+id=297
+INCLUDE powers/base/warrior/vampirism.txt
+requires_mp=26
+post_effect=hp_steal,45,20s
+
+[power]
+id=298
+INCLUDE powers/base/warrior/vampirism.txt
+requires_mp=29
+post_effect=hp_steal,60,20s
+
+[power]
+id=299
+INCLUDE powers/base/warrior/vampirism.txt
+requires_mp=32
+post_effect=hp_steal,75,20s
+
+
+
+####
+### Rupture
+####
+[power]
+id=300
+INCLUDE powers/base/warrior/rupture.txt
+requires_mp=10
+modifier_damage=multiply,50,0
+post_effect=avoidance,50%,3s
+post_effect=absorb_min,50%,3s
+post_effect=absorb_max,50%,3s
+post_effect=poise,25%,3s
+
+[power]
+id=301
+INCLUDE powers/base/warrior/rupture.txt
+requires_mp=12
+modifier_damage=multiply,60,0
+post_effect=avoidance,50%,5s
+post_effect=absorb_min,50%,5s
+post_effect=absorb_max,50%,5s
+post_effect=poise,25%,5s
+
+[power]
+id=302
+INCLUDE powers/base/warrior/rupture.txt
+requires_mp=14
+modifier_damage=multiply,70,0
+post_effect=avoidance,50%,7s
+post_effect=absorb_min,50%,7s
+post_effect=absorb_max,50%,7s
+post_effect=poise,25%,7s
+
+[power]
+id=303
+INCLUDE powers/base/warrior/rupture.txt
+requires_mp=16
+modifier_damage=multiply,80,0
+post_effect=avoidance,50%,9s
+post_effect=absorb_min,50%,9s
+post_effect=absorb_max,50%,9s
+post_effect=poise,25%,9s
+
+[power]
+id=304
+INCLUDE powers/base/warrior/rupture.txt
+requires_mp=18
+modifier_damage=multiply,90,0
+post_effect=avoidance,50%,10s
+post_effect=absorb_min,50%,10s
+post_effect=absorb_max,50%,10s
+post_effect=poise,25%,10s
+
+
+
+####
+### Enchanted Blade
+####
+
+[power]
+id=305
+INCLUDE powers/base/warrior/enchanted_blade.txt
+post_effect=dmg_dark_min,5,0
+post_effect=dmg_dark_max,15,0
+
+[power]
+id=306
+INCLUDE powers/base/warrior/enchanted_blade.txt
+post_effect=dmg_dark_min,20,0
+post_effect=dmg_dark_max,30,0
+
+[power]
+id=307
+INCLUDE powers/base/warrior/enchanted_blade.txt
+post_effect=dmg_dark_min,35,0
+post_effect=dmg_dark_max,45,0
+
+[power]
+id=308
+INCLUDE powers/base/warrior/enchanted_blade.txt
+post_effect=dmg_dark_min,50,0
+post_effect=dmg_dark_max,60,0
+
+[power]
+id=309
+INCLUDE powers/base/warrior/enchanted_blade.txt
+post_effect=dmg_dark_min,65,0
+post_effect=dmg_dark_max,75,0
+
+
+

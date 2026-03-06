@@ -375,3 +375,150 @@ missile_angle=60
 speed_variance=0.1
 angle_variance=5
 post_effect=stun,0,2s,25
+
+
+####
+### Mystic Blast
+####
+[power]
+id=361
+INCLUDE powers/base/magician/mystic_blast.txt
+requires_mp=8
+post_effect=mystic_blast_dark,18,30s
+post_effect=mystic_blast_fire,-12,30s
+post_effect=mystic_blast_ice,-12,30s
+post_effect=mystic_blast_lightning,-12,30s
+
+[power]
+id=362
+INCLUDE powers/base/magician/mystic_blast.txt
+requires_mp=10
+post_effect=mystic_blast_dark,21,30s
+post_effect=mystic_blast_fire,-14,30s
+post_effect=mystic_blast_ice,-14,30s
+post_effect=mystic_blast_lightning,-14,30s
+
+[power]
+id=363
+INCLUDE powers/base/magician/mystic_blast.txt
+requires_mp=12
+post_effect=mystic_blast_dark,24,30s
+post_effect=mystic_blast_fire,-16,30s
+post_effect=mystic_blast_ice,-16,30s
+post_effect=mystic_blast_lightning,-16,30s
+
+[power]
+id=364
+INCLUDE powers/base/magician/mystic_blast.txt
+requires_mp=14
+post_effect=mystic_blast_dark,27,30s
+post_effect=mystic_blast_fire,-18,30s
+post_effect=mystic_blast_ice,-18,30s
+post_effect=mystic_blast_lightning,-18,30s
+
+[power]
+id=365
+INCLUDE powers/base/magician/mystic_blast.txt
+requires_mp=16
+post_effect=mystic_blast_dark,30,30s
+post_effect=mystic_blast_fire,-20,30s
+post_effect=mystic_blast_ice,-20,30s
+post_effect=mystic_blast_lightning,-20,30s
+
+
+####
+### Summon Skeleton
+####
+[power]
+id=366
+INCLUDE powers/base/magician/summon_skeleton.txt
+requires_mp=16
+spawn_limit=fixed,1
+post_effect_src=skeleton_summon,-21,0
+
+[power]
+id=367
+INCLUDE powers/base/magician/summon_skeleton.txt
+requires_mp=18
+spawn_limit=fixed,2
+post_effect_src=skeleton_summon,-24,0
+
+[power]
+id=368
+INCLUDE powers/base/magician/summon_skeleton.txt
+requires_mp=20
+spawn_limit=fixed,3
+post_effect_src=skeleton_summon,-27,0
+
+[power]
+id=369
+INCLUDE powers/base/magician/summon_skeleton.txt
+requires_mp=22
+spawn_limit=fixed,4
+post_effect_src=skeleton_summon,-33,0
+
+[power]
+id=370
+INCLUDE powers/base/magician/summon_skeleton.txt
+requires_mp=24
+spawn_limit=fixed,5
+post_effect_src=skeleton_summon,-36,0
+
+# remove skeleton summon status
+[power]
+id=371
+type=fixed
+use_hazard=true
+ignore_zero_damage=true
+remove_effect=skeleton_summon,1
+source_type=enemy
+lifespan=33ms
+radius=1000
+modifier_accuracy=absolute,10000
+starting_pos=source
+multitarget=true
+
+####
+### Barrier
+####
+
+[power]
+id=372
+INCLUDE powers/base/magician/barrier.txt
+post_effect=fire_resist,8,0
+post_effect=ice_resist,8,0
+post_effect=lightning_resist,8,0
+post_effect=dark_resist,8,0
+
+[power]
+id=373
+INCLUDE powers/base/magician/barrier.txt
+post_effect=fire_resist,12,0
+post_effect=ice_resist,12,0
+post_effect=lightning_resist,12,0
+post_effect=dark_resist,12,0
+
+[power]
+id=374
+INCLUDE powers/base/magician/barrier.txt
+post_effect=fire_resist,16,0
+post_effect=ice_resist,16,0
+post_effect=lightning_resist,16,0
+post_effect=dark_resist,16,0
+
+[power]
+id=375
+INCLUDE powers/base/magician/barrier.txt
+post_effect=fire_resist,20,0
+post_effect=ice_resist,20,0
+post_effect=lightning_resist,20,0
+post_effect=dark_resist,20,0
+
+[power]
+id=376
+INCLUDE powers/base/magician/barrier.txt
+post_effect=fire_resist,24,0
+post_effect=ice_resist,24,0
+post_effect=lightning_resist,24,0
+post_effect=dark_resist,24,0
+

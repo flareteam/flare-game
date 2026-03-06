@@ -1,6 +1,5 @@
 ## Status Effects
 
-# Special-case effects
 [effect]
 id=shield
 name=Shield
@@ -9,8 +8,6 @@ icon=15
 animation=animations/powers/shield.txt
 can_stack=false
 
-
-# Other effects
 [effect]
 id=bleeding
 name=Bleeding
@@ -47,14 +44,14 @@ can_stack=false
 id=immunity
 name=Immunity
 type=resist_all
-icon=12
+icon=44
 can_stack=false
 
 [effect]
 id=immunity_hero
 name=Immunity
 type=resist_all
-icon=12
+icon=44
 can_stack=false
 animation=animations/powers/immunity.txt
 render_above=true
@@ -200,3 +197,52 @@ name=Ice Bolt Scroll
 icon=78
 can_stack=false
 
+[effect]
+id=vampirism_icon
+name=Vampirsim
+icon=38
+can_stack=false
+
+[effect]
+id=poison
+name=Poison
+type=damage
+icon=42
+animation=animations/powers/spark_green_loop.txt
+can_stack=false
+
+[effect]
+id=mystic_blast_fire
+name=Resist Damage (Fire)
+type=fire_resist
+can_stack=true
+max_stacks=3
+
+[effect]
+id=mystic_blast_ice
+name=Resist Damage (Ice)
+type=ice_resist
+can_stack=true
+max_stacks=3
+
+[effect]
+id=mystic_blast_lightning
+name=Resist Damage (Lightning)
+type=lightning_resist
+can_stack=true
+max_stacks=3
+
+[effect]
+id=mystic_blast_dark
+name=Resist Damage (Dark)
+type=dark_resist
+can_stack=true
+max_stacks=3
+
+[effect]
+id=skeleton_summon
+name=Summoned Skeleton
+icon=12
+type=mp
+can_stack=true
+group_stack=true

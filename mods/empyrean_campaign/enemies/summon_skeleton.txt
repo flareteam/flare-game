@@ -1,0 +1,48 @@
+INCLUDE enemies/base/skeleton_weak.txt
+
+name=Your Summoned Skeleton
+level=1
+categories=summon_skeleton
+
+# combat stats
+stat=hp,60
+
+# TODO speed_per_level?
+speed=6
+
+turn_delay=400ms
+chance_pursue=10
+
+power=melee,164,50
+power=ranged,171,20
+power=on_death,371,100
+passive_powers=185,194
+
+stat=accuracy,90
+stat=avoidance,10
+stat=poise,15
+
+stat=dmg_melee_min,25
+stat=dmg_melee_max,35
+
+stat=dmg_ranged_min,5
+stat=dmg_ranged_max,15
+
+# TODO cooldown_per_level?
+cooldown=1s
+
+stat=absorb_min,2
+stat=absorb_max,5
+
+# level-scaled stats
+stat_per_level=hp,15
+stat_per_level=accuracy,5
+stat_per_level=avoidance,5
+stat_per_level=poise,3
+stat_per_level=dmg_melee_min,5
+stat_per_level=dmg_melee_max,5
+stat_per_level=dmg_ranged_min,2
+stat_per_level=dmg_ranged_max,2
+stat_per_level=absorb_min,2
+stat_per_level=absorb_max,2
+

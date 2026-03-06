@@ -596,3 +596,287 @@ INCLUDE powers/base/ranger/wolfs_eye.txt
 post_effect=accuracy,50,0
 post_effect=crit,15,0
 
+
+
+####
+### Charged Shot
+####
+
+[power]
+id=310
+INCLUDE powers/base/ranger/charged_shot_1.txt
+meta_power=true
+
+[power]
+id=311
+INCLUDE powers/base/ranger/charged_shot_2.txt
+meta_power=true
+
+[power]
+id=312
+INCLUDE powers/base/ranger/charged_shot_3.txt
+meta_power=true
+
+[power]
+id=313
+INCLUDE powers/base/ranger/charged_shot_4.txt
+meta_power=true
+
+[power]
+id=314
+INCLUDE powers/base/ranger/charged_shot_5.txt
+meta_power=true
+
+[power]
+id=315
+INCLUDE powers/base/ranger/charged_shot_1.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=316
+INCLUDE powers/base/ranger/charged_shot_2.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=317
+INCLUDE powers/base/ranger/charged_shot_3.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=318
+INCLUDE powers/base/ranger/charged_shot_4.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=319
+INCLUDE powers/base/ranger/charged_shot_5.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=320
+INCLUDE powers/base/ranger/charged_shot_1.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=321
+INCLUDE powers/base/ranger/charged_shot_2.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=322
+INCLUDE powers/base/ranger/charged_shot_3.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=323
+INCLUDE powers/base/ranger/charged_shot_4.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=324
+INCLUDE powers/base/ranger/charged_shot_5.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=325
+INCLUDE powers/base/ranger/charged_shot_1.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=326
+INCLUDE powers/base/ranger/charged_shot_2.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=327
+INCLUDE powers/base/ranger/charged_shot_3.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=328
+INCLUDE powers/base/ranger/charged_shot_4.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=329
+INCLUDE powers/base/ranger/charged_shot_5.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+# charged shot windup effect
+[power]
+id=330
+type=fixed
+buff=true
+soundfx=soundfx/powers/shield.ogg
+# animation=animations/powers/sparkle.txt
+lifespan=500ms
+use_hazard=true
+no_attack=true
+
+
+####
+### Poison Shot
+####
+
+[power]
+id=331
+INCLUDE powers/base/ranger/poison_shot_1.txt
+meta_power=true
+
+[power]
+id=332
+INCLUDE powers/base/ranger/poison_shot_2.txt
+meta_power=true
+
+[power]
+id=333
+INCLUDE powers/base/ranger/poison_shot_3.txt
+meta_power=true
+
+[power]
+id=334
+INCLUDE powers/base/ranger/poison_shot_4.txt
+meta_power=true
+
+[power]
+id=335
+INCLUDE powers/base/ranger/poison_shot_5.txt
+meta_power=true
+
+[power]
+id=336
+INCLUDE powers/base/ranger/poison_shot_1.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=337
+INCLUDE powers/base/ranger/poison_shot_2.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=338
+INCLUDE powers/base/ranger/poison_shot_3.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=339
+INCLUDE powers/base/ranger/poison_shot_4.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=340
+INCLUDE powers/base/ranger/poison_shot_5.txt
+INCLUDE powers/base/ranger/ammo_stone.txt
+
+[power]
+id=341
+INCLUDE powers/base/ranger/poison_shot_1.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=342
+INCLUDE powers/base/ranger/poison_shot_2.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=343
+INCLUDE powers/base/ranger/poison_shot_3.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=344
+INCLUDE powers/base/ranger/poison_shot_4.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=345
+INCLUDE powers/base/ranger/poison_shot_5.txt
+INCLUDE powers/base/ranger/ammo_arrow.txt
+
+[power]
+id=346
+INCLUDE powers/base/ranger/poison_shot_1.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=347
+INCLUDE powers/base/ranger/poison_shot_2.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=348
+INCLUDE powers/base/ranger/poison_shot_3.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=349
+INCLUDE powers/base/ranger/poison_shot_4.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+[power]
+id=350
+INCLUDE powers/base/ranger/poison_shot_5.txt
+INCLUDE powers/base/ranger/ammo_axe.txt
+
+# poison shot AOE
+[power]
+id=351
+INCLUDE powers/base/ranger/poison_shot_aoe.txt
+INCLUDE powers/base/ranger/poison_shot_aoe_1.txt
+
+[power]
+id=352
+INCLUDE powers/base/ranger/poison_shot_aoe.txt
+INCLUDE powers/base/ranger/poison_shot_aoe_2.txt
+
+[power]
+id=353
+INCLUDE powers/base/ranger/poison_shot_aoe.txt
+INCLUDE powers/base/ranger/poison_shot_aoe_3.txt
+
+[power]
+id=354
+INCLUDE powers/base/ranger/poison_shot_aoe.txt
+INCLUDE powers/base/ranger/poison_shot_aoe_4.txt
+
+[power]
+id=355
+INCLUDE powers/base/ranger/poison_shot_aoe.txt
+INCLUDE powers/base/ranger/poison_shot_aoe_5.txt
+
+
+
+####
+### Scavenger
+####
+[power]
+id=356
+INCLUDE powers/base/ranger/scavenger.txt
+post_effect=currency_find,15,0
+post_effect=item_find,30,0
+
+[power]
+id=357
+INCLUDE powers/base/ranger/scavenger.txt
+post_effect=currency_find,20,0
+post_effect=item_find,60,0
+
+[power]
+id=358
+INCLUDE powers/base/ranger/scavenger.txt
+post_effect=currency_find,25,0
+post_effect=item_find,90,0
+
+[power]
+id=359
+INCLUDE powers/base/ranger/scavenger.txt
+post_effect=currency_find,35,0
+post_effect=item_find,120,0
+
+[power]
+id=360
+INCLUDE powers/base/ranger/scavenger.txt
+post_effect=currency_find,40,0
+post_effect=item_find,150,0
+
+

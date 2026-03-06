@@ -1,0 +1,17 @@
+name=Poison Shot
+type=missile
+icon=42
+description=Shoot a projectile that explodes into a poisonous cloud on impact.
+new_state=shoot
+face=true
+soundfx=soundfx/powers/shoot.ogg
+use_hazard=true
+starting_pos=melee
+aim_assist=true
+base_damage=ranged
+lifespan=533ms
+radius=1.0
+speed=24
+requires_flags=ranged
+post_hazards_skip_target=true
+modifier_damage=multiply,75

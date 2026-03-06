@@ -1,0 +1,20 @@
+name=Rupture
+type=repeater
+icon=39
+description=Split the ground in a straight line. Enemies caught in the chasm suffer reduced avoidance, absorption, and poise.
+new_state=cast
+face=true
+animation=animations/powers/rupture.txt
+soundfx=soundfx/powers/quake.ogg
+speed=36
+radius=1.2
+lifespan=600ms
+base_damage=melee
+delay=100ms
+visual_random=3
+complete_animation=true
+count=8
+multitarget=true
+cooldown=800ms
+movement_type=ground
+

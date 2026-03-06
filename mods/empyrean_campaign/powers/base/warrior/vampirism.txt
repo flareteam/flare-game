@@ -1,0 +1,10 @@
+name=Vampirism
+type=fixed
+icon=38
+description=Grants attacks the ability to leech enemy health.
+new_state=cast
+soundfx=soundfx/powers/shield.ogg
+buff=true
+cooldown=25s
+post_effect=heal_animation,0,0
+post_effect=vampirism_icon,0,20s
