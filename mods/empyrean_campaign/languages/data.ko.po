@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 08:38+\n"
+"POT-Creation-Date: 2026-03-16 18:10+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: ks k, 2025\n"
 "Language-Team: Korean (https://app.transifex.com/flareorg/teams/84925/ko/)\n"
@@ -24,27 +24,27 @@ msgstr ""
 msgid "Gold"
 msgstr "금"
 
-#: ../items/items.txt:58
+#: ../items/items.txt:61
 msgid "DEV Boots"
 msgstr "개발자의 부츠"
 
-#: ../items/items.txt:63
+#: ../items/items.txt:66
 msgid "Use: Teleport to target position."
 msgstr "사용: 목표 지점으로 순간 이동"
 
-#: ../items/items.txt:67
+#: ../items/items.txt:70
 msgid "DEV Invisibility Boots"
 msgstr "개발자의 보이지않는 부츠"
 
-#: ../items/items.txt:72
+#: ../items/items.txt:75
 msgid "Use: Turn Invisible"
 msgstr "사용: 보이지 않게 된다"
 
-#: ../items/items.txt:76
+#: ../items/items.txt:79
 msgid "DEV Tome"
 msgstr "개발자의 두꺼운 책"
 
-#: ../items/items.txt:80
+#: ../items/items.txt:83
 msgid "Use: Open DEV Tome"
 msgstr "사용: 개발자의 두꺼운 책을 연다"
 
@@ -56,7 +56,7 @@ msgstr "고대 유물"
 msgid "Crafting Resource"
 msgstr "제작 자원"
 
-#: ../items/types.txt:13
+#: ../items/types.txt:14
 msgid "Crafting Tool"
 msgstr "제작 도구"
 
@@ -80,75 +80,107 @@ msgstr "지하 세계의 무기"
 msgid "Normal"
 msgstr "평범"
 
-#: ../powers/effects.txt:6
+#: ../items/qualities.txt:17
+msgid "Mastite"
+msgstr ""
+
+#: ../powers/effects.txt:5
 msgid "Shield"
 msgstr "보호막"
 
-#: ../powers/effects.txt:16
+#: ../powers/effects.txt:13
 msgid "Bleeding"
 msgstr "출혈중"
 
-#: ../powers/effects.txt:24
+#: ../powers/effects.txt:21
 msgid "Slow"
 msgstr "느려짐"
 
-#: ../powers/effects.txt:41
+#: ../powers/effects.txt:38
 msgid "Stun"
 msgstr "기절"
 
-#: ../powers/effects.txt:48
+#: ../powers/effects.txt:45
 msgid "Immunity"
 msgstr "면역됨"
 
-#: ../powers/effects.txt:64
+#: ../powers/effects.txt:61
 msgid "Haste"
 msgstr "서두르는"
 
-#: ../powers/effects.txt:110
+#: ../powers/effects.txt:111
 msgid "Weakness to Fire"
 msgstr "불 속성에 약함"
 
-#: ../powers/effects.txt:119
+#: ../powers/effects.txt:120
 msgid "Weakness to Ice"
 msgstr "얼음 속성에 약함"
 
-#: ../powers/effects.txt:135
+#: ../powers/effects.txt:136
 msgid "Sacrifice"
 msgstr "희생"
 
-#: ../powers/effects.txt:160
+#: ../powers/effects.txt:161
 msgid "Reflect"
 msgstr "반사하다"
 
-#: ../powers/effects.txt:171
+#: ../powers/effects.txt:172
 msgid "Stamina Potion"
 msgstr "지구력 물약"
 
-#: ../powers/effects.txt:177
+#: ../powers/effects.txt:178
 msgid "Treasure Potion"
 msgstr "보물 물약"
 
-#: ../powers/effects.txt:183
+#: ../powers/effects.txt:184
 msgid "Elemental Potion"
 msgstr "정령 물약"
 
-#: ../powers/effects.txt:189
+#: ../powers/effects.txt:190
 msgid "Fireball Scroll"
 msgstr "불 덩어리 두루마리"
 
-#: ../powers/effects.txt:195
+#: ../powers/effects.txt:196
 msgid "Ice Bolt Scroll"
 msgstr "얼음화살 두루마리"
 
-#: ../powers/powers.txt:25
+#: ../powers/effects.txt:202
+msgid "Vampirsim"
+msgstr ""
+
+#: ../powers/effects.txt:208
+msgid "Poison"
+msgstr ""
+
+#: ../powers/effects.txt:216
+msgid "Resist Damage (Fire)"
+msgstr ""
+
+#: ../powers/effects.txt:223
+msgid "Resist Damage (Ice)"
+msgstr ""
+
+#: ../powers/effects.txt:230
+msgid "Resist Damage (Lightning)"
+msgstr ""
+
+#: ../powers/effects.txt:237
+msgid "Resist Damage (Dark)"
+msgstr ""
+
+#: ../powers/effects.txt:244
+msgid "Summoned Skeleton"
+msgstr ""
+
+#: ../powers/powers.txt:46
 msgid "Teleport"
 msgstr "순간 이동"
 
-#: ../powers/powers.txt:42
+#: ../powers/powers.txt:63
 msgid "Turn Invisible"
 msgstr "보이지 않게 된다"
 
-#: ../powers/powers.txt:54
+#: ../powers/powers.txt:75
 msgid "Remove Invisibility"
 msgstr "투명성을 제거하다"
 
@@ -162,21 +194,21 @@ msgid ""
 "Primary attribute: Physical"
 msgstr "야수는 적을 격퇴하기 위해 물리력과 근거리 무기에 의존한다. 주요 속성: 물리력"
 
-#: ../engine/classes.txt:17
+#: ../engine/classes.txt:18
 msgid "Scout"
 msgstr "정찰병"
 
-#: ../engine/classes.txt:18
+#: ../engine/classes.txt:19
 msgid ""
 "Scouts specialize in range weaponry and combat accuracy. Primary attribute: "
 "Offense"
 msgstr "정찰병은 사경용 무기와 전투 정확도에 특화되어있다. 주요 속성: 공격"
 
-#: ../engine/classes.txt:28
+#: ../engine/classes.txt:30
 msgid "Adept"
 msgstr "숙련자"
 
-#: ../engine/classes.txt:29
+#: ../engine/classes.txt:31
 msgid ""
 "Adepts have natural abilities in casting magical spells. Primary attribute: "
 "Mental"
@@ -389,6 +421,78 @@ msgstr "바위"
 #: ../enemies/goblin_minecart.txt:4
 msgid "Goblin"
 msgstr "고블린"
+
+#: ../enemies/il_antlion.txt:3
+msgid "Labyrinth Antlion"
+msgstr ""
+
+#: ../enemies/il_antlion_fire.txt:3
+msgid "Labyrinth Fire Antlion"
+msgstr ""
+
+#: ../enemies/il_antlion_hatchling.txt:3
+msgid "Labyrinth Antlion Hatchling"
+msgstr ""
+
+#: ../enemies/il_antlion_ice.txt:3
+msgid "Labyrinth Ice Antlion"
+msgstr ""
+
+#: ../enemies/il_boss_razu.txt:4
+msgid "Razu"
+msgstr ""
+
+#: ../enemies/il_goblin.txt:3
+msgid "Labyrinth Goblin"
+msgstr ""
+
+#: ../enemies/il_goblin_runner.txt:3
+msgid "Labyrinth Goblin Runner"
+msgstr ""
+
+#: ../enemies/il_hobgoblin.txt:3
+msgid "Labyrinth Hobgoblin"
+msgstr ""
+
+#: ../enemies/il_hobgoblin_archer.txt:3
+msgid "Labyrinth Hobgoblin Archer"
+msgstr ""
+
+#: ../enemies/il_skeleton_archer.txt:3
+msgid "Labyrinth Skeleton Archer"
+msgstr ""
+
+#: ../enemies/il_skeleton_knight.txt:3
+msgid "Labyrinth Skeleton Knight"
+msgstr ""
+
+#: ../enemies/il_skeleton_mage_fire.txt:3
+msgid "Labyrinth Skeleton Fire Mage"
+msgstr ""
+
+#: ../enemies/il_skeleton_mage_ice.txt:3
+msgid "Labyrinth Skeleton Ice Mage"
+msgstr ""
+
+#: ../enemies/il_wyvern.txt:3
+msgid "Labyrinth Wyvern"
+msgstr ""
+
+#: ../enemies/il_wyvern_fire.txt:3
+msgid "Labyrinth Fire Wyvern"
+msgstr ""
+
+#: ../enemies/il_wyvern_ice.txt:3
+msgid "Labyrinth Ice Wyvern"
+msgstr ""
+
+#: ../enemies/il_zombie.txt:3
+msgid "Labyrinth Zombie"
+msgstr ""
+
+#: ../enemies/il_zombie_frozen.txt:4
+msgid "Labyrinth Frozen Zombie"
+msgstr ""
 
 #: ../enemies/lvl10_minotaur.txt:3
 msgid "Minotaur"
@@ -762,6 +866,10 @@ msgstr "잘 달리는 고블린"
 msgid "Tundra Wyvern"
 msgstr "툰드라 와이번"
 
+#: ../enemies/summon_skeleton.txt:3
+msgid "Your Summoned Skeleton"
+msgstr ""
+
 #: ../enemies/summon_zombie.txt:3
 msgid "Your Summoned Zombie"
 msgstr "당신의 소환된 좀비"
@@ -958,33 +1066,33 @@ msgstr "이상한 책"
 msgid "Goblin Camp"
 msgstr "고블린 야영지"
 
-#: ../maps/goblin_camp.txt:223
+#: ../maps/goblin_camp.txt:221
 msgid "Stonewood"
 msgstr "돌나무"
 
-#: ../maps/goblin_camp.txt:402
+#: ../maps/goblin_camp.txt:400
 msgid "Merrimead Swamp"
 msgstr "메리미드 늪"
 
-#: ../maps/goblin_camp.txt:411
+#: ../maps/goblin_camp.txt:409
 msgid "Goblin Cave"
 msgstr "고블린 동굴"
 
-#: ../maps/goblin_camp.txt:423
+#: ../maps/goblin_camp.txt:421
 msgid "Gravestone"
 msgstr "묘비"
 
-#: ../maps/halls_of_infinity/halls_of_infinity_1.txt:11
+#: ../maps/halls_of_infinity/halls_of_infinity_8.txt:11
 msgid "Halls of Infinity"
 msgstr "무한의 전당"
-
-#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
-msgid "Stalagmite Pillar"
-msgstr "석순 기둥"
 
 #: ../maps/halls_of_infinity/halls_of_infinity_6.txt:341
 msgid "Mine Cart"
 msgstr "광산 수레"
+
+#: ../maps/halls_of_infinity/halls_of_infinity_7.txt:570
+msgid "Stalagmite Pillar"
+msgstr "석순 기둥"
 
 #: ../maps/halls_of_infinity.txt:223
 msgid "Underworld Stronghold: Barracks"
@@ -1046,6 +1154,50 @@ msgstr "지하 세계의 지하 무덤"
 msgid "Cutscenes"
 msgstr "컷신"
 
+#: ../maps/iron_labyrinth/room6.txt:160
+msgid "Urn"
+msgstr ""
+
+#: ../maps/iron_labyrinth/door_ns1.txt:155
+msgid "This door needs a key to be opened."
+msgstr "이 문을 열려면 열쇠가 필요하다."
+
+#: ../maps/iron_labyrinth/door_ns1.txt:160
+msgid "Locked Door"
+msgstr "잠긴 문"
+
+#: ../maps/iron_labyrinth/warp_room.txt:175
+msgid "Lectern"
+msgstr ""
+
+#: ../maps/iron_labyrinth/warp_room.txt:200
+msgid "Unknown Destination"
+msgstr ""
+
+#: ../maps/iron_labyrinth/f1/start.txt:157
+msgid "Perdition Harbor Cave"
+msgstr ""
+
+#: ../maps/iron_labyrinth/f1/end.txt:158
+msgid "Iron Labyrinth: Level 2"
+msgstr ""
+
+#: ../maps/iron_labyrinth/f3/end.txt:157
+msgid "Iron Labyrinth: Chasm"
+msgstr ""
+
+#: ../maps/iron_labyrinth/f2/start.txt:158
+msgid "Iron Labyrinth: Level 1"
+msgstr ""
+
+#: ../maps/iron_labyrinth/f2/end.txt:158
+msgid "Iron Labyrinth: Level 3"
+msgstr ""
+
+#: ../maps/iron_labyrinth_chasm.txt:453
+msgid "The switch is held in place by an impossible force."
+msgstr ""
+
 #: ../maps/lake_kuuma.txt:852
 msgid "Boat"
 msgstr "보트"
@@ -1106,10 +1258,6 @@ msgstr "이 광산 수레만으로는 문을 부술 수 없다."
 msgid "You found a door, but it appears to be barricaded from the inside."
 msgstr "문을 찾았지만 안쪽에서 막은 것 같다."
 
-#: ../maps/nazia_mines.txt:433
-msgid "Locked Door"
-msgstr "잠긴 문"
-
 #: ../maps/nazia_underground.txt:260
 msgid "The switch won't budge."
 msgstr "스위치는 조금도 움직이지 않을 것이다."
@@ -1122,7 +1270,7 @@ msgstr "나지아 지하로 가는 길이 발견되었다."
 msgid "Oasis"
 msgstr "오아시스"
 
-#: ../maps/oasis.txt:520
+#: ../maps/oasis.txt:519
 msgid "Underworld Mines"
 msgstr "지하 세계의 광산"
 
@@ -1134,6 +1282,14 @@ msgstr "숨기는 장소"
 msgid "Perdition Harbor waypoint discovered."
 msgstr "지옥의 항구로 가는 길이 발견되었다."
 
+#: ../maps/perdition_harbor_cave.txt:148
+msgid "Iron Labyrinth"
+msgstr ""
+
+#: ../maps/perdition_harbor_cave.txt:195
+msgid "Excavation Journal"
+msgstr ""
+
 #: ../maps/perdition_mines.txt:11
 msgid "Perdition Mines"
 msgstr "지옥의 광산"
@@ -1141,10 +1297,6 @@ msgstr "지옥의 광산"
 #: ../maps/perdition_mines.txt:162
 msgid "Krolan's Chest"
 msgstr "크롤란의 상자"
-
-#: ../maps/st_maria_1.txt:355
-msgid "This door needs a key to be opened."
-msgstr "이 문을 열려면 열쇠가 필요하다."
 
 #: ../maps/st_maria_2.txt:271
 msgid "St. Maria: Catacombs waypoint discovered."
@@ -1718,61 +1870,77 @@ msgstr "무한의 전당을 통해 계속 진행"
 msgid "Return to Underworld Stronghold"
 msgstr "지하 세계의 요새로 돌아가기"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:2
-msgid "Reset quests"
-msgstr "퀘스트 초기화"
+#: ../npcs/base/abasi/common.txt:1
+msgid "Abasi, Traveling Merchant"
+msgstr "여행하는 상인,  아바시"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:22
-msgid "Reset quest: \"Return to Empyrean\""
-msgstr "퀘스트 초기화: \"천국으로 돌아간다\""
+#: ../npcs/base/abasi/quest_common.txt:2
+msgid "Journal"
+msgstr "일지"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:28
-msgid "Reset quest: \"Krolan's Missing\""
-msgstr "퀘스트 초기화: \"크롤란의 실종\""
+#: ../npcs/base/abasi/quest_common.txt:5
+msgid "Any luck finding my journal?"
+msgstr "내 일지는 찾았습니까?"
 
-#: ../npcs/base/dev_tome/reset_quests.txt:34
-msgid "Reset quest: \"Alchemy\""
-msgstr "퀘스트 초기화: \"연금술\""
+#: ../npcs/base/abasi/quest_common.txt:6
+msgid "Not yet."
+msgstr "아직이요."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:40
-msgid "Reset quest: \"The Merchant's Journal\""
-msgstr "퀘스트 초기화: \"상인의 일지\""
+#: ../npcs/base/abasi/quest_common.txt:13
+msgid "Here is your journal."
+msgstr "여기 당신의 일지요."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:46
-msgid "Reset quest: \"Trapped in the Crypt\""
-msgstr "퀘스트 초기화: \"지하 묘지의 덫\""
+#: ../npcs/base/abasi/quest_common.txt:14
+msgid "Wonderful! I had considered it forever lost at this point."
+msgstr "훌륭합니다! 나는 이 시점에서 그것을 영원히 잃어버렸다고 생각했습니다."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:52
-msgid "Reset quest: \"The One-Eyed Guardians\""
-msgstr "퀘스트 초기화: \"외눈박이 수호자\""
+#: ../npcs/base/abasi/quest_common.txt:15
+msgid "I am in your debt. Please take this as a reward for your trouble."
+msgstr "나는 당신에게 빚을 지고 있습니다. 당신의 노고에 대한 보상으로 이것을 받아주십시오."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:58
-msgid "Reset quest: \"Brother?\""
-msgstr "퀘스트 초기화: \"형제?\""
+#: ../npcs/base/abasi/quest_common.txt:27
+msgid "Show no mercy for those thieving goblins."
+msgstr "저런 도둑질하는 고블린들에게 자비를 베풀지 마십시오."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:64
-msgid "Reset quest: \"Locked Out\""
-msgstr "퀘스트 초기화: \"폐쇄\""
+#: ../npcs/base/abasi/quest_intro1.txt:5
+msgid "Be careful on these roads. Those goblins are nothing but trouble."
+msgstr "이 길들에서는 조심하세요. 저 고블린들은 말썽만 피울 뿐입니다."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:70
-msgid "Reset quest: \"The Buried Fortress\""
-msgstr "퀘스트 초기화: \"묻힌 요새\""
+#: ../npcs/base/abasi/quest_intro1.txt:6
+msgid "Thanks for the warning."
+msgstr "충고해 주셔서 고맙습니다."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:76
-msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
-msgstr "퀘스트 초기화: \"모그 동굴의 잃어버린 영혼\""
+#: ../npcs/base/abasi/quest_intro1.txt:7
+msgid "It's the least I can do."
+msgstr "제가 할 수 있는 일을 했을 뿐이에요."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:82
-msgid "Reset quest: \"An Unusual Name...\""
-msgstr "퀘스트 초기화: \"특이한 이름...\""
+#: ../npcs/base/abasi/quest_intro1.txt:8
+msgid ""
+"When I awoke this morning, my journal was missing. No doubt one of those "
+"filthy green creatures stole it from me."
+msgstr "오늘 아침에 일어났더니 제 일지가 사라졌어요. 틀림없이 그 더러운 녹색 괴물이 훔쳐갔을 것입니다."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:88
-msgid "Reset quest: \"Warden's Notes\""
-msgstr "퀘스트 초기화: \"교도소장의 공책\""
+#: ../npcs/base/abasi/quest_intro1.txt:9
+msgid "If you come across my journal in your travels, please return it to me."
+msgstr "여행 중에 제 일지를 발견하면 저에게 돌려주세요."
 
-#: ../npcs/base/dev_tome/reset_quests.txt:94
-msgid "Reset quest: \"Fallen Comrades\""
-msgstr "퀘스트 초기화: \"타락한 전우들\""
+#: ../npcs/base/abasi/quest_intro2.txt:5
+msgid "Greetings, wanderer."
+msgstr "안녕하시오. 방랑자여."
+
+#: ../npcs/base/abasi/quest_intro2.txt:6
+msgid ""
+"Judging from your appearance, you're no stranger to a long journey. For that"
+" reason, I ask that you keep an eye out for my missing journal."
+msgstr "당신의 겉모습을 보니 긴 여정이 낯설지 않군요. 그래서인데 잃어버린 제 일지를 살펴봐주면 좋겠군요."
+
+#: ../npcs/base/abasi/quest_intro2.txt:7
+msgid ""
+"I first noticed it was missing after a night of camping near the Goblin "
+"Cave. I searched for a while, but ultimately decided it was best to move on."
+msgstr ""
+"나는 고블린 동굴 근처에서 하룻밤을 야영한 후에 그것이 없어진 것을 처음 알아차렸습니다. 한동안 일대에서 찾아봤지만 결국 그곳을 "
+"벗어나는게 최선이라고 판단했습니다."
 
 #: ../npcs/base/dev_tome/respec.txt:2
 msgid "Respec"
@@ -1870,65 +2038,61 @@ msgstr "레벨 19"
 msgid "Level 20"
 msgstr "레벨 20"
 
-#: ../npcs/base/dev_tome/teleport.txt:17
-msgid "Introduction"
-msgstr "도입부"
+#: ../npcs/base/dev_tome/reset_quests.txt:2
+msgid "Reset quests"
+msgstr "퀘스트 초기화"
 
-#: ../npcs/base/dev_tome/teleport.txt:29
-msgid "Region 1: Salted Field -> St. Maria"
-msgstr "지역 1: 면역된 장소 -> 성녀 마리아"
+#: ../npcs/base/dev_tome/reset_quests.txt:22
+msgid "Reset quest: \"Return to Empyrean\""
+msgstr "퀘스트 초기화: \"천국으로 돌아간다\""
 
-#: ../npcs/base/dev_tome/teleport.txt:48
-msgid "Region 2: Lake Kuuma -> Temple of Mez"
-msgstr "지역 2: 쿠우마 호수 -> 메즈의 사원"
+#: ../npcs/base/dev_tome/reset_quests.txt:28
+msgid "Reset quest: \"Krolan's Missing\""
+msgstr "퀘스트 초기화: \"크롤란의 실종\""
 
-#: ../npcs/base/dev_tome/teleport.txt:67
-msgid "Region 3: Nazia Highlands -> Wizard's Tower"
-msgstr "지역 3: 나지아 고원 -> 현자마법사의 탑"
+#: ../npcs/base/dev_tome/reset_quests.txt:34
+msgid "Reset quest: \"Alchemy\""
+msgstr "퀘스트 초기화: \"연금술\""
 
-#: ../npcs/base/dev_tome/teleport.txt:86
-msgid "Region 4: Underworld"
-msgstr "지역 4: 지하 세계"
+#: ../npcs/base/dev_tome/reset_quests.txt:40
+msgid "Reset quest: \"The Merchant's Journal\""
+msgstr "퀘스트 초기화: \"상인의 일지\""
 
-#: ../npcs/base/dev_tome/teleport.txt:419
-msgid "Halls of Infinity: 1"
-msgstr "무한의 전당: 1"
+#: ../npcs/base/dev_tome/reset_quests.txt:46
+msgid "Reset quest: \"Trapped in the Crypt\""
+msgstr "퀘스트 초기화: \"지하 묘지의 덫\""
 
-#: ../npcs/base/dev_tome/teleport.txt:425
-msgid "Halls of Infinity: 2"
-msgstr "무한의 전당: 2"
+#: ../npcs/base/dev_tome/reset_quests.txt:52
+msgid "Reset quest: \"The One-Eyed Guardians\""
+msgstr "퀘스트 초기화: \"외눈박이 수호자\""
 
-#: ../npcs/base/dev_tome/teleport.txt:431
-msgid "Halls of Infinity: 3"
-msgstr "무한의 전당: 3"
+#: ../npcs/base/dev_tome/reset_quests.txt:58
+msgid "Reset quest: \"Brother?\""
+msgstr "퀘스트 초기화: \"형제?\""
 
-#: ../npcs/base/dev_tome/teleport.txt:437
-msgid "Halls of Infinity: 4"
-msgstr "무한의 전당: 4"
+#: ../npcs/base/dev_tome/reset_quests.txt:64
+msgid "Reset quest: \"Locked Out\""
+msgstr "퀘스트 초기화: \"폐쇄\""
 
-#: ../npcs/base/dev_tome/teleport.txt:443
-msgid "Halls of Infinity: 5"
-msgstr "무한의 전당: 5"
+#: ../npcs/base/dev_tome/reset_quests.txt:70
+msgid "Reset quest: \"The Buried Fortress\""
+msgstr "퀘스트 초기화: \"묻힌 요새\""
 
-#: ../npcs/base/dev_tome/teleport.txt:449
-msgid "Halls of Infinity: 6"
-msgstr "무한의 전당: 6"
+#: ../npcs/base/dev_tome/reset_quests.txt:76
+msgid "Reset quest: \"The Lost Soul of the Mog Caverns\""
+msgstr "퀘스트 초기화: \"모그 동굴의 잃어버린 영혼\""
 
-#: ../npcs/base/dev_tome/teleport.txt:455
-msgid "Halls of Infinity: 7"
-msgstr "무한의 전당: 7"
+#: ../npcs/base/dev_tome/reset_quests.txt:82
+msgid "Reset quest: \"An Unusual Name...\""
+msgstr "퀘스트 초기화: \"특이한 이름...\""
 
-#: ../npcs/base/dev_tome/teleport.txt:461
-msgid "Halls of Infinity: 8"
-msgstr "무한의 전당: 8"
+#: ../npcs/base/dev_tome/reset_quests.txt:88
+msgid "Reset quest: \"Warden's Notes\""
+msgstr "퀘스트 초기화: \"교도소장의 공책\""
 
-#: ../npcs/base/dev_tome/teleport.txt:467
-msgid "Halls of Infinity: 9"
-msgstr "무한의 전당: 9"
-
-#: ../npcs/base/dev_tome/teleport.txt:473
-msgid "Halls of Infinity: 10"
-msgstr "무한의 전당: 10"
+#: ../npcs/base/dev_tome/reset_quests.txt:94
+msgid "Reset quest: \"Fallen Comrades\""
+msgstr "퀘스트 초기화: \"타락한 전우들\""
 
 #: ../npcs/base/dev_tome/items.txt:2
 msgid "Give items"
@@ -1982,77 +2146,65 @@ msgstr "반사 두루마리"
 msgid "Underworld Set (with rings)"
 msgstr "지하 세계 세트 (반지 포함)"
 
-#: ../npcs/base/abasi/quest_intro1.txt:5
-msgid "Be careful on these roads. Those goblins are nothing but trouble."
-msgstr "이 길들에서는 조심하세요. 저 고블린들은 말썽만 피울 뿐입니다."
+#: ../npcs/base/dev_tome/teleport.txt:18
+msgid "Introduction"
+msgstr "도입부"
 
-#: ../npcs/base/abasi/quest_intro1.txt:6
-msgid "Thanks for the warning."
-msgstr "충고해 주셔서 고맙습니다."
+#: ../npcs/base/dev_tome/teleport.txt:30
+msgid "Region 1: Salted Field -> St. Maria"
+msgstr "지역 1: 면역된 장소 -> 성녀 마리아"
 
-#: ../npcs/base/abasi/quest_intro1.txt:7
-msgid "It's the least I can do."
-msgstr "제가 할 수 있는 일을 했을 뿐이에요."
+#: ../npcs/base/dev_tome/teleport.txt:49
+msgid "Region 2: Lake Kuuma -> Temple of Mez"
+msgstr "지역 2: 쿠우마 호수 -> 메즈의 사원"
 
-#: ../npcs/base/abasi/quest_intro1.txt:8
-msgid ""
-"When I awoke this morning, my journal was missing. No doubt one of those "
-"filthy green creatures stole it from me."
-msgstr "오늘 아침에 일어났더니 제 일지가 사라졌어요. 틀림없이 그 더러운 녹색 괴물이 훔쳐갔을 것입니다."
+#: ../npcs/base/dev_tome/teleport.txt:68
+msgid "Region 3: Nazia Highlands -> Wizard's Tower"
+msgstr "지역 3: 나지아 고원 -> 현자마법사의 탑"
 
-#: ../npcs/base/abasi/quest_intro1.txt:9
-msgid "If you come across my journal in your travels, please return it to me."
-msgstr "여행 중에 제 일지를 발견하면 저에게 돌려주세요."
+#: ../npcs/base/dev_tome/teleport.txt:87
+msgid "Region 4: Underworld"
+msgstr "지역 4: 지하 세계"
 
-#: ../npcs/base/abasi/common.txt:1
-msgid "Abasi, Traveling Merchant"
-msgstr "여행하는 상인,  아바시"
+#: ../npcs/base/dev_tome/teleport.txt:432
+msgid "Halls of Infinity: 1"
+msgstr "무한의 전당: 1"
 
-#: ../npcs/base/abasi/quest_common.txt:2
-msgid "Journal"
-msgstr "일지"
+#: ../npcs/base/dev_tome/teleport.txt:438
+msgid "Halls of Infinity: 2"
+msgstr "무한의 전당: 2"
 
-#: ../npcs/base/abasi/quest_common.txt:5
-msgid "Any luck finding my journal?"
-msgstr "내 일지는 찾았습니까?"
+#: ../npcs/base/dev_tome/teleport.txt:444
+msgid "Halls of Infinity: 3"
+msgstr "무한의 전당: 3"
 
-#: ../npcs/base/abasi/quest_common.txt:6
-msgid "Not yet."
-msgstr "아직이요."
+#: ../npcs/base/dev_tome/teleport.txt:450
+msgid "Halls of Infinity: 4"
+msgstr "무한의 전당: 4"
 
-#: ../npcs/base/abasi/quest_common.txt:13
-msgid "Here is your journal."
-msgstr "여기 당신의 일지요."
+#: ../npcs/base/dev_tome/teleport.txt:456
+msgid "Halls of Infinity: 5"
+msgstr "무한의 전당: 5"
 
-#: ../npcs/base/abasi/quest_common.txt:14
-msgid "Wonderful! I had considered it forever lost at this point."
-msgstr "훌륭합니다! 나는 이 시점에서 그것을 영원히 잃어버렸다고 생각했습니다."
+#: ../npcs/base/dev_tome/teleport.txt:462
+msgid "Halls of Infinity: 6"
+msgstr "무한의 전당: 6"
 
-#: ../npcs/base/abasi/quest_common.txt:15
-msgid "I am in your debt. Please take this as a reward for your trouble."
-msgstr "나는 당신에게 빚을 지고 있습니다. 당신의 노고에 대한 보상으로 이것을 받아주십시오."
+#: ../npcs/base/dev_tome/teleport.txt:468
+msgid "Halls of Infinity: 7"
+msgstr "무한의 전당: 7"
 
-#: ../npcs/base/abasi/quest_common.txt:27
-msgid "Show no mercy for those thieving goblins."
-msgstr "저런 도둑질하는 고블린들에게 자비를 베풀지 마십시오."
+#: ../npcs/base/dev_tome/teleport.txt:474
+msgid "Halls of Infinity: 8"
+msgstr "무한의 전당: 8"
 
-#: ../npcs/base/abasi/quest_intro2.txt:5
-msgid "Greetings, wanderer."
-msgstr "안녕하시오. 방랑자여."
+#: ../npcs/base/dev_tome/teleport.txt:480
+msgid "Halls of Infinity: 9"
+msgstr "무한의 전당: 9"
 
-#: ../npcs/base/abasi/quest_intro2.txt:6
-msgid ""
-"Judging from your appearance, you're no stranger to a long journey. For that"
-" reason, I ask that you keep an eye out for my missing journal."
-msgstr "당신의 겉모습을 보니 긴 여정이 낯설지 않군요. 그래서인데 잃어버린 제 일지를 살펴봐주면 좋겠군요."
-
-#: ../npcs/base/abasi/quest_intro2.txt:7
-msgid ""
-"I first noticed it was missing after a night of camping near the Goblin "
-"Cave. I searched for a while, but ultimately decided it was best to move on."
-msgstr ""
-"나는 고블린 동굴 근처에서 하룻밤을 야영한 후에 그것이 없어진 것을 처음 알아차렸습니다. 한동안 일대에서 찾아봤지만 결국 그곳을 "
-"벗어나는게 최선이라고 판단했습니다."
+#: ../npcs/base/dev_tome/teleport.txt:486
+msgid "Halls of Infinity: 10"
+msgstr "무한의 전당: 10"
 
 #: ../npcs/dev_tome.txt:23
 msgid "Player"
@@ -2062,23 +2214,27 @@ msgstr "플레이어"
 msgid "Campaign"
 msgstr "캠페인"
 
-#: ../npcs/dev_tome.txt:49
+#: ../npcs/dev_tome.txt:50
 msgid "Restore HP/MP/status"
 msgstr "체력/마력/상태를 복원"
 
-#: ../npcs/dev_tome.txt:56
+#: ../npcs/dev_tome.txt:57
 msgid "Save game at current position"
 msgstr "현재 위치에 게임을 저장"
 
-#: ../npcs/dev_tome.txt:63
+#: ../npcs/dev_tome.txt:64
 msgid "Waypoints"
 msgstr "경유지"
 
-#: ../npcs/dev_tome.txt:72
+#: ../npcs/dev_tome.txt:74
+msgid "Reset Iron Labyrinth"
+msgstr ""
+
+#: ../npcs/dev_tome.txt:81
 msgid "Lock all Hyperspace waypoints"
 msgstr "모든 초공간의 경유지가 잠금"
 
-#: ../npcs/dev_tome.txt:78
+#: ../npcs/dev_tome.txt:87
 msgid "Unlock all Hyperspace waypoints"
 msgstr "모든 초공간의 경유지가 품"
 
@@ -2323,6 +2479,14 @@ msgstr "거기. 이제 조심하십시오."
 msgid "Glowing Obelisk"
 msgstr "하얗게 달아오른 오벨리스크"
 
+#: ../npcs/iron_labyrinth_teleporter.txt:1
+msgid "Strange Obelisk"
+msgstr ""
+
+#: ../npcs/iron_labyrinth_teleporter.txt:21
+msgid "Choose a destination."
+msgstr ""
+
 #: ../npcs/loren.txt:1
 msgid "Loren, Undead Trader"
 msgstr "언데드 상인, 로렌"
@@ -2432,22 +2596,22 @@ msgstr "행운을 빕니다!"
 msgid "Udana, Metalworker"
 msgstr "금속 세공인, 우다나"
 
-#: ../npcs/udana.txt:27
+#: ../npcs/udana.txt:30
 msgid ""
 "Greetings stranger. It's not often that we have people come here from the "
 "west."
 msgstr "반갑습니다 낮선 사람이여. 서쪽에서 사람이 오는 일은 흔하지 않습니다."
 
-#: ../npcs/udana.txt:28
+#: ../npcs/udana.txt:31
 msgid ""
 "I see that you're carrying a weapon. Would you be interested in helping us?"
 msgstr "당신이 무기를 들고 있는 것을 봤습니다. 저희를 도와주시겠습니까?"
 
-#: ../npcs/udana.txt:29
+#: ../npcs/udana.txt:32
 msgid "Go on."
 msgstr "말씀하십시오."
 
-#: ../npcs/udana.txt:30
+#: ../npcs/udana.txt:33
 msgid ""
 "One of our encampment's residents, Krolan, works in the nearby mines. He "
 "supplies me with various gems that I craft into jewelery."
@@ -2455,46 +2619,109 @@ msgstr ""
 "우리의 야영지의 나머지 한 사람인 크롤란은 근처 광산에서 일하고 있습니다. 그는 우리에게 보석을 여러 가지 공급해 줍니다. 그 보석들을 "
 "우리는 보석세공품으로 가공하고 있죠."
 
-#: ../npcs/udana.txt:31
+#: ../npcs/udana.txt:34
 msgid ""
 "Krolan has not returned in some time, and I am starting to think the worst."
 msgstr "크롤란이 한 동안 돌아오지 않고 있습니다. 그래서 나는 최악의 상황을 생각을 하기 시작했습니다."
 
-#: ../npcs/udana.txt:32
+#: ../npcs/udana.txt:35
 msgid ""
 "Could you please travel to the mines and look for Krolan? I will find some "
 "way to reward you for your trouble."
 msgstr "광산으로 가서 크롤란을 찾아봐 주시겠어요? 당신의 수고에 보답할 방법을 찾아보겠습니다."
 
-#: ../npcs/udana.txt:41
+#: ../npcs/udana.txt:44
 msgid ""
 "Please hurry to find Krolan. The Perdition Mines are located near the Salted"
 " Field."
 msgstr "서둘러 크롤란을 찾아주세요. 지옥의 광산은 면역된 장소 근처에 있습니다."
 
-#: ../npcs/udana.txt:57
+#: ../npcs/udana.txt:60
 msgid "I have found Krolan, but he was no longer of this world."
 msgstr "크롤란을 찾았지만, 그는 더 이상 이 세상의 사람이 아니었습니다."
 
-#: ../npcs/udana.txt:58
+#: ../npcs/udana.txt:61
 msgid ""
 "This is terrible news. Our camp is already small, so this is a devastating "
 "loss."
 msgstr "끔찍한 소식이에요. 우리 야영지는 이미 규모가 작아서, 이것은 엄청난 손실이에요."
 
-#: ../npcs/udana.txt:59
+#: ../npcs/udana.txt:62
 msgid ""
 "If it's any solace, I have his key and this emerald. Mementos to remember "
 "him by."
 msgstr "위로가 될지 모르겠지만, 그의 열쇠와 에메랄드를 가지고 있어요. 그를 기억하기 위한 유품이 될것입니다."
 
-#: ../npcs/udana.txt:60
+#: ../npcs/udana.txt:63
 msgid ""
 "The key is enough of a memento. For your invaluable help, I can at least "
 "make you a ring with this emerald."
 msgstr "그 열쇠는 유품으로 충분합니다. 당신이 도와주신 답례로 이 에메랄드로 반지라도 만들어 줄 수 있어요."
 
-#: ../npcs/udana.txt:73
+#: ../npcs/udana.txt:77
+msgid "Can you tell me about the nearby cave?"
+msgstr ""
+
+#: ../npcs/udana.txt:78
+msgid "It was a mining operation. Krolan was a part of the crew."
+msgstr ""
+
+#: ../npcs/udana.txt:79
+msgid ""
+"Not long into their dig, they encountered ruins. Ruins unlike any of the "
+"structures in this region."
+msgstr ""
+
+#: ../npcs/udana.txt:80
+msgid ""
+"Amongst these ruins, the crew found an incredible glowing mineral: Mastite."
+msgstr ""
+
+#: ../npcs/udana.txt:81
+msgid ""
+"When the Empyrean caught wind of this discovery, they promptly took control "
+"of the operation."
+msgstr ""
+
+#: ../npcs/udana.txt:82
+msgid "So why is it blocked off now? Did the Empyrean strip it clean?"
+msgstr ""
+
+#: ../npcs/udana.txt:83
+msgid ""
+"The further the excavation team dug, the more apparent it became that "
+"something was unusual about the ruins. North would become south, west would "
+"become east. They were losing workers."
+msgstr ""
+
+#: ../npcs/udana.txt:84
+msgid ""
+"The Empyrean shut down the operation. Instead, they made an effort to mine "
+"other nearby areas in hope of finding a more stable source of Mastite. "
+"You've already seen the futile end to that story."
+msgstr ""
+
+#: ../npcs/udana.txt:85
+msgid ""
+"If the Empyrean gave up on the ruins, there may still be some value in "
+"exploring it. Is there any way I can get inside?"
+msgstr ""
+
+#: ../npcs/udana.txt:86
+msgid ""
+"It's risky, but you proven that you're able to handle yourself. And maybe if"
+" we can gain our own supply of Mastite, we'll have some leverage against the"
+" Empyrean."
+msgstr ""
+
+#: ../npcs/udana.txt:87
+msgid ""
+"Here. I made a copy of the key you'll need after one of the Empyrean guards "
+"dropped it. Please be careful. I'm not sure I'm ready to be exposed to any "
+"more death."
+msgstr ""
+
+#: ../npcs/udana.txt:104
 msgid "Thank you again for your help."
 msgstr "도움을 주셔서 다시 한 번 감사드립니다."
 
@@ -2502,48 +2729,48 @@ msgstr "도움을 주셔서 다시 한 번 감사드립니다."
 msgid "Yora, Enchanter"
 msgstr "강화사, 요라"
 
-#: ../cutscenes/backstory.txt:7
+#: ../cutscenes/backstory.txt:8
 msgid ""
 "Empyrean, the city in the sky. It is a majestic fortress and the last "
 "bastion of humankind."
 msgstr "하늘에 있는 도시, 천국. 그것은 장엄한 요새이며 인류의 마지막 거점이다."
 
-#: ../cutscenes/backstory.txt:9
+#: ../cutscenes/backstory.txt:10
 msgid ""
 "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr "왕국의 권력이 최고조에 달했을 때 그 도시는 평화와 법의 등대였다."
 
-#: ../cutscenes/backstory.txt:11
+#: ../cutscenes/backstory.txt:12
 msgid ""
 "When darkness invaded the world in the last age people abandoned the "
 "surface. Empyrean was their only refuge."
 msgstr "마지막 시대에 어둠이 침략했을 때 사람들은 지상을 버렸다. 천국은 그들의 유일한 피난처였다."
 
-#: ../cutscenes/backstory.txt:13
+#: ../cutscenes/backstory.txt:14
 msgid ""
 "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and "
 "political infighting have consumed the city."
 msgstr "이제 인류의 시대는 끝나가고 있다. 천국은무너지고 있었다. 희소성과 정치적 내분이 그 도시를 집어삼켰다."
 
-#: ../cutscenes/backstory.txt:16
+#: ../cutscenes/backstory.txt:17
 msgid ""
 "Some, in desperation, flee to the surface hoping to survive without the "
 "protection of the city."
 msgstr "자포자기한 나머지 일부 사람들은 도시의 보호 없이 살아남기위해 지상으로 피신했다."
 
-#: ../cutscenes/backstory.txt:18
+#: ../cutscenes/backstory.txt:19
 msgid ""
 "But no one returns from the surface. Most die or go missing. A few hide and "
 "survive, for a while."
 msgstr "그러나 아무도 지상에서 돌아오지 않았다. 대부분 죽거나 실종되었다. 몇몇은 잠시 숨어서 살아남았을 뿐이다."
 
-#: ../cutscenes/backstory.txt:20
+#: ../cutscenes/backstory.txt:21
 msgid ""
 "Surface dwellers cling to hope. Hope that they'll return to Empyrean some "
 "day. Hope that a hero will fight back against the darkness."
 msgstr "지상 거주자들은 희망에 매달렸다. 언젠가 그들이 천국으로 돌아오기를 바랬다. 영웅이 어둠에 맞서 싸우길 바랬다."
 
-#: ../cutscenes/backstory.txt:22
+#: ../cutscenes/backstory.txt:23
 msgid ""
 "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr "항상 희망은 있다. 하지만 모두를 위한 것은 아니다: 당신을 위한 것은 아니다. 추방당한 사람들을 위해서가 아니다."
@@ -2568,39 +2795,39 @@ msgstr "음향 효과"
 msgid "Translators"
 msgstr "번역가들"
 
-#: ../cutscenes/ending.txt:7
+#: ../cutscenes/ending.txt:8
 msgid ""
 "At long last, your journey across the surface and into the Underworld has "
 "come to an end."
 msgstr "마침내 지상을 가로질러 지하 세계로 향하는 당신의 여정이 끝났다."
 
-#: ../cutscenes/ending.txt:9
+#: ../cutscenes/ending.txt:10
 msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
 msgstr "구덩이에 들어서자 멀리서 하얗게 달아오른 오벨리스크가 빛났다."
 
-#: ../cutscenes/ending.txt:11
+#: ../cutscenes/ending.txt:12
 msgid ""
 "Guarding the obelisk was Lezaith, a formidable opponent, yet no match for "
 "Exiled who faced her."
 msgstr "오벨리스크를 지키는 것은 막강한 상대인 레자이스였지만 그녀와 마주한 추방자에게는 상대가 되지 못했다."
 
-#: ../cutscenes/ending.txt:13
+#: ../cutscenes/ending.txt:14
 msgid "With Lezaith's defeat, the path to the obelisk was clear."
 msgstr "레자이스의 패배로 오벨리스크로 가는 길이 분명해졌다."
 
-#: ../cutscenes/ending.txt:16
+#: ../cutscenes/ending.txt:17
 msgid ""
 "Not a moment after Lezaith crumbles into a pile of bones, a bolt of "
 "lightning strikes the obelisk."
 msgstr "레자이스가 뼈 더미로 무너진 지 얼마 되지 않아 번개가 오벨리스크를 덮쳤다."
 
-#: ../cutscenes/ending.txt:18
+#: ../cutscenes/ending.txt:19
 msgid ""
 "Did Lezaith cast a spell on the obelisk with her dying breath? Had Empyrean "
 "finally collapsed?"
 msgstr "레자이스가 죽어가는 입김으로 오벨리스크에 마법을 걸었을까? 천국이 마침내 무너진건가?"
 
-#: ../cutscenes/ending.txt:21
+#: ../cutscenes/ending.txt:22
 msgid ""
 "Maybe it's true what they say. No one returns from the surface. Most die or "
 "go missing. A few hide and survive, for a while."
@@ -2608,19 +2835,19 @@ msgstr ""
 "어쩌면 그들이 말하는 것이 사실일 수도 있다. 아무도 지상에서 돌아오지 않았다. 대부분 죽거나 실종되었다. 몇몇은 잠시 숨어서 살아남았을"
 " 뿐이다."
 
-#: ../cutscenes/ending.txt:23
+#: ../cutscenes/ending.txt:24
 msgid "Even the Exiled."
 msgstr "심지어 추방자조차도."
 
-#: ../cutscenes/ending.txt:29
+#: ../cutscenes/ending.txt:30
 msgid "And a very special thanks to..."
 msgstr "그리고 아주 특별한 감사를..."
 
-#: ../cutscenes/ending.txt:30
+#: ../cutscenes/ending.txt:31
 msgid "You!"
 msgstr "당신!"
 
-#: ../cutscenes/ending.txt:34
+#: ../cutscenes/ending.txt:35
 msgid "The End"
 msgstr "끝"
 
@@ -2630,57 +2857,200 @@ msgid ""
 " the trail of redemption."
 msgstr "여기에 무덤 꽃 잉크로 이름이 쓰여진 사람들은 구원의 길로 갈 수 있습니다."
 
-#: ../books/book_of_the_dead.txt:20
+#: ../books/book_of_the_dead.txt:26
 msgid "${AVATAR_NAME}"
 msgstr "${AVATAR_NAME}"
 
-#: ../books/crafting_alchemy.txt:23
+#: ../books/crafting_alchemy.txt:26
 msgid "Reset"
 msgstr "재설정"
 
-#: ../books/crafting_alchemy.txt:29
+#: ../books/crafting_alchemy.txt:33
 msgid "Craft"
 msgstr "제작"
 
-#: ../books/crafting_alchemy.txt:48
+#: ../books/crafting_alchemy.txt:52
 msgid "Empty Bottle"
 msgstr "빈 병"
 
-#: ../books/crafting_alchemy.txt:65
+#: ../books/crafting_alchemy.txt:69
 msgid "Aloe Vera"
 msgstr "알로에 베라"
 
-#: ../books/crafting_alchemy.txt:82
+#: ../books/crafting_alchemy.txt:86
 msgid "Mana Crystal"
 msgstr "마력 수정"
 
-#: ../books/crafting_alchemy.txt:99
+#: ../books/crafting_alchemy.txt:103
 msgid "Mushrooms"
 msgstr "버섯"
 
-#: ../books/crafting_alchemy.txt:287
+#: ../books/crafting_alchemy.txt:291
 msgid "Dynamite"
 msgstr "다이너마이트"
 
-#: ../books/crafting_alchemy.txt:300
+#: ../books/crafting_alchemy.txt:304
 msgid "Super Health Potion"
 msgstr "강력 체력 물약"
 
-#: ../books/crafting_alchemy.txt:313
+#: ../books/crafting_alchemy.txt:317
 msgid "Ultra Health Potion"
 msgstr "초강력 체력 물약"
 
-#: ../books/crafting_alchemy.txt:326
+#: ../books/crafting_alchemy.txt:330
 msgid "Super Mana Potion"
 msgstr "강력 마력 물약"
 
-#: ../books/crafting_alchemy.txt:339
+#: ../books/crafting_alchemy.txt:343
 msgid "Ultra Mana Potion"
 msgstr "초강력 마력 물약"
 
-#: ../books/cutscene_list.txt:21
+#: ../books/cutscene_list.txt:17
+msgid "Select a previously viewed cutscene to watch it again."
+msgstr ""
+
+#: ../books/cutscene_list.txt:26
 msgid "Ending"
 msgstr "결말"
+
+#: ../books/il_notes_1.txt:13
+msgid "1462/3/10"
+msgstr ""
+
+#: ../books/il_notes_1.txt:19
+msgid ""
+"The dig near Perdition Harbor is starting to show promise. We found ruins. "
+"Unlike anything else in the area. We'll get a good amount of gold from the "
+"relics here. A welcome change for the guys that transferred from the "
+"Empyrean's operation in the complex under Lochport."
+msgstr ""
+
+#: ../books/il_notes_1.txt:25
+msgid "[Missing page]"
+msgstr ""
+
+#: ../books/il_notes_1.txt:32
+msgid ""
+"They told me about the other expeditions, a tower in Black Oak City and a "
+"temple in the Stormrock region. Both just as fruitless."
+msgstr ""
+
+#: ../books/il_notes_2.txt:13
+msgid "1462/3/15"
+msgstr ""
+
+#: ../books/il_notes_2.txt:19
+msgid ""
+"Today, we found a peculiar yellow-green mineral. Almost blinding to look at."
+" Perhaps someone from the Empyrean Chamber knows what it is..."
+msgstr ""
+
+#: ../books/il_notes_2.txt:32
+msgid "1462/3/16"
+msgstr ""
+
+#: ../books/il_notes_2.txt:38
+msgid ""
+"The messenger to the Chamber called the mineral \"Mastite\". It was made "
+"clear that any we find must be brought to the surface. No questions. This "
+"stuff is obviously something special. They better make it worth our while."
+msgstr ""
+
+#: ../books/il_notes_3.txt:13
+msgid "1462/3/23"
+msgstr ""
+
+#: ../books/il_notes_3.txt:19
+msgid ""
+"There's more to this whole Mastite thing than we're being told. Yesterday, "
+"one of the crew was about to grab a chunk he had found. In the blink of an "
+"eye, some sort of energy ball flew out of it and blasted the poor guy back "
+"about 100 paces."
+msgstr ""
+
+#: ../books/il_notes_3.txt:38
+msgid ""
+"What does the Chamber's healer do? Gives him a measly potion! Why are we "
+"waiting until the damage is done? We need defensive mages! But somehow, "
+"that's out of the question for the Empyrean..."
+msgstr ""
+
+#: ../books/il_notes_4.txt:13
+msgid "1462/3/25"
+msgstr ""
+
+#: ../books/il_notes_4.txt:19
+msgid ""
+"I've calmed down enough to write a coherent letter to the Chamber requesting"
+" the resources we need. Now we just have to wait. In the meantime, we'll "
+"continue exploring as carefully as possible."
+msgstr ""
+
+#: ../books/il_notes_4.txt:32
+msgid "1462/4/27"
+msgstr ""
+
+#: ../books/il_notes_4.txt:38
+msgid ""
+"The Chamber finally gave their response. They did send a few mages, but not "
+"nearly enough. There's a promise of a larger gold share when the excavation "
+"is complete. Somehow, I don't think Empyrean politics will allow such a "
+"thing to manifest."
+msgstr ""
+
+#: ../books/il_notes_5.txt:13
+msgid "1462/6/3"
+msgstr ""
+
+#: ../books/il_notes_5.txt:19
+msgid ""
+"These ruins are larger than we had imagined. There must be other connections"
+" to the surface. Krolan found a portal today, but no one dared to enter."
+msgstr ""
+
+#: ../books/il_notes_5.txt:38
+msgid ""
+"We asked the mages to try analyzing it. Unfortunately, they reported not "
+"being able to see through to the other side."
+msgstr ""
+
+#: ../books/il_notes_6.txt:13
+msgid "1462/8/12"
+msgstr ""
+
+#: ../books/il_notes_6.txt:19
+msgid ""
+"It's finally over! We reached a massive chamber inhabited by a giant "
+"antlion! The mages were able to hold it back while we grabbed everything "
+"that wasn't nailed down. Thought we were trapped when we had to barricade "
+"the gate. Thank the heavens that the portal brought us back here."
+msgstr ""
+
+#: ../books/il_notes_6.txt:38
+msgid ""
+"A few of the guys were still working on the floor above and didn't follow us"
+" into the chamber. We'll head back down and rendezvous with them tomorrow."
+msgstr ""
+
+#: ../books/il_notes_7.txt:13
+msgid "1462/8/13"
+msgstr ""
+
+#: ../books/il_notes_7.txt:19
+msgid ""
+"When we returned today, the layout of the first floor did not match our "
+"maps. Thankfully, an Empyrean mage made it back with us. I asked them to try"
+" sensing for human life on the lower levels. Zero results thus far, but I "
+"still have hope."
+msgstr ""
+
+#: ../books/il_notes_7.txt:38
+msgid ""
+"The Chamber sees the situation differently. Orders came in for operations to"
+" be moved to other nearby sites. Krolan obeyed. Said he didn't want end up "
+"dead like \"those guys\". As if our guys are dead! When I find them, we're "
+"going to snag the rest of that Mastite for ourselves!"
+msgstr ""
 
 #: ../books/merchants_journal.txt:13
 msgid "1472/9/27"
@@ -2750,10 +3120,6 @@ msgstr "가로막힌 광산 수레 안에"
 msgid "Press the switch on the top of the middle boulder"
 msgstr "가운데 큰 바위 꼭대기 위에 있는 스위치를 눌러라"
 
-#: ../books/nasu_sketchbook.txt:23
-msgid "-K"
-msgstr "-K"
-
 #: ../books/wardens_notes.txt:13
 msgid "1468/7/9"
 msgstr "1468/7/9"
@@ -2798,121 +3164,109 @@ msgstr "1468/7/10"
 msgid "No subjects asked to take the test today."
 msgstr "오늘 시험을 보자고 한 과목이 없었다."
 
-#: ../items/categories/level_14.txt:5
-msgid "Fighting Plate Helmet"
-msgstr "격투용 판금 투구"
+#: ../items/categories/level_4.txt:5
+msgid "Warlord Cloth Shirt"
+msgstr "장군의 천 셔츠"
 
-#: ../items/categories/level_14.txt:17
-msgid "Recon Plate Helmet"
-msgstr "수색병의 판금 투구"
+#: ../items/categories/level_4.txt:17
+msgid "Sniper Cloth Shirt"
+msgstr "저격병의 천 셔츠"
 
-#: ../items/categories/level_14.txt:29
-msgid "Sorcerer Velvet Hood"
-msgstr "정령마법사의 벨벳 후드"
+#: ../items/categories/level_4.txt:29
+msgid "Archwizard Cloth Shirt"
+msgstr "대현자마법사의 천 셔츠"
 
-#: ../items/categories/level_14.txt:41
-msgid "Fighting Plate Cuirass"
-msgstr "격투용 판금 흉갑"
+#: ../items/categories/level_4.txt:41
+msgid "Warlord Cloth Pants"
+msgstr "장군의 천 바지"
 
-#: ../items/categories/level_14.txt:53
-msgid "Recon Plate Cuirass"
-msgstr "수색병의 판금 흉갑"
+#: ../items/categories/level_4.txt:53
+msgid "Sniper Cloth Pants"
+msgstr "저격병의 천 바지"
 
-#: ../items/categories/level_14.txt:65
-msgid "Sorcerer Velvet Vest"
-msgstr "정령마법사의 벨벳 조끼"
+#: ../items/categories/level_4.txt:65
+msgid "Archwizard Cloth Pants"
+msgstr "대현자마법사의 천 바지"
 
-#: ../items/categories/level_14.txt:77
-msgid "Fighting Plate Greaves"
-msgstr "격투용 판금 정강이받이"
+#: ../items/categories/level_4.txt:77
+msgid "Warlord Cloth Sandals"
+msgstr "장군의 천 샌달"
 
-#: ../items/categories/level_14.txt:89
-msgid "Recon Plate Greaves"
-msgstr "수색병의 판금 정강이받이"
+#: ../items/categories/level_4.txt:89
+msgid "Sniper Cloth Sandals"
+msgstr "저격병의 천 샌달"
 
-#: ../items/categories/level_14.txt:101
-msgid "Sorcerer Velvet Skirt"
-msgstr "정령마법사의 벨벳 치마"
+#: ../items/categories/level_4.txt:101
+msgid "Archwizard Cloth Sandals"
+msgstr "대현자마법사의 천 샌달"
 
-#: ../items/categories/level_14.txt:113
-msgid "Fighting Plate Boots"
-msgstr "격투용 판금 장화"
+#: ../items/categories/level_4.txt:113
+msgid "Warlord Cloth Gloves"
+msgstr "장군의 천 장갑"
 
-#: ../items/categories/level_14.txt:125
-msgid "Recon Plate Boots"
-msgstr "수색병의 판금 장화"
+#: ../items/categories/level_4.txt:125
+msgid "Sniper Cloth Gloves"
+msgstr "저격병의 천 장갑"
 
-#: ../items/categories/level_14.txt:137
-msgid "Sorcerer Velvet Boots"
-msgstr "정령마법사의 벨벳 장화"
+#: ../items/categories/level_4.txt:137
+msgid "Archwizard Cloth Gloves"
+msgstr "대현자마법사의 천 장갑"
 
-#: ../items/categories/level_14.txt:149
-msgid "Fighting Plate Gauntlets"
-msgstr "격투용 판금 갑옷용 장갑"
+#: ../items/categories/level_4.txt:149
+msgid "Master Leather Belt"
+msgstr "원로의 가죽 허리띠"
 
-#: ../items/categories/level_14.txt:161
-msgid "Recon Plate Gauntlets"
-msgstr "수색병의 판금 갑옷용 장갑"
+#: ../items/categories/level_4.txt:160
+msgid "Master Pendant"
+msgstr "원로의 목걸이"
 
-#: ../items/categories/level_14.txt:173
-msgid "Sorcerer Velvet Sleeves"
-msgstr "정령마법사의 벨벳 토시"
+#: ../items/categories/level_4.txt:171
+msgid "Master Spellbook"
+msgstr "원로의 마법책"
 
-#: ../items/categories/level_14.txt:185
-msgid "Wandering Warlord Leather Belt"
-msgstr "방랑자 장군의 가죽 허리띠"
+#: ../items/categories/level_4.txt:182
+msgid "Warlord Dagger"
+msgstr "달숭릐 단검"
 
-#: ../items/categories/level_14.txt:196
-msgid "Wandering Sniper Pendant"
-msgstr "방랑자 저격병의 목걸이"
+#: ../items/categories/level_4.txt:194
+msgid "Sniper Slingshot"
+msgstr "저격수의 새총"
 
-#: ../items/categories/level_14.txt:207
-msgid "Wandering Archwizard Spellbook"
-msgstr "방랑자 대현자마법사의 마법책"
+#: ../items/categories/level_4.txt:206
+msgid "Archwizard Wand"
+msgstr "대현자마법사의 마술봉"
 
-#: ../items/categories/level_14.txt:218
-msgid "Fighting Greatsword"
-msgstr "격투용 큰 칼"
+#: ../items/categories/level_4.txt:218
+msgid "Templar Wood Buckler"
+msgstr "성기사의 둥근 나무 방패"
 
-#: ../items/categories/level_14.txt:230
-msgid "Recon Greatbow"
-msgstr "수색병의 큰 활"
+#: ../items/categories/level_4.txt:229
+msgid "Master Fire Ring"
+msgstr "원로의 불꽃 반지"
 
-#: ../items/categories/level_14.txt:242
-msgid "Sorcerer Greatstaff"
-msgstr "정령마법사의 큰 지팡이"
+#: ../items/categories/level_4.txt:239
+msgid "Master Ice Ring"
+msgstr "원로의 얼음 반지"
 
-#: ../items/categories/level_14.txt:254
-msgid "Keeper Tower Shield"
-msgstr "파수꾼의 장방패"
+#: ../items/categories/level_4.txt:249
+msgid "Master Lightning Ring"
+msgstr "원로의 번개 반지"
 
-#: ../items/categories/level_14.txt:265
-msgid "Wandering Inferno Ring"
-msgstr "방랑자의 불지옥 반지"
+#: ../items/categories/level_4.txt:259
+msgid "Master Dark Ring"
+msgstr "원로의 어둠 반지"
 
-#: ../items/categories/level_14.txt:275
-msgid "Wandering Glacial Ring"
-msgstr "방랑자의 빙하 반지"
+#: ../items/categories/level_4.txt:269
+msgid "Master Experience Ring"
+msgstr "원로의 경험 반지"
 
-#: ../items/categories/level_14.txt:285
-msgid "Wandering Volt Ring"
-msgstr "방랑자의 화살 반지"
+#: ../items/categories/level_4.txt:279
+msgid "Master Wealth Ring"
+msgstr "원로의 재산 반지"
 
-#: ../items/categories/level_14.txt:295
-msgid "Wandering Void Ring"
-msgstr "방랑자의 공허 반지"
-
-#: ../items/categories/level_14.txt:305
-msgid "Wandering Scholar Ring"
-msgstr "방랑자의 학자 반지"
-
-#: ../items/categories/level_14.txt:315
-msgid "Wandering Affluence Ring"
-msgstr "방랑자의 풍요 반지"
-
-#: ../items/categories/level_14.txt:325
-msgid "Wandering Relic Ring"
-msgstr "방랑자의 유물 반지"
+#: ../items/categories/level_4.txt:289
+msgid "Master Treasure Ring"
+msgstr "원로의 보물 반지"
 
 #: ../items/categories/level_5.txt:5
 msgid "Leather Hood"
@@ -2970,122 +3324,6 @@ msgstr "막대"
 msgid "Iron Buckler"
 msgstr "둥근 철 방패"
 
-#: ../items/categories/level_16.txt:5
-msgid "Warlord Plate Helmet"
-msgstr "장군의 판금 투구"
-
-#: ../items/categories/level_16.txt:17
-msgid "Sniper Plate Helmet"
-msgstr "저격병의 판금 투구"
-
-#: ../items/categories/level_16.txt:29
-msgid "Archwizard Velvet Hood"
-msgstr "대현자마법사의 벨벳 후드"
-
-#: ../items/categories/level_16.txt:41
-msgid "Warlord Plate Cuirass"
-msgstr "장군의 판금 흉갑"
-
-#: ../items/categories/level_16.txt:53
-msgid "Sniper Plate Cuirass"
-msgstr "저격병의 판금 흉갑"
-
-#: ../items/categories/level_16.txt:65
-msgid "Archwizard Velvet Vest"
-msgstr "대현자마법사의 벨벳 조끼"
-
-#: ../items/categories/level_16.txt:77
-msgid "Warlord Plate Greaves"
-msgstr "장군의 판금 정강이받이"
-
-#: ../items/categories/level_16.txt:89
-msgid "Sniper Plate Greaves"
-msgstr "저격병의 판금 정강이받이"
-
-#: ../items/categories/level_16.txt:101
-msgid "Archwizard Velvet Skirt"
-msgstr "대현자마법사의 벨벳 치마"
-
-#: ../items/categories/level_16.txt:113
-msgid "Warlord Plate Boots"
-msgstr "장군의 판금 장화"
-
-#: ../items/categories/level_16.txt:125
-msgid "Sniper Plate Boots"
-msgstr "저격병의 판금 장화"
-
-#: ../items/categories/level_16.txt:137
-msgid "Archwizard Velvet Boots"
-msgstr "대현자마법사의 벨벳 장화"
-
-#: ../items/categories/level_16.txt:149
-msgid "Warlord Plate Gauntlets"
-msgstr "장군의 판금 갑옷용 장갑"
-
-#: ../items/categories/level_16.txt:161
-msgid "Sniper Plate Gauntlets"
-msgstr "저격병의 판금 갑옷용 장갑"
-
-#: ../items/categories/level_16.txt:173
-msgid "Archwizard Velvet Sleeves"
-msgstr "대현자마법사의 벨벳 토시"
-
-#: ../items/categories/level_16.txt:185
-msgid "Master Warlord Leather Belt"
-msgstr "원로 장군의 가죽 허리띠"
-
-#: ../items/categories/level_16.txt:196
-msgid "Master Sniper Pendant"
-msgstr "원로 저격병의 목걸이"
-
-#: ../items/categories/level_16.txt:207
-msgid "Master Archwizard Spellbook"
-msgstr "원로 대현자마법사의 마법책"
-
-#: ../items/categories/level_16.txt:218
-msgid "Warlord Greatsword"
-msgstr "장군의 큰 칼"
-
-#: ../items/categories/level_16.txt:230
-msgid "Sniper Greatbow"
-msgstr "저격병의 큰 활"
-
-#: ../items/categories/level_16.txt:242
-msgid "Archwizard Greatstaff"
-msgstr "대현자마법사의 큰 지팡이"
-
-#: ../items/categories/level_16.txt:254
-msgid "Templar Tower Shield"
-msgstr "성기사의 장방패"
-
-#: ../items/categories/level_16.txt:265
-msgid "Master Inferno Ring"
-msgstr "원로의 불지옥 반지"
-
-#: ../items/categories/level_16.txt:275
-msgid "Master Glacial Ring"
-msgstr "원로의 빙하 반지"
-
-#: ../items/categories/level_16.txt:285
-msgid "Master Volt Ring"
-msgstr "원로의 화살 반지"
-
-#: ../items/categories/level_16.txt:295
-msgid "Master Void Ring"
-msgstr "원로의 공허 반지"
-
-#: ../items/categories/level_16.txt:305
-msgid "Master Scholar Ring"
-msgstr "원로의 학자 반지"
-
-#: ../items/categories/level_16.txt:315
-msgid "Master Affluence Ring"
-msgstr "원로의 풍요 반지"
-
-#: ../items/categories/level_16.txt:325
-msgid "Master Relic Ring"
-msgstr "원로의 유물 반지"
-
 #: ../items/categories/level_13.txt:5
 msgid "Plate Helmet"
 msgstr "판금 투구"
@@ -3142,295 +3380,195 @@ msgstr "큰 지팡이"
 msgid "Tower Shield"
 msgstr "장방패"
 
-#: ../items/categories/level_12.txt:5
-msgid "Warlord Chain Coif"
-msgstr "장군의 사슬 두건"
+#: ../items/categories/level_1.txt:5
+msgid "Cloth Shirt"
+msgstr "천 셔츠"
 
-#: ../items/categories/level_12.txt:17
-msgid "Sniper Chain Coif"
-msgstr "저격병의 사슬 두건"
+#: ../items/categories/level_1.txt:12
+msgid "Cloth Pants"
+msgstr "천 바지"
 
-#: ../items/categories/level_12.txt:29
-msgid "Archwizard Silk Hood"
-msgstr "대현자마법사의 비단 후드"
+#: ../items/categories/level_1.txt:19
+msgid "Cloth Sandals"
+msgstr "천 샌달"
 
-#: ../items/categories/level_12.txt:41
-msgid "Warlord Chain Cuirass"
-msgstr "장군의 사슬 흉갑"
+#: ../items/categories/level_1.txt:26
+msgid "Cloth Gloves"
+msgstr "천 장갑"
 
-#: ../items/categories/level_12.txt:53
-msgid "Sniper Chain Cuirass"
-msgstr "저격병의 사슬 흉갑"
+#: ../items/categories/level_1.txt:33
+msgid "Dagger"
+msgstr "단검"
 
-#: ../items/categories/level_12.txt:65
-msgid "Archwizard Silk Vest"
-msgstr "대현자마법사의 비단 조끼"
+#: ../items/categories/level_1.txt:42
+msgid "Slingshot"
+msgstr "새총"
 
-#: ../items/categories/level_12.txt:77
-msgid "Warlord Chain Greaves"
-msgstr "장군의 사슬 정강이받이"
+#: ../items/categories/level_1.txt:51
+msgid "Wand"
+msgstr "마술봉"
 
-#: ../items/categories/level_12.txt:89
-msgid "Sniper Chain Greaves"
-msgstr "저격병의 사슬 정강이받이"
+#: ../items/categories/level_1.txt:60
+msgid "Wood Buckler"
+msgstr "둥근 나무 방패"
 
-#: ../items/categories/level_12.txt:101
-msgid "Archwizard Silk Skirt"
-msgstr "대현자마법사의 비단 치마"
+#: ../items/categories/level_8.txt:5
+msgid "Warlord Leather Hood"
+msgstr "장군의 가죽 후드"
 
-#: ../items/categories/level_12.txt:113
-msgid "Warlord Chain Boots"
-msgstr "장군의 사슬 장화"
+#: ../items/categories/level_8.txt:17
+msgid "Sniper Leather Hood"
+msgstr "저격병의 가죽 후드"
 
-#: ../items/categories/level_12.txt:125
-msgid "Sniper Chain Boots"
-msgstr "저격병의 사슬 장화"
+#: ../items/categories/level_8.txt:29
+msgid "Archwizard Wool Hood"
+msgstr "대현자마법사의 양털 후드"
 
-#: ../items/categories/level_12.txt:137
-msgid "Archwizard Silk Boots"
-msgstr "대현자마법사의 비단 장화"
+#: ../items/categories/level_8.txt:41
+msgid "Warlord Leather Tunic"
+msgstr "장군의 가죽 튜닉"
 
-#: ../items/categories/level_12.txt:149
-msgid "Warlord Chain Gloves"
-msgstr "장군의 사슬 장갑"
+#: ../items/categories/level_8.txt:53
+msgid "Sniper Leather Tunic"
+msgstr "저격병의 가죽 튜닉"
 
-#: ../items/categories/level_12.txt:161
-msgid "Sniper Chain Gloves"
-msgstr "저격병의 사슬 장갑"
+#: ../items/categories/level_8.txt:65
+msgid "Archwizard Wool Vest"
+msgstr "대현자마법사의 양털 조끼"
 
-#: ../items/categories/level_12.txt:173
-msgid "Archwizard Silk Sleeves"
-msgstr "대현자마법사의 비단 토시"
+#: ../items/categories/level_8.txt:77
+msgid "Warlord Leather Pants"
+msgstr "장군의 가죽 바지"
 
-#: ../items/categories/level_12.txt:185
-msgid "Master Warrior Leather Belt"
-msgstr "원로 전사의 가죽 허리띠"
+#: ../items/categories/level_8.txt:89
+msgid "Sniper Leather Pants"
+msgstr "저격병의 가죽 바지"
 
-#: ../items/categories/level_12.txt:196
-msgid "Master Ranger Pendant"
-msgstr "원로 유격병의 목걸이"
+#: ../items/categories/level_8.txt:101
+msgid "Archwizard Wool Skirt"
+msgstr "대현자마법사의 양털 치마"
 
-#: ../items/categories/level_12.txt:207
-msgid "Master Wizard Spellbook"
-msgstr "원로 현자마법사의 마법책"
+#: ../items/categories/level_8.txt:113
+msgid "Warlord Leather Boots"
+msgstr "장군 가죽 장화"
 
-#: ../items/categories/level_12.txt:218
-msgid "Warlord Longsword"
-msgstr "장군의 긴칼"
+#: ../items/categories/level_8.txt:125
+msgid "Sniper Leather Boots"
+msgstr "저격병의 가죽 장화"
 
-#: ../items/categories/level_12.txt:230
-msgid "Sniper Longbow"
-msgstr "저격병의 긴활"
+#: ../items/categories/level_8.txt:137
+msgid "Archwizard Wool Boots"
+msgstr "대현자마법사의 양털 장화"
 
-#: ../items/categories/level_12.txt:242
-msgid "Archwizard Staff"
-msgstr "대현자마법사의 지팡이"
+#: ../items/categories/level_8.txt:149
+msgid "Warlord Leather Gloves"
+msgstr "장군의 가죽 장갑"
 
-#: ../items/categories/level_12.txt:254
-msgid "Templar Crest Shield"
-msgstr "성기사의 문장 방패"
+#: ../items/categories/level_8.txt:161
+msgid "Sniper Leather Gloves"
+msgstr "저격병의 가죽 장갑"
 
-#: ../items/categories/level_12.txt:265
-msgid "Master Blaze Ring"
-msgstr "원로의 불길 반지"
+#: ../items/categories/level_8.txt:173
+msgid "Archwizard Wool Sleeves"
+msgstr "대현자마법사 양털 토시"
 
-#: ../items/categories/level_12.txt:275
-msgid "Master Freeze Ring"
-msgstr "원로의 얼리는 반지"
+#: ../items/categories/level_8.txt:185
+msgid "Master Fighting Leather Belt"
+msgstr "원로의 격투용 가죽 허리띠"
 
-#: ../items/categories/level_12.txt:285
-msgid "Master Shock Ring"
-msgstr "원로의 감전 반지"
+#: ../items/categories/level_8.txt:196
+msgid "Master Recon Pendant"
+msgstr "원로 수색병의 목걸이"
 
-#: ../items/categories/level_12.txt:295
-msgid "Master Gloom Ring"
-msgstr "원로의 어둠의 반지"
+#: ../items/categories/level_8.txt:207
+msgid "Master Sorcerer Spellbook"
+msgstr "원로 정령마법사의 마법책"
 
-#: ../items/categories/level_12.txt:305
-msgid "Master Intellectual Ring"
-msgstr "원로의 지능 반지"
+#: ../items/categories/level_8.txt:218
+msgid "Warlord Shortsword"
+msgstr "장군의 짧은 칼"
 
-#: ../items/categories/level_12.txt:315
-msgid "Master Lucrative Ring"
-msgstr "원로의 수지맞는 반지"
+#: ../items/categories/level_8.txt:230
+msgid "Sniper Shortbow"
+msgstr "저격병의 짧은 활"
 
-#: ../items/categories/level_12.txt:325
-msgid "Master Artifact Ring"
-msgstr "원로의 공예품 반지"
+#: ../items/categories/level_8.txt:242
+msgid "Archwizard Rod"
+msgstr "대현자마법사의 막대"
 
-#: ../items/categories/level_4_unique.txt:3
-msgid "Krolan's Hammer"
-msgstr "크롤란의 망치"
+#: ../items/categories/level_8.txt:254
+msgid "Templar Iron Buckler"
+msgstr "성기사의 둥근 철 방패"
 
-#: ../items/categories/level_4_unique.txt:4
-msgid "An essential tool for any blacksmith."
-msgstr "대장장이에게 꼭 필요한 도구이다."
+#: ../items/categories/level_8.txt:265
+msgid "Master Burn Ring"
+msgstr "원로의 불타는 반지"
 
-#: ../items/categories/level_4_unique.txt:19
-msgid "Goblin Branch"
-msgstr "고블린의 나뭇가지"
+#: ../items/categories/level_8.txt:275
+msgid "Master Frost Ring"
+msgstr "원로의 서리 반지"
 
-#: ../items/categories/level_4_unique.txt:20
-msgid "Mana flows inside its primitive exterior."
-msgstr "마력은 원시적인 외관의 내부로 흐른다."
+#: ../items/categories/level_8.txt:285
+msgid "Master Electric Ring"
+msgstr "원로의 전기 반지"
 
-#: ../items/categories/level_4_unique.txt:36
-msgid "Ardwen's Gloves"
-msgstr "아르드웬의 장갑"
+#: ../items/categories/level_8.txt:295
+msgid "Master Shadow Ring"
+msgstr "원로의 그림자 반지"
 
-#: ../items/categories/level_4_unique.txt:37
-msgid "These hands built a village."
-msgstr "이 손들이 마을을 만들었다."
+#: ../items/categories/level_8.txt:305
+msgid "Master Knowledge Ring"
+msgstr "원로의 지식 반지"
 
-#: ../items/categories/level_4_unique.txt:53
-msgid "Blood Tunic"
-msgstr "피의 튜닉"
+#: ../items/categories/level_8.txt:315
+msgid "Master Prosperity Ring"
+msgstr "원로의 번영 반지"
 
-#: ../items/categories/level_4_unique.txt:54
-msgid "When worn, this shirt heats the wearers veins."
-msgstr "이 셔츠는 입으면 핏줄이 뜨거워진다."
+#: ../items/categories/level_8.txt:325
+msgid "Master Loot Ring"
+msgstr "원로의 약탈 반지"
 
-#: ../items/categories/level_4_unique.txt:69
-msgid "Dark Steppers"
-msgstr "어둠의 구두"
+#: ../items/categories/scrolls.txt:8
+msgid "Use: Summon a zombie to fight for you"
+msgstr "사용 효과: 당신을 위해 싸울 좀비를 소환"
 
-#: ../items/categories/level_4_unique.txt:70
-msgid "Dancing through the shadows."
-msgstr "그림자 사이로 춤을 춘다."
+#: ../items/categories/scrolls.txt:19
+msgid "Use: Teleport to Perdition Harbor"
+msgstr "사용: 지옥의 항구로 순간 이동"
 
-#: ../items/categories/level_4_unique.txt:84
-msgid "Seagate's Tri-pants"
-msgstr "바다관문의 삼각바지"
+#: ../items/categories/scrolls.txt:30
+msgid "Use: Create a magical shield that absorbs damage"
+msgstr "사용 효과: 피해를 흡수하는 마법 보호막을 만듬"
 
-#: ../items/categories/level_4_unique.txt:85
+#: ../items/categories/scrolls.txt:41
+msgid "Use: Shoot a fireball"
+msgstr "사용 효과: 불 덩어리를 쏨"
+
+#: ../items/categories/scrolls.txt:52
+msgid "Use: Shoot an ice bolt"
+msgstr "사용 효과: 얼음화살을 쏨"
+
+#: ../items/categories/scrolls.txt:63
+msgid "Use: Move at an increased speed for a limited time"
+msgstr "사용 효과: 제한된 시간 동안 증가된 속도로 이동"
+
+#: ../items/categories/scrolls.txt:74
+msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
+msgstr "사용 효과: 제한된 시간 동안 디버프를 제거하고 디버프에 면역이 됨"
+
+#: ../items/categories/scrolls.txt:85
 msgid ""
-"These ragged trousers are covered in scorch marks, yet are cold to the "
-"touch."
-msgstr "이 너덜너덜한 바지는 그을린 자국으로 덮여 있지만 만져보니 차갑다."
+"Use: Creates a magical shield that reflects projectiles and damage for a "
+"limited time"
+msgstr "사용 효과: 제한된 시간 동안 발사체와 피해를 반사하는 마법 보호막을 만듬"
 
-#: ../items/categories/level_4_unique.txt:101
-msgid "Ardwen's Ring"
-msgstr "아르드웬의 반지"
+#: ../items/categories/scrolls.txt:93
+msgid "Tome of Second Chances"
+msgstr "두 번째 기회의 두꺼운책"
 
-#: ../items/categories/level_4_unique.txt:102
-msgid "Lochport's finest."
-msgstr "로크항구의 경관"
-
-#: ../items/categories/level_11.txt:5
-msgid "Warrior Chain Coif"
-msgstr "전사의 사슬 두건"
-
-#: ../items/categories/level_11.txt:17
-msgid "Ranger Chain Coif"
-msgstr "유격병의 사슬 두건"
-
-#: ../items/categories/level_11.txt:29
-msgid "Wizard Silk Hood"
-msgstr "현자마법사의 비단 후드"
-
-#: ../items/categories/level_11.txt:41
-msgid "Warrior Chain Cuirass"
-msgstr "전사의 사슬 흉갑"
-
-#: ../items/categories/level_11.txt:53
-msgid "Ranger Chain Cuirass"
-msgstr "유격병의 사슬 흉갑"
-
-#: ../items/categories/level_11.txt:65
-msgid "Wizard Silk Vest"
-msgstr "현자마법사의 비단 조끼"
-
-#: ../items/categories/level_11.txt:77
-msgid "Warrior Chain Greaves"
-msgstr "전사의 사슬 정강이받이"
-
-#: ../items/categories/level_11.txt:89
-msgid "Ranger Chain Greaves"
-msgstr "유격병의 사슬 정강이받이"
-
-#: ../items/categories/level_11.txt:101
-msgid "Wizard Silk Skirt"
-msgstr "현자마법사의 비단 치마"
-
-#: ../items/categories/level_11.txt:113
-msgid "Warrior Chain Boots"
-msgstr "전사의 사슬 장화"
-
-#: ../items/categories/level_11.txt:125
-msgid "Ranger Chain Boots"
-msgstr "유격병의 사슬 장화"
-
-#: ../items/categories/level_11.txt:137
-msgid "Wizard Silk Boots"
-msgstr "현자마법사의 비단 장화"
-
-#: ../items/categories/level_11.txt:149
-msgid "Warrior Chain Gloves"
-msgstr "전사의 사슬 장갑"
-
-#: ../items/categories/level_11.txt:161
-msgid "Ranger Chain Gloves"
-msgstr "유격병의 사슬 장갑"
-
-#: ../items/categories/level_11.txt:173
-msgid "Wizard Silk Sleeves"
-msgstr "현자마법사의 비단 토시"
-
-#: ../items/categories/level_11.txt:185
-msgid "Adventurer Warrior Leather Belt"
-msgstr "모험가 전사의 가죽 허리띠"
-
-#: ../items/categories/level_11.txt:196
-msgid "Adventurer Ranger Pendant"
-msgstr "모험가 유격병의 목걸이"
-
-#: ../items/categories/level_11.txt:207
-msgid "Adventurer Wizard Spellbook"
-msgstr "모험가 현자마법사의 마법책"
-
-#: ../items/categories/level_11.txt:218
-msgid "Warrior Longsword"
-msgstr "전사의 긴 칼"
-
-#: ../items/categories/level_11.txt:230
-msgid "Ranger Longbow"
-msgstr "유격병의 긴 활"
-
-#: ../items/categories/level_11.txt:242
-msgid "Wizard Staff"
-msgstr "현자마법사의 지팡이"
-
-#: ../items/categories/level_11.txt:254
-msgid "Paladin Crest Shield"
-msgstr "팔라딘의 문장 방패"
-
-#: ../items/categories/level_11.txt:265
-msgid "Adventurer Blaze Ring"
-msgstr "모험가의 불길 반지"
-
-#: ../items/categories/level_11.txt:275
-msgid "Adventurer Freeze Ring"
-msgstr "모험가의 얼리는 반지"
-
-#: ../items/categories/level_11.txt:285
-msgid "Adventurer Shock Ring"
-msgstr "모험가의 감전 반지"
-
-#: ../items/categories/level_11.txt:295
-msgid "Adventurer Gloom Ring"
-msgstr "모험가 어둠의 반지"
-
-#: ../items/categories/level_11.txt:305
-msgid "Adventurer Intellectual Ring"
-msgstr "모험가의 지능 반지"
-
-#: ../items/categories/level_11.txt:315
-msgid "Adventurer Lucrative Ring"
-msgstr "모험가의 수지맞는 반지"
-
-#: ../items/categories/level_11.txt:325
-msgid "Adventurer Artifact Ring"
-msgstr "모험가의 공예품 반지"
+#: ../items/categories/scrolls.txt:95
+msgid "Use: Resets all stat and power points"
+msgstr "사용: 모든 능력치와 기술 점수를 초기화"
 
 #: ../items/categories/level_2.txt:5
 msgid "Fighting Cloth Shirt"
@@ -3535,6 +3673,238 @@ msgstr "방랑자의 재산 반지"
 #: ../items/categories/level_2.txt:247
 msgid "Wandering Treasure Ring"
 msgstr "방랑자의 보물 반지"
+
+#: ../items/categories/level_15.txt:5
+msgid "Warrior Plate Helmet"
+msgstr "전사의 판금 투구"
+
+#: ../items/categories/level_15.txt:17
+msgid "Ranger Plate Helmet"
+msgstr "유격병의 판금 투구"
+
+#: ../items/categories/level_15.txt:29
+msgid "Wizard Velvet Hood"
+msgstr "현자마법사의 벨벳 후드"
+
+#: ../items/categories/level_15.txt:41
+msgid "Warrior Plate Cuirass"
+msgstr "전사의 판금 흉갑"
+
+#: ../items/categories/level_15.txt:53
+msgid "Ranger Plate Cuirass"
+msgstr "유격병의 판금 흉갑"
+
+#: ../items/categories/level_15.txt:65
+msgid "Wizard Velvet Vest"
+msgstr "현자마법사의 벨벳 조끼"
+
+#: ../items/categories/level_15.txt:77
+msgid "Warrior Plate Greaves"
+msgstr "전사의 판금 정강이받이"
+
+#: ../items/categories/level_15.txt:89
+msgid "Ranger Plate Greaves"
+msgstr "유격병의 판금 정강이받이"
+
+#: ../items/categories/level_15.txt:101
+msgid "Wizard Velvet Skirt"
+msgstr "현자마법사의 벨벳 치마"
+
+#: ../items/categories/level_15.txt:113
+msgid "Warrior Plate Boots"
+msgstr "전사의 판금 장화"
+
+#: ../items/categories/level_15.txt:125
+msgid "Ranger Plate Boots"
+msgstr "유격병의 판금 장화"
+
+#: ../items/categories/level_15.txt:137
+msgid "Wizard Velvet Boots"
+msgstr "현자마법사의 벨벳 장화"
+
+#: ../items/categories/level_15.txt:149
+msgid "Warrior Plate Gauntlets"
+msgstr "전사의 판금 갑옷용 장갑"
+
+#: ../items/categories/level_15.txt:161
+msgid "Ranger Plate Gauntlets"
+msgstr "유격병의 판금 갑옷용 장갑"
+
+#: ../items/categories/level_15.txt:173
+msgid "Wizard Velvet Sleeves"
+msgstr "현자마법사의 벨벳 토시"
+
+#: ../items/categories/level_15.txt:185
+msgid "Adventurer Warlord Leather Belt"
+msgstr "모험가의 장군 가죽 허리띠"
+
+#: ../items/categories/level_15.txt:196
+msgid "Adventurer Sniper Pendant"
+msgstr "모험가 저격수의 목걸이"
+
+#: ../items/categories/level_15.txt:207
+msgid "Adventurer Archwizard Spellbook"
+msgstr "모험가 대현자마법사의 마법책"
+
+#: ../items/categories/level_15.txt:218
+msgid "Warrior Greatsword"
+msgstr "전사의 큰 칼"
+
+#: ../items/categories/level_15.txt:230
+msgid "Ranger Greatbow"
+msgstr "유격병의 큰 활"
+
+#: ../items/categories/level_15.txt:242
+msgid "Wizard Greatstaff"
+msgstr "아법사의 큰 지팡이"
+
+#: ../items/categories/level_15.txt:254
+msgid "Paladin Tower Shield"
+msgstr "팔라딘의 장방패"
+
+#: ../items/categories/level_15.txt:265
+msgid "Adventurer Inferno Ring"
+msgstr "모험가의 불지옥 반지"
+
+#: ../items/categories/level_15.txt:275
+msgid "Adventurer Glacial Ring"
+msgstr "모험가의 빙하 반지"
+
+#: ../items/categories/level_15.txt:285
+msgid "Adventurer Volt Ring"
+msgstr "모험가의 화살 반지"
+
+#: ../items/categories/level_15.txt:295
+msgid "Adventurer Void Ring"
+msgstr "모험가의 공허 반지"
+
+#: ../items/categories/level_15.txt:305
+msgid "Adventurer Scholar Ring"
+msgstr "모험가의 학자 반지"
+
+#: ../items/categories/level_15.txt:315
+msgid "Adventurer Affluence Ring"
+msgstr "모험가의 풍요 반지"
+
+#: ../items/categories/level_15.txt:325
+msgid "Adventurer Relic Ring"
+msgstr "모험가의 유물 반지"
+
+#: ../items/categories/level_7.txt:5
+msgid "Warrior Leather Hood"
+msgstr "전사의 가죽 후드"
+
+#: ../items/categories/level_7.txt:17
+msgid "Ranger Leather Hood"
+msgstr "유격병의 가죽 후드"
+
+#: ../items/categories/level_7.txt:29
+msgid "Wizard Wool Hood"
+msgstr "현자마법사의 양털 후드"
+
+#: ../items/categories/level_7.txt:41
+msgid "Warrior Leather Tunic"
+msgstr "전사의 가죽 튜닉"
+
+#: ../items/categories/level_7.txt:53
+msgid "Ranger Leather Tunic"
+msgstr "유격병의 가죽 튜닉"
+
+#: ../items/categories/level_7.txt:65
+msgid "Wizard Wool Vest"
+msgstr "현자마법사의 양털 조끼"
+
+#: ../items/categories/level_7.txt:77
+msgid "Warrior Leather Pants"
+msgstr "전사의 가죽 바지"
+
+#: ../items/categories/level_7.txt:89
+msgid "Ranger Leather Pants"
+msgstr "유격병의 가죽 바지"
+
+#: ../items/categories/level_7.txt:101
+msgid "Wizard Wool Skirt"
+msgstr "현자마법사의 양털 치마"
+
+#: ../items/categories/level_7.txt:113
+msgid "Warrior Leather Boots"
+msgstr "전사의 가죽 장화"
+
+#: ../items/categories/level_7.txt:125
+msgid "Ranger Leather Boots"
+msgstr "유격병의 가죽 장화"
+
+#: ../items/categories/level_7.txt:137
+msgid "Wizard Wool Boots"
+msgstr "현자마법사의 양털 장화"
+
+#: ../items/categories/level_7.txt:149
+msgid "Warrior Leather Gloves"
+msgstr "전사의 가죽 장갑"
+
+#: ../items/categories/level_7.txt:161
+msgid "Ranger Leather Gloves"
+msgstr "유격병의 가죽 장갑"
+
+#: ../items/categories/level_7.txt:173
+msgid "Wizard Wool Sleeves"
+msgstr "현자마법사의 양털 토시"
+
+#: ../items/categories/level_7.txt:185
+msgid "Adventurer Fighting Leather Belt"
+msgstr "모험가의 격투용 가죽 허리띠"
+
+#: ../items/categories/level_7.txt:196
+msgid "Adventurer Recon Pendant"
+msgstr "모험가 수색병의 목걸이"
+
+#: ../items/categories/level_7.txt:207
+msgid "Adventurer Sorcerer Spellbook"
+msgstr "모험가 정령마법사의 마법책"
+
+#: ../items/categories/level_7.txt:218
+msgid "Warrior Shortsword"
+msgstr "전사의 짧은 칼"
+
+#: ../items/categories/level_7.txt:230
+msgid "Ranger Shortbow"
+msgstr "유격병의 짧은 활"
+
+#: ../items/categories/level_7.txt:242
+msgid "Wizard Rod"
+msgstr "현자마법사의 막대"
+
+#: ../items/categories/level_7.txt:254
+msgid "Paladin Iron Buckler"
+msgstr "팔라딘의 둥근 철 방패"
+
+#: ../items/categories/level_7.txt:265
+msgid "Adventurer Burn Ring"
+msgstr "모험가의 불타는 반지"
+
+#: ../items/categories/level_7.txt:275
+msgid "Adventurer Frost Ring"
+msgstr "모험가의 서리 반지"
+
+#: ../items/categories/level_7.txt:285
+msgid "Adventurer Electric Ring"
+msgstr "모험가의 전기 반지"
+
+#: ../items/categories/level_7.txt:295
+msgid "Adventurer Shadow Ring"
+msgstr "모험가의 그림자 반지"
+
+#: ../items/categories/level_7.txt:305
+msgid "Adventurer Knowledge Ring"
+msgstr "모험가의 지식 반지"
+
+#: ../items/categories/level_7.txt:315
+msgid "Adventurer Prosperity Ring"
+msgstr "모험가의 번영 반지"
+
+#: ../items/categories/level_7.txt:325
+msgid "Adventurer Loot Ring"
+msgstr "모험가의 약탈 반지"
 
 #: ../items/categories/level_10.txt:5
 msgid "Fighting Chain Coif"
@@ -3651,6 +4021,61 @@ msgstr "방랑자의 수지맞는 반지"
 #: ../items/categories/level_10.txt:325
 msgid "Wandering Artifact Ring"
 msgstr "방랑자의 공예품 반지"
+
+#: ../items/categories/level_16_unique.txt:4
+msgid "Fleshband"
+msgstr "육체의 띠"
+
+#: ../items/categories/level_16_unique.txt:6
+msgid ""
+"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
+msgstr "촉감이 부드럽다. 착용하면 손가락 주위로 조여진다."
+
+#: ../items/categories/level_16_unique.txt:21
+msgid "Soulband"
+msgstr "정신의 띠"
+
+#: ../items/categories/level_16_unique.txt:23
+msgid ""
+"Glowing when worn, it clears the wearer's mind and allows them to deeply "
+"focus."
+msgstr "착용 시 하얗게 달아오르며, 착용자의 마음을 맑게 하고 깊은 집중을 할 수 있게 해준다."
+
+#: ../items/categories/level_16_unique.txt:38
+msgid "Underworld Cloak"
+msgstr "지하 세계의 망토"
+
+#: ../items/categories/level_16_unique.txt:51
+msgid "Underworld Platemail"
+msgstr "지하 세계의 판금 갑옷"
+
+#: ../items/categories/level_16_unique.txt:64
+msgid "Underworld Boots"
+msgstr "지하 세계의 장화"
+
+#: ../items/categories/level_16_unique.txt:77
+msgid "Underworld Armguards"
+msgstr "지하 세계의 팔목 보호대 "
+
+#: ../items/categories/level_16_unique.txt:90
+msgid "Underworld Greaves"
+msgstr "지하 세계의 정강이받이 "
+
+#: ../items/categories/level_16_unique.txt:103
+msgid "Underworld Tome"
+msgstr "지하 세계의 두꺼운 책"
+
+#: ../items/categories/level_16_unique.txt:115
+msgid "Underworld Blade"
+msgstr "지하 세계의 칼날"
+
+#: ../items/categories/level_16_unique.txt:128
+msgid "Underworld Bow"
+msgstr "지하 세계의 활"
+
+#: ../items/categories/level_16_unique.txt:141
+msgid "Underworld Sceptre"
+msgstr "지하 세계의 왕홀"
 
 #: ../items/categories/quest.txt:3
 msgid "Krolan's Key"
@@ -3818,267 +4243,13 @@ msgid ""
 "of the Dead."
 msgstr "플로린말에 따르면 이것은 죽은 자의 책에서 사용할 수 있는 유일한 잉크다."
 
-#: ../items/categories/level_3.txt:5
-msgid "Warrior Cloth Shirt"
-msgstr "기사의 천 셔츠"
-
-#: ../items/categories/level_3.txt:15
-msgid "Ranger Cloth Shirt"
-msgstr "유격병의 천 셔츠"
-
-#: ../items/categories/level_3.txt:25
-msgid "Wizard Cloth Shirt"
-msgstr "현자마법사의 천 셔츠"
-
-#: ../items/categories/level_3.txt:35
-msgid "Warrior Cloth Pants"
-msgstr "전사의 천 바지"
-
-#: ../items/categories/level_3.txt:45
-msgid "Ranger Cloth Pants"
-msgstr "유격병의 천 바지"
-
-#: ../items/categories/level_3.txt:55
-msgid "Wizard Cloth Pants"
-msgstr "현자마법사의 천 바지"
-
-#: ../items/categories/level_3.txt:65
-msgid "Warrior Cloth Sandals"
-msgstr "전사의 천 샌달"
-
-#: ../items/categories/level_3.txt:75
-msgid "Ranger Cloth Sandals"
-msgstr "유격병의 천 샌달"
-
-#: ../items/categories/level_3.txt:85
-msgid "Wizard Cloth Sandals"
-msgstr "현자마법사의 천 샌달"
-
-#: ../items/categories/level_3.txt:94
-msgid "Warrior Cloth Gloves"
-msgstr "전사의 천 장갑"
-
-#: ../items/categories/level_3.txt:104
-msgid "Ranger Cloth Gloves"
-msgstr "유격병의 천 장갑"
-
-#: ../items/categories/level_3.txt:114
-msgid "Wizard Cloth Gloves"
-msgstr "현자마법사의 천 장갑"
-
-#: ../items/categories/level_3.txt:123
-msgid "Adventurer Leather Belt"
-msgstr "모험가의 가죽 허리띠"
-
-#: ../items/categories/level_3.txt:132
-msgid "Adventurer Pendant"
-msgstr "모험가의 목걸이"
-
-#: ../items/categories/level_3.txt:141
-msgid "Adventurer Spellbook"
-msgstr "모험가의 마법책"
-
-#: ../items/categories/level_3.txt:150
-msgid "Warrior Dagger"
-msgstr "전사의 단검"
-
-#: ../items/categories/level_3.txt:162
-msgid "Ranger Slingshot"
-msgstr "유격병의 새총"
-
-#: ../items/categories/level_3.txt:174
-msgid "Wizard Wand"
-msgstr "현자마법사의 지팡이"
-
-#: ../items/categories/level_3.txt:186
-msgid "Paladin Wood Buckler"
-msgstr "팔라딘의 둥근 나무 방패"
-
-#: ../items/categories/level_3.txt:197
-msgid "Adventurer Fire Ring"
-msgstr "모험가의 불 반지"
-
-#: ../items/categories/level_3.txt:206
-msgid "Adventurer Ice Ring"
-msgstr "모험가의 얼음 반지"
-
-#: ../items/categories/level_3.txt:215
-msgid "Adventurer Lightning Ring"
-msgstr "모험가의 번개 반지"
-
-#: ../items/categories/level_3.txt:224
-msgid "Adventurer Dark Ring"
-msgstr "모험가의 어둠 반지"
-
-#: ../items/categories/level_3.txt:233
-msgid "Adventurer Experience Ring"
-msgstr "모험가의 경험 반지"
-
-#: ../items/categories/level_3.txt:242
-msgid "Adventurer Wealth Ring"
-msgstr "모험가의 재산 반지"
-
-#: ../items/categories/level_3.txt:251
-msgid "Adventurer Treasure Ring"
-msgstr "모험가의 보물 반지"
-
-#: ../items/categories/level_7.txt:5
-msgid "Warrior Leather Hood"
-msgstr "전사의 가죽 후드"
-
-#: ../items/categories/level_7.txt:17
-msgid "Ranger Leather Hood"
-msgstr "유격병의 가죽 후드"
-
-#: ../items/categories/level_7.txt:29
-msgid "Wizard Wool Hood"
-msgstr "현자마법사의 양털 후드"
-
-#: ../items/categories/level_7.txt:41
-msgid "Warrior Leather Tunic"
-msgstr "전사의 가죽 튜닉"
-
-#: ../items/categories/level_7.txt:53
-msgid "Ranger Leather Tunic"
-msgstr "유격병의 가죽 튜닉"
-
-#: ../items/categories/level_7.txt:65
-msgid "Wizard Wool Vest"
-msgstr "현자마법사의 양털 조끼"
-
-#: ../items/categories/level_7.txt:77
-msgid "Warrior Leather Pants"
-msgstr "전사의 가죽 바지"
-
-#: ../items/categories/level_7.txt:89
-msgid "Ranger Leather Pants"
-msgstr "유격병의 가죽 바지"
-
-#: ../items/categories/level_7.txt:101
-msgid "Wizard Wool Skirt"
-msgstr "현자마법사의 양털 치마"
-
-#: ../items/categories/level_7.txt:113
-msgid "Warrior Leather Boots"
-msgstr "전사의 가죽 장화"
-
-#: ../items/categories/level_7.txt:125
-msgid "Ranger Leather Boots"
-msgstr "유격병의 가죽 장화"
-
-#: ../items/categories/level_7.txt:137
-msgid "Wizard Wool Boots"
-msgstr "현자마법사의 양털 장화"
-
-#: ../items/categories/level_7.txt:149
-msgid "Warrior Leather Gloves"
-msgstr "전사의 가죽 장갑"
-
-#: ../items/categories/level_7.txt:161
-msgid "Ranger Leather Gloves"
-msgstr "유격병의 가죽 장갑"
-
-#: ../items/categories/level_7.txt:173
-msgid "Wizard Wool Sleeves"
-msgstr "현자마법사의 양털 토시"
-
-#: ../items/categories/level_7.txt:185
-msgid "Adventurer Fighting Leather Belt"
-msgstr "모험가의 격투용 가죽 허리띠"
-
-#: ../items/categories/level_7.txt:196
-msgid "Adventurer Recon Pendant"
-msgstr "모험가 수색병의 목걸이"
-
-#: ../items/categories/level_7.txt:207
-msgid "Adventurer Sorcerer Spellbook"
-msgstr "모험가 정령마법사의 마법책"
-
-#: ../items/categories/level_7.txt:218
-msgid "Warrior Shortsword"
-msgstr "전사의 짧은 칼"
-
-#: ../items/categories/level_7.txt:230
-msgid "Ranger Shortbow"
-msgstr "유격병의 짧은 활"
-
-#: ../items/categories/level_7.txt:242
-msgid "Wizard Rod"
-msgstr "현자마법사의 막대"
-
-#: ../items/categories/level_7.txt:254
-msgid "Paladin Iron Buckler"
-msgstr "팔라딘의 둥근 철 방패"
-
-#: ../items/categories/level_7.txt:265
-msgid "Adventurer Burn Ring"
-msgstr "모험가의 불타는 반지"
-
-#: ../items/categories/level_7.txt:275
-msgid "Adventurer Frost Ring"
-msgstr "모험가의 서리 반지"
-
-#: ../items/categories/level_7.txt:285
-msgid "Adventurer Electric Ring"
-msgstr "모험가의 전기 반지"
-
-#: ../items/categories/level_7.txt:295
-msgid "Adventurer Shadow Ring"
-msgstr "모험가의 그림자 반지"
-
-#: ../items/categories/level_7.txt:305
-msgid "Adventurer Knowledge Ring"
-msgstr "모험가의 지식 반지"
-
-#: ../items/categories/level_7.txt:315
-msgid "Adventurer Prosperity Ring"
-msgstr "모험가의 번영 반지"
-
-#: ../items/categories/level_7.txt:325
-msgid "Adventurer Loot Ring"
-msgstr "모험가의 약탈 반지"
-
-#: ../items/categories/scrolls.txt:8
-msgid "Use: Summon a zombie to fight for you"
-msgstr "사용 효과: 당신을 위해 싸울 좀비를 소환"
-
-#: ../items/categories/scrolls.txt:19
-msgid "Use: Teleport to Perdition Harbor"
-msgstr "사용: 지옥의 항구로 순간 이동"
-
-#: ../items/categories/scrolls.txt:30
-msgid "Use: Create a magical shield that absorbs damage"
-msgstr "사용 효과: 피해를 흡수하는 마법 보호막을 만듬"
-
-#: ../items/categories/scrolls.txt:41
-msgid "Use: Shoot a fireball"
-msgstr "사용 효과: 불 덩어리를 쏨"
-
-#: ../items/categories/scrolls.txt:52
-msgid "Use: Shoot an ice bolt"
-msgstr "사용 효과: 얼음화살을 쏨"
-
-#: ../items/categories/scrolls.txt:63
-msgid "Use: Move at an increased speed for a limited time"
-msgstr "사용 효과: 제한된 시간 동안 증가된 속도로 이동"
-
-#: ../items/categories/scrolls.txt:74
-msgid "Use: Remove debuffs and become immune to debuffs for a limited time"
-msgstr "사용 효과: 제한된 시간 동안 디버프를 제거하고 디버프에 면역이 됨"
-
-#: ../items/categories/scrolls.txt:85
-msgid ""
-"Use: Creates a magical shield that reflects projectiles and damage for a "
-"limited time"
-msgstr "사용 효과: 제한된 시간 동안 발사체와 피해를 반사하는 마법 보호막을 만듬"
-
-#: ../items/categories/scrolls.txt:93
-msgid "Tome of Second Chances"
-msgstr "두 번째 기회의 두꺼운책"
-
-#: ../items/categories/scrolls.txt:95
-msgid "Use: Resets all stat and power points"
-msgstr "사용: 모든 능력치와 기술 점수를 초기화"
+#: ../items/categories/quest.txt:417
+msgid "Iron Labyrinth Key"
+msgstr ""
+
+#: ../items/categories/quest.txt:428
+msgid "Excavation Journal Pages"
+msgstr ""
 
 #: ../items/categories/crafting.txt:38
 msgid "Mortar and Pestle"
@@ -4087,6 +4258,296 @@ msgstr "막자와 막자사발"
 #: ../items/categories/crafting.txt:39
 msgid "Use empty bottles and various ingredients to create potions."
 msgstr "빈 병과 다양한 재료를 사용하여 물약을 만든다."
+
+#: ../items/categories/level_4_unique.txt:3
+msgid "Krolan's Hammer"
+msgstr "크롤란의 망치"
+
+#: ../items/categories/level_4_unique.txt:4
+msgid "An essential tool for any blacksmith."
+msgstr "대장장이에게 꼭 필요한 도구이다."
+
+#: ../items/categories/level_4_unique.txt:19
+msgid "Goblin Branch"
+msgstr "고블린의 나뭇가지"
+
+#: ../items/categories/level_4_unique.txt:20
+msgid "Mana flows inside its primitive exterior."
+msgstr "마력은 원시적인 외관의 내부로 흐른다."
+
+#: ../items/categories/level_4_unique.txt:36
+msgid "Ardwen's Gloves"
+msgstr "아르드웬의 장갑"
+
+#: ../items/categories/level_4_unique.txt:37
+msgid "These hands built a village."
+msgstr "이 손들이 마을을 만들었다."
+
+#: ../items/categories/level_4_unique.txt:53
+msgid "Blood Tunic"
+msgstr "피의 튜닉"
+
+#: ../items/categories/level_4_unique.txt:54
+msgid "When worn, this shirt heats the wearers veins."
+msgstr "이 셔츠는 입으면 핏줄이 뜨거워진다."
+
+#: ../items/categories/level_4_unique.txt:69
+msgid "Dark Steppers"
+msgstr "어둠의 구두"
+
+#: ../items/categories/level_4_unique.txt:70
+msgid "Dancing through the shadows."
+msgstr "그림자 사이로 춤을 춘다."
+
+#: ../items/categories/level_4_unique.txt:84
+msgid "Seagate's Tri-pants"
+msgstr "바다관문의 삼각바지"
+
+#: ../items/categories/level_4_unique.txt:85
+msgid ""
+"These ragged trousers are covered in scorch marks, yet are cold to the "
+"touch."
+msgstr "이 너덜너덜한 바지는 그을린 자국으로 덮여 있지만 만져보니 차갑다."
+
+#: ../items/categories/level_4_unique.txt:101
+msgid "Ardwen's Ring"
+msgstr "아르드웬의 반지"
+
+#: ../items/categories/level_4_unique.txt:102
+msgid "Lochport's finest."
+msgstr "로크항구의 경관"
+
+#: ../items/categories/level_16.txt:5
+msgid "Warlord Plate Helmet"
+msgstr "장군의 판금 투구"
+
+#: ../items/categories/level_16.txt:17
+msgid "Sniper Plate Helmet"
+msgstr "저격병의 판금 투구"
+
+#: ../items/categories/level_16.txt:29
+msgid "Archwizard Velvet Hood"
+msgstr "대현자마법사의 벨벳 후드"
+
+#: ../items/categories/level_16.txt:41
+msgid "Warlord Plate Cuirass"
+msgstr "장군의 판금 흉갑"
+
+#: ../items/categories/level_16.txt:53
+msgid "Sniper Plate Cuirass"
+msgstr "저격병의 판금 흉갑"
+
+#: ../items/categories/level_16.txt:65
+msgid "Archwizard Velvet Vest"
+msgstr "대현자마법사의 벨벳 조끼"
+
+#: ../items/categories/level_16.txt:77
+msgid "Warlord Plate Greaves"
+msgstr "장군의 판금 정강이받이"
+
+#: ../items/categories/level_16.txt:89
+msgid "Sniper Plate Greaves"
+msgstr "저격병의 판금 정강이받이"
+
+#: ../items/categories/level_16.txt:101
+msgid "Archwizard Velvet Skirt"
+msgstr "대현자마법사의 벨벳 치마"
+
+#: ../items/categories/level_16.txt:113
+msgid "Warlord Plate Boots"
+msgstr "장군의 판금 장화"
+
+#: ../items/categories/level_16.txt:125
+msgid "Sniper Plate Boots"
+msgstr "저격병의 판금 장화"
+
+#: ../items/categories/level_16.txt:137
+msgid "Archwizard Velvet Boots"
+msgstr "대현자마법사의 벨벳 장화"
+
+#: ../items/categories/level_16.txt:149
+msgid "Warlord Plate Gauntlets"
+msgstr "장군의 판금 갑옷용 장갑"
+
+#: ../items/categories/level_16.txt:161
+msgid "Sniper Plate Gauntlets"
+msgstr "저격병의 판금 갑옷용 장갑"
+
+#: ../items/categories/level_16.txt:173
+msgid "Archwizard Velvet Sleeves"
+msgstr "대현자마법사의 벨벳 토시"
+
+#: ../items/categories/level_16.txt:185
+msgid "Master Warlord Leather Belt"
+msgstr "원로 장군의 가죽 허리띠"
+
+#: ../items/categories/level_16.txt:196
+msgid "Master Sniper Pendant"
+msgstr "원로 저격병의 목걸이"
+
+#: ../items/categories/level_16.txt:207
+msgid "Master Archwizard Spellbook"
+msgstr "원로 대현자마법사의 마법책"
+
+#: ../items/categories/level_16.txt:218
+msgid "Warlord Greatsword"
+msgstr "장군의 큰 칼"
+
+#: ../items/categories/level_16.txt:230
+msgid "Sniper Greatbow"
+msgstr "저격병의 큰 활"
+
+#: ../items/categories/level_16.txt:242
+msgid "Archwizard Greatstaff"
+msgstr "대현자마법사의 큰 지팡이"
+
+#: ../items/categories/level_16.txt:254
+msgid "Templar Tower Shield"
+msgstr "성기사의 장방패"
+
+#: ../items/categories/level_16.txt:265
+msgid "Master Inferno Ring"
+msgstr "원로의 불지옥 반지"
+
+#: ../items/categories/level_16.txt:275
+msgid "Master Glacial Ring"
+msgstr "원로의 빙하 반지"
+
+#: ../items/categories/level_16.txt:285
+msgid "Master Volt Ring"
+msgstr "원로의 화살 반지"
+
+#: ../items/categories/level_16.txt:295
+msgid "Master Void Ring"
+msgstr "원로의 공허 반지"
+
+#: ../items/categories/level_16.txt:305
+msgid "Master Scholar Ring"
+msgstr "원로의 학자 반지"
+
+#: ../items/categories/level_16.txt:315
+msgid "Master Affluence Ring"
+msgstr "원로의 풍요 반지"
+
+#: ../items/categories/level_16.txt:325
+msgid "Master Relic Ring"
+msgstr "원로의 유물 반지"
+
+#: ../items/categories/level_11.txt:5
+msgid "Warrior Chain Coif"
+msgstr "전사의 사슬 두건"
+
+#: ../items/categories/level_11.txt:17
+msgid "Ranger Chain Coif"
+msgstr "유격병의 사슬 두건"
+
+#: ../items/categories/level_11.txt:29
+msgid "Wizard Silk Hood"
+msgstr "현자마법사의 비단 후드"
+
+#: ../items/categories/level_11.txt:41
+msgid "Warrior Chain Cuirass"
+msgstr "전사의 사슬 흉갑"
+
+#: ../items/categories/level_11.txt:53
+msgid "Ranger Chain Cuirass"
+msgstr "유격병의 사슬 흉갑"
+
+#: ../items/categories/level_11.txt:65
+msgid "Wizard Silk Vest"
+msgstr "현자마법사의 비단 조끼"
+
+#: ../items/categories/level_11.txt:77
+msgid "Warrior Chain Greaves"
+msgstr "전사의 사슬 정강이받이"
+
+#: ../items/categories/level_11.txt:89
+msgid "Ranger Chain Greaves"
+msgstr "유격병의 사슬 정강이받이"
+
+#: ../items/categories/level_11.txt:101
+msgid "Wizard Silk Skirt"
+msgstr "현자마법사의 비단 치마"
+
+#: ../items/categories/level_11.txt:113
+msgid "Warrior Chain Boots"
+msgstr "전사의 사슬 장화"
+
+#: ../items/categories/level_11.txt:125
+msgid "Ranger Chain Boots"
+msgstr "유격병의 사슬 장화"
+
+#: ../items/categories/level_11.txt:137
+msgid "Wizard Silk Boots"
+msgstr "현자마법사의 비단 장화"
+
+#: ../items/categories/level_11.txt:149
+msgid "Warrior Chain Gloves"
+msgstr "전사의 사슬 장갑"
+
+#: ../items/categories/level_11.txt:161
+msgid "Ranger Chain Gloves"
+msgstr "유격병의 사슬 장갑"
+
+#: ../items/categories/level_11.txt:173
+msgid "Wizard Silk Sleeves"
+msgstr "현자마법사의 비단 토시"
+
+#: ../items/categories/level_11.txt:185
+msgid "Adventurer Warrior Leather Belt"
+msgstr "모험가 전사의 가죽 허리띠"
+
+#: ../items/categories/level_11.txt:196
+msgid "Adventurer Ranger Pendant"
+msgstr "모험가 유격병의 목걸이"
+
+#: ../items/categories/level_11.txt:207
+msgid "Adventurer Wizard Spellbook"
+msgstr "모험가 현자마법사의 마법책"
+
+#: ../items/categories/level_11.txt:218
+msgid "Warrior Longsword"
+msgstr "전사의 긴 칼"
+
+#: ../items/categories/level_11.txt:230
+msgid "Ranger Longbow"
+msgstr "유격병의 긴 활"
+
+#: ../items/categories/level_11.txt:242
+msgid "Wizard Staff"
+msgstr "현자마법사의 지팡이"
+
+#: ../items/categories/level_11.txt:254
+msgid "Paladin Crest Shield"
+msgstr "팔라딘의 문장 방패"
+
+#: ../items/categories/level_11.txt:265
+msgid "Adventurer Blaze Ring"
+msgstr "모험가의 불길 반지"
+
+#: ../items/categories/level_11.txt:275
+msgid "Adventurer Freeze Ring"
+msgstr "모험가의 얼리는 반지"
+
+#: ../items/categories/level_11.txt:285
+msgid "Adventurer Shock Ring"
+msgstr "모험가의 감전 반지"
+
+#: ../items/categories/level_11.txt:295
+msgid "Adventurer Gloom Ring"
+msgstr "모험가 어둠의 반지"
+
+#: ../items/categories/level_11.txt:305
+msgid "Adventurer Intellectual Ring"
+msgstr "모험가의 지능 반지"
+
+#: ../items/categories/level_11.txt:315
+msgid "Adventurer Lucrative Ring"
+msgstr "모험가의 수지맞는 반지"
+
+#: ../items/categories/level_11.txt:325
+msgid "Adventurer Artifact Ring"
+msgstr "모험가의 공예품 반지"
 
 #: ../items/categories/level_9.txt:5
 msgid "Chain Coif"
@@ -4143,122 +4604,6 @@ msgstr "지팡이"
 #: ../items/categories/level_9.txt:122
 msgid "Crest Shield"
 msgstr "문장 방패"
-
-#: ../items/categories/level_8.txt:5
-msgid "Warlord Leather Hood"
-msgstr "장군의 가죽 후드"
-
-#: ../items/categories/level_8.txt:17
-msgid "Sniper Leather Hood"
-msgstr "저격병의 가죽 후드"
-
-#: ../items/categories/level_8.txt:29
-msgid "Archwizard Wool Hood"
-msgstr "대현자마법사의 양털 후드"
-
-#: ../items/categories/level_8.txt:41
-msgid "Warlord Leather Tunic"
-msgstr "장군의 가죽 튜닉"
-
-#: ../items/categories/level_8.txt:53
-msgid "Sniper Leather Tunic"
-msgstr "저격병의 가죽 튜닉"
-
-#: ../items/categories/level_8.txt:65
-msgid "Archwizard Wool Vest"
-msgstr "대현자마법사의 양털 조끼"
-
-#: ../items/categories/level_8.txt:77
-msgid "Warlord Leather Pants"
-msgstr "장군의 가죽 바지"
-
-#: ../items/categories/level_8.txt:89
-msgid "Sniper Leather Pants"
-msgstr "저격병의 가죽 바지"
-
-#: ../items/categories/level_8.txt:101
-msgid "Archwizard Wool Skirt"
-msgstr "대현자마법사의 양털 치마"
-
-#: ../items/categories/level_8.txt:113
-msgid "Warlord Leather Boots"
-msgstr "장군 가죽 장화"
-
-#: ../items/categories/level_8.txt:125
-msgid "Sniper Leather Boots"
-msgstr "저격병의 가죽 장화"
-
-#: ../items/categories/level_8.txt:137
-msgid "Archwizard Wool Boots"
-msgstr "대현자마법사의 양털 장화"
-
-#: ../items/categories/level_8.txt:149
-msgid "Warlord Leather Gloves"
-msgstr "장군의 가죽 장갑"
-
-#: ../items/categories/level_8.txt:161
-msgid "Sniper Leather Gloves"
-msgstr "저격병의 가죽 장갑"
-
-#: ../items/categories/level_8.txt:173
-msgid "Archwizard Wool Sleeves"
-msgstr "대현자마법사 양털 토시"
-
-#: ../items/categories/level_8.txt:185
-msgid "Master Fighting Leather Belt"
-msgstr "원로의 격투용 가죽 허리띠"
-
-#: ../items/categories/level_8.txt:196
-msgid "Master Recon Pendant"
-msgstr "원로 수색병의 목걸이"
-
-#: ../items/categories/level_8.txt:207
-msgid "Master Sorcerer Spellbook"
-msgstr "원로 정령마법사의 마법책"
-
-#: ../items/categories/level_8.txt:218
-msgid "Warlord Shortsword"
-msgstr "장군의 짧은 칼"
-
-#: ../items/categories/level_8.txt:230
-msgid "Sniper Shortbow"
-msgstr "저격병의 짧은 활"
-
-#: ../items/categories/level_8.txt:242
-msgid "Archwizard Rod"
-msgstr "대현자마법사의 막대"
-
-#: ../items/categories/level_8.txt:254
-msgid "Templar Iron Buckler"
-msgstr "성기사의 둥근 철 방패"
-
-#: ../items/categories/level_8.txt:265
-msgid "Master Burn Ring"
-msgstr "원로의 불타는 반지"
-
-#: ../items/categories/level_8.txt:275
-msgid "Master Frost Ring"
-msgstr "원로의 서리 반지"
-
-#: ../items/categories/level_8.txt:285
-msgid "Master Electric Ring"
-msgstr "원로의 전기 반지"
-
-#: ../items/categories/level_8.txt:295
-msgid "Master Shadow Ring"
-msgstr "원로의 그림자 반지"
-
-#: ../items/categories/level_8.txt:305
-msgid "Master Knowledge Ring"
-msgstr "원로의 지식 반지"
-
-#: ../items/categories/level_8.txt:315
-msgid "Master Prosperity Ring"
-msgstr "원로의 번영 반지"
-
-#: ../items/categories/level_8.txt:325
-msgid "Master Loot Ring"
-msgstr "원로의 약탈 반지"
 
 #: ../items/categories/level_6.txt:5
 msgid "Fighting Leather Hood"
@@ -4376,153 +4721,437 @@ msgstr "방랑자의 번영 반지"
 msgid "Wandering Loot Ring"
 msgstr "방랑자의 약탈 반지"
 
-#: ../items/categories/level_15.txt:5
-msgid "Warrior Plate Helmet"
-msgstr "전사의 판금 투구"
+#: ../items/categories/level_3.txt:5
+msgid "Warrior Cloth Shirt"
+msgstr "기사의 천 셔츠"
 
-#: ../items/categories/level_15.txt:17
-msgid "Ranger Plate Helmet"
-msgstr "유격병의 판금 투구"
+#: ../items/categories/level_3.txt:15
+msgid "Ranger Cloth Shirt"
+msgstr "유격병의 천 셔츠"
 
-#: ../items/categories/level_15.txt:29
-msgid "Wizard Velvet Hood"
-msgstr "현자마법사의 벨벳 후드"
+#: ../items/categories/level_3.txt:25
+msgid "Wizard Cloth Shirt"
+msgstr "현자마법사의 천 셔츠"
 
-#: ../items/categories/level_15.txt:41
-msgid "Warrior Plate Cuirass"
-msgstr "전사의 판금 흉갑"
+#: ../items/categories/level_3.txt:35
+msgid "Warrior Cloth Pants"
+msgstr "전사의 천 바지"
 
-#: ../items/categories/level_15.txt:53
-msgid "Ranger Plate Cuirass"
-msgstr "유격병의 판금 흉갑"
+#: ../items/categories/level_3.txt:45
+msgid "Ranger Cloth Pants"
+msgstr "유격병의 천 바지"
 
-#: ../items/categories/level_15.txt:65
-msgid "Wizard Velvet Vest"
-msgstr "현자마법사의 벨벳 조끼"
+#: ../items/categories/level_3.txt:55
+msgid "Wizard Cloth Pants"
+msgstr "현자마법사의 천 바지"
 
-#: ../items/categories/level_15.txt:77
-msgid "Warrior Plate Greaves"
-msgstr "전사의 판금 정강이받이"
+#: ../items/categories/level_3.txt:65
+msgid "Warrior Cloth Sandals"
+msgstr "전사의 천 샌달"
 
-#: ../items/categories/level_15.txt:89
-msgid "Ranger Plate Greaves"
-msgstr "유격병의 판금 정강이받이"
+#: ../items/categories/level_3.txt:75
+msgid "Ranger Cloth Sandals"
+msgstr "유격병의 천 샌달"
 
-#: ../items/categories/level_15.txt:101
-msgid "Wizard Velvet Skirt"
-msgstr "현자마법사의 벨벳 치마"
+#: ../items/categories/level_3.txt:85
+msgid "Wizard Cloth Sandals"
+msgstr "현자마법사의 천 샌달"
 
-#: ../items/categories/level_15.txt:113
-msgid "Warrior Plate Boots"
-msgstr "전사의 판금 장화"
+#: ../items/categories/level_3.txt:94
+msgid "Warrior Cloth Gloves"
+msgstr "전사의 천 장갑"
 
-#: ../items/categories/level_15.txt:125
-msgid "Ranger Plate Boots"
-msgstr "유격병의 판금 장화"
+#: ../items/categories/level_3.txt:104
+msgid "Ranger Cloth Gloves"
+msgstr "유격병의 천 장갑"
 
-#: ../items/categories/level_15.txt:137
-msgid "Wizard Velvet Boots"
-msgstr "현자마법사의 벨벳 장화"
+#: ../items/categories/level_3.txt:114
+msgid "Wizard Cloth Gloves"
+msgstr "현자마법사의 천 장갑"
 
-#: ../items/categories/level_15.txt:149
-msgid "Warrior Plate Gauntlets"
-msgstr "전사의 판금 갑옷용 장갑"
+#: ../items/categories/level_3.txt:123
+msgid "Adventurer Leather Belt"
+msgstr "모험가의 가죽 허리띠"
 
-#: ../items/categories/level_15.txt:161
-msgid "Ranger Plate Gauntlets"
-msgstr "유격병의 판금 갑옷용 장갑"
+#: ../items/categories/level_3.txt:132
+msgid "Adventurer Pendant"
+msgstr "모험가의 목걸이"
 
-#: ../items/categories/level_15.txt:173
-msgid "Wizard Velvet Sleeves"
-msgstr "현자마법사의 벨벳 토시"
+#: ../items/categories/level_3.txt:141
+msgid "Adventurer Spellbook"
+msgstr "모험가의 마법책"
 
-#: ../items/categories/level_15.txt:185
-msgid "Adventurer Warlord Leather Belt"
-msgstr "모험가의 장군 가죽 허리띠"
+#: ../items/categories/level_3.txt:150
+msgid "Warrior Dagger"
+msgstr "전사의 단검"
 
-#: ../items/categories/level_15.txt:196
-msgid "Adventurer Sniper Pendant"
-msgstr "모험가 저격수의 목걸이"
+#: ../items/categories/level_3.txt:162
+msgid "Ranger Slingshot"
+msgstr "유격병의 새총"
 
-#: ../items/categories/level_15.txt:207
-msgid "Adventurer Archwizard Spellbook"
-msgstr "모험가 대현자마법사의 마법책"
+#: ../items/categories/level_3.txt:174
+msgid "Wizard Wand"
+msgstr "현자마법사의 지팡이"
 
-#: ../items/categories/level_15.txt:218
-msgid "Warrior Greatsword"
-msgstr "전사의 큰 칼"
+#: ../items/categories/level_3.txt:186
+msgid "Paladin Wood Buckler"
+msgstr "팔라딘의 둥근 나무 방패"
 
-#: ../items/categories/level_15.txt:230
-msgid "Ranger Greatbow"
-msgstr "유격병의 큰 활"
+#: ../items/categories/level_3.txt:197
+msgid "Adventurer Fire Ring"
+msgstr "모험가의 불 반지"
 
-#: ../items/categories/level_15.txt:242
-msgid "Wizard Greatstaff"
-msgstr "아법사의 큰 지팡이"
+#: ../items/categories/level_3.txt:206
+msgid "Adventurer Ice Ring"
+msgstr "모험가의 얼음 반지"
 
-#: ../items/categories/level_15.txt:254
-msgid "Paladin Tower Shield"
-msgstr "팔라딘의 장방패"
+#: ../items/categories/level_3.txt:215
+msgid "Adventurer Lightning Ring"
+msgstr "모험가의 번개 반지"
 
-#: ../items/categories/level_15.txt:265
-msgid "Adventurer Inferno Ring"
-msgstr "모험가의 불지옥 반지"
+#: ../items/categories/level_3.txt:224
+msgid "Adventurer Dark Ring"
+msgstr "모험가의 어둠 반지"
 
-#: ../items/categories/level_15.txt:275
-msgid "Adventurer Glacial Ring"
-msgstr "모험가의 빙하 반지"
+#: ../items/categories/level_3.txt:233
+msgid "Adventurer Experience Ring"
+msgstr "모험가의 경험 반지"
 
-#: ../items/categories/level_15.txt:285
-msgid "Adventurer Volt Ring"
-msgstr "모험가의 화살 반지"
+#: ../items/categories/level_3.txt:242
+msgid "Adventurer Wealth Ring"
+msgstr "모험가의 재산 반지"
 
-#: ../items/categories/level_15.txt:295
-msgid "Adventurer Void Ring"
-msgstr "모험가의 공허 반지"
+#: ../items/categories/level_3.txt:251
+msgid "Adventurer Treasure Ring"
+msgstr "모험가의 보물 반지"
 
-#: ../items/categories/level_15.txt:305
-msgid "Adventurer Scholar Ring"
-msgstr "모험가의 학자 반지"
+#: ../items/categories/mastite.txt:3
+msgid "Mastite Shirt"
+msgstr ""
 
-#: ../items/categories/level_15.txt:315
-msgid "Adventurer Affluence Ring"
-msgstr "모험가의 풍요 반지"
+#: ../items/categories/mastite.txt:10
+msgid "Mastite Pants"
+msgstr ""
 
-#: ../items/categories/level_15.txt:325
-msgid "Adventurer Relic Ring"
-msgstr "모험가의 유물 반지"
+#: ../items/categories/mastite.txt:17
+msgid "Mastite Sandals"
+msgstr ""
 
-#: ../items/categories/level_1.txt:5
-msgid "Cloth Shirt"
-msgstr "천 셔츠"
+#: ../items/categories/mastite.txt:24
+msgid "Mastite Gloves"
+msgstr ""
 
-#: ../items/categories/level_1.txt:12
-msgid "Cloth Pants"
-msgstr "천 바지"
+#: ../items/categories/mastite.txt:31
+msgid "Mastite Dagger"
+msgstr ""
 
-#: ../items/categories/level_1.txt:19
-msgid "Cloth Sandals"
-msgstr "천 샌달"
+#: ../items/categories/mastite.txt:38
+msgid "Mastite Slingshot"
+msgstr ""
 
-#: ../items/categories/level_1.txt:26
-msgid "Cloth Gloves"
-msgstr "천 장갑"
+#: ../items/categories/mastite.txt:45
+msgid "Mastite Wand"
+msgstr ""
 
-#: ../items/categories/level_1.txt:33
-msgid "Dagger"
-msgstr "단검"
+#: ../items/categories/mastite.txt:52
+msgid "Mastite Buckler"
+msgstr ""
 
-#: ../items/categories/level_1.txt:42
-msgid "Slingshot"
-msgstr "새총"
+#: ../items/categories/mastite.txt:59
+msgid "Mastite Belt"
+msgstr ""
 
-#: ../items/categories/level_1.txt:51
-msgid "Wand"
-msgstr "마술봉"
+#: ../items/categories/mastite.txt:66
+msgid "Mastite Pendant"
+msgstr ""
 
-#: ../items/categories/level_1.txt:60
-msgid "Wood Buckler"
-msgstr "둥근 나무 방패"
+#: ../items/categories/mastite.txt:94
+msgid "Mastite Spellbook"
+msgstr ""
+
+#: ../items/categories/mastite.txt:101
+msgid "Mastite Ring"
+msgstr ""
+
+#: ../items/categories/mastite.txt:150
+msgid "Mastite Leather Hood"
+msgstr ""
+
+#: ../items/categories/mastite.txt:157
+msgid "Mastite Leather Tunic"
+msgstr ""
+
+#: ../items/categories/mastite.txt:164
+msgid "Mastite Leather Pants"
+msgstr ""
+
+#: ../items/categories/mastite.txt:171
+msgid "Mastite Leather Boots"
+msgstr ""
+
+#: ../items/categories/mastite.txt:178
+msgid "Mastite Leather Gloves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:185
+msgid "Mastite Mage Hood"
+msgstr ""
+
+#: ../items/categories/mastite.txt:192
+msgid "Mastite Mage Vest"
+msgstr ""
+
+#: ../items/categories/mastite.txt:199
+msgid "Mastite Mage Skirt"
+msgstr ""
+
+#: ../items/categories/mastite.txt:206
+msgid "Mastite Mage Boots"
+msgstr ""
+
+#: ../items/categories/mastite.txt:213
+msgid "Mastite Mage Sleeves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:220
+msgid "Mastite Shortsword"
+msgstr ""
+
+#: ../items/categories/mastite.txt:227
+msgid "Mastite Shortbow"
+msgstr ""
+
+#: ../items/categories/mastite.txt:234
+msgid "Mastite Rod"
+msgstr ""
+
+#: ../items/categories/mastite.txt:241
+msgid "Mastite Iron Buckler"
+msgstr ""
+
+#: ../items/categories/mastite.txt:249
+msgid "Mastite Chain Coif"
+msgstr ""
+
+#: ../items/categories/mastite.txt:256
+msgid "Mastite Chain Cuirass"
+msgstr ""
+
+#: ../items/categories/mastite.txt:263
+msgid "Mastite Chain Greaves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:270
+msgid "Mastite Chain Boots"
+msgstr ""
+
+#: ../items/categories/mastite.txt:277
+msgid "Mastite Chain Gloves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:285
+msgid "Mastite Wizard Hood"
+msgstr ""
+
+#: ../items/categories/mastite.txt:292
+msgid "Mastite Wizard Vest"
+msgstr ""
+
+#: ../items/categories/mastite.txt:299
+msgid "Mastite Wizard Skirt"
+msgstr ""
+
+#: ../items/categories/mastite.txt:306
+msgid "Mastite Wizard Boots"
+msgstr ""
+
+#: ../items/categories/mastite.txt:313
+msgid "Mastite Wizard Sleeves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:320
+msgid "Mastite Longsword"
+msgstr ""
+
+#: ../items/categories/mastite.txt:327
+msgid "Mastite Longbow"
+msgstr ""
+
+#: ../items/categories/mastite.txt:334
+msgid "Mastite Staff"
+msgstr ""
+
+#: ../items/categories/mastite.txt:341
+msgid "Mastite Tower Shield"
+msgstr ""
+
+#: ../items/categories/mastite.txt:349
+msgid "Mastite Plate Helmet"
+msgstr ""
+
+#: ../items/categories/mastite.txt:356
+msgid "Mastite Plate Cuirass"
+msgstr ""
+
+#: ../items/categories/mastite.txt:363
+msgid "Mastite Plate Greaves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:370
+msgid "Mastite Plate Boots"
+msgstr ""
+
+#: ../items/categories/mastite.txt:377
+msgid "Mastite Plate Gauntlets"
+msgstr ""
+
+#: ../items/categories/mastite.txt:385
+msgid "Mastite Archwizard Hood"
+msgstr ""
+
+#: ../items/categories/mastite.txt:392
+msgid "Mastite Archwizard Vest"
+msgstr ""
+
+#: ../items/categories/mastite.txt:399
+msgid "Mastite Archwizard Skirt"
+msgstr ""
+
+#: ../items/categories/mastite.txt:406
+msgid "Mastite Archwizard Boots"
+msgstr ""
+
+#: ../items/categories/mastite.txt:413
+msgid "Mastite Archwizard Sleeves"
+msgstr ""
+
+#: ../items/categories/mastite.txt:420
+msgid "Mastite Greatsword"
+msgstr ""
+
+#: ../items/categories/mastite.txt:427
+msgid "Mastite Greatbow"
+msgstr ""
+
+#: ../items/categories/mastite.txt:434
+msgid "Mastite Greatstaff"
+msgstr ""
+
+#: ../items/categories/level_12.txt:5
+msgid "Warlord Chain Coif"
+msgstr "장군의 사슬 두건"
+
+#: ../items/categories/level_12.txt:17
+msgid "Sniper Chain Coif"
+msgstr "저격병의 사슬 두건"
+
+#: ../items/categories/level_12.txt:29
+msgid "Archwizard Silk Hood"
+msgstr "대현자마법사의 비단 후드"
+
+#: ../items/categories/level_12.txt:41
+msgid "Warlord Chain Cuirass"
+msgstr "장군의 사슬 흉갑"
+
+#: ../items/categories/level_12.txt:53
+msgid "Sniper Chain Cuirass"
+msgstr "저격병의 사슬 흉갑"
+
+#: ../items/categories/level_12.txt:65
+msgid "Archwizard Silk Vest"
+msgstr "대현자마법사의 비단 조끼"
+
+#: ../items/categories/level_12.txt:77
+msgid "Warlord Chain Greaves"
+msgstr "장군의 사슬 정강이받이"
+
+#: ../items/categories/level_12.txt:89
+msgid "Sniper Chain Greaves"
+msgstr "저격병의 사슬 정강이받이"
+
+#: ../items/categories/level_12.txt:101
+msgid "Archwizard Silk Skirt"
+msgstr "대현자마법사의 비단 치마"
+
+#: ../items/categories/level_12.txt:113
+msgid "Warlord Chain Boots"
+msgstr "장군의 사슬 장화"
+
+#: ../items/categories/level_12.txt:125
+msgid "Sniper Chain Boots"
+msgstr "저격병의 사슬 장화"
+
+#: ../items/categories/level_12.txt:137
+msgid "Archwizard Silk Boots"
+msgstr "대현자마법사의 비단 장화"
+
+#: ../items/categories/level_12.txt:149
+msgid "Warlord Chain Gloves"
+msgstr "장군의 사슬 장갑"
+
+#: ../items/categories/level_12.txt:161
+msgid "Sniper Chain Gloves"
+msgstr "저격병의 사슬 장갑"
+
+#: ../items/categories/level_12.txt:173
+msgid "Archwizard Silk Sleeves"
+msgstr "대현자마법사의 비단 토시"
+
+#: ../items/categories/level_12.txt:185
+msgid "Master Warrior Leather Belt"
+msgstr "원로 전사의 가죽 허리띠"
+
+#: ../items/categories/level_12.txt:196
+msgid "Master Ranger Pendant"
+msgstr "원로 유격병의 목걸이"
+
+#: ../items/categories/level_12.txt:207
+msgid "Master Wizard Spellbook"
+msgstr "원로 현자마법사의 마법책"
+
+#: ../items/categories/level_12.txt:218
+msgid "Warlord Longsword"
+msgstr "장군의 긴칼"
+
+#: ../items/categories/level_12.txt:230
+msgid "Sniper Longbow"
+msgstr "저격병의 긴활"
+
+#: ../items/categories/level_12.txt:242
+msgid "Archwizard Staff"
+msgstr "대현자마법사의 지팡이"
+
+#: ../items/categories/level_12.txt:254
+msgid "Templar Crest Shield"
+msgstr "성기사의 문장 방패"
+
+#: ../items/categories/level_12.txt:265
+msgid "Master Blaze Ring"
+msgstr "원로의 불길 반지"
+
+#: ../items/categories/level_12.txt:275
+msgid "Master Freeze Ring"
+msgstr "원로의 얼리는 반지"
+
+#: ../items/categories/level_12.txt:285
+msgid "Master Shock Ring"
+msgstr "원로의 감전 반지"
+
+#: ../items/categories/level_12.txt:295
+msgid "Master Gloom Ring"
+msgstr "원로의 어둠의 반지"
+
+#: ../items/categories/level_12.txt:305
+msgid "Master Intellectual Ring"
+msgstr "원로의 지능 반지"
+
+#: ../items/categories/level_12.txt:315
+msgid "Master Lucrative Ring"
+msgstr "원로의 수지맞는 반지"
+
+#: ../items/categories/level_12.txt:325
+msgid "Master Artifact Ring"
+msgstr "원로의 공예품 반지"
 
 #: ../items/categories/level_8_unique.txt:3
 msgid "Amir Blade"
@@ -4571,101 +5200,6 @@ msgstr "메즈의 덮개"
 #: ../items/categories/level_8_unique.txt:85
 msgid "With its layers of reptilian skin, not much can penetrate this armor."
 msgstr "파충류 피부의 층으로 인해 이 갑옷을 관통할 수 있는 것은 많지 않다."
-
-#: ../items/categories/level_16_unique.txt:4
-msgid "Fleshband"
-msgstr "육체의 띠"
-
-#: ../items/categories/level_16_unique.txt:6
-msgid ""
-"Smooth to the touch. Upon wearing it, it tightens itself around the finger."
-msgstr "촉감이 부드럽다. 착용하면 손가락 주위로 조여진다."
-
-#: ../items/categories/level_16_unique.txt:21
-msgid "Soulband"
-msgstr "정신의 띠"
-
-#: ../items/categories/level_16_unique.txt:23
-msgid ""
-"Glowing when worn, it clears the wearer's mind and allows them to deeply "
-"focus."
-msgstr "착용 시 하얗게 달아오르며, 착용자의 마음을 맑게 하고 깊은 집중을 할 수 있게 해준다."
-
-#: ../items/categories/level_16_unique.txt:38
-msgid "Underworld Cloak"
-msgstr "지하 세계의 망토"
-
-#: ../items/categories/level_16_unique.txt:51
-msgid "Underworld Platemail"
-msgstr "지하 세계의 판금 갑옷"
-
-#: ../items/categories/level_16_unique.txt:64
-msgid "Underworld Boots"
-msgstr "지하 세계의 장화"
-
-#: ../items/categories/level_16_unique.txt:77
-msgid "Underworld Armguards"
-msgstr "지하 세계의 팔목 보호대 "
-
-#: ../items/categories/level_16_unique.txt:90
-msgid "Underworld Greaves"
-msgstr "지하 세계의 정강이받이 "
-
-#: ../items/categories/level_16_unique.txt:103
-msgid "Underworld Tome"
-msgstr "지하 세계의 두꺼운 책"
-
-#: ../items/categories/level_16_unique.txt:115
-msgid "Underworld Blade"
-msgstr "지하 세계의 칼날"
-
-#: ../items/categories/level_16_unique.txt:128
-msgid "Underworld Bow"
-msgstr "지하 세계의 활"
-
-#: ../items/categories/level_16_unique.txt:141
-msgid "Underworld Sceptre"
-msgstr "지하 세계의 왕홀"
-
-#: ../items/categories/potions.txt:8
-msgid "Restore 25% of maximum HP"
-msgstr "최대 체력의 25% 회복"
-
-#: ../items/categories/potions.txt:19
-msgid "Restore 25% of maximum MP"
-msgstr "최대 마력의 25% 회복"
-
-#: ../items/categories/potions.txt:31
-msgid "Temporarily increase regeneration and movement speed"
-msgstr "일시적으로 재생 및 이동 속도를 높임"
-
-#: ../items/categories/potions.txt:43
-msgid "Restore 25% of both HP and MP"
-msgstr "체력과 마력의 25% 회복"
-
-#: ../items/categories/potions.txt:55
-msgid "Temporarily increases the ability to find items and gold"
-msgstr "일시적으로 물건과 금을 찾을 수 있는 능력이 높아짐"
-
-#: ../items/categories/potions.txt:67
-msgid "Temporarily increases the resistance to all forms of magic by 50%"
-msgstr "모든 형태의 마법에 대한 저항력을 일시적으로 50% 높임"
-
-#: ../items/categories/potions.txt:79
-msgid "Restore 50% of maximum HP"
-msgstr "최대 체력의 50% 회복"
-
-#: ../items/categories/potions.txt:91
-msgid "Restore 75% of maximum HP"
-msgstr "최대 체력의 75% 회복"
-
-#: ../items/categories/potions.txt:103
-msgid "Restore 50% of maximum MP"
-msgstr "최대 마력의 50% 회복"
-
-#: ../items/categories/potions.txt:115
-msgid "Restore 75% of maximum MP"
-msgstr "최대 마력의 75% 회복"
 
 #: ../items/categories/level_12_unique.txt:5
 msgid "Lost Totem"
@@ -4719,184 +5253,161 @@ msgstr "메츠거의 전투 철퇴"
 msgid "Swinging this mace around leaves a clouded trail of dark smoke."
 msgstr "이 철퇴를 휘두르면 흐릿한 검은 연기 흔적이 남는다."
 
-#: ../items/categories/level_4.txt:5
-msgid "Warlord Cloth Shirt"
-msgstr "장군의 천 셔츠"
+#: ../items/categories/potions.txt:8
+msgid "Restore 25% of maximum HP"
+msgstr "최대 체력의 25% 회복"
 
-#: ../items/categories/level_4.txt:17
-msgid "Sniper Cloth Shirt"
-msgstr "저격병의 천 셔츠"
+#: ../items/categories/potions.txt:19
+msgid "Restore 25% of maximum MP"
+msgstr "최대 마력의 25% 회복"
 
-#: ../items/categories/level_4.txt:29
-msgid "Archwizard Cloth Shirt"
-msgstr "대현자마법사의 천 셔츠"
+#: ../items/categories/potions.txt:31
+msgid "Temporarily increase regeneration and movement speed"
+msgstr "일시적으로 재생 및 이동 속도를 높임"
 
-#: ../items/categories/level_4.txt:41
-msgid "Warlord Cloth Pants"
-msgstr "장군의 천 바지"
+#: ../items/categories/potions.txt:43
+msgid "Restore 25% of both HP and MP"
+msgstr "체력과 마력의 25% 회복"
 
-#: ../items/categories/level_4.txt:53
-msgid "Sniper Cloth Pants"
-msgstr "저격병의 천 바지"
+#: ../items/categories/potions.txt:55
+msgid "Temporarily increases the ability to find items and gold"
+msgstr "일시적으로 물건과 금을 찾을 수 있는 능력이 높아짐"
 
-#: ../items/categories/level_4.txt:65
-msgid "Archwizard Cloth Pants"
-msgstr "대현자마법사의 천 바지"
+#: ../items/categories/potions.txt:67
+msgid "Temporarily increases the resistance to all forms of magic by 50%"
+msgstr "모든 형태의 마법에 대한 저항력을 일시적으로 50% 높임"
 
-#: ../items/categories/level_4.txt:77
-msgid "Warlord Cloth Sandals"
-msgstr "장군의 천 샌달"
+#: ../items/categories/potions.txt:79
+msgid "Restore 50% of maximum HP"
+msgstr "최대 체력의 50% 회복"
 
-#: ../items/categories/level_4.txt:89
-msgid "Sniper Cloth Sandals"
-msgstr "저격병의 천 샌달"
+#: ../items/categories/potions.txt:91
+msgid "Restore 75% of maximum HP"
+msgstr "최대 체력의 75% 회복"
 
-#: ../items/categories/level_4.txt:101
-msgid "Archwizard Cloth Sandals"
-msgstr "대현자마법사의 천 샌달"
+#: ../items/categories/potions.txt:103
+msgid "Restore 50% of maximum MP"
+msgstr "최대 마력의 50% 회복"
 
-#: ../items/categories/level_4.txt:113
-msgid "Warlord Cloth Gloves"
-msgstr "장군의 천 장갑"
+#: ../items/categories/potions.txt:115
+msgid "Restore 75% of maximum MP"
+msgstr "최대 마력의 75% 회복"
 
-#: ../items/categories/level_4.txt:125
-msgid "Sniper Cloth Gloves"
-msgstr "저격병의 천 장갑"
+#: ../items/categories/level_14.txt:5
+msgid "Fighting Plate Helmet"
+msgstr "격투용 판금 투구"
 
-#: ../items/categories/level_4.txt:137
-msgid "Archwizard Cloth Gloves"
-msgstr "대현자마법사의 천 장갑"
+#: ../items/categories/level_14.txt:17
+msgid "Recon Plate Helmet"
+msgstr "수색병의 판금 투구"
 
-#: ../items/categories/level_4.txt:149
-msgid "Master Leather Belt"
-msgstr "원로의 가죽 허리띠"
+#: ../items/categories/level_14.txt:29
+msgid "Sorcerer Velvet Hood"
+msgstr "정령마법사의 벨벳 후드"
 
-#: ../items/categories/level_4.txt:160
-msgid "Master Pendant"
-msgstr "원로의 목걸이"
+#: ../items/categories/level_14.txt:41
+msgid "Fighting Plate Cuirass"
+msgstr "격투용 판금 흉갑"
 
-#: ../items/categories/level_4.txt:171
-msgid "Master Spellbook"
-msgstr "원로의 마법책"
+#: ../items/categories/level_14.txt:53
+msgid "Recon Plate Cuirass"
+msgstr "수색병의 판금 흉갑"
 
-#: ../items/categories/level_4.txt:182
-msgid "Warlord Dagger"
-msgstr "달숭릐 단검"
+#: ../items/categories/level_14.txt:65
+msgid "Sorcerer Velvet Vest"
+msgstr "정령마법사의 벨벳 조끼"
 
-#: ../items/categories/level_4.txt:194
-msgid "Sniper Slingshot"
-msgstr "저격수의 새총"
+#: ../items/categories/level_14.txt:77
+msgid "Fighting Plate Greaves"
+msgstr "격투용 판금 정강이받이"
 
-#: ../items/categories/level_4.txt:206
-msgid "Archwizard Wand"
-msgstr "대현자마법사의 마술봉"
+#: ../items/categories/level_14.txt:89
+msgid "Recon Plate Greaves"
+msgstr "수색병의 판금 정강이받이"
 
-#: ../items/categories/level_4.txt:218
-msgid "Templar Wood Buckler"
-msgstr "성기사의 둥근 나무 방패"
+#: ../items/categories/level_14.txt:101
+msgid "Sorcerer Velvet Skirt"
+msgstr "정령마법사의 벨벳 치마"
 
-#: ../items/categories/level_4.txt:229
-msgid "Master Fire Ring"
-msgstr "원로의 불꽃 반지"
+#: ../items/categories/level_14.txt:113
+msgid "Fighting Plate Boots"
+msgstr "격투용 판금 장화"
 
-#: ../items/categories/level_4.txt:239
-msgid "Master Ice Ring"
-msgstr "원로의 얼음 반지"
+#: ../items/categories/level_14.txt:125
+msgid "Recon Plate Boots"
+msgstr "수색병의 판금 장화"
 
-#: ../items/categories/level_4.txt:249
-msgid "Master Lightning Ring"
-msgstr "원로의 번개 반지"
+#: ../items/categories/level_14.txt:137
+msgid "Sorcerer Velvet Boots"
+msgstr "정령마법사의 벨벳 장화"
 
-#: ../items/categories/level_4.txt:259
-msgid "Master Dark Ring"
-msgstr "원로의 어둠 반지"
+#: ../items/categories/level_14.txt:149
+msgid "Fighting Plate Gauntlets"
+msgstr "격투용 판금 갑옷용 장갑"
 
-#: ../items/categories/level_4.txt:269
-msgid "Master Experience Ring"
-msgstr "원로의 경험 반지"
+#: ../items/categories/level_14.txt:161
+msgid "Recon Plate Gauntlets"
+msgstr "수색병의 판금 갑옷용 장갑"
 
-#: ../items/categories/level_4.txt:279
-msgid "Master Wealth Ring"
-msgstr "원로의 재산 반지"
+#: ../items/categories/level_14.txt:173
+msgid "Sorcerer Velvet Sleeves"
+msgstr "정령마법사의 벨벳 토시"
 
-#: ../items/categories/level_4.txt:289
-msgid "Master Treasure Ring"
-msgstr "원로의 보물 반지"
+#: ../items/categories/level_14.txt:185
+msgid "Wandering Warlord Leather Belt"
+msgstr "방랑자 장군의 가죽 허리띠"
 
-#: ../powers/base/ranger/caltrops.txt:1
-msgid "Caltrops"
-msgstr "마름쇠"
+#: ../items/categories/level_14.txt:196
+msgid "Wandering Sniper Pendant"
+msgstr "방랑자 저격병의 목걸이"
 
-#: ../powers/base/ranger/caltrops.txt:2
-msgid ""
-"This trap deals reduced ranged weapon damage and slows the target. Can "
-"affect multiple targets."
-msgstr "이 함정은 감소된 원거리 무기 데미지를 주고 대상의 이동속도를 감소시킨다. 여러 대상에게 영향을 줄 수 있다."
+#: ../items/categories/level_14.txt:207
+msgid "Wandering Archwizard Spellbook"
+msgstr "방랑자 대현자마법사의 마법책"
 
-#: ../powers/base/ranger/piercing_shot.txt:1
-msgid "Piercing Shot"
-msgstr "관통 사격"
+#: ../items/categories/level_14.txt:218
+msgid "Fighting Greatsword"
+msgstr "격투용 큰 칼"
 
-#: ../powers/base/ranger/piercing_shot.txt:2
-msgid "Fire a shot that ignores armor and goes through multiple enemies."
-msgstr "방어구를 무시하고 다수의 적을 관통하는 탄을 쏜다."
+#: ../items/categories/level_14.txt:230
+msgid "Recon Greatbow"
+msgstr "수색병의 큰 활"
 
-#: ../powers/base/ranger/shoot.txt:1
-msgid "Shoot"
-msgstr "쏘기"
+#: ../items/categories/level_14.txt:242
+msgid "Sorcerer Greatstaff"
+msgstr "정령마법사의 큰 지팡이"
 
-#: ../powers/base/ranger/shoot.txt:4
-msgid "Basic ranged attack."
-msgstr "기본 원거리 공격이다."
+#: ../items/categories/level_14.txt:254
+msgid "Keeper Tower Shield"
+msgstr "파수꾼의 장방패"
 
-#: ../powers/base/ranger/wolfs_eye.txt:1
-msgid "Wolf's Eye"
-msgstr "늑대의 눈"
+#: ../items/categories/level_14.txt:265
+msgid "Wandering Inferno Ring"
+msgstr "방랑자의 불지옥 반지"
 
-#: ../powers/base/ranger/wolfs_eye.txt:2
-msgid "Improves the ability to hit and critically wound enemies."
-msgstr "적을 때리고 치명타를 입히는 능력을 향상시킨다."
+#: ../items/categories/level_14.txt:275
+msgid "Wandering Glacial Ring"
+msgstr "방랑자의 빙하 반지"
 
-#: ../powers/base/ranger/haste.txt:3
-msgid "Move at an increased speed for a limited time."
-msgstr "이동 속도가 일정 시간 동안 증가한다."
+#: ../items/categories/level_14.txt:285
+msgid "Wandering Volt Ring"
+msgstr "방랑자의 화살 반지"
 
-#: ../powers/base/ranger/multishot.txt:1
-msgid "Multishot"
-msgstr "다발 사격"
+#: ../items/categories/level_14.txt:295
+msgid "Wandering Void Ring"
+msgstr "방랑자의 공허 반지"
 
-#: ../powers/base/ranger/multishot.txt:2
-msgid "Shoot multiple projectiles in an arc simultaneously."
-msgstr "여러 발사체를 부채꼴을 그리며 동시에 발사한다."
+#: ../items/categories/level_14.txt:305
+msgid "Wandering Scholar Ring"
+msgstr "방랑자의 학자 반지"
 
-#: ../powers/base/ranger/bear_trap.txt:1
-msgid "Bear Trap"
-msgstr "곰 덫"
+#: ../items/categories/level_14.txt:315
+msgid "Wandering Affluence Ring"
+msgstr "방랑자의 풍요 반지"
 
-#: ../powers/base/ranger/bear_trap.txt:2
-msgid ""
-"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
-" chance to inflict bleeding."
-msgstr "이 함정은 추가 원거리 무기 데미지를 주고 대상을 움직이지 못하게 만든다. 출혈 효과를 줄 확률이 있다."
-
-#: ../powers/base/ranger/ember_shot.txt:1
-msgid "Ember Shot"
-msgstr "화염 사격"
-
-#: ../powers/base/ranger/ember_shot.txt:2
-msgid ""
-"Fire a spray of burning embers at close range. Effective against armored "
-"enemies. Inflicts a burn that makes enemies weaker to fire damage."
-msgstr ""
-"가까운 거리에서 타오르는 불씨를 뿌린다. 방어구를 입은 적에게 효과적이다. 적에게 화상을 입혀 화염 데미지에 더 취약해지게 만든다."
-
-#: ../powers/base/ranger/rapid_fire.txt:1
-msgid "Rapid Fire"
-msgstr "신속 발사"
-
-#: ../powers/base/ranger/rapid_fire.txt:2
-msgid "Fire five low power missiles in quick succession."
-msgstr "5개의 낮은 힘의 미사일을 빠르게 연달아 쏜다."
+#: ../items/categories/level_14.txt:325
+msgid "Wandering Relic Ring"
+msgstr "방랑자의 유물 반지"
 
 #: ../powers/base/magician/burn.txt:1
 msgid "Burn"
@@ -4916,39 +5427,13 @@ msgstr "에너지 흐름"
 msgid "Mana reserves are increased and regenerate faster."
 msgstr "마력 보유량이 늘어나고 더 빠르게 재생된다."
 
-#: ../powers/base/magician/shield.txt:4
-msgid "Create a force field that absorbs damage."
-msgstr "피해를 흡수하는 힘의 공간을 만든다."
+#: ../powers/base/magician/fireball.txt:1
+msgid "Fireball"
+msgstr "불 덩어리"
 
-#: ../powers/base/magician/shock.txt:1
-msgid "Shock"
-msgstr "감전"
-
-#: ../powers/base/magician/shock.txt:2
-msgid ""
-"Shoot a ball of electricity that is extra effective against movement-"
-"impaired enemies."
-msgstr "움직임 장애가 있는 적에게 더욱 효과적인 전기 덩어리를을 쏜다."
-
-#: ../powers/base/magician/freeze.txt:1
-msgid "Freeze"
-msgstr "얼림"
-
-#: ../powers/base/magician/freeze.txt:4
-msgid ""
-"Create a ray of several piercing cold shards that slow enemies. Shards have "
-"a chance of shattering into a cloud of frost that makes enemies weak to ice "
-"damage."
-msgstr ""
-"적을 느리게 하는 여러 개의 날카로운 차가운 파편을 만듭니다. 파편이 서리 구름에 부서져 적이 얼음 피해에 약해질 가능성이 있습니다."
-
-#: ../powers/base/magician/ice_bolt.txt:1
-msgid "Ice Bolt"
-msgstr "얼음 화살"
-
-#: ../powers/base/magician/ice_bolt.txt:2
-msgid "Launch a chunk of ice that slows enemies."
-msgstr "적을 느리게 하는 얼음 덩어리를 발사한다."
+#: ../powers/base/magician/fireball.txt:2
+msgid "Launch a ball of fire that does extra mental damage."
+msgstr "추가 정신적 피해를 입히는 불 덩어리를 발사한다."
 
 #: ../powers/base/magician/thunderstrike.txt:1
 msgid "Thunderstrike"
@@ -4963,13 +5448,92 @@ msgstr ""
 "번개는 하늘에서 내리쳐 움직임에 장애가 있는 적들에게 치명적인 피해를 줄 가능성이 높습니다. 적을 공격하면 다른 적들을 놀라게 할 "
 "가능성이 있는 에너지 파동을 방출합니다."
 
-#: ../powers/base/magician/fireball.txt:1
-msgid "Fireball"
-msgstr "불 덩어리"
+#: ../powers/base/magician/shield.txt:4
+msgid "Create a force field that absorbs damage."
+msgstr "피해를 흡수하는 힘의 공간을 만든다."
 
-#: ../powers/base/magician/fireball.txt:2
-msgid "Launch a ball of fire that does extra mental damage."
-msgstr "추가 정신적 피해를 입히는 불 덩어리를 발사한다."
+#: ../powers/base/magician/shock.txt:1
+msgid "Shock"
+msgstr "감전"
+
+#: ../powers/base/magician/shock.txt:2
+msgid ""
+"Shoot a ball of electricity that is extra effective against movement-"
+"impaired enemies."
+msgstr "움직임 장애가 있는 적에게 더욱 효과적인 전기 덩어리를을 쏜다."
+
+#: ../powers/base/magician/mystic_blast.txt:1
+msgid "Mystic Blast"
+msgstr ""
+
+#: ../powers/base/magician/mystic_blast.txt:2
+msgid ""
+"Channel an orb that deals dark damage. Targets gain a resistance to dark "
+"damage, but become weaker to other types of magic. The effect can be applied"
+" up to 3 times on a target."
+msgstr ""
+
+#: ../powers/base/magician/ice_bolt.txt:1
+msgid "Ice Bolt"
+msgstr "얼음 화살"
+
+#: ../powers/base/magician/ice_bolt.txt:2
+msgid "Launch a chunk of ice that slows enemies."
+msgstr "적을 느리게 하는 얼음 덩어리를 발사한다."
+
+#: ../powers/base/magician/freeze.txt:1
+msgid "Freeze"
+msgstr "얼림"
+
+#: ../powers/base/magician/freeze.txt:4
+msgid ""
+"Create a ray of several piercing cold shards that slow enemies. Shards have "
+"a chance of shattering into a cloud of frost that makes enemies weak to ice "
+"damage."
+msgstr ""
+"적을 느리게 하는 여러 개의 날카로운 차가운 파편을 만듭니다. 파편이 서리 구름에 부서져 적이 얼음 피해에 약해질 가능성이 있습니다."
+
+#: ../powers/base/magician/summon_skeleton.txt:3
+msgid "Summon Skeleton"
+msgstr ""
+
+#: ../powers/base/magician/summon_skeleton.txt:4
+msgid ""
+"Raise an undead to battle alongside you. Each summoned skeleton reduces your"
+" maximum MP."
+msgstr ""
+
+#: ../powers/base/magician/barrier.txt:1
+msgid "Barrier"
+msgstr ""
+
+#: ../powers/base/magician/barrier.txt:2
+msgid "Applies permanent protection against all elemental damage."
+msgstr ""
+
+#: ../powers/base/warrior/quake.txt:1
+msgid "Quake"
+msgstr "지진"
+
+#: ../powers/base/warrior/quake.txt:4
+msgid "Knock back nearby enemies with a chance to stun."
+msgstr "일정 확률로 주위의 적을 밀쳐내고 기절시킨다."
+
+#: ../powers/base/warrior/vampirism.txt:1
+msgid "Vampirism"
+msgstr ""
+
+#: ../powers/base/warrior/vampirism.txt:4
+msgid "Grants attacks the ability to leech enemy health."
+msgstr ""
+
+#: ../powers/base/warrior/blood_strike.txt:1
+msgid "Blood Strike"
+msgstr "피나게 치기"
+
+#: ../powers/base/warrior/blood_strike.txt:2
+msgid "Deal a powerful blow that inflicts a bleeding wound."
+msgstr "피를 흘리는 상처를 입힐정도의 강력한 타격을 가한다."
 
 #: ../powers/base/warrior/throw_knife.txt:1
 msgid "Throw Knife"
@@ -4981,21 +5545,31 @@ msgid ""
 "critical rate."
 msgstr "단검을 던져 근접 무기 대비 감소된 데미지를 줍니다. 높은 명중률과 치명타율을 가집니다."
 
-#: ../powers/base/warrior/blood_strike.txt:1
-msgid "Blood Strike"
-msgstr "피나게 치기"
+#: ../powers/base/warrior/rupture.txt:1
+msgid "Rupture"
+msgstr ""
 
-#: ../powers/base/warrior/blood_strike.txt:2
-msgid "Deal a powerful blow that inflicts a bleeding wound."
-msgstr "피를 흘리는 상처를 입힐정도의 강력한 타격을 가한다."
+#: ../powers/base/warrior/rupture.txt:4
+msgid ""
+"Split the ground in a straight line. Enemies caught in the chasm suffer "
+"reduced avoidance, absorption, and poise."
+msgstr ""
 
-#: ../powers/base/warrior/warcry.txt:1
-msgid "Warcry"
-msgstr "함성"
+#: ../powers/base/warrior/stone_wall.txt:1
+msgid "Stone Wall"
+msgstr "돌벽"
 
-#: ../powers/base/warrior/warcry.txt:4
-msgid "Remove debuffs and become immune to debuffs for a limited time."
-msgstr "제한된 시간 동안 디버프를 제거하고 디버프에 면역이 된다."
+#: ../powers/base/warrior/stone_wall.txt:2
+msgid "Withstand stronger attacks with more health and absorption."
+msgstr "더 많은 체력과 흡수로 더 강한 공격을 견뎌낸다."
+
+#: ../powers/base/warrior/shield_bash.txt:1
+msgid "Shield Bash"
+msgstr "방패 강타"
+
+#: ../powers/base/warrior/shield_bash.txt:2
+msgid "Dash into enemies, crushing them with sheer force."
+msgstr "강력한 힘으로 적에게 돌진하여 부숴버린다."
 
 #: ../powers/base/warrior/cleave.txt:1
 msgid "Cleave"
@@ -5013,29 +5587,122 @@ msgstr "도끼 던지기"
 msgid "Throw an axe to deal extra melee weapon damage."
 msgstr "추가 근거리 무기 피해를 입히기 위해 도끼를 던진다."
 
-#: ../powers/base/warrior/shield_bash.txt:1
-msgid "Shield Bash"
-msgstr "방패 강타"
+#: ../powers/base/warrior/enchanted_blade.txt:1
+msgid "Enchanted Blade"
+msgstr ""
 
-#: ../powers/base/warrior/shield_bash.txt:2
-msgid "Dash into enemies, crushing them with sheer force."
-msgstr "강력한 힘으로 적에게 돌진하여 부숴버린다."
+#: ../powers/base/warrior/enchanted_blade.txt:2
+msgid "Imbues attacks with extra dark damage."
+msgstr ""
 
-#: ../powers/base/warrior/quake.txt:1
-msgid "Quake"
-msgstr "지진"
+#: ../powers/base/warrior/warcry.txt:1
+msgid "Warcry"
+msgstr "함성"
 
-#: ../powers/base/warrior/quake.txt:4
-msgid "Knock back nearby enemies with a chance to stun."
-msgstr "일정 확률로 주위의 적을 밀쳐내고 기절시킨다."
+#: ../powers/base/warrior/warcry.txt:4
+msgid "Remove debuffs and become immune to debuffs for a limited time."
+msgstr "제한된 시간 동안 디버프를 제거하고 디버프에 면역이 된다."
 
-#: ../powers/base/warrior/stone_wall.txt:1
-msgid "Stone Wall"
-msgstr "돌벽"
+#: ../powers/base/ranger/bear_trap.txt:1
+msgid "Bear Trap"
+msgstr "곰 덫"
 
-#: ../powers/base/warrior/stone_wall.txt:2
-msgid "Withstand stronger attacks with more health and absorption."
-msgstr "더 많은 체력과 흡수로 더 강한 공격을 견뎌낸다."
+#: ../powers/base/ranger/bear_trap.txt:2
+msgid ""
+"This trap deals extra ranged weapon damage and immobilizes the target. Has a"
+" chance to inflict bleeding."
+msgstr "이 함정은 추가 원거리 무기 데미지를 주고 대상을 움직이지 못하게 만든다. 출혈 효과를 줄 확률이 있다."
+
+#: ../powers/base/ranger/multishot.txt:1
+msgid "Multishot"
+msgstr "다발 사격"
+
+#: ../powers/base/ranger/multishot.txt:2
+msgid "Shoot multiple projectiles in an arc simultaneously."
+msgstr "여러 발사체를 부채꼴을 그리며 동시에 발사한다."
+
+#: ../powers/base/ranger/wolfs_eye.txt:1
+msgid "Wolf's Eye"
+msgstr "늑대의 눈"
+
+#: ../powers/base/ranger/wolfs_eye.txt:2
+msgid "Improves the ability to hit and critically wound enemies."
+msgstr "적을 때리고 치명타를 입히는 능력을 향상시킨다."
+
+#: ../powers/base/ranger/rapid_fire.txt:1
+msgid "Rapid Fire"
+msgstr "신속 발사"
+
+#: ../powers/base/ranger/rapid_fire.txt:2
+msgid "Fire five low power missiles in quick succession."
+msgstr "5개의 낮은 힘의 미사일을 빠르게 연달아 쏜다."
+
+#: ../powers/base/ranger/shoot.txt:1
+msgid "Shoot"
+msgstr "쏘기"
+
+#: ../powers/base/ranger/shoot.txt:4
+msgid "Basic ranged attack."
+msgstr "기본 원거리 공격이다."
+
+#: ../powers/base/ranger/haste.txt:3
+msgid "Move at an increased speed for a limited time."
+msgstr "이동 속도가 일정 시간 동안 증가한다."
+
+#: ../powers/base/ranger/poison_shot.txt:1
+msgid "Poison Shot"
+msgstr ""
+
+#: ../powers/base/ranger/poison_shot.txt:4
+msgid "Shoot a projectile that explodes into a poisonous cloud on impact."
+msgstr ""
+
+#: ../powers/base/ranger/scavenger.txt:1
+msgid "Scavenger"
+msgstr ""
+
+#: ../powers/base/ranger/scavenger.txt:2
+msgid ""
+"Good fortune shines upon you, revealing treasures that others might have "
+"overlooked."
+msgstr ""
+
+#: ../powers/base/ranger/ember_shot.txt:1
+msgid "Ember Shot"
+msgstr "화염 사격"
+
+#: ../powers/base/ranger/ember_shot.txt:2
+msgid ""
+"Fire a spray of burning embers at close range. Effective against armored "
+"enemies. Inflicts a burn that makes enemies weaker to fire damage."
+msgstr ""
+"가까운 거리에서 타오르는 불씨를 뿌린다. 방어구를 입은 적에게 효과적이다. 적에게 화상을 입혀 화염 데미지에 더 취약해지게 만든다."
+
+#: ../powers/base/ranger/charged_shot.txt:1
+msgid "Charged Shot"
+msgstr ""
+
+#: ../powers/base/ranger/charged_shot.txt:2
+msgid "Draw a shot for an extended period, increasing its impact."
+msgstr ""
+
+#: ../powers/base/ranger/caltrops.txt:1
+msgid "Caltrops"
+msgstr "마름쇠"
+
+#: ../powers/base/ranger/caltrops.txt:2
+msgid ""
+"This trap deals reduced ranged weapon damage and slows the target. Can "
+"affect multiple targets."
+msgstr "이 함정은 감소된 원거리 무기 데미지를 주고 대상의 이동속도를 감소시킨다. 여러 대상에게 영향을 줄 수 있다."
+
+#: ../powers/base/ranger/piercing_shot.txt:1
+msgid "Piercing Shot"
+msgstr "관통 사격"
+
+#: ../powers/base/ranger/piercing_shot.txt:2
+msgid "Fire a shot that ignores armor and goes through multiple enemies."
+msgstr "방어구를 무시하고 다수의 적을 관통하는 탄을 쏜다."
 
 #: ../powers/categories/magician.txt:7
 msgid "Channel"
@@ -5044,11 +5711,6 @@ msgstr "채널"
 #: ../powers/categories/magician.txt:10
 msgid "Basic magic attack."
 msgstr "기본 마법 공격이다."
-
-#: ../powers/categories/quest.txt:4
-msgid ""
-"Performing the ritual at the Red Altar has granted you faster regeneration."
-msgstr "붉은 제단에서 의식을 수행하면 회복 속도가 빨라진다."
 
 #: ../powers/categories/items.txt:67
 msgid ""
@@ -5062,6 +5724,11 @@ msgid ""
 "by performing a basic attack."
 msgstr "사용: 얼음 화살을 발사한다. 잠시 동안 기본 공격으로 추가 얼음 화살을 발사할 수 있다."
 
+#: ../powers/categories/quest.txt:4
+msgid ""
+"Performing the ritual at the Red Altar has granted you faster regeneration."
+msgstr "붉은 제단에서 의식을 수행하면 회복 속도가 빨라진다."
+
 #: ../powers/categories/warrior.txt:7
 msgid "Swing"
 msgstr "휘두르기"
@@ -5074,13 +5741,13 @@ msgstr "기본 근거리 공격이다."
 msgid "Magician"
 msgstr "마술사"
 
-#: ../scripts/dev/waypoints_lock.txt:14
-msgid "Locked all waypoints"
-msgstr "모든 경유지가 잠겨있음"
-
 #: ../scripts/dev/waypoints_unlock.txt:14
 msgid "Unlocked all waypoints"
 msgstr "모든 경유지가 풀려있음"
+
+#: ../scripts/dev/waypoints_lock.txt:14
+msgid "Locked all waypoints"
+msgstr "모든 경유지가 잠겨있음"
 
 #: ../scripts/maps/the_pit/locked_chest.txt:4
 msgid "It's locked."
