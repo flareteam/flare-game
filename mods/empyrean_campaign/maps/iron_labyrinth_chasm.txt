@@ -11,13 +11,13 @@ tileset=tilesetdefs/tileset_ruins.txt
 title=Iron Labyrinth: Chasm
 
 [tilesets]
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/tiled_collision.png,192,96,0,0
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/tiled_set_rules.png,192,96,0,0
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/ruins.png,192,384,0,0
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/ruins_door_left.png,192,384,-48,-24
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/ruins_door_right.png,192,384,48,-24
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/ruins_2x2.png,384,192,0,48
-tileset=../../../../mods/hd-flare-game/tiled/tilesheets/boss_chest.png,192,192,0,0
+tileset=../../../tiled/tilesheets/tiled_collision.png,192,96,0,0
+tileset=../../../tiled/tilesheets/tiled_set_rules.png,192,96,0,0
+tileset=../../../tiled/tilesheets/ruins.png,192,384,0,0
+tileset=../../../tiled/tilesheets/ruins_door_left.png,192,384,-48,-24
+tileset=../../../tiled/tilesheets/ruins_door_right.png,192,384,48,-24
+tileset=../../../tiled/tilesheets/ruins_2x2.png,384,192,0,48
+tileset=../../../tiled/tilesheets/boss_chest.png,192,192,0,0
 
 [layer]
 type=background
@@ -644,6 +644,18 @@ type=event
 location=20,35,1,1
 activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
+
+[event]
+# Lectern
+type=event
+location=14,34,1,1
+activate=on_trigger
+hotspot=location
+mapmod=object,14,34,277
+repeat=false
+script=scripts/maps/iron_labyrinth/notes_drop_6.txt
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Lectern
 
 [enemy]
 # Razu

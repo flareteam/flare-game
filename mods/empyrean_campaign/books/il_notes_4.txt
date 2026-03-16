@@ -1,0 +1,46 @@
+pos=0,0,1137,700
+align=center
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=932,68
+background=images/menus/book.png
+
+### Page 1
+[text]
+text_pos=155,70,400,left
+text_font=128,0,0,font_cursive
+text=1462/3/25
+requires_status=emp_il_notes_4
+
+[text]
+text_pos=155,120,400,left
+text_font=0,0,0,font_cursive
+text=I've calmed down enough to write a coherent letter to the Chamber requesting the resources we need. Now we just have to wait. In the meantime, we'll continue exploring as carefully as possible.
+requires_status=emp_il_notes_4
+
+[text]
+text_pos=155,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_4
+
+### Page 2
+[text]
+text_pos=605,70,400,left
+text_font=128,0,0,font_cursive
+text=1462/4/27
+requires_status=emp_il_notes_4
+
+[text]
+text_pos=605,120,400,left
+text_font=0,0,0,font_cursive
+text=The Chamber finally gave their response. They did send a few mages, but not nearly enough. There's a promise of a larger gold share when the excavation is complete. Somehow, I don't think Empyrean politics will allow such a thing to manifest.
+requires_status=emp_il_notes_4
+
+[text]
+text_pos=605,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_4
+

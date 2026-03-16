@@ -195,11 +195,12 @@
   <object id="14" name="Excavation Journal" type="event" x="288" y="1344" width="96" height="96">
    <properties>
     <property name="activate" value="on_trigger"/>
+    <property name="book" value="books/il_notes_1_nav.txt"/>
     <property name="cooldown" value="500ms"/>
     <property name="hotspot" value="location"/>
     <property name="mapmod" value="object,3,14,414"/>
     <property name="repeat" value="true"/>
-    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="script" value="scripts/maps/iron_labyrinth/notes_turn_in.txt"/>
     <property name="tooltip" value="Excavation Journal"/>
    </properties>
   </object>

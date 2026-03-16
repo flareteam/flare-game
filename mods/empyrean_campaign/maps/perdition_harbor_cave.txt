@@ -186,11 +186,12 @@ unset_status=emp_il_f1,emp_il_f2,emp_il_f3
 type=event
 location=3,14,1,1
 activate=on_trigger
+book=books/il_notes_1_nav.txt
 cooldown=500ms
 hotspot=location
 mapmod=object,3,14,414
 repeat=true
-soundfx=soundfx/inventory/inventory_page.ogg
+script=scripts/maps/iron_labyrinth/notes_turn_in.txt
 tooltip=Excavation Journal
 
 [npc]

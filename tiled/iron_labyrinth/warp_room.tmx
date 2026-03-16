@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.2" orientation="isometric" renderorder="right-down" width="28" height="28" tilewidth="192" tileheight="96" infinite="0" backgroundcolor="#000000" nextlayerid="39" nextobjectid="10">
+<map version="1.11" tiledversion="1.11.2" orientation="isometric" renderorder="right-down" width="28" height="28" tilewidth="192" tileheight="96" infinite="0" backgroundcolor="#000000" nextlayerid="39" nextobjectid="11">
  <editorsettings>
   <export target="../../mods/empyrean_campaign/maps/iron_labyrinth/warp_room.txt" format="flare"/>
  </editorsettings>
@@ -181,7 +181,22 @@
     <property name="loot" value="412,fixed,1"/>
     <property name="mapmod" value="background_fringe,13,14,381;object,18,10,276"/>
     <property name="requires_not_status" value="emp_il_warp_room_active"/>
+    <property name="script" value="scripts/maps/iron_labyrinth/notes_drop_5.txt"/>
     <property name="set_status" value="emp_il_warp_room_active,emp_il_warp_room_unknown"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Lectern"/>
+   </properties>
+  </object>
+  <object id="10" name="Lectern (warp active)" type="event" x="1728" y="960" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="mapmod" value="object,18,10,276"/>
+    <property name="repeat" value="false"/>
+    <property name="requires_not_tile" value="object,18,10,276"/>
+    <property name="requires_status" value="emp_il_warp_room_active"/>
+    <property name="script" value="scripts/maps/iron_labyrinth/notes_drop_5.txt"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
     <property name="tooltip" value="Lectern"/>
    </properties>
   </object>
@@ -198,7 +213,7 @@
   <object id="8" name="Update tele tile (on_load)" type="event" x="864" y="864" width="96" height="96">
    <properties>
     <property name="activate" value="on_load"/>
-    <property name="mapmod" value="background_fringe,13,14,381;object,18,10,276"/>
+    <property name="mapmod" value="background_fringe,13,14,381"/>
     <property name="requires_status" value="emp_il_warp_room_active"/>
    </properties>
   </object>

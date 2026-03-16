@@ -10,13 +10,13 @@ procgen_type=normal
 tileset=tilesetdefs/tileset_ruins.txt
 
 [tilesets]
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/tiled_collision.png,192,96,0,0
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/tiled_set_rules.png,192,96,0,0
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins.png,192,384,0,0
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins_door_left.png,192,384,-48,-24
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins_door_right.png,192,384,48,-24
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins_2x2.png,384,192,0,48
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/boss_chest.png,192,192,0,0
+tileset=../../../../tiled/tilesheets/tiled_collision.png,192,96,0,0
+tileset=../../../../tiled/tilesheets/tiled_set_rules.png,192,96,0,0
+tileset=../../../../tiled/tilesheets/ruins.png,192,384,0,0
+tileset=../../../../tiled/tilesheets/ruins_door_left.png,192,384,-48,-24
+tileset=../../../../tiled/tilesheets/ruins_door_right.png,192,384,48,-24
+tileset=../../../../tiled/tilesheets/ruins_2x2.png,384,192,0,48
+tileset=../../../../tiled/tilesheets/boss_chest.png,192,192,0,0
 
 [layer]
 type=background
@@ -171,6 +171,18 @@ mapmod=object,20,13,286
 repeat=false
 soundfx=soundfx/wood_open.ogg
 tooltip=Crate
+
+[event]
+# Lectern
+type=event
+location=14,12,1,1
+activate=on_trigger
+hotspot=location
+loot=loot/scrolls.txt
+mapmod=object,14,12,276
+repeat=false
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Lectern
 
 [enemy]
 type=enemy

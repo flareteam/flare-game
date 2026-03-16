@@ -11,13 +11,13 @@ procgen_unique_status=emp_il_warp_room
 tileset=tilesetdefs/tileset_ruins.txt
 
 [tilesets]
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/tiled_collision.png,192,96,0,0
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/tiled_set_rules.png,192,96,0,0
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins.png,192,384,0,0
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins_door_left.png,192,384,-48,-24
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins_door_right.png,192,384,48,-24
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/ruins_2x2.png,384,192,0,48
-tileset=../../../../../mods/hd-flare-game/tiled/tilesheets/boss_chest.png,192,192,0,0
+tileset=../../../../tiled/tilesheets/tiled_collision.png,192,96,0,0
+tileset=../../../../tiled/tilesheets/tiled_set_rules.png,192,96,0,0
+tileset=../../../../tiled/tilesheets/ruins.png,192,384,0,0
+tileset=../../../../tiled/tilesheets/ruins_door_left.png,192,384,-48,-24
+tileset=../../../../tiled/tilesheets/ruins_door_right.png,192,384,48,-24
+tileset=../../../../tiled/tilesheets/ruins_2x2.png,384,192,0,48
+tileset=../../../../tiled/tilesheets/boss_chest.png,192,192,0,0
 
 [layer]
 type=background
@@ -169,7 +169,23 @@ hotspot=location
 loot=412,fixed,1
 mapmod=background_fringe,13,14,381;object,18,10,276
 requires_not_status=emp_il_warp_room_active
+script=scripts/maps/iron_labyrinth/notes_drop_5.txt
 set_status=emp_il_warp_room_active,emp_il_warp_room_unknown
+soundfx=soundfx/inventory/inventory_page.ogg
+tooltip=Lectern
+
+[event]
+# Lectern (warp active)
+type=event
+location=18,10,1,1
+activate=on_trigger
+hotspot=location
+mapmod=object,18,10,276
+repeat=false
+requires_not_tile=object,18,10,276
+requires_status=emp_il_warp_room_active
+script=scripts/maps/iron_labyrinth/notes_drop_5.txt
+soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Lectern
 
 [event]
@@ -188,7 +204,7 @@ tooltip=Unknown Destination
 type=event
 location=9,9,1,1
 activate=on_load
-mapmod=background_fringe,13,14,381;object,18,10,276
+mapmod=background_fringe,13,14,381
 requires_status=emp_il_warp_room_active
 
 [event]

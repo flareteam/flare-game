@@ -1,0 +1,46 @@
+pos=0,0,1137,700
+align=center
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=932,68
+background=images/menus/book.png
+
+### Page 1
+[text]
+text_pos=155,70,400,left
+text_font=128,0,0,font_cursive
+text=1462/3/23
+requires_status=emp_il_notes_3
+
+[text]
+text_pos=155,120,400,left
+text_font=0,0,0,font_cursive
+text=There's more to this whole Mastite thing than we're being told. Yesterday, one of the crew was about to grab a chunk he had found. In the blink of an eye, some sort of energy ball flew out of it and blasted the poor guy back about 100 paces.
+requires_status=emp_il_notes_3
+
+[text]
+text_pos=155,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_3
+
+### Page 2
+# [text]
+# text_pos=605,70,400,left
+# text_font=128,0,0,font_cursive
+# text=
+# requires_status=emp_il_notes_3
+
+[text]
+text_pos=605,120,400,left
+text_font=0,0,0,font_cursive
+text=What does the Chamber's healer do? Gives him a measly potion! Why are we waiting until the damage is done? We need defensive mages! But somehow, that's out of the question for the Empyrean...
+requires_status=emp_il_notes_3
+
+[text]
+text_pos=605,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_3
+

@@ -1,0 +1,46 @@
+pos=0,0,1137,700
+align=center
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=932,68
+background=images/menus/book.png
+
+### Page 1
+[text]
+text_pos=155,70,400,left
+text_font=128,0,0,font_cursive
+text=1462/8/13
+requires_status=emp_il_notes_7
+
+[text]
+text_pos=155,120,400,left
+text_font=0,0,0,font_cursive
+text=When we returned today, the layout of the first floor did not match our maps. Thankfully, an Empyrean mage made it back with us. I asked them to try sensing for human life on the lower levels. Zero results thus far, but I still have hope.
+requires_status=emp_il_notes_7
+
+[text]
+text_pos=155,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_7
+
+### Page 2
+# [text]
+# text_pos=605,70,400,left
+# text_font=128,0,0,font_cursive
+# text=
+# requires_status=emp_il_notes_7
+
+[text]
+text_pos=605,120,400,left
+text_font=0,0,0,font_cursive
+text=The Chamber sees the situation differently. Orders came in for operations to be moved to other nearby sites. Krolan obeyed. Said he didn't want end up dead like "those guys". As if our guys are dead! When I find them, we're going to snag the rest of that Mastite for ourselves!
+requires_status=emp_il_notes_7
+
+[text]
+text_pos=605,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_7
+

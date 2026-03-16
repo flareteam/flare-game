@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.2" orientation="isometric" renderorder="right-down" width="28" height="28" tilewidth="192" tileheight="96" infinite="0" backgroundcolor="#000000" nextlayerid="32" nextobjectid="8">
+<map version="1.11" tiledversion="1.11.2" orientation="isometric" renderorder="right-down" width="28" height="28" tilewidth="192" tileheight="96" infinite="0" backgroundcolor="#000000" nextlayerid="32" nextobjectid="9">
  <editorsettings>
   <export target="../../mods/empyrean_campaign/maps/iron_labyrinth/room5.txt" format="flare"/>
  </editorsettings>
@@ -183,6 +183,17 @@
     <property name="repeat" value="false"/>
     <property name="soundfx" value="soundfx/wood_open.ogg"/>
     <property name="tooltip" value="Crate"/>
+   </properties>
+  </object>
+  <object id="8" name="Lectern" type="event" x="1344" y="1152" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_trigger"/>
+    <property name="hotspot" value="location"/>
+    <property name="loot" value="loot/scrolls.txt"/>
+    <property name="mapmod" value="object,14,12,276"/>
+    <property name="repeat" value="false"/>
+    <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+    <property name="tooltip" value="Lectern"/>
    </properties>
   </object>
  </objectgroup>

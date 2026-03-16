@@ -1,0 +1,46 @@
+pos=0,0,1137,700
+align=center
+soundfx_open=soundfx/inventory/inventory_page.ogg
+soundfx_close=soundfx/inventory/inventory_book.ogg
+
+close=932,68
+background=images/menus/book.png
+
+### Page 1
+[text]
+text_pos=155,70,400,left
+text_font=128,0,0,font_cursive
+text=1462/6/3
+requires_status=emp_il_notes_5
+
+[text]
+text_pos=155,120,400,left
+text_font=0,0,0,font_cursive
+text=These ruins are larger than we had imagined. There must be other connections to the surface. Krolan found a portal today, but no one dared to enter.
+requires_status=emp_il_notes_5
+
+[text]
+text_pos=155,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_5
+
+### Page 2
+# [text]
+# text_pos=605,70,400,left
+# text_font=128,0,0,font_cursive
+# text=
+# requires_status=emp_il_notes_5
+
+[text]
+text_pos=605,120,400,left
+text_font=0,0,0,font_cursive
+text=We asked the mages to try analyzing it. Unfortunately, they reported not being able to see through to the other side.
+requires_status=emp_il_notes_5
+
+[text]
+text_pos=605,560,400,center
+text_font=128,0,0,font_regular
+text=[Missing page]
+requires_not_status=emp_il_notes_5
+
