@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="floor spikes" type="event" width="96" height="96">
+  <properties>
+   <property name="activate" value="on_trigger"/>
+   <property name="cooldown" value="2s"/>
+   <property name="power" value="178"/>
+   <property name="power_level" value="hero_level,1"/>
+   <property name="power_stats" value="enemies/map_powers/il_spike_trap.txt"/>
+   <property name="repeat" value="true"/>
+  </properties>
+ </object>
+</template>

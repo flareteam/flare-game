@@ -657,6 +657,46 @@ script=scripts/maps/iron_labyrinth/notes_drop_6.txt
 soundfx=soundfx/inventory/inventory_page.ogg
 tooltip=Lectern
 
+[event]
+# Mastite pillar regen
+type=event
+location=39,38,3,3
+activate=on_trigger
+cooldown=2s
+power=378
+power_path=40,39
+repeat=true
+
+[event]
+# Mastite pillar regen
+type=event
+location=34,38,3,3
+activate=on_trigger
+cooldown=2s
+power=378
+power_path=35,39
+repeat=true
+
+[event]
+# Mastite pillar regen
+type=event
+location=34,43,3,3
+activate=on_trigger
+cooldown=2s
+power=378
+power_path=35,44
+repeat=true
+
+[event]
+# Mastite pillar regen
+type=event
+location=39,43,3,3
+activate=on_trigger
+cooldown=2s
+power=378
+power_path=40,44
+repeat=true
+
 [enemy]
 # Razu
 type=enemy

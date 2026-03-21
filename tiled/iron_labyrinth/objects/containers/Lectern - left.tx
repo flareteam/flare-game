@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="Lectern" type="event" width="96" height="96">
+  <properties>
+   <property name="activate" value="on_trigger"/>
+   <property name="hotspot" value="location"/>
+   <property name="loot" value="loot/scrolls.txt"/>
+   <property name="loot_count" value="1"/>
+   <property name="mapmod" value="object,X,Y,276"/>
+   <property name="repeat" value="false"/>
+   <property name="soundfx" value="soundfx/inventory/inventory_page.ogg"/>
+   <property name="tooltip" value="Lectern"/>
+  </properties>
+ </object>
+</template>
