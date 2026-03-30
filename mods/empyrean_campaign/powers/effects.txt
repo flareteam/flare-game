@@ -1,7 +1,7 @@
 ## Status Effects
 
 [effect]
-id=shield
+id=mage_shield
 name=Shield
 type=shield
 icon=15
@@ -34,21 +34,21 @@ render_above=true
 color_mod=127,127,255
 
 [effect]
-id=stun
+id=paralyze
 name=Stun
 type=stun
 icon=26
 can_stack=false
 
 [effect]
-id=immunity
+id=immune
 name=Immunity
 type=resist_all
 icon=44
 can_stack=false
 
 [effect]
-id=immunity_hero
+id=immune_hero
 name=Immunity
 type=resist_all
 icon=44
@@ -77,7 +77,7 @@ id=mp_restore
 type=mpot_percent
 
 [effect]
-id=knockback
+id=force
 type=knockback
 can_stack=false
 
@@ -125,7 +125,7 @@ can_stack=false
 render_above=false
 
 [effect]
-id=heal
+id=hp_heal
 type=heal
 icon=11
 animation=animations/powers/heal.txt

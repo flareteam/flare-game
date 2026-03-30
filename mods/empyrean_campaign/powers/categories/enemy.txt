@@ -58,7 +58,7 @@ type=fixed
 new_state=cast
 soundfx=soundfx/powers/shield.ogg
 buff=true
-post_effect=shield,0,0
+post_effect=mage_shield,0,0
 cooldown=3s
 modifier_damage=multiply,100,0
 base_damage=ment
@@ -93,7 +93,7 @@ id=170
 type=fixed
 buff=true
 passive=true
-post_effect=immunity,100,0
+post_effect=immune,100,0
 
 # shoot arrow
 [power]
@@ -230,10 +230,10 @@ radius=2.0
 floor=true
 starting_pos=source
 multitarget=true
-post_effect=stun,0,1s,25
+post_effect=paralyze,0,1s,25
 cooldown=5s
 modifier_damage=multiply,75,0
-post_effect=knockback,15,100ms
+post_effect=force,15,100ms
 
 # freezing melee attack
 [power]
@@ -338,7 +338,7 @@ cooldown=1500ms
 relative_pos=true
 soundfx_hit=soundfx/powers/block.ogg
 soundfx=soundfx/powers/shock.ogg
-post_effect=knockback,10,100ms
+post_effect=force,10,100ms
 modifier_damage=multiply,125,0
 
 # zombie leech strike
@@ -393,7 +393,7 @@ cooldown=1500ms
 relative_pos=true
 soundfx_hit=soundfx/powers/block.ogg
 soundfx=soundfx/powers/shock.ogg
-post_effect=knockback,10,100ms
+post_effect=force,10,100ms
 modifier_damage=multiply,125,0
 
 # mez's thunderstrike
@@ -415,7 +415,7 @@ starting_pos=target
 multitarget=true
 post_power=159
 target_range=8.0
-post_effect=stun,0,1s,25
+post_effect=paralyze,0,1s,25
 modifier_damage=multiply,75,0
 cooldown=5s
 
@@ -542,7 +542,7 @@ relative_pos=true
 starting_pos=source
 expire_with_caster=true
 modifier_accuracy=absolute,1000,0
-post_effect=knockback,20,150ms
+post_effect=force,20,150ms
 
 # Dark Mist
 [power]
@@ -699,7 +699,7 @@ modifier_accuracy=multiply,125,0
 modifier_damage=multiply,125,0
 count=5
 missile_angle=15
-post_effect=knockback,20,100ms
+post_effect=force,20,100ms
 
 # Metzger's heal
 [power]
@@ -708,7 +708,7 @@ type=fixed
 new_state=cast
 soundfx=soundfx/powers/heal.ogg
 buff=true
-post_effect=heal,0,0
+post_effect=hp_heal,0,0
 cooldown=5s
 base_damage=ment
 modifier_damage=multiply,200,0
@@ -730,7 +730,7 @@ radius=1.0
 speed=15
 trait_elemental=dark
 modifier_accuracy=multiply,125,0
-post_effect=stun,0,1s,25
+post_effect=paralyze,0,1s,25
 cooldown=5s
 post_power=294
 wall_power=294
@@ -849,8 +849,8 @@ starting_pos=melee
 aim_assist=true
 directional=true
 animation=animations/powers/cleave.txt
-post_effect=knockback,15,200ms
-post_effect=stun,0,1s,25
+post_effect=force,15,200ms
+post_effect=paralyze,0,1s,25
 complete_animation=true
 
 # twin-axe
@@ -906,11 +906,11 @@ floor=true
 visual_option=2
 starting_pos=source
 multitarget=true
-post_effect=stun,0,1s,25
+post_effect=paralyze,0,1s,25
 post_effect=slow_ice,50,4s
 cooldown=5s
 modifier_damage=multiply,80,0
-post_effect=knockback,20,100ms
+post_effect=force,20,100ms
 
 # hobgoblin archer shoot
 [power]
@@ -969,7 +969,7 @@ visual_random=3
 count=8
 modifier_damage=multiply,30,0
 post_effect=slow_ice,25,4s
-post_effect=knockback,15,100ms
+post_effect=force,15,100ms
 angle_variance=2
 speed_variance=0.05
 missile_angle=5
