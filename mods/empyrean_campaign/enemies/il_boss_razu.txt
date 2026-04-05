@@ -15,13 +15,18 @@ speed=4.4
 turn_delay=166ms
 
 chance_pursue=30
-threat_range=10
+threat_range=1000
 
 # bleed & slow/stun immunities
 passive_powers=185,287
 
 power=melee,164,2
 power=melee,168,5
+power=melee,379,4
+power=melee,380,2
+power=ranged,380,5
+power=ranged,381,10
+power=ranged,382,2
 
 stat=accuracy,80
 stat=avoidance,10
