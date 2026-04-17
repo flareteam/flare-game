@@ -229,6 +229,51 @@ location=14,12,1,1
 activate=on_load
 soundfx=soundfx/environment/open_fire_loop.ogg
 
+[event]
+# Alt puzzle 1
+type=event
+location=1,1,1,1
+activate=on_load
+chance_exec=20
+mapmod=object,19,12,272;object,19,14,273;object,19,16,273
+repeat=false
+
+[event]
+# Alt puzzle 2
+type=event
+location=2,1,1,1
+activate=on_load
+chance_exec=20
+mapmod=object,19,12,272;object,19,14,273;object,19,16,272
+repeat=false
+
+[event]
+# Alt puzzle 3
+type=event
+location=3,1,1,1
+activate=on_load
+chance_exec=20
+mapmod=object,19,12,273;object,19,14,272;object,19,16,273
+repeat=false
+
+[event]
+# Alt puzzle 4
+type=event
+location=1,2,1,1
+activate=on_load
+chance_exec=20
+mapmod=object,19,12,273;object,19,14,273;object,19,16,272
+repeat=false
+
+[event]
+# Alt puzzle 5
+type=event
+location=2,2,1,1
+activate=on_load
+chance_exec=20
+mapmod=object,19,12,272;object,19,14,272;object,19,16,273
+repeat=false
+
 [enemy]
 type=enemy
 location=8,8,12,12

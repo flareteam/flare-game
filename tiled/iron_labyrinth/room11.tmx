@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.12.1" orientation="isometric" renderorder="right-down" width="28" height="28" tilewidth="192" tileheight="96" infinite="0" backgroundcolor="#000000" nextlayerid="34" nextobjectid="13">
+<map version="1.11" tiledversion="1.12.1" orientation="isometric" renderorder="right-down" width="28" height="28" tilewidth="192" tileheight="96" infinite="0" backgroundcolor="#000000" nextlayerid="122" nextobjectid="19">
  <editorsettings>
   <export target="../../mods/empyrean_campaign/maps/iron_labyrinth/room11.txt" format="flare"/>
  </editorsettings>
@@ -235,6 +235,46 @@
    <properties>
     <property name="activate" value="on_load"/>
     <property name="soundfx" value="soundfx/environment/open_fire_loop.ogg"/>
+   </properties>
+  </object>
+  <object id="13" name="Alt puzzle 1" type="event" x="96" y="96" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="chance_exec" value="20"/>
+    <property name="mapmod" value="object,19,12,272;object,19,14,273;object,19,16,273"/>
+    <property name="repeat" value="false"/>
+   </properties>
+  </object>
+  <object id="15" name="Alt puzzle 2" type="event" x="192" y="96" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="chance_exec" value="20"/>
+    <property name="mapmod" value="object,19,12,272;object,19,14,273;object,19,16,272"/>
+    <property name="repeat" value="false"/>
+   </properties>
+  </object>
+  <object id="16" name="Alt puzzle 3" type="event" x="288" y="96" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="chance_exec" value="20"/>
+    <property name="mapmod" value="object,19,12,273;object,19,14,272;object,19,16,273"/>
+    <property name="repeat" value="false"/>
+   </properties>
+  </object>
+  <object id="17" name="Alt puzzle 4" type="event" x="96" y="192" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="chance_exec" value="20"/>
+    <property name="mapmod" value="object,19,12,273;object,19,14,273;object,19,16,272"/>
+    <property name="repeat" value="false"/>
+   </properties>
+  </object>
+  <object id="18" name="Alt puzzle 5" type="event" x="192" y="192" width="96" height="96">
+   <properties>
+    <property name="activate" value="on_load"/>
+    <property name="chance_exec" value="20"/>
+    <property name="mapmod" value="object,19,12,272;object,19,14,272;object,19,16,273"/>
+    <property name="repeat" value="false"/>
    </properties>
   </object>
  </objectgroup>
