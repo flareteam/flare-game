@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-16 18:10+\n"
+"POT-Creation-Date: 2026-04-24 08:47+\n"
 "PO-Revision-Date: 2018-03-28 19:35+0000\n"
 "Last-Translator: Kevin Setterborn, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/flareorg/teams/84925/sv/)\n"
@@ -171,15 +171,19 @@ msgstr ""
 msgid "Summoned Skeleton"
 msgstr ""
 
-#: ../powers/powers.txt:46
+#: ../powers/effects.txt:253
+msgid "MP Regen"
+msgstr ""
+
+#: ../powers/powers.txt:61
 msgid "Teleport"
 msgstr "Teleport"
 
-#: ../powers/powers.txt:63
+#: ../powers/powers.txt:78
 msgid "Turn Invisible"
 msgstr "Bli osynlig"
 
-#: ../powers/powers.txt:75
+#: ../powers/powers.txt:90
 msgid "Remove Invisibility"
 msgstr "Ta bort osynlighet"
 
@@ -1167,6 +1171,10 @@ msgstr "Cutscenes"
 
 #: ../maps/iron_labyrinth/room6.txt:160
 msgid "Urn"
+msgstr ""
+
+#: ../maps/iron_labyrinth/room11.txt:210
+msgid "Crypt"
 msgstr ""
 
 #: ../maps/iron_labyrinth/door_ns1.txt:155
@@ -2871,7 +2879,7 @@ msgstr "Tack igen för din hjälp."
 msgid "Yora, Enchanter"
 msgstr "Yora, Trollkarl"
 
-#: ../cutscenes/backstory.txt:8
+#: ../cutscenes/backstory.txt:7
 msgid ""
 "Empyrean, the city in the sky. It is a majestic fortress and the last "
 "bastion of humankind."
@@ -2879,13 +2887,13 @@ msgstr ""
 "Empyrean, staden i skyn. Det är en majestätisk fästning och den sista "
 "bastion av mänskligheten."
 
-#: ../cutscenes/backstory.txt:10
+#: ../cutscenes/backstory.txt:9
 msgid ""
 "At the height of the kingdom's power the city was a beacon of peace and law."
 msgstr ""
 "Vid kungarikets högsta kraft så var staden en fyr av frihet och laghet."
 
-#: ../cutscenes/backstory.txt:12
+#: ../cutscenes/backstory.txt:11
 msgid ""
 "When darkness invaded the world in the last age people abandoned the "
 "surface. Empyrean was their only refuge."
@@ -2893,7 +2901,7 @@ msgstr ""
 "När mörkelsen invaderade världen under den sista åldern så övergav folk "
 "ytan. Empyrean var deras enda tillflykt."
 
-#: ../cutscenes/backstory.txt:14
+#: ../cutscenes/backstory.txt:13
 msgid ""
 "Now the Age of Humanity is ending. Empyrean is crumbling. Scarcity and "
 "political infighting have consumed the city."
@@ -2901,7 +2909,7 @@ msgstr ""
 "Nu stängs Mänsklighetens Ålder. Empyrean faller isär. Brister och inre "
 "politiska strider har förbrukat staden."
 
-#: ../cutscenes/backstory.txt:17
+#: ../cutscenes/backstory.txt:16
 msgid ""
 "Some, in desperation, flee to the surface hoping to survive without the "
 "protection of the city."
@@ -2909,7 +2917,7 @@ msgstr ""
 "Några desperata flydde till ytan och hoppades dem kunde överleva utan "
 "stadens skydd."
 
-#: ../cutscenes/backstory.txt:19
+#: ../cutscenes/backstory.txt:18
 msgid ""
 "But no one returns from the surface. Most die or go missing. A few hide and "
 "survive, for a while."
@@ -2917,7 +2925,7 @@ msgstr ""
 "Men ingen återvända från ytan. Dem flesta dör eller blir saknade. Ett antal "
 "gömmer sig och överlever ett tag."
 
-#: ../cutscenes/backstory.txt:21
+#: ../cutscenes/backstory.txt:20
 msgid ""
 "Surface dwellers cling to hope. Hope that they'll return to Empyrean some "
 "day. Hope that a hero will fight back against the darkness."
@@ -2925,7 +2933,7 @@ msgstr ""
 "Ytinvånade håller fast på hoppet. Hopp att dem återvänder till Empyrean "
 "någon dag. Hoppas att en hjälte slår tillbaka mot mörkret."
 
-#: ../cutscenes/backstory.txt:23
+#: ../cutscenes/backstory.txt:22
 msgid ""
 "There is always hope. But not for everyone: not for you. Not for the Exiled."
 msgstr ""
@@ -2952,7 +2960,7 @@ msgstr "Foley-Artister"
 msgid "Translators"
 msgstr "Översättare"
 
-#: ../cutscenes/ending.txt:8
+#: ../cutscenes/ending.txt:7
 msgid ""
 "At long last, your journey across the surface and into the Underworld has "
 "come to an end."
@@ -2960,11 +2968,11 @@ msgstr ""
 "Äntligen har din resa runt ytan och in i den Undre världen kommit till sitt "
 "slut."
 
-#: ../cutscenes/ending.txt:10
+#: ../cutscenes/ending.txt:9
 msgid "Upon entering The Pit, a glowing obelisk shined in the distance."
 msgstr "När du stiger in i Gropen så glänser en lysande obelisk längre bort."
 
-#: ../cutscenes/ending.txt:12
+#: ../cutscenes/ending.txt:11
 msgid ""
 "Guarding the obelisk was Lezaith, a formidable opponent, yet no match for "
 "Exiled who faced her."
@@ -2972,11 +2980,11 @@ msgstr ""
 "Lezaith bevakade obelisken och var en formidabel motståndare, men ingen "
 "match för Förvisade som mötte henne."
 
-#: ../cutscenes/ending.txt:14
+#: ../cutscenes/ending.txt:13
 msgid "With Lezaith's defeat, the path to the obelisk was clear."
 msgstr "Efter Lezaith besegrades så var vägen till obelisken klar."
 
-#: ../cutscenes/ending.txt:17
+#: ../cutscenes/ending.txt:16
 msgid ""
 "Not a moment after Lezaith crumbles into a pile of bones, a bolt of "
 "lightning strikes the obelisk."
@@ -2984,7 +2992,7 @@ msgstr ""
 "Inte ett ögonblick efter Lezaith smulas isär till en samling ben så slår ett"
 " blixtnedslag direkt på obelisken."
 
-#: ../cutscenes/ending.txt:19
+#: ../cutscenes/ending.txt:18
 msgid ""
 "Did Lezaith cast a spell on the obelisk with her dying breath? Had Empyrean "
 "finally collapsed?"
@@ -2992,7 +3000,7 @@ msgstr ""
 "Hade Lezaith kastat en trolldom på obelisken i hennes döende andetag? Hade "
 "Empyrean äntligen kollapsat?"
 
-#: ../cutscenes/ending.txt:22
+#: ../cutscenes/ending.txt:21
 msgid ""
 "Maybe it's true what they say. No one returns from the surface. Most die or "
 "go missing. A few hide and survive, for a while."
@@ -3000,19 +3008,19 @@ msgstr ""
 "Det kanske är sant, det dem säger. Ingen återvänder från ytan. Dem flesta "
 "dör eller blir saknade. Ett antal gömmer sig och överlever ett tag."
 
-#: ../cutscenes/ending.txt:24
+#: ../cutscenes/ending.txt:23
 msgid "Even the Exiled."
 msgstr "Även dem Förvisade."
 
-#: ../cutscenes/ending.txt:30
+#: ../cutscenes/ending.txt:29
 msgid "And a very special thanks to..."
 msgstr "Och ett väldigt speciellt tack till..."
 
-#: ../cutscenes/ending.txt:31
+#: ../cutscenes/ending.txt:30
 msgid "You!"
 msgstr "Dig!"
 
-#: ../cutscenes/ending.txt:35
+#: ../cutscenes/ending.txt:34
 msgid "The End"
 msgstr "Slut"
 
@@ -4292,99 +4300,99 @@ msgstr "Björnfigur"
 msgid "Wood sculpture of a bear. A \"1\" is carved into the bottom."
 msgstr "Skulptur av träd av en björn. \"1\" är täljat i botten."
 
-#: ../items/categories/quest.txt:108
+#: ../items/categories/quest.txt:107
 msgid "Owl Figurine"
 msgstr "Uggla figur"
 
-#: ../items/categories/quest.txt:111
+#: ../items/categories/quest.txt:110
 msgid "Wood sculpture of an owl. A \"2\" is carved into the bottom."
 msgstr "Skulptur av träd av en uggla. \"2\" är täljat i botten."
 
-#: ../items/categories/quest.txt:121
+#: ../items/categories/quest.txt:119
 msgid "Cat Figurine"
 msgstr "Kattfigur"
 
-#: ../items/categories/quest.txt:124
+#: ../items/categories/quest.txt:122
 msgid "Wood sculpture of a cat. A \"3\" is carved into the bottom."
 msgstr "Skulptur av träd av en katt. \"3\" är täljat i botten."
 
-#: ../items/categories/quest.txt:134
+#: ../items/categories/quest.txt:131
 msgid "Turtle Figurine"
 msgstr "Sköldpadda figur"
 
-#: ../items/categories/quest.txt:137
+#: ../items/categories/quest.txt:134
 msgid "Wood sculpture of a turtle. A \"4\" is carved into the bottom."
 msgstr "Skulptur av träd av en sköldpadda. \"4\" är täljat i botten."
 
-#: ../items/categories/quest.txt:147
+#: ../items/categories/quest.txt:143
 msgid "Stormrock Key"
 msgstr "Nyckel till Stormrock"
 
-#: ../items/categories/quest.txt:157
+#: ../items/categories/quest.txt:153
 msgid "Temple of Mez Basement Key"
 msgstr "Nyckel till Mez Tempel Källare"
 
-#: ../items/categories/quest.txt:167
+#: ../items/categories/quest.txt:163
 msgid "Temple of Mez Main Hall Key"
 msgstr "Nyckel till Mez Tempel Stora salen"
 
-#: ../items/categories/quest.txt:187
+#: ../items/categories/quest.txt:183
 msgid "Worn Note #1"
 msgstr "Utsliten anteckning #1"
 
-#: ../items/categories/quest.txt:198
+#: ../items/categories/quest.txt:194
 msgid "Worn Note #2"
 msgstr "Utsliten anteckning #2"
 
-#: ../items/categories/quest.txt:209
+#: ../items/categories/quest.txt:205
 msgid "Worn Note #3"
 msgstr "Utsliten anteckning #3"
 
-#: ../items/categories/quest.txt:220
+#: ../items/categories/quest.txt:216
 msgid "Worn Note #4"
 msgstr "Utsliten anteckning #4"
 
-#: ../items/categories/quest.txt:231
+#: ../items/categories/quest.txt:227
 msgid "Worn Note #5"
 msgstr "Utsliten anteckning #5"
 
-#: ../items/categories/quest.txt:242
+#: ../items/categories/quest.txt:238
 msgid "Wizard's Tower Entrance Key"
 msgstr "Nyckel till Trollkarlens Torn Entré"
 
-#: ../items/categories/quest.txt:252
+#: ../items/categories/quest.txt:248
 msgid "Wizard's Tower Research Hall Key"
 msgstr "Nyckel till Trollkarlens Torn Forskningshall"
 
-#: ../items/categories/quest.txt:273
+#: ../items/categories/quest.txt:269
 msgid "Lorund's Sword"
 msgstr "Lorunds Svärd"
 
-#: ../items/categories/quest.txt:285
+#: ../items/categories/quest.txt:281
 msgid "Nerin's Bow"
 msgstr "Nerins Båge"
 
-#: ../items/categories/quest.txt:297
+#: ../items/categories/quest.txt:293
 msgid "Kayl's Staff"
 msgstr "Kayls Stav"
 
-#: ../items/categories/quest.txt:309
+#: ../items/categories/quest.txt:305
 msgid "Underworld Stronghold Foyer Key"
 msgstr "Nyckel till Undre världen Fäste Foajé"
 
-#: ../items/categories/quest.txt:319
+#: ../items/categories/quest.txt:315
 msgid "Underworld Stronghold Barracks Key"
 msgstr "Nyckel till Undre världen Fäste Baracker"
 
-#: ../items/categories/quest.txt:329
+#: ../items/categories/quest.txt:325
 msgid "Treasure Chest Key"
 msgstr "Nyckel till Skattkista"
 
-#: ../items/categories/quest.txt:339
+#: ../items/categories/quest.txt:335
 msgid "Silver Family Ring"
 msgstr "Familj Silverring"
 
-#: ../items/categories/quest.txt:365
+#: ../items/categories/quest.txt:361
 msgid ""
 "An odor of iron and its abrasive petals make this rare plant easy to "
 "identify."
@@ -4392,7 +4400,7 @@ msgstr ""
 "Lukten av järn och dess skrovliga kronblad gör denna sällsynta planta lätt "
 "att identifiera."
 
-#: ../items/categories/quest.txt:376
+#: ../items/categories/quest.txt:372
 msgid ""
 "This mysterious black feather has a very sharp follicle, making it a "
 "suitable writing utensil."
@@ -4400,34 +4408,34 @@ msgstr ""
 "Denna mystiska svarta fjädern har en vass follikel vilket gör den ett "
 "lämpligt skrivredskap."
 
-#: ../items/categories/quest.txt:387
+#: ../items/categories/quest.txt:383
 msgid "A dark, magical energy flows through the tip of this small blade."
 msgstr "En mörk, magisk energi strömmar igenom denna lilla knivens topp."
 
-#: ../items/categories/quest.txt:395
+#: ../items/categories/quest.txt:391
 msgid "Vial of Your Blood"
 msgstr "Flaska med ditt blod"
 
-#: ../items/categories/quest.txt:398
+#: ../items/categories/quest.txt:394
 msgid "Spoils of the Red Altar ritual."
 msgstr "Den Röda Alterans ritual byten."
 
-#: ../items/categories/quest.txt:406
+#: ../items/categories/quest.txt:402
 msgid "Blood Inkwell"
 msgstr "Blod Bläckhus"
 
-#: ../items/categories/quest.txt:409
+#: ../items/categories/quest.txt:405
 msgid ""
 "According to Florin, this is the only ink capable of being used in the Book "
 "of the Dead."
 msgstr ""
 "Enligt Florin så är detta det ända bläcket som kan användas i De Dödas Bok."
 
-#: ../items/categories/quest.txt:417
+#: ../items/categories/quest.txt:413
 msgid "Iron Labyrinth Key"
 msgstr ""
 
-#: ../items/categories/quest.txt:428
+#: ../items/categories/quest.txt:424
 msgid "Excavation Journal Pages"
 msgstr ""
 
