@@ -1,0 +1,21 @@
+name=Loren, Undead Trader
+
+# portrait=images/portraits/male11.png
+
+# animation info
+animations=animations/enemies/zombie.txt
+direction=5
+
+# shop info
+vendor=true
+vendor_ratio_buy=1.5
+constant_stock=2:20,3:20,750:40,779:10,780:10,781:5,782:5,1105:5
+random_stock=loot/il_loren.txt
+random_stock_count=5,8
+
+# voiceover files
+vox_intro=soundfx/enemies/zombie_phys.ogg
+# vox_intro=soundfx/enemies/zombie_ment.ogg
+
+talker=false
+
