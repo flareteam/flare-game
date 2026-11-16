@@ -202,145 +202,217 @@ requires_status=emp_alchemy_slot3_4
 
 # output, hp potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=64
 requires_status=emp_alchemy_output_0
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Health Potion
 requires_status=emp_alchemy_output_0
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 25% of maximum HP
+requires_status=emp_alchemy_output_0
+
 # output, mp potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=65
 requires_status=emp_alchemy_output_1
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Mana Potion
 requires_status=emp_alchemy_output_1
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 25% of maximum MP
+requires_status=emp_alchemy_output_1
+
 # output, stamina potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=80
 requires_status=emp_alchemy_output_2
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Stamina Potion
 requires_status=emp_alchemy_output_2
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Temporarily increase regeneration and movement speed
+requires_status=emp_alchemy_output_2
+
 # output, restoration potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=81
 requires_status=emp_alchemy_output_3
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Restoration Potion
 requires_status=emp_alchemy_output_3
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 25% of both HP and MP
+requires_status=emp_alchemy_output_3
+
 # output, treasure potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=82
 requires_status=emp_alchemy_output_4
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Treasure Potion
 requires_status=emp_alchemy_output_4
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Temporarily increases the ability to find items and gold
+requires_status=emp_alchemy_output_4
+
 # output, elemental potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=83
 requires_status=emp_alchemy_output_5
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Elemental Potion
 requires_status=emp_alchemy_output_5
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Temporarily increases the resistance to all forms of magic by 50%
+requires_status=emp_alchemy_output_5
+
 # output, dynamite
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=261
 requires_status=emp_alchemy_output_6
 
 [text]
-text_pos=559,243,378,left
-text_font=255,255,255,font_regular
+text_pos=431,219,506,left
+text_font=255,192,64,font_regular
 text_shadow=true
 text=Dynamite
 requires_status=emp_alchemy_output_6
 
+# TODO: description for Dynamite?
+
 # output, super hp potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=84
 requires_status=emp_alchemy_output_7
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Super Health Potion
 requires_status=emp_alchemy_output_7
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 50% of maximum HP
+requires_status=emp_alchemy_output_7
+
 # output, ultra hp potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=85
 requires_status=emp_alchemy_output_8
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Ultra Health Potion
 requires_status=emp_alchemy_output_8
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 75% of maximum HP
+requires_status=emp_alchemy_output_8
+
 # output, super mp potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=86
 requires_status=emp_alchemy_output_9
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Super Mana Potion
 requires_status=emp_alchemy_output_9
 
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 50% of maximum MP
+requires_status=emp_alchemy_output_9
+
 # output, ultra mp potion
 [image]
-image_pos=479,227
+image_pos=351,227
 image_icon=87
 requires_status=emp_alchemy_output_10
 
 [text]
-text_pos=559,243,378,left
+text_pos=431,219,506,left
 text_font=255,255,255,font_regular
 text_shadow=true
 text=Ultra Mana Potion
+requires_status=emp_alchemy_output_10
+
+[text]
+text_pos=431,247,506,left
+text_font=132,214,113,font_small
+text_shadow=true
+text=Restore 75% of maximum MP
 requires_status=emp_alchemy_output_10
 
 
